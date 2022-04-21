@@ -9,6 +9,9 @@ use App\Models\profesionales_instituciones;
 use App\Models\Servicio;
 use App\Models\TipoServicio;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -176,4 +179,18 @@ class CalendarioController extends Controller
 
         return datatables()->eloquent($query)->toJson();
     }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function create()
+    {
+        $profesionales = profesionales_instituciones::query()
+            ->where('id_institucion', Auth::user()->institucion->id)
+            ->get();
+
+        return view('instituciones.admin.calendario.crear-cita', compact('profesionales'));
+    }
+
+
 }

@@ -368,7 +368,12 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
        Route::post('/buscar', [entidades\Admin\CalendarioController::class, 'buscar'])->name('buscar');
        Route::post('/citas', [entidades\Admin\CalendarioController::class, 'citas'])->name('citas');
        Route::post('/lista-citas', [entidades\Admin\CalendarioController::class, 'lista_citas'])->name('lista-citas');
+
+       Route::get('/crear-cita', [entidades\Admin\CalendarioController::class, 'create'])->name('crear-cita');
     });
+
+    Route::post('/institucion/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'calendario_disponible'])
+        ->name('calendario-disponible');
 
 });
 

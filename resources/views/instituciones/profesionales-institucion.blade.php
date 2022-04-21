@@ -47,8 +47,10 @@
         <!-- Barra de búsqueda -->
         <div class="containt__buscador mt-5">
             <div class="buscador" id="barra_busqueda">
-                <input  class="buscador__input" id="filtro" data-url='{{ url('search') }}' placeholder="Especialidad, Médico o Institución">
+                <!-- data-search attribute is used to target the  with a jQuery selector. For full search set data-search="*" -->
+                <input id="filtro-box" type="text" placeholder="Especialidad, Médico o Universidad" data-search=".searching" class="buscador__input">
                 <button class="buscador__button buscador__icon"></button>
+
             </div>
         </div>
         <!-- Carrusel de especialidades -->
@@ -74,17 +76,22 @@
             @foreach ($objProfesionalesIns as $profesional)
                 <?php
                 $esp = '';
+                $filtro = '';
 
                 if (!empty($profesional->especialidades->toArray()))
                 {
                     foreach ($profesional->especialidades as $item)
-                        $esp .= Str::slug($item->nombreEspecialidad) . ' ';
+                    {
+                        $esp    .= Str::slug($item->nombreEspecialidad) . ' ';
+                        $filtro .= "{$item->nombreEspecialidad} ";
+                    }
 
                     $especialidad = $profesional->especialidades[0]->nombreEspecialidad;
                 }
                 else {
                     $especialidad = $profesional->nombre_especialidad;
                     $esp = Str::slug($especialidad);
+                    $filtro = $especialidad;
                 }
                 ?>
 
@@ -92,16 +99,17 @@
                     <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
 
                     <div class="card-body px-1 py-3">
-                        <h2 class="specialty titulo_card mb-1">{{$especialidad}}</h2>
+                        <h2 class="specialty titulo_card mb-1 searching">{{$especialidad}}</h2>
                         <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$especialidad}}</h2>
 
-                        <h2 class="niega_uppercase subTitulo_card">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
+                        <h2 class="niega_uppercase subTitulo_card searching">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
 
-                        <p class="specialty text_card">Especialista en {{$especialidad}}</p>
+                        <p class="specialty text_card searching">Especialista en {{$especialidad}}</p>
                         <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
 
-                        <p class="name_university text_univ_card">{{$profesional->nombre_universidad}}</p>
-                        <h2 class="cargo_profInst text_cargo_card">{{$profesional->cargo}}</h2>
+                        <p class="name_university text_univ_card searching">{{$profesional->nombre_universidad}}</p>
+                        <h2 class="cargo_profInst text_cargo_card searching">{{$profesional->cargo}}</h2>
+                        <div style="display: none" class="searching">{{ $filtro ?? '' }}</div>
 
 
                         <div class="content_btn_center mt-1">
@@ -175,6 +183,7 @@
         jQuery(document).ready( function() {
             jQuery('#grid-container').cubeportfolio({
                 filters: '#filterControls',
+                search: '#filtro-box',
                 mediaQueries: [
                     {"width" : 1500, "cols" : 7},
                     {"width" : 1300, "cols" : 6},
