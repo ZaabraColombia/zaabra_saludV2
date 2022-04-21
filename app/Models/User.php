@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Mail;
@@ -65,33 +66,33 @@ class User extends Authenticatable implements MustVerifyEmail
 //    ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
-    public function profecional(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function profecional(): HasOne
     {
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
-    public function profesional(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function profesional(): HasOne
     {
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
-    public function paciente(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function paciente(): HasOne
     {
         return $this->hasOne(Paciente::class, 'id_usuario', 'id');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
-    public function auxiliar(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function auxiliar(): HasOne
     {
         return $this->hasOne(Auxiliar::class, 'user_id', 'id');
     }
@@ -115,6 +116,16 @@ class User extends Authenticatable implements MustVerifyEmail
         {
             return $this->belongsTo(instituciones::class, 'institucion_id', 'id');
         }
+        return $this->hasOne(instituciones::class, 'idUser', 'id');
+    }
+
+    /**
+     * Permite hacer la busqueda de forma publica
+     *
+     * @return HasOne
+     */
+    public function institucion_public(): HasOne
+    {
         return $this->hasOne(instituciones::class, 'idUser', 'id');
     }
 
