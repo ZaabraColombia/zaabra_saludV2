@@ -17,7 +17,7 @@
         <div class="containt__buscador mt-5">
             <div class="buscador" id="barra_busqueda">
                 <!-- data-search attribute is used to target the  with a jQuery selector. For full search set data-search="*" -->
-                <input id="filtro-box" type="text" placeholder="Especialidad, Médico o Universidad" data-search=".searching" class="buscador__input">
+                <input id="filtro-box" type="text" placeholder="Especialidad, Médico o Universidad" data-search=".searching" class="buscador__input" value="{{ request()->prof }}">
                 <button class="buscador__button buscador__icon"></button>
 
             </div>
@@ -140,7 +140,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('plugins/cubeportfolio-full/js/jquery.cubeportfolio.min.js') }}"></script>
+    <script src="{{ asset('plugins/cubeportfolio-full/js/jquery.cubeportfolio.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <script>
@@ -149,8 +149,12 @@
 
     <script type="text/javascript">
         @if (session()->has('error-agenda')) $('#modal_agenda_no_disponible').modal();@endif
+        @php $rest = request()->prof;@endphp
+
         jQuery(document).ready( function() {
-            jQuery('#grid-container').cubeportfolio({
+            jQuery('#grid-container').cubeportfolio('init', {
+                layoutMode: 'grid',
+                filterDeeplinking: true,
                 filters: '#filterControls',
                 search: '#filtro-box',
                 mediaQueries: [
@@ -162,7 +166,11 @@
                     {"width" :  300, "cols" : 2},
                 ]
             });
+
+            //$('#filtro-box').trigger('keyup.cbp');
+
         });
+
 
         $(document).ready(function(){
             $(".all_asociados").on( "click", function() {
