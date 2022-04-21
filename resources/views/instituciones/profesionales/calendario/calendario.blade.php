@@ -14,12 +14,12 @@
                 <span class="text__md black_light">Administre su calendario de citas.</span>
             </div>
 
-            <div class="main_text">
+            <div class="time_cita">
                 <div class="main">
                     <div class="circle">
                         <div id="stopwatch" class="stopwatch">00:00</div>
                         <div class="buttons">
-                            <div class="stop" onclick="stop()"></div>
+                            <!-- <div class="stop" onclick="stop()"></div> -->
                             <div id="play-pause" class="paused" onclick="playPause()"></div>
                         </div>
                     </div>
@@ -958,14 +958,14 @@
             clearInterval(stopwatchInterval);
         }
 
-        const stop = () => {
-            secondsSphere.style.transform = 'rotate(-90deg) translateX(60px)';
-            secondsSphere.style.animation = 'none';
-            playPauseButton.classList.remove('running');
-            runningTime = 0;
-            clearInterval(stopwatchInterval);
-            stopwatch.textContent = '00:00';
-        }
+        // const stop = () => {
+        //     secondsSphere.style.transform = 'rotate(-90deg) translateX(60px)';
+        //     secondsSphere.style.animation = 'none';
+        //     playPauseButton.classList.remove('running');
+        //     runningTime = 0;
+        //     clearInterval(stopwatchInterval);
+        //     stopwatch.textContent = '00:00';
+        // }
 
         const start = () => {
             secondsSphere.style.animation = 'rotacion 60s linear infinite';
