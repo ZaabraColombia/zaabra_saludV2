@@ -497,6 +497,11 @@ Route::get('/test-instituciones-control-cita', function(){
     return view('instituciones.admin.agenda.control-citas');
 });
 
+// Ruta para la vista calendario profesionales de instituciones
+Route::get('/test-instituciones-profesionales-calendario-index', function(){
+    return view('instituciones.profesionales.calendario.calendario');
+});
+
 Route::get('/test', function (){
 //   $p = \App\Models\profesionales_instituciones::all();
 //   $p->map(function ($item){
