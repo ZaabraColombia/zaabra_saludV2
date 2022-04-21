@@ -92,8 +92,8 @@ class buscadorController extends Controller
             ->addSelect([
                 'type' => especialidades::query()
                     ->select('nombreEspecialidad as type')
-                    ->join('institucion_profesionales_especialidades as prof_t', 'prof_t.id_especialidad', '=', 'especialidades.idEspecialidad')
-                    ->join('profesionales_instituciones as prof_p', 'prof_p.id_especialidad', '=', 'especialidades.idEspecialidad')
+                    ->join('institucion_profesionales_especialidades as prof_t', 'prof_t.id_especialidad', '=', 'especialidades.idEspecialidad', 'left')
+                    ->join('profesionales_instituciones as prof_p', 'prof_p.id_especialidad', '=', 'especialidades.idEspecialidad', 'left')
                     ->where(function ($query) {
                         $query->whereColumn('prof_t.id_institucion_profesional', 'profesionales_instituciones.id_profesional_inst')
                             ->orWhereColumn('prof_p.id_profesional_inst', 'profesionales_instituciones.id_profesional_inst');
@@ -131,13 +131,13 @@ class buscadorController extends Controller
                 return [
                     'label' => $item->nombre_completo,
                     'type'  => "$item->type / $item->place",
-                    'url'   => route('PerfilInstitucion-profesionales', ['slug' => $item->slug, 'prof' => 'nombre_prof']),
+                    'url'   => route('PerfilInstitucion-profesionales', ['slug' => $item->slug, 'prof' => "$item->primer_nombre $item->primer_apellido"]),
                     'icon' => 'fas fa-stethoscope'
                 ];
             });
 
-        //$data = array_merge($profesiones->toArray(), $profesionales->toArray(), $instituciones->toArray());
-        $data = $ins_profesionales->toArray();
+        $data = array_merge($profesiones->toArray(), $profesionales->toArray(), $instituciones->toArray(), $ins_profesionales->toArray());
+        //$data = $ins_profesionales->toArray();
 
         return response($data, Response::HTTP_OK);
     }
