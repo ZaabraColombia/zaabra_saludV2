@@ -21,7 +21,7 @@
 
 
 // Cronometro
-.main_text {
+.time_cita {
     position: absolute;
     z-index: 5;
     top: 25px;
@@ -47,19 +47,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.circle::before {
-    content: '';
-    border-radius: 50%;
-    z-index: -1;
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    left: calc(50% - 80px);
-    top: calc(50% - 80px);
-    background-color: #0083D6;
-    border: 3px solid #019F86;
+    &:before {
+        content: '';
+        border-radius: 50%;
+        z-index: -1;
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        left: calc(50% - 80px);
+        top: calc(50% - 80px);
+        background-color: #0083D6;
+        border: 3px solid #019F86;
+    }
 }
 
 .seconds-sphere {

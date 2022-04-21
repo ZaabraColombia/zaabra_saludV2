@@ -28,7 +28,7 @@
     font-weight: bolder;
     line-height: 1;
     margin: .3em 0 .5em 0;
-    width: 80%;
+    width: 82%;
 }
 .banner_top_button {
     font-size: .7em;
@@ -492,9 +492,9 @@
 
 @media (min-width: 1360px) {
     // BANNER PRINCIPAL
-    .banner_top_content_inside {
-        width: 45%;
-    }
+    // .banner_top_content_inside {
+    //     width: 45%;
+    // }
     .seccion_tarjetas {
         width: 47%;
     }
@@ -549,7 +549,7 @@
     // BANNER PRINCIPAL
     .banner_top_logo {
         width: 335px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
     .banner_top_title {
         font-size: 3.3em;

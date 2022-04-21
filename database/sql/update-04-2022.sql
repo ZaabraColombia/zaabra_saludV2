@@ -15,6 +15,7 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`citas`
             REFERENCES `zaabrac1_zaabra_salud_test`.`especialidades` (`idEspecialidad`)
             ON DELETE RESTRICT
             ON UPDATE RESTRICT;
+### Subido jhonf 
 
 ##2022-04-13
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`pago_citas`
@@ -22,6 +23,7 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`pago_citas`
 
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     ADD COLUMN `estado` TINYINT(1) NULL DEFAULT 0 AFTER `slug`;
+### Subido jhonf 
 
 ##2022-04-18
 ALTER TABLE zaabrac1_zaabra_salud_test.users ADD nombre_completo text GENERATED ALWAYS AS (
@@ -41,16 +43,17 @@ ALTER TABLE zaabrac1_zaabra_salud_test.profesionales_instituciones ADD nombre_co
         IF(segundo_apellido is not null,concat(segundo_apellido, ' '), '')
         )
     ) VIRTUAL AFTER segundo_apellido;
+### Subido jhonf 
 
-##2022-04-19
+##2022-04-19 jhonf
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`ventabanners`
 ADD COLUMN `ruta_logo` VARCHAR(150) NULL DEFAULT NULL AFTER `rutaImagenVenta`;
-
-## Subido jhon
 
 ##2022-04-19
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
     CHANGE COLUMN `tipo_atencion` `tipo_atencion` ENUM('virtual', 'presencial') NULL DEFAULT NULL ;
+### Subido jhonf
+
 
 ##2022-04-20
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`atiguedades`
@@ -70,4 +73,5 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`atiguedades`
 ###Subido testing
 ###Subido cesar
 ###Subido producción
+###Subido jhonf 
 
