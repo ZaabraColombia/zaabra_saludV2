@@ -65,9 +65,9 @@ class RegisterController extends Controller{
         //dd($data);
         return Validator::make($data, [
             'idrol'             => ['required', Rule::in([1, 2, 3])],
-            'primernombre'      => ['required', 'max:50'],
+            'primernombre'      => ['required_if:idrol,1,2', 'max:50'],
             'segundonombre'     => ['nullable', 'max:50'],
-            'primerapellido'    => ['required', 'max:50'],
+            'primerapellido'    => ['required_if:idrol,1,2', 'max:50'],
             'segundoapellido'   => ['nullable', 'max:50'],
             'nombreinstitucion' => ['required_if:idrol,3', 'max:50'],
             'tipodocumento'     => ['required', 'exists:tipo_documentos,id'],
@@ -82,12 +82,17 @@ class RegisterController extends Controller{
             ],
             'aceptoTerminos' => ['required', 'accepted']
         ], [
-            'idrol.in' => 'Escoger uno de los tres roles (Paciente, Doctor, Institución)'
+            'idrol.in' => 'Escoger uno de los tres roles (Paciente, Doctor, Institución)',
+            'primernombre.required_if' => 'El campo :attribute es obligatorio',
+            'segundonombre.required_if' => 'El campo :attribute es obligatorio',
+            'primerapellido.required_if' => 'El campo :attribute es obligatorio',
+            'nombreinstitucion.required_if' => 'El campo :attribute es obligatorio',
         ], [
             'primernombre'      => 'Primer nombre',
             'segundonombre'     => 'Segundo nombre',
             'primerapellido'    => 'Primer apellido',
             'segundoapellido'   => 'Segundo apellido',
+            'nombreinstitucion'   => 'Nombre institución',
             'tipodocumento'     => 'Tipo Documento',
             'numerodocumento'   => 'Número Documento',
             'email'     => 'Correo electrónico',
