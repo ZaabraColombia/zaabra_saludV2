@@ -70,3 +70,5 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`atiguedades`
 ###Subido producción
 ###Subido jhonf
 
+### 22/04/2022 jhonf
+alter table zaabra_salud.ventabanners add column orden int null after aprobado; 
