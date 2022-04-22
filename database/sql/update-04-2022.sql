@@ -66,7 +66,7 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`atiguedades`
             ON UPDATE CASCADE;
 
 
-alter table zaabra_salud.ventabanners add column orden int null after aprobado;
+alter table zaabrac1_zaabra_salud_test.ventabanners add column orden int null after aprobado;
 
 ### 22/04/2022 jhonf
 ### subido producción
