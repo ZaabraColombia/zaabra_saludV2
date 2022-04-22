@@ -47,6 +47,7 @@
                         <thead class="thead_green">
                         <tr>
                             <th>Nombre</th>
+                            <th>Tipo de servicio</th>
                             <th>Valor</th>
                             <th>Especialidad</th>
                             <th class="text-center">Acción</th>
@@ -57,6 +58,7 @@
                             @foreach($servicios as $servicio)
                                 <tr>
                                     <td>{{ $servicio->nombre }}</td>
+                                    <td>Tipo de servicio 001</td>
                                     <td>{{ $servicio->valor }}</td>
                                     <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
                                     <td>

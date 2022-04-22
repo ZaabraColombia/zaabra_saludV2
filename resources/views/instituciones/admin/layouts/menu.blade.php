@@ -29,6 +29,16 @@
                     </li>
                 @endcan
 
+                
+                {{-- mis pacientes --}}
+                @can('accesos-institucion','ver-pacientes')
+                    <li class="sidebar-item  has-sub items_green">
+                        <a id="" class="" href='{{ route('institucion.pacientes') }}'>
+                            <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active_inst' : '' }}">Pacientes</button>
+                        </a>
+                    </li>
+                @endcan
+
                 {{-- Configuraciones --}}
                 @can('accesos-institucion','configuraciones')
                     <li class="sidebar-item has-sub items_green accordion" id="accordionConfiguracion">
@@ -107,15 +117,6 @@
                     <li class="sidebar-item  has-sub items_green">
                         <a id="" class="" href='{{ route('institucion.pagos') }}'>
                             <button class="{{ request()->routeIs('institucion.pagos') ? 'btn_active_inst' : '' }}">Pagos</button>
-                        </a>
-                    </li>
-                @endcan
-
-                {{-- mis pacientes --}}
-                @can('accesos-institucion','ver-pacientes')
-                    <li class="sidebar-item  has-sub items_green">
-                        <a id="" class="" href='{{ route('institucion.pacientes') }}'>
-                            <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active_inst' : '' }}">Pacientes</button>
                         </a>
                     </li>
                 @endcan

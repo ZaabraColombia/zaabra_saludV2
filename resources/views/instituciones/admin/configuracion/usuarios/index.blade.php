@@ -167,7 +167,6 @@
 
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Accesos del usuario</h4>
                         <div class="row m-0 mb-2" id="accesos-lista">
-
                         </div>
                     </div>
                 </div>
@@ -227,7 +226,7 @@
                 $('#accesos-lista').html('');
                 $.each(response.item.accesos, function (key, item) {
                     $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
-                        + '<i data-feather="check-circle" style="color: #0083D6;" width="17"></i>'
+                        + '<i data-feather="check-circle" style="color: #019F86;" width="17"></i>'
                         + '<span class="pl-2">' + item.nombre + '</span>'
                         + '</div>');
                 });

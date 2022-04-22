@@ -15,26 +15,7 @@
                             </a>
                         </div>
                     @endcan
-                    {{-- Citas --}}
-                    @can('accesos-institucion','ver-citas')
-                        <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.citas') }}'>
-                                <div class="content__target_inst cita_green">
-                                    <span class="subtitle__lg">Citas</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
-                    {{-- Pagos --}}
-                    @can('accesos-institucion','ver-pagos')
-                        <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.pagos') }}'>
-                                <div class="content__target_inst pago_green">
-                                    <span class="subtitle__lg">Pagos</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
+
                     {{-- Pacientes --}}
                     @can('accesos-institucion','ver-pacientes')
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
@@ -45,33 +26,46 @@
                             </a>
                         </div>
                     @endcan
-                    {{-- Contactos --}}
-                    @can('accesos-institucion','ver-contactos')
+
+                    {{-- Citas --}}
+                    @can('accesos-institucion','ver-citas')
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.contactos.index') }}'>
-                                <div class="content__target_inst contacto_green">
-                                    <span class="subtitle__lg">Contactos</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
-                    {{-- Favoritos --}}
-                    @can('accesos-institucion','favoritos')
-                        <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.favoritos') }}'>
-                                <div class="content__target_inst favorito_green">
-                                    <span class="subtitle__lg">Favoritos</span>
+                            <a  href='{{ route('institucion.citas') }}'>
+                                <div class="content__target_inst cita_green">
+                                    <span class="subtitle__lg">Citas</span>
                                 </div>
                             </a>
                         </div>
                     @endcan
 
+                    {{-- Pagos --}}
+                    @can('accesos-institucion','ver-pagos')
+                        <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                            <a  href='{{ route('institucion.pagos') }}'>
+                                <div class="content__target_inst pago_green">
+                                    <span class="subtitle__lg">Pagos</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
+                    
                     {{-- Usuarios --}}
                     @can('accesos-institucion','ver-usuarios')
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.configuracion.usuarios.index') }}'>
                                 <div class="content__target_inst usuario_green">
                                     <span class="subtitle__lg">Usuarios</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
+
+                    {{-- Contactos --}}
+                    @can('accesos-institucion','ver-contactos')
+                        <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                            <a  href='{{ route('institucion.contactos.index') }}'>
+                                <div class="content__target_inst contacto_green">
+                                    <span class="subtitle__lg">Contactos</span>
                                 </div>
                             </a>
                         </div>
@@ -94,6 +88,17 @@
                             <a  href='{{ route('institucion.configuracion.servicios.index') }}'>
                                 <div class="content__target_inst servicio_green">
                                     <span class="subtitle__lg">Servicios</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
+                    
+                    {{-- Favoritos --}}
+                    @can('accesos-institucion','favoritos')
+                        <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                            <a  href='{{ route('institucion.favoritos') }}'>
+                                <div class="content__target_inst favorito_green">
+                                    <span class="subtitle__lg">Favoritos</span>
                                 </div>
                             </a>
                         </div>

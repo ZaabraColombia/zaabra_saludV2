@@ -59,7 +59,7 @@ a:hover {
 #ui-id-1{
     z-index: 500 !important;
     background: white;
-    height: 25vh;
+    height: 30vh;
     overflow-x: hidden;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -88,19 +88,14 @@ a:hover {
 }
 .ui-menu-item {
     list-style: none;
-    padding-top: 3%;
-    height: 3rem;
+    line-height: 1.5;
 }
 .ui-menu-item > .ui-menu-item-wrapper{
     display: flex;
     color: black !important;
     font-size: 1rem !important;
-    height: 50px;
-    width: 100%;
-    padding: .5rem 0;
-    margin-left: 5px;
-    border-radius: 5px;
-    align-items: center;
+    padding: 7px 0;
+    border-radius: 4px;
 }
 .ui-menu-item > .ui-menu-item-wrapper > i{
     margin-left: 10px;
@@ -121,7 +116,7 @@ a:hover {
 //     border: solid 1px white;
 // }
 .ui-menu-item > .ui-menu-item-wrapper > span > small{
-    margin-top: -9px;
+    line-height: 1.05;
     display: inherit;
 }
 .ui-menu li::marker {
@@ -531,10 +526,6 @@ a:hover {
     // Logo
     .navbar-logo {
         height: 60px;
-    }
-    // BUSCADOR
-    #ui-id-1 {
-        height: 31vh;
     }
     // LOGIN
     .soy_paciente {
