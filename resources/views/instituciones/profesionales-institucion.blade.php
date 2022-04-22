@@ -15,11 +15,18 @@
     <section class="container-fluid content_main mb-5">
         <!-- Barra de búsqueda -->
         <div class="containt__buscador mt-5">
-            <div class="buscador" id="barra_busqueda">
-                <!-- data-search attribute is used to target the  with a jQuery selector. For full search set data-search="*" -->
-                <input id="filtro-box" type="text" placeholder="Especialidad, Médico o Universidad" data-search=".searching" class="buscador__input" value="{{ request()->prof }}">
+            {{--
+            <div class="" id="barra_busqueda">
+                <input id="filtro-box" type="text" placeholder="Especialidad, Médico o Universidad"
+                       data-search=".searching" class="buscador__input" value="{{ request()->prof }}">
                 <button class="buscador__button buscador__icon"></button>
+            </div>
+            --}}
 
+            <div class="buscador" id="barra_busqueda">
+                <input id="js-search-blog-posts" type="text" placeholder="Especialidad, Médico o Universidad"
+                       autocomplete="off" data-search=".searching" class="bp-search-input buscador__input">
+                <button class="buscador__button buscador__icon"></button>
             </div>
         </div>
         <!-- Carrusel de especialidades -->
@@ -140,6 +147,7 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('plugins/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('plugins/cubeportfolio-full/js/jquery.cubeportfolio.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
@@ -152,11 +160,16 @@
         @php $rest = request()->prof;@endphp
 
         jQuery(document).ready( function() {
-            jQuery('#grid-container').cubeportfolio('init', {
+            'use strict';
+
+            var cube = jQuery('#grid-container');
+            cube.cubeportfolio('init', {
                 layoutMode: 'grid',
                 filterDeeplinking: true,
+                //caption: 'revealBottom',
                 filters: '#filterControls',
-                search: '#filtro-box',
+                //search: '#filtro-box',
+                search: '#js-search-blog-posts',
                 mediaQueries: [
                     {"width" : 1500, "cols" : 7},
                     {"width" : 1300, "cols" : 6},
@@ -166,8 +179,11 @@
                     {"width" :  300, "cols" : 2},
                 ]
             });
-
-            //$('#filtro-box').trigger('keyup.cbp');
+            cube.on('initComplete.cbp', function (event) {
+                @if(!empty($rest))
+                $('input#js-search-blog-posts').val('{{ $rest }}').trigger('keyup');
+                @endif
+            });
 
         });
 
