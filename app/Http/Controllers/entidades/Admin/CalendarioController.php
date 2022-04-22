@@ -5,18 +5,23 @@ namespace App\Http\Controllers\entidades\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Cita;
 use App\Models\especialidades;
+use App\Models\Paciente;
 use App\Models\profesionales_instituciones;
 use App\Models\Servicio;
 use App\Models\TipoServicio;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class CalendarioController extends Controller
@@ -133,37 +138,6 @@ class CalendarioController extends Controller
         return view('instituciones.admin.calendario.citas', compact('lista', 'fecha'));
     }
 
-    public function lista_citas_2(Request $request)
-    {
-
-        //dd($request->get('ids'));
-        $query = Cita::query()
-            ->select('id_cita', 'fecha_inicio', 'fecha_fin', 'lugar', 'estado')
-            ->selectRaw('DATE_FORMAT(fecha_inicio, "%H:%i") as hora')
-            ->addSelect([
-                'profesional' => DB::table('profesionales_instituciones')
-                    ->selectRaw('concat( primer_nombre, " ", segundo_nombre, " ", primer_apellido, " ", segundo_apellido) as profesional')
-                    ->whereColumn('id_profesional_inst', 'citas.profesional_ins_id')->take(1),
-                'paciente' => User::query()
-                    ->selectRaw('concat( primernombre, " ", segundonombre, " ", primerapellido, " ", segundoapellido) as paciente')
-                    ->whereHas('paciente', function ($query){
-                        return $query->whereColumn('citas.paciente_id', 'pacientes.id');
-                    })
-                    ->take(1),
-                'identificacion' => User::query()
-                    ->select('numerodocumento as identificacion')
-                    ->whereHas('paciente', function ($query){
-                        return $query->whereColumn('citas.paciente_id', 'pacientes.id');
-                    })
-                    ->take(1),
-            ])
-            ->whereIn('profesional_ins_id', $request->get('ids'));
-
-        //dd($query->get()->toJson());
-
-        return datatables()->eloquent($query)->toJson();
-    }
-
     public function lista_citas(Request $request)
     {
         $query = Cita::query()
@@ -181,6 +155,8 @@ class CalendarioController extends Controller
     }
 
     /**
+     * Vista que permite crear una cita
+     *
      * @return Application|Factory|View
      */
     public function create()
@@ -190,6 +166,159 @@ class CalendarioController extends Controller
             ->get();
 
         return view('instituciones.admin.calendario.crear-cita', compact('profesionales'));
+    }
+
+    /**
+     * Permite ver citas libres
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function citas_libre(Request $request)
+    {
+
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'profesional'   => [
+                'required',
+                Rule::exists('profesionales_instituciones', 'id_profesional_inst')
+                    ->where('id_institucion', Auth::user()->institucion->id)
+                //->where('estado', 1)
+            ]
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //profesional
+        $profesional = profesionales_instituciones::query()->find($request->profesional);
+
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'paciente'      => [
+                'required',
+                'exists:users,numerodocumento'
+            ],
+            'date-calendar'  => [
+                'required',
+                'date_format:Y-m-d',
+                'before_or_equal:' . date('Y-m-d', strtotime(date('Y-m-d') . "+{$profesional->disponibilidad_agenda} days"))
+            ],
+            'tipo_servicio' => [
+                'required',
+                Rule::exists('servicios', 'id')->where(function ($query) use ($profesional){
+                    return $query->where('institucion_id', $profesional->institucion->id)
+                        ->where('agendamiento_virtual', 1);
+                })
+            ]
+        ], [], [
+            'paciente'  => 'Paciente',
+            'date-calendar' => 'Fecha',
+            'tipo_servicio'  => 'Servicio'
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Servicio
+        $servicio = Servicio::find($request->tipo_servicio);
+
+        //paciente
+        $paciente = $request->paciente;
+        $paciente = Paciente::query()
+            ->whereHas('user', function ($query) use ($paciente){
+                $query->where('numerodocumento', $paciente);
+            })
+            ->first();
+
+        //Validar el límite de agenda * servicio * usuario // Terminar
+//        $citas = Cita::query()
+//            ->where('paciente_id', $paciente->id)
+//            ->where('estado', 'like', 'agendado')
+//            ->where('tipo_cita_id', $servicio->id)
+//            ->count();
+//
+//        if ($citas >= $servicio->citas_activas) {
+//            return response([
+//                'message' => [
+//                    'title' => 'Error',
+//                    'text'  => 'Ya tiene citas agendadas con el servicios de la institución'
+//                ]
+//            ], Response::HTTP_NOT_FOUND);
+//        }
+
+        //Citas médicas
+        $fecha = $request->get('date-calendar');
+        $datesOperatives = $profesional->citas()
+            ->select(['id_cita', 'fecha_inicio', 'fecha_fin'])
+            ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->whereRaw("date_format(fecha_inicio, '%Y-%c-%d') = $fecha")
+            ->get()
+            ->toArray();
+
+        //Horario
+        $horario = $profesional->horario;
+
+        //Validar el número del dia de la semana
+        $diaSemana = date('w', strtotime($request->date));
+
+        //crear intervalos
+        $intervaloCita = ($servicio->duracion + $servicio->descanso) * 60;
+
+        //Crear las citas libres
+        $listDates = array();
+
+        //Buscar los dias disponibles
+        foreach ($horario as $item)
+        {
+
+            if (in_array( $diaSemana, $item['daysOfWeek']))
+            {
+                $startDate = strtotime("$fecha " . $item['startTime']);
+                $endDate = strtotime("$fecha " . $item['endTime']);
+
+                //generar posibles citas
+                $listDates = generar_citas($startDate, $endDate, $intervaloCita, $datesOperatives, 2);
+
+            }
+        }
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Fechas disponibles'
+            ],
+            'data' => $listDates
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * @return Application|RedirectResponse|Redirector
+     */
+    public function store(Request $request){
+        $request->validate([
+            'paciente' => ['required'],
+            'paciente' => ['required'],
+            'paciente' => ['required'],
+            'paciente' => ['required'],
+            'paciente' => ['required'],
+            'paciente' => ['required'],
+        ]);
+
+
+        return redirect();
     }
 
 

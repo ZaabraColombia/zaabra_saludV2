@@ -1,4 +1,4 @@
-@extends('paciente.admin.layouts.layout')
+@extends('instituciones.admin.layouts.layout')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/pg-calendar-master/dist/css/pignose.calendar.min.css') }}">
@@ -23,12 +23,13 @@
             </div>
         </div>
 
-        <div class="content_row mt_md_lg">
-            <!-- Información del Profesional -->
-            <div class="col_flex w_lg_35 align_between_1300">
-                <div class="w-100 w_md_65 w_lg_100 px_xl pl-md-3">
-                    <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                        <form action="" method="post" id="">
+        <form action="{{ route('institucion.calendario.guardar-cita') }}" method="post" id="form-crear-cita-institucion">
+            <div class="content_row mt_md_lg">
+                @csrf
+                {{-- Información del Profesional --}}
+                <div class="col_flex w_lg_35 align_between_1300">
+                    <div class="w-100 w_md_65 w_lg_100 px_xl pl-md-3">
+                        <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
                             @csrf
                             <input type="hidden" name="date-calendar" id="date-calendar">
                             <div class="input__box mb-3">
@@ -59,30 +60,26 @@
                                     @endif
                                 </select>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content_row w_lg_65 my__md">
-                <!-- Calendario -->
-                <div class="col_flex col_flex_md">
-                    <div class="calendar w-100"></div>
-                </div>
-
-                <div class="content_row col_flex_md ml-md-auto mt-lg-2 align_between_1300">
-                    <div class="col_flex">
-                        <div class="mt-4 mb-3 mt-md-0">
-                            <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
-                            <span class="badge rounded-pill bg-secondary mb-3 w-100" style="opacity: .5;">Días no disponibles</span>
-                            <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                        <form action="" method="post" id="">
-                            @csrf
-                            <input type="hidden" name="date-calendar" id="date-calendar">
+                <div class="content_row w_lg_65 my__md">
+                    <!-- Calendario -->
+                    <div class="col_flex col_flex_md">
+                        <div id="calendar" class="calendar w-100"></div>
+                    </div>
+
+                    <div class="content_row col_flex_md ml-md-auto mt-lg-2 align_between_1300">
+                        <div class="col_flex">
+                            <div class="mt-4 mb-3 mt-md-0">
+                                <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
+                                <span class="badge rounded-pill bg-secondary mb-3 w-100" style="opacity: .5;">Días no disponibles</span>
+                                <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
+                            </div>
+                        </div>
+
+                        <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
                             <div class="input__box mb-3">
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
@@ -105,7 +102,7 @@
 
                             <div class="input__box mb-3">
                                 <label for="hora">Hora de la cita</label>
-                                <select id="hora" name="hora"  class="form-control" required></select>
+                                <select id="hora" name="hora" class="form-control" required></select>
                             </div>
 
                             <div class="row m-0 content_btn_right">
@@ -113,11 +110,11 @@
                                     Finalizar
                                 </button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 @endsection
 
@@ -132,7 +129,7 @@
 
         //moment.locale('es'); // change the global locale to Spanish
 
-        var calendar = $('.calendar').pignoseCalendar({
+        var calendar = $('#calendar').pignoseCalendar({
             lang: 'es',
             initialize: false,
             minDate: '',
@@ -143,7 +140,19 @@
             disabledRanges: [
                 //['2022-04-07', '2022-04-22'], // 2022-04-07 ~ 22
             ],
+            select: (date, context) => {
+
+                var servicio = $('#tipo_servicio').val();
+
+                var date_calendar = $('#date-calendar');
+                date_calendar.val('');
+
+                if(date[0] !== null && date[0]._i) date_calendar.val(date[0]._i);
+                if (date[0] !== null && date[0]._i !== undefined && servicio !== '') dias_libres(date[0]._i, servicio);
+
+            }
         });
+
 
         //Buscar paciente
         $('#paciente').select2({
@@ -211,11 +220,29 @@
                     });
 
                     //calendario
-                    $('.calendar').pignoseCalendar('configure', {
+                    $('#calendar').pignoseCalendar({
+                        lang: 'es',
                         minDate: moment().format('YYYY-MM-DD'),
                         maxDate: moment().add('days', response.agenda.disponibilidad).format('YYYY-MM-DD'),
-                        disabledWeekdays: response.agenda.weekNotBusiness
+                        disabledWeekdays: response.agenda.weekNotBusiness,
+                        select: (date, context) => {
+
+                            var servicio = $('#tipo_servicio').val();
+
+                            var date_calendar = $('#date-calendar');
+                            date_calendar.val('');
+
+                            if(date[0] !== null && date[0]._i) date_calendar.val(date[0]._i);
+                            if (date[0] !== null && date[0]._i !== undefined && servicio !== '') dias_libres(date[0]._i, servicio);
+
+                        }
                     });
+
+                    // $('#calendar').pignoseCalendar('setting', {
+                    //     minDate: moment(),
+                    //     maxDate: moment().add('days', 2),
+                    //     disabledWeekdays: [1, 2, 3]
+                    // });
                 }
             })
         });
@@ -255,6 +282,39 @@
         $('#check-convenio').change(function (event) {
             $('#convenio').prop('disabled', !$(this).prop('checked'));
         });
+
+        //Dias libres
+        function dias_libres(fecha, servicio) {
+            var hora = $('#hora');
+            hora.html('<option></option>');
+
+            console.log('fecha ' + fecha);
+            console.log('servicio ' + servicio);
+
+            $.ajax({
+                data: $('#form-crear-cita-institucion').serialize(),
+                dataType: 'json',
+                url: '{{ route('institucion.calendario.citas-libre') }}',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                success: function (res) {
+
+                    //get list
+                    $.each(res.data, function (index, item) {
+                        hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                            moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                            '</option>');
+                    });
+                },
+                error: function (res, status) {
+                    var response = res.responseJSON;
+                    $('#alertas').html(alert(response.message, 'danger'));
+                }
+            });
+        }
+
     </script>
 @endsection
 

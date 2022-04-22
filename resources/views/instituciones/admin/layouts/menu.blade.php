@@ -69,7 +69,7 @@
                     </li>
                 @endcan
 
-                <!-- Agenda -->
+                {{-- Agenda --}}
                 {{--
                 <li class="sidebar-item has-sub items_green accordion" id="accordion_agenda">
                     <button id="headingAgenda" class="" type="button" data-toggle="collapse"
@@ -86,12 +86,18 @@
                         </li>
                         <li class="submenu-item">
                             <a id="" class="" href="#">
-                                Agendar citas
+                                Agendar cita
+                            </a>
+                        </li>
+                        <li class="submenu-item">
+                            <a id="" class="" href="#">
+                                Bloquear agenda
                             </a>
                         </li>
                     </ul>
                 </li>
                 --}}
+
 
                 {{-- citas --}}
                 @can('accesos-institucion','ver-citas')
