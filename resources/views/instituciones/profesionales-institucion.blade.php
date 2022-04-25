@@ -39,7 +39,7 @@
                 @endif
 
                 @foreach($especialidades as $item)
-                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality swiper-slide" data-filter=".{{ Str::slug($item->nombreEspecialidad) }}">{{ $item->nombreEspecialidad }}</li>
+                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality swiper-slide" data-filter=".{{ Str::slug($item->nombreEspecialidad ?? '') }}">{{ $item->nombreEspecialidad ?? '' }}</li>
                 @endforeach
             </ul>
 
@@ -54,9 +54,9 @@
 
                 @foreach ($profesionales as $profesional)
                     @php
-                        $esp = " " . Str::slug($profesional->especialidad_pricipal->nombreEspecialidad);
-                        $esp .= " " . $profesional->especialidades->map(function ($item) {return  Str::slug($item->nombreEspecialidad);})->implode(" ");
-                        $filtro = $profesional->especialidad_pricipal->nombreEspecialidad;
+                        $esp = " " . Str::slug($profesional->especialidad_pricipal->nombreEspecialidad ?? '');
+                        $esp .= " " . $profesional->especialidades->map(function ($item) {return  Str::slug($item->nombreEspecialidad ?? '');})->implode(" ");
+                        $filtro = $profesional->especialidad_pricipal->nombreEspecialidad ?? '';
                         $filtro .= " ".$profesional->especialidades->pluck('nombreEspecialidad')->implode(' ');
 
                     @endphp
@@ -65,13 +65,13 @@
                         <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
 
                         <div class="card-body px-1 py-3">
-                            <h2 class="specialty titulo_card mb-1 searching">{{$profesional->especialidad_pricipal->nombreEspecialidad}}</h2>
-                            <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$profesional->especialidad_pricipal->nombreEspecialidad}}</h2>
+                            <h2 class="specialty titulo_card mb-1 searching">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</h2>
+                            <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</h2>
 
                             <h2 class="niega_uppercase subTitulo_card searching">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
 
-                            <p class="specialty text_card searching">Especialista en {{$profesional->especialidad_pricipal->nombreEspecialidad}}</p>
-                            <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$profesional->especialidad_pricipal->nombreEspecialidad}}</span></p>
+                            <p class="specialty text_card searching">Especialista en {{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</p>
+                            <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</span></p>
 
                             <p class="name_university text_univ_card searching">{{$profesional->universidad->nombreuniversidad}}</p>
                             <h2 class="cargo_profInst text_cargo_card searching">{{$profesional->cargo}}</h2>
