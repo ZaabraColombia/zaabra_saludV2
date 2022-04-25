@@ -121,6 +121,7 @@ class RecursosController extends Controller
             $weekNotBusiness = array_merge($weekNotBusiness, $item);
 
         $agenda['weekNotBusiness'] = array_unique($weekNotBusiness);
+        //$agenda['weekNotBusiness'] = [0, 1, 2];
 
         $lista = $profesional->servicios->map(function ($item){
             return ['id' => $item->id, 'nombre' => $item->nombre, 'valor' => $item->valor];

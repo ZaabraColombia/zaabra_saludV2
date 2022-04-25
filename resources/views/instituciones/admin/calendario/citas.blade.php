@@ -20,14 +20,17 @@
                 <h1 class="title__xl green_bold">Citas</h1>
                 <span class="text__md black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
 
+                {{--
                 <div class="col-md-4 p-0 content_btn_right">
-                    <a href="" class="button_transparent mr-2" id="" data-toggle="modal" data-target="#modal_cancelar_cita">
+                    <a href="" class="button_transparent mr-2" id="" data-toggle="modal"
+                       data-target="#modal_cancelar_cita">
                         eliminar
                     </a>
                     <a href="" class="button_green" id="" data-toggle="modal" data-target="#modal_reagendar_cita">
                         reagendar
                     </a>
                 </div>
+                --}}
             </div>
 
             <!-- Contenedor barra de búsqueda pacientes -->
@@ -38,10 +41,10 @@
                     </div>
 
                     <div class="col-md-4 p-0 content_btn_right">
-                        <a href="" class="button_transparent mr-2" id="">
+                        <a href="{{ route('institucion.calendario.iniciar-control') }}" class="button_transparent mr-2" id="">
                             Atras
                         </a>
-                        <a href="" class="button_green" id="">
+                        <a href="{{ route('institucion.calendario.crear-cita') }}" class="button_green" target="_blank">
                             Crear cita
                         </a>
                     </div>
