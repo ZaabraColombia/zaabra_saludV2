@@ -232,7 +232,7 @@
                     <div class="row">
                         <div class="col-12 input__box mt-3">
                             <label for="especialidades">Otras especialidades</label>
-                            <select id="especialidades" name="especialidades" class="select2-multiple @error('especialidades.*') is-invalid @enderror" multiple>
+                            <select id="especialidades" name="especialidades[]" class="select2-multiple @error('especialidades.*') is-invalid @enderror" multiple>
                                 @if($especialidades->isNotEmpty())
                                     @foreach($especialidades as $especialidad)
                                         <option value="{{ $especialidad->idEspecialidad }}" {{ old('id_universidad') == $especialidad->idEspecialidad ? 'selected':'' }}>{{ $especialidad->nombreEspecialidad }}</option>

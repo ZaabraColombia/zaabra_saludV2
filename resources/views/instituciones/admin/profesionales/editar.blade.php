@@ -232,7 +232,7 @@
                             @php
                                 $ids = $profesional->especialidades->map(function ($item) {return $item['idEspecialidad']; });
                             @endphp
-                            <select id="especialidades" name="especialidades" class="select2-multiple @error('especialidades.*') is-invalid @enderror" multiple>
+                            <select id="especialidades" name="especialidades[]" class="select2-multiple @error('especialidades.*') is-invalid @enderror" multiple>
                                 @if($especialidades->isNotEmpty())
                                     @foreach($especialidades as $especialidad)
                                         <option value="{{ $especialidad->idEspecialidad }}" {{ collect(old('especialidades', $ids))->contains($especialidad->idEspecialidad) ? 'selected':'' }}>{{ $especialidad->nombreEspecialidad }}</option>
