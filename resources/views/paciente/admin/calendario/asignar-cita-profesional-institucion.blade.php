@@ -155,18 +155,18 @@
     <!-- Modal -->
     <div class="modal fade" id="confirmar-cita" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content modal_container">
                 <div class="modal-header">
-                    <h5 class="fs_title_module black_bold" id="exampleModalLabel">Detalles de la cita</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <h5 class="profesional">{{ $user->nombre_completo }}</h5>
-                        <h5>{{ "{$user->tipo_documento->nombre_corto}" }}: {{ number_format($user->numerodocumento, 0, ",", ".") }}</h5>
-                    </div>
+                    <h1 class="" id="exampleModalLabel">Detalles de la cita</h1>
+                    
+                    <h5 class="profesional">{{ $user->nombre_completo }}</h5>
+                    <h5>{{ "{$user->tipo_documento->nombre_corto}" }}: {{ number_format($user->numerodocumento, 0, ",", ".") }}</h5>
                     <div>
                         <h5 class="profesional">Dr(a). {{ $profesional->nombre_completo }}</h5>
                         <!-- <h5>{{ "{$user->tipo_documento->nombre_corto}" }}:</h5> -->
@@ -183,9 +183,10 @@
                         <h5>Valor cita: &nbsp; $ <span id="modal-valor"></span></h5>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btn_confirmar_cita">Guardar</button>
+
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="button_blue" id="btn_confirmar_cita">Guardar</button>
                 </div>
             </div>
         </div>

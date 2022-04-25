@@ -132,7 +132,7 @@
                             <div class="text-center p-3">
                                 <p class="black_light fs_text">Profesional {{ session('error-agenda')['nombre'] }}</p>
                                 <p class="black_light fs_text">Especialización {{ session('error-agenda')['especialidad'] }}</p>
-                                <p class="black_light fs_text">Actualmente no tiene agenda disponoble.</p>
+                                <p class="black_light fs_text">Actualmente no tiene agenda disponible.</p>
                             </div>
                         </div>
                     </div>
