@@ -195,16 +195,16 @@
                     <div class="modal-body">
                         <div>
                             <h3 class="text-center fs_subtitle blue_bold">¡Bienvenido!</h3>
-                            <h3 class="text-center fs_subtitle black_light">Sr(a). María Luisa Contreras Gutierrez</h3>
+                            <h3 class="text-center fs_subtitle black_light">Sr(a). {{ $user->nombre_completo }}</h3>
                         </div>
-
+                        <br>
                         <p class="text-center fs_text black_light">
-                            Este es su primer agendamiento de cita para la consulta de Odontologia.
+                            ¿Este es su primer agendamiento con la institución <span class="black_bold">{{ $profesional->institucion->user->nombreinstitucion }}</span>?.
                         </p>
-
+                        <br>
                         <div>
                             <span class="fs_text black_bold"> Especialista: &nbsp;</span>
-                            <span class="fs_text black_light">Edgar Joel Barero Fuentes</span>
+                            <span class="fs_text black_light">{{ $profesional->nombre_completo }}</span>
                         </div>
                     </div>
                     <div class="modal-footer">

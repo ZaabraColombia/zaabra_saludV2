@@ -65,22 +65,9 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`atiguedades`
             ON DELETE CASCADE
             ON UPDATE CASCADE;
 
-###Subido testing
-###Subido cesar
-###Subido producción
-###Subido jhonf
+
+alter table zaabrac1_zaabra_salud_test.ventabanners add column orden int null after aprobado;
 
 ### 22/04/2022 jhonf
 ### subido producción
-alter table zaabra_salud.ventabanners add column orden int null after aprobado;
-
-insert into zaabra_salud.ventabanners
-(idusuario, idtipobanner, start, end, rutaImagenVenta, ruta_logo, titulo_banner, color_titulo, texto_banner, color_texto, background_btn, texto_btn, color_btn, fechaVenta, aprobado, orden)
-values 
-(1, 1, '2022-04-22 00:00:00', '2023-04-23 00:00:00', '/img/banners/bannerprincipalhome/logo-medhistoria.png', 'img/banners/bannerprincipalhome/logo-medhistoria-banner.png', 'Gestione sus Hostorias Clínicas digitales', '#09456', 'Funciona en la nube, ofreciendo almacenamiento seguro y casi ilimitado de su especialidad', '#09456', '09456', 'Conoce más', '#FFFFFF', '2022-04-22', 1, 4);
-
-update zaabra_salud.ventabanners set orden = 1 where id = 177;
-update zaabra_salud.ventabanners set orden = 2 where id = 99;
-update zaabra_salud.ventabanners set orden = 3 where id = 123;
-update zaabra_salud.ventabanners set orden = 5 where id = 140; 
-update zaabra_salud.ventabanners set orden = 6 where id = 151;
+###Subido cesar
