@@ -1,830 +1,830 @@
-// a:link, a:visited, a:active, a:hover {
-//     text-decoration: none;
-//     color: #ffff;
-// }
-:focus-visible{
-    outline: none;
-}
-.dropdown-toggle::after{
-    display: none;
-}
-.navbar_zaabrasalud {
-    background-color: #0083D6;
-    padding: 3px 0;
-    position: sticky;
-    z-index: 500;
-    top: .1px;
-}
-// Logo institucional
-.navbar-logo {
-    text-decoration: none;
-    width: 70px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .logo_header {
-        height: 100%;
-        image-rendering: -webkit-optimize-contrast;
-    }
-}
-// Icono lupa del header mobile
-.busqueda_mobile {
-    display: flex;
-    display: flex;
-    height: 45px;
-    width: 45px;
-    justify-content: center;
-    background: #0083d6;
-    .busqueda_boton_mobile {
-        padding: 0;
-        border: none;
-        background: transparent;
-        .busqueda_icon_mobile {
-            width: 28px;
-            background: #0083D6;
-        }
-    }
-}
-//Barra de Busqueda mobile
-.contain_buscador_mobile{
-    display: none;
-    background-color: #0083D6;
-    width: 100%;
-    height: 45px;
-    margin: auto;
-    z-index: 20;
-    .section_buscador_mobile {
-        width: 90%;
-        background-color: #FFFFFF;
-    }
-}
-.barra_buscador_mobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.barra_busqueda2 {
-    width: 100%;
-    height: 50%;
-    background: #ffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    border-radius: 3px;
-}
-// Buscador, input e icono
-.contains_header{
-    width: 95%;
-    height: 100%;
-    padding: 0;
-}
-.input_buscador {
-    width: 100%;
-    height: 100%;
-    font-size: 1em;
-    border: none;
-    padding: 5px;
-    background: #faebd700;
-}
-.icon_buscador {
-    padding: 5px;
-    border: none;
-    height: auto;
-    width: 27px;
-    position: relative;
-}
-// Contenedor buscador DESKTOP
-.containt_buscador_desk {
-    display: none;
-}
-// Menú toggle de LOGUEO
-.soy_paciente {
-    width: 70px;
-    height: 45px;
-}
-.soy_paciente .dropdown-toggle {
-    height: 100%;
-    width: 100%;
-    border: none;
-    border-radius: 3px;
-    display: flex;
-    background-image: url('/img/header/icono-soy-paciente-blanco.svg');
-    background-repeat: no-repeat;
-    background-size: 50px;
-    background-position: center;
-    &:hover {
-        background-image: url('/img/header/icono-soy-paciente-azul.svg');
-        background-color: #ffffff;
-    }
-}
-.soy_paciente #dropdownMenuLink[aria-expanded="true"] {
-    background-image: url('/img/header/icono-soy-paciente-azul.svg');
-    background-color: #fff;
-} 
-
-.icon__paciente {
-    background-image: url('/img/header/icono-paciente-gris.svg');
-    &:hover {
-        background-image: url('/img/header/icono-paciente-blanco.svg');
-    }
-}
-.icon__doctor {
-    background-image: url('/img/header/icono-soy-medico.svg');
-    &:hover {
-        background-image: url('/img/header/icono-soy-medico-blanco.svg');
-    }
-}
-.icon__institucion {
-    background-image: url('/img/header/icono-instituciones-medicas.svg');
-    &:hover {
-        background-image: url('/img/header/icono-instituciones-medicas-blanco.svg');
-    }
-}
-// boton membresia
-.membresia_mobile {
-    display: flex;
-    width: 45px;
-    height: 45px;
-    justify-content: center;
-    .membresia_icon_mobile {
-        background-image: url('/img/header/boton-de-memebresia-mob.png');
-        background-repeat: no-repeat;
-        background-size: 40px;
-        background-position: center;
-        width: 40px;
-    }
-}
-.button-membresia {
-    display: none;
-}
-// Menu hamburguesa
-.dropdown-menu {
-    padding: 5px 0;
-}
-.menu-hamburger {
-    width: 50px;
-    height: 45px;
-}
-.menu-hamburger .dropdown-toggle {
-    height: 100%;
-    width: 100%;
-    border: none;
-    border-radius: 3px;
-    display: flex;
-    background-image: url('/img/header/icono-hamburguesa-blanco.svg');
-    background-repeat: no-repeat;
-    background-size: 30px;
-    background-position: center;
-    &:hover {
-        background-image: url('/img/header/icono-hamburguesa-azul.svg');
-        background-color: #ffffff;
-    }
-}
-.menu-hamburger #dropdownMenuLink[aria-expanded="true"]{
-    background-image: url('/img/header/icono-hamburguesa-azul.svg');
-    background-color: #ffffff;
-}
-.menu__item_head {
-    display: flex;
-    padding: 3px 10px 5px 10px;
-    align-items: flex-end;
-    span {
-        font-size: 17px;
-        font-family: "Quicksand";
-        color: #232323;
-        margin-left: 10px;
-        width: 200px;
-        line-height: 1.2;
-    }
-    img {
-        height: 50px;
-        width: 50px;
-        border-radius: 30px;
-        object-fit: cover;
-        object-position: top;
-        border: 1px solid #c3c3c3;
-    }
-}
-.menu__item {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    font-family: "Quicksand";
-    color: #232323;
-    padding: 10px 5px 10px 50px;
-    background-repeat: no-repeat;
-    background-size: 27px;
-    background-position-y: center;
-    background-position-x: 10px;
-    &:hover {
-        background-image: url('/img/header/icono-mi-perfil-blanco.svg');
-        background-color: #0083d6;
-        color: #fff;
-    }
-}
-.icon__perfil {
-    background-image: url('/img/header/icono-mi-perfil-gris.svg');
-    &:hover {
-        background-image: url('/img/header/icono-mi-perfil-blanco.svg');
-    }
-}
-.icon__agenda {
-    background-image: url('/img/header/icono-agenda-gris.svg');
-    &:hover {
-        background-image: url('/img/header/icono-agenda-blanco.svg');
-    }
-}
-
-.icon__especialidad {
-    background-image: url('/img/header/icono-especialidades-medicas.svg');
-    &:hover {
-        background-image: url('/img/header/icono-especialidades-medicas-blanco.svg');
-    }
-}
-
-.icon__institucion {
-    background-image: url('/img/header/icono-instituciones-medicas.svg');
-    &:hover {
-        background-image: url('/img/header/icono-instituciones-medicas-blanco.svg');
-    }
-}
-
-.icon__quienes {
-    background-image: url('/img/header/icono-quienes-somos.svg');
-    &:hover {
-        background-image: url('/img/header/icono-quienes-somos-blanco.svg');
-    }
-}
-
-.icon__contactenos {
-    background-image: url('/img/header/iconos-de-contactenos.svg');
-    &:hover {
-        background-image: url('/img/header/icono-contactenos-blanco.svg');
-    }
-}
-
-.icon__closed {
-    background-image: url('/img/header/icono-cerrar-sesion-gris.svg');
-    &:hover {
-        background-image: url('/img/header/icono-cerrar-sesion-blanco.svg');
-    }
-}
-// Caja opciones de busqueda barra del buscador
-#ui-id-1{
-    z-index: 500 !important;
-    background: white;
-    height: 25vh;
-    overflow-x: hidden;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 1rem !important;
-    border: solid 1px #e8e8e8;
-
-}
-/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
-#ui-id-1::-webkit-scrollbar-thumb {
-    background: #e8e8e8 !important;
-    border-radius: 5px !important;
-}
-/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
-#ui-id-1::-webkit-scrollbar-thumb:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2) !important;
-}
-/* Cambiamos el fondo cuando esté en active */
-.ui-menu {
-   z-index: 500 !important;
-   background: white;
-   height: 28vh;
-   overflow-x: hidden;
-   border-radius: 3px;
-   padding: 0 1%;
-   position: fixed !important;
-}
-.ui-menu-item {
-    list-style: none;
-    padding-top: 3%;
-    height: 3rem;
-}
-.ui-menu-item > .ui-menu-item-wrapper{
-    display: flex;
-    color: black !important;
-    font-size: 1rem !important;
-    height: 50px;
-    width: 100%;
-    padding: .5rem 0;
-    margin-left: 5px;
-    border-radius: 5px;
-    align-items: center;
-}
-.ui-menu-item > .ui-menu-item-wrapper > i{
-    margin-left: 10px;
-}
-.ui-menu-item > .ui-menu-item-wrapper:hover,
-.ui-menu-item > .ui-menu-item-wrapper:hover > i,
-.ui-menu-item > .ui-state-active,
-.ui-menu-item > .ui-state-active > i {
-    background: #e8e8e8 !important;
-}
-.ui-menu-item > .ui-menu-item-wrapper > i{
-    border: solid 1px black;
-    border-radius: 50px;
-    padding: 5px;
-    margin-right: 10px;
-}
-.ui-menu-item > .ui-menu-item-wrapper > i:hover{
-    border: solid 1px white;
-}
-.ui-menu-item > .ui-menu-item-wrapper > span > small{
-    margin-top: -9px;
-    display: inherit;
-}
-.ui-menu li::marker {
-    color: #0083D6 !important;
-}
-.ui-helper-hidden-accessible{
-    display: none !important;
-} 
-
-
-@media (min-width: 768px) {
-    .navbar_zaabrasalud {
-        padding: 7px 0;
-    }
-    // Logo institucional
-    .navbar-logo {
-        width: 75px;
-        height: 60px;
-    }
-    // Buscador, input e icono
-    .contains_header {
-        width: 84%;
-        height: 100%;
-        padding: 0;
-        justify-content: space-between;
-    }
-    .contain_buscador_mobile {
-        width: 94%;
-    }
-    // Icono lupa del header mobile
-    .busqueda_mobile .busqueda_boton_mobile .busqueda_icon_mobile {
-        width: 35px;
-    }
-    // Menú toggle de LOGUEO
-    .soy_paciente {
-        width: 85px;
-        height: 60px;
-    }
-    .soy_paciente .dropdown-toggle {
-        background-size: 65px;
-    }
-    // Menu hamburguesa
-    .menu-hamburger {
-        width: 60px;
-        height: 60px;
-    }
-    // Buscador input e icono
-    .icon_buscador {
-        padding: 5px;
-        border: none;
-        height: auto;
-        width: 35px;
-        position: relative;
-    }
-}
-@media (min-width: 1024px) {
-    .contains_header {
-        width: 75%;
-    }
-    .navbar_zaabrasalud {
-        padding: 4px 0;
-    } 
-    // Logo institucional
-    .navbar-logo {
-        width: 75px;
-        height: 50px;
-    }
-    // Icono de busqueda lupa mobile
-    .busqueda_mobile {
-        display: none;
-    }
-    // Barra de busqueda DESKTOP
-    .containt_buscador_desk {
-        padding: 0%;
-        flex: 45%;
-        max-width: 45%;
-        height: 33px;
-        display: flex;
-    }
-    .barra_busqueda {
-        width: 100%;
-        height: 100%;
-        background: #ffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        border-radius: 3px;
-    }
-    .buscador_boton_desk {
-        background: #ffffff;
-        height: 100%;
-        width: 10%;
-        border: none;
-        padding: 0;
-        border-radius: 3px;
-    }
-    .buscador_icon_desk {
-        background-image: url('/img/header/icono-buscador-azul.svg');
-        background-repeat: no-repeat;
-        background-size: 20px;
-        background-position: center;
-    }
-    // Botón membresia
-    .button-membresia {
-        flex: 115px;
-        height: 100%;
-        max-width: 117px;
-        display: flex;
-        align-items: center;
-        .img-button-membresia{
-            max-width: 100%;
-            image-rendering: -webkit-optimize-contrast;
-        }
-    }
-    // Menú toggle de LOGUEO
-    .soy_paciente {
-        width: 75px;
-        height: 52px;
-    }
-    .soy_paciente .dropdown-toggle {
-        background-size: 55px;
-    }
-    // boton membresia
-    .membresia_mobile {
-        display: none;
-    }
-    .menu-hamburger {
-        width: 60px;
-        height: 52px;
-    }
-    .dropdown-paciente {
-        width: 30%;
-        height: 100%;
-    }
-}
-@media (min-width: 1920px) {
-    .navbar_zaabrasalud {
-        padding: 5px 0;
-    }
-    // Logo institucional
-    .navbar-logo {
-        height: 60px;
-    }
-    .contains_header {
-        width: 65%;
-    }
-    // Botón Login
-    .soy_paciente {
-        height: 60px;
-    }
-    .soy_paciente .dropdown-toggle {
-        background-size: 60px;
-    }
-    // Botón membresia 
-    .button-membresia {
-        max-width: 145px;
-    }
-    // Menú hamburguesa
-    .menu-hamburger {
-        width: 60px;
-        height: 60px;
-    }
-    #ui-id-1 {
-        height: 31vh;
-    }
-}
-// .sidebar-wrapper {
-//     .sidebar-menu {
-//         .sidebar__header {
-//             display: flex;
-//             align-items: center;
-//             padding: 35px 20px 0 20px;
-//             img {
-//                 width: 60px;
-//                 height: 60px;
-//                 object-fit: cover;
-//                 border-radius: 50px;
-//             }
-//             .user_data {
-//                 display: block;
-//                 padding-left: 15px;
-//                 h2 {
-//                     font-size: 20px;
-//                     font-family: 'Quicksand';
-//                     color: $blue_official;
-//                     margin: 0;
-//                 }
-//                 h3 {
-//                     font-size: 18px;
-//                     font-family: 'Quicksand';
-//                     color: $black_third;
-//                     margin: 0;
-//                 }
-//             }
-//         }
-
-//         .sidebar__body {
-//             .menu {
-//                 padding-left: 15px;
-//                 margin: 20px 0;
-//                 .sidebar-item {
-//                     list-style: none;
-//                     position: relative;
-//                     margin-top: 5px;
-//                     button {
-//                         font-size: 16px;
-//                         font-family: 'Quicksand';
-//                         color: $black_third;
-//                         margin: 0;
-//                         padding: 7px 0 7px 25px;
-//                         width: 180px;
-//                         background: transparent;
-//                         border-radius: 5px;
-//                         border: none;
-//                         text-align: initial;
-//                         &:hover {
-//                             background: $blue_official;
-//                             color: $withe_official;
-//                             border-radius: 5px;
-//                         }
-//                         &:focus {
-//                             background: $blue_official;
-//                             color: $withe_official;
-//                             border-radius: 5px;
-//                         }
-//                         .rotate {
-//                             transform: rotate(180deg);
-//                             padding-right: .5rem;
-//                         }
-//                     }
-//                     .submenu {
-//                         list-style: none;
-//                         display: none;
-//                         transition: max-height 2s cubic-bezier(0, .55, .45, 1);
-//                         overflow: hidden;
-//                         .submenu-item {
-//                             a {
-//                                 font-size: 14px;
-//                                 font-family: 'Quicksand';
-//                                 color: $black_third;
-//                                 margin: 0;
-//                                 &:hover {
-//                                     color: $blue_official;
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
- 
-// }
-
-
-
-
-
-
-
-
-
-
-// .panel-Administrativo{
-//     background: #F9F9F9;
-//     padding: 3% 3% 5% 3%;
-// }
-// #sidebar.active .sidebar-wrapper {
-//     left: 0;
-// }
-// #sidebar:not(.active) .sidebar-wrapper {
-//     left: -300px;
-// }
-// #sidebar:not(.active)~#main {
-//     margin-left: 0;
-// }
-// .sidebar-wrapper {
-//     width: 100%;
-//     top: 0;
-//     overflow-y: auto;
-//     background-color: #fff;
-//     bottom: 0;
-//     transition: left .5s ease-out;
-// }
-// // Contenido Dashboard
-// .bg_gray {
-//     background-color: $gray_official;
-// }
-// // Sidebar o Menú lateral Dashboard
-// .bg_white {
-//     background-color: $withe_official;
-// }
-// .sidebar-menu {
-//     .sidebar__header {
-//         display: flex;
-//         align-items: center;
-//         padding: 35px 20px 0 20px;
-//         img {
-//             width: 60px;
-//             height: 60px;
-//             object-fit: cover;
-//             border-radius: 50px;
-//         }
-//         .user_data {
-//             display: block;
-//             padding-left: 15px;
-//             h2 {
-//                 font-size: 20px;
-//                 font-family: 'Quicksand';
-//                 color: $blue_official;
-//                 margin: 0;
-//             }
-//             h3 {
-//                 font-size: 18px;
-//                 font-family: 'Quicksand';
-//                 color: $black_third;
-//                 margin: 0;
-//             }
-//         }
-//     }
-// }
-// // .sidebar-wrapper .sidebar-header {
-// //     padding: 2rem 2rem 1rem;
-// //     font-size: 2rem;
-// //     font-weight: 700;
+// // a:link, a:visited, a:active, a:hover {
+// //     text-decoration: none;
+// //     color: #ffff;
 // // }
-// // .sidebar-wrapper .sidebar-header img {
-// //     height: 1.2rem;
-// // }
-// .sidebar-wrapper .sidebar-toggler.x {
-//     position: absolute;
-//     right: 0;
-//     top: .5rem;
+// :focus-visible{
+//     outline: none;
+// }
+// .dropdown-toggle::after{
 //     display: none;
 // }
-// .sidebar-wrapper .menu {
-//     margin-top: 2rem;
-//     padding-left: 1rem;
-//     font-weight: 600;
+// .navbar_zaabrasalud {
+//     background-color: #0083D6;
+//     padding: 3px 0;
+//     position: sticky;
+//     z-index: 500;
+//     top: .1px;
 // }
-// .sidebar-wrapper .menu .sidebar-title {
-//     padding: 0 1rem;
-//     margin: 1.5rem 0 1rem;
-//     font-size: 1rem;
-//     list-style: none;
-//     font-weight: 600;
+// // Logo institucional
+// .navbar-logo {
+//     text-decoration: none;
+//     width: 70px;
+//     height: 40px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     .logo_header {
+//         height: 100%;
+//         image-rendering: -webkit-optimize-contrast;
+//     }
 // }
-
-// .sidebar-wrapper .menu .sidebar-link {
-//     display: block;
-//     padding: .7rem 1rem;
-//     font-size: 1rem;
+// // Icono lupa del header mobile
+// .busqueda_mobile {
+//     display: flex;
+//     display: flex;
+//     height: 45px;
+//     width: 45px;
+//     justify-content: center;
+//     background: #0083d6;
+//     .busqueda_boton_mobile {
+//         padding: 0;
+//         border: none;
+//         background: transparent;
+//         .busqueda_icon_mobile {
+//             width: 28px;
+//             background: #0083D6;
+//         }
+//     }
+// }
+// //Barra de Busqueda mobile
+// .contain_buscador_mobile{
+//     display: none;
+//     background-color: #0083D6;
+//     width: 100%;
+//     height: 45px;
+//     margin: auto;
+//     z-index: 20;
+//     .section_buscador_mobile {
+//         width: 90%;
+//         background-color: #FFFFFF;
+//     }
+// }
+// .barra_buscador_mobile {
 //     display: flex;
 //     align-items: center;
-//     border-radius: .5rem;
-//     transition: all .5s;
-//     text-decoration: none;
-//     color: #232323;
+//     justify-content: center;
 // }
-// .sidebar-wrapper .menu .sidebar-link i,
-// .sidebar-wrapper .menu .sidebar-link svg {
-//     color: #7c8db5;
+// .barra_busqueda2 {
+//     width: 100%;
+//     height: 50%;
+//     background: #ffff;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     align-content: center;
+//     border-radius: 3px;
 // }
-// .sidebar-wrapper .menu .sidebar-link span {
-//     margin-left: 1rem;
+// // Buscador, input e icono
+// .contains_header{
+//     width: 95%;
+//     height: 100%;
+//     padding: 0;
 // }
-// .sidebar-wrapper .menu .sidebar-link:hover {
-//     background-color: #f0f1f5;
+// .input_buscador {
+//     width: 100%;
+//     height: 100%;
+//     font-size: 1em;
+//     border: none;
+//     padding: 5px;
+//     background: #faebd700;
 // }
-// .sidebar-wrapper .menu .sidebar-item {
-//     list-style: none;
-//     margin-top: .5rem;
+// .icon_buscador {
+//     padding: 5px;
+//     border: none;
+//     height: auto;
+//     width: 27px;
 //     position: relative;
 // }
-// .sidebar-wrapper .menu .sidebar-item a {
-//     color: #232323;
-
-// }
-// .sidebar-wrapper .menu .sidebar-item button {
-//     font-size: 16px;
-//     font-family: 'Quicksand';
-//     color: $black_third;
-//     margin: 0;
-//     padding: 7px 0 7px 25px;
-//     width: 180px;
-//     background: transparent;
-//     border-radius: 5px;
-//     border: none;
-//     text-align: initial;
-//     &:hover {
-//         background: $blue_official;
-//         color: $withe_official;
-//         border-radius: 5px;
-//     }
-//     &:focus {
-//         background: $blue_official;
-//         color: $withe_official;
-//         border-radius: 5px;
-//     }
-// }
-
-// // .sidebar-wrapper .menu .sidebar-item.has-sub .sidebar-link:after {
-// //     content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path stroke="gray" stroke-width="1" d="M6 9l6 6 6-6"/></svg>');
-// //     position: absolute;
-// //     color: #ccc;
-// //     right: 15px;
-// //     top: 12px;
-// //     display: block;
-// // }
-// // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
-// //     background-color: #435ebe;
-// // }
-// // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link span {
-// //     color: #fff;
-// // }
-// // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link i,
-// // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link svg {
-// //     fill: #fff;
-// //     color: #fff;
-// // }
-// // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link.has-sub:after {
-// //     content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path stroke="%23fff" stroke-width="1" d="M6 9l6 6 6-6"/></svg>')
-// // }
-// // Items de los submenus
-// .sidebar-wrapper .menu .submenu {
-//     list-style: none;
+// // Contenedor buscador DESKTOP
+// .containt_buscador_desk {
 //     display: none;
-//     transition: max-height 2s cubic-bezier(0, .55, .45, 1);
-//     overflow: hidden;
 // }
-// .sidebar-wrapper .menu .submenu.active {
-//     max-height: 999px;
-//     display: block;
-//     padding-left: 30px;
+// // Menú toggle de LOGUEO
+// .soy_paciente {
+//     width: 70px;
+//     height: 45px;
 // }
-// // .sidebar-wrapper .menu .submenu .submenu-item.active {
+// .soy_paciente .dropdown-toggle {
+//     height: 100%;
+//     width: 100%;
+//     border: none;
+//     border-radius: 3px;
+//     display: flex;
+//     background-image: url('/img/header/icono-soy-paciente-blanco.svg');
+//     background-repeat: no-repeat;
+//     background-size: 50px;
+//     background-position: center;
+//     &:hover {
+//         background-image: url('/img/header/icono-soy-paciente-azul.svg');
+//         background-color: #ffffff;
+//     }
+// }
+// .soy_paciente #dropdownMenuLink[aria-expanded="true"] {
+//     background-image: url('/img/header/icono-soy-paciente-azul.svg');
+//     background-color: #fff;
+// } 
+
+// .icon__paciente {
+//     background-image: url('/img/header/icono-paciente-gris.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-paciente-blanco.svg');
+//     }
+// }
+// .icon__doctor {
+//     background-image: url('/img/header/icono-soy-medico.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-soy-medico-blanco.svg');
+//     }
+// }
+// .icon__institucion {
+//     background-image: url('/img/header/icono-instituciones-medicas.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-instituciones-medicas-blanco.svg');
+//     }
+// }
+// // boton membresia
+// .membresia_mobile {
+//     display: flex;
+//     width: 45px;
+//     height: 45px;
+//     justify-content: center;
+//     .membresia_icon_mobile {
+//         background-image: url('/img/header/boton-de-memebresia-mob.png');
+//         background-repeat: no-repeat;
+//         background-size: 40px;
+//         background-position: center;
+//         width: 40px;
+//     }
+// }
+// .button-membresia {
+//     display: none;
+// }
+// // Menu hamburguesa
+// .dropdown-menu {
+//     padding: 5px 0;
+// }
+// .menu-hamburger {
+//     width: 50px;
+//     height: 45px;
+// }
+// .menu-hamburger .dropdown-toggle {
+//     height: 100%;
+//     width: 100%;
+//     border: none;
+//     border-radius: 3px;
+//     display: flex;
+//     background-image: url('/img/header/icono-hamburguesa-blanco.svg');
+//     background-repeat: no-repeat;
+//     background-size: 30px;
+//     background-position: center;
+//     &:hover {
+//         background-image: url('/img/header/icono-hamburguesa-azul.svg');
+//         background-color: #ffffff;
+//     }
+// }
+// .menu-hamburger #dropdownMenuLink[aria-expanded="true"]{
+//     background-image: url('/img/header/icono-hamburguesa-azul.svg');
+//     background-color: #ffffff;
+// }
+// .menu__item_head {
+//     display: flex;
+//     padding: 3px 10px 5px 10px;
+//     align-items: flex-end;
+//     span {
+//         font-size: 17px;
+//         font-family: "Quicksand";
+//         color: #232323;
+//         margin-left: 10px;
+//         width: 200px;
+//         line-height: 1.2;
+//     }
+//     img {
+//         height: 50px;
+//         width: 50px;
+//         border-radius: 30px;
+//         object-fit: cover;
+//         object-position: top;
+//         border: 1px solid #c3c3c3;
+//     }
+// }
+// .menu__item {
+//     display: flex;
+//     align-items: center;
+//     font-size: 14px;
+//     font-family: "Quicksand";
+//     color: #232323;
+//     padding: 10px 5px 10px 50px;
+//     background-repeat: no-repeat;
+//     background-size: 27px;
+//     background-position-y: center;
+//     background-position-x: 10px;
+//     &:hover {
+//         background-image: url('/img/header/icono-mi-perfil-blanco.svg');
+//         background-color: #0083d6;
+//         color: #fff;
+//     }
+// }
+// .icon__perfil {
+//     background-image: url('/img/header/icono-mi-perfil-gris.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-mi-perfil-blanco.svg');
+//     }
+// }
+// .icon__agenda {
+//     background-image: url('/img/header/icono-agenda-gris.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-agenda-blanco.svg');
+//     }
+// }
+
+// .icon__especialidad {
+//     background-image: url('/img/header/icono-especialidades-medicas.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-especialidades-medicas-blanco.svg');
+//     }
+// }
+
+// .icon__institucion {
+//     background-image: url('/img/header/icono-instituciones-medicas.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-instituciones-medicas-blanco.svg');
+//     }
+// }
+
+// .icon__quienes {
+//     background-image: url('/img/header/icono-quienes-somos.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-quienes-somos-blanco.svg');
+//     }
+// }
+
+// .icon__contactenos {
+//     background-image: url('/img/header/iconos-de-contactenos.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-contactenos-blanco.svg');
+//     }
+// }
+
+// .icon__closed {
+//     background-image: url('/img/header/icono-cerrar-sesion-gris.svg');
+//     &:hover {
+//         background-image: url('/img/header/icono-cerrar-sesion-blanco.svg');
+//     }
+// }
+// // Caja opciones de busqueda barra del buscador
+// #ui-id-1{
+//     z-index: 500 !important;
+//     background: white;
+//     height: 25vh;
+//     overflow-x: hidden;
+//     border-bottom-left-radius: 5px;
+//     border-bottom-right-radius: 5px;
+//     padding: 1rem !important;
+//     border: solid 1px #e8e8e8;
+
+// }
+// // /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+// // #ui-id-1::-webkit-scrollbar-thumb {
+// //     background: #e8e8e8 !important;
+// //     border-radius: 5px !important;
+// // }
+// // /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+// // #ui-id-1::-webkit-scrollbar-thumb:hover {
+// //     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2) !important;
+// // }
+// /* Cambiamos el fondo cuando esté en active */
+// .ui-menu {
+//    z-index: 500 !important;
+//    background: white;
+//    height: 28vh;
+//    overflow-x: hidden;
+//    border-radius: 3px;
+//    padding: 0 1%;
+//    position: fixed !important;
+// }
+// .ui-menu-item {
+//     list-style: none;
+//     padding-top: 3%;
+//     height: 3rem;
+// }
+// .ui-menu-item > .ui-menu-item-wrapper{
+//     display: flex;
+//     color: black !important;
+//     font-size: 1rem !important;
+//     height: 50px;
+//     width: 100%;
+//     padding: .5rem 0;
+//     margin-left: 5px;
+//     border-radius: 5px;
+//     align-items: center;
+// }
+// .ui-menu-item > .ui-menu-item-wrapper > i{
+//     margin-left: 10px;
+// }
+// .ui-menu-item > .ui-menu-item-wrapper:hover,
+// .ui-menu-item > .ui-menu-item-wrapper:hover > i,
+// .ui-menu-item > .ui-state-active,
+// .ui-menu-item > .ui-state-active > i {
+//     background: #e8e8e8 !important;
+// }
+// .ui-menu-item > .ui-menu-item-wrapper > i{
+//     border: solid 1px black;
+//     border-radius: 50px;
+//     padding: 5px;
+//     margin-right: 10px;
+// }
+// .ui-menu-item > .ui-menu-item-wrapper > i:hover{
+//     border: solid 1px white;
+// }
+// .ui-menu-item > .ui-menu-item-wrapper > span > small{
+//     margin-top: -9px;
+//     display: inherit;
+// }
+// .ui-menu li::marker {
+//     color: #0083D6 !important;
+// }
+// .ui-helper-hidden-accessible{
+//     display: none !important;
+// } 
+
+
+// @media (min-width: 768px) {
+//     .navbar_zaabrasalud {
+//         padding: 7px 0;
+//     }
+//     // Logo institucional
+//     .navbar-logo {
+//         width: 75px;
+//         height: 60px;
+//     }
+//     // Buscador, input e icono
+//     .contains_header {
+//         width: 84%;
+//         height: 100%;
+//         padding: 0;
+//         justify-content: space-between;
+//     }
+//     .contain_buscador_mobile {
+//         width: 94%;
+//     }
+//     // Icono lupa del header mobile
+//     .busqueda_mobile .busqueda_boton_mobile .busqueda_icon_mobile {
+//         width: 35px;
+//     }
+//     // Menú toggle de LOGUEO
+//     .soy_paciente {
+//         width: 85px;
+//         height: 60px;
+//     }
+//     .soy_paciente .dropdown-toggle {
+//         background-size: 65px;
+//     }
+//     // Menu hamburguesa
+//     .menu-hamburger {
+//         width: 60px;
+//         height: 60px;
+//     }
+//     // Buscador input e icono
+//     .icon_buscador {
+//         padding: 5px;
+//         border: none;
+//         height: auto;
+//         width: 35px;
+//         position: relative;
+//     }
+// }
+// @media (min-width: 1024px) {
+//     .contains_header {
+//         width: 75%;
+//     }
+//     .navbar_zaabrasalud {
+//         padding: 4px 0;
+//     } 
+//     // Logo institucional
+//     .navbar-logo {
+//         width: 75px;
+//         height: 50px;
+//     }
+//     // Icono de busqueda lupa mobile
+//     .busqueda_mobile {
+//         display: none;
+//     }
+//     // Barra de busqueda DESKTOP
+//     .containt_buscador_desk {
+//         padding: 0%;
+//         flex: 45%;
+//         max-width: 45%;
+//         height: 33px;
+//         display: flex;
+//     }
+//     .barra_busqueda {
+//         width: 100%;
+//         height: 100%;
+//         background: #ffff;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         align-content: center;
+//         border-radius: 3px;
+//     }
+//     .buscador_boton_desk {
+//         background: #ffffff;
+//         height: 100%;
+//         width: 10%;
+//         border: none;
+//         padding: 0;
+//         border-radius: 3px;
+//     }
+//     .buscador_icon_desk {
+//         background-image: url('/img/header/icono-buscador-azul.svg');
+//         background-repeat: no-repeat;
+//         background-size: 20px;
+//         background-position: center;
+//     }
+//     // Botón membresia
+//     .button-membresia {
+//         flex: 115px;
+//         height: 100%;
+//         max-width: 117px;
+//         display: flex;
+//         align-items: center;
+//         .img-button-membresia{
+//             max-width: 100%;
+//             image-rendering: -webkit-optimize-contrast;
+//         }
+//     }
+//     // Menú toggle de LOGUEO
+//     .soy_paciente {
+//         width: 75px;
+//         height: 52px;
+//     }
+//     .soy_paciente .dropdown-toggle {
+//         background-size: 55px;
+//     }
+//     // boton membresia
+//     .membresia_mobile {
+//         display: none;
+//     }
+//     .menu-hamburger {
+//         width: 60px;
+//         height: 52px;
+//     }
+//     .dropdown-paciente {
+//         width: 30%;
+//         height: 100%;
+//     }
+// }
+// @media (min-width: 1920px) {
+//     .navbar_zaabrasalud {
+//         padding: 5px 0;
+//     }
+//     // Logo institucional
+//     .navbar-logo {
+//         height: 60px;
+//     }
+//     .contains_header {
+//         width: 65%;
+//     }
+//     // Botón Login
+//     .soy_paciente {
+//         height: 60px;
+//     }
+//     .soy_paciente .dropdown-toggle {
+//         background-size: 60px;
+//     }
+//     // Botón membresia 
+//     .button-membresia {
+//         max-width: 145px;
+//     }
+//     // Menú hamburguesa
+//     .menu-hamburger {
+//         width: 60px;
+//         height: 60px;
+//     }
+//     #ui-id-1 {
+//         height: 31vh;
+//     }
+// }
+// // .sidebar-wrapper {
+// //     .sidebar-menu {
+// //         .sidebar__header {
+// //             display: flex;
+// //             align-items: center;
+// //             padding: 35px 20px 0 20px;
+// //             img {
+// //                 width: 60px;
+// //                 height: 60px;
+// //                 object-fit: cover;
+// //                 border-radius: 50px;
+// //             }
+// //             .user_data {
+// //                 display: block;
+// //                 padding-left: 15px;
+// //                 h2 {
+// //                     font-size: 20px;
+// //                     font-family: 'Quicksand';
+// //                     color: $blue_official;
+// //                     margin: 0;
+// //                 }
+// //                 h3 {
+// //                     font-size: 18px;
+// //                     font-family: 'Quicksand';
+// //                     color: $black_third;
+// //                     margin: 0;
+// //                 }
+// //             }
+// //         }
+
+// //         .sidebar__body {
+// //             .menu {
+// //                 padding-left: 15px;
+// //                 margin: 20px 0;
+// //                 .sidebar-item {
+// //                     list-style: none;
+// //                     position: relative;
+// //                     margin-top: 5px;
+// //                     button {
+// //                         font-size: 16px;
+// //                         font-family: 'Quicksand';
+// //                         color: $black_third;
+// //                         margin: 0;
+// //                         padding: 7px 0 7px 25px;
+// //                         width: 180px;
+// //                         background: transparent;
+// //                         border-radius: 5px;
+// //                         border: none;
+// //                         text-align: initial;
+// //                         &:hover {
+// //                             background: $blue_official;
+// //                             color: $withe_official;
+// //                             border-radius: 5px;
+// //                         }
+// //                         &:focus {
+// //                             background: $blue_official;
+// //                             color: $withe_official;
+// //                             border-radius: 5px;
+// //                         }
+// //                         .rotate {
+// //                             transform: rotate(180deg);
+// //                             padding-right: .5rem;
+// //                         }
+// //                     }
+// //                     .submenu {
+// //                         list-style: none;
+// //                         display: none;
+// //                         transition: max-height 2s cubic-bezier(0, .55, .45, 1);
+// //                         overflow: hidden;
+// //                         .submenu-item {
+// //                             a {
+// //                                 font-size: 14px;
+// //                                 font-family: 'Quicksand';
+// //                                 color: $black_third;
+// //                                 margin: 0;
+// //                                 &:hover {
+// //                                     color: $blue_official;
+// //                                 }
+// //                             }
+// //                         }
+// //                     }
+// //                 }
+// //             }
+// //         }
+// //     }
+ 
+// // }
+
+
+
+
+
+
+
+
+
+
+// // .panel-Administrativo{
+// //     background: #F9F9F9;
+// //     padding: 3% 3% 5% 3%;
+// // }
+// // #sidebar.active .sidebar-wrapper {
+// //     left: 0;
+// // }
+// // #sidebar:not(.active) .sidebar-wrapper {
+// //     left: -300px;
+// // }
+// // #sidebar:not(.active)~#main {
+// //     margin-left: 0;
+// // }
+// // .sidebar-wrapper {
+// //     width: 100%;
+// //     top: 0;
+// //     overflow-y: auto;
+// //     background-color: #fff;
+// //     bottom: 0;
+// //     transition: left .5s ease-out;
+// // }
+// // // Contenido Dashboard
+// // .bg_gray {
+// //     background-color: $gray_official;
+// // }
+// // // Sidebar o Menú lateral Dashboard
+// // .bg_white {
+// //     background-color: $withe_official;
+// // }
+// // .sidebar-menu {
+// //     .sidebar__header {
+// //         display: flex;
+// //         align-items: center;
+// //         padding: 35px 20px 0 20px;
+// //         img {
+// //             width: 60px;
+// //             height: 60px;
+// //             object-fit: cover;
+// //             border-radius: 50px;
+// //         }
+// //         .user_data {
+// //             display: block;
+// //             padding-left: 15px;
+// //             h2 {
+// //                 font-size: 20px;
+// //                 font-family: 'Quicksand';
+// //                 color: $blue_official;
+// //                 margin: 0;
+// //             }
+// //             h3 {
+// //                 font-size: 18px;
+// //                 font-family: 'Quicksand';
+// //                 color: $black_third;
+// //                 margin: 0;
+// //             }
+// //         }
+// //     }
+// // }
+// // // .sidebar-wrapper .sidebar-header {
+// // //     padding: 2rem 2rem 1rem;
+// // //     font-size: 2rem;
+// // //     font-weight: 700;
+// // // }
+// // // .sidebar-wrapper .sidebar-header img {
+// // //     height: 1.2rem;
+// // // }
+// // .sidebar-wrapper .sidebar-toggler.x {
+// //     position: absolute;
+// //     right: 0;
+// //     top: .5rem;
+// //     display: none;
+// // }
+// // .sidebar-wrapper .menu {
+// //     margin-top: 2rem;
+// //     padding-left: 1rem;
+// //     font-weight: 600;
+// // }
+// // .sidebar-wrapper .menu .sidebar-title {
+// //     padding: 0 1rem;
+// //     margin: 1.5rem 0 1rem;
+// //     font-size: 1rem;
+// //     list-style: none;
+// //     font-weight: 600;
+// // }
+
+// // .sidebar-wrapper .menu .sidebar-link {
+// //     display: block;
+// //     padding: .7rem 1rem;
+// //     font-size: 1rem;
+// //     display: flex;
+// //     align-items: center;
+// //     border-radius: .5rem;
+// //     transition: all .5s;
+// //     text-decoration: none;
+// //     color: #232323;
+// // }
+// // .sidebar-wrapper .menu .sidebar-link i,
+// // .sidebar-wrapper .menu .sidebar-link svg {
+// //     color: #7c8db5;
+// // }
+// // .sidebar-wrapper .menu .sidebar-link span {
+// //     margin-left: 1rem;
+// // }
+// // .sidebar-wrapper .menu .sidebar-link:hover {
+// //     background-color: #f0f1f5;
+// // }
+// // .sidebar-wrapper .menu .sidebar-item {
+// //     list-style: none;
+// //     margin-top: .5rem;
 // //     position: relative;
 // // }
-// // .sidebar-wrapper .menu .submenu .submenu-item.active>a {
-// //     color: #435ebe;
-// //     font-weight: 700;
+// // .sidebar-wrapper .menu .sidebar-item a {
+// //     color: #232323;
+
 // // }
-// .sidebar-wrapper .menu .submenu .submenu-item a {
-//     padding: .7rem 1rem;
-//     display: block;
-//     font-weight: 600;
-//     letter-spacing: .5px;
-//     transition: all .3s;
-//     font-size: 14px;
-//     text-decoration: none;
-//     color: #232323;
-//     &:hover {
-//         color: $blue_official;
-//     }
-// }
-// // .sidebar-wrapper .menu .submenu .submenu-item .actived:hover {
-// //     margin-left: .1rem;
-// //     color: #ffffff !important;
-// //     background-color: #0083D6;
-// //     text-decoration: none;
-// // }
-// // .actived {
-// //     color: #232323 !important;
-// // }
-// // .unactived {
-// //     color: #0083D6 !important;
-// //     text-decoration: none !important;
-// // }
-// // .titulo_menu {
-// //     color: #232323 !important;
-// //     display: flex;
-// //     width: 75%;
-// // }
-// // .citaPadre {
-// //     color: #ffffff !important;
-// //     background-color: #0083D6;
-// //     padding-left: 5%;
+// // .sidebar-wrapper .menu .sidebar-item button {
+// //     font-size: 16px;
+// //     font-family: 'Quicksand';
+// //     color: $black_third;
+// //     margin: 0;
+// //     padding: 7px 0 7px 25px;
+// //     width: 180px;
+// //     background: transparent;
+// //     border-radius: 5px;
+// //     border: none;
+// //     text-align: initial;
+// //     &:hover {
+// //         background: $blue_official;
+// //         color: $withe_official;
+// //         border-radius: 5px;
+// //     }
+// //     &:focus {
+// //         background: $blue_official;
+// //         color: $withe_official;
+// //         border-radius: 5px;
+// //     }
 // // }
 
-// @media (min-width: 320px){
-//     // Menú hamburguesa versión CELULAR Y TABLET
-//     .menu_mobile {
-//         background-image: url('/img/header/icono-hamburguesa-azul.svg');
-//         background-repeat: no-repeat;
-//         background-position: bottom;
-//         width: 25px;
-//         height: 25px;
-//     }
-// }
+// // // .sidebar-wrapper .menu .sidebar-item.has-sub .sidebar-link:after {
+// // //     content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path stroke="gray" stroke-width="1" d="M6 9l6 6 6-6"/></svg>');
+// // //     position: absolute;
+// // //     color: #ccc;
+// // //     right: 15px;
+// // //     top: 12px;
+// // //     display: block;
+// // // }
+// // // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
+// // //     background-color: #435ebe;
+// // // }
+// // // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link span {
+// // //     color: #fff;
+// // // }
+// // // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link i,
+// // // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link svg {
+// // //     fill: #fff;
+// // //     color: #fff;
+// // // }
+// // // .sidebar-wrapper .menu .sidebar-item.active .sidebar-link.has-sub:after {
+// // //     content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path stroke="%23fff" stroke-width="1" d="M6 9l6 6 6-6"/></svg>')
+// // // }
+// // // Items de los submenus
+// // .sidebar-wrapper .menu .submenu {
+// //     list-style: none;
+// //     display: none;
+// //     transition: max-height 2s cubic-bezier(0, .55, .45, 1);
+// //     overflow: hidden;
+// // }
+// // .sidebar-wrapper .menu .submenu.active {
+// //     max-height: 999px;
+// //     display: block;
+// //     padding-left: 30px;
+// // }
+// // // .sidebar-wrapper .menu .submenu .submenu-item.active {
+// // //     position: relative;
+// // // }
+// // // .sidebar-wrapper .menu .submenu .submenu-item.active>a {
+// // //     color: #435ebe;
+// // //     font-weight: 700;
+// // // }
+// // .sidebar-wrapper .menu .submenu .submenu-item a {
+// //     padding: .7rem 1rem;
+// //     display: block;
+// //     font-weight: 600;
+// //     letter-spacing: .5px;
+// //     transition: all .3s;
+// //     font-size: 14px;
+// //     text-decoration: none;
+// //     color: #232323;
+// //     &:hover {
+// //         color: $blue_official;
+// //     }
+// // }
+// // // .sidebar-wrapper .menu .submenu .submenu-item .actived:hover {
+// // //     margin-left: .1rem;
+// // //     color: #ffffff !important;
+// // //     background-color: #0083D6;
+// // //     text-decoration: none;
+// // // }
+// // // .actived {
+// // //     color: #232323 !important;
+// // // }
+// // // .unactived {
+// // //     color: #0083D6 !important;
+// // //     text-decoration: none !important;
+// // // }
+// // // .titulo_menu {
+// // //     color: #232323 !important;
+// // //     display: flex;
+// // //     width: 75%;
+// // // }
+// // // .citaPadre {
+// // //     color: #ffffff !important;
+// // //     background-color: #0083D6;
+// // //     padding-left: 5%;
+// // // }
+
+// // @media (min-width: 320px){
+// //     // Menú hamburguesa versión CELULAR Y TABLET
+// //     .menu_mobile {
+// //         background-image: url('/img/header/icono-hamburguesa-azul.svg');
+// //         background-repeat: no-repeat;
+// //         background-position: bottom;
+// //         width: 25px;
+// //         height: 25px;
+// //     }
+// // }

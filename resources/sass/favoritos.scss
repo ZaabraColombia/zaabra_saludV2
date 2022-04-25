@@ -167,9 +167,9 @@
     height: 16.5vh;
 }
 // Ocultar barra de scroll sin deshabilitarlo
-::-webkit-scrollbar {
-    display: none;
-}
+// ::-webkit-scrollbar {
+//     display: none;
+// }
 
 @media (min-width: 320px) and (orientation: portrait) {
     .container_principal_fav {
