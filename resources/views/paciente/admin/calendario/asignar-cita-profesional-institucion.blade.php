@@ -116,7 +116,7 @@
                                     <option></option>
                                     @if(!empty($servicios))
                                         @foreach ($servicios as $servicio)
-                                            <option value="{{ $servicio->id }}" data-valor="{{ $servicio->valor }}">{{ $servicio->nombre }}</option>
+                                            <option value="{{ $servicio->id }}" data-valor="{{ number_format($servicio->valor, 0, ',', '.') }}">{{ $servicio->nombre }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -165,15 +165,22 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <h5 class="profesional">{{ $user->nombre_completo }}</h5>
-                        <h5>{{ "{$user->tipo_documento->nombre_corto} {$user->numerodocumento}" }}</h5>
+                        <h5>{{ "{$user->tipo_documento->nombre_corto}" }}: {{ number_format($user->numerodocumento, 0, ",", ".") }}</h5>
                     </div>
                     <div>
                         <h5 class="profesional">Dr(a). {{ $profesional->nombre_completo }}</h5>
-                        <h5>1033154798</h5>
+                        <!-- <h5>{{ "{$user->tipo_documento->nombre_corto}" }}:</h5> -->
                         <h5 id="modal-tipo-de-cita"></h5>
-                        <h5 id="modal-horario"></h5>
-                        <h5>{{ ($profesional->sede->direccion ?? $profesional->institucion->direccion) . "-" . ($profesional->consultorio) }} ({{ $profesional->sede->ciudad->nombre ?? $profesional->institucion->ciudad->nombre }})</h5>
-                        <h5>Valor cita: <span id="modal-valor"></span></h5>
+                        <h5 >Fecha: &nbsp;<span id="modal-fecha"></span> </h5>
+                        <h5 >Hora cita: &nbsp;<span id="modal-hora"></span> </h5>
+                        <h5 >Direción de atención: &nbsp;
+                            <span>{{ ($profesional->sede->direccion ?? $profesional->institucion->direccion) }} 
+
+                                (Consultorio {{ $profesional->consultorio }})
+                                ({{ $profesional->sede->ciudad->nombre ?? $profesional->institucion->ciudad->nombre }})
+                            </span>
+                        </h5>
+                        <h5>Valor cita: &nbsp; $ <span id="modal-valor"></span></h5>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -303,10 +310,15 @@
                 tipo_cita.val() !== undefined && tipo_cita.val() !== null
             )
             {
-                $('#modal-horario').html(moment(horario.start, 'YYYY-MM-DD HH:mm').locale('es').format('DD-MMM /YYYY')
-                    + '<br>' + moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
+                // Fecha de la cita
+                $('#modal-fecha').html(moment(horario.start, 'YYYY-MM-DD HH:mm').locale('es').format('DD-MMM-YYYY')
+                );
+
+                // Hora de la cita
+                $('#modal-hora').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
                     + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A')
                 );
+
                 $('#modal-tipo-de-cita').html(tipo_cita.find('option:selected').html());
 
                 if(check_convenio.prop('checked'))
