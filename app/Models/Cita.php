@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -163,4 +164,24 @@ class Cita extends Model
         return date('h:i a', strtotime($this->fecha_inicio)) . " - " . date('h:i a', strtotime($this->fecha_fin));
     }
 
+
+    /**
+     * Permite
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopeValidar(Builder $query, $inicio, $fin): Builder
+    {
+        return $query->where(function ($query) use ($inicio, $fin){
+            $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($inicio)) .
+                '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($fin)) . '")')
+                ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($inicio)) .
+                    '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($fin)) . '")')
+                ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($inicio)) .
+                    '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($inicio)) . '")')
+                ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($fin)) .
+                    '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($fin)) . '")');
+        });
+    }
 }

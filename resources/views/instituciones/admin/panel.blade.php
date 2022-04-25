@@ -3,6 +3,17 @@
 @section('contenido')
     <div class="container py-4 px-lg-5">
         <div class="row m-0 p-0">
+            <div class="col-12">
+                @if(session()->has('success'))
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
+            </div>
             <div class="col-12 col-lg-8 col-xl-9 p-0 m-0">
                 <div class="row m-0 justify-content-between">
                     {{-- Profesionales --}}

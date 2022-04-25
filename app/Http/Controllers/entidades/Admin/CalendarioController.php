@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\entidades\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ConfirmacionCitaEmail;
+use App\Models\Antiguedad;
 use App\Models\Cita;
 use App\Models\especialidades;
 use App\Models\Paciente;
+use App\Models\PagoCita;
 use App\Models\profesionales_instituciones;
 use App\Models\Servicio;
 use App\Models\TipoServicio;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
@@ -21,6 +25,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -162,6 +167,10 @@ class CalendarioController extends Controller
     public function create()
     {
         $profesionales = profesionales_instituciones::query()
+            ->with([
+                'sede',
+                'sede.ciudad'
+            ])
             ->where('id_institucion', Auth::user()->institucion->id)
             ->get();
 
@@ -286,11 +295,12 @@ class CalendarioController extends Controller
 
             if (in_array( $diaSemana, $item['daysOfWeek']))
             {
+                //inicio y fin
                 $startDate = strtotime("$fecha " . $item['startTime']);
                 $endDate = strtotime("$fecha " . $item['endTime']);
 
                 //generar posibles citas
-                $listDates = generar_citas($startDate, $endDate, $intervaloCita, $datesOperatives, 2);
+                $listDates = array_merge($listDates, generar_citas($startDate, $endDate, $intervaloCita, $datesOperatives));
 
             }
         }
@@ -305,20 +315,141 @@ class CalendarioController extends Controller
     }
 
     /**
-     * @return Application|RedirectResponse|Redirector
+     * Permite crear una cita
+     *
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(Request $request){
-        $request->validate([
-            'paciente' => ['required'],
-            'paciente' => ['required'],
-            'paciente' => ['required'],
-            'paciente' => ['required'],
-            'paciente' => ['required'],
-            'paciente' => ['required'],
+    public function store(Request $request): RedirectResponse
+    {
+
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'profesional'   => [
+                'required',
+                Rule::exists('profesionales_instituciones', 'id_profesional_inst')
+                    ->where('id_institucion', Auth::user()->institucion->id)
+                //->where('estado', 1)
+            ]
         ]);
 
+        //profesional
+        $profesional = profesionales_instituciones::query()->find($request->profesional);
 
-        return redirect();
+        $request->validate([
+            'hora'    => ['required'],
+            'hora.*'  => [
+                'required',
+                'date_format:Y-m-d H:i',
+                'before_or_equal:' . date('Y-m-d H:i', strtotime(date('Y-m-d') . " 23:59 +{$profesional->disponibilidad_agenda} days"))
+            ],
+            'paciente'      => [
+                'required',
+                'exists:users,numerodocumento'
+            ],
+            'tipo_servicio' => [
+                'required',
+                Rule::exists('servicios', 'id')->where(function ($query) use ($profesional){
+                    return $query->where('institucion_id', $profesional->institucion->id)
+                        ->where('agendamiento_virtual', 1);
+                })
+            ]
+        ]);
+
+        //Servicio
+        $convenio = $request->convenio;
+        $tipo_servicio = $request->tipo_servicio;
+
+        $servicio = Servicio::query()
+            ->with(['convenios_lista' => function ($query) use ($convenio, $tipo_servicio){
+                if (isset($tipo_servicio) and isset($convenio)) return $query
+                    ->where('convenios.id', $convenio)
+                    ->first();
+                return $query->first();
+            }])
+            ->find($request->tipo_servicio);
+
+        $paciente = $request->paciente;
+        $paciente = Paciente::query()
+            ->whereHas('user', function ($query) use ($paciente){
+                $query->where('numerodocumento', $paciente);
+            })
+            ->first();
+
+        //Validar el límite de agenda * servicio* usuario
+//        $citas = Cita::query()
+//            ->where('paciente_id', $paciente->id)
+//            ->where('estado', 'like', 'agendado')
+//            ->where('tipo_cita_id', $request->tipo_servicio)
+//            ->count();
+//
+//        //dd(Auth::user()->paciente->id);
+//        if ($citas >= $servicio->citas_activas) {
+//            return redirect()
+//                ->back()
+//                ->withErrors(['cita' => 'Ya tiene citas agendadas con el servicios de la institución']);;
+//        }
+
+        $fecha = json_decode($request->hora);
+        $inicio = $fecha->start;
+        $fin    = $fecha->end;
+
+
+        $validar_cita = Cita::query()
+            ->validar($inicio, $fin)
+            ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->count();
+
+        if ($validar_cita > 0)
+        {
+            return redirect()
+                ->back()
+                ->withErrors(['cita' => 'Cita no disponible']);
+        }
+
+
+        //crear cita
+        $date = Cita::query()->create([
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($inicio)),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($fin)),
+            'estado'        => 'agendado',
+            'lugar'         => ($profesional->sede->direccion ?? $profesional->institucion->direccion) . " - Consultorio " . ($profesional->consultorio),
+            'pais_id'       => $profesional->sede->pais_id ?? $profesional->institucion->idPais,
+            'departamento_id' => $profesional->sede->departamento_id ?? $profesional->institucion->id_departamento,
+            'provincia_id'  => $profesional->sede->provincia_id ?? $profesional->institucion->id_provincia,
+            'ciudad_id'     => $profesional->sede->ciudad_id ?? $profesional->institucion->id_municipio,
+            'tipo_cita_id'  => $servicio->id,
+            'profesional_ins_id'=> $profesional->id_profesional_inst,
+            'paciente_id'   => $paciente->id,
+            'especialidad_id'   => $servicio->especialidad_id,
+        ]);
+
+        $fechaPago = Carbon::now();
+
+        //permite registrar el usuario como antiguo
+        Antiguedad::query()
+            ->firstOrCreate([
+                'paciente_id' => $paciente->id,
+                'institucion_id' => $profesional->id_institucion,
+            ], ['confirmacion' => true]);
+
+        //Crear pago
+        $pago = PagoCita::query()->create([
+            'fecha'         => $fechaPago,
+            'vencimiento'   => date('Y-m-d H:i', strtotime($inicio. " -3 hours")),
+            'valor'         => (isset($tipo_servicio) and isset($convenio)) ? $servicio->convenios_lista[0]->pivot->valor_paciente:$servicio->valor ,
+            'valor_convenio' => (isset($tipo_servicio) and isset($convenio)) ? $servicio->convenios_lista[0]->pivot->valor_convenio:0,
+            'aprobado'  => 0,
+            'tipo'      => $request->modalidad,
+            'cita_id'   => $date->id_cita,
+        ]);
+
+        //Enviar notificación de confirmación de cita
+        //Mail::to($paciente->email)->send(new ConfirmacionCitaEmail($date, 'institucion'));
+
+        return redirect()
+            ->route('institucion.panel')
+            ->with('success', "Cita asignada con {$profesional->nombre_completo}");
     }
 
 

@@ -147,6 +147,12 @@ class profesionales_instituciones extends Model
     }
 
 
+    public function getConsultorioCompletoAttribute(): string
+    {
+        return "{$this->sede->direccion} (Consultorio {$this->consultorio}) {$this->sede->ciudad->nombre}";
+    }
+
+
     /**
      * @return \string[][][]
      */

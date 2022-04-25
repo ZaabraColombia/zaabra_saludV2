@@ -70,9 +70,8 @@
                 @endcan
 
                 {{-- Agenda --}}
-                {{--
                 <li class="sidebar-item has-sub items_green accordion" id="accordion_agenda">
-                    <button id="headingAgenda" class="" type="button" data-toggle="collapse"
+                    <button id="headingAgenda" class="{{ request()->routeIs('institucion.calendario.*') ? 'btn_active_inst' : '' }}" type="button" data-toggle="collapse"
                             data-target="#collapseAgenda" aria-expanded="false" aria-controls="collapseAgenda">
                         Agenda <i class="icon_angle fas fa-angle-down pl-2"></i>
                     </button>
@@ -80,23 +79,26 @@
                     <ul id="collapseAgenda" class="collapse sub_menu_green" aria-labelledby="headingAgenda"
                         data-parent="#accordion_agenda">
                         <li class="submenu-item">
-                            <a id="" class="" href="#">
+                            <a class="{{ (request()->routeIs('institucion.calendario.iniciar-control') or request()->routeIs('institucion.calendario.citas')) ? 'txt_active_green' : '' }}"
+                               href="{{ route('institucion.calendario.iniciar-control') }}">
                                 Control citas
                             </a>
                         </li>
                         <li class="submenu-item">
-                            <a id="" class="" href="#">
+                            <a class="{{ request()->routeIs('institucion.calendario.crear-cita') ? 'txt_active_green' : '' }}"
+                               href="{{ route('institucion.calendario.crear-cita') }}">
                                 Agendar cita
                             </a>
                         </li>
+                        {{--
                         <li class="submenu-item">
                             <a id="" class="" href="#">
                                 Bloquear agenda
                             </a>
                         </li>
+                        --}}
                     </ul>
                 </li>
-                --}}
 
 
                 {{-- citas --}}
