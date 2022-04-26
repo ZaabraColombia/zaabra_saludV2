@@ -35,7 +35,7 @@ class buscadorController extends Controller
                 ->select(
                     'nombreProfesion as label',
                     DB::raw('CONCAT("' . url('/ramas-de-la-salud/') . '/", slug) as url'),
-                    DB::raw('CONCAT("fas fa-stethoscope") as icon')
+                    DB::raw('CONCAT("fas fa-stethoscope icon_esp_med") as icon')
                 )
                 ->get();
 
@@ -49,7 +49,7 @@ class buscadorController extends Controller
             ->select(
                 'nombreProfesion as label',
                 DB::raw('CONCAT("' . url('/ramas-de-la-salud/') . '/", slug) as url'),
-                DB::raw('CONCAT("fas fa-stethoscope") as icon')
+                DB::raw('CONCAT("fas fa-stethoscope icon_esp_med") as icon')
             )
             ->get();
 
@@ -68,7 +68,7 @@ class buscadorController extends Controller
                 DB::raw('CONCAT(COALESCE(users.primernombre, ""), " ", COALESCE(users.segundonombre, ""), " ", COALESCE(users.primerapellido, "")) as label'),
                 DB::raw('especialidades.nombreEspecialidad as type'),
                 DB::raw('CONCAT("' . url('/PerfilProfesional') . '/", perfilesprofesionales.slug) as url'),
-                DB::raw('CONCAT("fas fa-user-md") as icon')
+                DB::raw('CONCAT(" registered_prof") as icon')
             )->get();
 
         $instituciones = instituciones::join('users', 'instituciones.idUser', '=', 'users.id')
@@ -82,7 +82,7 @@ class buscadorController extends Controller
                 DB::raw('tipoinstituciones.nombretipo as label'),
                 DB::raw('users.nombreinstitucion as type'),
                 DB::raw('CONCAT("' . url('/PerfilInstitucion') . '/", instituciones.slug) as url'),
-                DB::raw('CONCAT("fas fa-hospital-alt") as icon')
+                DB::raw('CONCAT("fas fa-hospital-alt icon_inst_med") as icon')
             )
             ->get();
 
@@ -133,7 +133,7 @@ class buscadorController extends Controller
                     'label' => $item->nombre_completo,
                     'type'  => "$item->type / $item->place",
                     'url'   => route('PerfilInstitucion-profesionales', ['slug' => $item->slug, 'prof' => "$item->primer_nombre $item->primer_apellido"]),
-                    'icon' => 'fas fa-stethoscope'
+                    'icon' => 'fas fa-stethoscope icon_prof_inst'
                 ];
             });
 

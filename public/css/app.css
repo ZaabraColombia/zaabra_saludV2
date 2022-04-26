@@ -10049,6 +10049,8 @@ a:hover {
   image-rendering: -webkit-optimize-contrast;
 }
 
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+/* Cambiamos el fondo cuando esté en active */
 .input_buscador {
   width: 100%;
   height: 100%;
@@ -10066,8 +10068,6 @@ a:hover {
   background-size: 27px;
 }
 
-/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
-/* Cambiamos el fondo cuando esté en active */
 .ui-menu {
   z-index: 500 !important;
   background: white;
@@ -10078,7 +10078,6 @@ a:hover {
   border-bottom-right-radius: 5px;
   padding: 20px !important;
   position: fixed !important;
-  display: block !important;
 }
 
 .ui-menu-item {
@@ -10106,7 +10105,6 @@ a:hover {
 }
 
 .ui-menu-item > .ui-menu-item-wrapper > i {
-  border: solid 1px black;
   border-radius: 50px;
   padding: 5px;
   margin-right: 10px;
@@ -10172,6 +10170,32 @@ a:hover {
 
 .containt_buscador_desk {
   display: none;
+}
+
+.icon_esp_med {
+  color: #0083D6;
+  border: 1px solid #0083D6;
+  background-color: #e1f0f9;
+}
+
+.icon_prof_inst {
+  color: #019F86;
+  border: 1px solid #019F86;
+  background-color: #eefbf4;
+}
+
+.icon_inst_med {
+  color: #019F86;
+  border: 1px solid #019F86;
+  background-color: #eefbf4;
+}
+
+.registered_prof {
+  background-image: url("/img/menu/avatar.png");
+  background-repeat: round;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #c3c3c3;
 }
 
 .soy_paciente {
