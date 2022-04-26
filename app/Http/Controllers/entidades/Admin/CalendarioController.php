@@ -154,9 +154,12 @@ class CalendarioController extends Controller
             //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
             ->whereIn('profesional_ins_id', $request->get('ids'));
 
-        //dd($query->get()->toJson());
-
-        return datatables()->eloquent($query)->toJson();
+        return datatables()
+            ->eloquent($query)
+            ->addColumn('edit', function (Cita $cita){
+                return route('institucion.calendario.ver-cita', ['cita' => $cita->id_cita]);
+            })
+            ->toJson();
     }
 
     /**
@@ -452,5 +455,35 @@ class CalendarioController extends Controller
             ->with('success', "Cita asignada con {$profesional->nombre_completo}");
     }
 
+    /**
+     * Permite buscar una cita
+     *
+     * @param $cita
+     * @return Application|ResponseFactory|Response
+     */
+    public function show($cita)
+    {
+        $cita = Cita::query()
+            ->whereHas('profesional_ins', function (Builder $query) {
+                return $query->where('id_institucion', Auth::user()->institucion->id);
+            })
+            ->where('id_cita', $cita)
+            ->first();
 
+        if (empty($cita)) return response([
+            'title'     => 'Error',
+            'message'   => 'No se encuentra la cita'
+        ], Response::HTTP_NOT_FOUND);
+
+        $cita->edit = route('institucion.calendario.actualizar-cita', ['cita' => $cita->id_cita]);
+
+        return response([
+            'item' => $cita
+        ], Response::HTTP_OK);
+    }
+
+    public function update(Request $request)
+    {
+
+    }
 }

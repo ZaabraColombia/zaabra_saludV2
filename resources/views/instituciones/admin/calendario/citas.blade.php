@@ -3,7 +3,11 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/Responsive-2.2.9/css/responsive.dataTables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset(' plugins/DataTables/Responsive-2.2.9/css/responsive.bootstrap.min.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset(' plugins/DataTables/Responsive-2.2.9/css/responsive.bootstrap.min.css') }}">--}}
+
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
         .bg-agendado { background: rgba(1, 159, 134, 0.3)}
@@ -55,15 +59,16 @@
             <div class="containt_main_table mb-3">
                 <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
-                        <tr>
-                            <th>Hora</th>
-                            <th>Fecha</th>
-                            <th>Profesional</th>
-                            <th>Paciente</th>
-                            <th>Identificación</th>
-                            <th>Lugar</th>
-                            <th>Celular</th>
-                        </tr>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Fecha</th>
+                        <th>Profesional</th>
+                        <th>Paciente</th>
+                        <th>Identificación</th>
+                        <th>Acción</th>
+                        <th>Lugar</th>
+                        <th>Celular</th>
+                    </tr>
                     </thead>
                 </table>
             </div>
@@ -71,7 +76,7 @@
     </div>
 
     <!-- Modal  reagendar cita -->
-    <div class="modal fade" id="modal_reagendar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal-reagendar-cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -80,7 +85,8 @@
                     </button>
                 </div>
 
-                <form method="POST" action="" id="form-cita-reagendar">
+                <form method="POST" action="" id="form-reagendar-cita">
+                    @csrf
                     <div class="modal-body">
                         <div class="modal_info_cita mb-3">
                             <div class="py-3">
@@ -137,7 +143,7 @@
 
                                 <div class="col-12 p-0">
                                     <label for="profesional">Profesional</label>
-                                    <input type="text" id="profesional" name="profesional" required/>
+                                    <select type="text" id="profesional" name="profesional" required></select>
                                 </div>
 
                                 <label for="fecha-reasignar">Fecha</label>
@@ -258,6 +264,8 @@
     <script src="{{ asset('plugins/moment/moment-with-locales.min.js') }}"></script>
     {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>--}}
     <script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
     <script src="{{ asset('js/alertas.js') }}"></script>
 
     <script>
@@ -287,16 +295,38 @@
                     {data: "profesional_ins.nombre_completo", name: 'profesional_ins.nombre_completo'},
                     {data: "paciente.user.nombre_completo", name: 'paciente.user.nombre_completo'},
                     {data: "paciente.user.numerodocumento", name: 'paciente.user.numerodocumento'},
+                    {
+                        name: 'edit',
+                        data: function (data, type, full, meta) {
+                            return '<button  class="btn_action_green tool top editar-cita" data-url="' + data.edit + '">' +
+                                '<i class="fas fa-calendar-day fa-2x"></i>' +
+                                '<span class="tiptext">Editar cita</span>' +
+                                '</button>' +
+                                '<button  class="btn_action_green tool top cancelar-cita" data-url="' + data.edit + '">' +
+                                '<i class="fas fa-calendar-times fa-2x"></i>' +
+                                '<span class="tiptext">Cancelar cita</span>' +
+                                '</button>';
+                        },
+                        searchable: false,
+                        //responsive: false,
+                    },
                     {data: "lugar", name: "lugar"},
                     {data: "paciente.celular", name: "paciente.celular"},
                 ],
-                // columnDefs: [
-                //     {
-                //         targets: [-1],
-                //         orderable: false,
-                //         responsive: false
-                //     }
-                // ],
+                columnDefs: [
+                    {
+                        //name:    'edit',
+                        //target:    5,
+                        //search:     false,
+                        //responsive: false,
+                        className: '',
+                        data: function (data, type, full, meta) {
+                            console.log(data);
+                            return data;
+                        }
+
+                    }
+                ],
                 serverSide: true,
                 ajax:{
                     data:{ids: {!! json_encode($lista) !!}, fecha:'{{ $fecha }}'},
@@ -309,9 +339,9 @@
                     //     // });
                     // }
                 },
-                createdRow: function (row, data, dataIndex) {
-                    $(row).addClass('bg-' + data.estado);
-                }
+                // createdRow: function (row, data, dataIndex) {
+                //     $(row).addClass('bg-' + data.estado);
+                // }
             });
 
             setInterval( function () {
@@ -325,6 +355,70 @@
             $("#date").on('change',function(){
                 table.draw();
             });
+
+            //editar cita
+            table.on('click', '.editar-cita', function (eve) {
+                var btn = $(this);
+
+                $('#form-reagendar-cita')[0].reset();
+
+                $.get(btn.data('url'), function (response) {
+                    var item = response.item;
+
+                    $('#form-reagendar-cita').attr('action', item.edit);
+
+                    $('#modal-reagendar-cita').modal();
+
+                }, 'json').fail(function (status) {
+                    console.log(status);
+                });
+
+            });
+        });
+
+        //Buscar profesional
+        $('#profesional').select2({
+            language: 'es',
+            theme: 'bootstrap4',
+            ajax: {
+                url: '{{ route('institucion.buscador-profesional') }}',
+                dataType: 'json',
+                method: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: function (params) {
+                    return {
+                        searchTerm: params.term // search term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                        results:response
+                    };
+                },
+                cache: true,
+            },
+            minimumInputLength: 3,
+            dropdownParent: $('#modal-reagendar-cita')
+        }).on('select2:select', function (e) {
+            var data = e.params.data;
+            $.ajax({
+                url: '{{ route('') }}',
+                data: {profesional: data.id},
+                dataType: 'json',
+                method: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: (response) => {
+                    var agenda = response.agenda;
+
+
+                }
+            });
+        }).on('select2:opening', function (e){
+
         });
     </script>
 @endsection
