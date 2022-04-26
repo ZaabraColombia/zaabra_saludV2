@@ -1,4 +1,4 @@
-@extends('paciente.admin.layouts.layout')
+@extends('instituciones.admin.layouts.layout')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/pg-calendar-master/dist/css/pignose.calendar.min.css') }}">
@@ -23,17 +23,24 @@
             </div>
         </div>
 
-        <div class="content_row mt_md_lg">
-            <!-- Información del Profesional -->
-            <div class="col_flex w_lg_35 align_between_1300">
-                <div class="w-100 w_md_65 w_lg_100 px_xl pl-md-3">
-                    <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                        <form action="" method="post" id="">
+        <form action="{{ route('institucion.calendario.guardar-cita') }}" method="post" id="form-crear-cita-institucion">
+            <div class="content_row mt_md_lg">
+                @csrf
+                {{-- Información del Profesional --}}
+                <div class="col_flex w_lg_35 align_between_1300">
+                    <div class="w-100 w_md_65 w_lg_100 px_xl pl-md-3">
+                        <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
                             @csrf
                             <input type="hidden" name="date-calendar" id="date-calendar">
                             <div class="input__box mb-3">
                                 <label for="paciente">Paciente</label>
                                 <select id="paciente" class="form-control" name="paciente" required></select>
+                            </div>
+                            <div class="input__box mb-3" style="display: none" id="div-paciente">
+                                <img id="foto" alt="foto" class="w-100 img-round"/>
+                                <h5 id="paciente-nombre-comppleto"></h5>
+                                <h5 id="paciente-identificacion"></h5>
+                                <h5 id="paciente-correo"></h5>
                             </div>
 
                             <div class="input__box mb-3">
@@ -42,7 +49,7 @@
                                     <option></option>
                                     @if($profesionales->isNotEmpty())
                                         @foreach($profesionales as $profesional)
-                                            <option value="{{ $profesional->id_profesional_inst }}">{{ $profesional->nombre_completo }}</option>
+                                            <option value="{{ $profesional->id_profesional_inst }}" data-lugar="{{ $profesional->consultorio_completo }}">{{ $profesional->nombre_completo }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -59,30 +66,26 @@
                                     @endif
                                 </select>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content_row w_lg_65 my__md">
-                <!-- Calendario -->
-                <div class="col_flex col_flex_md">
-                    <div class="calendar w-100"></div>
-                </div>
-
-                <div class="content_row col_flex_md ml-md-auto mt-lg-2 align_between_1300">
-                    <div class="col_flex">
-                        <div class="mt-4 mb-3 mt-md-0">
-                            <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
-                            <span class="badge rounded-pill bg-secondary mb-3 w-100" style="opacity: .5;">Días no disponibles</span>
-                            <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                        <form action="" method="post" id="">
-                            @csrf
-                            <input type="hidden" name="date-calendar" id="date-calendar">
+                <div class="content_row w_lg_65 my__md">
+                    <!-- Calendario -->
+                    <div class="col_flex col_flex_md">
+                        <div id="calendar" class="calendar w-100"></div>
+                    </div>
+
+                    <div class="content_row col_flex_md ml-md-auto mt-lg-2 align_between_1300">
+                        <div class="col_flex">
+                            <div class="mt-4 mb-3 mt-md-0">
+                                <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
+                                <span class="badge rounded-pill bg-secondary mb-3 w-100" style="opacity: .5;">Días no disponibles</span>
+                                <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
+                            </div>
+                        </div>
+
+                        <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
                             <div class="input__box mb-3">
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
@@ -105,7 +108,7 @@
 
                             <div class="input__box mb-3">
                                 <label for="hora">Hora de la cita</label>
-                                <select id="hora" name="hora"  class="form-control" required></select>
+                                <select id="hora" name="hora" class="form-control" required></select>
                             </div>
 
                             <div class="row m-0 content_btn_right">
@@ -113,8 +116,43 @@
                                     Finalizar
                                 </button>
                             </div>
-                        </form>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal confirmar cita -->
+    <div class="modal fade" id="confirmar-cita" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fs_title_module black_bold" id="exampleModalLabel">Detalles de la cita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <h5 id="modal-paciente"></h5>
+                        <h5 id="modal-paciente-identificacion"></h5>
+                    </div>
+                    <div>
+                        <h5> Paciente<span id="modal-profesional"></span></h5>
+                        <h5> Identificación<span id="modal-profesional-identificacion"></span></h5>
+                        <h5> Tipo de servicio:<span id="modal-tipo-cita"></span></h5>
+                        <h5> Profesional: <span id="modal-profesional"></span></h5>
+                        <h5> Horario: <span id="modal-horario"></span></h5>
+                        <h5> Lugar: <span id="modal-lugar"></span></h5>
+                        <h5> Pago: <span id="modal-modalidad"></span></h5>
+                        <h5>Valor cita: <span id="modal-valor"></span></h5>
+                        <h5> Convenio: <span id="modal-convenio"></span></h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btn_confirmar_cita">Guardar</button>
                 </div>
             </div>
         </div>
@@ -132,7 +170,7 @@
 
         //moment.locale('es'); // change the global locale to Spanish
 
-        var calendar = $('.calendar').pignoseCalendar({
+        var calendar = $('#calendar').pignoseCalendar({
             lang: 'es',
             initialize: false,
             minDate: '',
@@ -143,7 +181,19 @@
             disabledRanges: [
                 //['2022-04-07', '2022-04-22'], // 2022-04-07 ~ 22
             ],
+            select: (date, context) => {
+
+                var servicio = $('#tipo_servicio').val();
+
+                var date_calendar = $('#date-calendar');
+                date_calendar.val('');
+
+                if(date[0] !== null && date[0]._i) date_calendar.val(date[0]._i);
+                if (date[0] !== null && date[0]._i !== undefined && servicio !== '') dias_libres(date[0]._i, servicio);
+
+            }
         });
+
 
         //Buscar paciente
         $('#paciente').select2({
@@ -172,17 +222,20 @@
         }).on('select2:select', function (e) {
             var data = e.params.data;
 
-            //$('#nombre').val(data.nombre);
-            //$('#apellido').val(data.apellido);
-            //$('#correo').val(data.email);
+            $('#foto').attr('src', data.foto);
+            $('#paciente-nombre-comppleto').html(data.nombre_completo);
+            $('#paciente-identificacion').html(data.identificacion);
+            $('#paciente-correo').html(data.email);
+            $('#div-paciente').show();
 
         }).on('select2:opening', function (e){
 
             $(this).val(null).trigger('change');
-            //$('#nombre').val('');
-            //$('#apellido').val('');
-            //$('#correo').val('');
-
+            $('#div-paciente').hide();
+            $('#foto').attr('src', '#');
+            $('#paciente-nombre-comppleto').html('');
+            $('#paciente-identificacion').html('');
+            $('#paciente-correo').html('');
         });
 
         //Agregar servicios
@@ -210,12 +263,34 @@
                         );
                     });
 
+                    //date
+                    $('#date-calendar').val(moment().format('YYYY-MM-DD'));
+
                     //calendario
-                    $('.calendar').pignoseCalendar('configure', {
+                    $('#calendar').pignoseCalendar({
+                        lang: 'es',
+                        date: moment().format('YYYY-MM-DD'),
                         minDate: moment().format('YYYY-MM-DD'),
                         maxDate: moment().add('days', response.agenda.disponibilidad).format('YYYY-MM-DD'),
-                        disabledWeekdays: response.agenda.weekNotBusiness
+                        disabledWeekdays: response.agenda.weekNotBusiness,
+                        select: (date, context) => {
+
+                            var servicio = $('#tipo_servicio').val();
+
+                            var date_calendar = $('#date-calendar');
+                            date_calendar.val('');
+
+                            if(date[0] !== null && date[0]._i) date_calendar.val(date[0]._i);
+                            if (date[0] !== null && date[0]._i !== undefined && servicio !== '') dias_libres(date[0]._i, servicio);
+
+                        }
                     });
+
+                    // $('#calendar').pignoseCalendar('setting', {
+                    //     minDate: moment(),
+                    //     maxDate: moment().add('days', 2),
+                    //     disabledWeekdays: [1, 2, 3]
+                    // });
                 }
             })
         });
@@ -255,6 +330,69 @@
         $('#check-convenio').change(function (event) {
             $('#convenio').prop('disabled', !$(this).prop('checked'));
         });
+
+        //Dias libres
+        function dias_libres(fecha, servicio) {
+            var hora = $('#hora');
+            hora.html('<option></option>');
+
+            console.log('fecha ' + fecha);
+            console.log('servicio ' + servicio);
+
+            $.ajax({
+                data: $('#form-crear-cita-institucion').serialize(),
+                dataType: 'json',
+                url: '{{ route('institucion.calendario.citas-libre') }}',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                success: function (res) {
+
+                    //get list
+                    $.each(res.data, function (index, item) {
+                        hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                            moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                            '</option>');
+                    });
+                },
+                error: function (res, status) {
+                    var response = res.responseJSON;
+                    $('#alertas').html(alert(response.message, 'danger'));
+                }
+            });
+        }
+
+
+        //Confirmación de cita
+        $('#btn-finalizar-cita-profesional').click(function (event) {
+            //llenar modal
+            $('#modal-paciente').html($('#paciente-nombre-comppleto').text());
+            $('#modal-paciente-identificacion').html($('#paciente-identificacion').text());
+
+            $('#modal-tipo-cita').html($('#tipo_servicio option:selected').text());
+            $('#modal-horario').html(
+                moment($('#date-calendar').val(), 'YYYY-MM-DD').locale('es').format('DD-MMM [del] YYYY') +
+                ' / ' + $('#hora option:selected').html()
+            );
+            $('#modal-profesional').html($('#profesional option:selected').text());
+            $('#modal-lugar').html($('#profesional option:selected').data('lugar'));
+
+            $('#modal-modalidad').html($('#modalidad option:selected').text());
+            $('#modal-valor').html(
+                ($('#check-convenio').prop('checked')) ? $('#convenio option:selected').data('valor') : $('#tipo_servicio option:selected').data('valor')
+            );
+
+            $('#modal-convenio').html(
+                ($('#check-convenio').prop('checked')) ? $('#convenio option:selected').html() : ''
+            );
+
+            $('#confirmar-cita').modal();
+        });
+        $('#btn_confirmar_cita').click(function (event) {
+            $('#form-crear-cita-institucion').submit();
+        });
+
     </script>
 @endsection
 

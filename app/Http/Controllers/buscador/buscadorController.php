@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\buscador;
 use App\Http\Controllers\Controller;
+use App\Models\Paciente;
 use App\Models\profesionales_instituciones;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Response;
@@ -158,8 +159,15 @@ class buscadorController extends Controller
         }
 
         $patients = User::query()
-            ->select('numerodocumento as id', 'numerodocumento as text', 'primernombre', 'segundonombre', 'primerapellido', 'segundoapellido', 'email')
+            ->select('numerodocumento as id', 'numerodocumento as text', 'primernombre', 'segundonombre', 'primerapellido', 'segundoapellido', 'email', 'tipodocumento', 'numerodocumento', 'email')
+            ->selectRaw('CONCAT(primernombre, " ") as identificacion')
             ->selectRaw('CONCAT(primernombre, " ",segundonombre) as nombre, CONCAT(primerapellido, " ",segundoapellido) as apellido')
+            ->addSelect([
+                'foto' => Paciente::query()
+                    ->selectRaw("IF(foto is not null, concat( '" . url('/') ."/', foto), '" . asset('img/menu/avatar.png') . "')")
+                    ->whereColumn('pacientes.id_usuario', 'users.id')
+                    ->take(1)
+            ])
             ->where('numerodocumento','like','%' . $request->searchTerm . '%')
             ->orderBy('numerodocumento','ASC')
             ->whereHas('roles', function (Builder $query){

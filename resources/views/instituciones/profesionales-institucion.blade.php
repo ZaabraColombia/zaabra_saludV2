@@ -37,8 +37,9 @@
                 @else
                     <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item asociado all_asociados swiper-slide" data-filter="*">Profesionales</li>
                 @endif
+
                 @foreach($especialidades as $item)
-                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality swiper-slide" data-filter=".{{ Str::slug($item) }}">{{ $item }}</li>
+                    <li class="list-inline-item cbp-filter-item u-cubeportfolio__item asociado one_especiality swiper-slide" data-filter=".{{ Str::slug($item->nombreEspecialidad ?? '') }}">{{ $item->nombreEspecialidad ?? '' }}</li>
                 @endforeach
             </ul>
 
@@ -49,53 +50,42 @@
 
         <!-- Contenido de las tarjetas de los profesionales -->
         <div id="grid-container" class="container_grid">
-            @foreach ($objProfesionalesIns as $profesional)
-                <?php
-                $esp = '';
-                $filtro = '';
+            @if($profesionales->isNotEmpty())
 
-                if (!empty($profesional->especialidades->toArray()))
-                {
-                    foreach ($profesional->especialidades as $item)
-                    {
-                        $esp    .= Str::slug($item->nombreEspecialidad) . ' ';
-                        $filtro .= "{$item->nombreEspecialidad} ";
-                    }
+                @foreach ($profesionales as $profesional)
+                    @php
+                        $esp = " " . Str::slug($profesional->especialidad_pricipal->nombreEspecialidad ?? '');
+                        $esp .= " " . $profesional->especialidades->map(function ($item) {return  Str::slug($item->nombreEspecialidad ?? '');})->implode(" ");
+                        $filtro = $profesional->especialidad_pricipal->nombreEspecialidad ?? '';
+                        $filtro .= " ".$profesional->especialidades->pluck('nombreEspecialidad')->implode(' ');
 
-                    $especialidad = $profesional->especialidades[0]->nombreEspecialidad;
-                }
-                else {
-                    $especialidad = $profesional->nombre_especialidad;
-                    $esp = Str::slug($especialidad);
-                    $filtro = $especialidad;
-                }
-                ?>
+                    @endphp
 
-                <div class="card cbp-item {{ $esp }} pt-4 zoom_img">
-                    <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
+                    <div class="card cbp-item {{ $esp ?? '' }} pt-4 zoom_img">
+                        <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
 
-                    <div class="card-body px-1 py-3">
-                        <h2 class="specialty titulo_card mb-1 searching">{{$especialidad}}</h2>
-                        <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$especialidad}}</h2>
+                        <div class="card-body px-1 py-3">
+                            <h2 class="specialty titulo_card mb-1 searching">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</h2>
+                            <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</h2>
 
-                        <h2 class="niega_uppercase subTitulo_card searching">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
+                            <h2 class="niega_uppercase subTitulo_card searching">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
 
-                        <p class="specialty text_card searching">Especialista en {{$especialidad}}</p>
-                        <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$especialidad}}</span></p>
+                            <p class="specialty text_card searching">Especialista en {{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</p>
+                            <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</span></p>
 
-                        <p class="name_university text_univ_card searching">{{$profesional->nombre_universidad}}</p>
-                        <h2 class="cargo_profInst text_cargo_card searching">{{$profesional->cargo}}</h2>
-                        <div style="display: none" class="searching">{{ $filtro ?? '' }}</div>
+                            <p class="name_university text_univ_card searching">{{$profesional->universidad->nombreuniversidad}}</p>
+                            <h2 class="cargo_profInst text_cargo_card searching">{{$profesional->cargo}}</h2>
+                            <div style="display: none" class="searching">{{ $filtro ?? '' }}</div>
 
-
-                        <div class="content_btn_center mt-1">
-                            <a class="button_green" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
-                                <i class="fas fa-arrow-right pl-2"></i>
-                            </a>
+                            <div class="content_btn_center mt-1">
+                                <a class="button_green" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
+                                    <i class="fas fa-arrow-right pl-2"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
         </div>
 
     </section>

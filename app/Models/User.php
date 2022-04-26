@@ -192,4 +192,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $query->where('estado', '=', true);
     }
 
+    public function getIdentificacionAttribute(): string
+    {
+        return "{$this->tipo_documento->nombre_corto} " . number_format($this->numerodocumento, 0, ',', '.');
+    }
+
 }
