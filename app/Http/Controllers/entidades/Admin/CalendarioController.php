@@ -467,6 +467,12 @@ class CalendarioController extends Controller
             ->whereHas('profesional_ins', function (Builder $query) {
                 return $query->where('id_institucion', Auth::user()->institucion->id);
             })
+            ->addSelect([
+                'paciente' => User::query()->select('numerodocumento as paciente')
+                    ->whereHas('paciente', function ($query){
+                        return $query->whereColumn('pacientes.id', 'citas.paciente_id');
+                    })
+            ])
             ->where('id_cita', $cita)
             ->first();
 

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">
+
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
         .bg-agendado { background: rgba(1, 159, 134, 0.3)}
@@ -140,6 +142,8 @@
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
+                                <input type="hidden" id="paciente" name="paciente" />
+                                <input type="hidden" id="tipo_servicio" name="tipo_servicio" />
 
                                 <div class="col-12 p-0">
                                     <label for="profesional">Profesional</label>
@@ -148,22 +152,24 @@
 
                                 <label for="fecha-reasignar">Fecha</label>
                                 <div class="col-12 input-group p-0 mb-3">
+                                    {{--
                                     <div class="input-group-prepend">
                                         <button class="btn btn-outline-secondary" type="button" id="dia-anterior">
                                             <i class="fas fa-chevron-left"></i>
                                         </button>
                                     </div>
-                                    <input type="date" class="form-control" id="fecha-reasignar" name="fecha-reasignar"/>
+                                    --}}
+                                    <input type="text" class="form-control" id="fecha-reasignar" name="date-calendar" disabled/>
                                     <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="dia-siguiente">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </button>
+                                        <span class="input-group-text" id="basic-addon2">
+                                        <i class="fas fa-calendar"></i>
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="col-12 p-0">
-                                    <label for="disponibilidad-reasignar">Horario disponible</label>
-                                    <select id="disponibilidad-reasignar" name="disponibilidad" required>
+                                    <label for="hora">Horario disponible</label>
+                                    <select id="hora" name="hora" required>
                                         <option></option>
                                     </select>
                                 </div>
@@ -266,6 +272,9 @@
     <script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
+    <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
+
     <script src="{{ asset('js/alertas.js') }}"></script>
 
     <script>
@@ -367,6 +376,9 @@
 
                     $('#form-reagendar-cita').attr('action', item.edit);
 
+                    $('#paciente').val(item.paciente);
+                    $('#tipo_servicio').val(item.tipo_cita_id);
+
                     $('#modal-reagendar-cita').modal();
 
                 }, 'json').fail(function (status) {
@@ -375,6 +387,8 @@
 
             });
         });
+
+        //var date_picker = $('#fecha-reasignar').datepicker();
 
         //Buscar profesional
         $('#profesional').select2({
@@ -404,7 +418,7 @@
         }).on('select2:select', function (e) {
             var data = e.params.data;
             $.ajax({
-                url: '{{ route('') }}',
+                url: '{{ route('institucion.calendario-disponible') }}',
                 data: {profesional: data.id},
                 dataType: 'json',
                 method: 'post',
@@ -413,11 +427,53 @@
                 },
                 success: (response) => {
                     var agenda = response.agenda;
+                    var date_picker = $('#fecha-reasignar');
 
+                    date_picker.prop('disabled', false);
+                    console.log(agenda);
+                    date_picker.datepicker({
+                        daysOfWeekDisabled: agenda.weekNotBusiness,
+                        language: 'es',
+                        //setDate: moment().format('YYYY-MM-DD'),
+                        format: 'yyyy-mm-dd',
+                        //startDate: '2022-04-01',
+                        startDate: moment().format('YYYY-MM-DD'),
+                        //endDate: '2022-04-30',
+                        endDate: moment().add('days', agenda.disponibilidad).format('YYYY-MM-DD'),
+                    });
 
+                    //date_picker.datepicker('update', moment().format('YYYY-MM-DD'));
                 }
             });
         }).on('select2:opening', function (e){
+            var date_picker = $('#fecha-reasignar');
+            $(this).val('').trigger('change');
+
+            date_picker.prop('disabled', true);
+        });
+
+        $('#fecha-reasignar').change(function (e) {
+            var form = $('#form-reagendar-cita');
+            var hora = $('#hora');
+            $.ajax({
+                url: '{{ route('institucion.calendario.citas-libre') }}',
+                data: form.serialize(),
+                dataType: 'json',
+                method: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: (response) => {
+
+                    hora.html('<option></option>');
+                    //get list
+                    $.each(response.data, function (index, item) {
+                        hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                            moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                            '</option>');
+                    });
+                }
+            });
 
         });
     </script>
