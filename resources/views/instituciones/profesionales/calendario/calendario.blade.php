@@ -14,25 +14,6 @@
                 <span class="text__md black_light">Administre su calendario de citas.</span>
             </div>
 
-            <div class="time_cita">
-                <div class="main">
-                    <div class="circle">
-                        <div id="stopwatch" class="stopwatch">00:00</div>
-                        <div class="buttons">
-                            <!-- <div class="stop" onclick="stop()"></div> -->
-                            <div id="play-pause" class="paused" onclick="playPause()"></div>
-                        </div>
-                    </div>
-                    <div id="seconds-sphere" class="seconds-sphere"></div>
-                </div>
-
-            
-                <div class="col-12 p-0 input__box">
-                    <!-- <label for="observacion">Observación</label> -->
-                    <textarea name="observacion" id="observacion" cols="35" rows="5" placeholder="Observaciones"></textarea>
-                </div>
-            </div>
-
             <div class="col-12 col-lg-11 col-xl-8 p-0" id="alerta-general"></div>
 
             <div class="col-12 col-lg-11 col-xl-8 p-0 mb-3">
@@ -40,13 +21,81 @@
                     <button id="actualizar-calendar" class="button_blue_form">
                         <i data-feather="refresh-cw" class="pr-2"></i>Actualizar
                     </button>
+
+                    <button class="button_blue" data-toggle="modal" data-target="#modal_">
+                        launch modal
+                    </button>
                 </div>
 
                 <div id="calendar"></div>
             </div>
         </div>
-
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade modal_contactos" id="modal_">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Mantener las cases "label-*" -->
+                <div class="modal-body">
+                    <h1>Datos del paciente</h1>
+
+                    <div class="d-flex justify-content-center mb-3">
+                        <img id="ver-foto" class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                    </div>
+
+                    <div class="">
+                        <div>
+                            <span class="font_roboto fs_text_small black_light">Nombre: &nbsp;</span>
+                            <span class="fs_text black_strong">Alexander Alejandro Castiblanco Sepulveda</span>
+                        </div>
+
+                        <div>
+                            <span class="font_roboto fs_text_small black_light">Tipo de documento: &nbsp;</span>
+                            <span class="fs_text black_strong">Cédula de Ciudadanía</span>
+                        </div>
+
+                        <div>
+                            <span class="font_roboto fs_text_small black_light">Número de documento: &nbsp;</span>
+                            <span class="fs_text black_strong">0.000.000.000</span>
+                        </div>
+                        
+                        <div>
+                            <span class="font_roboto fs_text_small black_light">Motivo de consulta: &nbsp;</span>
+                            <span class="fs_text black_strong">Consulta primera vez</span>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider" style="color: #c2c2c2"></div>
+
+                    <label class="font_roboto fs_text_small black_light mb-0" for="">Duración de la cita:</label>                    
+                    <div class="main">
+                        <div class="circle">
+                            <div id="stopwatch" class="stopwatch black_strong fs_title">00:00</div>
+                            <button id="play-pause" class="paused" onclick="playPause()">
+                                <span id="texto">Iniciar</span> 
+                            </button>
+                        </div>
+                        <div id="seconds-sphere" class="seconds-sphere"></div>
+                    </div>
+                 
+                    <div class="col-12 p-0 input__box">
+                        <label class="font_roboto fs_text_small black_light mb-2" for="observacion">Observaciones</label>
+                        <textarea name="observacion" id="observacion" cols="35" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_blue" data-dismiss="modal">Finalizar consulta</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -951,6 +1000,9 @@
                 playPauseButton.classList.remove('running');
                 pause();
             }
+
+            // Evento para cambiar el texto del botón Iniciar del cronometro
+            texto.innerHTML=texto.innerHTML=="Finalizar"?"Iniciar":"Finalizar";
         }
 
         const pause = () => {
@@ -986,5 +1038,8 @@
 
             return `${display_minutes}:${display_seconds}`
         }
+    </script>
+        <script>
+
     </script>
 @endsection

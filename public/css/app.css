@@ -10004,6 +10004,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+body::-webkit-scrollbar {
+  display: none;
+}
+
 a:hover {
   text-decoration: none;
   color: #ffff;
@@ -10062,37 +10066,19 @@ a:hover {
   background-size: 27px;
 }
 
-#ui-id-1 {
-  z-index: 500 !important;
-  background: white;
-  height: 30vh;
-  overflow-x: hidden;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 1rem !important;
-  border: solid 1px #e8e8e8;
-}
-
-/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
-#ui-id-1::-webkit-scrollbar-thumb {
-  background: #e8e8e8 !important;
-  border-radius: 5px !important;
-}
-
 /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
-#ui-id-1::-webkit-scrollbar-thumb:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2) !important;
-}
-
 /* Cambiamos el fondo cuando esté en active */
 .ui-menu {
   z-index: 500 !important;
   background: white;
   height: 28vh;
   overflow-x: hidden;
-  border-radius: 3px;
-  padding: 0 1%;
+  overflow-y: scroll !important;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 20px !important;
   position: fixed !important;
+  display: block !important;
 }
 
 .ui-menu-item {
@@ -12726,10 +12712,6 @@ a:hover {
     width: 50%;
   }
 
-  .banner_top_button {
-    font-size: 1.5em;
-  }
-
   .seccion_tarjetas {
     width: 65%;
     margin-bottom: 60px;
@@ -12761,6 +12743,10 @@ a:hover {
 
   .banner_top_text {
     font-size: 2em;
+  }
+
+  .banner_top_button {
+    font-size: 1.5em;
   }
 
   .seccion_tarjetas {
@@ -23936,10 +23922,6 @@ a:hover {
   height: 16.5vh;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 @media (min-width: 320px) and (orientation: portrait) {
   .container_principal_fav {
     width: 100%;
@@ -25979,98 +25961,36 @@ a:hover {
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
   }
 }
-.time_cita {
-  position: absolute;
-  z-index: 5;
-  top: 25px;
-  right: 25px;
-  padding: 5px 15px 40px 15px;
-  border: 1px solid #0083D6;
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.15);
-}
-
 .main {
   font-family: "Roboto Mono", monospace;
   position: relative;
 }
 
 .circle {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  border: 2px solid #FFFFFF;
-  color: #FFFFFF;
-  margin: 50px auto;
+  margin: 15px 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-}
-.circle:before {
-  content: "";
-  border-radius: 50%;
-  z-index: -1;
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  left: calc(50% - 80px);
-  top: calc(50% - 80px);
-  background-color: #0083D6;
-  border: 3px solid #019F86;
-}
-
-.seconds-sphere {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #019F86;
-  position: absolute;
-  left: calc(50% - 10px);
-  top: calc(50% - 10px);
-  -webkit-animation: rotacion 60s linear infinite;
-          animation: rotacion 60s linear infinite;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-
-@-webkit-keyframes rotacion {
-  from {
-    transform: rotate(-90deg) translateX(59px);
-  }
-  to {
-    transform: rotate(270deg) translateX(59px);
-  }
-}
-
-@keyframes rotacion {
-  from {
-    transform: rotate(-90deg) translateX(59px);
-  }
-  to {
-    transform: rotate(270deg) translateX(59px);
-  }
-}
-.buttons {
-  margin-top: 10px;
-  display: inline-flex;
 }
 
 .paused {
-  height: 10px;
-  border-width: 5px 0 5px 10px;
-  cursor: pointer;
-  box-sizing: border-box;
+  font-family: "Quicksand";
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #0083D6;
+  border: 1px solid #0083D6;
+  border-radius: 5px;
+  padding: 5px 15px;
   margin-left: 15px;
-  border-color: transparent transparent transparent #FFFFFF;
-  transition: 100ms all ease;
-  will-change: border-width;
-  border-style: solid;
 }
 
 .running {
-  border-style: double;
-  border-width: 0 0 0 10px;
+  font-family: "Quicksand";
+  font-size: 16px;
+  color: #0083D6;
+  background: #FFFFFF;
+  border: 1px solid #0083D6;
+  border-radius: 5px;
+  padding: 5px 15px;
 }
 
 .stop {
