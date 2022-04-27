@@ -247,36 +247,13 @@ class CalendarioController extends Controller
         //Servicio
         $servicio = Servicio::find($request->tipo_servicio);
 
-        //paciente
-        $paciente = $request->paciente;
-        $paciente = Paciente::query()
-            ->whereHas('user', function ($query) use ($paciente){
-                $query->where('numerodocumento', $paciente);
-            })
-            ->first();
-
-        //Validar el límite de agenda * servicio * usuario // Terminar
-//        $citas = Cita::query()
-//            ->where('paciente_id', $paciente->id)
-//            ->where('estado', 'like', 'agendado')
-//            ->where('tipo_cita_id', $servicio->id)
-//            ->count();
-//
-//        if ($citas >= $servicio->citas_activas) {
-//            return response([
-//                'message' => [
-//                    'title' => 'Error',
-//                    'text'  => 'Ya tiene citas agendadas con el servicios de la institución'
-//                ]
-//            ], Response::HTTP_NOT_FOUND);
-//        }
-
         //Citas médicas
         $fecha = $request->get('date-calendar');
         $datesOperatives = $profesional->citas()
             ->select(['id_cita', 'fecha_inicio', 'fecha_fin'])
             ->whereNotIn('estado', ['cancelado', 'completado'])
-            ->whereRaw("date_format(fecha_inicio, '%Y-%c-%d') = $fecha")
+            //->whereRaw("date_format(fecha_inicio, '%Y-%c-%d') = $fecha")
+            ->whereDate('fecha_inicio', $fecha)
             ->get()
             ->toArray();
 
@@ -511,7 +488,7 @@ class CalendarioController extends Controller
      *
      * @param Request $request
      * @param $cita
-     * @return Application|ResponseFactory|RedirectResponse|Response
+     * @return Response
      */
     public function update(Request $request, $cita)
     {
@@ -598,9 +575,12 @@ class CalendarioController extends Controller
 
         if ($validar_cita > 0)
         {
-            return redirect()
-                ->back()
-                ->withErrors(['cita' => 'Cita no disponible']);
+            return response([
+                'message' => [
+                    'title'     => 'error',
+                    'text'   => 'Cita no disponible'
+                ]
+            ], Response::HTTP_NOT_FOUND);
         }
 
         //Validar cita
@@ -617,7 +597,7 @@ class CalendarioController extends Controller
             return response([
                 'message' => [
                     'title'     => 'error',
-                    'message'   => 'La cita no esta disponible'
+                    'text'   => 'La cita no esta disponible'
                 ]
             ], Response::HTTP_NOT_FOUND);
 

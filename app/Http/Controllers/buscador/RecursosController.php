@@ -138,7 +138,9 @@ class RecursosController extends Controller
      */
     public function profesionales_institucion(Request $request)
     {
-        $term = $request->searchTerm;
+        $term       = $request->searchTerm;
+        $service    = $request->service;
+
         $profesionales = profesionales_instituciones::query()
             ->select('id_profesional_inst as id', 'nombre_completo as text', 'sede_id')
             ->selectRaw('concat(nombre_completo, " ") as consultorio_completo')
@@ -154,7 +156,14 @@ class RecursosController extends Controller
                     ->orWhere('primer_apellido','like','%' . $term . '%')
                     ->orWhere('segundo_apellido','like','%' . $term . '%')
                     ->orWhere('nombre_completo','like','%' . $term . '%');
-            })
+            });
+
+        if (!empty($service))
+            $profesionales->whereHas('servicios', function ($query) use ($service){
+                return $query->where('servicios.id', $service);
+            });
+
+        $result = $profesionales
             ->get()
             ->map(function ($item) {
                 return [
@@ -162,9 +171,9 @@ class RecursosController extends Controller
                     'text' => $item->text,
                     'consultorio_completo' => $item->consultorio_completo
                 ];
-            });
+            });;
 
 
-        return response($profesionales, Response::HTTP_OK);
+        return response($result, Response::HTTP_OK);
     }
 }

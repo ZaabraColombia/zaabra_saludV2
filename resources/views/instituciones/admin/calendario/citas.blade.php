@@ -89,7 +89,6 @@
                 </div>
 
                 <form method="post" id="form-reagendar-cita">
-                    @csrf
                     <div class="modal-body">
                         <div class="modal_info_cita mb-3">
                             <div class="py-3">
@@ -404,7 +403,8 @@
                 },
                 data: function (params) {
                     return {
-                        searchTerm: params.term // search term
+                        searchTerm: params.term, // search term
+                        service: $('#tipo_servicio').val()
                     };
                 },
                 processResults: function (response) {
@@ -414,7 +414,7 @@
                 },
                 cache: true,
             },
-            minimumInputLength: 3,
+            //minimumInputLength: 3,
             dropdownParent: $('#modal-reagendar-cita')
         }).on('select2:select', function (e) {
             var data = e.params.data;
@@ -424,6 +424,7 @@
                 dataType: 'json',
                 method: 'post',
                 headers: {
+                    accept:'application/json',
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: (response) => {
