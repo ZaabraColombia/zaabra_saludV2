@@ -40,8 +40,7 @@
                             <th>Correo</th>
                             <th>Teléfonos</th>
                             <th>Dirección</th>
-                            <th class="text-right">Acción</th>
-                            <th></th>
+                            <th class="text-center">Acción</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -64,16 +63,21 @@
                                     <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
                                     <td>{{ $profesional->direccion }}</td>
                                     <td>
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                           href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="btn_action_green tool top" style="width: 33px"
-                                           href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="calendar"></i> <span class="tiptext">Configurar calendario</span>
-                                        </a>
+                                        <div class="d-flex justify-content-between">
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
+                                            </a>
+                                        
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                            href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
+                                            </a>
+                            
+                                            <a class="btn_action_green tool top" style="width: 33px" href="#" data-toggle="modal" data-target="#modal_bloqueo_cita">
+                                                <i data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -82,6 +86,55 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  bloquear cita -->
+    <div class="modal fade" id="modal_bloqueo_cita" tabindex="-1" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form method="post" id="form-reagendar-cita">
+                    @csrf
+                    <div class="modal-body">
+                        <h1 style="color: #019f86">Bloquear Agenda</h1>
+
+                        <div class="form_modal">
+                            <div class="row m-0">
+                                <div class="col-12 p-0" id="alerta-reasignar"></div>
+
+                                <div class="col-12 col-md-6 pl-0 pr-1">
+                                    <label for="hora_inicio">Hora inicio</label>
+                                    <input type="datetime-local" id="hora_inicio" name="hora_inicio" value="">
+                                </div>
+
+                                <div class="col-12 col-md-6 pr-0 pl-1">
+                                    <label for="hora_fin">Hora fin</label>
+                                    <input type="datetime-local" id="hora_fin" name="hora_fin" value="">
+                                </div>
+
+                                <div class="col-12 p-0">
+                                    <label for="observacion">Comentarios</label>
+                                    <textarea name="observacion" id="observacion" cols="35" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" id="id_cita-reasignar" name="id_cita"/>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="button_transparent" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="button_green">Bloquear</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
