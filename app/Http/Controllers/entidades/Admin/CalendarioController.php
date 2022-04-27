@@ -10,6 +10,7 @@ use App\Models\Paciente;
 use App\Models\PagoCita;
 use App\Models\profesionales_instituciones;
 use App\Models\Servicio;
+use App\Models\TipoServicio;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
@@ -459,10 +460,44 @@ class CalendarioController extends Controller
                 return $query->where('id_institucion', Auth::user()->institucion->id);
             })
             ->addSelect([
-                'paciente' => User::query()->select('numerodocumento as paciente')
+//                'paciente' => User::query()
+//                    ->select('numerodocumento as paciente')
+//                    ->whereHas('paciente', function ($query){
+//                        return $query->whereColumn('pacientes.id', 'citas.paciente_id');
+//                    }),
+                'nombre_paciente' => User::query()
+                    ->select('nombre_completo as nombre_paciente')
                     ->whereHas('paciente', function ($query){
                         return $query->whereColumn('pacientes.id', 'citas.paciente_id');
+                    }),
+                'correo_paciente' => User::query()
+                    ->select('email as correo_paciente')
+                    ->whereHas('paciente', function ($query){
+                        return $query->whereColumn('pacientes.id', 'citas.paciente_id');
+                    }),
+                'nombre_profesional' => profesionales_instituciones::query()
+                    ->selectRaw('concat( primer_nombre, " ", segundo_nombre, " ", primer_apellido, " ", segundo_apellido) as nombre_profesional')
+                    ->whereColumn('citas.profesional_ins_id', 'id_profesional_inst')
+                    ->take(1),
+                'especialidad' => especialidades::query()
+                    ->select('nombreEspecialidad as especialidades')
+                    ->whereColumn('citas.especialidad_id', 'especialidades.idEspecialidad')
+                    ->take(1),
+                'tipo_servicio' => TipoServicio::query()
+                    ->select('nombre as tipo_servicio')
+                    ->whereHas('servicios', function ($query){
+                        return $query->whereColumn('citas.tipo_cita_id', 'servicios.id');
                     })
+                    ->take(1),
+                'servicio' => Servicio::query()
+                    ->select('nombre as servicio')
+                    ->whereColumn('citas.tipo_cita_id', 'servicios.id')
+                    ->take(1),
+                'atencion' => Servicio::query()
+                    ->select('tipo_atencion as atencion')
+                    ->whereColumn('citas.tipo_cita_id', 'servicios.id')
+                    ->take(1),
+
             ])
             ->where('id_cita', $cita)
             ->first();
@@ -474,6 +509,8 @@ class CalendarioController extends Controller
 
         $cita->edit     = route('institucion.calendario.actualizar-cita', ['cita' => $cita->id_cita]);
         $cita->cancel   = route('institucion.calendario.cancelar-cita', ['cita' => $cita->id_cita]);
+        $cita->identificacion = $cita->paciente->user->identificacion;
+        $cita->paciente = $cita->paciente->user->numeroidentificacion;
 
         return response([
             'item' => $cita

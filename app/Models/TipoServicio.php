@@ -13,4 +13,9 @@ class TipoServicio extends Model
         'id',
         'nombre'
     ];
+
+    public function servicios(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Servicio::class, 'tipo_servicio_id', 'id');
+    }
 }

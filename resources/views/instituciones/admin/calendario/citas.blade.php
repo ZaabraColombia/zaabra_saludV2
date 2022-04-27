@@ -104,38 +104,40 @@
                                 </div>
                                 <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Profesional: &nbsp;</h3>
-                                    <span class="">Willmar Alejandro Gutierrez Sandoval</span>
+                                    <span class="nombre_profesional">Willmar Alejandro Gutierrez Sandoval</span>
                                 </div>
                                 <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Especialidad: &nbsp;</h3>
-                                    <span class="">Cirugia maxilofacial</span>
+                                    <span class="especialidad">Cirugia maxilofacial</span>
                                 </div>
                             </div>
 
                             <div class="row m-0">
                                 <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Tipo de servicio: &nbsp;</h3>
-                                    <span class="">Procedimiento no quirurgico</span>
+                                    <span class="tipo_servicio">Procedimiento no quirurgico</span>
                                 </div>
                                 <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Servicio: &nbsp;</h3>
-                                    <span class="">Procedimiento no quirurgico Procedimiento no</span>
+                                    <span class="servicio">Procedimiento no quirurgico Procedimiento no</span>
                                 </div>
                             </div>
 
                             <div class="row m-0">
                                 <div class="col-12 d-flex p-0 mb-2">
                                     <h3>Tipo de atención: &nbsp;</h3>
-                                    <span class="">Presencial</span>
+                                    <span class="atencion">Presencial</span>
                                 </div>
                                 <div class="col-md-9 p-0 mb-2">
                                     <h3>Lugar: &nbsp;</h3>
-                                    <span class="">EPS Salud Total virrey Solis Olaya</span>
+                                    <span class="lugar">EPS Salud Total virrey Solis Olaya</span>
                                 </div>
+                                {{--
                                 <div class="col-md-3 d-flex d-md-block p-0 mb-2">
                                     <h3 class="text-md-right mr-2 mr-md-0">Consultorio:</h3>
                                     <span class="d-md-flex justify-content-md-center">203</span>
                                 </div>
+                                --}}
                             </div>
                         </div>
 
@@ -216,38 +218,40 @@
                             </div>
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Profesional: &nbsp;</h3>
-                                <span class="">Willmar Alejandro Gutierrez Sandoval</span>
+                                <span class="nombre_profesional">Willmar Alejandro Gutierrez Sandoval</span>
                             </div>
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Especialidad: &nbsp;</h3>
-                                <span class="">Cirugia maxilofacial</span>
+                                <span class="especialidad">Cirugia maxilofacial</span>
                             </div>
                         </div>
 
                         <div class="row m-0">
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Tipo de servicio: &nbsp;</h3>
-                                <span class="">Procedimiento no quirurgico</span>
+                                <span class="tipo_servicio">Procedimiento no quirurgico</span>
                             </div>
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Servicio: &nbsp;</h3>
-                                <span class="">Procedimiento no quirurgico Procedimiento no</span>
+                                <span class="servicio">Procedimiento no quirurgico Procedimiento no</span>
                             </div>
                         </div>
 
                         <div class="row m-0">
                             <div class="col-12 d-flex p-0 mb-2">
                                 <h3>Tipo de atención: &nbsp;</h3>
-                                <span class="">Presencial</span>
+                                <span class="atencion">Presencial</span>
                             </div>
                             <div class="col-md-9 p-0 mb-2">
                                 <h3>Lugar: &nbsp;</h3>
-                                <span class="">EPS Salud Total virrey Solis Olaya</span>
+                                <span class="lugar">EPS Salud Total virrey Solis Olaya</span>
                             </div>
+                            {{--
                             <div class="col-md-3 d-flex d-md-block p-0 mb-2">
                                 <h3 class="text-md-right mr-2 mr-md-0">Consultorio:</h3>
                                 <span class="d-md-flex justify-content-md-center">203</span>
                             </div>
+                            --}}
                         </div>
                     </div>
                 </div>
@@ -374,13 +378,16 @@
 
                 $.get(btn.data('url'), function (response) {
                     var item = response.item;
+                    var modal = $('#modal-reagendar-cita');
 
                     $('#form-reagendar-cita').attr('action', item.edit);
 
                     $('#paciente').val(item.paciente);
                     $('#tipo_servicio').val(item.tipo_cita_id);
 
-                    $('#modal-reagendar-cita').modal();
+                    info(modal, item);
+
+                    modal.modal();
 
                 }, 'json').fail(function (status) {
                     console.log(status);
@@ -396,18 +403,35 @@
 
                 $.get(btn.data('url'), function (response) {
                     var item = response.item;
+                    var modal = $('#modal-cancelar-cita');
 
                     $('#form-cancelar-cita').attr('action', item.cancel);
 
                     $('#profesional-cancelar').val(item.profesional_ins_id);
 
-                    $('#modal-cancelar-cita').modal();
+                    info(modal, item);
+
+                    modal.modal();
 
                 }, 'json').fail(function (status) {
                     console.log(status);
                 });
 
             });
+
+            var info = (modal, info) => {
+                modal.find('.nombre_paciente').html(info.nombre_paciente);
+                modal.find('.numero_id').html(info.identificacion);
+                modal.find('.correo').html(info.correo_paciente);
+                modal.find('.fecha').html(info.fecha);
+                modal.find('.hora').html(info.hora);
+                modal.find('.nombre_profesional').html(info.nombre_profesional);
+                modal.find('.especialidad').html(info.especialidad);
+                modal.find('.tipo_servicio').html(info.tipo_servicio);
+                modal.find('.servicio').html(info.servicio);
+                modal.find('.atencion').html(info.atencion);
+                modal.find('.lugar').html(info.lugar);
+            };
 
             //Buscar profesional
             $('#profesional').select2({
