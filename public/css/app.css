@@ -10093,10 +10093,6 @@ a:hover {
   border-radius: 4px;
 }
 
-.ui-menu-item > .ui-menu-item-wrapper > i {
-  margin-left: 10px;
-}
-
 .ui-menu-item > .ui-menu-item-wrapper:hover,
 .ui-menu-item > .ui-menu-item-wrapper:hover > i,
 .ui-menu-item > .ui-state-active,
@@ -10108,6 +10104,7 @@ a:hover {
   border-radius: 50px;
   padding: 5px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .ui-menu-item > .ui-menu-item-wrapper > span > small {
@@ -10191,8 +10188,9 @@ a:hover {
 }
 
 .registered_prof {
-  background-image: url("/img/menu/avatar.png");
-  background-repeat: round;
+  border-radius: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
   height: 30px;
   width: 30px;
   border: 1px solid #c3c3c3;

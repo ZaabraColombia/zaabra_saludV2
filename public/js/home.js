@@ -9,7 +9,7 @@ const swiper_principal = new Swiper('.swiper_principal',{
   },
 
   autoplay: {
-    delay: 4500,
+    delay: 45999999999900,
     disableOnInteraction: false,
   },
   // And if we need scrollbar

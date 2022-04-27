@@ -48,6 +48,9 @@ $(function(){
         {
             btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i><span>" +item.label +"<br><small>" +item.type +"</small></span></a>";
         }
+
+        btn = "<a href='"  + item.url + "'><img class='registered_prof' src='/img/menu/avatar.png' my-auto'></img><span>" +item.label +"<br><small>" +item.type +"</small></span></a>";
+
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
             .append( btn )
