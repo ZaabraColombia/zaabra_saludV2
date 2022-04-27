@@ -60,7 +60,7 @@
             <!-- Contenedor formato tabla de la lista de pacientes -->
             <div class="containt_main_table mb-3">
                 <div class="col-12" id="alertas"></div>
-                <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
+                <table class="table table_agenda" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
                     <tr>
                         <th>Hora</th>
@@ -307,6 +307,7 @@
                     {data: "paciente.user.numerodocumento", name: 'paciente.user.numerodocumento'},
                     {
                         name: 'edit',
+                        className: 'd-flex justify-content-between',
                         data: function (data, type, full, meta) {
                             return '<button  class="btn_action_green tool top editar-cita" data-url="' + data.edit + '">' +
                                 '<i class="fas fa-calendar-day fa-2x"></i>' +

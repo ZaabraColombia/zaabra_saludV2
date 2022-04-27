@@ -20,6 +20,13 @@ $user = Auth::user();
                     </a>
                 </li>
 
+                <!-- Citas -->
+                <li class="sidebar-item has-sub items_blue">
+                    <a id="" href="{{ route('profesional.agenda.calendario')}}">
+                        <button class="{{ request()->routeIs('profesional.agenda.calendario') ? 'btn_active' : '' }}">Citas</button>
+                    </a>
+                </li>
+
                 <!-- Catálogos -->
                 <li class="sidebar-item has-sub items_blue accordion" id="accordionExample">
                     <button id="headingOne" class="{{ request()->routeIs('profesional.catalogos.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse"
