@@ -59,6 +59,7 @@
 
             <!-- Contenedor formato tabla de la lista de pacientes -->
             <div class="containt_main_table mb-3">
+                <div class="col-12" id="alertas"></div>
                 <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
                     <tr>
@@ -87,7 +88,7 @@
                     </button>
                 </div>
 
-                <form method="POST" action="" id="form-reagendar-cita">
+                <form method="post" id="form-reagendar-cita">
                     @csrf
                     <div class="modal-body">
                         <div class="modal_info_cita mb-3">
@@ -472,6 +473,31 @@
                             moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
                             '</option>');
                     });
+                }
+            });
+
+        });
+
+        $('#form-reagendar-cita').submit(function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+
+            $.ajax({
+                url: form.attr('action'),
+                data: form.serialize(),
+                dataType: 'json',
+                method: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: (response) => {
+                    $('#alertas').html(alert(response.message, 'success'));
+                    $('#modal-reagendar-cita').modal('hide');
+                },
+                error: (response) => {
+                    $('#alertas').html(alert(response.responseJSON.message, 'danger'));
+                    $('#modal-reagendar-cita').modal('hide');
                 }
             });
 

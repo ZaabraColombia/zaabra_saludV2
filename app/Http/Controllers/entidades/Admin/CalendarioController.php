@@ -321,9 +321,9 @@ class CalendarioController extends Controller
      * Permite crear una cita
      *
      * @param Request $request
-     * @return RedirectResponse
+     * @return Application|ResponseFactory|RedirectResponse|Response
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
 
         //Validate date
@@ -336,10 +336,19 @@ class CalendarioController extends Controller
             ]
         ]);
 
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
         //profesional
         $profesional = profesionales_instituciones::query()->find($request->profesional);
 
-        $request->validate([
+        $validate = Validator::make($request->all(), [
             'hora'    => ['required'],
             'hora.*'  => [
                 'required',
@@ -358,6 +367,15 @@ class CalendarioController extends Controller
                 })
             ]
         ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         //Servicio
         $convenio = $request->convenio;
@@ -488,8 +506,145 @@ class CalendarioController extends Controller
         ], Response::HTTP_OK);
     }
 
-    public function update(Request $request)
+    /**
+     * Permite reagendar una cita
+     *
+     * @param Request $request
+     * @param $cita
+     * @return Application|ResponseFactory|RedirectResponse|Response
+     */
+    public function update(Request $request, $cita)
     {
 
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'profesional'   => [
+                'required',
+                Rule::exists('profesionales_instituciones', 'id_profesional_inst')
+                    ->where('id_institucion', Auth::user()->institucion->id)
+                //->where('estado', 1)
+            ]
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //profesional
+        $profesional = profesionales_instituciones::query()->find($request->profesional);
+
+        $validate = Validator::make($request->all(), [
+            'hora'    => ['required'],
+            'hora.*'  => [
+                'required',
+                'date_format:Y-m-d H:i',
+                'before_or_equal:' . date('Y-m-d H:i', strtotime(date('Y-m-d') . " 23:59 +{$profesional->disponibilidad_agenda} days"))
+            ],
+            'paciente'      => [
+                'required',
+                'exists:users,numerodocumento'
+            ],
+            'tipo_servicio' => [
+                'required',
+                Rule::exists('servicios', 'id')->where(function ($query) use ($profesional){
+                    return $query->where('institucion_id', $profesional->institucion->id)
+                        ->where('agendamiento_virtual', 1);
+                })
+            ]
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //Servicio
+        $convenio = $request->convenio;
+        $tipo_servicio = $request->tipo_servicio;
+
+        $servicio = Servicio::query()
+            ->with(['convenios_lista' => function ($query) use ($convenio, $tipo_servicio){
+                if (isset($tipo_servicio) and isset($convenio)) return $query
+                    ->where('convenios.id', $convenio)
+                    ->first();
+                return $query->first();
+            }])
+            ->find($request->tipo_servicio);
+
+        $paciente = $request->paciente;
+        $paciente = Paciente::query()
+            ->whereHas('user', function ($query) use ($paciente){
+                $query->where('numerodocumento', $paciente);
+            })
+            ->first();
+
+        $fecha = json_decode($request->hora);
+        $inicio = $fecha->start;
+        $fin    = $fecha->end;
+
+        $validar_cita = Cita::query()
+            ->validar($inicio, $fin)
+            ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->count();
+
+        if ($validar_cita > 0)
+        {
+            return redirect()
+                ->back()
+                ->withErrors(['cita' => 'Cita no disponible']);
+        }
+
+        //Validar cita
+        $cita = Cita::query()
+            ->where('id_cita', $cita)
+            ->where('paciente_id', $paciente->id)
+            ->where('tipo_cita_id', $servicio->id)
+            ->whereHas('profesional_ins', function ($query){
+                return $query->where('id_institucion', Auth::user()->institucion->id);
+            })
+            ->first();
+
+        if (empty($cita))
+            return response([
+                'message' => [
+                    'title'     => 'error',
+                    'message'   => 'La cita no esta disponible'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+        //crear cita
+        $cita->update([
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($inicio)),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($fin)),
+            'profesional_ins_id'=> $profesional->id_profesional_inst,
+            'especialidad_id'   => $servicio->especialidad_id,
+        ]);
+
+        //Editar pago
+        if (isset($cita->pago))
+            $cita->pago->update([
+                'vencimiento'   => date('Y-m-d H:i', strtotime($inicio. " -3 hours")),
+            ]);
+
+        //Enviar notificación de confirmación de cita
+        //Mail::to($paciente->email)->send(new ConfirmacionCitaEmail($date, 'institucion'));
+
+        //dd($cita);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => "La cita del paciente {$paciente->nombre_completo} se reagendo correctamente"
+            ]
+        ], Response::HTTP_OK);
     }
 }

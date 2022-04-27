@@ -381,7 +381,7 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
             ->name('guardar-cita');
         Route::get('/ver-cita/{cita}', [entidades\Admin\CalendarioController::class, 'show'])
             ->name('ver-cita');
-        Route::get('/actualizar-cita/{cita}', [entidades\Admin\CalendarioController::class, 'update'])
+        Route::post('/actualizar-cita/{cita}', [entidades\Admin\CalendarioController::class, 'update'])
             ->name('actualizar-cita');
     });
 
