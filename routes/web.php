@@ -383,6 +383,8 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
             ->name('ver-cita');
         Route::post('/actualizar-cita/{cita}', [entidades\Admin\CalendarioController::class, 'update'])
             ->name('actualizar-cita');
+        Route::post('/cancelar-cita/{cita}', [entidades\Admin\CalendarioController::class, 'cancelar'])
+            ->name('cancelar-cita');
     });
 
     Route::post('/institucion/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'calendario_disponible'])

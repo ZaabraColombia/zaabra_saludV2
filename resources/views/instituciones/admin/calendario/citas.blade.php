@@ -190,7 +190,7 @@
     </div>
 
     <!-- Modal  Cancelar cita -->
-    <div class="modal fade" id="modal_cancelar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal-cancelar-cita" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -253,8 +253,8 @@
                 </div>
 
                 <div class="modal-footer content_btn_center">
-                    <form action="{{ route('profesional.agenda.calendario.cancelar-cita') }}" method="post" id="form-cita-cancelar">
-                        <input type="hidden" class="form-control" id="id_cita-cancelar" name="id_cita"/>
+                    <form method="post" id="form-cancelar-cita">
+                        <input type="hidden" class="form-control" id="profesional-cancelar" name="profesional"/>
                         <button type="button" class="button_transparent mr-2" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_blue" id="">Confirmar</button>
                     </form>
@@ -370,6 +370,7 @@
                 var btn = $(this);
 
                 $('#form-reagendar-cita')[0].reset();
+                $('#profesional').val('').trigger('changue');
 
                 $.get(btn.data('url'), function (response) {
                     var item = response.item;
@@ -386,120 +387,144 @@
                 });
 
             });
-        });
 
-        //var date_picker = $('#fecha-reasignar').datepicker();
+            //cancelar cita
+            table.on('click', '.cancelar-cita', function (eve) {
+                var btn = $(this);
 
-        //Buscar profesional
-        $('#profesional').select2({
-            language: 'es',
-            theme: 'bootstrap4',
-            ajax: {
-                url: '{{ route('institucion.buscador-profesional') }}',
-                dataType: 'json',
-                method: 'post',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: function (params) {
-                    return {
-                        searchTerm: params.term, // search term
-                        service: $('#tipo_servicio').val()
-                    };
-                },
-                processResults: function (response) {
-                    return {
-                        results:response
-                    };
-                },
-                cache: true,
-            },
-            //minimumInputLength: 3,
-            dropdownParent: $('#modal-reagendar-cita')
-        }).on('select2:select', function (e) {
-            var data = e.params.data;
-            $.ajax({
-                url: '{{ route('institucion.calendario-disponible') }}',
-                data: {profesional: data.id},
-                dataType: 'json',
-                method: 'post',
-                headers: {
-                    accept:'application/json',
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: (response) => {
-                    var agenda = response.agenda;
-                    var date_picker = $('#fecha-reasignar');
+                $('#form-cancelar-cita')[0].reset();
 
-                    date_picker.prop('disabled', false);
-                    console.log(agenda);
-                    date_picker.datepicker({
-                        daysOfWeekDisabled: agenda.weekNotBusiness,
-                        language: 'es',
-                        //setDate: moment().format('YYYY-MM-DD'),
-                        format: 'yyyy-mm-dd',
-                        //startDate: '2022-04-01',
-                        startDate: moment().format('YYYY-MM-DD'),
-                        //endDate: '2022-04-30',
-                        endDate: moment().add('days', agenda.disponibilidad).format('YYYY-MM-DD'),
-                    });
+                $.get(btn.data('url'), function (response) {
+                    var item = response.item;
 
-                    //date_picker.datepicker('update', moment().format('YYYY-MM-DD'));
-                }
-            });
-        }).on('select2:opening', function (e){
-            var date_picker = $('#fecha-reasignar');
-            $(this).val('').trigger('change');
+                    $('#form-cancelar-cita').attr('action', item.cancel);
 
-            date_picker.prop('disabled', true);
-        });
+                    $('#profesional-cancelar').val(item.profesional_ins_id);
 
-        $('#fecha-reasignar').change(function (e) {
-            var form = $('#form-reagendar-cita');
-            var hora = $('#hora');
-            $.ajax({
-                url: '{{ route('institucion.calendario.citas-libre') }}',
-                data: form.serialize(),
-                dataType: 'json',
-                method: 'post',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: (response) => {
+                    $('#modal-cancelar-cita').modal();
 
-                    hora.html('<option></option>');
-                    //get list
-                    $.each(response.data, function (index, item) {
-                        hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
-                            moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
-                            '</option>');
-                    });
-                }
+                }, 'json').fail(function (status) {
+                    console.log(status);
+                });
+
             });
 
-        });
-
-        $('#form-reagendar-cita').submit(function (e) {
-            e.preventDefault();
-
-            var form = $(this);
-
-            $.ajax({
-                url: form.attr('action'),
-                data: form.serialize(),
-                dataType: 'json',
-                method: 'post',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            //Buscar profesional
+            $('#profesional').select2({
+                language: 'es',
+                theme: 'bootstrap4',
+                ajax: {
+                    url: '{{ route('institucion.buscador-profesional') }}',
+                    dataType: 'json',
+                    method: 'post',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: function (params) {
+                        return {
+                            searchTerm: params.term, // search term
+                            service: $('#tipo_servicio').val()
+                        };
+                    },
+                    processResults: function (response) {
+                        return {
+                            results:response
+                        };
+                    },
+                    cache: true,
                 },
-                success: (response) => {
-                    $('#alertas').html(alert(response.message, 'success'));
-                    $('#modal-reagendar-cita').modal('hide');
-                },
-                error: (response) => {
-                    $('#alertas').html(alert(response.responseJSON.message, 'danger'));
-                    $('#modal-reagendar-cita').modal('hide');
-                }
+                //minimumInputLength: 3,
+                dropdownParent: $('#modal-reagendar-cita')
+            }).on('select2:select', function (e) {
+                var data = e.params.data;
+                $.ajax({
+                    url: '{{ route('institucion.calendario-disponible') }}',
+                    data: {profesional: data.id},
+                    dataType: 'json',
+                    method: 'post',
+                    headers: {
+                        accept:'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: (response) => {
+                        var agenda = response.agenda;
+                        var date_picker = $('#fecha-reasignar');
+
+                        date_picker.prop('disabled', false);
+                        console.log(agenda);
+                        date_picker.datepicker({
+                            daysOfWeekDisabled: agenda.weekNotBusiness,
+                            language: 'es',
+                            //setDate: moment().format('YYYY-MM-DD'),
+                            format: 'yyyy-mm-dd',
+                            //startDate: '2022-04-01',
+                            startDate: moment().format('YYYY-MM-DD'),
+                            //endDate: '2022-04-30',
+                            endDate: moment().add('days', agenda.disponibilidad).format('YYYY-MM-DD'),
+                        });
+
+                        //date_picker.datepicker('update', moment().format('YYYY-MM-DD'));
+                    }
+                });
+            }).on('select2:opening', function (e){
+                var date_picker = $('#fecha-reasignar');
+                $(this).val('').trigger('change');
+
+                date_picker.prop('disabled', true);
+            });
+
+            $('#fecha-reasignar').change(function (e) {
+                var form = $('#form-reagendar-cita');
+                var hora = $('#hora');
+                $.ajax({
+                    url: '{{ route('institucion.calendario.citas-libre') }}',
+                    data: form.serialize(),
+                    dataType: 'json',
+                    method: 'post',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: (response) => {
+
+                        hora.html('<option></option>');
+                        //get list
+                        $.each(response.data, function (index, item) {
+                            hora.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                                moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                                '</option>');
+                        });
+                    }
+                });
+
+            });
+
+            $('#form-reagendar-cita, #form-cancelar-cita').submit(function (e) {
+                e.preventDefault();
+
+                var form = $(this);
+
+                $.ajax({
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    dataType: 'json',
+                    method: 'post',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: (response) => {
+                        $('#alertas').html(alert(response.message, 'success'));
+                        $('#modal-reagendar-cita').modal('hide');
+                        $('#modal-cancelar-cita').modal('hide');
+                        table.ajax.reload(null, false);
+                    },
+                    error: (response) => {
+                        $('#alertas').html(alert(response.responseJSON.message, 'danger'));
+                        $('#modal-reagendar-cita').modal('hide');
+                        $('#modal-cancelar-cita').modal('hide');
+                        table.ajax.reload(null, false);
+                    }
+                });
+
             });
 
         });

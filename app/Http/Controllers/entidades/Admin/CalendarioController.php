@@ -151,6 +151,7 @@ class CalendarioController extends Controller
                 'paciente.user:id,primernombre,segundonombre,primerapellido,segundoapellido,numerodocumento',
                 'profesional_ins:id_profesional_inst,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido'
             ])
+            ->whereNotIn('estado', ['cancelado'])
             //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
             ->whereIn('profesional_ins_id', $request->get('ids'));
 
@@ -476,7 +477,8 @@ class CalendarioController extends Controller
             'message'   => 'No se encuentra la cita'
         ], Response::HTTP_NOT_FOUND);
 
-        $cita->edit = route('institucion.calendario.actualizar-cita', ['cita' => $cita->id_cita]);
+        $cita->edit     = route('institucion.calendario.actualizar-cita', ['cita' => $cita->id_cita]);
+        $cita->cancel   = route('institucion.calendario.cancelar-cita', ['cita' => $cita->id_cita]);
 
         return response([
             'item' => $cita
@@ -624,6 +626,66 @@ class CalendarioController extends Controller
             'message' => [
                 'title' => 'Hecho',
                 'text'  => "La cita del paciente {$paciente->nombre_completo} se reagendo correctamente"
+            ]
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Permite cancelar una cita
+     *
+     * @param Request $request
+     * @param $cita
+     * @return Application|ResponseFactory|Response
+     */
+    public function cancelar(Request $request, $cita)
+    {
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'profesional'   => [
+                'required',
+                Rule::exists('profesionales_instituciones', 'id_profesional_inst')
+                    ->where('id_institucion', Auth::user()->institucion->id)
+                //->where('estado', 1)
+            ]
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //profesional
+        $profesional = profesionales_instituciones::query()->find($request->profesional);
+
+        //Validar cita
+        $cita = Cita::query()
+            ->where('id_cita', $cita)
+            ->where('profesional_ins_id', $profesional->id_profesional_inst)
+            ->whereHas('profesional_ins', function ($query){
+                return $query->where('id_institucion', Auth::user()->institucion->id);
+            })
+            ->first();
+
+        if (empty($cita))
+            return response([
+                'message' => [
+                    'title'     => 'error',
+                    'text'   => 'La cita no esta disponible'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+
+        //cancelar cita
+        $cita->update(['estado' => 'cancelado']);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => "La cita del paciente {$cita->paciente->user->nombre_completo} se cancelo correctamente"
             ]
         ], Response::HTTP_OK);
     }
