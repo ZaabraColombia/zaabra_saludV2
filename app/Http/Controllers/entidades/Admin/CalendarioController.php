@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\entidades\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Mail\ConfirmacionCitaEmail;
 use App\Models\Antiguedad;
 use App\Models\Cita;
 use App\Models\especialidades;
@@ -11,7 +10,6 @@ use App\Models\Paciente;
 use App\Models\PagoCita;
 use App\Models\profesionales_instituciones;
 use App\Models\Servicio;
-use App\Models\TipoServicio;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
@@ -22,10 +20,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
