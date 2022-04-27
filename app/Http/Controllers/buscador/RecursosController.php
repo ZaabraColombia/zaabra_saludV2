@@ -129,4 +129,42 @@ class RecursosController extends Controller
 
         return response(['servicios' => $lista, 'agenda' => $agenda], Response::HTTP_OK);
     }
+
+    /**
+     * Busca los profesionales de una institución
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function profesionales_institucion(Request $request)
+    {
+        $term = $request->searchTerm;
+        $profesionales = profesionales_instituciones::query()
+            ->select('id_profesional_inst as id', 'nombre_completo as text', 'sede_id')
+            ->selectRaw('concat(nombre_completo, " ") as consultorio_completo')
+            ->where('id_institucion', Auth::user()->institucion->id)
+            ->with([
+                'sede',
+                'sede.ciudad',
+            ])
+            ->where(function ($query) use ($term){
+                return $query->where('numero_documento', 'like', "%{$term}%")
+                    ->orWhere('primer_nombre','like','%' . $term . '%')
+                    ->orWhere('segundo_nombre','like','%' . $term . '%')
+                    ->orWhere('primer_apellido','like','%' . $term . '%')
+                    ->orWhere('segundo_apellido','like','%' . $term . '%')
+                    ->orWhere('nombre_completo','like','%' . $term . '%');
+            })
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'text' => $item->text,
+                    'consultorio_completo' => $item->consultorio_completo
+                ];
+            });
+
+
+        return response($profesionales, Response::HTTP_OK);
+    }
 }

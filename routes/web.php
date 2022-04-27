@@ -364,20 +364,43 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
     });
 
     Route::group(['prefix' => '/calendario', 'as' => 'calendario.'], function () {
-       Route::get('/iniciar-control', [entidades\Admin\CalendarioController::class, 'iniciar_control'])->name('iniciar-control');
-       Route::post('/buscar', [entidades\Admin\CalendarioController::class, 'buscar'])->name('buscar');
-       Route::post('/citas', [entidades\Admin\CalendarioController::class, 'citas'])->name('citas');
-       Route::post('/lista-citas', [entidades\Admin\CalendarioController::class, 'lista_citas'])->name('lista-citas');
+       Route::get('/iniciar-control', [entidades\Admin\CalendarioController::class, 'iniciar_control'])
+           ->name('iniciar-control');
+       Route::post('/buscar', [entidades\Admin\CalendarioController::class, 'buscar'])
+           ->name('buscar');
+       Route::post('/citas', [entidades\Admin\CalendarioController::class, 'citas'])
+           ->name('citas');
+       Route::post('/lista-citas', [entidades\Admin\CalendarioController::class, 'lista_citas'])
+           ->name('lista-citas');
 
-        Route::get('/crear-cita', [entidades\Admin\CalendarioController::class, 'create'])->name('crear-cita');
-        Route::post('/citas-libres', [entidades\Admin\CalendarioController::class, 'citas_libre'])->name('citas-libre');
-        Route::post('/guardar-cita', [entidades\Admin\CalendarioController::class, 'store'])->name('guardar-cita');
+        Route::get('/crear-cita', [entidades\Admin\CalendarioController::class, 'create'])
+            ->name('crear-cita');
+        Route::post('/citas-libres', [entidades\Admin\CalendarioController::class, 'citas_libre'])
+            ->name('citas-libre');
+        Route::post('/guardar-cita', [entidades\Admin\CalendarioController::class, 'store'])
+            ->name('guardar-cita');
+        Route::get('/ver-cita/{cita}', [entidades\Admin\CalendarioController::class, 'show'])
+            ->name('ver-cita');
+        Route::post('/actualizar-cita/{cita}', [entidades\Admin\CalendarioController::class, 'update'])
+            ->name('actualizar-cita');
     });
 
     Route::post('/institucion/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'calendario_disponible'])
         ->name('calendario-disponible');
 
 });
+
+/* ******************** Buscadores ******************** */
+/* Buscar convenios de un servicio */
+Route::post('/institucion/convenio/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'servicios_convenio'])
+    ->middleware('auth')
+    ->name('institucion.convenios-servicio');
+/* Buscar profesional */
+Route::post('/institucion/profesionales/buscar', [\App\Http\Controllers\buscador\RecursosController::class, 'profesionales_institucion'])
+    ->middleware('auth')
+    ->name('institucion.buscador-profesional');
+
+
 
 /*------------------------------------------------Pertenece el paciente-------------------------------------------------------------------------------*/
 /*Esta ruta es del paciente*/
@@ -443,11 +466,6 @@ Route::middleware(['auth', 'roles', 'verified'])->as('paciente.')->prefix('/paci
     Route::resource('contactos', Paciente\Admin\ContactosController::class);
 
 });
-
-/* Buscar convenios de un servicio */
-Route::post('/institucion/convenio/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'servicios_convenio'])
-    ->middleware('auth')
-    ->name('institucion.convenios-servicio');
 
 /*------------------------------------------------- Pertenece a ERRORES -------------------------------------------------------------------------------*/
 
