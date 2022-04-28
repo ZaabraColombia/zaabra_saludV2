@@ -47,6 +47,7 @@ class profesionales_instituciones extends Model
         'consultorio',
         'slug',
         'estado',
+        //'password',
     ];
 
     protected $primaryKey = "id_profesional_inst";
