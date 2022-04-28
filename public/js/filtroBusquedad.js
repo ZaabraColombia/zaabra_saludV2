@@ -1,4 +1,3 @@
-ruta='https://zaabrasalud.co/';
 $(function(){
     var filtro = $("#filtro");
     filtro.click(function (e){
@@ -35,21 +34,25 @@ $(function(){
             window.location = ui.item.url;
         },
         open: function() {
-            console.log('si');
             $("ul.ui-menu").css( 'width' ,$('.containt_buscador_desk').width() + 'px' );
         }
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
 
-        //$(this).width($('.containt_buscador_desk').width());
+        var btn = '';
 
-        var btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i><span>" +item.label +"</span></a>";
-
-        if (item.type)
+        if (item.image !== null && item.image !== undefined)
         {
-            btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i><span>" +item.label +"<br><small>" +item.type +"</small></span></a>";
-        }
+            btn = "<a href='"  + item.url + "'>"
+                + "<img class='registered_prof my-auto' src='" + item.image + "' '></img>"
+                + "<span>" +item.label + ((item.type !== undefined && item.type !== null) ?"<br> <small>" +item.type +"</small>" : '' )
+                + "</span></a>";
+        }else{
 
-        btn = "<a href='"  + item.url + "'><img class='registered_prof' src='/img/menu/avatar.png' my-auto'></img><span>" +item.label +"<br><small>" +item.type +"</small></span></a>";
+            btn = "<a href='"  + item.url + "'>"
+                + "<i class='" + item.icon + "'></i>"
+                + "<span>" +item.label + ((item.type !== undefined && item.type !== null) ?"<br> <small>" +item.type +"</small>" : '' )
+                + "</span></a>";
+        }
 
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
@@ -84,15 +87,6 @@ $(function(){
             });
         },
         select: function (event, ui) {
-            /*$('#barra_busqueda2').val(ui.item.id); // save selected id to input
-            // Set selection
-            $('#barra_busqueda2').keypress(function(e){
-                var keycode = (e.keyCode ? e.keyCode : e.which);
-                if (keycode == '13') {
-                    e.preventDefault();
-
-                }
-            });*/
             window.location = ui.item.url;
         },
         open: function() {
@@ -100,14 +94,22 @@ $(function(){
         }
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
 
-        //$(ul).outerWidth($('#').outerWidth());
+        var btn = '';
 
-        var btn = "<a href='"  + item.url + "'><i class='" + item.icon + "'></i><span>" +item.label +"</span></a>";
-
-        if (item.type !== undefined)
+        if (item.image !== null && item.image !== undefined)
         {
-            btn = "<a href='"  + item.url + "'><i class='" + item.icon + " my-auto'></i><span>" +item.label +" <br> <small>" +item.type +"</small></span></a>";
+            btn = "<a href='"  + item.url + "'>"
+                + "<img class='registered_prof my-auto' src='" + item.image + "' '></img>"
+                + "<span>" +item.label + ((item.type !== undefined && item.type !== null) ?"<br> <small>" +item.type +"</small>" : '' )
+                + "</span></a>";
+        }else{
+
+            btn = "<a href='"  + item.url + "'>"
+                + "<i class='" + item.icon + "'></i>"
+                + "<span>" +item.label + ((item.type !== undefined && item.type !== null) ?"<br> <small>" +item.type +"</small>" : '' )
+                + "</span></a>";
         }
+
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
             .append( btn )

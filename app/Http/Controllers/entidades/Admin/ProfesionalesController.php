@@ -20,9 +20,11 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class ProfesionalesController extends Controller
 {
@@ -158,6 +160,11 @@ class ProfesionalesController extends Controller
         }
 
         $profesional->update($request->all());
+
+        if (!empty($request->get('password')))
+        {
+            $profesional->update(['password' => Hash::make($request->get('password'))]);
+        }
 
         $profesional->especialidades()->sync($request->get('especialidades'));
 
@@ -355,7 +362,7 @@ class ProfesionalesController extends Controller
      * @param $id
      * @return void
      */
-    private function validator(Request $request, $id = null)
+    private function validator(Request $request, string $method = null,$id = null)
     {
         $request->validate([
             'id_universidad'    => ['required', 'exists:universidades,id_universidad'],
@@ -382,7 +389,16 @@ class ProfesionalesController extends Controller
             'red_social'        => ['nullable', 'url', 'max:100'],
             'rethus'            => ['required', 'max:45'],
             'numero_profesional'=> ['required', 'max:45'],
-            'foto'              => ['nullable', 'image']
+            'foto'              => ['nullable', 'image'],
+//            'password'          => [
+//                ($method == 'created') ? 'required':'nullable',
+//                'confirmed',
+//                Password::min(8)
+//                    ->mixedCase()
+//                    ->numbers()
+//                    ->symbols()
+//                    ->uncompromised()
+//            ]
         ], [], [
             'id_universidad'    => 'Universidad',
             'id_especialidad'   => 'Especialidad',

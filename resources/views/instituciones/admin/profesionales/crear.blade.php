@@ -242,7 +242,27 @@
                         </div>
                     </div>
 
-                    <!-- Buttons -->
+                    <!-- Contraseña del usuario -->
+                {{--
+                <h2 class="subtitle__lg green_bold my-4">Contraseña</h2>
+
+
+                <div class="row">
+                    <div class="col-md-6 input__box">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password"
+                               class="@error('password') is-invalid @enderror"/>
+                    </div>
+
+                    <div class="col-md-6 input__box">
+                        <label for="password_confirmation">Confirmar contraseña</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation"
+                               class="@error('password_confirmation') is-invalid @enderror"/>
+                    </div>
+                </div>
+                --}}
+
+                <!-- Buttons -->
                     <div class="row m-0 mt-3 content_btn_right">
                         <a href="{{ route('institucion.profesionales.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
                         <button type="submit" class="button_green">Guardar</button>
