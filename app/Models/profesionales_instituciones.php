@@ -47,15 +47,31 @@ class profesionales_instituciones extends Model
         'consultorio',
         'slug',
         'estado',
-        //'password',
+        'password',
     ];
 
-    protected $primaryKey = "id_profesional_inst";
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
     protected $casts = [
+        'correo_verified_at' => 'datetime',
         'horario' => 'array',
         'fecha_nacimiento' => 'datetime',
     ];
+
+    protected $primaryKey = "id_profesional_inst";
 
     protected $appends = [
         'nombre_completo'

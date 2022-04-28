@@ -31,6 +31,17 @@
 
             <!-- Contenedor formato tabla de la lista de contactos -->
             <div class="containt_main_table mb-3">
+                <div class="col-12">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
                         <thead class="thead_green">
@@ -68,12 +79,12 @@
                                             href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
                                                 <i data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
                                             </a>
-                                        
+
                                             <a class="btn_action_green tool top" style="width: 33px"
                                             href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
                                                 <i data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
                                             </a>
-                            
+
                                             <a class="btn_action_green tool top" style="width: 33px" href="#" data-toggle="modal" data-target="#modal_bloqueo_cita">
                                                 <i data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
                                             </a>
