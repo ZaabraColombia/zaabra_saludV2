@@ -68,7 +68,8 @@ class buscadorController extends Controller
                 DB::raw('CONCAT(COALESCE(users.primernombre, ""), " ", COALESCE(users.segundonombre, ""), " ", COALESCE(users.primerapellido, "")) as label'),
                 DB::raw('especialidades.nombreEspecialidad as type'),
                 DB::raw('CONCAT("' . url('/PerfilProfesional') . '/", perfilesprofesionales.slug) as url'),
-                DB::raw('CONCAT("fas fa-user-md icon_esp_med") as icon')
+                DB::raw('CONCAT("fas fa-user-md icon_esp_med") as icon'),
+                DB::raw('IF (fotoperfil is not null, concat("' . url('/') . '/", fotoperfil) , null) as image')
             )->get();
 
         $instituciones = instituciones::join('users', 'instituciones.idUser', '=', 'users.id')
