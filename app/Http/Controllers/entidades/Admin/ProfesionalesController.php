@@ -81,7 +81,7 @@ class ProfesionalesController extends Controller
         Gate::authorize('accesos-institucion','agregar-profesional');
 
         //Validar
-        $this->validator($request);
+        $this->validator($request, 'created');
 
         $id_institucion = Auth::user()->institucion->id;
         $request->merge(['id_institucion' => $id_institucion]);
@@ -96,6 +96,8 @@ class ProfesionalesController extends Controller
         }
 
         $profesional = profesionales_instituciones::query()->create($request->all());
+
+        $profesional->update(['password' => Hash::make($request->get('password'))]);
 
         $profesional->especialidades()->sync($request->get('especialidades'));
 
@@ -142,8 +144,10 @@ class ProfesionalesController extends Controller
         Gate::authorize('accesos-institucion','editar-profesional');
         Gate::authorize('update-profesional-institucion', $profesional);
 
+        //dd($request->all());
+
         //Validar
-        $this->validator($request, $profesional->id_profesional_inst);
+        $this->validator($request, 'updated', $profesional->id_profesional_inst);
 
         $id_institucion = Auth::user()->institucion->id;
         $request->merge(['id_institucion' => $id_institucion]);
@@ -164,6 +168,7 @@ class ProfesionalesController extends Controller
         if (!empty($request->get('password')))
         {
             $profesional->update(['password' => Hash::make($request->get('password'))]);
+            //dd($profesional);
         }
 
         $profesional->especialidades()->sync($request->get('especialidades'));
@@ -390,15 +395,15 @@ class ProfesionalesController extends Controller
             'rethus'            => ['required', 'max:45'],
             'numero_profesional'=> ['required', 'max:45'],
             'foto'              => ['nullable', 'image'],
-//            'password'          => [
-//                ($method == 'created') ? 'required':'nullable',
-//                'confirmed',
-//                Password::min(8)
-//                    ->mixedCase()
-//                    ->numbers()
-//                    ->symbols()
-//                    ->uncompromised()
-//            ]
+            'password'          => [
+                ($method == 'created') ? 'required':'nullable',
+                'confirmed',
+                Password::min(8)
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised()
+            ]
         ], [], [
             'id_universidad'    => 'Universidad',
             'id_especialidad'   => 'Especialidad',

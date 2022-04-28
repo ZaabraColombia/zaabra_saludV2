@@ -9,7 +9,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Profesionales</h1>
+                <h1 class="title__xl green_bold">Profesionales</h1>
             </div>
 
             <div class="containt_main_table mb-3">
@@ -31,6 +31,19 @@
                             </div>
                         @endif
                     </div>
+
+                    <div class="d-block d-md-flex justify-content-between py-3">
+                        <h2 class="subtitle__lg green_bold mb-4">Editar profesional</h2>
+                        <div class="checkbox">
+                            <input type="checkbox" name="estado" id="estado" value="1"
+                                {{ (old('estado', $profesional->estado) == 1) ? 'checked':'' }}/>
+                            <label class="label_check" for="estado">
+                                <b class="txt1">Profesional inactivo</b>
+                                <b class="txt2">Profesional activo</b>
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="row m-0 my-4 justify-content-center">
                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                             <div class="img__upload">
@@ -40,6 +53,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-3 input__box">
                             <label for="primer_nombre">Primer nombre</label>
@@ -243,7 +257,7 @@
                     </div>
                     <!-- Contraseña del usuario -->
 
-                    {{--<h2 class="subtitle__lg green_bold my-4">Contraseña</h2>
+                    <h2 class="subtitle__lg green_bold my-4">Contraseña</h2>
 
                     <div class="row">
                         <div class="col-md-6 input__box">
@@ -258,12 +272,11 @@
                                    class="@error('password_confirmation') is-invalid @enderror"/>
                         </div>
                     </div>
-                    --}}
 
                     <!-- Buttons -->
                     <div class="row m-0 mt-2 content_btn_right">
                         <a href="{{ route('institucion.profesionales.index') }}" class="button_transparent mr-2">Cancelar</a>
-                        <button type="submit" class="button_blue">Guardar</button>
+                        <button type="submit" class="button_green">Guardar</button>
                     </div>
 
 

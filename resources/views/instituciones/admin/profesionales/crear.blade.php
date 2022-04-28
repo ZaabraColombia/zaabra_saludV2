@@ -31,6 +31,19 @@
                         @endif
                     </div>
 
+                    <div class="d-block d-md-flex justify-content-between py-3">
+                        <h2 class="subtitle__lg green_bold mb-4">Crear profesional</h2>
+                        <!-- Check box interactivo y personalizado -->
+                        <div class="checkbox">
+                            <input type="checkbox" name="estado" id="estado" value="1"
+                                {{ (old('estado') == 1) ? 'checked':'' }}/>
+                            <label class="label_check" for="estado">
+                                <b class="txt1">Profesional inactivo</b>
+                                <b class="txt2">Profesional activo</b>
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="row m-0 my-4 justify-content-center">
                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                             <div class="img__upload">
@@ -243,26 +256,24 @@
                     </div>
 
                     <!-- Contraseña del usuario -->
-                {{--
-                <h2 class="subtitle__lg green_bold my-4">Contraseña</h2>
+                    <h2 class="subtitle__lg green_bold my-4">Contraseña</h2>
 
 
-                <div class="row">
-                    <div class="col-md-6 input__box">
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password"
-                               class="@error('password') is-invalid @enderror"/>
+                    <div class="row">
+                        <div class="col-md-6 input__box">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" name="password"
+                                   class="@error('password') is-invalid @enderror"/>
+                        </div>
+
+                        <div class="col-md-6 input__box">
+                            <label for="password_confirmation">Confirmar contraseña</label>
+                            <input type="password" id="password_confirmation" name="password_confirmation"
+                                   class="@error('password_confirmation') is-invalid @enderror"/>
+                        </div>
                     </div>
 
-                    <div class="col-md-6 input__box">
-                        <label for="password_confirmation">Confirmar contraseña</label>
-                        <input type="password" id="password_confirmation" name="password_confirmation"
-                               class="@error('password_confirmation') is-invalid @enderror"/>
-                    </div>
-                </div>
-                --}}
-
-                <!-- Buttons -->
+                    <!-- Buttons -->
                     <div class="row m-0 mt-3 content_btn_right">
                         <a href="{{ route('institucion.profesionales.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
                         <button type="submit" class="button_green">Guardar</button>
