@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\entidades;
-use App\Http\Controllers\Paciente;
-use App\Http\Controllers\profesionales;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 

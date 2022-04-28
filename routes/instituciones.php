@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\entidades;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*------------------------------------------------Pertenece a entidades-------------------------------------------------------------------------------*/
@@ -143,3 +144,17 @@ Route::post('/institucion/convenio/servicios', [\App\Http\Controllers\buscador\R
 Route::post('/institucion/profesionales/buscar', [\App\Http\Controllers\buscador\RecursosController::class, 'profesionales_institucion'])
     ->middleware('auth')
     ->name('institucion.buscador-profesional');
+
+/* *********************** Profesional de una institución *********************** */
+
+
+Route::group(
+    [
+        'prefix' => '/institucion/profesional',
+        'as' => 'institucion.profesional.',
+        'middleware' => ['auth', 'roles', 'verified']
+    ],
+    function (){
+        Route::get('panel');
+    }
+);
