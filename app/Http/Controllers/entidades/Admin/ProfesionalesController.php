@@ -168,7 +168,6 @@ class ProfesionalesController extends Controller
         if (!empty($request->get('password')))
         {
             $profesional->update(['password' => Hash::make($request->get('password'))]);
-            //dd($profesional);
         }
 
         $profesional->especialidades()->sync($request->get('especialidades'));
