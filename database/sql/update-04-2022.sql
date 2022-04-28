@@ -69,11 +69,12 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`atiguedades`
 alter table zaabrac1_zaabra_salud_test.ventabanners add column orden int null after aprobado;
 
 ### 22/04/2022 jhonf
-### subido producción
 
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     ADD COLUMN `correo_verified_at` TIMESTAMP NULL DEFAULT NULL AFTER `estado`,
     ADD COLUMN `password` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NOT NULL AFTER `correo_verified_at`,
     ADD COLUMN `remember_token` VARCHAR(100) NULL DEFAULT NULL AFTER `password`;
 
-###Subido cesar
+### Subido cesar
+### Subido testing
+### Subido producción
