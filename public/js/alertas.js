@@ -1,5 +1,4 @@
 function alert(message, type) {
-    console.log(message);
     return '<div class="w-100 m-1 alert alert-' + type + '" role="alert">\n' +
         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
         '<span aria-hidden="true">&times;</span>\n' +
