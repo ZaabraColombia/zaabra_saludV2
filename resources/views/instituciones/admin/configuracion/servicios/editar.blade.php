@@ -21,11 +21,10 @@
                         <h2 class="subtitle__lg green_bold mb-4">Editar servicio</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" name="estado" id="estado" value="1"
-                                {{ (old('estado', $servicio->estado) == 1) ? 'checked':'' }}/>
+                            <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }} name="estado" id="estado" value="1">
                             <label class="label_check" for="estado">
-                                <b class="txt1">Servicio inactivo</b>
-                                <b class="txt2">Servicio activo</b>
+                                <b class="txt1">Convenio inactivo</b>
+                                <b class="txt2">Convenio activo</b>
                             </label>
                         </div>
                     </div>

@@ -19,7 +19,7 @@
                       id="form-convenio-crear" enctype="multipart/form-data">
                     <!-- Información básica -->
                     <div class="d-block d-md-flex justify-content-between py-3">
-                        <h2 class="subtitle__lg green_bold mb-4">Información básica</h2>
+                        <h2 class="subtitle__lg green_bold mb-4">Editar convenio</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" {{ old('estado', $convenio->estado) == 1 ? 'checked':'' }}

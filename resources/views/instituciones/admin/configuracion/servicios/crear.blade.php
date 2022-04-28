@@ -16,19 +16,20 @@
             <div class="containt_main_table mb-3">
                 <form action="{{ route('institucion.configuracion.servicios.store') }}" method="post">
                     @csrf
-                    {{--
+
                     <div class="d-block d-md-flex justify-content-between py-3">
                         <h2 class="subtitle__lg green_bold mb-4">Nuevo servicio</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" name="checkbox" id="conv_check">
-                            <label class="label_check" for="conv_check">
+                            <input type="checkbox" name="estado" id="estado" value="1"
+                                {{ (old('estado') == 1) ? 'checked':'' }}/>
+                            <label class="label_check" for="estado">
                                 <b class="txt1">Servicio inactivo</b>
                                 <b class="txt2">Servicio activo</b>
                             </label>
                         </div>
                     </div>
-                    --}}
+
                     <div class="row">
                         <div class="col-12">
                             @if($errors->any())

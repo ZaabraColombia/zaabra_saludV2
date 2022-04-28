@@ -18,19 +18,20 @@
             <div class="containt_main_table mb-3">
                 <form action="{{ route('institucion.configuracion.usuarios.store') }}" method="post"
                       id="form-usuario-crear" enctype="multipart/form-data">
-                    {{--
+                    @csrf
+
                     <div class="d-block d-md-flex justify-content-between py-3">
                         <h2 class="subtitle__lg green_bold mb-4">Nuevo usuario</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" name="checkbox" id="conv_check">
-                            <label class="label_check" for="conv_check">
-                                <b class="txt1">Usuario inactivo</b>
-                                <b class="txt2">Usuario activo</b>
+                            <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }} name="estado" id="estado" value="1">
+                            <label class="label_check" for="estado">
+                                <b class="txt1">Convenio inactivo</b>
+                                <b class="txt2">Convenio activo</b>
                             </label>
                         </div>
                     </div>
-                    --}}
+
                     <div class="row">
                         @if($errors->any())
                             <div class="col-12">
@@ -89,7 +90,7 @@
                         <div class="col-md-6 input__box">
                             <label for="numero_documento">Número de identificación</label>
                             <input type="text" id="numero_documento" name="numero_documento" value="{{ old('numero_documento') }}"
-                                class="@error('numero_documento') is-invalid @enderror" required/>
+                                   class="@error('numero_documento') is-invalid @enderror" required/>
                         </div>
                     </div>
 
@@ -97,19 +98,19 @@
                         <div class="col-md-4 input__box">
                             <label for="fecha_nacimiento">Fecha de nacimiento</label>
                             <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}"
-                                class="@error('fecha_nacimiento') is-invalid @enderror" required/>
+                                   class="@error('fecha_nacimiento') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="direccion">Dirección</label>
                             <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"
-                                class="@error('direccion') is-invalid @enderror" required/>
+                                   class="@error('direccion') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="telefono">Teléfono</label>
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
-                                class="@error('telefono') is-invalid @enderror" required/>
+                                   class="@error('telefono') is-invalid @enderror" required/>
                         </div>
                     </div>
 
@@ -117,7 +118,7 @@
                         <div class="col-md-4 input__box">
                             <label for="celular">Celular</label>
                             <input type="text" id="celular" name="celular" value="{{ old('celular') }}"
-                                class="@error('celular') is-invalid @enderror" required/>
+                                   class="@error('celular') is-invalid @enderror" required/>
                         </div>
 
                         <div class="col-md-4 input__box">
@@ -158,7 +159,7 @@
                         <div class="col-md-4 input__box">
                             <label for="email">E-mail</label>
                             <input type="email" id="email" name="email" value="{{ old('email') }}"
-                                class="@error('email') is-invalid @enderror" required/>
+                                   class="@error('email') is-invalid @enderror" required/>
                         </div>
                     </div>
 
@@ -173,7 +174,7 @@
                             @foreach($accesos as $acceso)
                                 <div class="col-6 col-md-4 check__box_green">
                                     <input type="checkbox" {{ (collect(old('accesos'))->contains($acceso->id)) ? 'checked':'' }}
-                                           value="{{ $acceso->id }}" id="acceso-{{ $acceso->id }}" name="accesos[]">
+                                    value="{{ $acceso->id }}" id="acceso-{{ $acceso->id }}" name="accesos[]">
                                     <label class="label_check_green" for="acceso-{{ $acceso->id }}">{{ $acceso->nombre }}</label>
                                 </div>
                             @endforeach
@@ -190,13 +191,13 @@
                         <div class="col-md-6 input__box">
                             <label for="password">Contraseña</label>
                             <input type="password" id="password" name="password"
-                                class="@error('password') is-invalid @enderror"/>
+                                   class="@error('password') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-6 input__box">
                             <label for="password_confirmation">Confirmar contraseña</label>
                             <input type="password" id="password_confirmation" name="password_confirmation"
-                                class="@error('password_confirmation') is-invalid @enderror"/>
+                                   class="@error('password_confirmation') is-invalid @enderror"/>
                         </div>
                     </div>
 

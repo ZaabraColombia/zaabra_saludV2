@@ -18,15 +18,15 @@
                 <form action="{{ route('institucion.configuracion.convenios.store') }}" method="post"
                       id="form-convenio-crear" enctype="multipart/form-data">
                     <!-- Información básica -->
-                    <div class="d-block d-md-flex justify-content-between py-3">
+                    <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
-                        {{--                        <div class="checkbox">--}}
-                        {{--                            <input type="checkbox" name="estado_convenio" id="estado_convenio">--}}
-                        {{--                            <label class="label_check" for="conv_check"> --}}
-                        {{--                                <b class="txt1">Convenio inactivo</b>--}}
-                        {{--                                <b class="txt2">Convenio activo</b>--}}
-                        {{--                            </label>--}}
-                        {{--                        </div>--}}
+                        <div class="checkbox">
+                            <input type="checkbox" name="estado_convenio" id="estado_convenio">
+                            <label class="label_check" for="conv_check">
+                                <b class="txt1">Convenio inactivo</b>
+                                <b class="txt2">Convenio activo</b>
+                            </label>
+                        </div>
                     </div>
 
                     @csrf
