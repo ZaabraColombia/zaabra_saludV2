@@ -5,10 +5,10 @@ $user = Auth::user();
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
             <div class="sidebar__header">
-                <img src="{{ asset($user->profesional->fotoperfil ?? 'img/menu/avatar.png') }}" alt="user.png">
+                <img src="{{ asset($user->foto_perfil_institucion ?? 'img/menu/avatar.png') }}" alt="user.png">
                 <div class="user_data">
-                    <h2>Dr.(a) Profesional de institución</h2>
-                    <h3>Especialidad del profesional</h3>
+                    <h2>Dr.(a) {{ $user->nombre_completo }}</h2>
+                    <h3>{{ $user->especialidad_pricipal->nombreEspecialidad ?? '' }}</h3>
                 </div>
             </div>
 
