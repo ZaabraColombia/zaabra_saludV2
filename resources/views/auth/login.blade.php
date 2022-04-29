@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container-fluid" style="background: #F9F9F9">
         <div class="row justify-content-center py-4 py-md-5">
             <div class="w-100">
-                <h1 class="titulo_h1"> Acceda a nuestro portal de Zaabra <br> Salud o regístrese. </h1>
+                <h1 class="titulo_h1"> Acceda a nuestro portal de Zaabra @if(!request()->routeIs('institucion.profesional.login'))<br> Salud o regístrese @endif. </h1>
             </div>
 
             <div class="card tarjeta_principal">

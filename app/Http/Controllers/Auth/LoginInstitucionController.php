@@ -22,7 +22,7 @@ class LoginInstitucionController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers ;
     /**
      * Where to redirect users after login.
      *
@@ -71,10 +71,10 @@ class LoginInstitucionController extends Controller
             ]
         ))
         {
-            redirect()->route('institucion.profesional.calendario.index');
+            return redirect()->route('institucion.profesional.calendario.index');
         }
         return redirect()->route('institucion.profesional.login')
-            ->withErrors('correo','Credenciales incorrectas, Por favor vuelva a ingresar las credenciales.');
+            ->withErrors(['correo' => 'Credenciales incorrectas, Por favor vuelva a ingresar las credenciales.']);
 
     }
 }
