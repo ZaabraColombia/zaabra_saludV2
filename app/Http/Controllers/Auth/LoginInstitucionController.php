@@ -73,7 +73,7 @@ class LoginInstitucionController extends Controller
         {
             redirect()->route('institucion.profesional.calendario.index');
         }
-        return redirect()->route('login')
+        return redirect()->route('institucion.profesional.login')
             ->withErrors('correo','Credenciales incorrectas, Por favor vuelva a ingresar las credenciales.');
 
     }

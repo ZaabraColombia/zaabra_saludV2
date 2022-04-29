@@ -66,6 +66,12 @@
                                         <i data-feather="users"></i> <span>Usuario</span>
                                     </div>
                                 </a>
+
+                                <a class="option_flotante" href="{{ route('institucion.profesional.login') }}">
+                                    <div class="option__user">
+                                        <i class="fas fa-stethoscope"></i> <span>Profesional</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
