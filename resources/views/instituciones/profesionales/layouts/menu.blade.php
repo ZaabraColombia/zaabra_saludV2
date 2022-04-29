@@ -15,38 +15,38 @@ $user = Auth::user();
             <ul class="menu">
                 <!-- Calendario -->
                 <li class="sidebar-item  has-sub items_blue">
-                    <a id="calendario" class="" href='{{ route('profesional.agenda.calendario') }}'>
-                        <button class="{{ request()->routeIs('profesional.agenda.calendario') ? 'btn_active' : '' }}">Calendario</button>
+                    <a id="calendario" class="" href='{{ route('institucion.profesional.calendario.index') }}'>
+                        <button class="{{ request()->routeIs('institucion.profesional.calendario.*') ? 'btn_active' : '' }}">Calendario</button>
                     </a>
                 </li>
 
                 <!-- Citas -->
                 <li class="sidebar-item has-sub items_blue">
-                    <a id="" href="{{ route('profesional.agenda.calendario')}}">
-                        <button class="{{ request()->routeIs('profesional.agenda.calendario') ? 'btn_active' : '' }}">Citas</button>
+                    <a id="" href="{{ route('institucion.profesional.citas')}}">
+                        <button class="{{ request()->routeIs('institucion.profesional.citas') ? 'btn_active' : '' }}">Citas</button>
                     </a>
                 </li>
 
                 <!-- Catálogos -->
                 <li class="sidebar-item has-sub items_blue accordion" id="accordionExample">
-                    <button id="headingOne" class="{{ request()->routeIs('profesional.catalogos.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse"
+                    <button id="headingOne" class="{{ request()->routeIs('institucion.profesional.catalogos.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse"
                             data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         Catálogos<i class="icon_angle fas fa-angle-down pl-2"></i>
                     </button>
 
-                    <ul id="collapseOne" class="collapse sub_menu_blue {{ request()->routeIs('profesional.catalogos.*') ? 'show' : '' }}"
+                    <ul id="collapseOne" class="collapse sub_menu_blue {{ request()->routeIs('institucion.profesional.catalogos.*') ? 'show' : '' }}"
                         aria-labelledby="headingOne" data-parent="#accordionExample">
                         <li class="submenu-item ">
-                            <a id="cie10" class="{{ request()->routeIs('profesional.catalogos.cie10') ? 'txt_active_blue' : '' }}"
-                                href='{{ route('profesional.catalogos.cie10') }}'>Diagnósticos (CIE - 10)</a>
+                            <a id="cie10" class="{{ request()->routeIs('institucion.profesional.catalogos.cie10') ? 'txt_active_blue' : '' }}"
+                                href='{{ route('institucion.profesional.catalogos.cie10') }}'>Diagnósticos (CIE - 10)</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="cups" class="{{ request()->routeIs('profesional.catalogos.cups') ? 'txt_active_blue' : '' }}"
-                                href='{{ route('profesional.catalogos.cups') }}'>Procedimientos (CUPS)</a>
+                            <a id="cups" class="{{ request()->routeIs('institucion.profesional.catalogos.cups') ? 'txt_active_blue' : '' }}"
+                                href='{{ route('institucion.profesional.catalogos.cups') }}'>Procedimientos (CUPS)</a>
                         </li>
                         <li class="submenu-item ">
-                            <a id="cums" class="{{ request()->routeIs('profesional.catalogos.cums') ? 'txt_active_blue' : '' }}"
-                                href='{{ route("profesional.catalogos.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
+                            <a id="cums" class="{{ request()->routeIs('institucion.profesional.catalogos.cums') ? 'txt_active_blue' : '' }}"
+                                href='{{ route("institucion.profesional.catalogos.cums") }}'>Vademecum actualizado COLOMBIA INVIMA (CUMS)</a>
                         </li>
                     </ul>
                 </li>

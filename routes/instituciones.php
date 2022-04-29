@@ -175,21 +175,20 @@ Route::group([
     Route::controller(entidades\Profesional\CalendarioController::class)
         ->name('calendario.')
         ->group(function () {
-            Route::get('calendario', 'index')
-                ->name('index');
-            Route::post('ver-cita', 'ver_cita')
-                ->name('ver-cita');
-            Route::post('ver-citas', 'ver_citas')
-                ->name('ver-citas');
+            Route::get('calendario', 'index')->name('index');
+            Route::post('ver-cita', 'ver_cita')->name('ver-cita');
+            Route::post('ver-citas', 'ver_citas')->name('ver-citas');
         });
 
-    Route::get('citas', [entidades\Profesional\CitasController::class, 'index']);
+    Route::get('citas', [entidades\Profesional\CitasController::class, 'index'])
+        ->name('citas');
 
-    Route::get('/cie10',[entidades\Profesional\HistoriaClinicaController::class,'cie10'])
-        ->name('catalogos.cie10');
-    Route::get('/cups',[entidades\Profesional\HistoriaClinicaController::class,'cups'])
-        ->name('catalogos.cups');
-    Route::get('/cums',[entidades\Profesional\HistoriaClinicaController::class,'cums'])
-        ->name('catalogos.cums');
+    Route::controller(entidades\Profesional\HistoriaClinicaController::class)
+        ->name('catalogos.')
+        ->group(function () {
+            Route::get('/cie10', 'cie10')->name('cie10');
+            Route::get('/cups', 'cups')->name('cups');
+            Route::get('/cums', 'cums')->name('cums');
+        });
 }
 );
