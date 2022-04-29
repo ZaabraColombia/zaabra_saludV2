@@ -185,6 +185,11 @@ Route::group([
 
     Route::get('citas', [entidades\Profesional\CitasController::class, 'index']);
 
-
+    Route::get('/cie10',[entidades\Profesional\HistoriaClinicaController::class,'cie10'])
+        ->name('catalogos.cie10');
+    Route::get('/cups',[entidades\Profesional\HistoriaClinicaController::class,'cups'])
+        ->name('catalogos.cups');
+    Route::get('/cums',[entidades\Profesional\HistoriaClinicaController::class,'cums'])
+        ->name('catalogos.cums');
 }
 );
