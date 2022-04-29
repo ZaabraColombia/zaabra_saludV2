@@ -183,6 +183,8 @@ Route::group([
                 ->name('ver-citas');
         });
 
+    Route::get('citas', [entidades\Profesional\CitasController::class, 'index']);
+
 
 }
 );

@@ -38,10 +38,10 @@
                 <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
                     <thead>
                         <tr>
-                            <th>Hora</th>
+                            <th>Hora Inicio</th>
+                            <th>Hora Fin</th>
                             <th>Fecha</th>
                             <th>Especialidad</th>
-                            <th>Profesional</th>
                             <th>Paciente</th>
                             <th>Identificación</th>
                             <th>Lugar</th>
@@ -51,7 +51,21 @@
                     </thead>
 
                     <tbody>
-
+                    @if($citas->isNotEmpty())
+                        @foreach($citas as $cita)
+                            <tr>
+                                <td>{{ $cita->fecha_inicio->format('h:i a') }}</td>
+                                <td>{{ $cita->fecha_fin->format('h:i a') }}</td>
+                                <td>{{ $cita->fecha_inicio->format('d-m / Y') }}</td>
+                                <td>{{ $cita->especialidad->nombreEspecialidad ?? '' }}</td>
+                                <td>{{ $cita->paciente->user->nombre_completo ?? '' }}</td>
+                                <td>{{ $cita->paciente->user->identificacion ?? '' }}</td>
+                                <td>{{ $cita->lugar }}</td>
+                                <td>{{ str_replace(',', ' - ', $cita->paciente->celular ?? '') }}</td>
+                                <td>{{ $cita->estado }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -73,7 +87,7 @@
         $(document).ready( function () {
 
             $.fn.dataTable.moment( 'DD-MM / YYYY', 'es');
-            $.fn.dataTable.moment( 'HH:mm A \- HH:mm A', 'es');
+            $.fn.dataTable.moment( 'HH:mm A', 'es');
 
 
             $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
@@ -115,44 +129,7 @@
                             return 'Resultados';
                         }
                     },
-                ],
-                //dom: 'lfBrtip',
-                // buttons: [
-                //     {
-                //         extend: 'excel',
-                //         text: 'Excel',
-                //         title:'Resultados',
-                //         // exportOptions: {
-                //         //     modifier: {
-                //         //         search: 'applied',
-                //         //         order: 'applied'
-                //         //     }
-                //         // }
-                //     },
-                // ],
-                searching: true,
-                columnDefs: [
-                    {
-                        targets: [-1],
-                        orderable: false,
-                    }
-                ],
-                columns:[
-                    {data: "hora", name: "fecha_inicio"},
-                    {data: "fecha", name: "fecha_inicio"},
-                    {data: "especialidad.nombreEspecialidad", name: "especialidad.nombreEspecialidad"},
-                    {data: "profesional_ins.nombre_completo", name: 'profesional_ins.nombre_completo'},
-                    {data: "paciente.user.nombre_completo", name: 'paciente.user.nombre_completo'},
-                    {data: "paciente.user.numerodocumento", name: 'paciente.user.numerodocumento'},
-                    {data: "lugar", name: "lugar"},
-                    {data: "paciente.celular", name: "paciente.celular"},
-                    {data: "estado", name: "estado"},
-                ],
-                serverSide: true,
-                ajax:{
-                    type: 'post',
-                    url: '{{ route('institucion.citas.lista-citas') }}',
-                },
+                ]
             });
 
             $("#search").on('keyup change',function(){
