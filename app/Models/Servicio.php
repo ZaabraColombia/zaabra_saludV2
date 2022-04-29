@@ -61,4 +61,9 @@ class Servicio extends Model
         return $this->belongsTo(TipoServicio::class, 'tipo_servicio_id', 'id');
     }
 
+    public function cups(): BelongsTo
+    {
+        return $this->belongsTo(Cups::class, 'codigo_cups', 'code');
+    }
+
 }

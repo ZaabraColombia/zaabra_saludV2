@@ -90,6 +90,15 @@ class Cita extends Model
         return $this->belongsTo(tipoconsultas::class, 'tipo_cita_id');
     }
 
+
+    /**
+     * @return BelongsTo
+     */
+    public function servicio(): BelongsTo
+    {
+        return $this->belongsTo(Servicio::class, 'tipo_cita_id', 'id');
+    }
+
     /**
      * @return BelongsTo
      */
@@ -161,7 +170,8 @@ class Cita extends Model
 
     public function getHoraAttribute(): string
     {
-        return date('h:i a', strtotime($this->fecha_inicio)) . " - " . date('h:i a', strtotime($this->fecha_fin));
+        //return date('h:i a', strtotime($this->fecha_inicio)) . " - " . date('h:i a', strtotime($this->fecha_fin));
+        return "{$this->fecha_inicio->format('h:i a')} - {$this->fecha_fin->format('h:i a')}";
     }
 
 

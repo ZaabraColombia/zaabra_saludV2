@@ -35,7 +35,103 @@
     </section>
 
     <!-- Modal -->
-    <div class="modal fade modal_contactos" id="modal_">
+    <div class="modal fade modal_contactos" id="modal-finalizar-cita" data-backdrop="static" data-keyboard="false" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-lg modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" id="form-finalizar-cita">
+                    <!-- Mantener las cases "label-*" -->
+                    <div class="modal-body">
+                        <h1>Datos del paciente</h1>
+
+                        <div class="d-flex justify-content-center mb-3">
+                            <img id="foto" class="img__see_contacs foto">
+                        </div>
+
+                        <div class="">
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Nombre: &nbsp;</span>
+                                <span class="fs_text paciente"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Documento: &nbsp;</span>
+                                <span class="fs_text identificacion"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Celular: &nbsp;</span>
+                                <span class="fs_text celular"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Servicio: &nbsp;</span>
+                                <span class="fs_text servicio"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Categoría del servicio:</span>
+                                <span class="fs_text tipo_servicio"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Tipo de atención: </span>
+                                <span class="fs_text atencion"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Especialidad: </span>
+                                <span class="fs_text especialidad"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Cups: </span>
+                                <span class="fs_text cups"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Fecha: </span>
+                                <span class="fs_text fecha"></span>
+                            </div>
+
+                            <div>
+                                <span class="font_roboto fs_text_small black_light">Hora: </span>
+                                <span class="fs_text hora"></span>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-divider" style="color: #c2c2c2"></div>
+
+                        <label class="font_roboto fs_text_small black_light mb-0" for="">Duración de la cita:</label>
+                        <div class="main">
+                            <div class="circle">
+                                <div id="stopwatch" class="stopwatch black_strong fs_title">00:00</div>
+                                <button id="play-pause" class="paused" onclick="playPause()">
+                                    <span id="texto">Iniciar</span>
+                                </button>
+                            </div>
+                            <div id="seconds-sphere" class="seconds-sphere"></div>
+                        </div>
+
+                        <div class="col-12 p-0 input__box">
+                            <label class="font_roboto fs_text_small black_light mb-2" for="observacion">Observaciones</label>
+                            <textarea name="observacion" id="observacion" cols="35" rows="5"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer content_btn_center">
+                        <button type="submit" class="button_blue">Finalizar consulta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-ver-bloqueo" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -43,57 +139,26 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <!-- Mantener las cases "label-*" -->
+
                 <div class="modal-body">
-                    <h1>Datos del paciente</h1>
+                    <h1>Detalle del bloqueo</h1>
 
-                    <div class="d-flex justify-content-center mb-3">
-                        <img id="ver-foto" class="img__see_contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
-                    </div>
-
-                    <div class="">
-                        <div>
-                            <span class="font_roboto fs_text_small black_light">Nombre: &nbsp;</span>
-                            <span class="fs_text black_strong">Alexander Alejandro Castiblanco Sepulveda</span>
+                    <div class="modal_info_cita">
+                        <div class="p-3">
+                            <h3>Fecha inicio</h3>
+                            <p class="fecha_inicio"></p>
+                            <h3>Fecha fin</h3>
+                            <p class="fecha_fin"></p>
+                            <h3>Comentario</h3>
+                            <p class="comentario"></p>
                         </div>
-
-                        <div>
-                            <span class="font_roboto fs_text_small black_light">Tipo de documento: &nbsp;</span>
-                            <span class="fs_text black_strong">Cédula de Ciudadanía</span>
-                        </div>
-
-                        <div>
-                            <span class="font_roboto fs_text_small black_light">Número de documento: &nbsp;</span>
-                            <span class="fs_text black_strong">0.000.000.000</span>
-                        </div>
-
-                        <div>
-                            <span class="font_roboto fs_text_small black_light">Motivo de consulta: &nbsp;</span>
-                            <span class="fs_text black_strong">Consulta primera vez</span>
-                        </div>
-                    </div>
-
-                    <div class="dropdown-divider" style="color: #c2c2c2"></div>
-
-                    <label class="font_roboto fs_text_small black_light mb-0" for="">Duración de la cita:</label>
-                    <div class="main">
-                        <div class="circle">
-                            <div id="stopwatch" class="stopwatch black_strong fs_title">00:00</div>
-                            <button id="play-pause" class="paused" onclick="playPause()">
-                                <span id="texto">Iniciar</span>
-                            </button>
-                        </div>
-                        <div id="seconds-sphere" class="seconds-sphere"></div>
-                    </div>
-
-                    <div class="col-12 p-0 input__box">
-                        <label class="font_roboto fs_text_small black_light mb-2" for="observacion">Observaciones</label>
-                        <textarea name="observacion" id="observacion" cols="35" rows="5"></textarea>
                     </div>
                 </div>
 
                 <div class="modal-footer content_btn_center">
-                    <button type="button" class="button_blue" data-dismiss="modal">Finalizar consulta</button>
+                    <button type="button" class="button_transparent" id="btn-reserva-cancelar"  data-dismiss="modal">
+                        cerrar
+                    </button>
                 </div>
             </div>
         </div>
@@ -169,24 +234,24 @@
 
                 //Abrir evento
                 eventClick: function(info) {
-                    console.log(info);
-                    /*$.ajax({
+
+                    $.ajax({
                         data: { id: info.event._def.publicId},
                         dataType: 'json',
-                        url: '',
+                        url: info.event.extendedProps.show,
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        method: 'POST',
+                        method: 'post',
                         success: function (res) {
                             var modal;
 
                             if (res.item.estado === 'reservado')
                             {
-                                modal = $('#modal_ver_reserva');
+                                modal = $('#modal-ver-bloqueo');
 
-                                modal.find('.fecha_inicio').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                                modal.find('.fecha_fin').html(moment(res.item.fecha_fin).format('dddd, D MMMM/YYYY'));
+                                modal.find('.fecha_inicio').html(res.item.fecha_inicio);
+                                modal.find('.fecha_fin').html(res.item.fecha_fin);
                                 modal.find('.comentario').html(res.item.comentario);
 
                                 $('#btn-reserva-cancelar').data('id', res.item.id);
@@ -195,29 +260,23 @@
                                 modal.modal();
                             } else {
 
-                                modal = $('#modal_ver_cita');
+                                modal = $('#modal-finalizar-cita');
 
-                                modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                                modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') + '-' + moment(res.item.fecha_fin).format('hh:mm A'));
-                                modal.find('.nombre_paciente').html(res.item.nombre_paciente);
-                                modal.find('.tipo_cita').html(res.item.tipo_cita);
-                                modal.find('.modalidad').html(res.item.modalidad);
-                                modal.find('.correo').html(res.item.correo);
-                                modal.find('.numero_id').html(res.item.numero_id);
+                                $.each(res.item, function (key, item) {
+                                    if (key !== 'foto' && key !== 'finalizar') modal.find('.' + key).html(item);
+                                })
 
-                                $('#btn-cita-cancelar').data('id', res.item.id);
-                                $('#btn-cita-reagendar').data('id', res.item.id);
-                                $('#btn-cita-editar').data('id', res.item.id);
-                                $('#btn-cita-completar').data('id', res.item.id);
+                                modal.find('.foto').attr('src', res.item.foto);
+                                $('#form-finalizar-cita').attr('action', res.item.finalizar);
 
-                                modal.modal();
+                                 modal.modal();
                             }
                         },
                         error: function (res, status) {
                             var response = res.responseJSON;
                             $('#alerta-general').html(alert(response.message, 'danger'));
                         }
-                    });*/
+                    });
                 },
 
                 select: function(info) {
@@ -240,9 +299,7 @@
                 $('#alertas').html(alert(message, 'success'));
             });
         });
-    </script>
 
-    <script>
         const stopwatch = document.getElementById('stopwatch');
         const playPauseButton = document.getElementById('play-pause');
         const secondsSphere = document.getElementById('seconds-sphere');
@@ -298,7 +355,7 @@
             return `${display_minutes}:${display_seconds}`
         }
     </script>
-        <script>
+    <script>
 
     </script>
 @endsection

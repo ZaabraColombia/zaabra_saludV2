@@ -176,8 +176,9 @@ Route::group([
         ->name('calendario.')
         ->group(function () {
             Route::get('calendario', 'index')->name('index');
-            Route::post('ver-cita', 'ver_cita')->name('ver-cita');
+            Route::post('ver-cita/{cita}', 'ver_cita')->name('ver-cita');
             Route::post('ver-citas', 'ver_citas')->name('ver-citas');
+            Route::post('finalizar-cita/{cita}', 'finalizar_cita')->name('finalizar-cita');
         });
 
     Route::get('citas', [entidades\Profesional\CitasController::class, 'index'])
