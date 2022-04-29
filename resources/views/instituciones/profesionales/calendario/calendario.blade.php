@@ -110,20 +110,21 @@
                         <div class="main">
                             <div class="circle">
                                 <div id="stopwatch" class="stopwatch black_strong fs_title">00:00</div>
-                                <button id="play-pause" class="paused" onclick="playPause()">
+                                <button id="play-pause" class="paused finalizar" type="button" onclick="playPause()">
                                     <span id="texto">Iniciar</span>
                                 </button>
                             </div>
                             <div id="seconds-sphere" class="seconds-sphere"></div>
+                            <input type="hidden" name="segundos" id="segundos">
                         </div>
 
                         <div class="col-12 p-0 input__box">
-                            <label class="font_roboto fs_text_small black_light mb-2" for="observacion">Observaciones</label>
-                            <textarea name="observacion" id="observacion" cols="35" rows="5"></textarea>
+                            <label class="font_roboto fs_text_small black_light mb-2" for="comentario">Observaciones</label>
+                            <textarea name="comentario" id="comentario" cols="35" rows="5" class="comentario"></textarea>
                         </div>
                     </div>
 
-                    <div class="modal-footer content_btn_center">
+                    <div class="modal-footer content_btn_center finalizar">
                         <button type="submit" class="button_blue">Finalizar consulta</button>
                     </div>
                 </form>
@@ -246,6 +247,9 @@
                         success: function (res) {
                             var modal;
 
+                            $('#form-finalizar-cita')[0].reset();
+                            $('#form-finalizar-cita').removeAttr('action');
+
                             if (res.item.estado === 'reservado')
                             {
                                 modal = $('#modal-ver-bloqueo');
@@ -264,10 +268,26 @@
 
                                 $.each(res.item, function (key, item) {
                                     if (key !== 'foto' && key !== 'finalizar') modal.find('.' + key).html(item);
-                                })
+                                });
 
                                 modal.find('.foto').attr('src', res.item.foto);
-                                $('#form-finalizar-cita').attr('action', res.item.finalizar);
+                                if (res.item.estado === 'completado') {
+                                    $('.finalizar').hide();
+
+                                    var total_minutes = Math.floor(res.item.duracion / 60);
+
+                                    var display_seconds = (res.item.duracion % 60).toString().padStart(2, "0");
+                                    var display_minutes = total_minutes.toString().padStart(2, "0");
+
+                                    $('#stopwatch').html(display_minutes + ":" + display_seconds)
+                                    $('#comentario').prop('readonly', true);
+                                } else {
+
+                                    $('.finalizar').show();
+                                    $('#form-finalizar-cita').attr('action', res.item.finalizar);
+                                    $('#comentario').prop('readonly', false);
+                                    stop();
+                                }
 
                                  modal.modal();
                             }
@@ -298,6 +318,35 @@
                 };
                 $('#alertas').html(alert(message, 'success'));
             });
+
+            $('#form-finalizar-cita').submit(function (event) {
+                event.preventDefault();
+                var form = $(this);
+
+                //obtener segundos
+                $('#segundos').val(Math.floor(runningTime / 1000));
+                stop();
+
+                $.ajax({
+                    data: form.serialize(),
+                    dataType: 'json',
+                    url: form.attr('action'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'POST',
+                    success: function (res) {
+                        $('#alertas').html(alert(res.message, 'success'));
+                        $('#modal-finalizar-cita').modal('hide');
+                    },
+                    error: function (res, status) {
+                        var response = res.responseJSON;
+                        $('#alertas').html(alert(response.message, 'danger'));
+                        $('#modal-finalizar-cita').modal('hide');
+                    }
+                });
+
+            });
         });
 
         const stopwatch = document.getElementById('stopwatch');
@@ -318,7 +367,7 @@
             }
 
             // Evento para cambiar el texto del botón Iniciar del cronometro
-            texto.innerHTML=texto.innerHTML=="Finalizar"?"Iniciar":"Finalizar";
+            texto.innerHTML= (texto.innerHTML === "Finalizar") ? "Iniciar" : "Finalizar";
         }
 
         const pause = () => {
@@ -326,14 +375,14 @@
             clearInterval(stopwatchInterval);
         }
 
-        // const stop = () => {
-        //     secondsSphere.style.transform = 'rotate(-90deg) translateX(60px)';
-        //     secondsSphere.style.animation = 'none';
-        //     playPauseButton.classList.remove('running');
-        //     runningTime = 0;
-        //     clearInterval(stopwatchInterval);
-        //     stopwatch.textContent = '00:00';
-        // }
+        const stop = () => {
+            secondsSphere.style.transform = 'rotate(-90deg) translateX(60px)';
+            secondsSphere.style.animation = 'none';
+            playPauseButton.classList.remove('running');
+            runningTime = 0;
+            clearInterval(stopwatchInterval);
+            stopwatch.textContent = '00:00';
+        }
 
         const start = () => {
             secondsSphere.style.animation = 'rotacion 60s linear infinite';
@@ -354,8 +403,5 @@
 
             return `${display_minutes}:${display_seconds}`
         }
-    </script>
-    <script>
-
     </script>
 @endsection

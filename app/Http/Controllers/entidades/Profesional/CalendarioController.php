@@ -4,17 +4,14 @@ namespace App\Http\Controllers\entidades\Profesional;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cita;
-use App\Models\especialidades;
-use App\Models\profesionales_instituciones;
-use App\Models\Servicio;
-use App\Models\TipoServicio;
-use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CalendarioController extends Controller
 {
@@ -33,7 +30,7 @@ class CalendarioController extends Controller
     {
         $dates = Cita::query()
             ->where('profesional_ins_id', '=', Auth::user()->id_profesional_inst)
-            ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->whereNotIn('estado', ['cancelado'])
             ->with(['paciente', 'paciente.user', 'pago'])
             ->get();
 
@@ -126,7 +123,7 @@ class CalendarioController extends Controller
             'estado'        => $cita->estado,
             'fecha_inicio'  => $cita->fecha_inicio->format('d-m / Y H:s a'),
             'fecha_fin'     => $cita->fecha_fin->format('d-m / Y H:s a'),
-            'comentario'    => $cita->comentaio,
+            'comentario'    => $cita->comentario,
         ];
 
         if ($cita->estado != 'reservado')
@@ -142,11 +139,54 @@ class CalendarioController extends Controller
                 'cups'          => "{$cita->servicio->cups->code} - {$cita->servicio->cups->description}",
                 'fecha'         => $cita->fecha,
                 'hora'          => $cita->hora,
+                'duracion'      => $cita->duracion,
                 'foto'          => asset($cita->paciente->foto ?? 'img/menu/avatar.png'),
             ]);
 
         return response([
             'item' => $item
+        ], Response::HTTP_OK);
+    }
+
+    public function finalizar_cita(Request $request, $cita)
+    {
+        $validate = Validator::make(array_merge($request->all(), ['cita' => $cita]),[
+            'segundos'   => ['required', 'integer', 'min:0'],
+            'cita'      =>
+                [
+                    'required',
+                    Rule::exists('citas', 'id_cita')
+                        ->where('profesional_ins_id', Auth::user()->id_profesional_inst)
+                        ->whereNotIn('estado', ['reservado']),
+                ],
+            'comentario'=> ['nullable'],
+        ], [], [
+            'segundo'   => 'Cronometro',
+            'cita'      => 'Cita',
+            'comentario'=> 'Comentario',
+        ]);
+
+        if ($validate->fails())
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+        $cita = Cita::find($cita);
+
+        $cita->update([
+            'duracion'  => $request->segundos,
+            'estado'    => 'completado',
+            'comentario'=> $request->comentario,
+        ]);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => "Se finalizo la cita de {$cita->paciente->user->nombre_completo} correctamente"
+            ]
         ], Response::HTTP_OK);
     }
 }
