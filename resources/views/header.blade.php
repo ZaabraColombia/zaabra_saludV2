@@ -27,7 +27,7 @@
         @guest
             <!-- Menú desplegable del LOGIN -->
             <div id="head_main" class="soy_paciente">
-                <a class="dropdown-toggle drop_main" id="login__" href="#" role="button" data-toggle="collapse" data-target="#collap" 
+                <a class="dropdown-toggle drop_main" id="login__" href="#" role="button" data-toggle="collapse" data-target="#collap"
                     aria-expanded="false" aria-controls="collap" onclick="elementHidden(this)" data-position="login">
                 </a>
 
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="dropdown-divider m-0"></div>
-                        
+
                         <div style="position: relative">
                             <div class="card card__login">
                                 <div>
@@ -87,7 +87,7 @@
 
             <!-- Sección Menú hamburguesa no logueado-->
             <div class="menu-hamburger dropdown">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     onclick="elementHidden(this)" data-position="burger">
                     <span></span>
                 </a>
@@ -220,11 +220,11 @@
                     </a>
                     <div class="dropdown-divider m-0"></div>
 
-                    <a class="dropdown-item p-0" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a class="dropdown-item p-0" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <div class="menu__item icon__closed">Salir</div>
                     </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    <form id="logout-form" action="{{ (request()->route('institucion.profesional.*')) ? route('institucion.profesional.logout'):route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
                 </div>
