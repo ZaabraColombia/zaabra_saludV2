@@ -146,15 +146,43 @@ Route::post('/institucion/profesionales/buscar', [\App\Http\Controllers\buscador
     ->name('institucion.buscador-profesional');
 
 /* *********************** Profesional de una institución *********************** */
+Route::group([
+    'prefix' => '/institucion/profesional',
+    'as' => 'institucion.profesional.',
+], function (){
+
+    Route::get('/login', [\App\Http\Controllers\Auth\LoginInstitucionController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [\App\Http\Controllers\Auth\LoginInstitucionController::class, 'login']);
+    Route::post('/logout', [\App\Http\Controllers\Auth\LoginInstitucionController::class, 'logout'])->name('logout');
+
+    //Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
+    //Route::post('/register', 'AdminAuth\RegisterController@register');
+
+    //Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+    //Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
+    //Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+    //Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
+
+}
+);
+
+Route::group([
+    'prefix' => '/institucion/profesional',
+    'as' => 'institucion.profesional.',
+    'middleware' => ['auth:institucion']
+], function (){
+
+    Route::controller(entidades\Profesional\CalendarioController::class)
+        ->name('calendario.')
+        ->group(function () {
+            Route::get('calendario', 'index')
+                ->name('index');
+            Route::post('ver-cita', 'ver_cita')
+                ->name('ver-cita');
+            Route::post('ver-citas', 'ver_citas')
+                ->name('ver-citas');
+        });
 
 
-Route::group(
-    [
-        'prefix' => '/institucion/profesional',
-        'as' => 'institucion.profesional.',
-        'middleware' => ['auth', 'roles', 'verified']
-    ],
-    function (){
-        Route::get('panel');
-    }
+}
 );
