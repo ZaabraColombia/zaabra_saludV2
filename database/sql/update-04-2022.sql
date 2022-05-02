@@ -110,20 +110,20 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
             ON DELETE RESTRICT
             ON UPDATE RESTRICT;
 
-### Subido cesar
 
 ### Sentencia para la creación de la tabla banner_plantilla 02/05/2022 jhonf
-create table zaabra_salud.banner_plantillas (
+create table zaabrac1_zaabra_salud_test.banner_plantillas (
 id int auto_increment primary key,
 nombre varchar (50)
 );
 
-insert into zaabra_salud.banner_plantillas (nombre)
+insert into zaabrac1_zaabra_salud_test.banner_plantillas (nombre)
 values
 ('banner_corto'), ('banner_mediano'), ('banner_largo');
 
 ## Sentencia para adicionar la nueva columna banner_plantilla_id 02/05/2022 jhonf
 
-alter table zaabra_salud.ventabanners add banner_plantilla_id int;
+alter table zaabrac1_zaabra_salud_test.ventabanners add banner_plantilla_id int;
 
 ### Subido a jhonf
+### Subido cesar
