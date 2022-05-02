@@ -112,9 +112,6 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
 
 ### Subido cesar
 
-
-
-
 ### Sentencia para la creación de la tabla banner_plantilla 02/05/2022 jhonf
 create table zaabra_salud.banner_plantillas (
 id int auto_increment primary key,
