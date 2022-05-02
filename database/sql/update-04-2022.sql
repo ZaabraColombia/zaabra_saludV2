@@ -78,15 +78,27 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
 ### Subido cesar
 ### Subido testing
 ### Subido producción
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
+    DROP COLUMN `nombre_completo`;
 
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
     ADD COLUMN `profesional_id` INT NULL AFTER `institucion_id`,
     ADD INDEX `fk_users_profesiocal_idx` (`profesional_id` ASC);
 ;
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
-    ADD CONSTRAINT `fk_users_profesiocal`
+    ADD CONSTRAINT `fk_users_profesional`
         FOREIGN KEY (`profesional_id`)
             REFERENCES `zaabrac1_zaabra_salud_test`.`perfilesprofesionales` (`idPerfilProfesional`)
             ON DELETE RESTRICT
             ON UPDATE RESTRICT;
+
+
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
+    ADD COLUMN `nombre_completo` TEXT GENERATED ALWAYS AS (concat(
+        if((`primernombre` is not null),concat(`primernombre`,' '),''),
+        if((`segundonombre` is not null),concat(`segundonombre`,' '),''),
+        if((`primerapellido` is not null),concat(`primerapellido`,' '),''),
+        if((`segundoapellido` is not null),concat(`segundoapellido`,' '),''))) VIRTUAL null AFTER `segundoapellido`;
+
+
 
