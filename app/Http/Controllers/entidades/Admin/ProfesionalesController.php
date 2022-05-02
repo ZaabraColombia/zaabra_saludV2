@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\entidades\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cita;
 use App\Models\especialidades;
 use App\Models\pais;
 use App\Models\profesionales_instituciones;
@@ -167,8 +168,8 @@ class ProfesionalesController extends Controller
 
         if (!empty($request->get('password')))
         {
-            $profesional->update(['password' => Hash::make($request->get('password'))]);
-            //dd($profesional);
+            $pass = ['password' => Hash::make($request->get('password'))];
+            $profesional->update($pass);
         }
 
         $profesional->especialidades()->sync($request->get('especialidades'));
@@ -360,11 +361,68 @@ class ProfesionalesController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function bloquear_calendario(Request $request, profesionales_instituciones $profesional)
+    {
+        Gate::authorize('accesos-institucion','configurar-calendario-profesional');
+        //Gate::authorize('update-bloquear-calendario', $profesional);
+
+        //Validate date
+        $validate = Validator::make($request->all(), [
+            'fecha_inicio'  => ['required', 'date_format:Y-m-d\TH:i'],
+            'fecha_fin'     => ['required', 'date_format:Y-m-d\TH:i'],
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validate->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+        $inicio = $request->fecha_inicio;
+        $fin    = $request->fecha_fin;
+
+        $validar_cita = Cita::query()
+            ->validar($inicio, $fin)
+            ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->count();
+
+        if ($validar_cita > 0)
+        {
+            return response([
+                'message' => [
+                    'title'     => 'error',
+                    'text'   => 'Existen citas en este rango de tiempo'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        //crear bloqueo
+        $bloque = Cita::query()->create([
+            'fecha_inicio'  => date('Y-m-d H:i', strtotime($inicio)),
+            'fecha_fin'     => date('Y-m-d H:i', strtotime($fin)),
+            'comentario'    => $profesional->observacion,
+            'estado'        => 'reservado',
+            'profesional_ins_id'=> $profesional->id_profesional_inst,
+        ]);
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => "El bloqueo del profesional {$profesional->nombre_completo}esta creado correctamente"
+            ]
+        ], Response::HTTP_OK);
+    }
+
     /**
      * Permite validar el formulario principal
      *
      * @param Request $request
-     * @param $id
+     * @param string|null $method
+     * @param null $id
      * @return void
      */
     private function validator(Request $request, string $method = null,$id = null)

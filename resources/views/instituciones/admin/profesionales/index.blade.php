@@ -31,7 +31,7 @@
 
             <!-- Contenedor formato tabla de la lista de contactos -->
             <div class="containt_main_table mb-3">
-                <div class="col-12">
+                <div class="col-12" id="alertas" >
                     @if(session()->has('success'))
                         <div class="alert alert-success" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -85,9 +85,10 @@
                                                 <i data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
                                             </a>
 
-                                            <a class="btn_action_green tool top" style="width: 33px" href="#" data-toggle="modal" data-target="#modal_bloqueo_cita">
+                                            <button class="btn_action_green tool top bloquear-agenda" style="width: 33px"
+                                                    data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
                                                 <i data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
-                                            </a>
+                                            </button>
                                         </div>
                                     </td>
                                 </tr>
@@ -102,7 +103,7 @@
     </div>
 
     <!-- Modal  bloquear cita -->
-    <div class="modal fade" id="modal_bloqueo_cita" tabindex="-1" >
+    <div class="modal fade" id="modal-bloquear-agenda" tabindex="-1" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -111,7 +112,7 @@
                     </button>
                 </div>
 
-                <form method="post" id="form-reagendar-cita">
+                <form method="post" id="form-bloquear-agenda">
                     @csrf
                     <div class="modal-body">
                         <h1 style="color: #019f86">Bloquear Agenda</h1>
@@ -121,13 +122,13 @@
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
 
                                 <div class="col-12 col-md-6 pl-0 pr-1">
-                                    <label for="hora_inicio">Hora inicio</label>
-                                    <input type="datetime-local" id="hora_inicio" name="hora_inicio" value="">
+                                    <label for="fecha_inicio">Hora inicio</label>
+                                    <input type="datetime-local" id="fecha_inicio" name="fecha_inicio">
                                 </div>
 
                                 <div class="col-12 col-md-6 pr-0 pl-1">
-                                    <label for="hora_fin">Hora fin</label>
-                                    <input type="datetime-local" id="hora_fin" name="hora_fin" value="">
+                                    <label for="fecha_fin">Hora fin</label>
+                                    <input type="datetime-local" id="fecha_fin" name="fecha_fin">
                                 </div>
 
                                 <div class="col-12 p-0">
@@ -178,6 +179,41 @@
         $("#search").on('keyup change',function(){
             var texto = $(this).val();
             table.search(texto).draw();
+        });
+
+        //crear bloqueo
+        table.on('click', '.bloquear-agenda', function (eve) {
+            var btn = $(this);
+            console.log('ok');
+
+            $('#form-bloquear-agenda')[0].reset();
+            $('#form-bloquear-agenda').attr('action', btn.data('url'));
+            $('#modal-bloquear-agenda').modal();
+
+        });
+
+        $('#form-bloquear-agenda').submit(function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+
+            $.ajax({
+                url: form.attr('action'),
+                data: form.serialize(),
+                dataType: 'json',
+                method: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: (response) => {
+                    $('#alertas').html(alert(response.message, 'success'));
+                    $('#modal-bloquear-agenda').modal('hide');
+                },
+                error: (response) => {
+                    $('#alertas').html(alert(response.responseJSON.message, 'danger'));
+                    $('#modal-bloquear-agenda').modal('hide');
+                }
+            });
         });
     </script>
 @endsection
