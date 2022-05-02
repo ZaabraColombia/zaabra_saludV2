@@ -9,7 +9,9 @@ use App\Models\especialidades;
 use App\Models\Servicio;
 use App\Models\TipoServicio;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class ServicioController extends Controller
@@ -73,9 +75,40 @@ class ServicioController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($servicio)
     {
-        //
+        $validate = Validator::make(['servicio' => $servicio], [
+            'servicio' => [
+                'required',
+                Rule::exists('servicios', 'id')
+                    ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+            ]
+        ]);
+
+        if ($validate->fails())
+            return response([
+                'message' => [
+                    'title' => 'No se encontró el servicio',
+                    'text'  => ''
+                ]
+            ]);
+
+        $servicio = Servicio::query()
+            ->select('servicios.*')
+            ->addSelect([
+                'especialidad'  => especialidades::query()->select('nombreespecialidad as especialidad')->whereColumn('especialidad_id', 'idEspecialidad')->take(1),
+                'tipo_servicio' => TipoServicio::query()->select('nombre as tipo_servicio')->whereColumn('tipo_servicio_id', 'tipo_servicios.id')->take(1),
+                'cup'           => Cups::query()->selectRaw('concat(cups.code, "-", cups.description) as cup')->whereColumn('codigo_cups', 'cups.code')->take(1),
+            ])
+            ->where('id', $servicio)
+            ->with([
+                'convenios_lista:id,tipo_documento_id,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido'
+            ])
+            ->first();
+
+        return response([
+            'item' => $servicio
+        ], Response::HTTP_OK);
     }
 
     /**
