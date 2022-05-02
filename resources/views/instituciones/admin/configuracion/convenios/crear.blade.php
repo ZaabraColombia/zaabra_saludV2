@@ -143,7 +143,7 @@
                         </div>
 
                         <div class="col-md-4 input__box">
-                            @php $actividad_economica = (!empty( old('actividad_economica_id') )) ? \App\Models\Sgsss::find(old('actividad_economica_id')):null; @endphp
+                            @php $actividad_economica = (!empty( old('actividad_economica_id') )) ? \App\Models\ActividadEconomica::find(old('actividad_economica_id')):null; @endphp
                             <label for="actividad_economica_id">Actividad económica</label>
                             <select id="actividad_economica_id" name="actividad_economica_id" required
                                     class="@error('actividad_economica_id') is-invalid @enderror">

@@ -11,6 +11,7 @@ use App\Models\TipoDocumento;
 use App\Models\tipoinstituciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -80,26 +81,53 @@ class ConvenioController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Convenios $convenio
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(Convenios $convenio)
     {
-        //
+
+        $tipo_contribuyentes = TipoContribuyente::all();
+        $actividades_economicas = ActividadEconomica::all();
+        $tipo_documentos = TipoDocumento::all();
+        $paises = pais::all();
+        $tipo_convenios = tipoinstituciones::activado()->get();
+
+        return view('profesionales.admin.configuracion.convenios.editar', compact('tipo_documentos',
+            'actividades_economicas','tipo_contribuyentes', 'paises', 'convenio', 'tipo_convenios'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+    /**+
+     * @param Request $request
+     * @param Convenios $convenio
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Convenios $convenio)
     {
-        //
+        $this->validator($request);
+
+        $id_profesional = Auth::user()->profesional->idUser;
+
+        //Guardar foto
+        if ($request->file('foto'))
+        {
+            if (File::exists($convenio->url_image)) File::delete($convenio->url_image);
+
+
+            //Subir la foto
+            $foto = $request->file('foto');
+            $nombre_foto = Str::random(10) . '.' . $foto->guessExtension();
+            $url = $foto->move("img/profesional/{$id_profesional}/convenios/", $nombre_foto);
+
+            //Guardar la Url
+            $request->merge(['url_image' => $url->getPathname()]);
+
+        }
+
+        $convenio->update($request->all());
+
+        return redirect()->route('profesional.configuracion.convenios.index')
+            ->with('success', "El convenio {$convenio->nombre_completo} se ha editado");
     }
 
     public function validator(Request $request)

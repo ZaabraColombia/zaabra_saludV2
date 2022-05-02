@@ -21,7 +21,7 @@
                     <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" name="estado" id="estado">
+                            <input type="checkbox" name="estado" id="estado" value="1" {{ old('estado') == 1 ? 'checked':'' }}>
                             <label class="label_check" for="estado">
                                 <b class="txt1">Convenio inactivo</b>
                                 <b class="txt2">Convenio activo</b>
@@ -143,9 +143,12 @@
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="actividad_economica_id">Actividad económica</label>
+                            @php $actividad_economica = (!empty( old('actividad_economica_id') )) ? \App\Models\ActividadEconomica::find(old('actividad_economica_id')):null; @endphp                            <label for="actividad_economica_id">Actividad económica</label>
                             <select id="actividad_economica_id" name="actividad_economica_id" required
                                     class="@error('actividad_economica_id') is-invalid @enderror">
+                                @if(!empty($actividad_economica))
+                                    <option value="{{ $actividad_economica->id }}" selected>{{ $actividad_economica->nombre }}</option>
+                                @endif
                             </select>
                         </div>
 
