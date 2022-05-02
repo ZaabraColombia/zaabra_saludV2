@@ -5,13 +5,19 @@ namespace App\Http\Controllers\profesionales\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ActividadEconomica;
 use App\Models\Convenios;
+use App\Models\departamento;
+use App\Models\municipio;
 use App\Models\pais;
+use App\Models\provincia;
+use App\Models\Sgsss;
 use App\Models\TipoContribuyente;
 use App\Models\TipoDocumento;
 use App\Models\tipoinstituciones;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -55,7 +61,7 @@ class ConvenioController extends Controller
         {
             $foto = $request->file('foto');
             $nombre_foto = Str::random(10) . '.' . $foto->guessExtension();
-            $url = $foto->move("img/profesional/{$id_profesional}/convenios/", $nombre_foto);
+            $url = $foto->move("img/profesional/{$id_profesional}/convenios", $nombre_foto);
             $request->merge(['url_image' => $url->getPathname()]);
         }
 
@@ -75,9 +81,45 @@ class ConvenioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($convenio)
     {
-        //
+        $validate = Validator::make(['convenio' => $convenio], [
+            'convenio' => [
+                'required',
+                Rule::exists('convenios', 'id')
+                    ->where('id_user', Auth::user()->profesional->idUser)
+            ]
+        ]);
+
+        if ($validate->fails())
+            return response([
+                'message' => [
+                    'title' => 'No se encontró el convenio',
+                    'text'  => ''
+                ]
+            ]);
+
+        $convenio = Convenios::query()
+            ->select('convenios.*')
+            ->addSelect([
+                'sgsss' => Sgsss::query()->select('codigo as sgsss')->whereColumn('sgsss_id', 'sgsss.id')->take(1),
+                'tipo_contribuyente' => TipoContribuyente::query()->select('nombre as tipo_contribuyente')->whereColumn('tipo_contribuyente_id', 'tipo_contribuyentes.id')->take(1),
+                'actividad_economica' => ActividadEconomica::query()->select('nombre as actividad_economica')->whereColumn('actividad_economica_id', 'actividades_economicas.id')->take(1),
+                'tipo_convenio' => tipoinstituciones::query()->select('nombretipo as tipo_convenio')->whereColumn('id_tipo_convenio', 'tipoinstituciones.id')->take(1),
+                'pais' => pais::query()->select('nombre as pais')->whereColumn('pais_id', 'pais.id_pais')->take(1),
+                'departamento' => departamento::query()->select('nombre as departamento')->whereColumn('departamento_id', 'departamentos.id_departamento')->take(1),
+                'provincia' => provincia::query()->select('nombre as provincia')->whereColumn('provincia_id', 'provincias.id_provincia')->take(1),
+                'ciudad' => municipio::query()->select('nombre as ciudad')->whereColumn('ciudad_id', 'municipios.id_municipio')->take(1)
+            ])
+            ->where('id', $convenio)
+            ->first();
+
+
+        $convenio->foto = asset($convenio->url_image ?? 'img/menu/avatar.png');
+
+        return response([
+            'item' => $convenio
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -117,7 +159,7 @@ class ConvenioController extends Controller
             //Subir la foto
             $foto = $request->file('foto');
             $nombre_foto = Str::random(10) . '.' . $foto->guessExtension();
-            $url = $foto->move("img/profesional/{$id_profesional}/convenios/", $nombre_foto);
+            $url = $foto->move("img/profesional/{$id_profesional}/convenios", $nombre_foto);
 
             //Guardar la Url
             $request->merge(['url_image' => $url->getPathname()]);
