@@ -75,7 +75,6 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     ADD COLUMN `password` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NOT NULL AFTER `correo_verified_at`,
     ADD COLUMN `remember_token` VARCHAR(100) NULL DEFAULT NULL AFTER `password`;
 
-### Subido cesar
 ### Subido testing
 ### Subido producción
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
@@ -100,5 +99,17 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
         if((`primerapellido` is not null),concat(`primerapellido`,' '),''),
         if((`segundoapellido` is not null),concat(`segundoapellido`,' '),''))) VIRTUAL null AFTER `segundoapellido`;
 
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
+    ADD COLUMN `profesional_id` INT(11) NULL AFTER `institucion_id`,
+    ADD INDEX `fk_servicio_profesional_idx` (`profesional_id` ASC);
+;
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
+    ADD CONSTRAINT `fk_servicio_profesional`
+        FOREIGN KEY (`profesional_id`)
+            REFERENCES `zaabrac1_zaabra_salud_test`.`perfilesprofesionales` (`idPerfilProfesional`)
+            ON DELETE RESTRICT
+            ON UPDATE RESTRICT;
+
+### Subido cesar
 
 

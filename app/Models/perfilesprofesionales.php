@@ -47,7 +47,7 @@ class perfilesprofesionales extends Model
         'slug'
     ];
 
-    protected $primaryKey = 'fk_users_profesional';
+    protected $primaryKey = 'idPerfilProfesional';
 
     protected $table = 'perfilesprofesionales';
 
