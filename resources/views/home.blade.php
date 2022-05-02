@@ -8,11 +8,14 @@
                 <div class="swiper-slide">
                     <img class="swiper-slide" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
 
-                    <div class="banner_top_content_inside">
-                        <img class="banner_top_logo" src="{{URL::asset($objbannersprincipalHome->ruta_logo)}}" alt="">
-                        <h1 class="banner_top_title" style="color:{{($objbannersprincipalHome->color_titulo)}};">{{($objbannersprincipalHome->titulo_banner)}}</h1>
-                        <p class="banner_top_text" style="color:{{($objbannersprincipalHome->color_texto)}};">{{($objbannersprincipalHome->texto_banner)}}</p>
-                        <a class="banner_top_button" type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank"
+                    <div class="home_banner_top {{ ($objbannersprincipalHome->banner_plantilla_id == 1)? 'banner_small': (($objbannersprincipalHome->banner_plantilla_id == 2)? 'banner_medium': (($objbannersprincipalHome->banner_plantilla_id == 3)? 'banner_large': '')) }}">
+                        <div class="img_banner_top">    
+                            <img src="{{URL::asset($objbannersprincipalHome->ruta_logo)}}" alt="">
+                        </div>
+
+                        <h1 style="color:{{($objbannersprincipalHome->color_titulo)}};">{{($objbannersprincipalHome->titulo_banner)}}</h1>
+                        <p style="color:{{($objbannersprincipalHome->color_texto)}};">{{($objbannersprincipalHome->texto_banner)}}</p>
+                        <a class="mt-lg-2" type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank"
                             style="background-color:{{($objbannersprincipalHome->background_btn)}}; color:{{($objbannersprincipalHome->color_btn)}};">
                             {{($objbannersprincipalHome->texto_btn)}}
                         </a>

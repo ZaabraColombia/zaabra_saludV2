@@ -78,3 +78,20 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
 ### Subido cesar
 ### Subido testing
 ### Subido producción
+
+
+### Sentencia para la creación de la tabla banner_plantilla 02/05/2022 jhonf
+create table zaabra_salud.banner_plantillas (
+id int auto_increment primary key,
+nombre varchar (50)
+);
+
+insert into zaabra_salud.banner_plantillas (nombre)
+values 
+('banner_corto'), ('banner_mediano'), ('banner_largo'); 
+
+## Sentencia para adicionar la nueva columna banner_plantilla_id 02/05/2022 jhonf
+
+alter table zaabra_salud.ventabanners add banner_plantilla_id int;
+
+### Subido a jhonf 

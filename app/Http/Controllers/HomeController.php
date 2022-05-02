@@ -78,6 +78,7 @@ class HomeController extends Controller
         ->orderBy('orden')
         ->where('idtipobanner', '=', 1)
         ->get();
+        // dd($consultaBanner);
         return $consultaBanner ;
     }
 

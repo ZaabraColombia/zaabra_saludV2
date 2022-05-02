@@ -32,10 +32,12 @@
 @import'profesionales-institucion';
 @import'animaciones';
 // Componentes
-// @import 'sidebar';
 @import 'buttons';
 @import 'contains';
 @import 'inputs';
 @import 'images';
 @import 'texts';
+// Archivo SCSS de pruebas
+@import 'testing';
+
 $urlZaabra: 'http://localhost:8000/';

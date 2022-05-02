@@ -545,3 +545,7 @@ Route::get('/test', function (){
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
 Route:: get('/comprobantes-pago',[App\Http\Controllers\pagosController::class,'index2'])->name('comprobantes-pago');
 
+//+++++++++ Ruta de prueba +++++++++//
+Route::get('/test-home-prueba', function(){
+    return view('testHome');
+});
