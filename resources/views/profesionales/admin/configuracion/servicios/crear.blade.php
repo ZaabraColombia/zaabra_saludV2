@@ -1,7 +1,9 @@
-@section('styles')
-@endsection
-
 @extends('profesionales.admin.layouts.panel')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+@endsection
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
@@ -12,22 +14,19 @@
 
 
             <div class="containt_main_table mb-3">
-                <form action="{{ route('institucion.configuracion.servicios.store') }}" method="post">
+                <form action="{{ route('profesional.configuracion.servicios.store') }}" method="post">
                     @csrf
-                    {{--
                     <div class="d-block d-md-flex justify-content-between py-3">
                         <h2 class="subtitle__lg blue_bold mb-4">Nuevo servicio</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" name="checkbox" id="conv_check">
-                            <label class="label_check" for="conv_check">
+                            <input type="checkbox" name="estado" id="estado" value="1" {{ old('estado') == 1 ? 'checked':'' }}>
+                            <label class="label_check" for="estado">
                                 <b class="txt1">Servicio inactivo</b>
                                 <b class="txt2">Servicio activo</b>
                             </label>
                         </div>
                     </div>
-                    --}}
-
                     <div class="row">
                         <div class="col-12">
                             @if($errors->any())
@@ -69,59 +68,69 @@
                             <label for="especialidad_id">Especialidad</label>
                             <select class="@error('especialidad_id') is-invalid @enderror" id="especialidad_id"
                                     name="especialidad_id">
-                                {{-- @if($especialidades->isNotEmpty())
+                                @if($especialidades->isNotEmpty())
                                     @foreach($especialidades as $especialidad)
                                         <option value="{{ $especialidad->idEspecialidad }}" {{ old('especialidad_id') == $especialidad->idEspecialidad ? 'checked':null }}>{{ $especialidad->nombreEspecialidad }}</option>
                                     @endforeach
-                                @endif --}}
+                                @endif
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-4 input__box">
-                            <label for="tp_servicio">Tipo de servicio</label>
-                            <select class="@error('tp_servicio') is-invalid @enderror" id="tp_servicio"
-                                    name="tp_servicio" value="{{ old('tp_servicio') }}">
-                                <option value=""></option>
-                                <option value="Consulta por primera vez">Consulta por primera vez</option>
-                                <option value="Consulta de control">Consulta de control</option>
-                                <option value="Procedimiento quirúrgico">Procedimiento quirúrgico</option>
-                                <option value="Procedimiento no quirúrgico">Procedimiento no quirúrgico</option>
+                            <label for="tipo_servicio_id">Tipo de servicio</label>
+                            <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id">
+                                @if($tipo_servicios->isNotEmpty())
+                                    @foreach($tipo_servicios as $tipo_servicio)
+                                        <option value="{{ $tipo_servicio->id }}" {{ old('tipo_servicio_id') == $tipo_servicio->id ? 'checked':null }}>{{ $tipo_servicio->nombre }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
 
                         <div class="col-md-8 input__box">
-                            <label for="cups">CUPS</label>
-                            <select class="@error('cups') is-invalid @enderror" id="cups"
-                                    name="cups" value="{{ old('cups') }}">
-                                <option value=""></option>
-                                <option value="cups 1">cups 1</option>
-                                <option value="cups 2">cups 2</option>
-                                <option value="cups 3">cups 3</option>
+                            @php $codigo_cups = old('codigo_cups'); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
+                            <label for="codigo_cups">CUPS</label>
+                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups">
+                                <option></option>
+                                @if(!empty($cup))
+                                    <option value="{{ $cup->code }}" selected>{{ $cup->nombre }}</option>
+                                @endif
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-7 col-xl-5 d-flex justify-content-between align-self-end input__box">
-                            <label class="align-self-center" for="">Número de citas activas por paciente</label>
-                            <input type="number" id="" name="" value="{{ old('') }}"
-                                class="citas_activas @error('') is-invalid @enderror"/>
+                            <label class="align-self-center" for="citas_activas">Número de citas activas por paciente</label>
+                            <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas') }}"
+                                class="citas_activas @error('citas_activas') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-5 col-xl-7 input__box pl-md-0">
-                            <label for="metodo">Método</label>
-                            <select class="@error('metodo') is-invalid @enderror" id="metodo"
-                                    name="metodo" value="{{ old('metodo') }}">
-                                <option value=""></option>
-                                <option value="Presencial">Presencial</option>
-                                <option value="Virtual">Virtual</option>
+                            <label for="tipo_atencion">Tipo de atención</label>
+                            <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion">
+                                <option></option>
+                                <option value="presencial" {{old('tipo_atencion') == 'presencial' ? 'selected':''}}>Presencial</option>
+                                <option value="virtual" {{old('tipo_atencion') == 'virtual' ? 'selected':''}}>Virtual</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
+                        <div class="col-12 d-flex">
+                            <label class="mt-2">Agendamiento virtual</label>&nbsp;
+                            <!-- Check box interactivo y personalizado -->
+                            <div class="checkbox">
+                                <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual" value="1" {{ old('agendamiento_virtual') == 1 ? 'checked':'' }}>
+                                <label class="label_check" for="agendamiento_virtual">
+                                    <b class="txt1">Desactivado</b>
+                                    <b class="txt2">Activado</b>
+                                </label>
+                            </div>
+                        </div>
+
                         <div class="col-12 input__box">
                             <label for="descripcion">Descripción</label>
                             <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
@@ -144,25 +153,6 @@
                     <!-- Contenedor formato tabla de la lista de contactos -->
                     @php $old = old('convenios-lista') @endphp
                     <div id="table_servicio" class="containt_main_table mt-4 {{ (empty($old)) ? 'd-none':'' }}">
-                        {{--<div class="row m-0">
-                            <div class="col-md-9 input__box">
-                                <label for="convenio">Convenio</label>
-                                <select class="@error('convenio') is-invalid @enderror" id="convenio"
-                                        name="convenio" value="{{ old('convenio') }}">
-                                    @if($convenios->isNotEmpty())
-                                    @foreach($convenios as $convenio)
-                                    <option value="{{ $convenio->id }}">{{ $convenio->nombre_completo }}</option>
-                                    @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="col-md-3 p-0 pt-3 content_btn_right">
-                                <a href="" class="button_blue" id="">
-                                    Agregar
-                                </a>
-                            </div>
-                        </div>--}}
-
                         <div class="table-responsive">
                             <table class="table table_agenda" id="">
                                 <thead>
@@ -174,27 +164,31 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td class="check__box_blue">
-                                            <input id="name_convenio" type="checkbox" class="validar-convenio">
-                                            <label class="label_check_blue" for="name_convenio">Nombre convenio</label>
-                                            <input type="hidden" name="" value="">
-                                        </td>
-                                        <td>
-                                            <div class="input__box">
-                                                <div class="signo_peso" style="color: #0083D6"><span>$</span></div>
-                                                <input type="number" id="valor" name=""
-                                                        value="" class=""/>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input__box">
-                                                <div class="signo_peso" style="color: #0083D6"><span>$</span></div>
-                                                <input type="number" id="valor" name=""
-                                                        value="" class=""/>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                @if($convenios->isNotEmpty())
+                                    @foreach($convenios as $convenio)
+                                        <tr>
+                                            <td class="check__box_green">
+                                                <input type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
+                                                <label class="label_check_green" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
+                                                <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
+                                            </td>
+                                            <td>
+                                                <div class="input__box">
+                                                    <div class="signo_peso"><span>$</span></div>
+                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
+                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="valor-paciente @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input__box">
+                                                    <div class="signo_peso"><span>$</span></div>
+                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
+                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="valor-convenio @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>
@@ -202,7 +196,7 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 mt-3 content_btn_right">
-                        <a href="" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
+                        <a href="{{ route('profesional.configuracion.servicios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
                         <button type="submit" class="button_blue">Guardar</button>
                     </div>
                 </form>
@@ -212,6 +206,8 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
     <script>
         // función para mostrar y ocultar la tabla de vincular convenios
         $(document).ready(function(){
@@ -229,6 +225,33 @@
             }).each(function (key, item) {
                 var check = $(item);
                 check.parents('tr').find('input[type=number],input[type=hidden]').prop('disabled', !check.prop('checked'));
+            });
+
+            $('#codigo_cups').select2({
+                theme: 'bootstrap4',
+                ajax: {
+                    url: '{{ route('search-cups') }}',
+                    data: function (params) {
+                        // Query parameters will be ?search=[term]&type=public
+                        return {
+                            term: params.term
+                        };
+                    },
+                    processResults: function (result) {
+                        // Transforms the top-level key of the response object from 'items' to 'results'
+                        return {
+                            results: result.data
+                        };
+                    }
+                }
+            });
+
+            $('.valor-paciente').change(function () {
+                var input = $(this);
+                var valor = $('#valor');
+
+                if (!input.prop('disabled') && input.val() !== '' && valor.val() !== '')
+                    input.parents('tr').find('.valor-convenio').val(valor.val() - input.val());
             });
         });
     </script>

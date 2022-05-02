@@ -15,18 +15,18 @@
             </div>
 
             <div class="containt_main_table mb-3">
-                <form action="{{ route('institucion.configuracion.convenios.store') }}" method="post"
+                <form action="{{ route('profesional.configuracion.convenios.store') }}" method="post"
                       id="form-convenio-crear" enctype="multipart/form-data">
                     <!-- Información básica -->
-                    <div class="d-block d-md-flex justify-content-between py-3">
+                    <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
-                        {{--                        <div class="checkbox">--}}
-                        {{--                            <input type="checkbox" name="estado_convenio" id="estado_convenio">--}}
-                        {{--                            <label class="label_check" for="conv_check"> --}}
-                        {{--                                <b class="txt1">Convenio inactivo</b>--}}
-                        {{--                                <b class="txt2">Convenio activo</b>--}}
-                        {{--                            </label>--}}
-                        {{--                        </div>--}}
+                        <div class="checkbox">
+                            <input type="checkbox" name="estado" id="estado" value="1" {{ old('estado') == 1 ? 'checked':'' }}>
+                            <label class="label_check" for="estado">
+                                <b class="txt1">Convenio inactivo</b>
+                                <b class="txt2">Convenio activo</b>
+                            </label>
+                        </div>
                     </div>
 
                     @csrf
@@ -143,9 +143,12 @@
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="actividad_economica_id">Actividad económica</label>
+                            @php $actividad_economica = (!empty( old('actividad_economica_id') )) ? \App\Models\ActividadEconomica::find(old('actividad_economica_id')):null; @endphp                            <label for="actividad_economica_id">Actividad económica</label>
                             <select id="actividad_economica_id" name="actividad_economica_id" required
                                     class="@error('actividad_economica_id') is-invalid @enderror">
+                                @if(!empty($actividad_economica))
+                                    <option value="{{ $actividad_economica->id }}" selected>{{ $actividad_economica->nombre }}</option>
+                                @endif
                             </select>
                         </div>
 
@@ -163,16 +166,16 @@
                         </div>
 
                         <div class="col-md-4 input__box">
-                            <label for="tipo_convenio">Tipo de convenio</label>
-                            <select class="@error('tipo_convenio') is-invalid @enderror" id="tipo_convenio"
-                                    name="tipo_convenio" value="{{ old('tipo_convenio') }}">
-                                <option value=""></option>
-                                <option value="Tipo de convenio 1">Tipo de convenio 1</option>
-                                <option value="Tipo de convenio 2">Tipo de convenio 2</option>
-                                <option value="Tipo de convenio 3">Tipo de convenio 3</option>
-                                <option value=""></option>
+                            <label for="id_tipo_convenio">Tipo de convenio</label>
+                            <select class="@error('id_tipo_convenio') is-invalid @enderror" id="id_tipo_convenio" name="id_tipo_convenio">
+                                <option></option>
+                                @if($tipo_convenios->isNotEmpty())
+                                    @foreach($tipo_convenios as $tipo_convenio)
+                                        <option value="{{ $tipo_convenio->id }}" {{ old('id_tipo_convenio') == $tipo_convenio->id ? 'selected':'' }}>{{ $tipo_convenio->nombretipo }}</option>
+                                    @endforeach
+                                @endif
                             </select>
-                        </div>    
+                        </div>
                     </div>
 
                     <!-- Linea división de elementos -->
@@ -213,11 +216,11 @@
                             <select id="pais_id" name="pais_id" class="select2 pais @error('pais_id') is-invalid @enderror"
                                     data-departamento="#departamento_id" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
                                     data-id="{{ old('pais_id', 18/* colombia */) }}" required>
-                                {{--@if($paises->isNotEmpty())                                     
+                                @if($paises->isNotEmpty())
                                     @foreach($paises as $pais)
                                         <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
                                     @endforeach
-                                @endif --}}
+                                @endif
                             </select>
                         </div>
 

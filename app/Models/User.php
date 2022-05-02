@@ -34,6 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'google_id',
         'facebook_id',
         'institucion_id',
+        'profesional_id',
         'estado'
     ];
 
@@ -73,11 +74,17 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 
+
     /**
-     * @return HasOne
+     * @return BelongsTo|HasOne
      */
-    public function profesional(): HasOne
+    public function profesional()
     {
+        $role = $this->roles()->where('idrol', 4)->first();
+        if (!empty($role))
+        {
+            return $this->belongsTo(perfilesprofesionales::class,'profesional_id', 'idPerfilProfesional');
+        }
         return $this->hasOne(perfilesprofesionales::class, 'idUser', 'id');
     }
 

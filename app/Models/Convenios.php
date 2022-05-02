@@ -112,7 +112,7 @@ class Convenios extends Model
      */
     public function getMascaraIdentificacionAttribute(): string
     {
-        return "{$this->tipo_identificacion->nombre_corto} {$this->numero_documento}";
+        return "{$this->tipo_identificacion->nombre_corto} " . number_format($this->numero_documento, '0', ',', '.');
     }
 
     /**

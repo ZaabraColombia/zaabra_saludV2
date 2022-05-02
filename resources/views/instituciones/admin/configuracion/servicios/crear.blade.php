@@ -128,7 +128,7 @@
                             <label class="mt-2">Agendamiento virtual</label>&nbsp;
                             <!-- Check box interactivo y personalizado -->
                             <div class="checkbox">
-                                <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual" value="1">
+                                <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual" value="1" {{ old('agendamiento_virtual') == 1 ? 'checked':'' }}>
                                 <label class="label_check" for="agendamiento_virtual">
                                     <b class="txt1">Desactivado</b>
                                     <b class="txt2">Activado</b>

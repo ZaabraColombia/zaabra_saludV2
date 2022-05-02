@@ -75,9 +75,44 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     ADD COLUMN `password` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NOT NULL AFTER `correo_verified_at`,
     ADD COLUMN `remember_token` VARCHAR(100) NULL DEFAULT NULL AFTER `password`;
 
-### Subido cesar
 ### Subido testing
 ### Subido producción
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
+    DROP COLUMN `nombre_completo`;
+
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
+    ADD COLUMN `profesional_id` INT NULL AFTER `institucion_id`,
+    ADD INDEX `fk_users_profesiocal_idx` (`profesional_id` ASC);
+;
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
+    ADD CONSTRAINT `fk_users_profesional`
+        FOREIGN KEY (`profesional_id`)
+            REFERENCES `zaabrac1_zaabra_salud_test`.`perfilesprofesionales` (`idPerfilProfesional`)
+            ON DELETE RESTRICT
+            ON UPDATE RESTRICT;
+
+
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
+    ADD COLUMN `nombre_completo` TEXT GENERATED ALWAYS AS (concat(
+        if((`primernombre` is not null),concat(`primernombre`,' '),''),
+        if((`segundonombre` is not null),concat(`segundonombre`,' '),''),
+        if((`primerapellido` is not null),concat(`primerapellido`,' '),''),
+        if((`segundoapellido` is not null),concat(`segundoapellido`,' '),''))) VIRTUAL null AFTER `segundoapellido`;
+
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
+    ADD COLUMN `profesional_id` INT(11) NULL AFTER `institucion_id`,
+    ADD INDEX `fk_servicio_profesional_idx` (`profesional_id` ASC);
+;
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
+    ADD CONSTRAINT `fk_servicio_profesional`
+        FOREIGN KEY (`profesional_id`)
+            REFERENCES `zaabrac1_zaabra_salud_test`.`perfilesprofesionales` (`idPerfilProfesional`)
+            ON DELETE RESTRICT
+            ON UPDATE RESTRICT;
+
+### Subido cesar
+
+
 
 
 ### Sentencia para la creación de la tabla banner_plantilla 02/05/2022 jhonf
@@ -87,11 +122,11 @@ nombre varchar (50)
 );
 
 insert into zaabra_salud.banner_plantillas (nombre)
-values 
-('banner_corto'), ('banner_mediano'), ('banner_largo'); 
+values
+('banner_corto'), ('banner_mediano'), ('banner_largo');
 
 ## Sentencia para adicionar la nueva columna banner_plantilla_id 02/05/2022 jhonf
 
 alter table zaabra_salud.ventabanners add banner_plantilla_id int;
 
-### Subido a jhonf 
+### Subido a jhonf

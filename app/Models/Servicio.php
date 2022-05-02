@@ -19,6 +19,7 @@ class Servicio extends Model
         'descripcion',
         'especialidad_id',
         'institucion_id',
+        'profesional_id',
         'convenios',
         'tipo_atencion',
         'citas_activas',
@@ -35,7 +36,7 @@ class Servicio extends Model
      */
     public function profesional(): BelongsTo
     {
-        return $this->belongsTo(profesionales_instituciones::class, 'profesional_id', 'id_profesional_inst');
+        return $this->belongsTo(perfilesprofesionales::class, 'profesional_id', 'idPerfilProfesional');
     }
 
     /**
