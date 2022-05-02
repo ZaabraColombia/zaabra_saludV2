@@ -1,11 +1,11 @@
+@extends('profesionales.admin.layouts.panel')
+
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
     </style>
 @endsection
-
-@extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
@@ -42,24 +42,28 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Nombre 1</td>
-                                <td>000.000</td>
-                                <td>Especialidad 1</td>
-                                <td>
-                                    <div class="d-flex justify-content-around px-3">
-                                        <a class="btn_action tool top" style="width: 33px"
-                                            href="" data-target="#modal_ver_servicio" data-toggle="modal">
-                                            <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
-                                        </a>
+                        @if($servicios->isNotEmpty())
+                            @foreach($servicios as $servicio)
+                                <tr>
+                                    <td>{{ $servicio->nombre }}</td>
+                                    <td>{{ number_format($servicio->valor, 0, ',', '.') }}</td>
+                                    <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-around px-3">
+                                            <button class="btn_action tool top" style="width: 33px"
+                                                    data-url="{{ route('profesional.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">
+                                                <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
+                                            </button>
 
-                                        <a class="btn_action tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                                            <a class="btn_action tool top" style="width: 33px"
+                                               href="{{ route('profesional.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
+                                                <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>
@@ -68,7 +72,7 @@
     </div>
 
     <!-- Modal Ver Convenio -->
-    <div class="modal fade" id="modal_ver_servicio">
+    <div class="modal fade" id="modal-servicio">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -131,8 +135,8 @@
 
                             <div class="col-12 info_contac mt-lg-2">
                                 <h4>Descripción:</h4>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, debitis. Veritatis vitae. 
-                                    Corporis distinctio voluptatem illo reprehenderit minima voluptates esse obcaecati tempore doloribus. 
+                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, debitis. Veritatis vitae.
+                                    Corporis distinctio voluptatem illo reprehenderit minima voluptates esse obcaecati tempore doloribus.
                                     Laboriosam adipisci iure eaque? Ab ut excepturi delectus.
                                 </span>
                             </div>

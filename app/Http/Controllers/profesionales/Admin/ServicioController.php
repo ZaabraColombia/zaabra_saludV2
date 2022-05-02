@@ -3,18 +3,22 @@
 namespace App\Http\Controllers\profesionales\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServicioController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $servicios = Servicio::query()
+            ->where('profesional_id', '=', Auth::user()->profesional->idPerfilProfesional )
+            ->get();
+
+        return view('profesionales.admin.configuracion.servicios.index', compact('servicios'));
     }
 
     /**
