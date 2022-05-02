@@ -78,3 +78,15 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
 ### Subido cesar
 ### Subido testing
 ### Subido producción
+
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
+    ADD COLUMN `profesional_id` INT NULL AFTER `institucion_id`,
+    ADD INDEX `fk_users_profesiocal_idx` (`profesional_id` ASC);
+;
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
+    ADD CONSTRAINT `fk_users_profesiocal`
+        FOREIGN KEY (`profesional_id`)
+            REFERENCES `zaabrac1_zaabra_salud_test`.`perfilesprofesionales` (`idPerfilProfesional`)
+            ON DELETE RESTRICT
+            ON UPDATE RESTRICT;
+

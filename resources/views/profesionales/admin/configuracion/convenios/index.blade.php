@@ -1,11 +1,11 @@
+@extends('profesionales.admin.layouts.panel')
+
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
     </style>
 @endsection
-
-@extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
