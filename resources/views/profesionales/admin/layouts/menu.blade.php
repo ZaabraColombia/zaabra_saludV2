@@ -43,6 +43,26 @@ $user = Auth::user();
                     </ul>
                 </li>
 
+                <!-- configuración -->
+                <li class="sidebar-item has-sub items_blue accordion" id="accordion-configuracion">
+                    <button id="headingTwo" class="{{ request()->routeIs('profesional.configuracion.*') ? 'btn_active' : '' }}" type="button" data-toggle="collapse"
+                            data-target="#collapse-configuraciones" aria-expanded="false" aria-controls="collapseTwo">
+                        Configuración<i class="icon_angle fas fa-angle-down pl-2"></i>
+                    </button>
+
+                    <ul id="collapse-configuraciones" class="collapse sub_menu_blue {{ request()->routeIs('profesional.configuracion.*') ? 'show' : '' }}"
+                        aria-labelledby="headingTwo" data-parent="#accordion-configuracion">
+                        <li class="submenu-item ">
+                            <a id="calendario" class="{{ request()->routeIs('profesional.configuracion.convenios.*') ? 'txt_active_blue' : '' }}"
+                               href='{{ route('profesional.configuracion.convenios.index') }}'>Convenios</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a id="configurar-calendario" class="{{ request()->routeIs('profesional.configuracion.servicios.*') ? 'txt_active_blue' : '' }}"
+                               href='{{ route('profesional.configuracion.servicios.index') }}'>Servicios</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <!-- Pagos -->
                 <li class="sidebar-item  has-sub items_blue">
                     <a id="" class="" href='{{ route('profesional.pagos') }}'>
