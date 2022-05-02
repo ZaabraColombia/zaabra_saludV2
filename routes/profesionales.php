@@ -144,8 +144,10 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
         //Route:: get('/vademecumProfesional',[admin\adminVademecumProfesionalController::class,'index'])->name('vademecumProfesional');
         //Route:: get('/servicios',[admin\adminController::class,'oscar2'])->name('servicios');
 
-
-        //Convenios
-        //Route::resource('convenios', );
+        //Configuración
+        Route::group(['prefix' => '/configuracion','as' => 'configuracion.'], function () {
+            //Convenios
+            Route::resource('convenios', profesionales\Admin\ConvenioController::class);
+        });
     });
 });

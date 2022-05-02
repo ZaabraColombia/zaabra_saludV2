@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <a href="" class="button_blue" id="btn-agregar-contacto">
+                        <a href="{{ route('profesional.configuracion.convenios.create') }}" class="button_blue" id="btn-agregar-contacto">
                             Agregar
                         </a>
                     </div>
@@ -55,34 +55,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>00000 - 00000</td>
-                                <td>
-                                    <span>Convenio 1</span>
-                                </td>
-                                <td>
-                                    <span>Tipo convenio 1</span>
-                                </td>
-                                <td>
-                                    <span>000 000 0000 - 000 0000</span>
-                                </td>
-                                <td>
-                                    <span>ejemplo@.com</span>
-                                </td>
-                                <td>
-                                    <div class="d-flex justify-content-around">
-                                        <a class="btn_action tool top" style="width: 33px"
-                                            href="" data-target="#modal_ver_convenio" data-toggle="modal">
-                                            <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
-                                        </a>
+                        @if($convenios->isNotEmpty())
+                            @foreach($convenios as $convenio)
+                                <tr>
+                                    <td>{{ $convenio->codigo_convenio }}</td>
+                                    <td>{{ $convenio->nombre_completo }}</td>
+                                    <td>{{ $convenio->tipo_establecimiento }}</td>
+                                    <td>{{ $convenio->tipo_establecimiento }}</td>
+                                    <td>{{ "{$convenio->telefono} - {$convenio->celular}" }}</td>
+                                    <td>{{ $convenio->correo }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-around">
+                                            <button class="btn_action tool top" style="width: 33px"
+                                                    data-url="{{ route('profesional.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
+                                                <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
+                                            </button>
 
-                                        <a class="btn_action tool top" style="width: 33px"
-                                            href="">
-                                            <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                                            <a class="btn_action tool top" style="width: 33px"
+                                               href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
+                                                <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody>
                     </table>
                 </div>

@@ -3,13 +3,19 @@
 namespace App\Http\Controllers\profesionales\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Convenios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConvenioController extends Controller
 {
     public function index()
     {
-        return view('profesionales.admin.configuracion.convenios.index');
+        $convenios = Convenios::query()
+            ->where('id_user', Auth::user()->profesional->idUser)
+            ->with('tipo_documento')
+            ->get();
+        return view('profesionales.admin.configuracion.convenios.index', compact('convenios'));
     }
 
     /**
