@@ -79,26 +79,56 @@ class ServicioController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Servicio $servicio
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(Servicio $servicio)
     {
-        //
+        $especialidades = especialidades::all();
+        $tipo_servicios = TipoServicio::all();
+
+        $convenios = Convenios::query()
+            ->where('id_user', '=', Auth::user()->profesional->idUser)
+            ->activado()
+            ->get();
+
+        $lista = $servicio->convenios_lista->keyBy('id')->map(function ($item){
+            return [
+                'convenio_id' => $item->pivot->convenio_id,
+                'valor_paciente' => $item->pivot->valor_paciente,
+                'valor_convenio' => $item->pivot->valor_convenio,
+            ];
+        })->toArray();
+
+        return view('profesionales.admin.configuracion.servicios.editar', compact('especialidades',
+            'convenios','servicio','lista', 'tipo_servicios'));
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Servicio $servicio
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Servicio $servicio)
     {
-        //
+
+        $this->validator($request);
+
+        $servicio->update($request->all());
+
+        if ($servicio->convenios)
+        {
+            $array = collect($request->get('convenios-lista'))->map(function ($item) {
+                return ['valor_convenio' => $item['valor_convenio'], 'valor_paciente' => $item['valor_paciente']];
+            })->toArray();
+        }else{
+            $array = array();
+        }
+
+        $servicio->convenios_lista()->sync($array);
+
+        return redirect()->route('profesional.configuracion.servicios.index')
+            ->with('success', "El servicio {$servicio->nombre} ha sido editado");
     }
 
     private function validator(Request $request)
