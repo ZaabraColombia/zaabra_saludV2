@@ -5,20 +5,26 @@
   <section class="swiper-container swiper_principalGaleriaProf">
     <div class="swiper-wrapper">
       @foreach ($objbannersprincipalEspecialidades as $objbannersprincipalEspecialidades)
-        <img class="swiper-slide imagen_bannerPrin-espc" src="{{URL::asset($objbannersprincipalEspecialidades->rutaImagenVenta)}}">
+        <div class="swiper-slide ">
+          <img class="swiper-slide" src="{{URL::asset($objbannersprincipalEspecialidades->rutaImagenVenta)}}">
 
-        <div class="containt_slide_prinProf">
-          <h1 class="titulo_banner_prof" style="color:{{($objbannersprincipalEspecialidades->color_titulo)}};">{{($objbannersprincipalEspecialidades->titulo_banner)}}</h1>
-          <p class="texto_banner_prof" style="color:{{($objbannersprincipalEspecialidades->color_texto)}};">{{($objbannersprincipalEspecialidades->texto_banner)}}</p>
-
-          @if(!empty($objbannerprincipalEspecioalidades->urlBoton_banner))
-            <a type="submit" href="{{($objbannersprincipalEspecialidades->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
-              <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
-            </a>
-          @endif
+          <div class="main_banner_top {{ ($objbannersprincipalEspecialidades->banner_plantilla_id == 1)? 'banner_small': (($objbannersprincipalEspecialidades->banner_plantilla_id == 2)? 'banner_medium': (($objbannersprincipalEspecialidades->banner_plantilla_id == 3)? 'banner_large':'')) }}">
+            <div class="img_banner_top">    
+              <img src="{{URL::asset($objbannersprincipalEspecialidades->ruta_logo)}}" alt="">
+            </div>   
+          
+            <h1 style="color:{{($objbannersprincipalEspecialidades->color_titulo)}};">{{($objbannersprincipalEspecialidades->titulo_banner)}}</h1>
+            <p  style="color:{{($objbannersprincipalEspecialidades->color_texto)}};">{{($objbannersprincipalEspecialidades->texto_banner)}}</p>
+            @if(!empty($objbannerprincipalEspecioalidades->urlBoton_banner))
+              <a class="mt-lg-2" type="submit" href="{{($objbannersprincipalEspecialidades->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
+              </a>
+            @endif
+          </div>
         </div>
       @endforeach
     </div>
+
+    <div class="swiper-pagination pagination_home"></div>
   </section>
 
   <!-- Titulo principal de la vista -->

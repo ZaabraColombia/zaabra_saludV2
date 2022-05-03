@@ -8,7 +8,7 @@
                 <div class="swiper-slide">
                     <img class="swiper-slide" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
 
-                    <div class="home_banner_top {{ ($objbannersprincipalHome->banner_plantilla_id == 1)? 'banner_small': (($objbannersprincipalHome->banner_plantilla_id == 2)? 'banner_medium': (($objbannersprincipalHome->banner_plantilla_id == 3)? 'banner_large': '')) }}">
+                    <div class="main_banner_top {{ ($objbannersprincipalHome->banner_plantilla_id == 1)? 'banner_small': (($objbannersprincipalHome->banner_plantilla_id == 2)? 'banner_medium': (($objbannersprincipalHome->banner_plantilla_id == 3)? 'banner_large': '')) }}">
                         <div class="img_banner_top">    
                             <img src="{{URL::asset($objbannersprincipalHome->ruta_logo)}}" alt="">
                         </div>

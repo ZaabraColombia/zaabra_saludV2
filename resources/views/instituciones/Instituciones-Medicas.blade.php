@@ -5,21 +5,26 @@
     <div class="swiper-wrapper">
       @foreach ($objbannersprincipalInstituciones as $objbannersprincipalInstituciones)
         <div class="swiper-slide ">
-          <img class="swiper-slide imagen_bannerPrin-entid" src="{{URL::asset($objbannersprincipalInstituciones->rutaImagenVenta)}}">
+          <img class="swiper-slide" src="{{URL::asset($objbannersprincipalInstituciones->rutaImagenVenta)}}">
 
-          <div class="containt_slide_prinInst">
-            <h1 class="titulo_banner_inst" style="color:{{($objbannersprincipalInstituciones->color_titulo)}};">{{($objbannersprincipalInstituciones->titulo_banner)}}</h1>
-            <p class="texto_banner_inst" style="color:{{($objbannersprincipalInstituciones->color_texto)}};">{{($objbannersprincipalInstituciones->texto_banner)}}</p>
+          <div class="main_banner_top {{ ($objbannersprincipalInstituciones->banner_plantilla_id == 1)? 'banner_small': (($objbannersprincipalInstituciones->banner_plantilla_id == 2)? 'banner_medium': (($objbannersprincipalInstituciones->banner_plantilla_id == 3)? 'banner_large': '')) }}">
+            <div class="img_banner_top">    
+              <img src="{{URL::asset($objbannersprincipalInstituciones->ruta_logo)}}" alt="">
+            </div>
+          
+            <h1 style="color:{{($objbannersprincipalInstituciones->color_titulo)}};">{{($objbannersprincipalInstituciones->titulo_banner)}}</h1>
+            <p  style="color:{{($objbannersprincipalInstituciones->color_texto)}};">{{($objbannersprincipalInstituciones->texto_banner)}}</p>
 
             @if(!empty($objbannersprincipalProfesiones->urlBoton_banner))
-              <a type="submit" href="{{($objbannersprincipalInstituciones->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
-                <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
+              <a class="mt-lg-2" type="submit" href="{{($objbannersprincipalInstituciones->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
               </a>
             @endif
           </div>
         </div>
       @endforeach
     </div>
+
+    <div class="swiper-pagination pagination_home"></div>
   </section>
 
   <h1 class="titulo_principal" style="color: #019F86"> Instituciones </h1>

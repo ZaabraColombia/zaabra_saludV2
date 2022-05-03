@@ -1,4 +1,4 @@
-.home_banner_top {
+.main_banner_top {
     position: absolute;
     top: 0px;
     left: 5%;
@@ -54,7 +54,7 @@
 }
 
 @media(min-width: 360px) {
-    .home_banner_top {
+    .main_banner_top {
         h1 {
             font-size: 12px;
         }
@@ -80,7 +80,7 @@
 }
 
 @media(min-width: 768px) {
-    .home_banner_top {
+    .main_banner_top {
         .img_banner_top {
             width: 185px;
             margin-bottom: 20px;
@@ -107,7 +107,7 @@
 }
 
 @media(min-width: 1024px) {
-    .home_banner_top {
+    .main_banner_top {
         .img_banner_top {
             width: 225px;
             margin-bottom: 25px;
@@ -125,7 +125,7 @@
 }
 
 @media(min-width: 1200px) {
-    .home_banner_top {
+    .main_banner_top {
         .img_banner_top {
             width: 275px;
         }
@@ -142,7 +142,7 @@
 }
 
 @media(min-width: 1300px) {
-    .home_banner_top {
+    .main_banner_top {
         .img_banner_top {
             width: 350px;
             margin-bottom: 40px;
@@ -160,7 +160,7 @@
 }
 
 @media(min-width: 1920px) {
-    .home_banner_top {
+    .main_banner_top {
         left: 10%;
         .img_banner_top {
             width: 400px;

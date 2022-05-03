@@ -77,6 +77,7 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
 
 ### Subido testing
 ### Subido producción
+
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
     DROP COLUMN `nombre_completo`;
 

@@ -6,7 +6,7 @@
             <div class="swiper-slide" data-swiper-slide-index="0" role="group" aria-label="1 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 1; transform: translate3d(-1920px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/banner-medhistoria.jpg">
 
-                <div class="home_banner_top banner_medium">
+                <div class="main_banner_top banner_medium">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -21,7 +21,7 @@
             <div class="swiper-slide" data-swiper-slide-index="1" role="group" aria-label="2 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 1; transform: translate3d(-3840px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/home-doctore.jpg">
 
-                <div class="home_banner_top banner_medium">
+                <div class="main_banner_top banner_medium">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -36,7 +36,7 @@
             <div class="swiper-slide" data-swiper-slide-index="2" role="group" aria-label="3 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 1; transform: translate3d(-5760px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/zaabra-salud-banner-preguntas-frecuentes.jpg">
 
-                <div class="home_banner_top banner_medium">
+                <div class="main_banner_top banner_medium">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -51,7 +51,7 @@
             <div class="swiper-slide" data-swiper-slide-index="3" role="group" aria-label="4 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 1; transform: translate3d(-7680px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/banner-medhistoria-03.jpg">
 
-                <div class="home_banner_top banner_medium">
+                <div class="main_banner_top banner_medium">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -66,7 +66,7 @@
             <div class="swiper-slide" data-swiper-slide-index="4" role="group" aria-label="5 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 1; transform: translate3d(-9600px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/banner-acnp.jpg">
 
-                <div class="home_banner_top banner_large">
+                <div class="main_banner_top banner_large">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -81,7 +81,7 @@
             <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="5" role="group" aria-label="6 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 1; transform: translate3d(-11520px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/zaabra-salud-sociedad-colombiana-cirugia-plastica-facial-rinologia.jpg">
 
-                <div class="home_banner_top banner_medium">
+                <div class="main_banner_top banner_medium">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -96,7 +96,7 @@
             <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="6" role="group" aria-label="7 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 1; transform: translate3d(-13440px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/zaabra-salud-institucion-banner-medhistoria.jpg">
 
-                <div class="home_banner_top banner_medium">
+                <div class="main_banner_top banner_medium">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -111,7 +111,7 @@
             <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="7" role="group" aria-label="8 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 0; transform: translate3d(-15360px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/zaabra-salud-institucion-banner-medhistoria-02.jpg">
 
-                <div class="home_banner_top banner_small">
+                <div class="main_banner_top banner_small">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -126,7 +126,7 @@
             <div class="swiper-slide" data-swiper-slide-index="8" role="group" aria-label="9 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 0; transform: translate3d(-17280px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/zaabra-salud-enfermeria-banner-medhistoria.jpg">
 
-                <div class="home_banner_top banner_medium">
+                <div class="main_banner_top banner_medium">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
@@ -141,7 +141,7 @@
             <div class="swiper-slide" data-swiper-slide-index="9" role="group" aria-label="10 / 10" style="width: 1920px; transition-duration: 0ms; opacity: 0; transform: translate3d(-19200px, 0px, 0px);">
                 <img class="swiper-slide" src="http://localhost:8000/img/banners/bannerprincipalhome/zaabra-salud-rama-salud-banner-medhistoria.jpg">
 
-                <div class="home_banner_top banner_medium">
+                <div class="main_banner_top banner_medium">
                     <div class="img_banner_top">
                         <img src="http://localhost:8000/img/banners/bannerprincipalhome/logo-medhistoria-banner.png" alt="">
                     </div>
