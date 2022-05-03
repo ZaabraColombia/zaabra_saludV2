@@ -51,12 +51,35 @@ class AuthServiceProvider extends ServiceProvider
 
         //Validar acceso a módulos de institución
         Gate::define('accesos-institucion', function (User $user, $slug) {
-            return
-                //Valida si es un auxiliar
-                $user->roles()->where('idrol', '!=', 4)->count() >= 1 || $user->accesos()
+            //Valida si es un auxilia
+            return $user->roles()->where('idrol', '!=', 4)->count() >= 1 || $user->accesos()
                     ->where('slug', '=', $slug)
                     ->where('tipo', 'like', 'institucion')
                     ->count() >= 1;
+        });
+
+        //Validar acceso a módulos de profesional
+        Gate::define('accesos-profesional', function (User $user, $slug) {
+            //Valida si es un auxiliar
+            return $user->roles()->where('idrol', '!=', 5)->count() >= 1 || $user->accesos()
+                    ->where('slug', '=', $slug)
+                    ->where('tipo', 'like', 'profesional')
+                    ->count() >= 1;
+        });
+
+        //Validar si puede editar convenio de profesional
+        Gate::define('update-convenio-profesional', function (User $user, Convenios $convenio) {
+            return $user->profesional->idUser === $convenio->id_user;
+        });
+
+        //Validar si puede editar servicio de profesional
+        Gate::define('update-servicio-profesional', function (User $user, Servicio $servicio) {
+            return $user->profesional->idUser === $servicio->profesional_id;
+        });
+
+        //Validar si puede editar al usuario de profesional
+        Gate::define('update-usuario-profesional', function (User $adminUser, User $user) {
+            return $adminUser->profesional->idUser === $user->profesional_id;
         });
 
     }
