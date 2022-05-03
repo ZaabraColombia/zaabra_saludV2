@@ -11,11 +11,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class FavoritosController extends Controller
 {
 
     public function index(){
+        Gate::authorize('accesos-profesional', 'ver-favoritos');
+
         if (Auth::check()){
             $id_users=auth()->user()->id;
             $objFavorito=$this->cargaFavorito($id_users);
@@ -44,6 +47,8 @@ class FavoritosController extends Controller
 
     public function guardar_especialidades(Request $request) {
 
+        Gate::authorize('accesos-profesional', 'ver-favoritos');
+
         /*id usuario logueado*/
         $id_users=auth()->user()->id;
         $request->merge([
@@ -69,6 +74,8 @@ class FavoritosController extends Controller
     }
 
     public function guardar_servicios(Request $request) {
+
+        Gate::authorize('accesos-profesional', 'ver-favoritos');
 
         /*id usuario logueado*/
         $id_users=auth()->user()->id;
@@ -97,6 +104,7 @@ class FavoritosController extends Controller
 
     public function guardar_profesional(Request $request) {
 
+        Gate::authorize('accesos-profesional', 'ver-favoritos');
         /*id usuario logueado*/
         $id_users=auth()->user()->id;
         $request->merge([
@@ -123,6 +131,8 @@ class FavoritosController extends Controller
     }
 
     public function guardar_instituciones(Request $request) {
+
+        Gate::authorize('accesos-profesional', 'ver-favoritos');
 
         /*id usuario logueado*/
         $id_users=auth()->user()->id;
