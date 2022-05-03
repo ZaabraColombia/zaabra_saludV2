@@ -75,8 +75,6 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     ADD COLUMN `password` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NOT NULL AFTER `correo_verified_at`,
     ADD COLUMN `remember_token` VARCHAR(100) NULL DEFAULT NULL AFTER `password`;
 
-### Subido testing
-### Subido producción
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
     DROP COLUMN `nombre_completo`;
 
@@ -97,7 +95,8 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
         if((`primernombre` is not null),concat(`primernombre`,' '),''),
         if((`segundonombre` is not null),concat(`segundonombre`,' '),''),
         if((`primerapellido` is not null),concat(`primerapellido`,' '),''),
-        if((`segundoapellido` is not null),concat(`segundoapellido`,' '),''))) VIRTUAL null AFTER `segundoapellido`;
+        if((`segundoapellido` is not null),concat(`segundoapellido`,' '),'')))
+        VIRTUAL AFTER `segundoapellido`;
 
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
     ADD COLUMN `profesional_id` INT(11) NULL AFTER `institucion_id`,
@@ -113,13 +112,14 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
 
 ### Sentencia para la creación de la tabla banner_plantilla 02/05/2022 jhonf
 create table zaabrac1_zaabra_salud_test.banner_plantillas (
-id int auto_increment primary key,
-nombre varchar (50)
+    id int auto_increment primary key,
+    nombre varchar (50)
 );
 
 insert into zaabrac1_zaabra_salud_test.banner_plantillas (nombre)
-values
-('banner_corto'), ('banner_mediano'), ('banner_largo');
+values ('banner_corto'),
+       ('banner_mediano'),
+       ('banner_largo');
 
 ## Sentencia para adicionar la nueva columna banner_plantilla_id 02/05/2022 jhonf
 
@@ -127,3 +127,5 @@ alter table zaabrac1_zaabra_salud_test.ventabanners add banner_plantilla_id int;
 
 ### Subido a jhonf
 ### Subido cesar
+### Subido producción
+### Subido testing
