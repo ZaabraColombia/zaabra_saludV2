@@ -143,3 +143,30 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
 ### Subido producción
 ### Subido testing
 
+insert into zaabrac1_zaabra_salud_test.accesos (nombre, slug, tipo)
+values ('Ver pagos', 'ver-pagos', 'profesional'),
+       ('Ver pacientes', 'ver-pacientes', 'profesional'),
+       ('Ver favoritos', 'ver-favoritos', 'profesional'),
+       ('Ver catalogos', 'ver-catalogos', 'profesional'),
+       ('Ver contactos', 'ver-contactos', 'profesional'),
+       ('Agregar contacto', 'agregar-contacto', 'profesional'),
+       ('Editar contacto', 'editar-contacto', 'profesional'),
+       ('Eliminar contacto', 'eliminar-contacto', 'profesional'),
+
+       ('Configuraciones', 'configuraciones', 'profesional'),
+       ('Ver convenios', 'ver-convenios', 'profesional'),
+       ('Agregar convenio', 'agregar-convenio', 'profesional'),
+       ('Editar convenio', 'editar-convenio', 'profesional'),
+       ('Ver servicios', 'ver-servicios', 'profesional'),
+       ('Agregar servicio', 'agregar-servicio', 'profesional'),
+       ('Editar servicio', 'editar-servicio', 'profesional'),
+       ('Ver usuarios', 'ver-usuarios', 'profesional'),
+       ('Agregar usuario', 'agregar-usuario', 'profesional'),
+       ('Editar usuario', 'editar-usuario', 'profesional'),
+
+       ('Configurar calendario', 'configurar-calendario', 'profesional'),
+       ('Ver calendario', 'ver-calendario', 'profesional'),
+       ('Ver citas', 'ver-citas', 'profesional'),
+
+       ('Ver catálogos', 'ver-catalogos', 'profesional');
+
