@@ -125,10 +125,21 @@ values ('banner_corto'),
 
 alter table zaabrac1_zaabra_salud_test.ventabanners add banner_plantilla_id int;
 
-### Subido a jhonf
+INSERT INTO `zaabrac1_zaabra_salud_test`.`roles` (`Nombre`, `estado`, `updated_at`, `created_at`) VALUES ('Auxiliar Profesional', '1', '2021-05-03 10:00:00', '2021-05-03 10:00:00');
+
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
+    ADD COLUMN `profesional_id` INT(11) NULL AFTER `especialidad_id`,
+    ADD INDEX `fk_servicio_profesionales_idx` (`profesional_id` ASC);
+;
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`servicios`
+    ADD CONSTRAINT `fk_servicio_profesionales`
+        FOREIGN KEY (`profesional_id`)
+            REFERENCES `zaabrac1_zaabra_salud_test`.`perfilesprofesionales` (`idPerfilProfesional`)
+            ON DELETE RESTRICT
+            ON UPDATE RESTRICT;
+
 ### Subido cesar
+### Subido a jhonf
 ### Subido producción
 ### Subido testing
-
-INSERT INTO `zaabrac1_zaabra_salud_test`.`roles` (`Nombre`, `estado`, `updated_at`, `created_at`) VALUES ('Auxiliar Profesional', '1', '2021-05-03 10:00:00', '2021-05-03 10:00:00');
 
