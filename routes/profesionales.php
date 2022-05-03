@@ -146,9 +146,9 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
 
         //Configuración
         Route::group(['prefix' => '/configuracion','as' => 'configuracion.'], function () {
-            //Convenios
             Route::resource('convenios', profesionales\Admin\ConvenioController::class);
             Route::resource('servicios', profesionales\Admin\ServicioController::class);
+            Route::resource('usuarios', profesionales\Admin\UsuarioController::class);
         });
     });
 });
