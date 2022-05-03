@@ -64,11 +64,11 @@
                                     <td>
                                         <div class="d-flex justify-content-around px-3">
 
-                                            <button class="btn_action_green tool top modal-usuario" style="width: 33px"
+                                            <button class="btn_action  tool top modal-usuario" style="width: 33px"
                                                     data-url="{{ route('profesional.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
                                                 <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
                                             </button>
-                                            <a class="btn_action_green tool top" style="width: 33px"
+                                            <a class="btn_action  tool top" style="width: 33px"
                                                href="{{ route('profesional.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
                                                 <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
                                             </a>
