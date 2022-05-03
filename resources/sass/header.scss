@@ -260,22 +260,25 @@ a:hover {
 .option_flotante {
     position: absolute;
     top: 0px;
-    left: 197px;
+    left: 168px;
+    width: max-content;
     background-color: #FFFFFF;
     border: 1px solid #c3c3c3;
     border-radius: 3px;
-    padding: 13px 5px;
     text-decoration: none;
-    color: #232323;
     display: none;
-    &:hover {
-        background-color: #0083D6;
-    }
 }
+
 .option__user {
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
+    padding: 4px;
+    color: #232323;
+    &:hover {
+        background-color: #0083D6;
+        color: #FFFFFF;
+    }
     span {
         padding-left: 3px;
     }
@@ -288,12 +291,12 @@ a:hover {
 .menu__item {
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Quicksand";
     color: #232323;
-    padding: 15px 15px 15px 70px;
+    padding: 15px 10px 15px 60px;
     background-repeat: no-repeat;
-    background-size: 40px;
+    background-size: 35px;
     background-position-y: center;
     background-position-x: 15px;
     &:hover {
@@ -465,6 +468,18 @@ a:hover {
         position: relative;
     }
     // LOGIN
+    .menu__item {
+        font-size: 16px;
+        padding: 15px 15px 15px 70px;
+        background-size: 40px;
+    }
+    .option_flotante {
+        left: 197px;
+    }
+    .option__user {
+        font-size: 16px;
+        padding: 10px;
+    }
     .soy_paciente {
         width: 85px;
         height: 60px;
