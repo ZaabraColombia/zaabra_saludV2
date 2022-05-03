@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -25,6 +26,7 @@ class ConvenioController extends Controller
 {
     public function index()
     {
+        Gate::authorize('accesos-profesional', 'ver-convenios');
         $convenios = Convenios::query()
             ->where('id_user', Auth::user()->profesional->idUser)
             ->with('tipo_identificacion')
@@ -34,6 +36,8 @@ class ConvenioController extends Controller
 
     public function create()
     {
+        Gate::authorize('accesos-profesional', 'agregar-convenio');
+
         $tipo_contribuyentes = TipoContribuyente::all();
         $actividades_economicas = ActividadEconomica::all();
         $tipo_documentos = TipoDocumento::all();
@@ -52,6 +56,8 @@ class ConvenioController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'editar-convenio');
+
         $this->validator($request);
 
         $id_profesional = Auth::user()->profesional->idUser;
@@ -83,6 +89,8 @@ class ConvenioController extends Controller
      */
     public function show($convenio)
     {
+        Gate::authorize('accesos-profesional', 'ver-convenios');
+
         $validate = Validator::make(['convenio' => $convenio], [
             'convenio' => [
                 'required',
@@ -128,6 +136,8 @@ class ConvenioController extends Controller
      */
     public function edit(Convenios $convenio)
     {
+        Gate::authorize('accesos-profesional', 'editar-convenio');
+        Gate::authorize('update-convenio-profesional', $convenio);
 
         $tipo_contribuyentes = TipoContribuyente::all();
         $actividades_economicas = ActividadEconomica::all();
@@ -146,6 +156,9 @@ class ConvenioController extends Controller
      */
     public function update(Request $request, Convenios $convenio)
     {
+        Gate::authorize('accesos-profesional', 'editar-convenio');
+        Gate::authorize('update-convenio-profesional', $convenio);
+
         $this->validator($request);
 
         $id_profesional = Auth::user()->profesional->idUser;
