@@ -19,12 +19,12 @@
                     @csrf
 
                     <div class="d-block d-md-flex justify-content-between py-3">
-                        <h2 class="subtitle__lg green_bold mb-4">Nuevo usuario</h2>
+                        <h2 class="subtitle__lg blue_bold mb-4">Nuevo usuario</h2>
                         <!-- Check box interactivo y personalizado -->
-                        <div class="checkbox">
+                        <div class="checkbox__blue">
                             <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }}
                             name="estado" id="estado" value="1">
-                            <label class="label_check" for="estado">
+                            <label class="label_check__blue" for="estado">
                                 <b class="txt1">Convenio inactivo</b>
                                 <b class="txt2">Convenio activo</b>
                             </label>
@@ -166,7 +166,7 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Accesos del usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Accesos del usuario</h2>
+                    <h2 class="subtitle__lg blue_bold mb-4">Accesos del usuario</h2>
 
                     <div class="row list__form">
                         @if($accesos->isNotEmpty())
@@ -184,7 +184,7 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Contraseña del usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Contraseña</h2>
+                    <h2 class="subtitle__lg blue_bold mb-4">Contraseña</h2>
 
                     <div class="row">
                         <div class="col-md-6 input__box">
@@ -202,8 +202,8 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 mt-3 content_btn_right">
-                        <a href="{{ route('institucion.configuracion.usuarios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
-                        <button type="submit" class="button_green">Guardar</button>
+                        <a href="{{ route('profesional.configuracion.usuarios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
+                        <button type="submit" class="button_blue">Guardar</button>
                     </div>
                 </form>
             </div>

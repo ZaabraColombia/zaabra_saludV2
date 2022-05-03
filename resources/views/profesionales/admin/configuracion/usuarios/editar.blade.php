@@ -1,31 +1,31 @@
+@extends('profesionales.admin.layouts.panel')
+
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/tagsinput/bootstrap-tagsinput.css') }}">
 
 @endsection
-
-@extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Usuarios</h1>
+                <h1 class="title__xl blue_bold">Usuarios</h1>
             </div>
 
 
             <div class="containt_main_table mb-3">
-                <form action="{{ route('institucion.configuracion.usuarios.update', ['usuario' => $user->id]) }}" method="post"
+                <form action="{{ route('profesional.configuracion.usuarios.update', ['usuario' => $user->id]) }}" method="post"
                       id="form-usuario-crear" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="d-block d-md-flex justify-content-between py-3">
-                        <h2 class="subtitle__lg green_bold mb-4">Editar usuario</h2>
+                        <h2 class="subtitle__lg blue_bold mb-4">Editar usuario</h2>
                         <!-- Check box interactivo y personalizado -->
-                        <div class="checkbox">
-                            <input type="checkbox" name="estado" id="estado" value="1">
-                            <label class="label_check" for="estado">
+                        <div class="checkbox__blue">
+                            <input type="checkbox" name="estado" id="estado" value="1"
+                                {{ old('estado') == 1 ? 'checked':'' }}>
+                            <label class="label_check__blue" for="estado">
                                 <b class="txt1">Usuario inactivo</b>
                                 <b class="txt2">Usuario activo</b>
                             </label>
@@ -166,7 +166,7 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Accesos del usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Accesos del usuario</h2>
+                    <h2 class="subtitle__lg blue_bold mb-4">Accesos del usuario</h2>
 
                     <div class="row list__form">
                         @if($accesos->isNotEmpty())
@@ -184,7 +184,7 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Contraseña del usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Contraseña</h2>
+                    <h2 class="subtitle__lg blue_bold mb-4">Contraseña</h2>
 
                     <div class="row">
                         <div class="col-md-6 input__box">
@@ -202,8 +202,8 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 mt-3 content_btn_right">
-                        <a href="{{ route('institucion.configuracion.usuarios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
-                        <button type="submit" class="button_green">Guardar</button>
+                        <a href="{{ route('profesional.configuracion.usuarios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
+                        <button type="submit" class="button_blue">Guardar</button>
                     </div>
                 </form>
             </div>

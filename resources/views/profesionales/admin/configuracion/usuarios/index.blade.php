@@ -11,7 +11,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Mis Usuarios</h1>
+                <h1 class="title__xl blue_bold">Mis Usuarios</h1>
             </div>
 
             <!-- Contenedor barra de búsqueda y botón agregar contacto -->
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <a href="{{ route('profesional.configuracion.usuarios.create') }}" class="button_green" id="btn-agregar-contacto">
+                        <a href="{{ route('profesional.configuracion.usuarios.create') }}" class="button_blue" id="btn-agregar-contacto">
                             Agregar
                         </a>
                     </div>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
-                        <thead class="thead_green">
+                        <thead class="thead_blue">
                         <tr>
                             <th>Nombre</th>
                             <th>Identificación</th>

@@ -8,8 +8,10 @@ use App\Models\Auxiliar;
 use App\Models\pais;
 use App\Models\TipoDocumento;
 use App\Models\User;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
@@ -88,27 +90,65 @@ class UsuarioController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit($user)
     {
-        //
+
+        $user = User::find($user);
+
+        $tipo_documentos = TipoDocumento::all();
+        $accesos = Acceso::query()
+            ->profesional()
+            ->get();
+        $paises = pais::all();
+
+        //extraer accesos
+        $accesosUsuario = $user->accesos->map(function ($item){ return $item->id; })->toArray();
+
+        return view('profesionales.admin.configuracion.usuarios.editar', compact('tipo_documentos',
+            'accesos', 'paises', 'user', 'accesosUsuario'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, $user)
     {
-        //
+        $user = User::find($user);
+
+        $this->validator($request, 'updated', $user->id);
+
+        //Crear usuario
+        $user->update([
+            'primernombre'      => $request->get('primer_nombre'),
+            'segundonombre'     => $request->get('segundo_nombre'),
+            'primerapellido'    => $request->get('primer_apellido'),
+            'segundoapellido'   => $request->get('segundo_apellido'),
+            'tipodocumento'     => $request->get('tipo_documento'),
+            'numerodocumento'   => $request->get('numero_documento'),
+            'email'             => $request->get('email'),
+            'estado'            => $request->get('estado'),
+        ]);
+
+        if (!empty($request->get('password')))
+        {
+            $user->update(['password' => Hash::make($request->get('password'))]);
+        }
+
+        //Crear el registro del auxiliar
+        $user->auxiliar->update([
+            'fecha_nacimiento'  => $request->get('fecha_nacimiento'),
+            'direccion'         => $request->get('direccion'),
+            'telefono'          => $request->get('telefono'),
+            'celular'           => $request->get('celular'),
+            'pais_id'           => $request->get('pais_id'),
+            'departamento_id'   => $request->get('departamento_id'),
+            'provincia_id'      => $request->get('provincia_id'),
+            'ciudad_id'         => $request->get('ciudad_id')
+        ]);
+
+        //crear acceso
+        $user->accesos()->sync($request->get('accesos'));
+
+        return redirect()
+            ->route('profesional.configuracion.usuarios.index')
+            ->with('success', "Usuario {$user->nombre_completo} ha sido editado");
     }
 
     private function validator(Request $request, string $method = null, $id = null)
@@ -137,16 +177,20 @@ class UsuarioController extends Controller
             'estado'            => [
                 'nullable',
                 'boolean',
-                function ($attribute, $value, $fail) {
+                function ($attribute, $value, $fail) use ($method, $id){
                     if ($value == 1)
                     {
                         $flag = Acceso::query()
-                            ->whereHas('users', function ($query) {
-                                return $query
-                                    ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+                            ->whereHas('users', function (Builder $query) use ($method, $id){
+                                $query->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
                                     ->where('estado', 1);
+                                if ($method == 'updated' and $id != null)
+                                    $query->where('users.id', '!=', $id);
+
+                                return $query;
                             })
                             ->count();
+
                         if (self::LIMITE_ESTADO < $flag)
                             $fail("El $attribute no puede tener mas de " . self::LIMITE_ESTADO . " usuarios activos");
                     }
