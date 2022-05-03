@@ -208,28 +208,28 @@
             table.search(texto).draw();
         });
 
-        // $('.modal-usuario').click(function (event) {
-        //     var btn = $(this);
-        //
-        //     $.get(btn.data('url'), function (response) {
-        //         console.log(response);
-        //
-        //         $.each(response.item, function (key, item) {
-        //             if (key !== 'accesos') $('#' + key).html(item);
-        //         });
-        //         $('#accesos-lista').html('');
-        //         $.each(response.item.accesos, function (key, item) {
-        //             $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
-        //                 + '<i data-feather="check-circle" style="color: #019F86;" width="17"></i>'
-        //                 + '<span class="pl-2">' + item.nombre + '</span>'
-        //                 + '</div>');
-        //         });
-        //
-        //         feather.replace();
-        //         $('#modal_ver_usuario').modal();
-        //     }, "json").fail(function (error) {
-        //         console.log(error);
-        //     });
-        // });
+        $('.modal-usuario').click(function (event) {
+            var btn = $(this);
+
+            $.get(btn.data('url'), function (response) {
+                console.log(response);
+
+                $.each(response.item, function (key, item) {
+                    if (key !== 'accesos') $('#' + key).html(item);
+                });
+                $('#accesos-lista').html('');
+                $.each(response.item.accesos, function (key, item) {
+                    $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
+                        + '<i data-feather="check-circle" style="color: #019F86;" width="17"></i>'
+                        + '<span class="pl-2">' + item.nombre + '</span>'
+                        + '</div>');
+                });
+
+                feather.replace();
+                $('#modal_ver_usuario').modal();
+            }, "json").fail(function (error) {
+                console.log(error);
+            });
+        });
     </script>
 @endsection

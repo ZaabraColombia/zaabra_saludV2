@@ -10,6 +10,7 @@ use App\Models\TipoDocumento;
 use App\Models\User;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
@@ -85,9 +86,26 @@ class UsuarioController extends Controller
     }
 
 
-    public function show($id)
+    public function show($user)
     {
-        //
+        $user = User::query()->with(['auxiliar', 'accesos', 'tipo_documento'])->find($user);
+
+        return response([
+            'item' => [
+                'nombres'               => $user->nombres,
+                'apellidos'             => $user->apellidos,
+                'numero_identificacion' => $user->identificacion,
+                'fecha_nacimiento'      => $user->auxiliar->fecha_nacimiento,
+                'direccion'             => $user->auxiliar->direccion,
+                'telefono'              => $user->auxiliar->telefono,
+                'celular'               => $user->auxiliar->celular,
+                'pais'                  => $user->auxiliar->pais->nombre,
+                'departamento'          => $user->auxiliar->departamento->nombre,
+                'provincia'             => $user->auxiliar->provincia->nombre,
+                'ciudad'                => $user->auxiliar->ciudad->nombre,
+                'accesos'               => $user->accesos
+            ]
+        ], Response::HTTP_OK);
     }
 
     public function edit($user)
