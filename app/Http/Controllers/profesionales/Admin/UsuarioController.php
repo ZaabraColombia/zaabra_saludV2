@@ -23,6 +23,7 @@ class UsuarioController extends Controller
 
     public function index()
     {
+        Gate::authorize('accesos-profesional', 'ver-usuarios');
         $usuarios = User::query()
             ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
             ->get();
@@ -32,6 +33,8 @@ class UsuarioController extends Controller
 
     public function create()
     {
+        Gate::authorize('accesos-profesional', 'agregar-usuario');
+
         $tipo_documentos = TipoDocumento::all();
         $accesos = Acceso::query()
             ->profesional()
@@ -44,6 +47,8 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'agregar-usuario');
+
         $this->validator($request, 'created');
 
         //Crear usuario
@@ -88,7 +93,10 @@ class UsuarioController extends Controller
 
     public function show($user)
     {
+        Gate::authorize('accesos-profesional', 'ver-usuarios');
+
         $user = User::query()->with(['auxiliar', 'accesos', 'tipo_documento'])->find($user);
+        Gate::authorize('update-usuario-profesional', $user);
 
         return response([
             'item' => [
@@ -111,7 +119,9 @@ class UsuarioController extends Controller
     public function edit($user)
     {
 
+        Gate::authorize('accesos-profesional', 'editar-usuario');
         $user = User::find($user);
+        Gate::authorize('update-usuario-profesional', $user);
 
         $tipo_documentos = TipoDocumento::all();
         $accesos = Acceso::query()
@@ -128,7 +138,9 @@ class UsuarioController extends Controller
 
     public function update(Request $request, $user)
     {
+        Gate::authorize('accesos-profesional', 'editar-usuario');
         $user = User::find($user);
+        Gate::authorize('update-usuario-profesional', $user);
 
         $this->validator($request, 'updated', $user->id);
 
