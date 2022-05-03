@@ -60,6 +60,10 @@ $user = Auth::user();
                             <a id="configurar-calendario" class="{{ request()->routeIs('profesional.configuracion.servicios.*') ? 'txt_active_blue' : '' }}"
                                href='{{ route('profesional.configuracion.servicios.index') }}'>Servicios</a>
                         </li>
+                        <li class="submenu-item ">
+                            <a id="configurar-calendario" class="{{ request()->routeIs('profesional.configuracion.usuarios.*') ? 'txt_active_blue' : '' }}"
+                               href='{{ route('profesional.configuracion.usuarios.index') }}'>Usuarios</a>
+                        </li>
                     </ul>
                 </li>
 
