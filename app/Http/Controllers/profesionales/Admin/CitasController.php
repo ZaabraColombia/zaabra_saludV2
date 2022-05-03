@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class CitasController extends Controller
 {
@@ -17,6 +18,8 @@ class CitasController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-profesional', 'ver-citas');
+
         $citas = Cita::query()
             ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
             ->orderByDesc('fecha_inicio')

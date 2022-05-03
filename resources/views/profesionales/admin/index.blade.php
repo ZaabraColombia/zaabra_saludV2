@@ -53,7 +53,7 @@
                             </div>
                         </a>
                     </div>
-                    <!-- Favoritos -->
+                    <!-- Convenios -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.configuracion.convenios.index') }}'>
                             <div class="content__target convenio_blue">
@@ -61,11 +61,19 @@
                             </div>
                         </a>
                     </div>
-                    <!-- Favoritos -->
+                    <!-- Servicios -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.configuracion.servicios.index') }}'>
                             <div class="content__target servicio_blue">
                                 <span class="subtitle__lg">Servicios</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Usuarios -->
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href='{{ route('profesional.configuracion.usuarios.index') }}'>
+                            <div class="content__target servicio_blue">
+                                <span class="subtitle__lg">Usuarios</span>
                             </div>
                         </a>
                     </div>

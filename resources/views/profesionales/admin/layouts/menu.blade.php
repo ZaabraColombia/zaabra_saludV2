@@ -60,6 +60,10 @@ $user = Auth::user();
                             <a id="configurar-calendario" class="{{ request()->routeIs('profesional.configuracion.servicios.*') ? 'txt_active_blue' : '' }}"
                                href='{{ route('profesional.configuracion.servicios.index') }}'>Servicios</a>
                         </li>
+                        <li class="submenu-item ">
+                            <a id="configurar-calendario" class="{{ request()->routeIs('profesional.configuracion.usuarios.*') ? 'txt_active_blue' : '' }}"
+                               href='{{ route('profesional.configuracion.usuarios.index') }}'>Usuarios</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -113,28 +117,6 @@ $user = Auth::user();
                     <a class="" href='{{ route('profesional.favoritos') }}'>
                         <button class="{{ request()->routeIs('profesional.favoritos') ? 'btn_active' : '' }}">Favoritos</button>
                     </a>
-                </li>
-
-                <!-- Configuración -->
-                <li class="sidebar-item has-sub items_blue accordion" id="accordionConfiguracion">
-                    <button id="headingConfiguracion" class="" type="button" data-toggle="collapse"
-                            data-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion">
-                        Configuración<i class="icon_angle fas fa-angle-down pl-2"></i>
-                    </button>
-
-                    <ul id="collapseConfiguracion" class="collapse sub_menu_blue {{ request()->routeIs('institucion.configuracion.*') ? 'show' : '' }}"
-                        aria-labelledby="headingConfiguracion" data-parent="#accordionConfiguracion">
-                        <li class="submenu-item ">
-                            <a id="" class="" href=''>
-                                Convenios
-                            </a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a id="" class="" href=''>
-                                Servicios
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 <!-- Logo Mipress -->

@@ -1,4 +1,4 @@
-@extends('instituciones.admin.layouts.layout')
+@extends('profesionales.admin.layouts.panel')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
@@ -20,9 +20,9 @@
                     <!-- Información básica -->
                     <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
-                        <div class="checkbox">
+                        <div class="checkbox__blue">
                             <input type="checkbox" name="estado" id="estado" value="1" {{ old('estado', $convenio->estado) == 1 ? 'checked':'' }}>
-                            <label class="label_check" for="estado">
+                            <label class="label_check__blue" for="estado">
                                 <b class="txt1">Convenio inactivo</b>
                                 <b class="txt2">Convenio activo</b>
                             </label>
@@ -35,7 +35,7 @@
                     <div class="row m-0 mb-4 justify-content-center">
                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                             <div class="img__upload">
-                                <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
+                                <img id="imagen-foto" src="{{ asset($convenio->url_image ?? 'img/menu/avatar.png') }}">
                                 <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
                                 <p>Foto de convenio</p>
                             </div>
@@ -284,7 +284,7 @@
 
                     <!-- Buttons -->
                     <div class="row m-0 mt-2 content_btn_right">
-                        <a href="" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
+                        <a href="{{ route('profesional.configuracion.convenios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
                         <button type="submit" class="button_blue">Guardar</button>
                     </div>
                 </form>
@@ -296,7 +296,6 @@
 @section('scripts')
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
-    <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
 
     <!-- Script para cargar, subir y visualizar la imagen principal -->
     <script>

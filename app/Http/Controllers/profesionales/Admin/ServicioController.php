@@ -11,6 +11,7 @@ use App\Models\TipoServicio;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -21,6 +22,7 @@ class ServicioController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-profesional', 'ver-servicios');
         $servicios = Servicio::query()
             ->where('profesional_id', '=', Auth::user()->profesional->idPerfilProfesional)
             ->get();
@@ -33,6 +35,7 @@ class ServicioController extends Controller
      */
     public function create()
     {
+        Gate::authorize('accesos-profesional', 'agregar-servicio');
         $especialidades = especialidades::all();
         $tipo_servicios = TipoServicio::all();
         $convenios = Convenios::query()
@@ -50,6 +53,7 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'agregar-servicio');
         $this->validator($request);
 
         $request->merge(['profesional_id' => Auth::user()->profesional->idPerfilProfesional]);
@@ -77,6 +81,8 @@ class ServicioController extends Controller
      */
     public function show($servicio)
     {
+        Gate::authorize('accesos-profesional', 'ver-servicios');
+
         $validate = Validator::make(['servicio' => $servicio], [
             'servicio' => [
                 'required',
@@ -106,6 +112,8 @@ class ServicioController extends Controller
             ])
             ->first();
 
+        Gate::authorize('update-servicio-profesional', $servicio);
+
         return response([
             'item' => $servicio
         ], Response::HTTP_OK);
@@ -117,6 +125,9 @@ class ServicioController extends Controller
      */
     public function edit(Servicio $servicio)
     {
+        Gate::authorize('accesos-profesional', 'editar-servicio');
+        Gate::authorize('update-servicio-profesional', $servicio);
+
         $especialidades = especialidades::all();
         $tipo_servicios = TipoServicio::all();
 
@@ -144,6 +155,8 @@ class ServicioController extends Controller
      */
     public function update(Request $request,Servicio $servicio)
     {
+        Gate::authorize('accesos-profesional', 'editar-servicio');
+        Gate::authorize('update-servicio-profesional', $servicio);
 
         $this->validator($request);
 

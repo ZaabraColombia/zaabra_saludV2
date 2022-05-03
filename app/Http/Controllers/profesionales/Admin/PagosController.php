@@ -7,11 +7,14 @@ use App\Models\PagoCita;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class PagosController extends Controller
 {
     public function index()
     {
+        Gate::authorize('accesos-profesional', 'ver-pagos');
+
         $pagos = PagoCita::query()
             ->with([
                 'cita',

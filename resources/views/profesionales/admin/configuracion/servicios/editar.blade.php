@@ -12,7 +12,6 @@
                 <h1 class="title__xl blue_bold">Servicios</h1>
             </div>
 
-
             <div class="containt_main_table mb-3">
                 <form action="{{ route('profesional.configuracion.servicios.update', ['servicio' => $servicio->id]) }}" method="post">
                     @csrf
@@ -20,9 +19,9 @@
                     <div class="d-block d-md-flex justify-content-between py-3">
                         <h2 class="subtitle__lg blue_bold mb-4">Editar servicio</h2>
                         <!-- Check box interactivo y personalizado -->
-                        <div class="checkbox">
+                        <div class="checkbox__blue">
                             <input type="checkbox" name="estado" id="estado" value="1" {{ old('estado', $servicio->estado) == 1 ? 'checked':'' }}>
-                            <label class="label_check" for="estado">
+                            <label class="label_check__blue" for="estado">
                                 <b class="txt1">Servicio inactivo</b>
                                 <b class="txt2">Servicio activo</b>
                             </label>
@@ -123,9 +122,9 @@
                         <div class="col-12 d-flex">
                             <label class="mt-2">Agendamiento virtual</label>&nbsp;
                             <!-- Check box interactivo y personalizado -->
-                            <div class="checkbox">
-                                <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual" value="1" {{ old('agendamiento_virtual') == 1 ? 'checked':'' }}>
-                                <label class="label_check" for="agendamiento_virtual">
+                            <div class="checkbox__blue">
+                                <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual" value="1" {{ old('agendamiento_virtual', $servicio->agendamiento_virtual) == 1 ? 'checked':'' }}>
+                                <label class="label_check__blue" for="agendamiento_virtual">
                                     <b class="txt1">Desactivado</b>
                                     <b class="txt2">Activado</b>
                                 </label>
