@@ -238,6 +238,7 @@
 // }
 
 // ================ Check box interactivo acción "Activo e Inactivo" ================
+// Check green
 .label_check {
     display: inline-block;
     cursor: pointer;
@@ -297,6 +298,78 @@
         }
         &:checked + label {
             background: #019f86;
+            color: #fff;
+            padding: 10px 15px 5px 37px;
+            .txt1 {
+                display: none;
+            }
+            .txt2 {
+                display: block;
+            }
+        }
+    }
+}
+
+// Check blue
+.label_check__blue {
+    display: inline-block;
+    cursor: pointer;
+    color: #0083D6;
+    position: relative;
+    padding: 10px 15px 5px 40px;
+    font-size: 1em;
+    border-radius: 5px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    &:hover {
+        background: rgba(#0083D6, .1);
+    }
+    &:before { 
+        content: "";
+        display: inline-block;
+    
+        width: 17px;
+        height: 17px;
+        position: absolute;
+    
+        left: 15px;
+    
+        border-radius: 50%;
+        background: none;
+        border: 2px solid #0083D6;
+    }
+    .txt1 {
+        display: block;
+    }
+    .txt2 {
+        display: none;
+    }
+}
+
+.checkbox__blue {
+    label:before { 
+        border-radius: 3px;
+    }
+    input[type="checkbox"] {
+        display: none;
+        &:checked + label:before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 15px;
+            position: absolute;
+            left: 15px;
+            border-radius: 0;
+            background: none;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(40deg);
+            transition: .15s ease;
+        }
+        &:checked + label {
+            background: #0083D6;
             color: #fff;
             padding: 10px 15px 5px 37px;
             .txt1 {
