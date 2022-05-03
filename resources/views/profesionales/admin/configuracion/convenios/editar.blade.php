@@ -296,7 +296,6 @@
 @section('scripts')
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
-    <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
 
     <!-- Script para cargar, subir y visualizar la imagen principal -->
     <script>
