@@ -19,6 +19,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -30,6 +31,8 @@ class CalendarioController extends Controller
 {
     public function index()
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         $user = Auth::user();
         //Validar calendario
 
@@ -69,6 +72,8 @@ class CalendarioController extends Controller
      */
     public function citas_libres(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         //Validate date
         $validate = Validator::make($request->all(), [
             'date'  => ['required', 'date_format:Y-m-d']
@@ -176,6 +181,8 @@ class CalendarioController extends Controller
      */
     public function ver_citas(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         $dates = Cita::query()
             ->select(['id_cita', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id', 'estado'])
             //->selectRaw('CASE estado WHEN "reservado" THEN "background" WHEN "agendado" THEN "auto" END AS display')
@@ -254,6 +261,8 @@ class CalendarioController extends Controller
      */
     public function ver_cita(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         //Validate date
         $validate = Validator::make($request->all(), [
             'id'  => ['required']
@@ -312,6 +321,8 @@ class CalendarioController extends Controller
      */
     public function crear_cita(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         $all = array_merge($request->all(), ['disponibilidad' => json_decode($request->get('disponibilidad'), true)]);
 
         //Validate date
@@ -438,6 +449,8 @@ class CalendarioController extends Controller
      */
     public function actualizar_cita(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         //Validate date
         $validate = Validator::make($request->all(), [
             'id_cita' => ['required'],
@@ -514,6 +527,8 @@ class CalendarioController extends Controller
      */
     public function cancelar_cita(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         $user = Auth::user();
         $cita = Cita::query()
             ->where('id_cita', '=', $request->get('id_cita'))
@@ -547,6 +562,8 @@ class CalendarioController extends Controller
      */
     public function reagendar_cita(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         $all = ['fecha' => json_decode($request->get('disponibilidad'), true)];
         //Validate date
         $validate = Validator::make($all, [
@@ -627,8 +644,16 @@ class CalendarioController extends Controller
     }
 
 
+    /**
+     * Permite finalizar una cita
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
     public function completar_cita(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         //Validate date
         $validate = Validator::make($request->all(), [
             'id_cita'       => ['required'],
@@ -685,7 +710,8 @@ class CalendarioController extends Controller
      */
     public function reservar(Request $request)
     {
-        //dd($request->all());
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         //Validate date
         $validate = Validator::make($request->all(), [
             'fecha_inicio'  => ['required', 'date'],
@@ -762,6 +788,8 @@ class CalendarioController extends Controller
      */
     public function reservar_editar(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         //Validate date
         $validate = Validator::make($request->all(), [
             'fecha_inicio'  => ['required', 'date'],
@@ -852,6 +880,8 @@ class CalendarioController extends Controller
      */
     public function reservar_cancelar(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-calendario');
+
         $user = Auth::user();
         $cita = Cita::query()
             ->where('id_cita', '=', $request->get('id_cita'))
@@ -884,6 +914,8 @@ class CalendarioController extends Controller
      */
     public function configuracion()
     {
+        Gate::authorize('accesos-profesional', 'configurar-calendario');
+
         $user = Auth::user();
         $config = $user->horario;
 
@@ -903,6 +935,8 @@ class CalendarioController extends Controller
      */
     public function cita(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'configurar-calendario');
+
         $validator = Validator::make($request->all(),[
             'duracion' => ['required', 'integer'],
             'descanso' => ['required', 'integer']
@@ -945,6 +979,8 @@ class CalendarioController extends Controller
      */
     public function horario_agregar(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'configurar-calendario');
+
         $validator = Validator::make( $request->all(), [
             'semana.*'    => ['required', Rule::in([0, 1, 2, 3, 4, 5, 6])],
             'hora_inicio'=> ['required', 'date_format:H:i'],
@@ -1001,6 +1037,8 @@ class CalendarioController extends Controller
      */
     public function horario_eliminar(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'configurar-calendario');
+
         $validator = Validator::make( $request->all(), [
             'id'    => ['required'],
         ]);
