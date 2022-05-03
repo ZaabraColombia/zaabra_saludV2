@@ -20,7 +20,7 @@ class FavoritosController extends Controller
         Gate::authorize('accesos-profesional', 'ver-favoritos');
 
         if (Auth::check()){
-            $id_users=auth()->user()->id;
+            $id_users=auth()->user()->profesional->idUser;
             $objFavorito=$this->cargaFavorito($id_users);
             $objFavoritoServicio=$this->cargaFavotritoServicio($id_users);
             $objFavoritoEspec=$this->cargaFavoritoEspecialista($id_users);
@@ -50,7 +50,7 @@ class FavoritosController extends Controller
         Gate::authorize('accesos-profesional', 'ver-favoritos');
 
         /*id usuario logueado*/
-        $id_users=auth()->user()->id;
+        $id_users=auth()->user()->profesional->idUser;
         $request->merge([
             'id_users' => "$id_users",
         ]);
@@ -78,7 +78,7 @@ class FavoritosController extends Controller
         Gate::authorize('accesos-profesional', 'ver-favoritos');
 
         /*id usuario logueado*/
-        $id_users=auth()->user()->id;
+        $id_users=auth()->user()->profesional->idUser;
         $request->merge([
             'id_users' => "$id_users",
         ]);
@@ -106,7 +106,7 @@ class FavoritosController extends Controller
 
         Gate::authorize('accesos-profesional', 'ver-favoritos');
         /*id usuario logueado*/
-        $id_users=auth()->user()->id;
+        $id_users=auth()->user()->profesional->idUser;
         $request->merge([
             'id_users' => "$id_users",
         ]);
@@ -135,7 +135,7 @@ class FavoritosController extends Controller
         Gate::authorize('accesos-profesional', 'ver-favoritos');
 
         /*id usuario logueado*/
-        $id_users=auth()->user()->id;
+        $id_users=auth()->user()->profesional->idUser;
         $request->merge([
             'id_users' => "$id_users",
         ]);
