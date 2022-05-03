@@ -1,4 +1,4 @@
-@extends('instituciones.admin.layouts.layout')
+@extends('profesionales.admin.layouts.panel')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
@@ -22,7 +22,8 @@
                         <h2 class="subtitle__lg green_bold mb-4">Nuevo usuario</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }} name="estado" id="estado" value="1">
+                            <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }}
+                            name="estado" id="estado" value="1">
                             <label class="label_check" for="estado">
                                 <b class="txt1">Convenio inactivo</b>
                                 <b class="txt2">Convenio activo</b>

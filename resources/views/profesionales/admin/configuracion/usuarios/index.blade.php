@@ -1,11 +1,11 @@
+@extends('profesionales.admin.layouts.panel')
+
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
         .dataTables_filter, .dataTables_info { display: none;!important; }
     </style>
 @endsection
-
-@extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="col-md-3 p-0 content_btn_right">
-                        <a href="{{ route('institucion.configuracion.usuarios.create') }}" class="button_green" id="btn-agregar-contacto">
+                        <a href="{{ route('profesional.configuracion.usuarios.create') }}" class="button_green" id="btn-agregar-contacto">
                             Agregar
                         </a>
                     </div>

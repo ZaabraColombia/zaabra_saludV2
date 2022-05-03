@@ -129,3 +129,6 @@ alter table zaabrac1_zaabra_salud_test.ventabanners add banner_plantilla_id int;
 ### Subido cesar
 ### Subido producción
 ### Subido testing
+
+INSERT INTO `zaabrac1_zaabra_salud_test`.`roles` (`Nombre`, `estado`, `updated_at`, `created_at`) VALUES ('Auxiliar Profesional', '1', '2021-05-03 10:00:00', '2021-05-03 10:00:00');
+
