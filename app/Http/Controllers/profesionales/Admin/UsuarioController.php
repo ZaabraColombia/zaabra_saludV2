@@ -180,18 +180,16 @@ class UsuarioController extends Controller
                 function ($attribute, $value, $fail) use ($method, $id){
                     if ($value == 1)
                     {
-                        $flag = Acceso::query()
-                            ->whereHas('users', function (Builder $query) use ($method, $id){
-                                $query->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
-                                    ->where('estado', 1);
-                                if ($method == 'updated' and $id != null)
-                                    $query->where('users.id', '!=', $id);
 
-                                return $query;
-                            })
-                            ->count();
+                        $flag = User::query()
+                            ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+                            ->where('estado', 1);
 
-                        if (self::LIMITE_ESTADO < $flag)
+                        if ($method == 'updated' and $id != null)
+                            $flag->where('users.id', '!=', $id);
+
+
+                        if (self::LIMITE_ESTADO < $flag->count() + 1 )
                             $fail("El $attribute no puede tener mas de " . self::LIMITE_ESTADO . " usuarios activos");
                     }
                 }

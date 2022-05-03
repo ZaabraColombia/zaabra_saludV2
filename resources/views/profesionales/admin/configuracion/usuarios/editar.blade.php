@@ -24,7 +24,7 @@
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox__blue">
                             <input type="checkbox" name="estado" id="estado" value="1"
-                                {{ old('estado') == 1 ? 'checked':'' }}>
+                                {{ old('estado', $user->estado) == 1 ? 'checked':'' }}>
                             <label class="label_check__blue" for="estado">
                                 <b class="txt1">Usuario inactivo</b>
                                 <b class="txt2">Usuario activo</b>
