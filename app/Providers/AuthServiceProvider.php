@@ -74,12 +74,12 @@ class AuthServiceProvider extends ServiceProvider
 
         //Validar si puede editar servicio de profesional
         Gate::define('update-servicio-profesional', function (User $user, Servicio $servicio) {
-            return $user->profesional->idUser === $servicio->profesional_id;
+            return $user->profesional->idPerfilProfesional === $servicio->profesional_id;
         });
 
         //Validar si puede editar al usuario de profesional
         Gate::define('update-usuario-profesional', function (User $adminUser, User $user) {
-            return $adminUser->profesional->idUser === $user->profesional_id;
+            return $adminUser->profesional->idPerfilProfesional === $user->profesional_id;
         });
 
     }
