@@ -12,7 +12,6 @@
                 <h1 class="title__xl blue_bold">Servicios</h1>
             </div>
 
-
             <div class="containt_main_table mb-3">
                 <form action="{{ route('profesional.configuracion.servicios.update', ['servicio' => $servicio->id]) }}" method="post">
                     @csrf
