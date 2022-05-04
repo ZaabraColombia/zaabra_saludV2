@@ -16,8 +16,12 @@ class Horario extends Model
     protected $fillable = [
         'id',
         'horario',
-        'duracion',
-        'descanso',
+        'color_cita_pagada',
+        'color_cita_precencial',
+        'color_cita_agendada',
+        'color_cita_cancelada',
+        'color_bloqueado',
+        'dias_agenda',
         'user_id'
     ];
 

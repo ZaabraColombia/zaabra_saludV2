@@ -20,13 +20,9 @@
                     <div id="alert-cita"></div>
                     <div class="row">
                         <div class="col-md-6 input__box">
-                            <label for="duracion">Duración de cita (min)</label>
-                            <input type="number" id="duracion" name="duracion" value="{{ old('duracion', $config->duracion) }}">
-                        </div>
-
-                        <div class="col-md-6 input__box">
-                            <label for="descanso">Tiempo entre citas (min)</label>
-                            <input type="number" id="descanso" name="descanso" value="{{ old('descanso', $config->descanso) }}">
+                            <label for="dias_agenda">Duración de cita (min)</label>
+                            <input type="number" id="dias_agenda" name="dias_agenda"
+                                   value="{{ old('dias_agenda', $config->dias_agenda) }}">
                         </div>
                     </div>
 

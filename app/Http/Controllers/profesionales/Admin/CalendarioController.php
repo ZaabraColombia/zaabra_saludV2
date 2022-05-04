@@ -917,12 +917,7 @@ class CalendarioController extends Controller
         Gate::authorize('accesos-profesional', 'configurar-calendario');
 
         $user = Auth::user();
-        $config = $user->horario;
-
-        if (empty($config))
-        {
-            $config = new Horario();
-        }
+        $config = Horario::query()->firstOrNew(['user_id' => $user->profesional->idUser]);
 
         return view('profesionales.admin.calendario.configurar-calendario', compact('config'));
     }
