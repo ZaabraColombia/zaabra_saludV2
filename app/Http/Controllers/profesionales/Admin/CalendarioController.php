@@ -1078,11 +1078,11 @@ class CalendarioController extends Controller
             'color_cita_cancelada'  => ['required'],
             'color_bloqueado'       => ['required'],
         ], [], [
-            'color_cita_pagada' => 'Cita pagada',
+            'color_cita_pagada'     => 'Cita pagada',
             'color_cita_precencial' => 'Cita presencial',
-            'color_cita_agendada' => 'Cita agendada',
-            'color_cita_cancelada' => 'Cita cancelada',
-            'color_bloqueado' => 'Bloqueos'
+            'color_cita_agendada'   => 'Cita agendada',
+            'color_cita_cancelada'  => 'Cita cancelada',
+            'color_bloqueado'       => 'Bloqueos'
         ]);
 
         if ($validator->fails())
