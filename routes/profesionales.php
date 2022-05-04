@@ -87,6 +87,8 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
                 ->name('calendario.editar-reservar-calendario');
             Route::post('/calendario/cancelar-reserva-calendario',[profesionales\Admin\CalendarioController::class,'reservar_cancelar'])
                 ->name('calendario.cancelar-reserva-calendario');
+            Route::post('/calendario/colores',[profesionales\Admin\CalendarioController::class,'colores'])
+                ->name('calendario.colors');
 
             //Configurar calendario
             Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])

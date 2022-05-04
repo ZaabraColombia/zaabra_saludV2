@@ -1062,4 +1062,47 @@ class CalendarioController extends Controller
             ],
         ], Response::HTTP_OK);
     }
+
+    /**
+     * Permite actualizar los colores del calendario
+     *
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function colores(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'color_cita_pagada'     => ['required'],
+            'color_cita_precencial' => ['required'],
+            'color_cita_agendada'   => ['required'],
+            'color_cita_cancelada'  => ['required'],
+            'color_bloqueado'       => ['required'],
+        ], [], [
+            'color_cita_pagada' => 'Cita pagada',
+            'color_cita_precencial' => 'Cita presencial',
+            'color_cita_agendada' => 'Cita agendada',
+            'color_cita_cancelada' => 'Cita cancelada',
+            'color_bloqueado' => 'Bloqueos'
+        ]);
+
+        if ($validator->fails())
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => '<ul><li>' . collect($validator->errors()->all())->implode('</li><li>') . '</li></ul>'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+        $horario = Horario::query()
+            ->where('user_id', Auth::user()->profesional->idUser)->first();
+
+        $horario->update($request->all());
+
+        return response([
+            'message' => [
+                'title' => 'Hecho',
+                'text'  => 'Se actualizaron los colores de la agenda'
+            ]
+        ], Response::HTTP_OK);
+    }
 }

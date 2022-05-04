@@ -23,33 +23,60 @@
                     </div>
 
                     <div class="row m-0 content_dias_agenda mb-md-3">
+                        <h2>Días</h2>
                         <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF"> Días disponibles</label>
-                        </div>
-
-                        <div class="col-md-4 col-xl-12 p-0 content_center_agenda">
-                            <label for="cit_pag"> <input id="cit_pag" type="color" value="#1B85D7"> Citas pagadas</label>
-                        </div>
-
-                        <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
-                            <label for="cit_pre"> <input id="cit_pre" type="color" value="#D6FFFB"> Cita pago presencial</label>
+                            <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF" readonly> Días disponibles</label>
                         </div>
 
                         <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8"> Días no disponibles</label>
+                            <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8" readonly> Días no disponibles</label>
                         </div>
 
-                        <div class="col-md-4 col-xl-12 p-0 content_center_agenda">
-                            <label for="cit_agend"> <input id="cit_agend" type="color" value="#019F86"> Citas agendadas</label>
-                        </div>
+                        <h2>Eventos</h2>
 
-                        <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
-                            <label for="cit_canc"> <input id="cit_canc" type="color" value="#9DD1F9"> Citas canceladas</label>
-                        </div>
+                        <form action="{{ route('profesional.agenda.calendario.colors') }}" method="post"
+                              id="form-actualizar-colores-calendario">
+                            @csrf
+                            <div class="col-md-4 col-xl-12 p-0 content_center_agenda">
+                                <label for="cit_pag">
+                                    <input id="color_cita_pagada" name="color_cita_pagada" class="colors"
+                                           type="color" value="{{ $horario->color_cita_pagada ?? '#1B85D7' }}">
+                                    Citas pagadas
+                                </label>
+                            </div>
 
-                        <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_block"> <input id="dia_block" type="color" value="#F37725">Días bloqueados</label>
-                        </div>
+                            <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
+                                <label for="cit_pre">
+                                    <input id="color_cita_precencial" name="color_cita_precencial" class="colors"
+                                           type="color" value="{{ $horario->color_cita_precencial ?? '#D6FFFB' }}">
+                                    Cita pago presencial
+                                </label>
+                            </div>
+
+                            <div class="col-md-4 col-xl-12 p-0 content_center_agenda">
+                                <label for="cit_agend">
+                                    <input id="color_cita_agendada" name="color_cita_agendada" class="colors"
+                                           type="color" value="{{ $horario->color_cita_agendada ?? '#019F86' }}">
+                                    Citas agendadas
+                                </label>
+                            </div>
+
+                            <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
+                                <label for="cit_canc">
+                                    <input id="color_cita_cancelada" name="color_cita_cancelada" class="colors"
+                                           type="color" value="{{ $horario->color_cita_cancelada ?? '#9DD1F9' }}">
+                                    Citas canceladas
+                                </label>
+                            </div>
+
+                            <div class="col-md-4 col-xl-12 p-0">
+                                <label for="dia_block">
+                                    <input id="color_bloqueado" name="color_bloqueado" class="colors"
+                                           type="color" value="{{ $horario->color_bloqueado ?? '#F37725' }}">
+                                    Bloqueos
+                                </label>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -794,15 +821,6 @@
                 });
             }
 
-            //Actualizar eventos
-            $('#actualizar-calendar').click(function (e) {
-                calendar.refetchEvents();
-                var message = {
-                    title:  'Hecho',
-                    text:   'Citas actualizadas'
-                };
-                $('#alerta-general').html(alert(message, 'success'));
-            });
 
             //Abrir vista dia en el calendario
             $('#btn-day-see').click(function (e) {

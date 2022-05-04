@@ -148,6 +148,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     calendar.render();
 
-    //
+    //Actualizar eventos
+    $('#actualizar-calendar').click(function (e) {
+        calendar.refetchEvents();
+        $('#alerta-general').html(alert({
+            title:  'Hecho',
+            text:   'Citas actualizadas'
+        }, 'success'));
+    });
 
+    //Configurar colores
+    $('.colors').change(function (event) {
+        $('#form-actualizar-colores-calendario').submit();
+        console.log('ok');
+    });
+
+    $('#form-actualizar-colores-calendario').submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        $.post(form.attr('action'), form.serialize(), function (data) {
+            $('#alerta-general').html(alert(data.message, 'success'));
+        }, 'json').fail( function (data) {
+            $('#alerta-general').html(alert(data.responseJSON.message, 'danger'));
+        });
+    });
 });
