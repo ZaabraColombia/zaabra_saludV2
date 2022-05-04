@@ -4,7 +4,7 @@ moment.locale('es');
 //cargar despues de cargar el DOM
 document.addEventListener('DOMContentLoaded', function() {
 
-    //Calendario
+    /************* Calendario *************/
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (today.startOf('day').diff(day.startOf('day'), 'days') <= 0)
                 {
                     if (event.view.type === "dayGridMonth") {
-                        console.log(event.dateStr);
-                        $('#btn-day-clicked').data('date', event.dateStr);
-                        $('#btn-day-see').data('date', event.dateStr);
-                        $('#btn-reservar-agenda').data('date', event.dateStr);
+
                         $('#span-day-clicked').html(day.format('MMMM D/YYYY'));
+
+                        $('#btn-ver-dia').data('date', event.dateStr);
+                        $('#btn-agendar-cita').data('date', event.dateStr);
 
                         $('#modal_dia_calendario').modal();
                     }
@@ -156,12 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
             text:   'Citas actualizadas'
         }, 'success'));
     });
-
     //Configurar colores
     $('.colors').change(function (event) {
         $('#form-actualizar-colores-calendario').submit();
     });
-
     $('#form-actualizar-colores-calendario').submit(function (event) {
         event.preventDefault();
         var form = $(this);
@@ -172,4 +170,110 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#alerta-general').html(alert(data.responseJSON.message, 'danger'));
         });
     });
+
+    //Abrir vista dia en el calendario
+    $('#btn-ver-dia').click(function (e) {
+        var btn = $(this);
+        calendar.changeView('timeGridDay', btn.data('date'));
+        $('#modal_dia_calendario').modal('hide');
+    });
+    /************* Fin Calendario *************/
+    /************* Citas *************/
+    //Permite listar el horario disponible
+    function citas_libre(date, disponibilidad) {
+        $.ajax({
+            data: { date: date},
+            dataType: 'json',
+            url: calendarEl.dataset.daysFree,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            success: function (res) {
+
+                disponibilidad.html('<option></option>');
+                //get list
+                $.each(res.data, function (index, item) {
+                    disponibilidad.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
+                        moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
+                        '</option>');
+                });
+            },
+            error: function (res, status) {
+                var response = res.responseJSON;
+                $('#alerta-general').html(alert(response.message, 'danger'));
+            }
+        });
+    }
+
+    //Abrir modal para asignar cita
+    $('#btn-agendar-cita').click(function (e) {
+        e.preventDefault();
+
+        var btn = $(this);
+        var modal = $('#agregar_cita');
+
+        citas_libre(btn.data('date'), $('#disponibilidad'));
+
+        $('#lugar').val($('#lugar').data('default'));
+
+        var pais = $('#pais_id');
+        pais.val(pais.data('id')).trigger('change');
+
+        setTimeout(function () {
+            var departamento = $('#departamento_id');
+            departamento.val(departamento.data('id')).trigger('change');
+        },500);
+        setTimeout(function () {
+            var provincia = $('#provincia_id');
+            provincia.val(provincia.data('id')).trigger('change');
+        },1000);
+        setTimeout(function () {
+            var ciudad = $('#ciudad_id');
+            ciudad.val(ciudad.data('id')).trigger('change');
+        },1500);
+
+        modal.modal();
+
+        $('#modal_dia_calendario').modal('hide');
+    });
+    /************* Fin Citas *************/
 });
+
+function ubicacion() {
+    // var pais = $('#pais_id');
+    // pais.val(pais.data('id')).trigger('change');
+    //
+    // setTimeout(function () {
+    //     var departamento = $('#departamento_id');
+    //     departamento.val(departamento.data('id')).trigger('change');
+    // },500);
+    // setTimeout(function () {
+    //     var provincia = $('#provincia_id');
+    //     provincia.val(provincia.data('id')).trigger('change');
+    // },1000);
+    // setTimeout(function () {
+    //     var ciudad = $('#ciudad_id');
+    //     ciudad.val(ciudad.data('id')).trigger('change');
+    // },1500);
+
+    var pais = $('#pais_id');
+    pais.val(pais.data('id'))
+        .then(function () {
+            console.log('ok');
+        }).trigger('change');
+
+    setTimeout(function () {
+        var departamento = $('#departamento_id');
+        departamento.val(departamento.data('id')).trigger('change');
+    },500);
+    setTimeout(function () {
+        var provincia = $('#provincia_id');
+        provincia.val(provincia.data('id')).trigger('change');
+    },1000);
+    setTimeout(function () {
+        var ciudad = $('#ciudad_id');
+        ciudad.val(ciudad.data('id')).trigger('change');
+    },1500);
+}
+

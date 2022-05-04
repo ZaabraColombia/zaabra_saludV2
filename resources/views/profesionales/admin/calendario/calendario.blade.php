@@ -86,14 +86,15 @@
             <div class="col-12 col-lg-11 col-xl-8 p-0 mb-3">
                 <div id="calendar" data-events="{{ route('profesional.agenda.calendario.ver-citas') }}"
                      data-weekBissness='{!! json_encode($horario->horario) !!}'
-                     data-days='{!! json_encode($dias_disponibles) !!}'></div>
+                     data-days='{!! json_encode($dias_disponibles) !!}'
+                     data-daysFree='{{ route('profesional.agenda.calendario.dias-libre') }}'></div>
             </div>
         </div>
 
     </section>
 
     <!-- Modal día calendario -->
-    <div class="modal fade" id="modal_dia_calendario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" target="_blank">
+    <div class="modal fade" id="modal_dia_calendario" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -118,8 +119,8 @@
                 </div>
 
                 <div class="modal-footer content_btn_center">
-                    <button type="button" class="button_blue" id="btn-day-clicked">Agendar cita</button>
-                    <button type="button" class="button_blue" id="btn-day-see">Ver citas</button>
+                    <button type="button" class="button_blue" id="btn-agendar-cita">Agendar cita</button>
+                    <button type="button" class="button_blue" id="btn-ver-dia">Ver citas</button>
                 </div>
             </div>
         </div>
@@ -799,7 +800,7 @@
                 $.ajax({
                     data: { date: date},
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.dias-libre') }}',
+                    url: '',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -820,14 +821,6 @@
                     }
                 });
             }
-
-
-            //Abrir vista dia en el calendario
-            $('#btn-day-see').click(function (e) {
-                var btn = $(this);
-                calendar.changeView('timeGridDay', btn.data('date'));
-                $('#modal_dia_calendario').modal('hide');
-            });
 
             //Abrir modal para asignar cita
             $('#btn-day-clicked').click(function (e) {

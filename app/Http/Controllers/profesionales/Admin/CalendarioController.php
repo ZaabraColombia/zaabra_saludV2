@@ -216,6 +216,8 @@ class CalendarioController extends Controller
                     //'display' => 'background',
                     'display' => 'block',
                     'title' => 'Bloqueado',
+                    //'show' => '',
+                    //'edit' => ''
                 ];
             } else {
 
@@ -249,6 +251,8 @@ class CalendarioController extends Controller
                     'borderColor' => '#696969',
                     'display' => 'block',
                     'title' => $date->paciente->user->nombre_completo,
+                    //'show' => '',
+                    //'edit' => ''
                 ];
 
             }
