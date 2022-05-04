@@ -9,6 +9,7 @@ use App\Models\Horario;
 use App\Models\Paciente;
 use App\Models\PagoCita;
 use App\Models\pais;
+use App\Models\Servicio;
 use App\Models\tipoconsultas;
 use App\Models\User;
 use Carbon\Carbon;
@@ -34,34 +35,27 @@ class CalendarioController extends Controller
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
         $user = Auth::user();
+        $profesional = User::query()->with('horario')->find($user->profesional->idUser);
+        $horario = $profesional->horario;
+
         //Validar calendario
-
-        if (!isset($user->horario) or !is_array($user->horario->horario)
-            or empty($user->horario->duracion) or empty($user->horario->descanso))
+        if (!isset($horario) or !is_array($horario->horario) or empty($horario->dias_agenda))
             return redirect()->route('profesional.agenda.configurar-calendario')
-                ->with('warning', 'Por favor configurar el calendario');
+                ->withErrors(['configurar' => 'Por favor configurar el calendario'] );
 
-        $weekNotBusiness = array();
-        foreach (array_column($user->horario->horario, 'daysOfWeek') as $item)
-            $weekNotBusiness = array_merge($weekNotBusiness, $item);
+        //Dias de la semana no disponibles
+        $dias_bloqueados = collect($horario->horario)
+            ->pluck('daysOfWeek')->collapse()// retornar todos los días
+            ->unique()->values()->all();// unificar los dias
 
-        $horario = $user->horario;
-        $weekNotBusiness = array_unique($weekNotBusiness);
-        $tipoCitas = tipoconsultas::query()
-            ->where('idperfil', '=', $user->profesional->idPerfilProfesional)
+        $servicios = Servicio::query()
+            ->where('profesional_id', '=', $profesional->profesional->idPerfilProfesional)
             ->get();
 
         $paises = pais::all();
 
-        //dd($user->profecional);
-
-        return view('profesionales.admin.calendario.calendario', compact(
-            'weekNotBusiness',
-            'horario',
-            'tipoCitas',
-            'paises',
-            'user'
-        ));
+        return view('profesionales.admin.calendario.calendario', compact('dias_bloqueados',
+            'horario', 'servicios', 'paises', 'user'));
     }
 
     /**

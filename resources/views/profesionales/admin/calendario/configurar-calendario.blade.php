@@ -17,7 +17,20 @@
                 method="post" id="form-dias" class="forms" data-alert="#alert-cita">
                 @csrf
                 <div class="containt_main_table mb-3">
-                    <div id="alert-cita"></div>
+                    <div id="alert-cita">
+
+                        @if($errors->first('configurar'))
+                            <div class="col-12">
+                                <div class="alert alert-danger" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="alert-heading">Error!</h4>
+                                    <p>{{ $errors->first('configurar') }}</p>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
                     <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="dias_agenda">Disponibilidad de la agenda (Días)</label>
