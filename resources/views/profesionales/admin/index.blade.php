@@ -72,7 +72,7 @@
                     <!-- Usuarios -->
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href='{{ route('profesional.configuracion.usuarios.index') }}'>
-                            <div class="content__target servicio_blue">
+                            <div class="content__target usuario_blue">
                                 <span class="subtitle__lg">Usuarios</span>
                             </div>
                         </a>

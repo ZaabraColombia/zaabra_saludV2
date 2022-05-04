@@ -170,7 +170,7 @@
                             </div>
 
                             <!-- Linea división de elementos -->
-                            <div class="dropdown-divider my-2" style="height:3px; background-color: #6eb1a6"></div>
+                            <div class="dropdown-divider my-2" style="height:3px; background-color: #7fadcb;"></div>
 
                             <div id="convenios-lista">
                                 <div class="row mb-2">
@@ -191,7 +191,7 @@
                                 </div>
 
                                 <!-- Linea división de elementos -->
-                                <div class="dropdown-divider my-2" style="height:3px; background-color: #6eb1a6"></div>
+                                <div class="dropdown-divider my-2" style="height:3px; background-color: #7fadcb;"></div>
 
                                 <div class="row mb-2">
                                     <div class="col-12 info_contac d-lg-flex">
@@ -286,7 +286,7 @@
                         '<span>$' + item.pivot.valor_paciente + '</span>' +
                         '</div>' +
                         '</div>' +
-                        '<div class="dropdown-divider my-2" style="height:3px; background-color: #6eb1a6"></div>'
+                        '<div class="dropdown-divider my-2" style="height:3px; background-color: #7fadcb"></div>'
                     );
                 });
 

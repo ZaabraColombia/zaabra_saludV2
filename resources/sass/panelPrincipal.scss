@@ -96,6 +96,13 @@ align-self: flex-end;
     }
 }
 
+.usuario_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_usuarios_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_usuarios_blanco.png');
+    }
+}
+
 
 .content__target_inst {
     border: 1px solid $green_official;

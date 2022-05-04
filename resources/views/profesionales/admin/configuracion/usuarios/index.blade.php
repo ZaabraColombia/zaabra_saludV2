@@ -63,7 +63,6 @@
                                     <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
                                     <td>
                                         <div class="d-flex justify-content-around px-3">
-
                                             <button class="btn_action  tool top modal-usuario" style="width: 33px"
                                                     data-url="{{ route('profesional.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
                                                 <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
@@ -95,12 +94,12 @@
                 </div>
                 <!-- Mantener las cases "label-*" -->
                 <div class="modal-body">
-                    <h1 class="mb-3" style="color: #019F86">Ver Usuario</h1>
+                    <h1 class="mb-3">Ver Usuario</h1>
 
-                    <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
+                    <div class="content__border_see_contacs"></div>
 
                     <div class="modal_info_cita pt-3 px-2">
-                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
+                        <h4 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;">Información básica</h4>
                         <div class="row mb-2">
                             <div class="col-lg-6 info_contac">
                                 <span>Nombres:&nbsp;</span>
@@ -159,7 +158,7 @@
 
                         </div>
 
-                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Accesos del usuario</h4>
+                        <h4 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;">Accesos del usuario</h4>
                         <div class="row m-0 mb-2" id="accesos-lista">
                         </div>
                     </div>
@@ -220,7 +219,7 @@
                 $('#accesos-lista').html('');
                 $.each(response.item.accesos, function (key, item) {
                     $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
-                        + '<i data-feather="check-circle" style="color: #019F86;" width="17"></i>'
+                        + '<i data-feather="check-circle" style="color: #0083D6;" width="17"></i>'
                         + '<span class="pl-2">' + item.nombre + '</span>'
                         + '</div>');
                 });

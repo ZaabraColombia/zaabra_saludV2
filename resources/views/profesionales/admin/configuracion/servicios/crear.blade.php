@@ -167,21 +167,21 @@
                                 @if($convenios->isNotEmpty())
                                     @foreach($convenios as $convenio)
                                         <tr>
-                                            <td class="check__box_green">
+                                            <td class="check__box_blue">
                                                 <input type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
-                                                <label class="label_check_green" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
+                                                <label class="label_check_blue" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
                                                 <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
                                             </td>
                                             <td>
                                                 <div class="input__box">
-                                                    <div class="signo_peso"><span>$</span></div>
+                                                    <div class="signo_peso" style="color: #0083D6"><span>$</span></div>
                                                     <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
                                                            value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="valor-paciente @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="input__box">
-                                                    <div class="signo_peso"><span>$</span></div>
+                                                    <div class="signo_peso" style="color: #0083D6"><span>$</span></div>
                                                     <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
                                                            value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="valor-convenio @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
                                                 </div>
