@@ -47,8 +47,8 @@
 
                             <div class="col-md-4 col-xl-12 p-0 content_right_agenda">
                                 <label for="cit_pre">
-                                    <input id="color_cita_precencial" name="color_cita_precencial" class="colors"
-                                           type="color" value="{{ $horario->color_cita_precencial ?? '#D6FFFB' }}">
+                                    <input id="color_cita_presencial" name="color_cita_presencial" class="colors"
+                                           type="color" value="{{ $horario->color_cita_presencial ?? '#D6FFFB' }}">
                                     Cita pago presencial
                                 </label>
                             </div>

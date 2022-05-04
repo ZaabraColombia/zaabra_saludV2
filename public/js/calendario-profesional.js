@@ -160,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //Configurar colores
     $('.colors').change(function (event) {
         $('#form-actualizar-colores-calendario').submit();
-        console.log('ok');
     });
 
     $('#form-actualizar-colores-calendario').submit(function (event) {
@@ -168,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var form = $(this);
         $.post(form.attr('action'), form.serialize(), function (data) {
             $('#alerta-general').html(alert(data.message, 'success'));
+            calendar.refetchEvents();
         }, 'json').fail( function (data) {
             $('#alerta-general').html(alert(data.responseJSON.message, 'danger'));
         });

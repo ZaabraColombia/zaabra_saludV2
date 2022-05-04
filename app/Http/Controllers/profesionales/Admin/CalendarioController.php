@@ -30,6 +30,11 @@ use function view;
 
 class CalendarioController extends Controller
 {
+    /**
+     * Retorna la vista del calendario
+     *
+     * @return Application|Factory|View|\Illuminate\Http\RedirectResponse
+     */
     public function index()
     {
         Gate::authorize('accesos-profesional', 'ver-calendario');
@@ -193,6 +198,9 @@ class CalendarioController extends Controller
             ->with(['paciente', 'paciente.user', 'pago'])
             ->get();
 
+        $horario = Horario::query()
+            ->where('user_id', Auth::user()->profesional->idUser)->first();
+
         $data = array();
 
         foreach ($dates as $date) {
@@ -202,8 +210,8 @@ class CalendarioController extends Controller
                     'id'    => $date->id_cita,
                     'start' => $date->start,
                     'end'   => $date->end,
-                    'backgroundColor' => '#F37725',
-                    'textColor' => 'black',
+                    'backgroundColor' => $horario->color_bloqueado ?? '#F37725',
+                    'textColor' => color_contrast($horario->color_bloqueado ?? '#F37725'),
                     'borderColor' => 'black',
                     //'display' => 'background',
                     'display' => 'block',
@@ -215,14 +223,16 @@ class CalendarioController extends Controller
                 switch ($date->pago->tipo)
                 {
                     case 'presencial':
+                        $color = $horario->color_cita_presencial ?? '#D6FFFB';
                         //Color cita pago
-                        $background = '#D6FFFB';
-                        $color = '#323232';
+                        $background = $color;
+                        $color = color_contrast($color);
                         break;
                     case 'virtual':
+                        $color = ($date->pago->aprobado) ? $horario->color_cita_pagada ?? '#1B85D7':$horario->color_cita_agendada ?? '#019F86';
                         //Si esta aprobado es pagado, si no es pagado se establece como no pagado
-                        $background = ($date->pago->aprobado) ? '#1B85D7':'#019F86';
-                        $color = '#FFFFFF';
+                        $background = $color;
+                        $color = color_contrast($color);
                         break;
                     default:
                         $background = null;
@@ -1073,13 +1083,13 @@ class CalendarioController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'color_cita_pagada'     => ['required'],
-            'color_cita_precencial' => ['required'],
+            'color_cita_presencial' => ['required'],
             'color_cita_agendada'   => ['required'],
             'color_cita_cancelada'  => ['required'],
             'color_bloqueado'       => ['required'],
         ], [], [
             'color_cita_pagada'     => 'Cita pagada',
-            'color_cita_precencial' => 'Cita presencial',
+            'color_cita_presencial' => 'Cita presencial',
             'color_cita_agendada'   => 'Cita agendada',
             'color_cita_cancelada'  => 'Cita cancelada',
             'color_bloqueado'       => 'Bloqueos'

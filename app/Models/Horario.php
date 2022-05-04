@@ -17,7 +17,7 @@ class Horario extends Model
         'id',
         'horario',
         'color_cita_pagada',
-        'color_cita_precencial',
+        'color_cita_presencial',
         'color_cita_agendada',
         'color_cita_cancelada',
         'color_bloqueado',
