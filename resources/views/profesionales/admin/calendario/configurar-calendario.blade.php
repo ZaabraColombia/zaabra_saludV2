@@ -20,7 +20,7 @@
                     <div id="alert-cita"></div>
                     <div class="row">
                         <div class="col-md-6 input__box">
-                            <label for="dias_agenda">Duración de cita (min)</label>
+                            <label for="dias_agenda">Disponibilidad de la agenda (Días)</label>
                             <input type="number" id="dias_agenda" name="dias_agenda"
                                    value="{{ old('dias_agenda', $config->dias_agenda) }}">
                         </div>

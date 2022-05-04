@@ -933,8 +933,7 @@ class CalendarioController extends Controller
         Gate::authorize('accesos-profesional', 'configurar-calendario');
 
         $validator = Validator::make($request->all(),[
-            'duracion' => ['required', 'integer'],
-            'descanso' => ['required', 'integer']
+            'dias_agenda' => ['required', 'integer']
         ]);
 
         if ($validator->fails())
@@ -950,12 +949,11 @@ class CalendarioController extends Controller
         //user
         $user = Auth::user();
 
-        //Update date
-        $horario = Horario::query()->updateOrCreate([
-            'user_id' => $user->id
+        //Actualizar o crear registro
+        Horario::query()->updateOrCreate([
+            'user_id' => $user->profesional->idUser
         ], [
-            'duracion' => $request->get('duracion'),
-            'descanso' => $request->get('descanso')
+            'dias_agenda' => $request->get('dias_agenda')
         ]);
 
         return response([
@@ -994,7 +992,8 @@ class CalendarioController extends Controller
 
         //user
         $user = Auth::user();
-        $horario = $user->horario;
+        $horario = Horario::query()->firstOrNew(['user_id' => $user->profesional->idUser]);
+
         $schedule[] = [
             'id' => Str::random(10),
             'daysOfWeek'    => $request->get('semana'),
@@ -1011,9 +1010,7 @@ class CalendarioController extends Controller
 
         $horario->save();
 
-        //dd($schedule[0]['daysOfWeek']);
-
-        //parce days in text
+        //Dias en texto
         foreach ($schedule[0]['daysOfWeek'] as $key => $item) $schedule[0]['daysOfWeek'][$key] = daysWeekText($item);
 
         return response([
@@ -1050,8 +1047,9 @@ class CalendarioController extends Controller
 
         //user
         $user = Auth::user();
+        $horario = Horario::query()->where('user_id', $user->profesional->idUser)->first();
         //schedule
-        $schedule = $user->horario->horario;
+        $schedule = $horario->horario;
 
         //delete schedule
         $array = array_filter(array_combine(array_keys($schedule), array_column($schedule, 'id')));
@@ -1060,8 +1058,8 @@ class CalendarioController extends Controller
         unset($schedule[$key_schedule_delete]);
 
         //save
-        $user->horario->horario = $schedule;
-        $user->horario->save();
+        $horario->horario = $schedule;
+        $horario->save();
 
         return response([
             'message'   => [
