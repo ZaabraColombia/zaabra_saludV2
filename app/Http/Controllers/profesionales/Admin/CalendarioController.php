@@ -43,8 +43,8 @@ class CalendarioController extends Controller
             return redirect()->route('profesional.agenda.configurar-calendario')
                 ->withErrors(['configurar' => 'Por favor configurar el calendario'] );
 
-        //Dias de la semana no disponibles
-        $dias_bloqueados = collect($horario->horario)
+        //Dias de la semana disponibles
+        $dias_disponibles = collect($horario->horario)
             ->pluck('daysOfWeek')->collapse()// retornar todos los días
             ->unique()->values()->all();// unificar los dias
 
@@ -54,7 +54,7 @@ class CalendarioController extends Controller
 
         $paises = pais::all();
 
-        return view('profesionales.admin.calendario.calendario', compact('dias_bloqueados',
+        return view('profesionales.admin.calendario.calendario', compact('dias_disponibles',
             'horario', 'servicios', 'paises', 'user'));
     }
 

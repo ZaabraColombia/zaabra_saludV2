@@ -136,12 +136,12 @@
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
-                                    <label for="tipo_cita">Tipo de cita</label>
+                                    <label for="tipo_cita">Tipo de servicio</label>
                                     <select id="tipo_cita" name="tipo_cita" required>
                                         <option ></option>
-                                        @if($tipoCitas->isNotEmpty())
-                                            @foreach($tipoCitas as $cita)
-                                                <option value="{{ $cita->id }}" data-cantidad="{{ $cita->valorconsulta }}">{{ $cita->nombreconsulta }}</option>
+                                        @if($servicios->isNotEmpty())
+                                            @foreach($servicios as $servicio)
+                                                <option value="{{ $servicio->id }}" data-cantidad="{{ $servicio->valor }}">{{ $servicio->nombre }}</option>
                                             @endforeach
                                         @endisset
                                     </select>
@@ -316,12 +316,12 @@
                                 <div class="col-12 p-0" id="alerta-editar"></div>
                                 <input type="hidden" id="id_cita-editar" name="id_cita"/>
                                 <div class="col-12 p-0">
-                                    <label for="tipo_cita-editar">Tipo de cita</label>
+                                    <label for="tipo_cita-editar">Tipo de servicio</label>
                                     <select id="tipo_cita-editar" name="tipo_cita" required>
-                                        <option ></option>
-                                        @if($tipoCitas->isNotEmpty())
-                                            @foreach($tipoCitas as $cita)
-                                                <option value="{{ $cita->id }}">{{ $cita->nombreconsulta }}</option>
+                                        <option></option>
+                                        @if($servicios->isNotEmpty())
+                                            @foreach($servicios as $servicio)
+                                                <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
                                             @endforeach
                                         @endisset
                                     </select>
@@ -755,7 +755,7 @@
         document.addEventListener('DOMContentLoaded', function() {
 
             //Iniciar data
-            var weekNotBusiness = '{!! json_encode($weekNotBusiness) !!}';
+            var weekBusiness = '{!! json_encode($dias_disponibles) !!}';
 
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -810,7 +810,7 @@
 
                     var day = moment(event.date);
 
-                    if (weekNotBusiness.includes(event.date.getDay()))
+                    if (weekBusiness.includes(event.date.getDay()))
                     {
 
                         if (today.startOf('day').diff(day.startOf('day'), 'days') <= 0)
