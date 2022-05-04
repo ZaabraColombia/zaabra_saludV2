@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\TipoDocumento;
 use App\Providers\RouteServiceProvider;
-use Carbon\Carbon ; 
+use Carbon\Carbon ;
 use App\Models\User;
 use App\Models\users_roles;
 use App\Models\pagos;
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use SEO;
 
 class RegisterController extends Controller{
@@ -59,11 +62,42 @@ class RegisterController extends Controller{
      */
 
     protected function validator(array $data){
+        //dd($data);
         return Validator::make($data, [
-            'tipodocumento' => ['required', 'string', 'max:10'],
-            'numerodocumento' => ['required', 'numeric', 'max:99999999999'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'idrol'             => ['required', Rule::in([1, 2, 3])],
+            'primernombre'      => ['required_if:idrol,1,2', 'max:50'],
+            'segundonombre'     => ['nullable', 'max:50'],
+            'primerapellido'    => ['required_if:idrol,1,2', 'max:50'],
+            'segundoapellido'   => ['nullable', 'max:50'],
+            'nombreinstitucion' => ['required_if:idrol,3', 'max:50'],
+            'tipodocumento'     => ['required', 'exists:tipo_documentos,id'],
+            //'numerodocumento'   => ['required', 'max:50', 'unique:users,numerodocumento'],
+            'numerodocumento'   => ['required', 'max:50'],
+            'email'             => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'password'          => ['required', 'string', 'min:8', 'confirmed', Password::min(8)
+                ->mixedCase()
+                ->numbers()
+                ->symbols()
+                ->uncompromised()
+            ],
+            'aceptoTerminos' => ['required', 'accepted']
+        ], [
+            'idrol.in' => 'Escoger uno de los tres roles (Paciente, Doctor, Institución)',
+            'primernombre.required_if' => 'El campo :attribute es obligatorio',
+            'segundonombre.required_if' => 'El campo :attribute es obligatorio',
+            'primerapellido.required_if' => 'El campo :attribute es obligatorio',
+            'nombreinstitucion.required_if' => 'El campo :attribute es obligatorio',
+        ], [
+            'primernombre'      => 'Primer nombre',
+            'segundonombre'     => 'Segundo nombre',
+            'primerapellido'    => 'Primer apellido',
+            'segundoapellido'   => 'Segundo apellido',
+            'nombreinstitucion'   => 'Nombre institución',
+            'tipodocumento'     => 'Tipo Documento',
+            'numerodocumento'   => 'Número Documento',
+            'email'     => 'Correo electrónico',
+            'password'  => 'Contraseña',
+            'aceptoTerminos'    => 'Términos y condiciones'
         ]);
     }
 
@@ -75,28 +109,29 @@ class RegisterController extends Controller{
      */
     protected function create(array $data){
 
-        
+
         $user = User::create([
-            'primernombre' => $data['primernombre'],
-            'segundonombre' => $data['segundonombre'],
-            'primerapellido' => $data['primerapellido'],
-            'segundoapellido' => $data['segundoapellido'],
+            'primernombre'      => $data['primernombre'],
+            'segundonombre'     => $data['segundonombre'],
+            'primerapellido'    => $data['primerapellido'],
+            'segundoapellido'   => $data['segundoapellido'],
             'nombreinstitucion' => $data['nombreinstitucion'],
-            'tipodocumento' => $data['tipodocumento'],
-            'numerodocumento' => $data['numerodocumento'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'tipodocumento'     => $data['tipodocumento'],
+            'numerodocumento'   => $data['numerodocumento'],
+            'email'             => $data['email'],
+            'password'          => Hash::make($data['password']),
+            'aceptoTerminos'    => $data['aceptoTerminos'],
         ]);
 
 
         $id_user=$user->id;
-      
+
          users_roles::create([
             'iduser' =>  $id_user,
             'idrol' => $data['idrol'],
         ]);
 
-      
+
         $id_rol=$data['idrol'];
         $fechaActual = Carbon::now();
         $fecha_fin_actual= Carbon::now();
@@ -114,7 +149,14 @@ class RegisterController extends Controller{
         }
 
 
-        return $user; 
+        return $user;
+    }
+
+
+    public function showRegistrationForm()
+    {
+        $tipo_documentos = TipoDocumento::all();
+        return view('auth.register', compact('tipo_documentos'));
     }
 
 

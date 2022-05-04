@@ -1,120 +1,267 @@
-.text-muted {
-    color: #232323 !important;
-    font-family: 'Quicksand';
-    font-weight: bolder;
-    line-height:15px;
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    min-height:100vh;
+    background-color: #F9F9F9;
+}
+#footer {
+align-self: flex-end;
+    width: 100%;
+}
+.content__target {
+    border: 1px solid $blue_official;
+    border-radius: 5px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    height: 5vh;
+    padding: 15px 0;
+    box-shadow: -1px -1px 6px 1px rgb(0 0 0 / 20%);
+    background-repeat: no-repeat;
+    background-size: 65px;
+    background-position-x: center;
+    background-position-y: 45px;
+    height: 175px;
+    position: relative;
+    font-weight: bold;
+    color: $black_firsrt;
+    span{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        line-height: 1.1;
+        height: 50px;
+        padding: 0 5px;
+    }    
+    &:hover {
+        background-color: $blue_official;
+        border-radius: 15px;
+        image-rendering: pixelated;
+        box-shadow: 0px -1px 15px 5px rgb(0 0 0 / 50%);
+        border-left: 3px solid #1a6395;
+        border-bottom: 3px solid #1a6395;
+        color: $withe_official;
+    }
 }
-.target-panel{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+.calendario_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_calendario_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_calendario_blanco.png');
+    }
 }
-.target-panel img{
-    width: 100%;
-    height: 75px;
+.cita_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_citas_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_citas_blanco.png');
+    }
 }
-//**********************    ESTILOS VISTA panelPrincipalProfesional.blade.php       ********************************
+.pago_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_pagos_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_pagos_blanco.png');
+    }
+}
+.paciente_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_pacientes_blanco.png');
+    }
+}
+.contacto_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_contactos_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_contactos_blanco.png');
+    }
+}
+.favorito_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_favoritos_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_favoritos_blanco.png');
+    }
+}
+.profesional_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_profesionales_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_profesionales_blanco.png');
+    }
+}
+.convenio_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_convenios_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_convenios_blanco.png');
+    }
+}
+.servicio_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_servicios_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_servicios_blanco.png');
+    }
+}
 
-@media (min-width: 320px){
-    .cards_panelPrincipal {
-        width: 100% !important;
-        border: 1px solid #019f86;
+.usuario_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_usuarios_azul.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/profesionales/icon_usuarios_blanco.png');
     }
-    .card_optionPrincipal {
-        height: fit-content;
-        padding: 10% 5%;
+}
+
+
+.content__target_inst {
+    border: 1px solid $green_official;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: -1px -1px 6px 1px rgb(0 0 0 / 20%);
+    background-repeat: no-repeat;
+    background-size: 65px;
+    background-position-x: center;
+    background-position-y: 45px;
+    height: 175px;
+    position: relative;
+    font-weight: bold;
+    color: $green_official;
+    span{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        line-height: 1.1;
+        height: 50px;
+        padding: 0 5px;
+    }    
+    &:hover {
+        background-color: $green_official;
+        border-radius: 15px;
+        image-rendering: pixelated;
+        box-shadow: 0px -1px 15px 5px rgb(0 0 0 / 50%);
+        border-left: 3px solid #2f6a48;
+        border-bottom: 3px solid #2f6a48;
+        color: $withe_official;
     }
-    .panel-Administrativo .card{
-        box-shadow: 0px 3px 7px #00000029;
-        border-radius: 5px;
+}
+.profesional_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_profesionales_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_profesionales_blanco.png');
     }
-    .container_target{
-        margin-top: 5% !important;
-        margin-bottom: 2% !important;
+}
+.cita_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_citas_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_citas_blanco.png');
     }
-    // MENU HAMBURGUESA DE LA AGENDA
-    .icon_menu_agenda {
-        background-image: url('/img/header/icono-hamburguesa-azul.svg');
-        background-size: 100%;
-        background-color: #ffffff;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 25px;
-        height: 25px;
-        margin-right: auto;
+}
+.pago_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pagos_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pagos_blanco.png');
     }
-    //**********************    ESTILOS VISTA panelPrincipalProfesional.blade.php       ********************************
+}
+.paciente_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pacientes_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pacientes_blanco.png');
+    }
+}
+.contacto_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_contactos_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_contactos_blanco.png');
+    }
+}
+.favorito_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_favoritos_blanco.png');
+    }
+}
+.usuario_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_usuarios_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_usuarios_blanco.png');
+    }
+}
+.convenio_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_convenios_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_convenios_blanco.png');
+    }
+}
+.servicio_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_servicios_verde.png');
+    &:hover {
+        background-image: url('/img/agenda/panelPrincipal/instituciones/icon_servicios_blanco.png');
+    }
+}
+.content__logos {
+    display: flex;
+    justify-content: center;
+    border: 1px solid $blue_official;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: -1px -1px 6px 1px rgb(0 0 0 / 20%);
+    height: 80px;
+    img {
+        object-fit: scale-down;
+        width: -webkit-fill-available;
+    }
+    &:hover {
+        border-radius: 15px;
+        image-rendering: pixelated;
+        box-shadow: 0px -1px 15px 5px rgb(0 0 0 / 50%);
+        border-left: 3px solid #1a6395;
+        border-bottom: 3px solid #1a6395;
+    }
+}
+
+.content__logos_inst {
+    display: flex;
+    justify-content: center;
+    border: 1px solid $green_official;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: -1px -1px 6px 1px rgb(0 0 0 / 20%);
+    height: 80px;
+    img {
+        object-fit: scale-down;
+        width: -webkit-fill-available;
+    }
+    &:hover {
+        border-radius: 15px;
+        image-rendering: pixelated;
+        box-shadow: 0px -1px 15px 5px rgb(0 0 0 / 50%);
+        border-left: 3px solid #2f6a48;
+        border-bottom: 3px solid #2f6a48;
+    }
 }
 
 @media (min-width: 768px){
-    .container_target{
-        max-width: 28% !important;
+    .content__target {
+        padding: 35px 0;
+        background-size: 75px;
+        height: 200px;
+        span{
+            height: 60px;
+        } 
     }
-    .container_principal{
-        max-width: 75%;
+    .content__logos {
+        height: 105px;
     }
-    .container_principal .row{
-        justify-content: space-between;
+    .content__logos_inst {
+        height: 105px;
     }
-    .text-muted {
-        font-size: 1em;
+    .content__target_inst {
+        padding: 35px 0;
+        background-size: 75px;
+        height: 200px;
+        span{
+            height: 60px;
+        } 
     }
-    //**********************    ESTILOS VISTA panelPrincipalProfesional.blade.php       ********************************
 }
-
 @media (min-width: 1024px){
-    .container_principal {
-        max-width: 80%;
+    .content__logos {
+        height: 200px;
     }
-    .container_target{
-        max-width: 30% !important;
+    .content__logos_inst {
+        height: 200px;
     }
-    .card_optionPrincipal {
-        padding: 15% 0;
-    }
-    //**********************    ESTILOS VISTA panelPrincipalProfesional.blade.php       ********************************
-}
-
-@media (min-width: 1200px){
-    .container_principal {
-        max-width: 70%;
-    }
-    .container_target{
-        max-width: 26% !important;
-    }
-    .target-panel img {
-        width: 100%;
-        height: 70px;
-    }
-    //**********************    ESTILOS VISTA panelPrincipalProfesional.blade.php       ********************************
-}
-@media (min-width: 1440px){
-    .card_optionPrincipal {
-        padding: 15% 5%;
-    }
-    .text-muted {
-        font-size: 1.25em;
-    }
-    //**********************    ESTILOS VISTA panelPrincipalProfesional.blade.php       ********************************
-}
-@media (min-width: 1600px){
-    .container_principal {
-        max-width: 55%;
-    }
-    .target-panel img {
-        width: 100%;
-        height: 80px;
-    }
-    .target-panel img {
-        width: 100%;
-        height: 90px;
-    }
-    //**********************    ESTILOS VISTA panelPrincipalProfesional.blade.php       ********************************
 }

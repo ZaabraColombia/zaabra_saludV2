@@ -17,3 +17,26 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/search/cie10', [\App\Http\Controllers\Api\SearchController::class, 'cie10'])
+    ->name('search-cie10');
+Route::get('/search/cups', [\App\Http\Controllers\Api\SearchController::class, 'cups'])
+    ->name('search-cups');
+Route::get('/search/cums', [\App\Http\Controllers\Api\SearchController::class, 'cums'])
+    ->name('search-cums');
+
+/*Buscador general de ubicación*/
+Route::get('/departamentos/{pais:id_pais}',[App\Http\Controllers\buscador\UbicacionController::class,'departamentos'])
+    ->name('departamentos');
+Route::get('/provincias/{departamento:id_departamento}',[App\Http\Controllers\buscador\UbicacionController::class,'provincias'])
+    ->name('provincias');
+Route::get('/ciudades/{provincia:id_provincia}',[App\Http\Controllers\buscador\UbicacionController::class,'ciudades'])
+    ->name('ciudades');
+
+/* Buscar general de recursos */
+Route::get('/sgsss', [\App\Http\Controllers\buscador\RecursosController::class, 'sgsss'])
+    ->name('sgsss');
+Route::get('/actividades_economicas', [\App\Http\Controllers\buscador\RecursosController::class, 'actividad_economica'])
+    ->name('actividad_economica');
+
+

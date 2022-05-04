@@ -7,31 +7,55 @@
     justify-content: flex-start;
     align-items: center;
 }
-.text_calendar, .dias {
-    font-family: "Roboto";
-    color: #3E3E3E;
+.fc-toolbar-title::first-letter {
+    text-transform: uppercase;
 }
-.dias{
-    display: flex;
-    align-content: center;
+.fc-col-header-cell-cushion::first-letter {
+    text-transform: uppercase;
+} 
+.content_dias_agenda {
+    label  {
+        font-size: 14px;
+        font-family: "Roboto";
+        color: #3E3E3E;
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 10px;
+        width: 180px;
+        cursor: pointer;
+        input {
+            width: 25px;
+            height: 28px;
+            border: none;
+            margin-right: 20px;
+            padding: 0;
+            cursor: pointer;
+        }
+    }
 }
-.dias i{
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    border: 1px solid #707070;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    margin-right: 7px;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
+.fc-event .fc-event-main {
+    cursor: pointer;
 }
-.no_disponible i{
-    background: #d8d8d8;
+// .fc .fc-toolbar {
+//     flex-direction: column !important;
+// }
+.fc-header-toolbar {
+    flex-direction: row !important;
 }
-.contains_option_days{
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
+.fc-header-toolbar {
+    align-items: flex-end !important;
+}
+.fc-toolbar-title {
+    text-align: center;
+    margin-bottom: 10px !important;
+}
+.fc-h-event .fc-event-title {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.fc-h-event .fc-event-time {
+    overflow: inherit !important;
 }
 @media (min-width: 320px){
     .dias{
@@ -45,7 +69,37 @@
     .text_calendar{
         font-size: 1.1em;
     }
+    .content_center_agenda {
+        display: flex;
+        justify-content: center;
+    }
+    .content_right_agenda {
+        display: flex;
+        justify-content: flex-end;
+    }
     .dias{
         font-size: 1em;
+    }
+    // .fc-prev-button {
+    //     // position: absolute;
+    //     left: -193px;
+    //     right: auto;
+    // }
+}
+@media (min-width: 1200px) {
+    .config__calendar {
+        position: absolute;
+        width: 250px;
+        right: 15px;
+        top: -35px;
+    }
+    .content_center_agenda, .content_right_agenda {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 1920px) {
+    .config__calendar {
+        right: 85px;
     }
 }

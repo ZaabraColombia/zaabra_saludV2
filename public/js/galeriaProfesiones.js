@@ -10,7 +10,7 @@ const swiper_principalGaleriaProf = new Swiper('.swiper_principalGaleriaProf',{
   },
 
   autoplay: {
-    delay: 3500,
+    delay: 4500,
     disableOnInteraction: false,
   },
 

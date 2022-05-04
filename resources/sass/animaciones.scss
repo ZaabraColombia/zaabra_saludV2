@@ -1,0 +1,61 @@
+// Animación para las tarjetas desplegables del "login y Menú hamburguesa" del HEADER
+.menu_flip[aria-expanded="true"] + .dropdown-menu {
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+    animation-name: example;
+    animation-duration: 2s;
+}
+@keyframes example {
+    0%  {
+        transform: rotateY(90deg);
+        background:  #87cdfc;
+    }
+    50% {
+        transform: rotateY(-30deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+        box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 15%);
+    }
+}
+// Cronometro modal datos paciente calendario
+// profesional institución agenda instituciones
+.main {
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+}
+
+.circle {
+    margin: 15px 50px;
+    display: flex;
+    align-items: center;
+}
+
+.paused {
+    font-family: "Quicksand";
+    font-size: 16px;
+    color: #FFFFFF;
+    background: #0083D6;
+    border: 1px solid #0083D6;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-left: 15px ;
+}
+
+.running {
+    font-family: "Quicksand";
+    font-size: 16px;
+    color: #0083D6;
+    background: #FFFFFF;
+    border: 1px solid #0083D6;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.stop {
+    background-color: #FFFFFF;
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+}
+// Fin de los estilos del cronometro

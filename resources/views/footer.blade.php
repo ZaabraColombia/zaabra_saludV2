@@ -2,7 +2,7 @@
 <footer>
     <!-- Contenedor principal del footer -->
     <div class="container-fluid p-0">
-        <!-- Row newzletter-->
+        <!-- Row newsletter-->
         <div class="row footer_newsletter">
             <!-- Column titulo-->
             <div class="col-lg-10 mt-2 mt-lg-0 newsletter_contenido">
@@ -59,7 +59,7 @@
             <!--******************************     Column end form suscribirme version MOBILE      *********************************-->
         </div>
 
-        <!-- Row informacion Zaabrasalud-->
+        <!-- Row información Zaabrasalud-->
         <div class="row footer_info-zaabrasalud">
             <!-- Column contenido contactanos-->
             <div class="col-lg-4 contactanos_contenido d-none d-lg-flex">
@@ -349,6 +349,6 @@
 
     <!-- Copyright -->
     <div class="col-12 footer_copy-right">
-      <span class="texto_copy-right">&copy; Zaabrasalud 2021 </span>
+      <span class="texto_copy-right">&copy; Zaabrasalud 2022 </span>
     </div>
 </footer>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
 use App\Models\Convenios;
+use App\Models\especialidades;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\instituciones;
@@ -60,7 +62,7 @@ class perfilInstitucionController extends Controller  {
 
     // consulta para cargar informacion de la landing
     public function cargarInfoInstitucLandin($slug){
-    return DB::select("SELECT ints.id, ints.logo,ints.imagen , us.nombreinstitucion, ints.url, ints.telefonouno, ints.direccion, mn.nombre ciudad, 
+    return DB::select("SELECT ints.id, ints.logo,ints.imagen , us.nombreinstitucion, ints.url, ints.telefonouno, ints.direccion, mn.nombre ciudad,
                             p.nombre pais, ints.quienessomos, ints.propuestavalor, ints.DescripcionGeneralServicios, tpi.nombretipo, ints.slug, ints.idtipoInstitucion, ints.url_maps
     FROM instituciones ints
     INNER JOIN users us ON ints.idUser=us.id
@@ -159,54 +161,31 @@ class perfilInstitucionController extends Controller  {
         $objinstitucionlandin = $this->cargarInfoInstitucLandin($request->slug);
         if (empty($objinstitucionlandin)) return redirect('/');
 
-        //$idUser=$objnombreInstitucion->idUser;
-        $objbannersprincipalInstitucionProfesionales = $this->cargarBannerPrincipalInstitucionProfesionales();
-
-        $objProfesionalesIns    = profesionales_instituciones::where('id_institucion', '=', $objinstitucionlandin[0]->id)
-        ->select('profesionales_instituciones.id_profesional_inst',
-            'profesionales_instituciones.foto_perfil_institucion',
-            'profesionales_instituciones.primer_nombre',
-            'profesionales_instituciones.segundo_nombre',
-            'profesionales_instituciones.primer_apellido',
-            'profesionales_instituciones.segundo_apellido',
-            'profesionales_instituciones.cargo',
-            'especialidades.nombreEspecialidad as nombre_especialidad',
-            'universidades.nombreuniversidad as nombre_universidad')
-        ->leftjoin('especialidades', 'especialidades.idEspecialidad', '=', 'profesionales_instituciones.id_especialidad')
-        ->leftjoin('universidades', 'universidades.id_universidad', '=', 'profesionales_instituciones.id_universidad')
-        ->with('especialidades')->get();
+        $profesionales = profesionales_instituciones::query()
+            ->with([
+                'especialidad_pricipal',
+                'especialidades',
+                'universidad'
+            ])
+            ->where('id_institucion', '=', $objinstitucionlandin[0]->id)
+            //->where('estado', 1)
+            ->get();
 
         //Sacar las especialidades
-        //$especialidades = array_unique(array_column($objProfesionalesIns->toArray(), 'nombre_especialidad'));
-
-        //La lógica para aislar las especialidades
-        $esp = array_column($objProfesionalesIns->toArray(), 'especialidades');
-        $array = array();
-        foreach ($esp as $item)
-        {
-            if (is_array($item)) foreach ($item as $i) array_push($array, $i);
-        }
-        $especialidades = array_unique(
-            array_merge(
-                array_column($array, 'nombreEspecialidad'),
-                array_column($objProfesionalesIns->toArray(), 'nombre_especialidad')
-            )
-        );
-        $especialidades = array_filter($especialidades);
-
-
+        $ids = $profesionales->pluck('id_profesional_inst')->toArray();
+        $especialidades = especialidades::query()
+            ->whereHas('total_ins_profesionales', function ($query) use ($ids){
+                return $query->whereIn('id_profesional_inst', $ids);
+            })
+            ->orWhereHas('ins_profesionales', function ($query) use ($ids){
+                return $query->whereIn('id_profesional_inst', $ids);
+            })
+            ->get();
 
         $institucion = $this->cargarInfoInstitucion($request->slug);
-        // LLama la imagen de la sede que esta en la landing page instituciones y la imprime en el bammer principal de la vista "profesionales-institucion".
-        $id = $objinstitucionlandin[0]->id;
-        $objinstitucionlandinimgsede = $objinstitucionlandin[0];
 
-        return view('instituciones.profesionales-institucion', compact(
-            'objbannersprincipalInstitucionProfesionales',
-            'objProfesionalesIns',
-            'especialidades',
-            'institucion',
-            'objinstitucionlandinimgsede'
+        return view('instituciones.profesionales-institucion', compact('profesionales',
+            'especialidades','institucion'
         ));
     }
 

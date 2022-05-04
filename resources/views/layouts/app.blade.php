@@ -20,9 +20,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">--}}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
         <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
         <!-- <link rel="stylesheet" href="{{ asset('/plugins/map-leaflet/leaflet.css') }}"/> -->
         <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -55,7 +56,7 @@
 
         @include('header')
 
-        <div id="app">
+        <div id=""> {{-- Se elimino el id app --}}
             <!--    Contenido   -->
             <main>
                 @yield('content')
@@ -64,14 +65,12 @@
             @include('footer')
         </div>
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ mix('/js/app.js') }}"></script>
         <!--///      Ubicación de los SCRIPT de cada uno de los archivos .js utilizados en el proyecto zaabrasalud      ///-->
         <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.2/viewer.min.js" integrity="sha512-Cpto2uFAGrtCArBkIckJacfNjZ6yFJ1F61YIOH3Nj4dpccnCK1AGkudN9g+HM+OQMIHxeFvcRmkIUKbJ/7Qxyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>-->
-
-        @yield('scripts')
 
         <!-- Scripts  areas-->
         <script src="{{ asset('js/header.js') }}"></script>
@@ -97,6 +96,11 @@
             crossorigin="">
         </script> -->
 
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <script>
+            feather.replace()
+        </script>
+        @yield('scripts')
     </body>
 </html>
 

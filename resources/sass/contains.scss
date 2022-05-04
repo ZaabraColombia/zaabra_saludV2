@@ -1,0 +1,361 @@
+// Contenedores de elementos de los formularios
+.containt_main_form {
+    background-color: $withe_official;
+    border: 1px solid $gray_second;
+    border-radius: 9px;
+    padding: 20px 15px;
+}
+.content_asig_cita {
+    padding: 0 15px;
+}
+// Contenedores implementados con CSS puro
+.content_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.content_row_flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.col_flex {
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-wrap: wrap;
+}
+.col_block {
+    display: block;
+    width: 100%;
+    position: relative;
+    flex-wrap: wrap;
+}
+// Fin de contenedores implementados con CSS puro
+// Listas 
+.list__form {
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 13px;
+        }
+    }
+}
+.list__form_column {
+    ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style: none;
+            width: 33%;
+            &:nth-child(1){
+                background-image: url('/img/landing-profesional/icono-presencial.svg');
+                background-repeat: no-repeat;
+                background-size: 18px;
+                padding-left: 15px;
+            }
+            &:nth-child(2){
+                background-image: url('/img/landing-profesional/icono-virtual.svg');
+                background-repeat: no-repeat;
+                background-size: 18px;
+            }
+            &:nth-child(3){
+                background-image: url('/img/landing-profesional/icono-control-medico.svg');
+                background-repeat: no-repeat;
+                background-size: 18px;
+            }
+        }
+    }
+}
+//   _______________________________________________________________________________________
+//  |                                                                                       |
+//  | Propiedad para implementar doble linea en la data oculta de la tabla plugin datatable |
+//  |_______________________________________________________________________________________|
+                    table.dataTable>tbody>tr.child ul.dtr-details {
+                        white-space: break-spaces;
+                    }
+// Tablas
+.table thead tr th {
+    font-family: 'Quicksand';
+    color: $blue_official;
+    font-weight: 600;
+}
+.table thead tr th,
+.table tbody tr td  {
+    border-top: none;
+    font-family: 'Roboto';
+    .btn_action {
+        border: none;
+        background-color: transparent;
+        color: $blue_official;
+        padding: 6px;
+        border-radius: 25px;
+        width: 28px;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background-color: $blue_official;
+            color: $withe_official;
+        }
+        i {
+            font-size: 15px;
+        }
+    }
+}
+
+// Tabla instituciones
+.table .thead_green tr th {
+    font-family: 'Quicksand';
+    color: $green_official;
+    font-weight: bold;
+}
+
+// propiedades tabla mis profesionales agenda paciente y profesionales
+.containt_main_table {
+    background-color: #FFFFFF;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 2px rgb(206 212 218 / 50%);
+    padding: 20px 15px;
+}
+.table_agenda thead tr th {
+    font-family: 'Quicksand';
+    color: $blue_official;
+    font-weight: 600;
+}
+.table_agenda thead tr th {
+    border-bottom: none;
+    font-family: 'Roboto';
+}
+.table_agenda tbody tr td  {
+    border-bottom: 1px solid #CED4DA;
+    font-family: 'Roboto';
+    vertical-align: middle;
+    .btn_action {
+        border: none;
+        background-color: transparent;
+        color: $blue_official;
+        padding: 6px;
+        border-radius: 25px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            background-color: $blue_official;
+            color: $withe_official;
+        }
+        i {
+            font-size: 18px;
+        }
+    }
+}
+// propiedades tabla mis profesionales agenda instituciones
+.table_agenda .thead_green tr th {
+    font-family: 'Quicksand';
+    color: $green_official;
+    font-weight: bold;
+}
+.table_agenda tbody tr td  {
+    border-bottom: 1px solid #CED4DA;
+    font-family: 'Roboto';
+    vertical-align: middle;
+    .btn_action_green {
+        border: none;
+        background-color: transparent;
+        color: $green_official;
+        padding: 6px;
+        border-radius: 25px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            background-color: $green_official;
+            color: $withe_official;
+        }
+        i {
+            font-size: 18px;
+        }
+    }
+}
+
+// Tabla convenio modulo servicios agenda instituciones
+.table_agenda tbody tr td .input__box {
+    display: flex;
+    width: 130px;
+    .signo_peso {
+        height: calc(1.6em + 0.75rem + 3px);
+        background-color: #e0e4e7;
+        color: #019f86;
+        font-weight: bold;
+        border-radius: 5px 0 0 5px;
+        border: 1px solid #e0e4e7;
+        padding: 5px 10px;
+        display: flex;
+        align-content: center;
+    }
+    span {
+        font-size: 17px;
+    }
+    input {
+        border-radius: 0 5px 5px 0;
+        border: 1px solid #e0e4e7;
+    }
+    input[disabled] {
+        background-color: #f3f3f3;
+        border-radius: 0 5px 5px 0;
+        border: none;
+        color: #b2b3b5;
+    }
+}
+
+.user__xl {
+    display: flex; 
+    align-items: center; 
+    line-height: 1.2
+}
+// Calendario pignose
+.pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
+    color: #212529 !important;
+}
+.pignose-calendar .pignose-calendar-unit a {
+    font-weight: bold !important;
+    color: #FFFFFF !important;
+    background-color: #3490dc !important;
+}
+.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-disabled a {
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+}
+.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
+    background-color: #38c172 !important;
+    color: #ffffff !important;
+}
+// Calendario pacientes (plugin Pignose)
+.pignose-calendar {
+    width: 100% !important;
+}
+@media(min-width: 768px) {
+    // Contenedores de elementos de los formularios
+    .containt_right {
+        padding-left: 50px;
+    }
+    .col_flex_md {
+        display: flex;
+        width: 48%;
+        position: relative;
+        flex-wrap: wrap;
+    }
+    .col_block_md {
+        display: block;
+        width: 48%;
+        position: relative;
+        flex-wrap: wrap;
+    }
+    .list__form_column ul li {
+        width: 30%;
+        &:nth-child(1){
+            background-size: 22px;
+        }
+        &:nth-child(2){
+            background-size: 22px;
+        }
+        &:nth-child(3){
+            background-size: 22px;
+        }
+    }
+    .w_md_30 {
+        width: 30%;
+    }
+    .w_md_65 {
+        width: 65%;
+    }
+    .w_md_85 {
+        width: 85%;
+    }
+    .mt_md_lg {
+        margin-top: 15px;
+    }
+    .my__md {
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+}
+@media(min-width: 1024px) {
+    .content_asig_cita {
+        padding: 30px 20px 20px 30px;
+    }
+    // Tabla convenio modulo servicios agenda instituciones
+    .table_agenda tbody tr td .input__box {
+        width: 200px;
+    }
+}
+@media(min-width: 1300px) {
+    .list__form_column ul li:nth-child(1) {
+        padding-left: 25px;
+    }
+    .align_between_1300 {
+        align-content: space-between;
+    }
+    .w_lg_35 {
+        width: 35%;
+    }
+    .w_lg_65 {
+        width: 65%;
+    }
+    .w_lg_100 {
+        width: 100%;
+    }
+    .my__md {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .mt_md_lg {
+        margin-top: 30px;
+    }
+    .px_xl {
+        padding-left: 0 !important;
+        padding-right: 20px;
+    }
+    .content_asig_cita {
+        padding: 40px 20px 30px 30px;
+    }
+}
+@media(min-width: 1440px) {
+    // Contenedores de elementos de los formularios
+    .containt_right {
+        padding-left: 100px;
+    }
+    .list__form_column ul li {
+        width: 30%;
+        &:nth-child(1){
+            background-size: 25px;
+        }
+        &:nth-child(2){
+            background-size: 25px;
+        }
+        &:nth-child(3){
+            background-size: 25px;
+        }
+    }
+    .w_xl_90 {
+        width: 90%;
+    }
+}
+@media(min-width: 1300px) {
+    .px_xl {
+        padding-left: 20px !important;
+        padding-right: 0;
+    }
+}

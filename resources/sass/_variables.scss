@@ -2,9 +2,10 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Quicksand', arial !default;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+// $h1-font-size: 36px !default;
 
 // Colors
 $blue: #3490dc;
@@ -17,6 +18,7 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$blue_gray: #c3d5e5;
 
 // COLORS ZAABRA SALUD 
 // Official colors
@@ -29,6 +31,7 @@ $gray_first: #D1D1D1;
 $gray_second:#707070;
 $gray_third:#CED4DA;
 $gray_fourth:#F5F5F5;
+$gray_five: #eaeced;
 // Black colors
 $black_firsrt: #3E3E3E;
 $black_second: #434343;

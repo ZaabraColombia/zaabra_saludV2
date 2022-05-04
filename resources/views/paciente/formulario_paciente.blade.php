@@ -1,7 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.app-admin')
 
 @section('styles')
-
+    <link rel="stylesheet" href="{{ asset('plugins/tagsinput/bootstrap-tagsinput.css') }}">
+    <style>
+        .bootstrap-tagsinput{
+            width: 100% !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -12,7 +17,7 @@
             <h5>LE DAMOS LA BIENVENIDA A ZAABRA SALUD</h5>
             <p>* &nbsp; Ingrese los datos según corresponda y finalice el proceso completamente en línea.</p>
         </div>
-        
+
         <!-- 1. Personal information -->
         <div class="card_module_form">
             <h5 class="icon_text icon_basicInfo_formProf">Información básica</h5>
@@ -26,7 +31,7 @@
                         <input id="seleccionArchivos" type="file" name="foto_paciente" onchange="ver_imagen('foto_paciente', 'img_foto_paciente')" accept="image/png, image/jpeg">
                         <p>Subir foto de perfil</p>
                     </div>
-             
+
                     <div class="col-md-9 line_vertical_form"> <!-- Personal information -->
                         <div class="row m-0">
                             <div class="col-lg-6 p-0 pr-lg-1">
@@ -49,9 +54,13 @@
                                 <label for="tipo_documento" class="label_txt_form">{{ __('paciente.tipo-documento') }}</label>
                                 <select id="tipo_documento" class="input_box_form" name="tipo_documento">
                                     <option> Seleccione </option>
-                                    <option value="1" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Ciudadania </option>
-                                    <option value="2" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Extranjeria </option>
-                                    <option value="3" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Nit </option>
+{{--                                    <option value="1" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Ciudadania </option>--}}
+{{--                                    <option value="2" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Cedula Extranjeria </option>--}}
+{{--                                    <option value="3" {{ old('tipo_documento',$user->tipodocumento) == $user->tipodocumento ? 'selected' : ''}}> Nit </option>--}}
+
+                                    @foreach($tipo_documentos as $tipo)
+                                        <option value="{{ $tipo->id }}" {{ old('tipo_documento', $user->tipodocumento) == $tipo->id? 'selected':'' }}>{{ $tipo->nombre }}</option>
+                                    @endforeach
                                 </select>
 
                             </div>
@@ -60,7 +69,7 @@
                                 <label for="numero_documento" class="label_txt_form">{{ __('paciente.numero-documento') }}</label>
                                 <input id="numero_documento" class="input_box_form" type="text" name="numero_documento" value="{{ old('numero_documento', $user->numerodocumento) }}" />
                             </div>
-                        
+
 
                             <div class="col-lg-6 p-0 pr-lg-1">
                                 <label for="correo" class="label_txt_form">{{ __('paciente.correo-electrónico') }}</label>
@@ -77,7 +86,7 @@
                 </div>
             </form>
         </div>
-      
+
         <!-- 2. Contac information -->
         <div class="card_module_form">
             <h5 class="icon_text icon_infoContac_Prof">Información de contacto</h5>
@@ -85,20 +94,23 @@
                 @csrf
                 <div class="row m-0 py-3 px-0">
                     <div id="mensajes-contacto" class="col-12"></div>
-    
+
                     <div class="col-md-6 p-0 pr-md-1">
                         <label for="celular" class="label_txt_form"> {{ __('paciente.celular') }} </label>
-                        <input id="celular" class="input_box_form" type="number" placeholder="Número de celular" name="celular" value="{{ old('celular', $paciente->celular) }}">
+                        <br>
+                        <input id="celular" class="input_box_form tags-input" type="text" placeholder="Número de celular" name="celular" value="{{ old('celular', $paciente->celular) }}">
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1">
                         <label for="telefono" class="label_txt_form"> {{ __('paciente.teléfono-fijo') }} </label>
-                        <input id="telefono" class="input_box_form" type="number" placeholder="Número Teléfono" name="telefono" value="{{ old('telefono', $paciente->telefono) }}">
+                        <br>
+                        <input id="telefono" class="input_box_form tags-input" type="text" placeholder="Número Teléfono" name="telefono" value="{{ old('telefono', $paciente->telefono) }}">
                     </div>
-              
+
                     <div class="col-md-6 p-0 pr-md-1">
                         <label for="direccion" class="label_txt_form"> {{ __('paciente.direccion') }} </label>
-                        <input id="direccion" class="input_box_form" type="text" placeholder="Dirección" name="direccion" value="{{ old('direccion', $paciente->direccion) }}">
+                        <br>
+                        <input id="direccion" class="input_box_form tags-input" type="text" placeholder="Dirección" name="direccion" value="{{ old('direccion', $paciente->direccion) }}">
                     </div>
 
                     <div class="col-md-6 p-0 pl-md-1">
@@ -110,7 +122,7 @@
                             @endforeach
                         </select>
                     </div>
-               
+
                     <div class="col-md-6 p-0 pr-md-1">
                         <label for="departamento" class="label_txt_form"> {{ __('paciente.seleccione-departamento') }} </label>
                         <select id="departamento" class="input_box_form" name="departamento">
@@ -187,6 +199,19 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
     <script src="{{ asset('js/formulario-paciente.js') }}"></script>
     <script src="{{ asset('js/cargaFoto.js') }}"></script>
+
+    <script>
+        $('.tags-input').tagsinput({
+            tagClass: 'bg-primary p-1'
+        });
+        $('form').keypress(function (event) {
+            if (event.which === 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
+    </script>
 @endsection

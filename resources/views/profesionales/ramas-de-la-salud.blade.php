@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
   <div class="container-fluid p-0">
     <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
     <section class="swiper-container swiper_principalGaleriaProf">
@@ -9,18 +8,24 @@
         @foreach ($objbannersprincipalProfesiones as $objbannersprincipalProfesiones)
           <div class="swiper-slide ">
               <img class="swiper-slide" src="{{URL::asset($objbannersprincipalProfesiones->rutaImagenVenta)}}">
-              <div class="containt_slide_prinProf">
-                  <h1 class="titulo_banner_prof" style="color:{{($objbannersprincipalProfesiones->color_titulo)}};">{{($objbannersprincipalProfesiones->titulo_banner)}}</h1>
-                  <p class="texto_banner_prof" style="color:{{($objbannersprincipalProfesiones->color_texto)}};">{{($objbannersprincipalProfesiones->texto_banner)}}</p>
+
+              <div class="main_banner_top {{ ($objbannersprincipalProfesiones->banner_plantilla_id == 1)? 'banner_small': (($objbannersprincipalProfesiones->banner_plantilla_id == 2)? 'banner_medium': (($objbannersprincipalProfesiones->banner_plantilla_id == 3)? 'banner_large':'')) }}">
+                  <div class="img_banner_top">    
+                    <img src="{{URL::asset($objbannersprincipalProfesiones->ruta_logo)}}" alt="">
+                  </div>  
+
+                  <h1 style="color:{{($objbannersprincipalProfesiones->color_titulo)}};">{{($objbannersprincipalProfesiones->titulo_banner)}}</h1>
+                  <p  style="color:{{($objbannersprincipalProfesiones->color_texto)}};">{{($objbannersprincipalProfesiones->texto_banner)}}</p>
                   @if(!empty($objbannersprincipalProfesiones->urlBoton_banner))
-                    <a type="submit" href="{{($objbannersprincipalProfesiones->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
-                      <img src="{{URL::asset('/img/iconos/icono-flecha-blanco.svg')}}" class="flecha_ingreso-membresia" alt="">
+                    <a class="mt-lg-2" type="submit" href="{{($objbannersprincipalProfesiones->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
                     </a>
                   @endif
               </div>
           </div>  
         @endforeach
       </div>
+
+      <div class="swiper-pagination pagination_home"></div>
     </section>
 
     <!-- Titulo principal de la vista -->

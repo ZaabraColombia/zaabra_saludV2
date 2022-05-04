@@ -68,6 +68,7 @@ return [
     */
 
     'timezone' => 'UTC',
+    //'timezone' => 'America/Bogota',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,7 +178,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
         \Conner\Tagging\Providers\TaggingServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
+        Yajra\DataTables\DataTablesServiceProvider::class,
     ],
 
     /*
@@ -231,7 +234,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     ],
 
 ];

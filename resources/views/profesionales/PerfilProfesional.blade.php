@@ -9,10 +9,10 @@
     <section class="section_data_profesionales">
         <div class="data_profesionales">
             <div class="section_backArrow">
-                <a class="back_arrow back_text" href="#"> atras </a>
-                <div class="heart-wrapper">
-                    <i class="far fa-heart"></i>
-                </div>
+                {{--                <a class="back_arrow back_text" href="#"> atras </a>--}}
+                {{--                <div class="heart-wrapper">--}}
+                {{--                    <i class="far fa-heart"></i>--}}
+                {{--                </div>--}}
             </div>
             @foreach ($objprofesionallanding as $objprofesionallanding)
                 <img src="{{URL::asset($objprofesionallanding->fotoperfil)}}">
@@ -61,12 +61,9 @@
             </ul>
 
             <div class="contains_buttons">
-                <a href="{{route('paciente.calendario-id-profesional', ['id' => $objprofesionallanding->idPerfilProfesional])}}">Agende su cita
+                <a href="{{route('paciente.asignar-cita-profesional', ['profesional' => $objprofesionallanding->slug])}}">Agende su cita
                     <i class="fas fa-arrow-right pl-2"></i>
                 </a>
-            <!-- <a href="{{route('paciente.calendario')}}">Ver agenda
-                    <i class="fas fa-arrow-right pl-2"></i>
-                </a> -->
             </div>
         </div>
     </section>
@@ -216,11 +213,11 @@
                 @foreach ($objprofesionallandingpremio as $objprofesionallandingpremio)
                     <div class="swiper-slide content_imgPrem_formProf">
                         <a href="{{ asset($objprofesionallandingpremio->imgpremio) }}"
-                            data-fancybox="gallery" data-caption="{{ $objprofesionallandingpremio->nombrepremio }}">
-                        <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
-                        <h6>{{$objprofesionallandingpremio->fechapremio}}</h6>
-                        <h5>{{$objprofesionallandingpremio->nombrepremio}}</h5>
-                        <p>{{$objprofesionallandingpremio->descripcionpremio}}</p>
+                           data-fancybox="gallery" data-caption="{{ $objprofesionallandingpremio->nombrepremio }}">
+                            <img src="{{URL::asset($objprofesionallandingpremio->imgpremio)}}">
+                            <h6>{{$objprofesionallandingpremio->fechapremio}}</h6>
+                            <h5>{{$objprofesionallandingpremio->nombrepremio}}</h5>
+                            <p>{{$objprofesionallandingpremio->descripcionpremio}}</p>
                     </div>
                 @endforeach
             </div>
@@ -271,7 +268,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($objprofesionallandinggaler as $objprofesionallandinggaler)
                         <div class="swiper-slide content_imgGall_formProf">
-                            <a href="{{ asset($objprofesionallandinggaler->imggaleria) }}" 
+                            <a href="{{ asset($objprofesionallandinggaler->imggaleria) }}"
                                data-fancybox="group" data-caption="{{ $objprofesionallandinggaler->nombrefoto }}">
                                 <img class="img_galleryLprof" src="{{ asset($objprofesionallandinggaler->imggaleria) }}">
                             </a>
@@ -395,17 +392,99 @@
             <h3 class="icono_verificado-prof txt_verify-bottom"> Todos los comentarios son de pacientes verificados. </h3>
         </div>
     </section>
+    @if(session()->has('warning-paciente'))
+        <!-- Modal agenda profesinal no disponible -->
+        <div class="modal fade" id="modal_agenda_no_disponible" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal_container">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <h1>Disponibilidad de Agenda</h1>
+
+                        <div class="">
+                            <div class="card card_day mb-2">
+                                <div class="card-header">
+                                    <div class="card_header_day"></div>
+                                    <div class="card_header_day"></div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="elemento_no_disponible">
+                                        <i data-feather="cloud-off" class="no_disponible"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer"></div>
+                            </div>
+
+                            <div class="text-center p-3">
+                                <p class="black_light fs_text">{{$objprofesionallanding->primernombre}} {{$objprofesionallanding->segundonombre}} {{$objprofesionallanding->primerapellido}} {{$objprofesionallanding->segundoapellido}}</p>
+                                <p class="black_light fs_text">Especialización {{$objprofesionallanding->nombreEspecialidad}}</p>
+                                <p class="black_light fs_text">Actualmente no tiene agenda disponoble.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer content_btn_center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if(session()->has('warning-profesional'))
+        <!-- Modal info iniciar login como paciente -->
+        <div class="modal fade" id="modal_profesional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal_container">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="elemento_infortmativo mt-3">
+                            <i data-feather="alert-triangle" class="informativo"></i>
+                        </div>
+
+                        <div class="text-center mt-4 px-3 py-0">
+                            <p class="black_light fs_text">Para agendar cita medica, inicie sesión como paciente.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="button_transparent" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
 
 @section('scripts')
     <!-- Script JS for perfil profesional -->
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>
         Fancybox.bind("[data-fancybox]", {
             // Your options go here
         });
     </script>
     <script src="{{ asset('js/perfil-profesionales.js') }}"></script>
+    <script>
+        feather.replace()
+        @if(session()->has('warning-paciente'))
+        $('#modal_agenda_no_disponible').modal();
+        @endif
+        @if(session()->has('warning-profesional'))
+        $('#modal_profesional').modal();
+        @endif
+    </script>
 
 @endsection

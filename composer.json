@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "ext-json": "*",
         "artesaos/seotools": "^0.20.1",
         "barryvdh/laravel-cors": "^2.0",
         "cviebrock/eloquent-sluggable": "^8.0",
@@ -18,7 +19,7 @@
         "laravel/ui": "^3.2",
         "openpay/sdk": "dev-master",
         "rtconner/laravel-tagging": "^4.1",
-        "ext-json": "*"
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -33,7 +34,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

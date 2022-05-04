@@ -1,0 +1,204 @@
+// Contenedores de elementos de los formularios
+.content_img_center {
+    margin: auto;
+    display: none;
+    img {
+        width: 180px;
+        height: 180px;
+        border-radius: 100px;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+// Cabecera Información Institución
+.container__inst {
+    width: 100%;
+    height: 235px;
+    position: relative;
+}
+.content__img_inst {
+    width: 100%;
+    height: 170px;
+}
+.img__inst {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .6;
+}
+.content__info_inst {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.content__img_prof {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.img__prof {
+    width: 150px;
+    height: 150px;
+    border: 4px double $gray_third;
+    border-radius: 100px;
+    background-color: white;
+    margin: auto;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        object-fit: cover;
+    }
+}
+
+// propiedades imagen mis profesionales agenda paciente
+.img__contacs {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #CED4DA;
+    border-radius: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+// propiedades imagen ver mis contactos agenda paciente y profesionales
+.content__see_contacs {
+    position: absolute;
+    top: 35px;
+    left: 23px;
+    border: 3px double #e3efed;
+    border-radius: 60px;
+    padding: 3px;
+    background: #0083d6;
+    z-index: 15;
+}
+.content__border_see_contacs {
+    height: 25px;
+    width: 100%;
+    border: 1px solid #7fadcb;
+    z-index: 0;
+    right: 16px;
+    border-radius: 6px 6px 0 0;
+    background-color: #7fadcb;
+    margin-bottom: 1px;
+}
+.img__see_contacs {
+    width: 95px;
+    height: 95px;
+    border: 2px solid #CED4DA;
+    border-radius: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+/// Upload User profile image
+.img__upload {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    margin: auto;
+    padding: 0;
+}
+.img__upload img {
+    height: 170px;
+    width: 100%;
+    border-radius: 100px;
+    background: $gray_first;
+    border: 1px solid $gray_second;
+    object-fit: cover;
+    object-position: top;
+    align-self: center;
+}
+.img__upload input {
+    position: absolute;
+    width: 170px;
+    height: 100%;
+    opacity: 0;
+    overflow: auto;
+    cursor: pointer;
+}
+.img__upload p {
+    background-image: url('/img/formulario-profesional/icono-subir.svg') ;
+    background-repeat: no-repeat ;
+    background-size: 15px;
+    font-family: "Quicksand", "Regular";
+    font-size: 1em;
+    color: $black_second;
+    text-align: right;
+    margin-top: .5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+@media(min-width: 768px) {
+    .content_img_center {
+        justify-content: flex-start;
+    }
+    .container__inst {
+        height: 357px;
+    }
+    .content__img_inst {
+        height: 300px;
+    }
+    .content__info_inst {
+        top: 45px;
+        left: 20px;
+    }
+    // propiedades imagen ver mis contactos agenda paciente y profesionales
+    .img__see_contacs {
+        width: 105px;
+        height: 105px;
+    }
+    .content__see_contacs {
+        top: 20px;
+        left: 30px;
+    }
+    .img__prof {
+        width: 225px;
+        height: 225px;
+        border: 9px double $gray_third;
+        border-radius: 125px;
+    }
+    .title__img_inst {
+        position: absolute;
+        right: 45px;
+        z-index: 20;
+    }
+}
+@media(min-width: 1024px) {
+    /// Upload User profile image
+    .img__upload {
+        width: 150px;
+    }
+    .img__upload img {
+        height: 150px;
+    }
+    .img__upload input {
+        width: 150px;
+    }
+    .img__upload p {
+        width: 100%;
+    }
+}
+
+@media(min-width: 1300px) {
+    .content__img_prof {
+        display: none;
+    }
+    .content_img_center {
+        margin: auto;
+        display: flex;
+        img {
+            width: 215px;
+            height: 215px;
+            border-radius: 125px;
+            object-fit: cover;
+        }
+    }
+    .content__img_inst {
+        height: 100%;
+    }
+}

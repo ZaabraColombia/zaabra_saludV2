@@ -503,26 +503,26 @@ $('#form-servicios-institucion').validate({
                     lista += '<li>' + $(this).val() + '</li>';
                 });
                 $('#lista-servicios-institucion').append(  // Module services
-                '<div class="card_information_saved_form">\n' +
+                    '<div class="card_information_saved_form">\n' +
                     '<div class="content_btn_close_form">\n' +
-                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
 
                     '<div class="data_saved_form border-top-0">\n' +
-                        '<h5>Título del servicio</h5>\n' +
-                        '<span>' + $('#titulo_servicio').val() + '</span>\n' +
+                    '<h5>Título del servicio</h5>\n' +
+                    '<span>' + $('#titulo_servicio').val() + '</span>\n' +
                     '</div>\n' +
 
                     '<div class="data_saved_form">\n' +
-                        '<h5> Descripción </h5>\n' +
-                        '<span>' + $('#descripcion_servicio').val() + '</span>\n' +
+                    '<h5> Descripción </h5>\n' +
+                    '<span>' + $('#descripcion_servicio').val() + '</span>\n' +
                     '</div>\n' +
 
                     '<div class="data_saved_form">\n' +
-                        '<h5>Sedes en la que está el servicio</h5>\n' +
-                        '<ul>' + lista + '</ul>\n' +
+                    '<h5>Sedes en la que está el servicio</h5>\n' +
+                    '<ul>' + lista + '</ul>\n' +
                     '</div>\n' +
-                '</div>');
+                    '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -546,7 +546,7 @@ $('#form-servicios-institucion').validate({
                 //Finaliza la carga
                 // Pace.stop();
                 $('.form-control').removeClass('is-invalid');
-               boton_guardar(btn);
+                boton_guardar(btn);
 
                 //Respuesta
                 var response = event.responseJSON;
@@ -801,19 +801,19 @@ $('#form-convenios-institucion').validate({
 
                 //Agrgar tarjeta del convenio
                 $('#lista-convenios-institucion').append(  // Module covenants
-                '<div class="card_information_saved_form">\n' +
+                    '<div class="card_information_saved_form">\n' +
                     '<div class="content_btn_close_form">\n' +
-                        '<button type="button" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
+                    '<button type="button" class="close" aria-label="Close" data-url="' + response.url + '"><span aria-hidden="true">&times;</span></button>\n' +
                     '</div>\n' +
 
                     '<div class="data_saved_form border-top-0 mb-3">\n' +
-                        '<h5> Convenio ' + $('#tipo_convenio option:selected').text() + '</h5>\n' +
+                    '<h5> Convenio ' + $('#tipo_convenio option:selected').text() + '</h5>\n' +
                     '</div>\n' +
 
                     '<div class="image_saved_form">\n' +
-                        '<img id="imagenPrevisualizacion" src="' + response.image + '">\n' +
+                    '<img id="imagenPrevisualizacion" src="' + response.image + '">\n' +
                     '</div>\n' +
-                '</div>');
+                    '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1256,22 +1256,22 @@ $('#form-certificados-institucion').validate({
 
                 //Agrgar tarjeta del certificaciones
                 $('#lista-certificaciones-institucion').append(  // Module certifications
-                '<div class="card_information_saved_form width_card_single">\n' +
+                    '<div class="card_information_saved_form width_card_single">\n' +
                     '<div class="content_btn_close_form">\n' +
-                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
                     '</div>\n' +
 
 
                     '<div class="image_preview_form">\n' +
-                        '<img src="' + response.image + '">\n' +
+                    '<img src="' + response.image + '">\n' +
                     '</div>\n' +
 
                     '<div class="text_preview_form">\n' +
-                        '<span> ' + $('#fecha_certificado').val() + ' </span>\n' +
-                        '<h5> ' + $('#titulo_certificado').val() + ' </h5>\n' +
-                        '<p> ' + $('#descripcion_certificacion').val() + ' </p>\n' +
+                    '<span> ' + $('#fecha_certificado').val() + ' </span>\n' +
+                    '<h5> ' + $('#titulo_certificado').val() + ' </h5>\n' +
+                    '<p> ' + $('#descripcion_certificacion').val() + ' </p>\n' +
                     '</div>\n' +
-                '</div>');
+                    '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1381,6 +1381,18 @@ $('#form-sedes-institucion').validate({
         'telefono_sede': {
             required: true,
         },
+        'pais_id': {
+            required: true,
+        },
+        'departamento_id': {
+            required: true,
+        },
+        'provincia_id': {
+            required: true,
+        },
+        'ciudad_id': {
+            required: true,
+        },
         // 'url_mapa_sede': {
         //     required: true,
         // }
@@ -1438,23 +1450,24 @@ $('#form-sedes-institucion').validate({
 
                 //Agrgar tarjeta sedes de la institución
                 $('#lista-sedes-institucion').append(  // Module venues
-                '<div class="card_information_saved_form width_card_single">\n' +
+                    '<div class="card_information_saved_form width_card_single">\n' +
                     '<div class="content_btn_close_form">\n' +
-                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
                     '</div>\n' +
 
                     '<div class="image_preview_form">\n' +
-                        '<img src="' + response.image + '">\n' +
+                    '<img src="' + response.image + '">\n' +
                     '</div>\n' +
 
                     '<div class="text_preview_form">\n' +
-                        '<h5>' + $('#nombre_sede').val() + '</h5>\n' +
-                        '<span>' + $('#direccion_sede').val() + '</span>\n' +
-                        '<h5>' + $('#horario_sede').val() + '</h5>\n' +
-                        '<span style="color: #0083D6; font-weight: bold">' + $('#telefono_sede').val() + '</span>\n' +
-                        // '<span>' + $('#url_mapa_sede').val() + '</span>\n' +
+                    '<h5>' + $('#nombre_sede').val() + '</h5>\n' +
+                    '<span>' + $('#direccion_sede').val() + '</span>\n' +
+                    '<span>' + $('#ciudad_id option:selected').html() + '</span>\n' +
+                    '<h5>' + $('#horario_sede').val() + '</h5>\n' +
+                    '<span style="color: #0083D6; font-weight: bold">' + $('#telefono_sede').val() + '</span>\n' +
+                    // '<span>' + $('#url_mapa_sede').val() + '</span>\n' +
                     '</div>\n' +
-                '</div>');
+                    '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1463,13 +1476,20 @@ $('#form-sedes-institucion').validate({
                     $('#direccion_sede').prop('disabled', true);
                     $('#horario_sede').prop('disabled', true);
                     $('#telefono_sede').prop('disabled', true);
+                    $('#pais_id').prop('disabled', true);
+                    $('#departamento_id').prop('disabled', true);
+                    $('#provincia_id').prop('disabled', true);
+                    $('#ciudad_id').prop('disabled', true);
                     // $('#url_mapa_sede').prop('disabled', true);
                     $(btn).prop('disabled', true);
                 }
 
                 $('#img-img_sede').attr('src', '#');
                 formulario[0].reset();
-
+                $('#pais_id').val(18).trigger('change');
+                $('#departamento_id').empty();
+                $('#provincia_id').empty();
+                $('#ciudad_id').empty();
                 //Respuesta
                 mensaje_success('#mensajes-sedes', response.mensaje)
             },
@@ -1537,6 +1557,12 @@ $('#lista-sedes-institucion').on('click', '.close' , function (e) {
             $('#direccion_sede').prop('disabled', false);
             $('#horario_sede').prop('disabled', false);
             $('#telefono_sede').prop('disabled', false);
+
+            $('#pais_id').prop('disabled', false);
+            $('#departamento_id').prop('disabled', false);
+            $('#provincia_id').prop('disabled', false);
+            $('#ciudad_id').prop('disabled', false);
+
             // $('#url_mapa_sede').prop('disabled', false);
             $('#btn-guardar-sede-institucion').prop('disabled', false);
             //Quitar la caja
@@ -1618,21 +1644,21 @@ $('#form-galeria-institucion').validate({
 
                 //Agrgar tarjeta de galería
                 $('#lista-galeria-intitucion').append(  // Module gallery
-                '<div class="card_information_saved_form width_card_single">\n' +
+                    '<div class="card_information_saved_form width_card_single">\n' +
                     '<div class="content_btn_close_form">\n' +
-                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
                     '</div>\n' +
 
                     '<div class="image_preview_form">\n' +
-                        '<img src="' + response.image + '">\n' +
+                    '<img src="' + response.image + '">\n' +
                     '</div>\n' +
 
                     '<div class="text_preview_form">\n' +
-                        '<span>' + $('#fecha_galeria_institucion').val() + '</span>\n' +
-                        '<h5> ' + $('#nombre_galeria_institucion').val() + '</h5>\n' +
-                        '<p>' + $('#descripcion_galeria_institucion').val() + '</p>\n' +
+                    '<span>' + $('#fecha_galeria_institucion').val() + '</span>\n' +
+                    '<h5> ' + $('#nombre_galeria_institucion').val() + '</h5>\n' +
+                    '<p>' + $('#descripcion_galeria_institucion').val() + '</p>\n' +
                     '</div>\n' +
-                '</div>');
+                    '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -1861,21 +1887,21 @@ $('#form-videos-institucion').validate({
 
                 //Agrgar tarjeta del convenio
                 $('#lista-videos-institucion').append(  // Module videos
-                '<div class="card_information_saved_form width_card_single">\n' +
+                    '<div class="card_information_saved_form width_card_single">\n' +
                     '<div class="content_btn_close_form">\n' +
-                        '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
+                    '<button type="submit" class="close" aria-label="Close" data-url="' + response.url + '">\n' + '<span aria-hidden="true">&times;</span>\n' + '</button>\n' +
                     '</div>\n' +
 
                     '<div class="image_preview_form">\n' +
-                        '<iframe src="' + $('#url_video_institucion').val() + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n' +
+                    '<iframe src="' + $('#url_video_institucion').val() + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\n' +
                     '</div>\n' +
 
                     '<div class="text_preview_form">\n' +
-                        '<span> ' + $('#fecha_video_institucion').val() + ' </span>\n' +
-                        '<h5> ' + $('#nombre_video_institucion').val() + ' </h5>\n' +
-                        '<p> ' + $('#descripcion_video_institucion').val() + ' </p>\n' +
+                    '<span> ' + $('#fecha_video_institucion').val() + ' </span>\n' +
+                    '<h5> ' + $('#nombre_video_institucion').val() + ' </h5>\n' +
+                    '<p> ' + $('#descripcion_video_institucion').val() + ' </p>\n' +
                     '</div>\n' +
-                '</div>');
+                    '</div>');
 
                 /* Deshabilitar formulario cuando llegue al maximo de items */
                 if (response.max_items > 0) {
@@ -2069,32 +2095,32 @@ function cargarleccion(nombre){
 
 // Mapa: Ubicación de la institución principal del formulario
 document.addEventListener('DOMContentLoaded', function () {
-  var map = L.map('map').setView([4.639386, -74.082412], 5);
+    var map = L.map('map').setView([4.639386, -74.082412], 5);
 
     var geocoder = L.Control.geocoder({
         defaultMarkGeocode: true,
         collapsed: false
     })
-    .on('markgeocode', function(e) {
-    //   console.log(e.geocode.properties.lat);
-    //   var bbox = e.geocode.bbox;
-    //   var poly = L.polygon([
-    //     bbox.getSouthEast(),
-    //     bbox.getNorthEast(),
-    //     bbox.getNorthWest(),
-    //     bbox.getSouthWest()
-    //   ]).addTo(map);
-    //   map.fitBounds(poly.getBounds());
+        .on('markgeocode', function(e) {
+            //   console.log(e.geocode.properties.lat);
+            //   var bbox = e.geocode.bbox;
+            //   var poly = L.polygon([
+            //     bbox.getSouthEast(),
+            //     bbox.getNorthEast(),
+            //     bbox.getNorthWest(),
+            //     bbox.getSouthWest()
+            //   ]).addTo(map);
+            //   map.fitBounds(poly.getBounds());
 
-    // Captura del valor de la latitud y la lolngitud del map "leaflet" en el input del formulario, modulo ubicación de la sede.
-    document.getElementById('coordenada_lat').value = e.geocode.properties.lat;
-    document.getElementById('coordenada_long').value = e.geocode.properties.lon;
-    // $('#').val(e.geocode.properties.lon);
-    })
-    .addTo(map);
+            // Captura del valor de la latitud y la lolngitud del map "leaflet" en el input del formulario, modulo ubicación de la sede.
+            document.getElementById('coordenada_lat').value = e.geocode.properties.lat;
+            document.getElementById('coordenada_long').value = e.geocode.properties.lon;
+            // $('#').val(e.geocode.properties.lon);
+        })
+        .addTo(map);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     })
-    .addTo(map);
+        .addTo(map);
 });

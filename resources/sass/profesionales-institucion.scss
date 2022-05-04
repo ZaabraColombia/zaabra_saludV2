@@ -1,3 +1,49 @@
+.containt__buscador {
+    padding: 0;
+    // max-width: 50%;
+    height: 33px;
+    display: flex;
+}
+.buscador {
+    width: 100%;
+    height: 100%;
+    background: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 3px;
+    border: 1px solid #c3c3c3;
+}
+.buscador__input {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    border: none;
+    padding: 5px 7px;
+    background: #faebd700;
+}
+.buscador__button {
+    background: #ffffff;
+    height: 100%;
+    width: 10%;
+    border: none;
+    padding: 0;
+    border-radius: 3px;
+}
+.buscador__icon {
+    background-image: url('/img/header/icono-buscador-azul.svg');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+}
+
+
+
+
+
+
+
 // Contenedores, contenido, secciones y tarjetas
 .content_main {
     background: #F9F9F9;
@@ -147,7 +193,7 @@
 
 
 
-
+// Zoom imagen usuario tarjetas profesionales instituciones
 .zoom_img {
     width: 100%;
 	overflow: hidden;
@@ -162,11 +208,15 @@
 }
 .zoom_img img:hover {
     transform: scale(2);
-    top: 50px;
+    top: 27px;
 }
 
 
 @media(min-width: 600px) {
+    .buscador {
+        width: 50%;
+        margin-left: auto;
+    } 
     // Contenedores, contenido, secciones y tarjetas
     .content_main {
         padding: 0 30px;
@@ -215,18 +265,24 @@
     }
 }
 
-@media(min-width: 1200px) {
-    .content_bannerMain {
-        height: 550px;
+@media(min-width: 1024px) {
+    .buscador__button {
+        width: 7%;
     }
 }
 
 @media(min-width: 1200px) {
+    .buscador {
+        width: 30%;
+    } 
+    .content_bannerMain {
+        height: 550px;
+    }
     // Botones
     // Botón especialidad del swiper no seleccionado
     .swiper_especialidad .cbp-l-filters-alignRight .cbp-filter-item {
         font: 600 13.5px/20px "Quicksand", sans-serif;
-    }  
+    }
 }
 
 @media(min-width: 1920px) {

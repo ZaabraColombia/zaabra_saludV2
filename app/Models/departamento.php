@@ -13,6 +13,8 @@ class departamento extends Model
         'nombre'
     ];
 
+    protected $primaryKey = 'id_departamento';
+
     public function provincias()
     {
         return $this->hasMany(provincia::class, 'id_departamento', 'id_departamento');

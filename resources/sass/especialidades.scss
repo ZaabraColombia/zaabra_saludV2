@@ -4,10 +4,10 @@
     top: 113px;
     left: 164px;
 }
-.imagen_bannerPrin-espc {
-    width: 100%;
-    padding: 0;
-}
+// .imagen_bannerPrin-espc {
+//     width: 100%;
+//     padding: 0;
+// }
 .titulo_banner_prof{
     color: #019F86;
     font-family: "Quicksand";
@@ -46,6 +46,18 @@
     justify-content: center;
     align-self: center;
 }
+.subTitle_espeMed {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    color: #232323;
+    margin: 5% 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+}
 .section_btn_espeMed { 
     display: flex;
     justify-content: center;
@@ -56,10 +68,10 @@
         top: 31px;
         left: 16px;
     }
-    .imagen_bannerPrin-espc {
-        width: 100%;
-        padding: 0;
-    }
+    // .imagen_bannerPrin-espc {
+    //     width: 100%;
+    //     padding: 0;
+    // }
     .titulo_banner_prof{
         font-size: .9em; 
         margin-bottom: 1%;
@@ -112,12 +124,6 @@
     }
     .subTitle_espeMed {
         font-size: .8em;
-        font-family: 'Quicksand', sans-serif;
-        font-weight: bolder;
-        color: #232323;
-        margin: 5% 0;
-        padding: 0;
-        text-align: center;
     }
     .section_btn_espeMed { 
         display: flex;
@@ -245,13 +251,7 @@
     }
     .subTitle_espeMed {
         font-size: calc(0.5em + .9vw);
-        font-family: 'Quicksand', sans-serif;
-        font-weight: bolder;
-        color: #232323;
-        padding: 0;
-        text-align: center;
-        margin-top: 3%;
-        height: 50px;
+        height: 45px;
     }
     .content_btn_espMed {
         width: 80%;
@@ -307,13 +307,6 @@
     .titulo_banner_prof {
         margin-bottom: 1%;
     }
-
-
-
-
-    .subTitle_espeMed {
-        height: 25px;
-    }
 }
 @media (min-width: 1440px) {
     .containt_slide_prinProf {
@@ -344,9 +337,6 @@
     }
     .btnVer_espMed {
         font-size: calc(.15em + .8vw);
-    }
-    .subTitle_espeMed {
-        height: 50px;
     }
 }
 @media (min-width: 1920px) {

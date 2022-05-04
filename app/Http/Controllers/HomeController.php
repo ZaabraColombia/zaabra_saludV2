@@ -75,8 +75,10 @@ class HomeController extends Controller
         $consultaBanner = DB::table('ventabanners')
         ->select()
         ->where('aprobado', '<>', 0)
+        ->orderBy('orden')
         ->where('idtipobanner', '=', 1)
         ->get();
+        // dd($consultaBanner);
         return $consultaBanner ;
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\entidades;
 use App\Http\Controllers\Controller;
 use App\Models\Convenios;
+use App\Models\TipoDocumento;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -100,7 +101,8 @@ class formularioInstitucionController extends Controller{
         }
 
         $is_asociacion = $this->is_asociacion();
-
+        $tipo_documentos = TipoDocumento::query()->get();
+        $paises = pais::all();
 
         return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',
@@ -118,7 +120,9 @@ class formularioInstitucionController extends Controller{
             'objSedes',
             'objGaleria',
             'objVideo',
-            'is_asociacion'
+            'tipo_documentos',
+            'is_asociacion',
+            'paises'
         ));
     }
 
@@ -157,7 +161,7 @@ class formularioInstitucionController extends Controller{
         return DB::select("SELECT ins.imagen, ins.logo, ins.quienessomos,  ins.DescripcionGeneralServicios, ins.idtipoInstitucion,
     ins.url, ins.fechainicio, ins.telefonouno,  ins.telefono2, ins.direccion, ins.propuestavalor,
     p.id_pais,p.nombre, de.id_departamento, de.nombre,ins.url_maps, ins.slug,
-    prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre
+    prv.id_provincia,prv.nombre, mu.id_municipio, mu.nombre, us.tipodocumento, us.numerodocumento
     FROM instituciones ins
     INNER JOIN users us   ON ins.idUser=us.id
     LEFT JOIN  pais p ON ins.idpais=p.id_pais
@@ -226,19 +230,19 @@ class formularioInstitucionController extends Controller{
     protected function create1(Request $request){
 
         $validation = Validator::make($request->all(), [
-            'nombre_institucion' => ['required'],
-            'fecha_inicio_institucion' => ['required', 'date_format:Y-m-d'],
-            'url_institucion' => ['required', 'url'],
-            'tipo_institucion' => ['required', 'exists:tipoinstituciones,id'],
-            'logo_institucion' => ['image'],
-            'imagen_institucion' => ['image'],
+            'nombre_institucion'        => ['required'],
+            'fecha_inicio_institucion'  => ['required', 'date_format:Y-m-d'],
+            'url_institucion'           => ['required', 'url'],
+            'tipo_institucion'          => ['required', 'exists:tipoinstituciones,id'],
+            'logo_institucion'          => ['image'],
+            'imagen_institucion'        => ['image'],
         ], [], [
-            'nombre_institucion' => 'Nombre',
-            'fecha_inicio_institucion' => 'Fecha de inicio',
-            'url_institucion' => 'Pagina web',
-            'tipo_institucion' => 'Tipo de institución',
-            'logo_institucion' => 'Logo de la institución',
-            'imagen_institucion' => 'Imagen de la institución',
+            'nombre_institucion'        => 'Nombre',
+            'fecha_inicio_institucion'  => 'Fecha de inicio',
+            'url_institucion'           => 'Pagina web',
+            'tipo_institucion'          => 'Tipo de institución',
+            'logo_institucion'          => 'Logo de la institución',
+            'imagen_institucion'        => 'Imagen de la institución',
         ]);
 
         if ($validation->fails()) {
@@ -321,6 +325,8 @@ class formularioInstitucionController extends Controller{
             'pais'          => ['required', 'exists:pais,id_pais'],
             'departamento'  => ['required', 'exists:departamentos,id_departamento'],
             'provincia'     => ['required', 'exists:provincias,id_provincia'],
+            'tipo_identificacion'   => ['required', 'exists:tipo_documentos,id'],
+            'numero_identificacion' => ['required'],
             'municipio'     => ['required', 'exists:municipios,id_municipio'],
         ], [], [
             'celular'       => 'Celular',
@@ -329,6 +335,8 @@ class formularioInstitucionController extends Controller{
             'pais'          => 'Pais',
             'departamento'  => 'Departamento',
             'provincia'     => 'Provincia',
+            'tipo_identificacion'   => 'Tipo de identificación',
+            'numero_identificacion' => 'Número de identificación',
             'municipio'     => 'Municipio',
         ]);
 
@@ -366,6 +374,13 @@ class formularioInstitucionController extends Controller{
 
         //guardar contacto
         $conacto->save();
+
+        //Guardar número de identificación
+        $user = auth()->user();
+        $user->update([
+            'tipodocumento'     => $request->tipo_identificacion,
+            'numerodocumento'   => $request->numero_identificacion,
+        ]);
 
         return response([
             'mensaje' => 'Se guardo correctamente la información'
@@ -786,7 +801,7 @@ class formularioInstitucionController extends Controller{
             $nombre_foto = 'profesional-' . time() . '.' . $foto->guessExtension();
 
             /*guarda la imagen en carpeta con el id del usuario*/
-            $foto->move("img/instituciones/$id_user", $nombre_foto);
+            $foto->move("img/instituciones/$id_user/profesionales/", $nombre_foto);
 
             //capturar la fotp
             $profesional->foto_perfil_institucion = "img/instituciones/$id_user/" . $nombre_foto;
@@ -949,14 +964,22 @@ class formularioInstitucionController extends Controller{
             'nombre_sede'   => ['required'],
             'direccion_sede'=> ['required'],
             'horario_sede'  => ['required'],
-            'telefono_sede' => ['required', 'min:7']
+            'telefono_sede' => ['required', 'min:7'],
+            'pais_id'           => ['required', 'exists:pais,id_pais'],
+            'departamento_id'   => ['required', 'exists:departamentos,id_departamento'],
+            'provincia_id'      => ['required', 'exists:provincias,id_provincia'],
+            'ciudad_id'         => ['required', 'exists:municipios,id_municipio'],
             // 'url_mapa_sede' => ['required', 'url']
         ], [], [
             'img_sede'     => 'Foto de la sede',
             'nombre_sede'   => 'Nombre de la sede',
             'direccion_sede'=> 'Dirección de la sede',
             'horario_sede'  => 'Horario de la sede',
-            'telefono_sede' => 'Teléfono de la sede'
+            'telefono_sede' => 'Teléfono de la sede',
+            'pais_id'       => 'País',
+            'departamento_id' => 'Departamento',
+            'provincia_id'  => 'Provincia',
+            'ciudad_id'     => 'Ciudad',
             // 'url_mapa_sede' => 'Url de la ubicación de la sede'
         ]);
 
@@ -991,8 +1014,12 @@ class formularioInstitucionController extends Controller{
         $sede->direccion    = $request->direccion_sede;
         $sede->horario_sede = $request->horario_sede;
         $sede->telefono     = $request->telefono_sede;
-        $sede->url_map       = $request->url_mapa_sede;
-        $sede->idInstitucion = $institucion->id;
+        $sede->url_map      = $request->url_mapa_sede;
+        $sede->pais_id      = $request->pais_id;
+        $sede->departamento_id  = $request->departamento_id;
+        $sede->provincia_id = $request->provincia_id;
+        $sede->ciudad_id    = $request->ciudad_id;
+        $sede->idInstitucion    = $institucion->id;
 
         $foto = $request->file('img_sede');
         $nombre_foto = 'sede-' . time() . '.' . $foto->guessExtension();
@@ -1122,13 +1149,13 @@ class formularioInstitucionController extends Controller{
         $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
         //Validar si se llego al maximo de items
-        $galeria = galerias::where('idInstitucion', '=', $institucion->id)->count();
-        if ($galeria >= 8){
-            return response()->json([
-                'max_items' => true,
-                'mensaje' => 'No puede agregar mas fotos'
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $galeria = galerias::where('idInstitucion', '=', $institucion->id)->count();
+//        if ($galeria >= 8){
+//            return response()->json([
+//                'max_items' => true,
+//                'mensaje' => 'No puede agregar mas fotos'
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
         //Crear el profesional
         $foto   = new galerias();
@@ -1152,7 +1179,8 @@ class formularioInstitucionController extends Controller{
             'mensaje'   => 'Se guardo correctamente la información',
             'url'       => route('entidad.delete12', ['id' => $foto->id_galeria]),
             'image'     => asset($foto->imggaleria),
-            'max_items' => $galeria >= 7 // Se le resta 1 porque se agregó 1
+            //'max_items' => $galeria >= 7 // Se le resta 1 porque se agregó 1
+            'max_items' => false // Se le resta 1 porque se agregó 1
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 12----------------------*/
@@ -1222,13 +1250,13 @@ class formularioInstitucionController extends Controller{
         $institucion = instituciones::where('idUser', '=', $id_user)->select('id')->first();
 
         //Validar si se llego al maximo de items
-        $videos = videos::where('idinstitucion', '=', $institucion->id)->count();
-        if ($videos >= 4){
-            return response()->json([
-                'max_items' => true,
-                'mensaje' => 'No puede agregar mas fotos'
-            ], Response::HTTP_NOT_FOUND);
-        }
+//        $videos = videos::where('idinstitucion', '=', $institucion->id)->count();
+//        if ($videos >= 4){
+//            return response()->json([
+//                'max_items' => true,
+//                'mensaje' => 'No puede agregar mas fotos'
+//            ], Response::HTTP_NOT_FOUND);
+//        }
 
         //Crear el profesional
         $video   = new videos();
@@ -1244,7 +1272,8 @@ class formularioInstitucionController extends Controller{
         return response([
             'mensaje'   => 'Se guardo correctamente la información',
             'url'       => route('entidad.delete13', ['id' => $video->id]),
-            'max_items' => $videos >= 3 // Se le resta 1 porque se agregó 1
+            //'max_items' => $videos >= 3 // Se le resta 1 porque se agregó 1
+            'max_items' => false
         ], Response::HTTP_OK);
     }
     /*-------------------------------------Fin Creacion y/o modificacion formulario parte 13----------------------*/
