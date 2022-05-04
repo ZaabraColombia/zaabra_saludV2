@@ -1,8 +1,8 @@
+@extends('profesionales.admin.layouts.panel')
+
 @section('styles')
 
 @endsection
-
-@extends('profesionales.admin.layouts.panel')
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
