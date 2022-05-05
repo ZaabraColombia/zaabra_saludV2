@@ -45,16 +45,15 @@
                                         <span class="menu__item icon__doctor">Soy doctor</span>
                                     </a>
                                 </div>
-
-                                <div class="option_flotante">                                 
-                                    <a class="option__user" href="{{ route('login') }}">
+                                <a class="option_flotante" href="{{ route('login') }}">
+                                    <div class="option__user">
                                         <i data-feather="user"></i> <span>Profesional</span>
-                                    </a>
+                                    </div>
 
-                                    <a class="option__user" href="{{ route('login') }}">
+                                    <div class="option__user">
                                         <i data-feather="user"></i> <span>Usuario</span>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         <div class="dropdown-divider m-0"></div>
