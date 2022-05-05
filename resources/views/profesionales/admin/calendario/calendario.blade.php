@@ -186,7 +186,7 @@
                                     <select id="disponibilidad" name="disponibilidad" required></select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">     <!--menu dinamico ciudades -->
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">     <!--menu dinamico ciudades -->
                                     <label for="pais_id">País</label>
                                     <select class="select2 pais" name="pais_id" id="pais_id" data-modal="#agregar_cita"
                                             data-id="{{ $user->profecional->idpais }}" data-departamento="#departamento_id"
@@ -199,21 +199,21 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2 mb-2">
                                     <label for="departamento_id">Departamento</label>
                                     <select name="departamento_id" class="select2 departamento" id="departamento_id"
                                             data-modal="#agregar_cita" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
                                             data-id="{{ $user->profecional->id_departamento }}"></select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">
                                     <label for="provincia_id" >Provincia</label>
                                     <select name="provincia_id" class="select2 provincia" id="provincia_id"
                                             data-modal="#agregar_cita" data-ciudad="#ciudad_id"
                                             data-id="{{ $user->profecional->id_provincia }}"></select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2 mb-2">
                                     <label for="ciudad_id">Ciudad</label>
                                     <select name="ciudad_id" class="select2" id="ciudad_id" data-modal="#agregar_cita"
                                             data-id="{{ $user->profecional->id_municipio }}"></select>
@@ -302,7 +302,7 @@
                     <button type="submit" class="button_blue" id="btn-cita-editar">
                         Editar
                     </button>
-                    <button type="submit" class="button_green" id="btn-cita-completar">
+                    <button type="submit" class="button_blue" id="btn-cita-completar">
                         Completar
                     </button>
                 </div>
@@ -361,7 +361,7 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="pais_id-editar">País</label>
                                     <select class="select2 pais" name="pais_id" id="pais_id-editar" data-modal="#modal_editar_cita"
                                             data-departamento="#departamento_id-editar" data-provincia="#provincia_id-editar"
@@ -381,7 +381,7 @@
                                             data-ciudad="#ciudad_id-editar"></select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="provincia_id-editar" >Provincia</label>
                                     <select name="provincia_id" class="select2 provincia" id="provincia_id-editar"
                                             data-modal="#modal_editar_cita" data-ciudad="#ciudad_id-editar"
@@ -590,7 +590,7 @@
                                     <input type="number" id="tiempo_cita" name="duracion_cita" required/>
                                 </div>
 
-                                <div class="col-12 p-0 pl-md-2">
+                                <div class="col-12 p-0">
                                     <label for="comentarios">Comentarios</label>
                                     <textarea name="comentarios" id="comentarios" rows="5"></textarea>
                                 </div>
@@ -601,7 +601,7 @@
                         <button type="button" class="button_transparent" data-dismiss="modal">
                             Cancelar
                         </button>
-                        <button type="submit" class="button_green">Completar</button>
+                        <button type="submit" class="button_blue">Completar</button>
                     </div>
                 </form>
             </div>
@@ -656,7 +656,7 @@
         </div>
     </div>
 
-    <!-- Modal ver reserva -->
+    <!-- Modal detalle del bloqueo -->
     <div class="modal fade" id="modal_ver_reserva" >
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
@@ -673,7 +673,11 @@
                         <div class="p-3">
                             <h2 class="fecha_inicio"></h2>
                             <h2 class="fecha_fin"></h2>
-                            <p class="comentario"></p>
+                            <div class="col-12 p-0 mt-3 form_modal">
+                                <label for="comentarios-editar">Comentarios</label>
+                                <textarea class="comentario" name="comentarios" id="" readonly rows="5"></textarea>
+                            </div>
+                            <!-- <p class="comentario"></p> -->
                         </div>
                     </div>
                 </div>
@@ -720,7 +724,7 @@
                                     <input type="datetime-local" id="fecha_fin-editar" name="fecha_fin" required/>
                                 </div>
 
-                                <div class="col-12 p-0 pl-md-2">
+                                <div class="col-12 p-0">
                                     <label for="comentarios-editar">Comentarios</label>
                                     <textarea name="comentarios" id="comentarios-editar" rows="5"></textarea>
                                 </div>

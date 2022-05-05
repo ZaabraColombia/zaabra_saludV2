@@ -45,11 +45,16 @@
                                         <span class="menu__item icon__doctor">Soy doctor</span>
                                     </a>
                                 </div>
-                                <a class="option_flotante" href="{{ route('login') }}">
-                                    <div class="option__user">
-                                        <i data-feather="users"></i> <span>Usuario</span>
-                                    </div>
-                                </a>
+
+                                <div class="option_flotante">                                 
+                                    <a class="option__user" href="{{ route('login') }}">
+                                        <i data-feather="user"></i> <span>Profesional</span>
+                                    </a>
+
+                                    <a class="option__user" href="{{ route('login') }}">
+                                        <i data-feather="user"></i> <span>Usuario</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="dropdown-divider m-0"></div>
@@ -61,17 +66,20 @@
                                         <span class="menu__item icon__institucion">Soy institución</span>
                                     </a>
                                 </div>
-                                <a class="option_flotante" href="{{ route('login') }}">
-                                    <div class="option__user">
-                                        <i data-feather="users"></i> <span>Usuario</span>
-                                    </div>
-                                </a>
 
-                                <a class="option_flotante" href="{{ route('institucion.profesional.login') }}">
-                                    <div class="option__user">
-                                        <i class="fas fa-stethoscope"></i> <span>Profesional</span>
-                                    </div>
-                                </a>
+                                <div class="option_flotante">
+                                    <a class="option__user" href="#">
+                                        <i data-feather="layers"></i> <span>Institución</span>
+                                    </a>
+
+                                    <a class="option__user" href="{{ route('login') }}">
+                                        <i data-feather="user"></i> <span>Usuario</span>
+                                    </a>
+
+                                    <a class="option__user" href="{{ route('institucion.profesional.login') }}">
+                                        <i data-feather="user"></i> <span>Profesional</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

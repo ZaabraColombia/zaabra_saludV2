@@ -171,10 +171,10 @@
                     <div class="row list__form">
                         @if($accesos->isNotEmpty())
                             @foreach($accesos as $acceso)
-                                <div class="col-6 col-md-4 check__box_green">
+                                <div class="col-6 col-md-4 check__box_blue">
                                     <input type="checkbox" {{ (collect(old('accesos'))->contains($acceso->id)) ? 'checked':'' }}
                                     value="{{ $acceso->id }}" id="acceso-{{ $acceso->id }}" name="accesos[]">
-                                    <label class="label_check_green" for="acceso-{{ $acceso->id }}">{{ $acceso->nombre }}</label>
+                                    <label class="label_check_blue" for="acceso-{{ $acceso->id }}">{{ $acceso->nombre }}</label>
                                 </div>
                             @endforeach
                         @endif
