@@ -68,7 +68,7 @@
                                 </div>
 
                                 <div class="option_flotante">
-                                    <a class="option__user" href="#">
+                                    <a class="option__user" href="{{ route('login') }}">
                                         <i data-feather="layers"></i> <span>Institución</span>
                                     </a>
 

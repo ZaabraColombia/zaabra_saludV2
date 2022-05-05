@@ -74,9 +74,20 @@ div.dt-buttons {
     background-color: #c5c7c9;
     border-color: #c5c7c9;
 }
-
 .paginate_button a {
     color: #3e3e3e;
+}
+.page-link:hover {
+    z-index: 2;
+    color: #727374;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+.page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(121, 124, 128, 0.25);
 }
 // Botones tipo iconos 
 .btn_type_icon_green {

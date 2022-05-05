@@ -21,3 +21,9 @@ function elementHidden (z){
       $('#login__').attr('aria-expanded', false);
    }
 }
+
+// $(document).click(function(e) {
+// 	if (!$(e.target).is('.panel-body')) {
+//     	$('.collapse').collapse('hide');	    
+//     }
+// });
