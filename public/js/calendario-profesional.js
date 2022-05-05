@@ -1,3 +1,4 @@
+
 //Lenguaje de moment
 moment.locale('es');
 
@@ -8,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        businessHours: calendarEl.dataset.weekBissness,
+        businessHours: calendarEl.dataset.weekbissness,
         events: calendarEl.dataset.events,
         // Botones de mes, semana y día.
         headerToolbar: {
@@ -181,10 +182,11 @@ document.addEventListener('DOMContentLoaded', function() {
     /************* Citas *************/
     //Permite listar el horario disponible
     function citas_libre(date, disponibilidad) {
+
         $.ajax({
             data: { date: date},
             dataType: 'json',
-            url: calendarEl.dataset.daysFree,
+            url: calendarEl.dataset.daysfree,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -211,31 +213,59 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         var btn = $(this);
-        var modal = $('#agregar_cita');
+        var modal = $('#modal_agregar_cita');
+
+        $('#form-agendar-cita-profesional')[0].reset();
+
+
 
         citas_libre(btn.data('date'), $('#disponibilidad'));
 
         $('#lugar').val($('#lugar').data('default'));
 
-        var pais = $('#pais_id');
-        pais.val(pais.data('id')).trigger('change');
-
-        setTimeout(function () {
-            var departamento = $('#departamento_id');
-            departamento.val(departamento.data('id')).trigger('change');
-        },500);
-        setTimeout(function () {
-            var provincia = $('#provincia_id');
-            provincia.val(provincia.data('id')).trigger('change');
-        },1000);
-        setTimeout(function () {
-            var ciudad = $('#ciudad_id');
-            ciudad.val(ciudad.data('id')).trigger('change');
-        },1500);
-
         modal.modal();
 
         $('#modal_dia_calendario').modal('hide');
+    });
+
+    //Crear la cita
+    $('#form-agendar-cita-profesional').submit(function (e) {
+        e.preventDefault();
+        var form = $(this);
+        console.log(form);
+        $.ajax({
+            data: form.serialize(),
+            dataType: 'json',
+            url: form.attr('action'),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            success: function (res, status) {
+
+                $('#alerta-general').html(alert(res.message, 'success'));
+
+                $('#agregar_cita').modal('hide');
+                //resetear formulario
+                form[0].reset();
+                $('#lugar').val($('#lugar').data('default'));
+                $('#numero_id').val(null).trigger('change');
+
+                setTimeout(function () {
+                    calendar.refetchEvents();
+                },3000);
+            },
+            error: function (res, status) {
+
+                var response = res.responseJSON;
+
+                $('#alerta-agregar_cita').html(alert(response.message, 'danger'));
+
+                setTimeout(function () {
+                    calendar.refetchEvents();
+                },3000);
+            }
+        });
     });
     /************* Fin Citas *************/
 });

@@ -91,16 +91,22 @@ class CalendarioController extends Controller
         $user = Auth::user();
 
         //Citas médicas
-        $datesOperatives = $user->profecional->citas;
+        //$datesOperatives = $user->profecional->citas;
+        $datesOperatives = Cita::query()
+            ->where('profesional_id', $user->profesional->idPerfilProfesional)
+            ->whereNotIn('estado', ['completo', 'cancelado'])
+            ->get();
 
         //Horario
-        $horario = $user->horario;
+        $horario = Horario::query()
+            ->where('user_id', $user->profesional->idUser)
+            ->first();
 
         //Validar el número del dia de la semana
         $diaSemana = date('w', strtotime($request->date));
 
         //crear intervalos
-        $intervaloCita = ($horario->duracion + $horario->descanso) * 60;
+        $intervaloCita = (5 + 5) * 60;
         //Crear las citas libres
         $listDates = array();
 

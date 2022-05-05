@@ -127,7 +127,7 @@
     </div>
 
     <!-- Modal  agendar cita -->
-    <div class="modal fade" id="agregar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal_agregar_cita" tabindex="-1" >
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -143,6 +143,10 @@
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-agregar_cita"></div>
+
+                                <div class="col-12">
+                                    <h3 class="blue_bold">Paciente</h3>
+                                </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="numero_id">Número de identificación</label>
@@ -796,7 +800,7 @@
             })
 
             //Permite listar el horario disponible
-            function citas_libre(date, disponibilidad) {
+            /*function citas_libre(date, disponibilidad) {
                 $.ajax({
                     data: { date: date},
                     dataType: 'json',
@@ -820,7 +824,7 @@
                         $('#alerta-general').html(alert(response.message, 'danger'));
                     }
                 });
-            }
+            }*/
 
             //Abrir modal para asignar cita
             $('#btn-day-clicked').click(function (e) {
@@ -852,45 +856,7 @@
                 $('#modal_dia_calendario').modal('hide');
             });
 
-            //Crear la cita
-            $('#form-agendar-cita-profesional').submit(function (e) {
-                e.preventDefault();
-                var form = $(this);
-                console.log(form);
-                $.ajax({
-                    data: form.serialize(),
-                    dataType: 'json',
-                    url: form.attr('action'),
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res, status) {
 
-                        $('#alerta-general').html(alert(res.message, 'success'));
-
-                        $('#agregar_cita').modal('hide');
-                        //resetear formulario
-                        form[0].reset();
-                        $('#lugar').val($('#lugar').data('default'));
-                        $('#numero_id').val(null).trigger('change');
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    },
-                    error: function (res, status) {
-
-                        var response = res.responseJSON;
-
-                        $('#alerta-agregar_cita').html(alert(response.message, 'danger'));
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    }
-                });
-            });
 
             //Buscar paciente
             $('#numero_id').select2({
