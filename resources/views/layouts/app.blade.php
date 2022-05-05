@@ -56,7 +56,7 @@
 
         @include('header')
 
-        <div id=""> {{-- Se elimino el id app --}}
+        <div id="app_flex"> {{-- Se elimino el id app --}}
             <!--    Contenido   -->
             <main>
                 @yield('content')

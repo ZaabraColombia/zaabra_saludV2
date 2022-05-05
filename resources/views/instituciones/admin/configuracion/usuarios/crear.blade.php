@@ -26,8 +26,8 @@
                         <div class="checkbox">
                             <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }} name="estado" id="estado" value="1">
                             <label class="label_check" for="estado">
-                                <b class="txt1">Convenio inactivo</b>
-                                <b class="txt2">Convenio activo</b>
+                                <b class="txt1">Usuario inactivo</b>
+                                <b class="txt2">Usuario activo</b>
                             </label>
                         </div>
                     </div>

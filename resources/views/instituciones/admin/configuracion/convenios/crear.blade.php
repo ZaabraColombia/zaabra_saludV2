@@ -21,7 +21,7 @@
                     <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" name="estado_convenio" id="estado_convenio">
+                            <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }} name="estado" id="conv_check">
                             <label class="label_check" for="conv_check">
                                 <b class="txt1">Convenio inactivo</b>
                                 <b class="txt2">Convenio activo</b>
