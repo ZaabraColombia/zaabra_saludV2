@@ -1,9 +1,15 @@
 @extends('profesionales.admin.layouts.panel')
 
 @section('styles')
+    <!-- FullCalendar -->
     <link rel="stylesheet" href="{{ asset('fullCalendar/main.css') }}">
+
+    <!-- Select2 -->
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+
+    <!-- datepicker bootstrap -->
+    <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">
 @endsection
 
 @section('contenido')
@@ -87,6 +93,8 @@
                 <div id="calendar" data-events="{{ route('profesional.agenda.calendario.ver-citas') }}"
                      data-weekBissness='{!! json_encode($horario->horario) !!}'
                      data-days='{!! json_encode($dias_disponibles) !!}'
+                     data-daysBlock='{!! json_encode($dias_bloqueados) !!}'
+                     data-daysLimit='{{ $horario->dias_agenda }}'
                      data-daysFree='{{ route('profesional.agenda.calendario.dias-libre') }}'></div>
             </div>
         </div>
@@ -142,10 +150,10 @@
 
                         <div class="form_modal">
                             <div class="row m-0">
-                                <div class="col-12 p-0" id="alerta-agregar_cita"></div>
+                                <div class="col-12 p-0 alertas" id="alerta-agregar_cita"></div>
 
-                                <div class="col-12">
-                                    <h3 class="blue_bold">Paciente</h3>
+                                <div class="col-12 mb-2">
+                                    <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Paciente</h2>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
@@ -169,21 +177,50 @@
                                     <input type="email" id="correo" name="correo" readonly/>
                                 </div>
 
+                                <div class="col-12 mb-2">
+                                    <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Servicio</h2>
+                                </div>
+
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
-                                    <label for="tipo_cita">Tipo de servicio</label>
-                                    <select id="tipo_cita" name="tipo_cita" required>
-                                        <option ></option>
+                                    <label for="tipo_cita">Servicios</label>
+                                    <select id="tipo_cita" name="tipo_cita" class="servicio" required data-convenios="#convenios">
+                                        <option></option>
                                         @if($servicios->isNotEmpty())
                                             @foreach($servicios as $servicio)
-                                                <option value="{{ $servicio->id }}" data-cantidad="{{ $servicio->valor }}">{{ $servicio->nombre }}</option>
+                                                <option value="{{ $servicio->id }}" data-cantidad="{{ $servicio->valor }}"
+                                                        data-url="{{ route('profesional.agenda.calendario.convenios', ['servicio' => $servicio->id]) }}">
+                                                    {{ $servicio->nombre }}
+                                                </option>
                                             @endforeach
                                         @endisset
                                     </select>
                                 </div>
 
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                    <label for="convenios">Convenio</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input type="checkbox" class="checkbox-activar-convenios" id="activar-convenios" name="activar-convenios" value="1">
+                                            </div>
+                                        </div>
+                                        <select class="custom-select convenios" id="convenios" name="convenio"></select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                    <label for="fecha">Fecha</label>
+                                    <input type="text" id="fecha" name="fecha" data-disponibilidad="#disponibilidad"
+                                           class="fecha-disponible fecha form-control" readonly/>
+                                </div>
+
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="disponibilidad">Horario disponible</label>
                                     <select id="disponibilidad" name="disponibilidad" required></select>
+                                </div>
+
+                                <div class="col-12 mb-2">
+                                    <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Lugar</h2>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">     <!--menu dinamico ciudades -->
@@ -226,6 +263,10 @@
                                            data-default="{{ $user->profecional->direccion }}" />
                                 </div>
 
+                                <div class="col-12 mb-2">
+                                    <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Pago</h2>
+                                </div>
+
                                 <div class="col-lg-6 p-0 pl-lg-2">
                                     <label for="cantidad">Pago</label>
                                     <input type="text" id="cantidad" name="cantidad" required/>
@@ -234,7 +275,6 @@
                                 <div class="col-lg-6 p-0 pr-lg-2">
                                     <label for="modalidad_pago">Modalidad de pago</label>
                                     <select id="modalidad_pago" name="modalidad_pago" required>
-                                        <option></option>
                                         <option value="virtual">Virtual</option>
                                         <option value="presencial">Presencial</option>
                                     </select>
@@ -277,7 +317,7 @@
 
                         <div class="row m-0">
                             <div class="col-md-7 p-0 pl-3 mb-2">
-                                <h3 class="fecha" ></h3>
+                                <h3 class="fecha"></h3>
                                 <span class="hora"></span>
                             </div>
                             <div class="col-md-5 p-0 pl-3 mb-2">
@@ -788,6 +828,10 @@
     <!-- Select 2 -->
     <script src="{{ asset('js/calendario-profesional.js') }}"></script>
     <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
+
+    <!-- datepicker bootstrap -->
+    <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
 
     <script>
 

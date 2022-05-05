@@ -178,6 +178,15 @@ document.addEventListener('DOMContentLoaded', function() {
         calendar.changeView('timeGridDay', btn.data('date'));
         $('#modal_dia_calendario').modal('hide');
     });
+
+    $('.fecha-disponible').datepicker({
+        daysOfWeekDisabled: calendarEl.dataset.daysblock,
+        language: 'es',
+        format: 'yyyy-mm-dd',
+        startDate: moment().format('YYYY-MM-DD'),
+        endDate: moment().add('days', calendarEl.dataset.dayslimit).format('YYYY-MM-DD'),
+    });
+
     /************* Fin Calendario *************/
     /************* Citas *************/
     //Permite listar el horario disponible
@@ -208,6 +217,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    //Permite activar y desactivar convenios
+    $('.checkbox-activar-convenios').change(function (event) {
+        var convenio = $(this).parents('.input-group').find('.convenios');
+        convenio.prop('disabled', !$(this).prop('checked'));
+        convenio.val('');
+    });
+
+    //Llama todos los convenios de un servicio
+    $('.servicio').change(function (event) {
+        var servicio = $(this);
+
+        $(servicio.data('convenios')).prop('disabled', !$(this).prop('checked'));
+        $(servicio.data('convenios')).parents('.input-group')
+            .find('.checkbox-activar-convenios').prop('checked', false);
+
+        if (servicio.val() !== '')
+        {
+            $.post(servicio.find('option:selected').data('url'), function (data) {
+                $(servicio.data('convenios')).html('<option></option>')
+                $.each(data.items, function (key, item) {
+                    $(servicio.data('convenios')).append('<option value="' + item.id + '" data-cantidad="' + item.pivot.valor_paciente + '">' + item.nombre_completo + '</option>');
+                });
+            }).fail(function (data) {
+                servicio.parents('.modal').find('.alertas').html(alert(data.responseJSON.message, 'danger'));
+            });
+        } else {
+            $(servicio.data('convenios')).html('').val('');
+        }
+    });
+
+    $('.fecha').change(function (event) {
+        citas_libre($(this).val(), $($(this).data('disponibilidad')));
+    });
+
     //Abrir modal para asignar cita
     $('#btn-agendar-cita').click(function (e) {
         e.preventDefault();
@@ -217,7 +260,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         $('#form-agendar-cita-profesional')[0].reset();
 
-
+        $('.checkbox-activar-convenios').prop('checked', false);
+        $('#convenios').prop('disabled', true)
+        $('#fecha').val(btn.data('date'));
 
         citas_libre(btn.data('date'), $('#disponibilidad'));
 

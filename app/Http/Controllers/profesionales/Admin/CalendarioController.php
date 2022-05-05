@@ -5,6 +5,7 @@ namespace App\Http\Controllers\profesionales\Admin;
 use App\Http\Controllers\Controller;
 use App\Mail\ConfirmacionCitaEmail;
 use App\Models\Cita;
+use App\Models\Convenios;
 use App\Models\Horario;
 use App\Models\Paciente;
 use App\Models\PagoCita;
@@ -53,6 +54,8 @@ class CalendarioController extends Controller
             ->pluck('daysOfWeek')->collapse()// retornar todos los días
             ->unique()->values()->all();// unificar los dias
 
+        $dias_bloqueados = collect([0, 1, 2, 3, 4, 5, 6])->diff($dias_disponibles)->values()->all();
+
         $servicios = Servicio::query()
             ->where('profesional_id', '=', $profesional->profesional->idPerfilProfesional)
             ->get();
@@ -60,7 +63,7 @@ class CalendarioController extends Controller
         $paises = pais::all();
 
         return view('profesionales.admin.calendario.calendario', compact('dias_disponibles',
-            'horario', 'servicios', 'paises', 'user'));
+            'dias_bloqueados', 'horario', 'servicios', 'paises', 'user'));
     }
 
     /**
@@ -175,6 +178,39 @@ class CalendarioController extends Controller
                 'text'  => 'Fechas disponibles'
             ],
             'data' => $listDates
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Permite listoar todos los convenios
+     *
+     * @param $servicio
+     * @return Application|ResponseFactory|Response
+     */
+    public function convenios($servicio)
+    {
+        $servicio = Servicio::query()
+            ->where('id', $servicio)
+            ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+            ->where('estado', 1)
+            ->with(['convenios_lista' => function($query) {
+                return $query
+                    ->with('tipo_identificacion')
+                    ->select('convenios.id', 'primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido')
+                    ->where('estado', 1);
+            }])
+            ->first();
+
+        if (empty($servicio))
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => 'No se encontró el servicio'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+        return response([
+            'items' => $servicio->convenios_lista
         ], Response::HTTP_OK);
     }
 

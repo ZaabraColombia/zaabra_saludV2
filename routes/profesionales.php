@@ -90,6 +90,9 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
             Route::post('/calendario/colores',[profesionales\Admin\CalendarioController::class,'colores'])
                 ->name('calendario.colors');
 
+            Route::post('/calendario/convenios/{servicio}',[profesionales\Admin\CalendarioController::class,'convenios'])
+                ->name('calendario.convenios');
+
             //Configurar calendario
             Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])
                 ->name('configurar-calendario');
