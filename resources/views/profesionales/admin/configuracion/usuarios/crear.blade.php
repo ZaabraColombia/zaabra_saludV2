@@ -9,7 +9,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Usuarios</h1>
+                <h1 class="title__xl blue_bold">Usuarios</h1>
             </div>
 
 
@@ -25,8 +25,8 @@
                             <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }}
                             name="estado" id="estado" value="1">
                             <label class="label_check__blue" for="estado">
-                                <b class="txt1">Convenio inactivo</b>
-                                <b class="txt2">Convenio activo</b>
+                                <b class="txt1">Usuario inactivo</b>
+                                <b class="txt2">Usuario activo</b>
                             </label>
                         </div>
                     </div>

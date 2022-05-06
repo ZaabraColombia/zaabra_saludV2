@@ -24,7 +24,7 @@
                         <h2 class="subtitle__lg green_bold mb-4">Editar usuario</h2>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" name="estado" id="estado" value="1">
+                            <input type="checkbox" name="estado" {{ old('estado', $user->estado) == 1 ? 'checked':'' }} id="estado" value="1">
                             <label class="label_check" for="estado">
                                 <b class="txt1">Usuario inactivo</b>
                                 <b class="txt2">Usuario activo</b>

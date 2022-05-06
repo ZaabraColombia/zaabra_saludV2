@@ -21,3 +21,12 @@ function elementHidden (z){
       $('#login__').attr('aria-expanded', false);
    }
 }
+
+// funcionalidad para ocultar el login al momento de hacer click fuera del menú desplegado
+$(document).click(function(e) {
+   var element = $('#collap').find(e.target).length;
+   //  console.log(element);
+   if (element === 0) {
+      $('#collap').collapse('hide');	   
+   }
+});

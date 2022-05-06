@@ -15,7 +15,7 @@
 
                         <h1 style="color:{{($objbannersprincipalHome->color_titulo)}};">{{($objbannersprincipalHome->titulo_banner)}}</h1>
                         <p style="color:{{($objbannersprincipalHome->color_texto)}};">{{($objbannersprincipalHome->texto_banner)}}</p>
-                        <a class="mt-lg-2" type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank"
+                        <a type="submit" href="{{($objbannersprincipalHome->urlBoton_banner)}}" target="blank"
                             style="background-color:{{($objbannersprincipalHome->background_btn)}}; color:{{($objbannersprincipalHome->color_btn)}};">
                             {{($objbannersprincipalHome->texto_btn)}}
                         </a>
