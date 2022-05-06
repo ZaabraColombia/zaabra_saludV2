@@ -26117,6 +26117,11 @@ div.dt-buttons {
   flex-wrap: wrap;
 }
 
+.width_pill {
+  width: 70%;
+  margin: auto;
+}
+
 .list__form ul {
   padding: 0;
   margin: 0;

@@ -12,7 +12,7 @@
     <div class="container-fluid content_asig_cita">
 
         <div class="content_row">
-            <h2 class="fs_title_module blue_bold mt-3 title__img_inst" id="nombre_profesional-paciente">
+            <h2 class="fs_title_module green_bold mt-3 title__img_inst" id="nombre_profesional-paciente">
                 {{ $profesional->institucion->user->nombreinstitucion }}
             </h2>
             <!-- Información Institución -->
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="w-100 w_md_65 w_lg_100 pl-md-3">
-                    <h2 class="fs_title_module blue_bold" id="nombre_profesional-paciente">
+                    <h2 class="fs_title_module green_bold" id="nombre_profesional-paciente">
                         Dr.(a) {{ $profesional->nombre_completo }}
                     </h2>
                     <h4 class="fs_subtitle_module black_bold mb-0" id="">{{ $profesional->especialidad_pricipal->nombreEspecialidad ?? '' }}</h4>
@@ -90,7 +90,7 @@
 
                 <div class="content_row col_flex_md ml-md-auto mt-lg-2 align_between_1300">
                     <div class="col_flex">
-                        <div class="mt-4 mb-3 mt-md-0">
+                        <div class="mt-4 mb-3 mt-md-0 width_pill">
                             <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
                             <span class="badge rounded-pill bg-secondary mb-3 w-100" style="opacity: .5;">Días no disponibles</span>
                             <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
