@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.colors').change(function (event) {
         $('#form-actualizar-colores-calendario').submit();
     });
+
     $('#form-actualizar-colores-calendario').submit(function (event) {
         event.preventDefault();
         var form = $(this);

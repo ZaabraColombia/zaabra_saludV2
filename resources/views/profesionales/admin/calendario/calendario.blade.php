@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
 
     <!-- datepicker bootstrap -->
-    <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">--}}
 @endsection
 
 @section('contenido')
@@ -198,10 +198,11 @@
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="convenios">Convenio</label>
-                                    <div class="input-group">
+                                    <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                                <input type="checkbox" class="checkbox-activar-convenios" id="activar-convenios" name="activar-convenios" value="1">
+                                                <input type="checkbox" class="checkbox-activar-convenios"
+                                                       id="activar-convenios" name="activar-convenios" value="1">
                                             </div>
                                         </div>
                                         <select class="custom-select convenios" id="convenios" name="convenio"></select>
@@ -225,7 +226,7 @@
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">     <!--menu dinamico ciudades -->
                                     <label for="pais_id">País</label>
-                                    <select class="select2 pais" name="pais_id" id="pais_id" data-modal="#agregar_cita"
+                                    <select class="select2 pais" name="pais_id" id="pais_id" data-modal="#modal_agregar_cita"
                                             data-id="{{ $user->profecional->idpais }}" data-departamento="#departamento_id"
                                             data-provincia="#provincia_id" data-ciudad="#ciudad_id">
                                         @if($paises->isNotEmpty())
@@ -239,20 +240,20 @@
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2 mb-2">
                                     <label for="departamento_id">Departamento</label>
                                     <select name="departamento_id" class="select2 departamento" id="departamento_id"
-                                            data-modal="#agregar_cita" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
+                                            data-modal="#modal_agregar_cita" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
                                             data-id="{{ $user->profecional->id_departamento }}"></select>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">
                                     <label for="provincia_id" >Provincia</label>
                                     <select name="provincia_id" class="select2 provincia" id="provincia_id"
-                                            data-modal="#agregar_cita" data-ciudad="#ciudad_id"
+                                            data-modal="#modal_agregar_cita" data-ciudad="#ciudad_id"
                                             data-id="{{ $user->profecional->id_provincia }}"></select>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2 mb-2">
                                     <label for="ciudad_id">Ciudad</label>
-                                    <select name="ciudad_id" class="select2" id="ciudad_id" data-modal="#agregar_cita"
+                                    <select name="ciudad_id" class="select2" id="ciudad_id" data-modal="#modal_agregar_cita"
                                             data-id="{{ $user->profecional->id_municipio }}"></select>
                                 </div>
 
@@ -830,8 +831,8 @@
     <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
 
     <!-- datepicker bootstrap -->
-    <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
+{{--    <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>--}}
+{{--    <script src="{{ asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js') }}"></script>--}}
 
     <script>
 
@@ -845,37 +846,10 @@
                 $('#fecha_fin').val(moment().add(2, 'h').format('YYYY-MM-DD\THH:mm'));
 
                 $('#modal_crear_reserva_calendario').modal();
-            })
-
-            //Permite listar el horario disponible
-            /*function citas_libre(date, disponibilidad) {
-                $.ajax({
-                    data: { date: date},
-                    dataType: 'json',
-                    url: '',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res) {
-
-                        disponibilidad.html('<option></option>');
-                        //get list
-                        $.each(res.data, function (index, item) {
-                            disponibilidad.append('<option value=\'{"start":"' + item.startTime + '","end": "' + item.endTime + '"}\'>' +
-                                moment(item.startTime).format('hh:mm A') + '-' + moment(item.endTime).format('hh:mm A') +
-                                '</option>');
-                        });
-                    },
-                    error: function (res, status) {
-                        var response = res.responseJSON;
-                        $('#alerta-general').html(alert(response.message, 'danger'));
-                    }
-                });
-            }*/
+            });
 
             //Abrir modal para asignar cita
-            $('#btn-day-clicked').click(function (e) {
+            /*$('#btn-day-clicked').click(function (e) {
                 e.preventDefault();
 
                 var btn = $(this);
@@ -902,7 +876,7 @@
 
 
                 $('#modal_dia_calendario').modal('hide');
-            });
+            });*/
 
 
 
@@ -930,7 +904,7 @@
                     cache: true,
                 },
                 minimumInputLength: 3,
-                dropdownParent: $('#agregar_cita')
+                dropdownParent: $('#modal_agregar_cita')
             }).on('select2:select', function (e) {
                 var data = e.params.data;
 
@@ -952,7 +926,7 @@
             });
 
             //Abrir modal para editar la cita
-            $('#btn-cita-editar').click(function (e) {
+            /*$('#btn-cita-editar').click(function (e) {
                 var btn = $(this);
                 $('#modal_ver_cita').modal('hide');
 
@@ -1006,10 +980,10 @@
                         $('#alerta-general').html(alert(response.message, 'danger'));
                     }
                 });
-            });
+            });*/
 
             //Guardar cita editada
-            $('#form-editar-cita').submit(function (e) {
+            /*$('#form-editar-cita').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
 
@@ -1044,10 +1018,10 @@
                         },3000);
                     }
                 });
-            });
+            });*/
 
             //Abrir modal para reagendar cita
-            $('#btn-cita-reagendar').click(function (e) {
+            /*$('#btn-cita-reagendar').click(function (e) {
                 var btn = $(this);
                 $('#modal_ver_cita').modal('hide');
 
@@ -1085,10 +1059,10 @@
                         $('#alerta-general').html(alert(response.message, 'danger'));
                     }
                 });
-            });
+            });*/
 
             //Cambio de fecha
-            $('#fecha-reasignar').change(function (e) {
+            /*$('#fecha-reasignar').change(function (e) {
                 var fecha = $(this);
                 var validar = moment(fecha.val()).diff(moment().format('YYYY-MM-DD'), 'days', true);
 
@@ -1102,10 +1076,10 @@
                 }
 
                 citas_libre(fecha.val(), $('#disponibilidad-reasignar'));
-            });
+            });*/
 
             //Día anterior botón
-            $('#dia-anterior').click(function (e) {
+            /*$('#dia-anterior').click(function (e) {
                 var btn = $(this);
 
                 var fecha = $('#fecha-reasignar');
@@ -1122,10 +1096,10 @@
                 }
 
                 citas_libre(fecha.val(), $('#disponibilidad-reasignar'));
-            });
+            });*/
 
             //Día siguiente botón
-            $('#dia-siguiente').click(function (e) {
+            /*$('#dia-siguiente').click(function (e) {
                 var btn = $(this);
 
                 var fecha = $('#fecha-reasignar');
@@ -1135,10 +1109,10 @@
                 fecha.val(moment(fecha.val()).add(1, 'day').format('YYYY-MM-DD'));
 
                 citas_libre(fecha.val(), $('#disponibilidad-reasignar'));
-            });
+            });*/
 
             //Guardar cita reagendada
-            $('#form-cita-reagendar').submit(function (e) {
+            /*$('#form-cita-reagendar').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
 
@@ -1173,10 +1147,10 @@
                         },3000);
                     }
                 });
-            });
+            });*/
 
             //Abrir modal para cancelar la cita
-            $('#btn-cita-cancelar').click(function (e) {
+            /*$('#btn-cita-cancelar').click(function (e) {
                 var btn = $(this);
                 $('#modal_ver_cita').modal('hide');
 
@@ -1209,10 +1183,10 @@
                         $('#alerta-general').html(alert(response.message, 'danger'));
                     }
                 });
-            });
+            });*/
 
             //Aceptar cita cancelada
-            $('#form-cita-cancelar').submit(function (e) {
+            /*$('#form-cita-cancelar').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
 
@@ -1247,10 +1221,10 @@
                         },3000);
                     }
                 });
-            });
+            });*/
 
             //Abrir modal para completada la cita
-            $('#btn-cita-completar').click(function (e) {
+            /*$('#btn-cita-completar').click(function (e) {
                 var btn = $(this);
                 $('#modal_ver_cita').modal('hide');
 
@@ -1283,10 +1257,10 @@
                         $('#alerta-general').html(alert(response.message, 'danger'));
                     }
                 });
-            });
+            });*/
 
             //Guardar cita completada
-            $('#form-completar-cita').submit(function (e) {
+            /*$('#form-completar-cita').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
 
@@ -1321,10 +1295,10 @@
                         },3000);
                     }
                 });
-            });
+            });*/
 
             //Crear reserva del calendario
-            $('#form-reserva-calendario-crear').submit(function (e) {
+            /*$('#form-reserva-calendario-crear').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
                 console.log(form);
@@ -1359,10 +1333,10 @@
                         },3000);
                     }
                 });
-            });
+            });*/
 
             //Abrir modal para completada la cita
-            $('#btn-reserva-editar').click(function (e) {
+            /*$('#btn-reserva-editar').click(function (e) {
                 var btn = $(this);
                 $('#modal_ver_reserva').modal('hide');
 
@@ -1393,10 +1367,10 @@
                         $('#alerta-general').html(alert(response.message, 'danger'));
                     }
                 });
-            });
+            });*/
 
             //Crear reserva del calendario
-            $('#form-reserva-calendario-editar').submit(function (e) {
+            /*$('#form-reserva-calendario-editar').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
                 console.log(form);
@@ -1431,10 +1405,10 @@
                         },3000);
                     }
                 });
-            });
+            });*/
 
             //Abrir modal para cancelar la reserva de calendario
-            $('#btn-reserva-cancelar').click(function (e) {
+            /*$('#btn-reserva-cancelar').click(function (e) {
                 var btn = $(this);
                 $('#modal_ver_reserva').modal('hide');
 
@@ -1462,10 +1436,10 @@
                         $('#alerta-general').html(alert(response.message, 'danger'));
                     }
                 });
-            });
+            });*/
 
             //Aceptar cita reserva de calendario
-            $('#form-reserva-calendario-cancelar').submit(function (e) {
+            /*$('#form-reserva-calendario-cancelar').submit(function (e) {
                 e.preventDefault();
                 var form = $(this);
 
@@ -1500,7 +1474,7 @@
                         },3000);
                     }
                 });
-            });
+            });*/
         });
     </script>
 @endsection
