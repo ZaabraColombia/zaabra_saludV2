@@ -182,6 +182,11 @@ Route::get('/test-instituciones-profesionales-citas-index', function(){
     return view('instituciones.profesionales.citas.index');
 });
 
+// 06-05-2022 Ruta para la vista Historial de Bloqueos
+Route::get('/test-historial-bloqueos', function(){
+    return view('instituciones.admin.agenda.historial-bloqueos');
+});
+
 Route::get('/test', function (){
 //   $p = \App\Models\profesionales_instituciones::all();
 //   $p->map(function ($item){

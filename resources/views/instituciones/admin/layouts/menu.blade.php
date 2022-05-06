@@ -100,13 +100,11 @@
                                 Agendar cita
                             </a>
                         </li>
-                        {{--
                         <li class="submenu-item">
                             <a id="" class="" href="#">
-                                Bloquear agenda
+                                Historial de bloqueos
                             </a>
                         </li>
-                        --}}
                     </ul>
                 </li>
 

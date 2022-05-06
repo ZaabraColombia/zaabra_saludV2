@@ -122,12 +122,12 @@
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
 
                                 <div class="col-12 col-md-6 pl-0 pr-1">
-                                    <label for="fecha_inicio">Hora inicio</label>
+                                    <label for="fecha_inicio">Fecha inicio</label>
                                     <input type="datetime-local" id="fecha_inicio" name="fecha_inicio">
                                 </div>
 
                                 <div class="col-12 col-md-6 pr-0 pl-1">
-                                    <label for="fecha_fin">Hora fin</label>
+                                    <label for="fecha_fin">Fecha fin</label>
                                     <input type="datetime-local" id="fecha_fin" name="fecha_fin">
                                 </div>
 
