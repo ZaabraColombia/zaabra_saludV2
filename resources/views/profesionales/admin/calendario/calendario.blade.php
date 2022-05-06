@@ -158,8 +158,7 @@
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="numero_id">Número de identificación</label>
-                                    <select type="text" id="numero_id" name="numero_id" required>
-                                    </select>
+                                    <select type="text" id="numero_id" name="numero_id" data-url="{{ route('buscador-paciente') }}" required></select>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2">
@@ -313,26 +312,39 @@
 
                 <div class="modal-body">
                     <h1>Detalle de la cita</h1>
-
                     <div class="modal_info_cita">
-                        <div class="p-3">
-                            <h2 class="nombre_paciente"></h2>
-                            <p class="numero_id"></p>
-                            <p class="correo"></p>
+                        <div class="py-3">
+                            <h2 class="nombre_paciente">Marco Antonio Garzon Sepulveda</h2>
+                            <p class="numero_id">C.C. 80645987</p>
+                            <p class="correo">marco@hotmail.com</p>
                         </div>
 
                         <div class="row m-0">
-                            <div class="col-md-7 p-0 pl-3 mb-2">
-                                <h3 class="fecha"></h3>
-                                <span class="hora"></span>
+                            <div class="col-12 p-0 mb-2">
+                                <h3 class="fecha">miércoles, 27 septiembre 2022</h3>
+                                <span class="hora">08:00 A.M - 08:45 A.M</span>
                             </div>
-                            <div class="col-md-5 p-0 pl-3 mb-2">
-                                <h3>Tipo de cita</h3>
-                                <span class="tipo_cita"></span>
+                        </div>
+
+                        <div class="row m-0">
+                            <div class="col-12 d-md-flex p-0 mb-2">
+                                <h3>Tipo de servicio: &nbsp;</h3>
+                                <span class="tipo_servicio">Procedimiento no quirurgico</span>
                             </div>
-                            <div class="col-12 p-0 pl-3 mb-2 d-flex">
-                                <h3>Modalidad de pago: &nbsp;</h3>
-                                <span class="modalidad"></span>
+                            <div class="col-12 d-md-flex p-0 mb-2">
+                                <h3>Servicio: &nbsp;</h3>
+                                <span class="servicio">Procedimiento no quirurgico Procedimiento no</span>
+                            </div>
+                        </div>
+
+                        <div class="row m-0">
+                            <div class="col-12 d-flex p-0 mb-2">
+                                <h3>Tipo de atención: &nbsp;</h3>
+                                <span class="atencion">Presencial</span>
+                            </div>
+                            <div class="col-md-9 p-0 mb-2">
+                                <h3>Lugar: &nbsp;</h3>
+                                <span class="lugar">EPS Salud Total virrey Solis Olaya</span>
                             </div>
                         </div>
                     </div>
@@ -884,51 +896,7 @@
             });*/
 
 
-
-            //Buscar paciente
-            $('#numero_id').select2({
-                language: 'es',
-                theme: 'bootstrap4',
-                ajax: {
-                    url: '{{ route('buscador-paciente') }}',
-                    dataType: 'json',
-                    method: 'post',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    data: function (params) {
-                        return {
-                            searchTerm: params.term // search term
-                        };
-                    },
-                    processResults: function (response) {
-                        return {
-                            results:response
-                        };
-                    },
-                    cache: true,
-                },
-                minimumInputLength: 3,
-                dropdownParent: $('#modal_agregar_cita')
-            }).on('select2:select', function (e) {
-                var data = e.params.data;
-
-                $('#nombre').val(data.nombre);
-                $('#apellido').val(data.apellido);
-                $('#correo').val(data.email);
-
-            }).on('select2:opening', function (e){
-
-                $('#numero_id').val(null).trigger('change');
-                $('#nombre').val('');
-                $('#apellido').val('');
-                $('#correo').val('');
-
-            });
             //Llenar precio
-            $('#tipo_cita').change(function (e) {
-                $('#cantidad').val($('#tipo_cita option:selected').data('cantidad'));
-            });
 
             //Abrir modal para editar la cita
             /*$('#btn-cita-editar').click(function (e) {
@@ -938,7 +906,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -1033,7 +1001,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -1162,7 +1130,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -1236,7 +1204,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -1348,7 +1316,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -1420,7 +1388,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita') }}',
+                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },

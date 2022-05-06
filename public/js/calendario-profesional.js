@@ -36,18 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 }
             },
-            // actualizar: {
-            //     text: 'Actualizar',
-            //     click: function() {
-            //         calendar.refetchEvents();
-            //         var message = {
-            //             title:  'Hecho',
-            //             text:   'Citas actualizadas'
-            //         };
-            //         $('#alerta-general').html(alert(message, 'success'));
-            //     },
-            //     //class: "button_blue_form"
-            // }
         },
         // Propiedad para cambio de lenguaje
         locale: 'es',
@@ -88,11 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
         eventClick: function(info) {
 
             // $('.event-click-data').data('id', info.event._def.publicId)
-            // $('#event-clicked').modal();
-            /*$.ajax({
-                data: { id: info.event._def.publicId},
+            // $('#event-clicked').modal()
+            $.ajax({
                 dataType: 'json',
-                url: '',
+                url: info.event.extendedProps.ver,
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -104,39 +91,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     {
                         modal = $('#modal_ver_reserva');
 
-                        modal.find('.fecha_inicio').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                        modal.find('.fecha_fin').html(moment(res.item.fecha_fin).format('dddd, D MMMM/YYYY'));
-                        modal.find('.comentario').html(res.item.comentario);
-
-                        $('#btn-reserva-cancelar').data('id', res.item.id);
-                        $('#btn-reserva-editar').data('id', res.item.id);
-
-                        modal.modal();
+                        $('#btn-reserva-cancelar').data('url', res.item.ver);
+                        $('#btn-reserva-editar').data('url', res.item.ver);
                     } else {
 
                         modal = $('#modal_ver_cita');
 
-                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') + '-' + moment(res.item.fecha_fin).format('hh:mm A'));
-                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
-                        modal.find('.tipo_cita').html(res.item.tipo_cita);
-                        modal.find('.modalidad').html(res.item.modalidad);
-                        modal.find('.correo').html(res.item.correo);
-                        modal.find('.numero_id').html(res.item.numero_id);
-
-                        $('#btn-cita-cancelar').data('id', res.item.id);
-                        $('#btn-cita-reagendar').data('id', res.item.id);
-                        $('#btn-cita-editar').data('id', res.item.id);
-                        $('#btn-cita-completar').data('id', res.item.id);
-
-                        modal.modal();
+                        $('#btn-cita-cancelar').data('url', res.item.ver);
+                        $('#btn-cita-reagendar').data('url', res.item.ver);
+                        $('#btn-cita-editar').data('url', res.item.ver);
+                        $('#btn-cita-completar').data('url', res.item.ver);
                     }
+
+                    $.each(res.item, function (key, item) {
+                        modal.find('.' + key).html(item);
+                    });
+
+                    modal.modal();
                 },
                 error: function (res, status) {
                     var response = res.responseJSON;
                     $('#alerta-general').html(alert(response.message, 'danger'));
                 }
-            });*/
+            });
         },
 
         select: function(info) {
@@ -335,6 +312,47 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    //Buscar paciente
+    $('#numero_id').select2({
+        language: 'es',
+        theme: 'bootstrap4',
+        ajax: {
+            url: $('#numero_id').data('url'),
+            dataType: 'json',
+            method: 'post',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: function (params) {
+                return {
+                    searchTerm: params.term // search term
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results:response
+                };
+            },
+            cache: true,
+        },
+        minimumInputLength: 3,
+        dropdownParent: $('#modal_agregar_cita')
+    }).on('select2:select', function (e) {
+        var data = e.params.data;
+
+        $('#nombre').val(data.nombre);
+        $('#apellido').val(data.apellido);
+        $('#correo').val(data.email);
+
+    }).on('select2:opening', function (e){
+
+        $('#numero_id').val(null).trigger('change');
+        $('#nombre').val('');
+        $('#apellido').val('');
+        $('#correo').val('');
+
+    });
+
 
     /************* Fin Citas *************/
 });

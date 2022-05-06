@@ -65,33 +65,27 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
 
             Route::get('/calendario',[profesionales\Admin\CalendarioController::class,'index'])
                 ->name('calendario');
-            Route::post('/calendario/dias-libre',[profesionales\Admin\CalendarioController::class,'citas_libres'])
-                ->name('calendario.dias-libre');
-            Route::post('/calendario/crear-cita',[profesionales\Admin\CalendarioController::class,'crear_cita'])
-                ->name('calendario.crear-cita');
-            Route::get('/calendario/ver-citas',[profesionales\Admin\CalendarioController::class,'ver_citas'])
-                ->name('calendario.ver-citas');
-            Route::post('/calendario/ver-cita',[profesionales\Admin\CalendarioController::class,'ver_cita'])
-                ->name('calendario.ver-cita');
-            Route::post('/calendario/actualizar-cita',[profesionales\Admin\CalendarioController::class,'actualizar_cita'])
-                ->name('calendario.actualizar-cita');
-            Route::post('/calendario/reagendar-cita',[profesionales\Admin\CalendarioController::class,'reagendar_cita'])
-                ->name('calendario.reagendar-cita');
-            Route::post('/calendario/cancelar-cita',[profesionales\Admin\CalendarioController::class,'cancelar_cita'])
-                ->name('calendario.cancelar-cita');
-            Route::post('/calendario/completar-cita',[profesionales\Admin\CalendarioController::class,'completar_cita'])
-                ->name('calendario.completar-cita');
-            Route::post('/calendario/reservar-calendario',[profesionales\Admin\CalendarioController::class,'reservar'])
-                ->name('calendario.reservar-calendario');
-            Route::post('/calendario/editar-reservar-calendario',[profesionales\Admin\CalendarioController::class,'reservar_editar'])
-                ->name('calendario.editar-reservar-calendario');
-            Route::post('/calendario/cancelar-reserva-calendario',[profesionales\Admin\CalendarioController::class,'reservar_cancelar'])
-                ->name('calendario.cancelar-reserva-calendario');
-            Route::post('/calendario/colores',[profesionales\Admin\CalendarioController::class,'colores'])
-                ->name('calendario.colors');
 
-            Route::post('/calendario/convenios/{servicio}',[profesionales\Admin\CalendarioController::class,'convenios'])
-                ->name('calendario.convenios');
+            Route::controller(profesionales\Admin\CalendarioController::class)
+                ->prefix('/calendario')
+                ->name('calendario.')
+                ->group(function () {
+                    Route::post('dias-libre','citas_libres')->name('dias-libre');
+                    Route::post('crear-cita','crear_cita')->name('crear-cita');
+                    Route::get('ver-citas','ver_citas')->name('ver-citas');
+                    Route::post('ver-cita/{cita}','ver_cita')->name('ver-cita');
+                    Route::post('actualizar-cita','actualizar_cita')->name('actualizar-cita');
+                    Route::post('reagendar-cita','reagendar_cita')->name('reagendar-cita');
+                    Route::post('cancelar-cita','cancelar_cita')->name('cancelar-cita');
+                    Route::post('completar-cita','completar_cita')->name('completar-cita');
+
+                    Route::post('reservar-calendario','reservar')->name('reservar-calendario');
+                    Route::post('editar-reservar-calendario','reservar_editar')->name('editar-reservar-calendario');
+                    Route::post('cancelar-reserva-calendario','reservar_cancelar')->name('cancelar-reserva-calendario');
+                    Route::post('colores','colores')->name('colors');
+
+                    Route::post('convenios/{servicio}','convenios')->name('convenios');
+                });
 
             //Configurar calendario
             Route::get('/configurar-calendario', [profesionales\Admin\CalendarioController::class, 'configuracion'])

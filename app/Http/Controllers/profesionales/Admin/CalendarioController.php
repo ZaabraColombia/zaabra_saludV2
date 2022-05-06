@@ -217,12 +217,12 @@ class CalendarioController extends Controller
                     'start' => $date->start,
                     'end'   => $date->end,
                     'backgroundColor' => $horario->color_bloqueado ?? '#F37725',
-                    'textColor' => color_contrast($horario->color_bloqueado ?? '#F37725'),
-                    'borderColor' => 'black',
+                    'textColor'     => color_contrast($horario->color_bloqueado ?? '#F37725'),
+                    'borderColor'   => 'black',
                     //'display' => 'background',
-                    'display' => 'block',
-                    'title' => 'Bloqueado',
-                    //'show' => '',
+                    'display'   => 'block',
+                    'title'     => 'Bloqueado',
+                    //'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
                     //'edit' => ''
                 ];
             } else {
@@ -255,9 +255,9 @@ class CalendarioController extends Controller
                     'backgroundColor' => $background,
                     'textColor' => $color,
                     'borderColor' => '#696969',
-                    'display' => 'block',
-                    'title' => $date->paciente->user->nombre_completo,
-                    //'show' => '',
+                    'display'   => 'block',
+                    'title'     => $date->paciente->user->nombre_completo,
+                    'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
                     //'edit' => ''
                 ];
 
@@ -273,13 +273,17 @@ class CalendarioController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function ver_cita(Request $request)
+    public function ver_cita($cita)
     {
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
         //Validate date
-        $validate = Validator::make($request->all(), [
-            'id'  => ['required']
+        $validate = Validator::make(['cita' => $cita], [
+            'cita'  => [
+                'required',
+                Rule::exists('citas', 'id_cita')
+                    ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+            ]
         ]);
 
         if ($validate->fails()) {
@@ -291,7 +295,9 @@ class CalendarioController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $date = Cita::find($request->id);
+        $date = Cita::query()
+            ->with(['profesional', 'paciente', 'paciente.user', 'servicio', 'servicio.tipo_servicio'])
+            ->find($cita);
 
         if ($date->estado == 'reservado') {
             $data = [
@@ -300,25 +306,24 @@ class CalendarioController extends Controller
                 'fecha_fin'     => $date->fecha_fin->format('Y-m-dTh:i:s'),
                 'comentario'    => $date->comentario,
                 'estado'        => $date->estado,
+                //'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
             ];
         } else {
             $data = [
                 'id' => $date->id_cita,
-                'nombre_paciente' => $date->paciente->user->nombre_completo,
-                'numero_id'     => $date->paciente->user->numerodocumento,
-                'correo'        => $date->paciente->user->email,
-                'fecha_inicio'  => $date->fecha_inicio->format('Y-m-d h:i:s'),
-                'fecha_fin'     => $date->fecha_fin->format('Y-m-d h:i:s'),
-                'tipo_cita'     => $date->tipo_consulta->nombreconsulta,
-                'tipo_cita_id'  => $date->tipo_consulta->id,
-                'cantidad'      => $date->pago->valor,
-                'modalidad'     => $date->pago->tipo,
-                'lugar'         => $date->lugar,
-                'estado'        => $date->estado,
-                'pais'          => $date->pais_id,
-                'departamento'  => $date->departamento_id,
-                'provincia'     => $date->provincia_id,
-                'ciudad'        => $date->ciudad_id,
+                'nombre_paciente'   => $date->paciente->user->nombre_completo,
+                'numero_id'         => $date->paciente->user->identificacion,
+                'correo_paciente'   => $date->paciente->user->emai,
+                'tipo_servicio'     => $date->servicio->tipo_servicio->nombre ?? '',
+                'servicio'          => $date->servicio->nombre ?? '',
+                'servicio_id'       => $date->servicio->id ?? '',
+                'fecha'             => $date->fecha,
+                'hora'              => $date->hora,
+                'fecha_inicio'      => $date->fecha_inicio->format('Y-m-dTh:i:s'),
+                'fecha_fin'         => $date->fecha_fin->format('Y-m-dTh:i:s'),
+                'atencion'          => $date->servicio->tipo_atencion ?? '',
+                'lugar'             => $date->lugar,
+                'ver'               => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
             ];
         }
 
