@@ -83,17 +83,26 @@ class buscadorController extends Controller
                 DB::raw('tipoinstituciones.nombretipo as label'),
                 DB::raw('users.nombreinstitucion as type'),
                 DB::raw('CONCAT("' . url('/PerfilInstitucion') . '/", instituciones.slug) as url'),
-                DB::raw('CONCAT("fas fa-hospital-alt icon_inst_med") as icon')
+                DB::raw('CONCAT("fas fa-hospital-alt icon_inst_med") as icon'),
+                DB::raw('IF (logo is not null, concat("' . url('/') . '/", logo) , null) as image')
             )
             ->get();
 
         $ins_profesionales = profesionales_instituciones::query()
-            ->select('primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido', 'id_profesional_inst', 'id_institucion')
+            ->select(
+                'primer_nombre',
+                'segundo_nombre',
+                'primer_apellido',
+                'segundo_apellido',
+                'id_profesional_inst',
+                'id_institucion',
+                DB::raw('IF (foto_perfil_institucion is not null, concat("' . url('/') . '/", foto_perfil_institucion) , null) as image')
+            )
             ->selectRaw('concat(primer_nombre, " ", primer_apellido) as nombre_prof')
             ->selectRaw('concat("especialidad") as type')
             ->addSelect([
                 'type' => especialidades::query()
-                    ->select('nombreEspecialidad as type')
+                    ->select('nombreEspecialidad as type',)
                     ->join('institucion_profesionales_especialidades as prof_t', 'prof_t.id_especialidad', '=', 'especialidades.idEspecialidad', 'left')
                     ->join('profesionales_instituciones as prof_p', 'prof_p.id_especialidad', '=', 'especialidades.idEspecialidad', 'left')
                     ->where(function ($query) {
@@ -134,7 +143,8 @@ class buscadorController extends Controller
                     'label' => $item->nombre_completo,
                     'type'  => "$item->type / $item->place",
                     'url'   => route('PerfilInstitucion-profesionales', ['slug' => $item->slug, 'prof' => "$item->primer_nombre $item->primer_apellido"]),
-                    'icon' => 'fas fa-stethoscope icon_prof_inst'
+                    'icon'  => 'fas fa-stethoscope icon_prof_inst',
+                    'image' => $item->image
                 ];
             });
 
