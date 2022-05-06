@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
 
     <!-- datepicker bootstrap -->
-{{--    <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">
 @endsection
 
 @section('contenido')
@@ -136,7 +136,7 @@
 
     <!-- Modal  agendar cita -->
     <div class="modal fade" id="modal_agregar_cita" tabindex="-1" >
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -144,8 +144,8 @@
                     </button>
                 </div>
 
-                <form method="POST" action="{{ route('profesional.agenda.calendario.crear-cita') }}" id="form-agendar-cita-profesional">
-                    <div class="modal-body">
+                <div class="modal-body">
+                    <form method="POST" action="{{ route('profesional.agenda.calendario.crear-cita') }}" id="form-agendar-cita-profesional">
                         <h1>Agendar cita</h1>
 
                         <div class="form_modal">
@@ -182,8 +182,9 @@
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
-                                    <label for="tipo_cita">Servicios</label>
-                                    <select id="tipo_cita" name="tipo_cita" class="servicio" required data-convenios="#convenios">
+                                    <label for="servicio">Servicios</label>
+                                    <select id="servicio" name="servicio" class="servicio" required
+                                            data-convenios="#convenios" data-disponibilidad="#disponibilidad">
                                         <option></option>
                                         @if($servicios->isNotEmpty())
                                             @foreach($servicios as $servicio)
@@ -211,13 +212,16 @@
 
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="fecha">Fecha</label>
-                                    <input type="text" id="fecha" name="fecha" data-disponibilidad="#disponibilidad"
+                                    <input type="text" id="fecha" name="fecha"
+                                           data-disponibilidad="#disponibilidad"
                                            class="fecha-disponible fecha form-control" readonly/>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="disponibilidad">Horario disponible</label>
-                                    <select id="disponibilidad" name="disponibilidad" required></select>
+                                    <select id="disponibilidad" name="disponibilidad" required
+                                            data-alerts="#alerta-agregar_cita"
+                                            data-fecha="#fecha" data-servicio="#servicio"></select>
                                 </div>
 
                                 <div class="col-12 mb-2">
@@ -268,12 +272,12 @@
                                     <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Pago</h2>
                                 </div>
 
-                                <div class="col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="cantidad">Pago</label>
-                                    <input type="text" id="cantidad" name="cantidad" required/>
+                                    <input type="text" id="cantidad" name="cantidad" required class="valor"/>
                                 </div>
 
-                                <div class="col-lg-6 p-0 pr-lg-2">
+                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="modalidad_pago">Modalidad de pago</label>
                                     <select id="modalidad_pago" name="modalidad_pago" required>
                                         <option value="virtual">Virtual</option>
@@ -282,16 +286,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                </div>
 
-                    <div class="modal-footer content_btn_center">
-                        <button type="button" class="button_transparent"
-                                id="cancelar-cita-btn-profesional" data-dismiss="modal">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="button_blue">Agendar</button>
-                    </div>
-                </form>
+                <div class="modal-footer content_btn_center">
+                    <button type="button" class="button_transparent"
+                            id="cancelar-cita-btn-profesional" data-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button class="button_blue" id="btn-agendar-cita-profesional">Agendar</button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -831,8 +836,8 @@
     <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
 
     <!-- datepicker bootstrap -->
-{{--    <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>--}}
-{{--    <script src="{{ asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js') }}"></script>--}}
+    <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
 
     <script>
 

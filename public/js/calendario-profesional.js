@@ -191,10 +191,12 @@ document.addEventListener('DOMContentLoaded', function() {
     /************* Fin Calendario *************/
     /************* Citas *************/
     //Permite listar el horario disponible
-    function citas_libre(date, disponibilidad) {
-
+    function citas_libre(disponibilidad) {
         $.ajax({
-            data: { date: date},
+            data: {
+                date: $(disponibilidad.data('fecha')).val(),
+                servicio: $(disponibilidad.data('servicio')).val()
+            },
             dataType: 'json',
             url: calendarEl.dataset.daysfree,
             headers: {
@@ -213,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             error: function (res, status) {
                 var response = res.responseJSON;
-                $('#alerta-general').html(alert(response.message, 'danger'));
+                $(disponibilidad.data('alerts')).html(alert(response.message, 'danger'));
             }
         });
     }
@@ -233,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $(servicio.data('convenios')).parents('.input-group')
             .find('.checkbox-activar-convenios').prop('checked', false);
 
+
         if (servicio.val() !== '')
         {
             $.post(servicio.find('option:selected').data('url'), function (data) {
@@ -243,13 +246,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }).fail(function (data) {
                 servicio.parents('.modal').find('.alertas').html(alert(data.responseJSON.message, 'danger'));
             });
+
+            citas_libre($(servicio.data('disponibilidad')));
+
         } else {
             $(servicio.data('convenios')).html('').val('');
         }
     });
 
+    //Llama a dias libres
     $('.fecha').change(function (event) {
-        citas_libre($(this).val(), $($(this).data('disponibilidad')));
+        citas_libre($($(this).data('disponibilidad')));
+    });
+
+    //Rellena la cantidad de la cita
+    $('.convenios, .servicio').change(function (event) {
+        var option = $(this).find('option:selected');
+        if (option.data('cantidad')) {$('.valor').val(option.data('cantidad'));}
     });
 
     //Abrir modal para asignar cita
@@ -265,20 +278,26 @@ document.addEventListener('DOMContentLoaded', function() {
         $('#convenios').prop('disabled', true)
         $('#fecha').val(btn.data('date'));
 
-        citas_libre(btn.data('date'), $('#disponibilidad'));
-
         $('#lugar').val($('#lugar').data('default'));
 
-        modal.modal();
-
         $('#modal_dia_calendario').modal('hide');
+
+        modal.modal();
     });
 
     //Crear la cita
     $('#form-agendar-cita-profesional').submit(function (e) {
+        agregar_cita(e, $(this));
+    });
+
+    $('#btn-agendar-cita-profesional').click(function (e) {
+        agregar_cita(e, $('#form-agendar-cita-profesional'));
+    });
+
+    function agregar_cita(e, form)
+    {
         e.preventDefault();
-        var form = $(this);
-        console.log(form);
+
         $.ajax({
             data: form.serialize(),
             dataType: 'json',
@@ -291,11 +310,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 $('#alerta-general').html(alert(res.message, 'success'));
 
-                $('#agregar_cita').modal('hide');
+                $('#modal_agregar_cita').modal('hide');
                 //resetear formulario
                 form[0].reset();
                 $('#lugar').val($('#lugar').data('default'));
                 $('#numero_id').val(null).trigger('change');
+                $('.checkbox-activar-convenios').prop('checked', false);
+                $('#convenios').prop('disabled', true)
+                $('#fecha').val('');
 
                 setTimeout(function () {
                     calendar.refetchEvents();
@@ -312,7 +334,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 },3000);
             }
         });
-    });
+    }
+
     /************* Fin Citas *************/
 });
 
