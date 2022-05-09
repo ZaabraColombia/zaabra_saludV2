@@ -296,7 +296,7 @@ class CalendarioController extends Controller
         }
 
         $date = Cita::query()
-            ->with(['profesional', 'paciente', 'paciente.user', 'servicio', 'servicio.tipo_servicio'])
+            ->with(['profesional', 'paciente', 'paciente.user', 'servicio', 'servicio.tipo_servicio', 'pago'])
             ->find($cita);
 
         if ($date->estado == 'reservado') {
@@ -309,26 +309,37 @@ class CalendarioController extends Controller
                 //'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
             ];
         } else {
-            $data = [
-                'id' => $date->id_cita,
+            $ver = [
                 'nombre_paciente'   => $date->paciente->user->nombre_completo,
                 'numero_id'         => $date->paciente->user->identificacion,
                 'correo_paciente'   => $date->paciente->user->emai,
                 'tipo_servicio'     => $date->servicio->tipo_servicio->nombre ?? '',
-                'servicio'          => $date->servicio->nombre ?? '',
+                'servicio_text'          => $date->servicio->nombre ?? '',
                 'servicio_id'       => $date->servicio->id ?? '',
                 'fecha'             => $date->fecha,
                 'hora'              => $date->hora,
-                'fecha_inicio'      => $date->fecha_inicio->format('Y-m-dTh:i:s'),
-                'fecha_fin'         => $date->fecha_fin->format('Y-m-dTh:i:s'),
                 'atencion'          => $date->servicio->tipo_atencion ?? '',
-                'lugar'             => $date->lugar,
-                'ver'               => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
+                'lugar'             => $date->lugar
+            ];
+            $data = [
+                'id'        => $date->id_cita,
+                'servicio'  => $date->tipo_cita_id,
+                'convenio'  => $date->convenio_id,
+                'valor'     => $date->pago->valor,
+                'valor_convenio' => $date->pago->valor_convenio,
+                'modalidad' => $date->pago->tipo,
+                'pais'      => $date->pais_id,
+                'departamento' => $date->departamento_id,
+                'provincia' => $date->provincia_id,
+                'ciudad'    => $date->ciudad_id,
+                'lugar'     => $date->lugar,
+                'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
+                'editar'    => route('profesional.agenda.calendario.actualizar-cita', ['cita' => $date->id_cita]),
             ];
         }
 
         return response([
-            'item' => $data
+            'item' => ['ver' => $ver ?? array(),'data' => $data],
         ], Response::HTTP_OK);
     }
 
@@ -356,6 +367,12 @@ class CalendarioController extends Controller
             'provincia_id'      => ['required', 'exists:provincias,id_provincia'],
             'ciudad_id'         => ['required', 'exists:municipios,id_municipio'],
             'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])],
+            'convenio'  => [
+                'nullable',
+                Rule::exists('convenios', 'id')
+                    ->where('estado', 1)
+                    ->where('id_user', Auth::user()->profesional->idUser)
+            ],
             'servicio'  => [
                 'required',
                 Rule::exists('servicios', 'id')
@@ -374,6 +391,7 @@ class CalendarioController extends Controller
             'provincia_id'   => 'Provincia',
             'ciudad_id' => 'Ciudad',
             'servicio'  => 'Servicio',
+            'convenio' => 'Convenio'
         ]);
 
 
@@ -416,7 +434,8 @@ class CalendarioController extends Controller
             'estado'        => 'agendado',
             'lugar'         => $all['lugar'],
             'tipo_cita_id'  => $all['servicio'],
-            'profesional_id'=> $user->profecional->idPerfilProfesional,
+            'convenio_id'   => $all['convenio'],
+            'profesional_id'=> $user->profesional->idPerfilProfesional,
             'paciente_id'   => $patient->paciente->id,
             'pais_id'       => $all['pais_id'],
             'departamento_id'=> $all['departamento_id'],
@@ -453,21 +472,37 @@ class CalendarioController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function actualizar_cita(Request $request)
+    public function actualizar_cita(Request $request, $cita)
     {
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
+        $request->merge(['cita' => $cita]);
         //Validate date
         $validate = Validator::make($request->all(), [
-            'id_cita' => ['required'],
-            'tipo_cita' => ['required'],
+            'cita'      => [
+                'required',
+                Rule::exists('citas', 'id_cita')
+                    ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+            ],
             'lugar'     => ['required'],
             'cantidad'  => ['required'],
             'pais_id'           => ['required', 'exists:pais,id_pais'],
             'departamento_id'   => ['required', 'exists:departamentos,id_departamento'],
             'provincia_id'      => ['required', 'exists:provincias,id_provincia'],
             'ciudad_id'         => ['required', 'exists:municipios,id_municipio'],
-            'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])]
+            'modalidad_pago' => ['required', Rule::in(['virtual', 'presencial'])],
+            'convenio'  => [
+                'nullable',
+                Rule::exists('convenios', 'id')
+                    ->where('estado', 1)
+                    ->where('id_user', Auth::user()->profesional->idUser)
+            ],
+            'servicio'  => [
+                'required',
+                Rule::exists('servicios', 'id')
+                    ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+                    ->where('estado', 1)
+            ]
         ], [
             'id_cita.required' => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar'
         ], [
@@ -478,7 +513,9 @@ class CalendarioController extends Controller
             'departamento_id'=> 'Departamento',
             'provincia_id'   => 'Provincia',
             'ciudad_id' => 'Ciudad',
-            'modalidad_pago' => 'Modalidad de pago'
+            'modalidad_pago' => 'Modalidad de pago',
+            'servicio'  => 'Servicio',
+            'convenio' => 'Convenio'
         ]);
 
         if ($validate->fails()) return response([

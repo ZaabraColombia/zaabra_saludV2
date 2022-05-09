@@ -145,7 +145,9 @@
                 </div>
 
                 <div class="modal-body">
-                    <form method="POST" action="{{ route('profesional.agenda.calendario.crear-cita') }}" id="form-agendar-cita-profesional">
+                    <form method="POST" action="{{ route('profesional.agenda.calendario.crear-cita') }}"
+                          id="form-agendar-cita" class="forms-calendario" data-modal="#modal_agregar_cita"
+                          data-alerta="#alerta-agregar_cita">
                         <h1>Agendar cita</h1>
 
                         <div class="form_modal">
@@ -183,7 +185,7 @@
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="servicio">Servicios</label>
                                     <select id="servicio" name="servicio" class="servicio" required
-                                            data-convenios="#convenios" data-disponibilidad="#disponibilidad">
+                                            data-convenios="#convenio" data-disponibilidad="#disponibilidad">
                                         <option></option>
                                         @if($servicios->isNotEmpty())
                                             @foreach($servicios as $servicio)
@@ -192,7 +194,7 @@
                                                     {{ $servicio->nombre }}
                                                 </option>
                                             @endforeach
-                                        @endisset
+                                        @endif
                                     </select>
                                 </div>
 
@@ -205,21 +207,19 @@
                                                        id="activar-convenios" name="activar-convenios" value="1">
                                             </div>
                                         </div>
-                                        <select class="custom-select convenios" id="convenios" name="convenio"></select>
+                                        <select class="custom-select convenio" id="convenio" name="convenio"></select>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="fecha">Fecha</label>
-                                    <input type="text" id="fecha" name="fecha"
-                                           data-disponibilidad="#disponibilidad"
+                                    <input type="text" id="fecha" name="fecha" data-disponibilidad="#disponibilidad"
                                            class="fecha-disponible fecha form-control" readonly/>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                     <label for="disponibilidad">Horario disponible</label>
                                     <select id="disponibilidad" name="disponibilidad" required
-                                            data-alerts="#alerta-agregar_cita"
                                             data-fecha="#fecha" data-servicio="#servicio"></select>
                                 </div>
 
@@ -230,7 +230,7 @@
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">     <!--menu dinamico ciudades -->
                                     <label for="pais_id">País</label>
                                     <select class="select2 pais" name="pais_id" id="pais_id" data-modal="#modal_agregar_cita"
-                                            data-id="{{ $user->profecional->idpais }}" data-departamento="#departamento_id"
+                                            data-id="{{ $user->profesional->idpais }}" data-departamento="#departamento_id"
                                             data-provincia="#provincia_id" data-ciudad="#ciudad_id">
                                         @if($paises->isNotEmpty())
                                             @foreach($paises as $pais)
@@ -244,20 +244,20 @@
                                     <label for="departamento_id">Departamento</label>
                                     <select name="departamento_id" class="select2 departamento" id="departamento_id"
                                             data-modal="#modal_agregar_cita" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
-                                            data-id="{{ $user->profecional->id_departamento }}"></select>
+                                            data-id="{{ $user->profesional->id_departamento }}"></select>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">
                                     <label for="provincia_id" >Provincia</label>
                                     <select name="provincia_id" class="select2 provincia" id="provincia_id"
                                             data-modal="#modal_agregar_cita" data-ciudad="#ciudad_id"
-                                            data-id="{{ $user->profecional->id_provincia }}"></select>
+                                            data-id="{{ $user->profesional->id_provincia }}"></select>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pl-lg-2 mb-2">
                                     <label for="ciudad_id">Ciudad</label>
                                     <select name="ciudad_id" class="select2" id="ciudad_id" data-modal="#modal_agregar_cita"
-                                            data-id="{{ $user->profecional->id_municipio }}"></select>
+                                            data-id="{{ $user->profesional->id_municipio }}"></select>
                                 </div>
 
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
@@ -293,7 +293,7 @@
                             id="cancelar-cita-btn-profesional" data-dismiss="modal">
                         Cancelar
                     </button>
-                    <button class="button_blue" id="btn-agendar-cita-profesional">Agendar</button>
+                    <button class="button_blue" onclick="$('#form-agendar-cita').trigger('submit')">Agendar</button>
                 </div>
 
             </div>
@@ -333,7 +333,7 @@
                             </div>
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Servicio: &nbsp;</h3>
-                                <span class="servicio">Procedimiento no quirurgico Procedimiento no</span>
+                                <span class="servicio_text">Procedimiento no quirurgico Procedimiento no</span>
                             </div>
                         </div>
 
@@ -357,9 +357,11 @@
                     <button type="submit" class="button_blue" id="btn-cita-reagendar">
                         Reagendar
                     </button>
+                    {{--
                     <button type="submit" class="button_blue" id="btn-cita-editar">
                         Editar
                     </button>
+                    --}}
                     <button type="submit" class="button_blue" id="btn-cita-completar">
                         Completar
                     </button>
@@ -368,119 +370,176 @@
         </div>
     </div>
 
-    <!-- Modal editar cita -->
-    <div class="modal fade " id="modal_editar_cita" tabindex="-1" >
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal_container">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form method="POST" action="{{ route('profesional.agenda.calendario.actualizar-cita') }}" id="form-editar-cita">
-                    <div class="modal-body">
-                        <h1>Editar cita</h1>
+    {{-- Modal editar cita --}}
+    {{--
+<div class="modal fade " id="modal_editar_cita" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content modal_container">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>Editar cita</h1>
 
-                        <div class="modal_info_cita mb-3">
-                            <div class="p-3">
-                                <h2 class="nombre_paciente"></h2>
-                                <p class="numero_id"></p>
-                                <p class="correo"></p>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-md-7 p-0 pl-3 mb-2">
-                                    <h3 class="fecha" ></h3>
-                                    <span class="hora"></span>
-                                </div>
-                                <div class="col-md-5 p-0 pl-3 mb-2">
-                                    <h3>Tipo de cita</h3>
-                                    <span class="tipo_cita"></span>
-                                </div>
-                                <div class="col-12 p-0 pl-3 mb-2 d-flex">
-                                    <h3>Modalidad de pago: &nbsp;</h3>
-                                    <span class="modalidad"></span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="modal_info_cita">
+                    <div class="py-3">
+                        <h2 class="nombre_paciente">Marco Antonio Garzon Sepulveda</h2>
+                        <p class="numero_id">C.C. 80645987</p>
+                        <p class="correo">marco@hotmail.com</p>
+                    </div>
 
-                        <div class="form_modal">
-                            <div class="row m-0">
-                                <div class="col-12 p-0" id="alerta-editar"></div>
-                                <input type="hidden" id="id_cita-editar" name="id_cita"/>
-                                <div class="col-12 p-0">
-                                    <label for="tipo_cita-editar">Tipo de servicio</label>
-                                    <select id="tipo_cita-editar" name="tipo_cita" required>
-                                        <option></option>
-                                        @if($servicios->isNotEmpty())
-                                            @foreach($servicios as $servicio)
-                                                <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
-                                            @endforeach
-                                        @endisset
-                                    </select>
-                                </div>
-
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
-                                    <label for="pais_id-editar">País</label>
-                                    <select class="select2 pais" name="pais_id" id="pais_id-editar" data-modal="#modal_editar_cita"
-                                            data-departamento="#departamento_id-editar" data-provincia="#provincia_id-editar"
-                                            data-ciudad="#ciudad_id-editar">
-                                        @if($paises->isNotEmpty())
-                                            @foreach($paises as $pais)
-                                                <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
-                                    <label for="departamento_id-editar">Departamento</label>
-                                    <select name="departamento_id" class="select2 departamento" id="departamento_id-editar"
-                                            data-modal="#modal_editar_cita" data-provincia="#provincia_id-editar"
-                                            data-ciudad="#ciudad_id-editar"></select>
-                                </div>
-
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
-                                    <label for="provincia_id-editar" >Provincia</label>
-                                    <select name="provincia_id" class="select2 provincia" id="provincia_id-editar"
-                                            data-modal="#modal_editar_cita" data-ciudad="#ciudad_id-editar"
-                                            data-id="{{ $user->profecional->id_provincia }}"></select>
-                                </div>
-
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
-                                    <label for="ciudad_id-editar">Ciudad</label>
-                                    <select name="ciudad_id" class="select2" id="ciudad_id-editar" data-modal="#modal_editar_cita"
-                                            data-id="{{ $user->profecional->id_municipio }}"></select>
-                                </div>
-
-                                <div class="col-12 p-0">
-                                    <label for="lugar-editar">Lugar de cita</label>
-                                    <input type="text" id="lugar-editar" name="lugar" required/>
-                                </div>
-                                <div class="col-md-6 p-0 pr-md-2">
-                                    <label for="modalidad_pago-editar">Modalidad de pago</label>
-                                    <select id="modalidad_pago-editar" name="modalidad_pago" required>
-                                        <option></option>
-                                        <option value="virtual">Virtual</option>
-                                        <option value="presencial">Presencial</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 p-0 pl-md-2">
-                                    <label for="cantidad-editar">Pago</label>
-                                    <input type="text" id="cantidad-editar" name="cantidad" required/>
-                                </div>
-                            </div>
+                    <div class="row m-0">
+                        <div class="col-12 p-0 mb-2">
+                            <h3 class="fecha">miércoles, 27 septiembre 2022</h3>
+                            <span class="hora">08:00 A.M - 08:45 A.M</span>
                         </div>
                     </div>
-                    <div class="modal-footer content_btn_center">
-                        <button type="button" class="button_transparent" data-dismiss="modal">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="button_blue">Guardar</button>
+
+                    <div class="row m-0">
+                        <div class="col-12 d-md-flex p-0 mb-2">
+                            <h3>Tipo de servicio: &nbsp;</h3>
+                            <span class="tipo_servicio">Procedimiento no quirurgico</span>
+                        </div>
+                        <div class="col-12 d-md-flex p-0 mb-2">
+                            <h3>Servicio: &nbsp;</h3>
+                            <span class="servicio_text">Procedimiento no quirurgico Procedimiento no</span>
+                        </div>
+                    </div>
+
+                    <div class="row m-0">
+                        <div class="col-12 d-flex p-0 mb-2">
+                            <h3>Tipo de atención: &nbsp;</h3>
+                            <span class="atencion">Presencial</span>
+                        </div>
+                        <div class="col-md-9 p-0 mb-2">
+                            <h3>Lugar: &nbsp;</h3>
+                            <span class="lugar">EPS Salud Total virrey Solis Olaya</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form method="POST" id="form-editar-cita" class="forms-calendario" data-modal="#modal_agregar_cita"
+                      data-alerta="#alerta-agregar_cita">
+                    <div class="form_modal">
+                        <div class="row m-0">
+                            <div class="col-12 p-0" id="alerta-editar"></div>
+
+                            <div class="col-12 mb-3">
+                                <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;">
+                                    Servicio</h2>
+                            </div>
+
+                            <div class="col-12 p-0">
+                                <label for="servicio-editar">Servicio</label>
+                                <select id="servicio-editar" name="servicio" class="servicio" required
+                                        data-convenios="#convenio-editar">
+                                    <option></option>
+                                    @if($servicios->isNotEmpty())
+                                    @foreach($servicios as $servicio)
+                                    <option value="{{ $servicio->id }}" data-cantidad="{{ $servicio->valor }}"
+                                            data-url="{{ route('profesional.agenda.calendario.convenios', ['servicio' => $servicio->id]) }}">
+                                        {{ $servicio->nombre }}
+                                    </option>
+                                    @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="convenios">Convenio</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" class="checkbox-activar-convenios"
+                                                   id="activar-convenios-editar" name="activar-convenios" value="1">
+                                        </div>
+                                    </div>
+                                    <select class="custom-select convenio" id="convenio-editar"
+                                            name="convenio"></select>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Lugar</h2>
+                            </div>
+
+                            <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <label for="pais_id-editar">País</label>
+                                <select class="select2 pais" name="pais_id" id="pais_id-editar"
+                                        data-modal="#modal_editar_cita"
+                                        data-departamento="#departamento_id-editar"
+                                        data-provincia="#provincia_id-editar"
+                                        data-ciudad="#ciudad_id-editar">
+                                    @if($paises->isNotEmpty())
+                                    @foreach($paises as $pais)
+                                    <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
+                                    @endforeach
+                                    @endif
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <label for="departamento_id-editar">Departamento</label>
+                                <select name="departamento_id" class="select2 departamento" id="departamento_id-editar"
+                                        data-modal="#modal_editar_cita" data-provincia="#provincia_id-editar"
+                                        data-ciudad="#ciudad_id-editar"></select>
+                            </div>
+
+                            <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <label for="provincia_id-editar">Provincia</label>
+                                <select name="provincia_id" class="select2 provincia" id="provincia_id-editar"
+                                        data-modal="#modal_editar_cita" data-ciudad="#ciudad_id-editar"
+                                        data-id="{{ $user->profecional->id_provincia }}"></select>
+                            </div>
+
+                            <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <label for="ciudad_id-editar">Ciudad</label>
+                                <select name="ciudad_id" class="select2" id="ciudad_id-editar"
+                                        data-modal="#modal_editar_cita"
+                                        data-id="{{ $user->profecional->id_municipio }}"></select>
+                            </div>
+
+                            <div class="col-12 p-0">
+                                <label for="lugar-editar">Lugar de cita</label>
+                                <input type="text" id="lugar-editar" name="lugar" required/>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Pago</h2>
+                            </div>
+
+                            <div class="col-md-6 p-0 pr-md-2">
+                                <label for="modalidad_pago-editar">Modalidad de pago</label>
+                                <select id="modalidad_pago-editar" name="modalidad_pago" required>
+                                    <option></option>
+                                    <option value="virtual">Virtual</option>
+                                    <option value="presencial">Presencial</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <label for="cantidad-editar">Pago</label>
+                                <input type="text" id="cantidad-editar" name="cantidad" required class="valor"/>
+                            </div>
+                            <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <label for="cantidad_convenio-editar">Pago convenio</label>
+                                <input type="text" id="cantidad_convenio-editar" name="cantidad_convenio"
+                                       required class="valor"/>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
+            <div class="modal-footer content_btn_center">
+                <button type="button" class="button_transparent" data-dismiss="modal">
+                    Cancelar
+                </button>
+                <button type="submit" class="button_blue" onclick="$('#form-editar-cita').trigger('submit')">Guardar
+                </button>
+            </div>
         </div>
     </div>
+</div>--}}
 
     <!-- Modal  reagendar cita -->
     <div class="modal fade" id="modal_reagendar_cita" tabindex="-1" >
@@ -845,7 +904,7 @@
 
     <!-- Select 2 -->
     <script src="{{ asset('js/calendario-profesional.js') }}"></script>
-    <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
+    <script src="{{ asset('js/ubicacion.js') }}"></script>
 
     <!-- datepicker bootstrap -->
     <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
@@ -865,95 +924,7 @@
                 $('#modal_crear_reserva_calendario').modal();
             });
 
-            //Abrir modal para asignar cita
-            /*$('#btn-day-clicked').click(function (e) {
-                e.preventDefault();
-
-                var btn = $(this);
-                citas_libre(btn.data('date'), $('#disponibilidad'));
-                var modal = $('#agregar_cita');
-                modal.modal();
-                $('#lugar').val($('#lugar').data('default'));
-
-                var pais = $('#pais_id');
-                pais.val(pais.data('id')).trigger('change');
-
-                setTimeout(function () {
-                    var departamento = $('#departamento_id');
-                    departamento.val(departamento.data('id')).trigger('change');
-                },500);
-                setTimeout(function () {
-                    var provincia = $('#provincia_id');
-                    provincia.val(provincia.data('id')).trigger('change');
-                },1000);
-                setTimeout(function () {
-                    var ciudad = $('#ciudad_id');
-                    ciudad.val(ciudad.data('id')).trigger('change');
-                },1500);
-
-
-                $('#modal_dia_calendario').modal('hide');
-            });*/
-
-
             //Llenar precio
-
-            //Abrir modal para editar la cita
-            /*$('#btn-cita-editar').click(function (e) {
-                var btn = $(this);
-                $('#modal_ver_cita').modal('hide');
-
-                $.ajax({
-                    data: { id: btn.data('id') },
-                    dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res) {
-                        var modal = $('#modal_editar_cita');
-
-                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') +
-                            '-' + moment(res.item.fecha_fin).format('hh:mm A'));
-                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
-                        modal.find('.tipo_cita').html(res.item.tipo_cita);
-                        modal.find('.modalidad').html(res.item.modalidad);
-                        modal.find('.correo').html(res.item.correo);
-                        modal.find('.numero_id').html(res.item.numero_id);
-
-                        modal.find('#tipo_cita-editar').val(res.item.tipo_cita_id);
-                        modal.find('#lugar-editar').val(res.item.lugar);
-                        modal.find('#modalidad_pago-editar').val(res.item.modalidad);
-                        modal.find('#cantidad-editar').val(res.item.cantidad);
-                        modal.find('#id_cita-editar').val(res.item.id);
-
-                        console.log(res.item);
-                        var pais = $('#pais_id-editar');
-                        pais.val(res.item.pais).trigger('change');
-
-                        setTimeout(function () {
-                            var departamento = $('#departamento_id-editar');
-                            departamento.val(res.item.departamento).trigger('change');
-                        },500);
-                        setTimeout(function () {
-                            var provincia = $('#provincia_id-editar');
-                            provincia.val(res.item.provincia).trigger('change');
-                        },1000);
-                        setTimeout(function () {
-                            var ciudad = $('#ciudad_id-editar');
-                            ciudad.val(res.item.ciudad).trigger('change');
-                        },1500);
-
-                        modal.modal();
-                    },
-                    error: function (res, status) {
-                        var response = res.responseJSON;
-                        $('#alerta-general').html(alert(response.message, 'danger'));
-                    }
-                });
-            });*/
 
             //Guardar cita editada
             /*$('#form-editar-cita').submit(function (e) {
@@ -1001,7 +972,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
+                    url: '',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },

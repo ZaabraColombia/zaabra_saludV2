@@ -23,7 +23,7 @@ class Cita extends Model
         'paciente_id',
         'profesional_id',
         'profesional_ins_id',
-        //'horario_id',
+        'convenio_id',
         'lugar',
         'tipo_cita_id',
         'especialidad_id',

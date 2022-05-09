@@ -8,4 +8,15 @@ ADD COLUMN `color_cita_cancelada` VARCHAR(10) NULL AFTER `color_cita_agendada`,
 ADD COLUMN `color_bloqueado` VARCHAR(10) NULL AFTER `color_cita_cancelada`,
 ADD COLUMN `dias_agenda` int(11) NULL AFTER `color_bloqueado`;
 
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`citas`
+    ADD COLUMN `convenio_id` INT NULL AFTER `tipo_cita_id`,
+ADD INDEX `fk_citas_convenios_idx` (`convenio_id` ASC);
+;
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`citas`
+    ADD CONSTRAINT `fk_citas_convenios`
+        FOREIGN KEY (`convenio_id`)
+            REFERENCES `zaabrac1_zaabra_salud_test`.`convenios` (`id`)
+            ON DELETE RESTRICT
+            ON UPDATE RESTRICT;
+
 #Subido cesar
