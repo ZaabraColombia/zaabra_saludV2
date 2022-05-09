@@ -25961,7 +25961,7 @@ a:hover {
 .button_transparent {
   font-family: "Quicksand";
   font-size: 16px;
-  color: #434343;
+  color: #434343 !important;
   background: #FFFFFF;
   border: solid 1px #434343;
   border-radius: 5px;
@@ -26065,7 +26065,7 @@ div.dt-buttons {
   font-family: "Quicksand";
   font-size: 1em;
   font-weight: bold;
-  color: #434343;
+  color: #434343 !important;
   background: transparent;
   border: 1px solid #434343;
   border-radius: 3px;
@@ -26267,11 +26267,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #019F86;
   padding: 6px;
   border-radius: 25px;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .table_agenda tbody tr td .btn_action_green:hover {
   background-color: #019F86;

@@ -62,16 +62,16 @@
                 <div class="col-12" id="alertas"></div>
                 <table class="table table_agenda" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
-                    <tr>
-                        <th>Hora</th>
-                        <th>Fecha</th>
-                        <th>Profesional</th>
-                        <th>Paciente</th>
-                        <th>Identificación</th>
-                        <th>Acción</th>
-                        <th>Lugar</th>
-                        <th>Celular</th>
-                    </tr>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Fecha</th>
+                            <th>Profesional</th>
+                            <th>Paciente</th>
+                            <th>Identificación</th>
+                            <th>Acción</th>
+                            <th>Lugar</th>
+                            <th>Celular</th>
+                        </tr>
                     </thead>
                 </table>
             </div>
@@ -91,35 +91,48 @@
                 <form method="post" id="form-reagendar-cita">
                     <div class="modal-body">
                         <div class="modal_info_cita mb-3">
-                            <div class="py-3">
-                                <h2 class="nombre_paciente">Marco Antonio Garzon Sepulveda</h2>
-                                <p class="numero_id">C.C. 80645987</p>
-                                <p class="correo">marco@hotmail.com</p>
+                            <div class="pt-3 pb-2">
+                                <h2 class="nombre_paciente"></h2>
                             </div>
 
                             <div class="row m-0">
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Documento de identidad: &nbsp;</h3>
+                                    <span class="numero_id"></span>
+                                </div>
                                 <div class="col-12 p-0 mb-2">
-                                    <h3 class="fecha">miércoles, 27 septiembre 2022</h3>
-                                    <span class="hora">08:00 A.M - 08:45 A.M</span>
+                                    <h3>Correo electrónico: &nbsp;</h3>
+                                    <p class="correo"></p>
+                                </div>
+                            </div>
+
+                            <div class="row m-0">
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Fecha de la cita: &nbsp;</h3>
+                                    <span class="fecha"></span>
+                                </div>
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Hora de la cita: &nbsp;</h3>
+                                    <span class="hora"></span>
                                 </div>
                                 <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Profesional: &nbsp;</h3>
-                                    <span class="nombre_profesional">Willmar Alejandro Gutierrez Sandoval</span>
+                                    <span class="nombre_profesional"></span>
                                 </div>
                                 <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Especialidad: &nbsp;</h3>
-                                    <span class="especialidad">Cirugia maxilofacial</span>
+                                    <span class="especialidad"></span>
                                 </div>
                             </div>
 
                             <div class="row m-0">
                                 <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Tipo de servicio: &nbsp;</h3>
-                                    <span class="tipo_servicio">Procedimiento no quirurgico</span>
+                                    <span class="tipo_servicio"></span>
                                 </div>
                                 <div class="col-12 d-md-flex p-0 mb-2">
                                     <h3>Servicio: &nbsp;</h3>
-                                    <span class="servicio">Procedimiento no quirurgico Procedimiento no</span>
+                                    <span class="servicio"></span>
                                 </div>
                             </div>
 
@@ -130,12 +143,12 @@
                                 </div>
                                 <div class="col-md-9 p-0 mb-2">
                                     <h3>Lugar: &nbsp;</h3>
-                                    <span class="lugar">EPS Salud Total virrey Solis Olaya</span>
+                                    <span class="lugar"></span>
                                 </div>
                                 {{--
                                 <div class="col-md-3 d-flex d-md-block p-0 mb-2">
                                     <h3 class="text-md-right mr-2 mr-md-0">Consultorio:</h3>
-                                    <span class="d-md-flex justify-content-md-center">203</span>
+                                    <span class="d-md-flex justify-content-md-center"></span>
                                 </div>
                                 --}}
                             </div>
@@ -206,50 +219,63 @@
 
                     <div class="modal_info_cita">
                         <div class="py-3">
-                            <h2 class="nombre_paciente">Marco Antonio Garzon Sepulveda</h2>
-                            <p class="numero_id">C.C. 80645987</p>
-                            <p class="correo">marco@hotmail.com</p>
+                            <h2 class="nombre_paciente"></h2>
                         </div>
 
                         <div class="row m-0">
+                            <div class="col-12 d-md-flex p-0 mb-2">
+                                <h3>Documento de identidad: &nbsp;</h3>
+                                <span class="numero_id"></span>
+                            </div>
                             <div class="col-12 p-0 mb-2">
-                                <h3 class="fecha">miércoles, 27 septiembre 2022</h3>
-                                <span class="hora">08:00 A.M - 08:45 A.M</span>
+                                <h3>Correo electrónico: &nbsp;</h3>
+                                <p class="correo"></p>
+                            </div>
+                        </div>
+
+                        <div class="row m-0">
+                            <div class="col-12 d-md-flex p-0 mb-2">
+                                <h3>Fecha de la cita: &nbsp;</h3>
+                                <span class="fecha"></span>
+                            </div>
+                            <div class="col-12 d-md-flex p-0 mb-2">
+                                <h3>Hora de la cita: &nbsp;</h3>
+                                <span class="hora"></span>
                             </div>
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Profesional: &nbsp;</h3>
-                                <span class="nombre_profesional">Willmar Alejandro Gutierrez Sandoval</span>
+                                <span class="nombre_profesional"></span>
                             </div>
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Especialidad: &nbsp;</h3>
-                                <span class="especialidad">Cirugia maxilofacial</span>
+                                <span class="especialidad"></span>
                             </div>
                         </div>
 
                         <div class="row m-0">
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Tipo de servicio: &nbsp;</h3>
-                                <span class="tipo_servicio">Procedimiento no quirurgico</span>
+                                <span class="tipo_servicio"></span>
                             </div>
                             <div class="col-12 d-md-flex p-0 mb-2">
                                 <h3>Servicio: &nbsp;</h3>
-                                <span class="servicio">Procedimiento no quirurgico Procedimiento no</span>
+                                <span class="servicio"></span>
                             </div>
                         </div>
 
                         <div class="row m-0">
                             <div class="col-12 d-flex p-0 mb-2">
                                 <h3>Tipo de atención: &nbsp;</h3>
-                                <span class="atencion">Presencial</span>
+                                <span class="atencion"></span>
                             </div>
                             <div class="col-md-9 p-0 mb-2">
                                 <h3>Lugar: &nbsp;</h3>
-                                <span class="lugar">EPS Salud Total virrey Solis Olaya</span>
+                                <span class="lugar"></span>
                             </div>
                             {{--
                             <div class="col-md-3 d-flex d-md-block p-0 mb-2">
                                 <h3 class="text-md-right mr-2 mr-md-0">Consultorio:</h3>
-                                <span class="d-md-flex justify-content-md-center">203</span>
+                                <span class="d-md-flex justify-content-md-center"></span>
                             </div>
                             --}}
                         </div>
@@ -310,7 +336,7 @@
                     {data: "paciente.user.numerodocumento", name: 'paciente.user.numerodocumento'},
                     {
                         name: 'edit',
-                        className: 'd-flex justify-content-between',
+                        className: '',
                         data: function (data, type, full, meta) {
                             return '<button  class="btn_action_green tool top editar-cita" data-url="' + data.edit + '">' +
                                 '<i class="fas fa-calendar-day fa-2x"></i>' +
