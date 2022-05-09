@@ -111,7 +111,7 @@
                                 </select>
                             </div>
                             <div class="input__box mb-3">
-                                <label for="tipo_servicio">Tipo de cita</label>
+                                <label for="tipo_servicio">Tipo de servicio</label>
                                 <select id="tipo_servicio" class="form-control" name="tipo_servicio" required>
                                     <option></option>
                                     @if(!empty($servicios))
