@@ -141,6 +141,7 @@ class CalendarioController extends Controller
 
     public function lista_citas(Request $request)
     {
+
         $query = Cita::query()
             ->with([
                 'paciente:id,id_usuario,celular',
@@ -149,6 +150,7 @@ class CalendarioController extends Controller
             ])
             ->whereNotIn('estado', ['cancelado'])
             //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
+            ->whereDate('fecha_inicio', $request->fecha)
             ->whereIn('profesional_ins_id', $request->get('ids'));
 
         return datatables()
@@ -172,6 +174,10 @@ class CalendarioController extends Controller
                 'sede.ciudad'
             ])
             ->where('id_institucion', Auth::user()->institucion->id)
+            ->whereNotNull('sede_id')
+            ->whereHas('servicios', function ($query) {
+                return $query;
+            })
             ->get();
 
         return view('instituciones.admin.calendario.crear-cita', compact('profesionales'));

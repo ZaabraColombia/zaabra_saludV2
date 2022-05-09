@@ -5,11 +5,13 @@
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
             <div class="sidebar__header">
-                <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
-                <div class="user_data">
-                    <h2 style="color: #019F86">{{ $user->nombre_completo ?? $user->nombreinstitucion }}</h2>
-                    <h3>{{ $user->email }}</h3>
-                </div>
+                <a href="{{ route('PerfilInstitucion', ['slug' => $user->institucion->slug]) }}" target="_blank">
+                    <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
+                    <div class="user_data">
+                        <h2 style="color: #019F86">{{ $user->nombre_completo ?? $user->nombreinstitucion }}</h2>
+                        <h3>{{ $user->email }}</h3>
+                    </div>
+                </a>
             </div>
 
             <ul class="menu">
@@ -29,7 +31,7 @@
                     </li>
                 @endcan
 
-                
+
                 {{-- mis pacientes --}}
                 @can('accesos-institucion','ver-pacientes')
                     <li class="sidebar-item  has-sub items_green">
@@ -91,7 +93,7 @@
                         <li class="submenu-item">
                             <a class="{{ (request()->routeIs('institucion.calendario.iniciar-control') or request()->routeIs('institucion.calendario.citas')) ? 'txt_active_green' : '' }}"
                                href="{{ route('institucion.calendario.iniciar-control') }}">
-                                Control citas
+                                Administración citas
                             </a>
                         </li>
                         <li class="submenu-item">
@@ -100,13 +102,11 @@
                                 Agendar cita
                             </a>
                         </li>
-                        {{--
                         <li class="submenu-item">
                             <a id="" class="" href="#">
-                                Bloquear agenda
+                                Historial de bloqueos
                             </a>
                         </li>
-                        --}}
                     </ul>
                 </li>
 

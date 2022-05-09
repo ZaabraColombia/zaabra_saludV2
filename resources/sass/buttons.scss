@@ -27,7 +27,7 @@
 .button_transparent {
     font-family: "Quicksand";
     font-size: 16px;
-    color: $black_second;
+    color: $black_second !important;
     background: $withe_official;
     border: solid 1px $black_second;
     border-radius: 5px;
@@ -133,7 +133,7 @@ div.dt-buttons {
     font-family: "Quicksand";
     font-size: 1em;
     font-weight: bold;
-    color: $black_second;
+    color: $black_second !important;
     background: transparent;
     border: 1px solid $black_second;
     border-radius: 3px;
