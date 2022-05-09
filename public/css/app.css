@@ -26267,6 +26267,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #019F86;
   padding: 6px;
   border-radius: 25px;
+  width: 35px;
+  height: 35px;
 }
 .table_agenda tbody tr td .btn_action_green:hover {
   background-color: #019F86;
