@@ -172,6 +172,10 @@ class CalendarioController extends Controller
                 'sede.ciudad'
             ])
             ->where('id_institucion', Auth::user()->institucion->id)
+            ->whereNotNull('sede_id')
+            ->whereHas('servicios', function ($query) {
+                return $query;
+            })
             ->get();
 
         return view('instituciones.admin.calendario.crear-cita', compact('profesionales'));
