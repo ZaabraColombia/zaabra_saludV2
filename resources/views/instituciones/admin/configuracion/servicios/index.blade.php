@@ -58,7 +58,7 @@
                             @foreach($servicios as $servicio)
                                 <tr>
                                     <td>{{ $servicio->nombre }}</td>
-                                    <td>Tipo de servicio 001</td>
+                                    <td>{{ $servicio->tipo_servicio->nombre ?? '' }}</td>
                                     <td>{{ $servicio->valor }}</td>
                                     <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
                                     <td>

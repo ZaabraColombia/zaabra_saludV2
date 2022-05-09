@@ -30,6 +30,7 @@ class ServiciosController extends Controller
         Gate::authorize('accesos-institucion','ver-servicios');
 
         $servicios = Servicio::query()
+            ->with('tipo_servicio')
             ->where('institucion_id', '=', Auth::user()->institucion->id )
             ->get();
 
