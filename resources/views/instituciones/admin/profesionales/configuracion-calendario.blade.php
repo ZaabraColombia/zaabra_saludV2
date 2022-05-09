@@ -14,13 +14,15 @@
                     <h1 class="title__xl green_bold">Configuración de calendario</h1>
                     <h2 class="text__md black_light">Administre el horario de las citas</h2>
                 </div>
-     
+
                 <div class="prof_data_top">
-                    <img class="prof_img_top" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
-                    <div class="pl-3">
-                        <h5 class="text__md black_light">{{ $profesional->nombre_completo }}</h5>
-                        <h5 class="text__md black_light">{{ $profesional->nombre_especialidad ?? '' }}</h5>
-                    </div>
+                    <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}">
+                        <img class="prof_img_top" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                        <div class="pl-3">
+                            <h5 class="text__md black_light">{{ $profesional->nombre_completo }}</h5>
+                            <h5 class="text__md black_light">{{ $profesional->nombre_especialidad ?? '' }}</h5>
+                        </div>
+                    </a>
                 </div>
             </div>
 
