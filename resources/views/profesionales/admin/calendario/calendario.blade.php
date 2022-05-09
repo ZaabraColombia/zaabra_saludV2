@@ -556,26 +556,42 @@
                         <h1>Reagendar cita</h1>
 
                         <div class="modal_info_cita mb-3">
-                            <div class="p-3">
-                                <h2 class="nombre_paciente"></h2>
-                                <p class="numero_id"></p>
-                                <p class="correo"></p>
+                            <div class="py-3">
+                                <h2 class="nombre_paciente">Marco Antonio Garzon Sepulveda</h2>
+                                <p class="numero_id">C.C. 80645987</p>
+                                <p class="correo">marco@hotmail.com</p>
                             </div>
+
                             <div class="row m-0">
-                                <div class="col-md-7 p-0 pl-3 mb-2">
-                                    <h3 class="fecha"></h3>
-                                    <span class="hora"></span>
+                                <div class="col-12 p-0 mb-2">
+                                    <h3 class="fecha">miércoles, 27 septiembre 2022</h3>
+                                    <span class="hora">08:00 A.M - 08:45 A.M</span>
                                 </div>
-                                <div class="col-md-5 p-0 pl-3 mb-2">
-                                    <h3>Tipo de cita</h3>
-                                    <span class="tipo_cita"></span>
+                            </div>
+
+                            <div class="row m-0">
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Tipo de servicio: &nbsp;</h3>
+                                    <span class="tipo_servicio">Procedimiento no quirurgico</span>
                                 </div>
-                                <div class="col-12 p-0 pl-3 mb-2 d-flex">
-                                    <h3>Modalidad de pago: &nbsp;</h3>
-                                    <span class="modalidad"></span>
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Servicio: &nbsp;</h3>
+                                    <span class="servicio_text">Procedimiento no quirurgico Procedimiento no</span>
+                                </div>
+                            </div>
+
+                            <div class="row m-0">
+                                <div class="col-12 d-flex p-0 mb-2">
+                                    <h3>Tipo de atención: &nbsp;</h3>
+                                    <span class="atencion">Presencial</span>
+                                </div>
+                                <div class="col-md-9 p-0 mb-2">
+                                    <h3>Lugar: &nbsp;</h3>
+                                    <span class="lugar">EPS Salud Total virrey Solis Olaya</span>
                                 </div>
                             </div>
                         </div>
+
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
@@ -960,47 +976,6 @@
                         setTimeout(function () {
                             calendar.refetchEvents();
                         },3000);
-                    }
-                });
-            });*/
-
-            //Abrir modal para reagendar cita
-            /*$('#btn-cita-reagendar').click(function (e) {
-                var btn = $(this);
-                $('#modal_ver_cita').modal('hide');
-
-                $.ajax({
-                    data: { id: btn.data('id') },
-                    dataType: 'json',
-                    url: '',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res) {
-                        var modal = $('#modal_reagendar_cita');
-
-                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') +
-                            '-' + moment(res.item.fecha_fin).format('hh:mm A'));
-                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
-                        modal.find('.tipo_cita').html(res.item.tipo_cita);
-                        modal.find('.modalidad').html(res.item.modalidad);
-                        modal.find('.correo').html(res.item.correo);
-                        modal.find('.numero_id').html(res.item.numero_id);
-
-                        modal.find('#fecha-reasignar').val(moment().format('YYYY-MM-DD'));
-                        modal.find('#id_cita-reasignar').val(res.item.id);
-
-                        $('#dia-anterior').prop('disabled', true);
-
-                        citas_libre(moment().format('YYYY-MM-DD'), $('#disponibilidad-reasignar'));
-
-                        modal.modal();
-                    },
-                    error: function (res, status) {
-                        var response = res.responseJSON;
-                        $('#alerta-general').html(alert(response.message, 'danger'));
                     }
                 });
             });*/

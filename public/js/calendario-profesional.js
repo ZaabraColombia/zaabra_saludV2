@@ -402,6 +402,42 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    //Abrir modal para reagendar cita
+    $('#btn-cita-reagendar').click(function (e) {
+        var btn = $(this);
+        $('#modal_ver_cita').modal('hide');
+
+        $.ajax({
+            data: { id: btn.data('id') },
+            dataType: 'json',
+            url: btn.data('url'),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            success: function (res) {
+                var modal = $('#modal_reagendar_cita');
+
+                $.each(res.item.ver, function (key, item) {
+                    modal.find('.' + key).html(item);
+                });
+
+                modal.find('#fecha-reasignar').val(res.item.data.fecha);
+                modal.find('#servicio-reasignar').val(res.item.id);
+
+                $('#dia-anterior').prop('disabled', true);
+
+                citas_libre(moment().format('YYYY-MM-DD'), $('#disponibilidad-reasignar'));
+
+                modal.modal();
+            },
+            error: function (res, status) {
+                var response = res.responseJSON;
+                $('#alerta-general').html(alert(response.message, 'danger'));
+            }
+        });
+    });
     /************* Fin Citas *************/
 });
 
