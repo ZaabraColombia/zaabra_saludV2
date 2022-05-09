@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="prof_data_top">
-                    <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}">
+                    <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
                         <img class="prof_img_top" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
                         <div class="pl-3">
                             <h5 class="text__md black_light">{{ $profesional->nombre_completo }}</h5>
