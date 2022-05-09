@@ -9,10 +9,20 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Control de actividades</h1>
+                <h1 class="title__xl green_bold">Administración citas</h1>
                 <p class="text__md black_light">
-                    Controle el inico de actividades filtrandolas por: Profesionales, servicios y especialidades, para una optima gestión y flujo de citas médicas de la institución.
+                    Gestione el flujo de pacientes de uno o varios consultorios. <br><br> Filtrar por:
                 </p>
+                <div class="filtrado_citas">
+                    <ul class="m-0">
+                        <li>Fecha</li>
+                        <li>Profesionales</li>
+                    </ul>
+                    <ul class="m-0">
+                        <li>Servicio</li>
+                        <li>Especialidad</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="containt_main_table mb-3">

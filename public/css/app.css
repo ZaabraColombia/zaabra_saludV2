@@ -25014,6 +25014,11 @@ a:hover {
     margin-bottom: 5%;
     margin-left: auto;
   }
+
+  .filtrado_citas ul > li::marker {
+    font-size: 25px;
+    color: #019F86;
+  }
 }
 @media (min-width: 360px) and (orientation: portrait) {
   .containt__calendar {
@@ -25064,6 +25069,11 @@ a:hover {
 
   .containt__calendar {
     padding: 0 60px;
+  }
+
+  .filtrado_citas {
+    display: flex;
+    justify-content: space-evenly;
   }
 
   .panel-Administrativo_prof {
@@ -25194,6 +25204,16 @@ a:hover {
 
   .containt__calendar {
     padding: 0 0 0 40px;
+  }
+
+  .filtrado_citas {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .filtrado_citas ul > li::marker {
+    font-size: 25px;
+    color: #019F86;
   }
 
   .section_addFile_consulta {
