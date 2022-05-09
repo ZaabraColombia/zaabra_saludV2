@@ -91,7 +91,7 @@
                         <li class="submenu-item">
                             <a class="{{ (request()->routeIs('institucion.calendario.iniciar-control') or request()->routeIs('institucion.calendario.citas')) ? 'txt_active_green' : '' }}"
                                href="{{ route('institucion.calendario.iniciar-control') }}">
-                                Control citas
+                                Administración citas
                             </a>
                         </li>
                         <li class="submenu-item">
@@ -100,13 +100,11 @@
                                 Agendar cita
                             </a>
                         </li>
-                        {{--
                         <li class="submenu-item">
                             <a id="" class="" href="#">
-                                Bloquear agenda
+                                Historial de bloqueos
                             </a>
                         </li>
-                        --}}
                     </ul>
                 </li>
 

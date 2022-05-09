@@ -29,6 +29,11 @@
     position: relative;
     flex-wrap: wrap;
 }
+// pildoras Informativas calendario profesional institución
+.width_pill {
+    width: 70%;
+    margin: auto;
+}
 // Fin de contenedores implementados con CSS puro
 // Listas 
 .list__form {
@@ -177,9 +182,9 @@
         border-radius: 25px;
         width: 35px;
         height: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
         &:hover {
             background-color: $green_official;
             color: $withe_official;
@@ -306,7 +311,7 @@
         padding-left: 25px;
     }
     .align_between_1300 {
-        align-content: space-between;
+        align-content: flex-start;
     }
     .w_lg_35 {
         width: 35%;
