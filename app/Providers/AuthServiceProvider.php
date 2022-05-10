@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Contacto;
 use App\Models\Convenios;
 use App\Models\profesionales_instituciones;
 use App\Models\Servicio;
@@ -66,6 +67,11 @@ class AuthServiceProvider extends ServiceProvider
                     ->whereIn('slug', $array)
                     ->where('tipo', 'like', 'profesional')
                     ->count() >= 1;
+        });
+
+        //Validar si puede editar contactos de profesional
+        Gate::define('update-contactos-profesional', function (User $user, Contacto $contacto) {
+            return $user->profesional->idUser === $contacto->user_id;
         });
 
         //Validar si puede editar convenio de profesional
