@@ -337,6 +337,7 @@ class CalendarioController extends Controller
                 'ver'           => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
                 //'editar'        => route('profesional.agenda.calendario.actualizar-cita', ['cita' => $date->id_cita]),
                 'reagendar'     => route('profesional.agenda.calendario.reagendar-cita', ['cita' => $date->id_cita]),
+                'cancelar'      => route('profesional.agenda.calendario.cancelar-cita', ['cita' => $date->id_cita]),
             ];
         }
 

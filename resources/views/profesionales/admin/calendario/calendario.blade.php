@@ -670,8 +670,8 @@
                 </div>
 
                 <div class="modal-footer content_btn_center">
-                    <form action="{{ route('profesional.agenda.calendario.cancelar-cita') }}" method="post" id="form-cita-cancelar">
-                        <input type="hidden" class="form-control" id="id_cita-cancelar" name="id_cita"/>
+                    <form method="post" id="form-cita-cancelar" class="forms-calendario" data-modal="#modal_reagendar_cita"
+                          data-alerta="#alerta-reasignar">
                         <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_blue" id="">Confirmar</button>
                     </form>
