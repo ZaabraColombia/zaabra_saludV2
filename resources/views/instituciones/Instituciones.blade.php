@@ -2,7 +2,6 @@
 
 @section('content')
   <h1 class="titulo_instituciones">{{$objtipoinstitucion->nombretipo}}</h1>
-
   <section class="contains_swiper_premium_insti">
     <div class="swiper-container swiper_premium_insti">
       <div class="swiper-wrapper">

@@ -5,7 +5,7 @@
     <div class="sidebar-wrapper active ps ps--active-y">
         <div class="sidebar-menu">
             <div class="sidebar__header">
-                <a href="{{ route('PerfilInstitucion', ['slug' => $user->institucion->slug]) }}" target="_blank">
+                <a class="d-flex" href="{{ route('PerfilInstitucion', ['slug' => $user->institucion->slug]) }}" target="_blank">
                     <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
                     <div class="user_data">
                         <h2 style="color: #019F86">{{ $user->nombre_completo ?? $user->nombreinstitucion }}</h2>
