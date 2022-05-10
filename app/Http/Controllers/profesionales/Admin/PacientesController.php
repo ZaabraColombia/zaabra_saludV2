@@ -17,7 +17,7 @@ class PacientesController extends Controller
 
         $pacientes = Paciente::query()
             ->whereHas('citas', function ($query) {
-                $query->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional);
+                $query->where('profesional_id', '=', Auth::user()->profesional->idPerfilProfesional);
             })
             ->with('user')
             ->get();

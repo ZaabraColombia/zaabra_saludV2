@@ -31,11 +31,11 @@
                     <div class="row m-0 content_dias_agenda mb-md-3">
                         <h2>Días</h2>
                         <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF" readonly> Días disponibles</label>
+                            <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF" disabled readonly> Días disponibles</label>
                         </div>
 
                         <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8" readonly> Días no disponibles</label>
+                            <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8" disabled readonly> Días no disponibles</label>
                         </div>
 
                         <h2>Eventos</h2>
@@ -263,8 +263,8 @@
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="lugar">Lugar de cita</label>
                                     <input type="text" id="lugar" name="lugar" required
-                                           value="{{ $user->profecional->direccion }}"
-                                           data-default="{{ $user->profecional->direccion }}" />
+                                           value="{{ $user->profesional->direccion }}"
+                                           data-default="{{ $user->profesional->direccion }}" />
                                 </div>
 
                                 <div class="col-12 mb-2">
@@ -490,14 +490,14 @@
                                 <label for="provincia_id-editar">Provincia</label>
                                 <select name="provincia_id" class="select2 provincia" id="provincia_id-editar"
                                         data-modal="#modal_editar_cita" data-ciudad="#ciudad_id-editar"
-                                        data-id="{{ $user->profecional->id_provincia }}"></select>
+                                        data-id="{{ $user->profesional->id_provincia }}"></select>
                             </div>
 
                             <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                 <label for="ciudad_id-editar">Ciudad</label>
                                 <select name="ciudad_id" class="select2" id="ciudad_id-editar"
                                         data-modal="#modal_editar_cita"
-                                        data-id="{{ $user->profecional->id_municipio }}"></select>
+                                        data-id="{{ $user->profesional->id_municipio }}"></select>
                             </div>
 
                             <div class="col-12 p-0">

@@ -61,8 +61,9 @@ class AuthServiceProvider extends ServiceProvider
         //Validar acceso a módulos de profesional
         Gate::define('accesos-profesional', function (User $user, $slug) {
             //Valida si es un auxiliar
+            $array = (is_array($slug)) ? $slug:[$slug];
             return $user->roles()->where('idrol', '!=', 5)->count() >= 1 || $user->accesos()
-                    ->where('slug', '=', $slug)
+                    ->whereIn('slug', $array)
                     ->where('tipo', 'like', 'profesional')
                     ->count() >= 1;
         });

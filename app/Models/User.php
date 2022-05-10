@@ -80,7 +80,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function profesional()
     {
-        $role = $this->roles()->where('idrol', 4)->first();
+        $role = $this->roles()->where('idrol', 5)->first();
         if (!empty($role))
         {
             return $this->belongsTo(perfilesprofesionales::class,'profesional_id', 'idPerfilProfesional');

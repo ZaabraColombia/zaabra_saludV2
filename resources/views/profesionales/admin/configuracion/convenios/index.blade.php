@@ -21,11 +21,13 @@
                         <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar convenio" />
                     </div>
 
-                    <div class="col-md-3 p-0 content_btn_right">
-                        <a href="{{ route('profesional.configuracion.convenios.create') }}" class="button_blue" id="btn-agregar-contacto">
-                            Agregar
-                        </a>
-                    </div>
+                    @can('accesos-profesional',['agregar-convenio'])
+                        <div class="col-md-3 p-0 content_btn_right">
+                            <a href="{{ route('profesional.configuracion.convenios.create') }}" class="button_blue" id="btn-agregar-contacto">
+                                Agregar
+                            </a>
+                        </div>
+                    @endcan
                 </div>
             </div>
 
@@ -45,14 +47,14 @@
                 <div class="table-responsive">
                     <table class="table table_agenda" id="table-pacientes">
                         <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                                <th>Tipo de empresa</th>
-                                <th>Teléfonos</th>
-                                <th>Correo</th>
-                                <th class="text-center">Acción</th>
-                            </tr>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Tipo de empresa</th>
+                            <th>Teléfonos</th>
+                            <th>Correo</th>
+                            <th class="text-center">Acción</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @if($convenios->isNotEmpty())
@@ -70,10 +72,12 @@
                                                 <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
                                             </button>
 
-                                            <a class="btn_action tool top" style="width: 33px"
-                                               href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
-                                            </a>
+                                            @can('accesos-profesional',['editar-convenio'])
+                                                <a class="btn_action tool top" style="width: 33px"
+                                                   href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
+                                                </a>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>

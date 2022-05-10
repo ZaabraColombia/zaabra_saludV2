@@ -21,11 +21,13 @@
                         <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar usuario">
                     </div>
 
-                    <div class="col-md-3 p-0 content_btn_right">
-                        <a href="{{ route('profesional.configuracion.usuarios.create') }}" class="button_blue" id="btn-agregar-contacto">
-                            Agregar
-                        </a>
-                    </div>
+                    @can('accesos-profesional',['agregar-usuario'])
+                        <div class="col-md-3 p-0 content_btn_right">
+                            <a href="{{ route('profesional.configuracion.usuarios.create') }}" class="button_blue" id="btn-agregar-contacto">
+                                Agregar
+                            </a>
+                        </div>
+                    @endcan
                 </div>
             </div>
 
@@ -67,10 +69,12 @@
                                                     data-url="{{ route('profesional.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
                                                 <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
                                             </button>
-                                            <a class="btn_action  tool top" style="width: 33px"
-                                               href="{{ route('profesional.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
-                                            </a>
+                                            @can('accesos-profesional',['editar-usuario'])
+                                                <a class="btn_action  tool top" style="width: 33px"
+                                                   href="{{ route('profesional.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
+                                                </a>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>
