@@ -21,11 +21,13 @@
                         <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar servicio">
                     </div>
 
-                    <div class="col-md-3 p-0 content_btn_right">
-                        <a href="{{ route('profesional.configuracion.servicios.create') }}" class="button_blue" id="btn-agregar-contacto">
-                            Agregar
-                        </a>
-                    </div>
+                    @can('accesos-profesional',['agregar-servicio'])
+                        <div class="col-md-3 p-0 content_btn_right">
+                            <a href="{{ route('profesional.configuracion.servicios.create') }}" class="button_blue" id="btn-agregar-contacto">
+                                Agregar
+                            </a>
+                        </div>
+                    @endcan
                 </div>
             </div>
 
@@ -66,10 +68,12 @@
                                                 <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
                                             </button>
 
-                                            <a class="btn_action tool top" style="width: 33px"
-                                               href="{{ route('profesional.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
-                                            </a>
+                                            @can('accesos-profesional',['editar-servicio'])
+                                                <a class="btn_action tool top" style="width: 33px"
+                                                   href="{{ route('profesional.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
+                                                </a>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>
