@@ -572,13 +572,13 @@ class CalendarioController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function cancelar_cita(Request $request)
+    public function cancelar_cita(Request $request, $cita)
     {
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
         $user = Auth::user();
         $cita = Cita::query()
-            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('id_cita', '=', $cita)
             ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
             ->first();
 

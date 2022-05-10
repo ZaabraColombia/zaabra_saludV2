@@ -322,8 +322,6 @@ document.addEventListener('DOMContentLoaded', function() {
     /************* Fin Configuraciones *************/
 
     /************* Citas *************/
-
-
     //Abrir modal para asignar cita
     $('#btn-agendar-cita').click(function (e) {
         e.preventDefault();
@@ -429,6 +427,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 form.attr('action', res.item.data.reagendar);
                 citas_libre($('#disponibilidad-reasignar'));
+
+                modal.modal();
+            },
+            error: function (res, status) {
+                var response = res.responseJSON;
+                $('#alerta-general').html(alert(response.message, 'danger'));
+            }
+        });
+    });
+
+    $('#btn-cita-cancelar').click(function (e) {
+        var btn = $(this);
+        $('#modal_ver_cita').modal('hide');
+        var form = $('#form-cita-cancelar');
+
+        $.ajax({
+            data: { id: btn.data('id') },
+            dataType: 'json',
+            url: btn.data('url'),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            success: function (res) {
+                var modal = $('#modal_cancelar_cita');
+
+                $.each(res.item.ver, function (key, item) {
+                    modal.find('.' + key).html(item);
+                });
+                form.attr('action', res.item.data.cancelar);
 
                 modal.modal();
             },
