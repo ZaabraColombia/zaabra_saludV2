@@ -31,11 +31,11 @@
                     <div class="row m-0 content_dias_agenda mb-md-3">
                         <h2>Días</h2>
                         <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF" readonly> Días disponibles</label>
+                            <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF" disabled readonly> Días disponibles</label>
                         </div>
 
                         <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8" readonly> Días no disponibles</label>
+                            <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8" disabled readonly> Días no disponibles</label>
                         </div>
 
                         <h2>Eventos</h2>
