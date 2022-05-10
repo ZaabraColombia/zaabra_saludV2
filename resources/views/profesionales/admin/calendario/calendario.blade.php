@@ -263,8 +263,8 @@
                                 <div class="col-12 col-lg-6 p-0 pr-lg-2">
                                     <label for="lugar">Lugar de cita</label>
                                     <input type="text" id="lugar" name="lugar" required
-                                           value="{{ $user->profecional->direccion }}"
-                                           data-default="{{ $user->profecional->direccion }}" />
+                                           value="{{ $user->profesional->direccion }}"
+                                           data-default="{{ $user->profesional->direccion }}" />
                                 </div>
 
                                 <div class="col-12 mb-2">
@@ -490,14 +490,14 @@
                                 <label for="provincia_id-editar">Provincia</label>
                                 <select name="provincia_id" class="select2 provincia" id="provincia_id-editar"
                                         data-modal="#modal_editar_cita" data-ciudad="#ciudad_id-editar"
-                                        data-id="{{ $user->profecional->id_provincia }}"></select>
+                                        data-id="{{ $user->profesional->id_provincia }}"></select>
                             </div>
 
                             <div class="col-12 col-lg-6 p-0 pl-lg-2">
                                 <label for="ciudad_id-editar">Ciudad</label>
                                 <select name="ciudad_id" class="select2" id="ciudad_id-editar"
                                         data-modal="#modal_editar_cita"
-                                        data-id="{{ $user->profecional->id_municipio }}"></select>
+                                        data-id="{{ $user->profesional->id_municipio }}"></select>
                             </div>
 
                             <div class="col-12 p-0">

@@ -102,7 +102,7 @@ class CalendarioController extends Controller
         $servicio = Servicio::query()->find($request->get('servicio'));
 
         //Citas médicas
-        //$datesOperatives = $user->profecional->citas;
+        //$datesOperatives = $user->profesional->citas;
         $datesOperatives = Cita::query()
             ->where('profesional_id', $user->profesional->idPerfilProfesional)
             ->whereNotIn('estado', ['completo', 'cancelado'])
@@ -197,7 +197,7 @@ class CalendarioController extends Controller
                     ->whereColumn('tipo_cita_id', 'tipoconsultas.id')
                     ->take(1)
             ])
-            ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
+            ->where('profesional_id', '=', Auth::user()->profesional->idPerfilProfesional)
             ->where('estado', '!=', 'cancelado')
             ->where('estado', '!=', 'completado')
             //->where('Fecha_inicio', '>=', date('Y-m-d') . " 00:00")
@@ -419,7 +419,7 @@ class CalendarioController extends Controller
         $user = Auth::user();
 
         //Validar la disponibilidad de la cita
-        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+        $date_count = Cita::query()->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
             ->validar($all['disponibilidad']['start'], $all['disponibilidad']['end'])->count();
 
 
@@ -540,7 +540,7 @@ class CalendarioController extends Controller
         $user = Auth::user();
         $cita = Cita::query()
             ->where('id_cita', '=', $request->get('id_cita'))
-            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
             ->first();
 
         if (empty($cita)) return response([
@@ -588,7 +588,7 @@ class CalendarioController extends Controller
         $user = Auth::user();
         $cita = Cita::query()
             ->where('id_cita', '=', $cita)
-            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
             ->first();
 
         if (empty($cita)) return response([
@@ -660,7 +660,7 @@ class CalendarioController extends Controller
 
         $cita = Cita::query()
             ->where('id_cita', '=', $cita)
-            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
             ->first();
 
         if (empty($cita)) return response([
@@ -739,7 +739,7 @@ class CalendarioController extends Controller
 
         $cita = Cita::query()
             ->where('id_cita', '=', $cita)
-            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
             ->first();
 
         if (empty($cita)) return response([
@@ -820,7 +820,7 @@ class CalendarioController extends Controller
             'fecha_inicio'  => date('Y-m-d H:i', strtotime($all['fecha_inicio'])),
             'fecha_fin'     => date('Y-m-d H:i', strtotime($all['fecha_fin'])),
             'estado'        => 'reservado',
-            'profesional_id'=> $user->profecional->idPerfilProfesional,
+            'profesional_id'=> $user->profesional->idPerfilProfesional,
             'comentario'   => $all['comentarios'] ?? '',
         ];
         Cita::query()->create($query);
