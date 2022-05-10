@@ -60,13 +60,15 @@
                                 <tr>
                                     <td class="pr-0">
                                         <div class="user__xl">
-                                            <div class="pr-2">
-                                                <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
-                                            </div>
+                                            <a class="d-flex" href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
+                                                <div class="pr-2">
+                                                    <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                                                </div>
 
-                                            <div>
-                                                <span>{{ $profesional->nombre_completo }}</span>
-                                            </div>
+                                                <div>
+                                                    <span>{{ $profesional->nombre_completo }}</span>
+                                                </div>
+                                            </a>
                                         </div>
                                     </td>
                                     <td>{{ $profesional->nombre_especialidad ?? '' }}</td>
@@ -76,12 +78,12 @@
                                     <td>
                                         <div class="d-flex justify-content-between">
                                             <a class="btn_action_green tool top"
-                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                               href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
                                                 <i style="width: 20px" data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
                                             </a>
 
                                             <a class="btn_action_green tool top"
-                                            href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                               href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
                                                 <i style="width: 20px" data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
                                             </a>
 
