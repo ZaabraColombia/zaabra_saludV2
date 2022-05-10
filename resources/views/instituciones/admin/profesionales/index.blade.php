@@ -75,19 +75,19 @@
                                     <td>{{ $profesional->direccion }}</td>
                                     <td>
                                         <div class="d-flex justify-content-between">
-                                            <a class="btn_action_green tool top" style="width: 33px"
+                                            <a class="btn_action_green tool top"
                                             href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
+                                                <i style="width: 20px" data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
                                             </a>
 
-                                            <a class="btn_action_green tool top" style="width: 33px"
+                                            <a class="btn_action_green tool top"
                                             href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
+                                                <i style="width: 20px" data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
                                             </a>
 
-                                            <button class="btn_action_green tool top bloquear-agenda" style="width: 33px"
+                                            <button class="btn_action_green tool top bloquear-agenda"
                                                     data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
+                                                <i style="width: 20px" data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
                                             </button>
                                         </div>
                                     </td>
