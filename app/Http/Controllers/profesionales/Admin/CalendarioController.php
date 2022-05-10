@@ -895,7 +895,7 @@ class CalendarioController extends Controller
 
         $cita = Cita::query()
             ->where('id_cita', '=', $request->get('cita'))
-            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
             ->first();
 
         if (empty($cita)) return response([
@@ -929,14 +929,14 @@ class CalendarioController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function reservar_cancelar(Request $request)
+    public function reservar_cancelar(Request $request, $cita)
     {
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
         $user = Auth::user();
         $cita = Cita::query()
-            ->where('id_cita', '=', $request->get('id_cita'))
-            ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
+            ->where('id_cita', '=', $cita)
+            ->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
             ->first();
 
         if (empty($cita)) return response([

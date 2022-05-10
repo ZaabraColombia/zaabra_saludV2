@@ -877,11 +877,11 @@
                     </button>
                 </div>
                 <form method="post" id="form-reserva-calendario-editar" class="forms-calendario" data-modal="#modal_editar_reserva_calendario"
-                      data-alerta="#alerta-crear-reserva-calendario">
+                      data-alerta="#alerta-editar-reserva-calendario">
                     <div class="modal-body">
                         <h1>Bloqueo del calendario</h1>
 
-                        <div class="col-12 p-0" id="alerta-crear-reserva-calendario"></div>
+                        <div class="col-12 p-0" id="alerta-editar-reserva-calendario"></div>
 
                         <div class="form_modal">
                             <div class="row m-0">
@@ -927,19 +927,26 @@
                 </div>
 
                 <div class="modal-body">
-                    <h1>Cancelar reserva</h1>
+                    <h1>Cancelar bloqueo</h1>
                     <div class="modal_info_cita">
                         <div class="p-3">
-                            <h2 class="fecha_inicio"></h2>
-                            <h2 class="fecha_fin"></h2>
-                            <p class="comentario"></p>
+                            <h2>Fecha Inicio: <span class="fecha_inicio"></span></h2>
+                            <h2>Fecha Fin: <span class="fecha_fin"></span></h2>
+                            <div class="col-12 p-0 mt-3 form_modal">
+                                <label for="comentario">Comentarios</label>
+                                <textarea class="comentario" name="comentario" id="" readonly rows="5"></textarea>
+                            </div>
+                            <!-- <p class="comentario"></p> -->
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12" id="alerta-cancelar-bloqueo"></div>
                     </div>
                 </div>
 
                 <div class="modal-footer content_btn_center">
-                    <form method="post" id="form-reserva-calendario-cancelar">
-                        <input type="hidden" class="form-control" id="id_reserva-cancelar" name="id_cita"/>
+                    <form method="post" id="form-reserva-calendario-cancelar"  class="forms-calendario"
+                          data-modal="#modal_cancelar_reserva_calendario" data-alerta="#alerta-cancelar-bloqueo">
                         <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_blue" id="">Confirmar</button>
                     </form>
@@ -1012,36 +1019,7 @@
                 });
             });*/
 
-            //Abrir modal para cancelar la reserva de calendario
-            /*$('#btn-reserva-cancelar').click(function (e) {
-                var btn = $(this);
-                $('#modal_ver_reserva').modal('hide');
 
-                $.ajax({
-                    data: { id: btn.data('id') },
-                    dataType: 'json',
-                    url: '',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res) {
-                        var modal = $('#modal_cancelar_reserva_calendario');
-
-                        modal.find('.fecha_inicio').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                        modal.find('.fecha_fin').html(moment(res.item.fecha_fin).format('dddd, D MMMM/YYYY'));
-                        modal.find('.comentario').html(res.item.comentario);
-
-                        modal.find('#id_reserva-cancelar').val(res.item.id);
-
-                        modal.modal();
-                    },
-                    error: function (res, status) {
-                        var response = res.responseJSON;
-                        $('#alerta-general').html(alert(response.message, 'danger'));
-                    }
-                });
-            });*/
 
             //Aceptar cita reserva de calendario
             /*$('#form-reserva-calendario-cancelar').submit(function (e) {

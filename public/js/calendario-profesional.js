@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         modal.find('.fecha_fin').html(res.item.ver.fecha_fin);
                         modal.find('.comentario').html(res.item.ver.comentario);
 
-                        $('#btn-reserva-cancelar,#btn-reserva-editar').data('url', res.item.data.ver);
+                        $('#btn-reserva-cancelar, #btn-reserva-editar').data('url', res.item.data.ver);
 
                     } else {
 
@@ -545,6 +545,38 @@ document.addEventListener('DOMContentLoaded', function() {
                 $('#comentarios-editar').val(res.item.data.comentario);
 
                 form.attr('action', res.item.data.reagendar);
+
+                modal.modal();
+            },
+            error: function (res, status) {
+                var response = res.responseJSON;
+                $('#alerta-general').html(alert(response.message, 'danger'));
+            }
+        });
+    });
+
+    //Abrir modal para cancelar la reserva de calendario
+    $('#btn-reserva-cancelar').click(function (e) {
+        var btn = $(this);
+        var form = $('#form-reserva-calendario-cancelar');
+        $('#modal_ver_reserva').modal('hide');
+
+        $.ajax({
+            data: { id: btn.data('id') },
+            dataType: 'json',
+            url: btn.data('url'),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            success: function (res) {
+                var modal = $('#modal_cancelar_reserva_calendario');
+
+                modal.find('.fecha_inicio').html(res.item.ver.fecha_inicio);
+                modal.find('.fecha_fin').html(res.item.ver.fecha_fin);
+                modal.find('.comentario').html(res.item.ver.comentario);
+
+                form.attr('action', res.item.data.cancelar);
 
                 modal.modal();
             },
