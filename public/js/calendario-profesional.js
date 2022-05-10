@@ -407,6 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#btn-cita-reagendar').click(function (e) {
         var btn = $(this);
         $('#modal_ver_cita').modal('hide');
+        var form = $('#form-cita-reagendar');
 
         $.ajax({
             data: { id: btn.data('id') },
@@ -424,11 +425,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 modal.find('#fecha-reasignar').val(res.item.data.fecha);
-                modal.find('#servicio-reasignar').val(res.item.id);
+                modal.find('#servicio-reasignar').val(res.item.data.servicio);
 
-                $('#dia-anterior').prop('disabled', true);
-
-                citas_libre(moment().format('YYYY-MM-DD'), $('#disponibilidad-reasignar'));
+                form.attr('action', res.item.data.reagendar);
+                citas_libre($('#disponibilidad-reasignar'));
 
                 modal.modal();
             },

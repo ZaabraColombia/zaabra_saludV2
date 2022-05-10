@@ -314,7 +314,7 @@ class CalendarioController extends Controller
                 'numero_id'         => $date->paciente->user->identificacion,
                 'correo_paciente'   => $date->paciente->user->emai,
                 'tipo_servicio'     => $date->servicio->tipo_servicio->nombre ?? '',
-                'servicio_text'          => $date->servicio->nombre ?? '',
+                'servicio_text'     => $date->servicio->nombre ?? '',
                 'servicio_id'       => $date->servicio->id ?? '',
                 'fecha'             => $date->fecha,
                 'hora'              => $date->hora,
@@ -322,19 +322,21 @@ class CalendarioController extends Controller
                 'lugar'             => $date->lugar
             ];
             $data = [
-                'id'        => $date->id_cita,
-                'servicio'  => $date->tipo_cita_id,
-                'convenio'  => $date->convenio_id,
-                'valor'     => $date->pago->valor,
+                'id'            => $date->id_cita,
+                'servicio'      => $date->tipo_cita_id,
+                'fecha'         => $date->fecha,
+                'convenio'      => $date->convenio_id,
+                'valor'         => $date->pago->valor,
                 'valor_convenio' => $date->pago->valor_convenio,
-                'modalidad' => $date->pago->tipo,
-                'pais'      => $date->pais_id,
-                'departamento' => $date->departamento_id,
-                'provincia' => $date->provincia_id,
-                'ciudad'    => $date->ciudad_id,
-                'lugar'     => $date->lugar,
-                'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
-                'editar'    => route('profesional.agenda.calendario.actualizar-cita', ['cita' => $date->id_cita]),
+                'modalidad'     => $date->pago->tipo,
+                'pais'          => $date->pais_id,
+                'departamento'  => $date->departamento_id,
+                'provincia'     => $date->provincia_id,
+                'ciudad'        => $date->ciudad_id,
+                'lugar'         => $date->lugar,
+                'ver'           => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
+                //'editar'        => route('profesional.agenda.calendario.actualizar-cita', ['cita' => $date->id_cita]),
+                'reagendar'     => route('profesional.agenda.calendario.reagendar-cita', ['cita' => $date->id_cita]),
             ];
         }
 
@@ -470,6 +472,7 @@ class CalendarioController extends Controller
      * Permite actualizar cita
      *
      * @param Request $request
+     * @param $cita
      * @return Application|ResponseFactory|Response
      */
     public function actualizar_cita(Request $request, $cita)
@@ -603,13 +606,18 @@ class CalendarioController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function reagendar_cita(Request $request)
+    public function reagendar_cita(Request $request, $cita)
     {
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
-        $all = ['fecha' => json_decode($request->get('disponibilidad'), true)];
+        $all = ['fecha' => json_decode($request->get('disponibilidad'), true), 'cita' => $cita];
         //Validate date
         $validate = Validator::make($all, [
+            'cita'      => [
+                'required',
+                Rule::exists('citas', 'id_cita')
+                    ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+            ],
             'fecha.*'  => ['required', 'date_format:Y-m-d H:i'],
         ]);
 
@@ -626,17 +634,10 @@ class CalendarioController extends Controller
         $user = Auth::user();
 
         //Validar disponibilidad de la cita
-        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
-            ->where(function ($query) use ($all){
-                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
-                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['fecha']['end'])) . '")')
-                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
-                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) . '")')
-                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) .
-                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha']['start'])) . '")')
-                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) .
-                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['fecha']['end'])) . '")');
-            })->count();
+        $date_count = Cita::query()
+            ->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
+            ->validar($all['fecha']['start'], $all['fecha']['end'])
+            ->count();
 
         if ($date_count > 0)
             return response([
@@ -647,7 +648,7 @@ class CalendarioController extends Controller
             ], Response::HTTP_NOT_FOUND);
 
         $cita = Cita::query()
-            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('id_cita', '=', $cita)
             ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
             ->first();
 
@@ -665,17 +666,17 @@ class CalendarioController extends Controller
         ]);
 
         //vencimiento
-        $fechaVencimiento = Carbon::now();
-        $fecha = $cita->fecha_inicio;
-        $fechaVencimiento = $fechaVencimiento->addDays(8);
-
-        if ($fechaVencimiento->greaterThan($fecha->subHour(1)))
-        {
-            $fechaVencimiento = $fecha;
-        }
+//        $fechaVencimiento = Carbon::now();
+//        $fecha = $cita->fecha_inicio;
+//        $fechaVencimiento = $fechaVencimiento->addDays(8);
+//
+//        if ($fechaVencimiento->greaterThan($fecha->subHour(1)))
+//        {
+//            $fechaVencimiento = $fecha;
+//        }
 
         $cita->pago->update([
-            'vencimiento' => $fechaVencimiento
+            'vencimiento' => $cita->fecha_inicio->subHours(3)
         ]);
 
         return response([

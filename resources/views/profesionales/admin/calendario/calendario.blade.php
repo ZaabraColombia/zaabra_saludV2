@@ -551,7 +551,8 @@
                     </button>
                 </div>
 
-                <form method="POST" action="{{ route('profesional.agenda.calendario.reagendar-cita') }}" id="form-cita-reagendar">
+                <form method="POST" id="form-cita-reagendar" class="forms-calendario" data-modal="#modal_reagendar_cita"
+                      data-alerta="#alerta-reasignar">
                     <div class="modal-body">
                         <h1>Reagendar cita</h1>
 
@@ -595,23 +596,23 @@
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
-                                <label for="fecha-reasignar"></label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" id="dia-anterior">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </button>
-                                    </div>
-                                    <input type="date" class="form-control" id="fecha-reasignar" name="fecha-reasignar"/>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="dia-siguiente">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </button>
+                                <input type="hidden" name="servicio" id="servicio-reasignar">
+                                <div class="col-12 p-0">
+                                    <label for="fecha-reasignar"></label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control fecha-disponible fecha" id="fecha-reasignar"
+                                               name="fecha-reasignar" readonly data-disponibilidad="#disponibilidad-reasignar"/>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-calendar"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 p-0">
                                     <label for="disponibilidad-reasignar">Horario disponible</label>
-                                    <select id="disponibilidad-reasignar" name="disponibilidad" required>
+                                    <select id="disponibilidad-reasignar" name="disponibilidad" required data-fecha="#fecha-reasignar"
+                                            data-servicio="#servicio-reasignar">
                                         <option></option>
                                     </select>
                                 </div>

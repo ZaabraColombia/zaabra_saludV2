@@ -75,7 +75,7 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
                     Route::get('ver-citas','ver_citas')->name('ver-citas');
                     Route::post('ver-cita/{cita}','ver_cita')->name('ver-cita');
                     Route::post('actualizar-cita/{cita}','actualizar_cita')->name('actualizar-cita');
-                    Route::post('reagendar-cita','reagendar_cita')->name('reagendar-cita');
+                    Route::post('reagendar-cita/{cita}','reagendar_cita')->name('reagendar-cita');
                     Route::post('cancelar-cita','cancelar_cita')->name('cancelar-cita');
                     Route::post('completar-cita','completar_cita')->name('completar-cita');
 
