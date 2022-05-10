@@ -437,6 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    //Abrir modal para cancelar cita
     $('#btn-cita-cancelar').click(function (e) {
         var btn = $(this);
         $('#modal_ver_cita').modal('hide');
@@ -466,43 +467,101 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    //Modal para completar cita
+    $('#btn-cita-completar').click(function (e) {
+        var btn = $(this);
+        $('#modal_ver_cita').modal('hide');
+        var form = $('#form-completar-cita');
+
+        $.ajax({
+            data: { id: btn.data('id') },
+            dataType: 'json',
+            url: btn.data('url'),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            success: function (res) {
+                var modal = $('#modal_completar_cita');
+
+                $.each(res.item.ver, function (key, item) {
+                    modal.find('.' + key).html(item);
+                });
+
+                form.attr('action', res.item.data.completar);
+                form[0].reset();
+
+                stop();
+
+                modal.modal();
+            },
+            error: function (res, status) {
+                var response = res.responseJSON;
+                $('#alerta-general').html(alert(response.message, 'danger'));
+            }
+        });
+    });
     /************* Fin Citas *************/
 });
+/************* Cronometro *************/
+const stopwatch = document.getElementById('stopwatch');
+const playPauseButton = document.getElementById('play-pause');
+const secondsSphere = document.getElementById('seconds-sphere');
 
-function ubicacion() {
-    // var pais = $('#pais_id');
-    // pais.val(pais.data('id')).trigger('change');
-    //
-    // setTimeout(function () {
-    //     var departamento = $('#departamento_id');
-    //     departamento.val(departamento.data('id')).trigger('change');
-    // },500);
-    // setTimeout(function () {
-    //     var provincia = $('#provincia_id');
-    //     provincia.val(provincia.data('id')).trigger('change');
-    // },1000);
-    // setTimeout(function () {
-    //     var ciudad = $('#ciudad_id');
-    //     ciudad.val(ciudad.data('id')).trigger('change');
-    // },1500);
+let stopwatchInterval;
+let runningTime = 0;
 
-    var pais = $('#pais_id');
-    pais.val(pais.data('id'))
-        .then(function () {
-            console.log('ok');
-        }).trigger('change');
+const playPause = () => {
+    const isPaused = !playPauseButton.classList.contains('running');
+    if (isPaused) {
+        playPauseButton.classList.add('running');
+        start();
+    } else {
+        playPauseButton.classList.remove('running');
+        pause();
+    }
 
-    setTimeout(function () {
-        var departamento = $('#departamento_id');
-        departamento.val(departamento.data('id')).trigger('change');
-    },500);
-    setTimeout(function () {
-        var provincia = $('#provincia_id');
-        provincia.val(provincia.data('id')).trigger('change');
-    },1000);
-    setTimeout(function () {
-        var ciudad = $('#ciudad_id');
-        ciudad.val(ciudad.data('id')).trigger('change');
-    },1500);
+    // Evento para cambiar el texto del botón Iniciar del cronometro
+    texto.innerHTML= (texto.innerHTML === "Finalizar") ? "Iniciar" : "Finalizar";
 }
+
+const pause = () => {
+    secondsSphere.style.animationPlayState = 'paused';
+    clearInterval(stopwatchInterval);
+    $('#segundos').val(Math.floor(runningTime / 1000));
+}
+
+const stop = () => {
+    secondsSphere.style.transform = 'rotate(-90deg) translateX(60px)';
+    secondsSphere.style.animation = 'none';
+    playPauseButton.classList.remove('running');
+    runningTime = 0;
+    clearInterval(stopwatchInterval);
+    stopwatch.textContent = '00:00';
+    $('#segundos').val(0);
+}
+
+const start = () => {
+    secondsSphere.style.animation = 'rotacion 60s linear infinite';
+    let startTime = Date.now() - runningTime;
+    secondsSphere.style.animationPlayState = 'running';
+    stopwatchInterval = setInterval( () => {
+        runningTime = Date.now() - startTime;
+        stopwatch.textContent = calculateTime(runningTime);
+    }, 1000)
+}
+
+const calculateTime = runningTime => {
+    const total_seconds = Math.floor(runningTime / 1000);
+    const total_minutes = Math.floor(total_seconds / 60);
+
+    const display_seconds = (total_seconds % 60).toString().padStart(2, "0");
+    const display_minutes = total_minutes.toString().padStart(2, "0");
+
+    return `${display_minutes}:${display_seconds}`
+}
+/************* Fin Cronometro *************/
+
+
 

@@ -77,7 +77,7 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
                     Route::post('actualizar-cita/{cita}','actualizar_cita')->name('actualizar-cita');
                     Route::post('reagendar-cita/{cita}','reagendar_cita')->name('reagendar-cita');
                     Route::post('cancelar-cita/{cita}','cancelar_cita')->name('cancelar-cita');
-                    Route::post('completar-cita','completar_cita')->name('completar-cita');
+                    Route::post('completar-cita/{cita}','completar_cita')->name('completar-cita');
 
                     Route::post('reservar-calendario','reservar')->name('reservar-calendario');
                     Route::post('editar-reservar-calendario','reservar_editar')->name('editar-reservar-calendario');

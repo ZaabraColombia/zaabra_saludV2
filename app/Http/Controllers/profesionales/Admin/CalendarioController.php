@@ -338,6 +338,7 @@ class CalendarioController extends Controller
                 //'editar'        => route('profesional.agenda.calendario.actualizar-cita', ['cita' => $date->id_cita]),
                 'reagendar'     => route('profesional.agenda.calendario.reagendar-cita', ['cita' => $date->id_cita]),
                 'cancelar'      => route('profesional.agenda.calendario.cancelar-cita', ['cita' => $date->id_cita]),
+                'completar'     => route('profesional.agenda.calendario.completar-cita', ['cita' => $date->id_cita]),
             ];
         }
 
@@ -693,23 +694,29 @@ class CalendarioController extends Controller
      * Permite finalizar una cita
      *
      * @param Request $request
+     * @param $cita
      * @return Application|ResponseFactory|Response
      */
-    public function completar_cita(Request $request)
+    public function completar_cita(Request $request, $cita)
     {
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
         //Validate date
-        $validate = Validator::make($request->all(), [
-            'id_cita'       => ['required'],
-            'duracion_cita'   => ['required', 'integer'],
-            'comentarios'   => ['required'],
+        $validate = Validator::make(array_merge($request->all(), ['cita' => $cita]), [
+            'cita'      => [
+                'required',
+                Rule::exists('citas', 'id_cita')
+                    ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+            ],
+            'segundos'      => ['required', 'integer', 'min:0'],
+            'comentario'   => ['nullable'],
         ], [
-            'id_cita.required' => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar'
+            'id_cita.required'  => 'Algo salio mal con la cita, por favor cierre y vuélvalo a intentar',
+            'segundos.min'      => 'El conometro debe tener mínimo 5 minutos',
         ], [
-            'tipo_cita' => 'Tipo de cita',
-            'duracion_cita'     => 'Duración de la cita',
-            'comentarios'  => 'Comentarios',
+            'tipo_cita'     => 'Tipo de cita',
+            'segundos'      => 'Cronometro',
+            'comentario'    => 'Comentario',
         ]);
 
         if ($validate->fails()) return response([
@@ -722,7 +729,7 @@ class CalendarioController extends Controller
         $user = Auth::user();
 
         $cita = Cita::query()
-            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('id_cita', '=', $cita)
             ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
             ->first();
 
@@ -734,7 +741,7 @@ class CalendarioController extends Controller
         ], Response::HTTP_NOT_FOUND);
 
         $cita->update([
-            'duracion'  => $request->get('duracion_cita'),
+            'duracion'  => $request->get('segundos'),
             'comentario'=> $request->get('comentarios'),
             'estado'    => 'completado',
         ]);

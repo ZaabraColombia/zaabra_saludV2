@@ -695,7 +695,7 @@
     </div>
 
     <!-- Modal Completar cita -->
-    <div class="modal fade" id="modal_completar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal_completar_cita" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -703,44 +703,67 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" action="{{ route('profesional.agenda.calendario.completar-cita') }}" id="form-completar-cita">
+                <form method="post" id="form-completar-cita" class="forms-calendario" data-modal="#modal_completar_cita"
+                      data-alerta="#aleta-completar-cita">
                     <div class="modal-body">
                         <h1>Completar cita</h1>
                         <div class="modal_info_cita">
-                            <div class="p-3">
-                                <h2 class="nombre_paciente"></h2>
-                                <p class="numero_id"></p>
-                                <p class="correo"></p>
+                            <div class="py-3">
+                                <h2 class="nombre_paciente">Marco Antonio Garzon Sepulveda</h2>
+                                <p class="numero_id">C.C. 80645987</p>
+                                <p class="correo">marco@hotmail.com</p>
                             </div>
+
                             <div class="row m-0">
-                                <div class="col-md-7 p-0 pl-3 mb-2">
-                                    <h3 class="fecha"></h3>
-                                    <span class="hora"></span>
+                                <div class="col-12 p-0 mb-2">
+                                    <h3 class="fecha">miércoles, 27 septiembre 2022</h3>
+                                    <span class="hora">08:00 A.M - 08:45 A.M</span>
                                 </div>
-                                <div class="col-md-5 p-0 pl-3 mb-2">
-                                    <h3>Tipo de cita</h3>
-                                    <span class="tipo_cita"></span>
+                            </div>
+
+                            <div class="row m-0">
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Tipo de servicio: &nbsp;</h3>
+                                    <span class="tipo_servicio">Procedimiento no quirurgico</span>
                                 </div>
-                                <div class="col-12 p-0 pl-3 mb-2 d-flex">
-                                    <h3>Modalidad de pago: &nbsp;</h3>
-                                    <span class="modalidad"></span>
+                                <div class="col-12 d-md-flex p-0 mb-2">
+                                    <h3>Servicio: &nbsp;</h3>
+                                    <span class="servicio_text">Procedimiento no quirurgico Procedimiento no</span>
+                                </div>
+                            </div>
+
+                            <div class="row m-0">
+                                <div class="col-12 d-flex p-0 mb-2">
+                                    <h3>Tipo de atención: &nbsp;</h3>
+                                    <span class="atencion">Presencial</span>
+                                </div>
+                                <div class="col-md-9 p-0 mb-2">
+                                    <h3>Lugar: &nbsp;</h3>
+                                    <span class="lugar">EPS Salud Total virrey Solis Olaya</span>
                                 </div>
                             </div>
                         </div>
                         <br/>
                         <div class="form_modal">
+                            <div class="row">
+                                <div class="col-12" id="aleta-completar-cita"></div>
+                            </div>
                             <div class="row m-0">
-                                <div class="col-12 p-0" id="alerta-editar"></div>
-                                <input type="hidden" id="id_cita-completar" name="id_cita"/>
-
-                                <div class="col-12 p-0">
-                                    <label for="tiempo_cita">Duración cita (minutos)</label>
-                                    <input type="number" id="tiempo_cita" name="duracion_cita" required/>
+                                <label class="font_roboto fs_text_small black_light mb-0" for="">Duración de la cita:</label>
+                                <div class="main">
+                                    <div class="circle">
+                                        <div id="stopwatch" class="stopwatch black_strong fs_title">00:00</div>
+                                        <button id="play-pause" class="paused finalizar" type="button" onclick="playPause()">
+                                            <span id="texto">Iniciar</span>
+                                        </button>
+                                    </div>
+                                    <div id="seconds-sphere" class="seconds-sphere"></div>
+                                    <input type="hidden" name="segundos" id="segundos">
                                 </div>
 
-                                <div class="col-12 p-0">
-                                    <label for="comentarios">Comentarios</label>
-                                    <textarea name="comentarios" id="comentarios" rows="5"></textarea>
+                                <div class="col-12 p-0 input__box">
+                                    <label class="font_roboto fs_text_small black_light mb-2" for="comentario">Observaciones</label>
+                                    <textarea name="comentario" id="comentario" cols="35" rows="5" class="comentario"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -1037,7 +1060,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
+                    url: '',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
