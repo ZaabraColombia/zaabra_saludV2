@@ -21,7 +21,7 @@ class CitasController extends Controller
         Gate::authorize('accesos-profesional', 'ver-citas');
 
         $citas = Cita::query()
-            ->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional)
+            ->where('profesional_id', '=', Auth::user()->profesional->idPerfilProfesional)
             ->orderByDesc('fecha_inicio')
             ->with( ['paciente', 'paciente.user', 'tipo_consulta'])
             ->get();
