@@ -80,8 +80,8 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
                     Route::post('completar-cita/{cita}','completar_cita')->name('completar-cita');
 
                     Route::post('reservar-calendario','reservar')->name('reservar-calendario');
-                    Route::post('editar-reservar-calendario','reservar_editar')->name('editar-reservar-calendario');
-                    Route::post('cancelar-reserva-calendario','reservar_cancelar')->name('cancelar-reserva-calendario');
+                    Route::post('editar-reservar-calendario/{cita}','reservar_editar')->name('editar-reservar-calendario');
+                    Route::post('cancelar-reserva-calendario/{cita}','reservar_cancelar')->name('cancelar-reserva-calendario');
                     Route::post('colores','colores')->name('colors');
 
                     Route::post('convenios/{servicio}','convenios')->name('convenios');

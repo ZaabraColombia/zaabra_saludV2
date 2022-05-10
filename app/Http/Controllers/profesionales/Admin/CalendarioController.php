@@ -219,11 +219,10 @@ class CalendarioController extends Controller
                     'backgroundColor' => $horario->color_bloqueado ?? '#F37725',
                     'textColor'     => color_contrast($horario->color_bloqueado ?? '#F37725'),
                     'borderColor'   => 'black',
-                    //'display' => 'background',
                     'display'   => 'block',
                     'title'     => 'Bloqueado',
-                    //'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
-                    //'edit' => ''
+                    'estado' => $date->estado,
+                    'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
                 ];
             } else {
 
@@ -253,12 +252,12 @@ class CalendarioController extends Controller
                     'start' => $date->start,
                     'end'   => $date->end,
                     'backgroundColor' => $background,
-                    'textColor' => $color,
-                    'borderColor' => '#696969',
-                    'display'   => 'block',
-                    'title'     => $date->paciente->user->nombre_completo,
-                    'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
-                    //'edit' => ''
+                    'textColor'     => $color,
+                    'borderColor'   => '#696969',
+                    'display'       => 'block',
+                    'estado'        => $date->estado,
+                    'title'         => $date->paciente->user->nombre_completo,
+                    'ver'           => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
                 ];
 
             }
@@ -300,13 +299,20 @@ class CalendarioController extends Controller
             ->find($cita);
 
         if ($date->estado == 'reservado') {
-            $data = [
+            $ver = [
                 'id' => $date->id_cita,
-                'fecha_inicio'  => $date->fecha_inicio->format('Y-m-dTh:i:s'),
-                'fecha_fin'     => $date->fecha_fin->format('Y-m-dTh:i:s'),
+                'fecha_inicio'  => $date->fecha_inicio->format('Y-m-d h:i:s'),
+                'fecha_fin'     => $date->fecha_fin->format('Y-m-d h:i:s'),
+                'comentario'    => $date->comentario,
+            ];
+            $data = [
+                'fecha_inicio'  => $date->fecha_inicio->format('Y-m-d\TH:i:s'),
+                'fecha_fin'     => $date->fecha_fin->format('Y-m-d\TH:i:s'),
                 'comentario'    => $date->comentario,
                 'estado'        => $date->estado,
-                //'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
+                'ver'           => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
+                'reagendar'     => route('profesional.agenda.calendario.editar-reservar-calendario', ['cita' => $date->id_cita]),
+                'cancelar'      => route('profesional.agenda.calendario.cancelar-reserva-calendario', ['cita' => $date->id_cita]),
             ];
         } else {
             $ver = [
@@ -323,6 +329,7 @@ class CalendarioController extends Controller
             ];
             $data = [
                 'id'            => $date->id_cita,
+                'estado'        => $date->estado,
                 'servicio'      => $date->tipo_cita_id,
                 'fecha'         => $date->fecha,
                 'convenio'      => $date->convenio_id,
@@ -571,6 +578,7 @@ class CalendarioController extends Controller
      * Permite cancelar cita
      *
      * @param Request $request
+     * @param $cita
      * @return Application|ResponseFactory|Response
      */
     public function cancelar_cita(Request $request, $cita)
@@ -606,6 +614,7 @@ class CalendarioController extends Controller
      * Reprogramar cita
      *
      * @param Request $request
+     * @param $cita
      * @return Application|ResponseFactory|Response
      */
     public function reagendar_cita(Request $request, $cita)
@@ -791,17 +800,9 @@ class CalendarioController extends Controller
         $all = $request->all();
 
         //Validar la disponibilidad de la cita
-        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
-            ->where(function ($query) use ($all){
-                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
-                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['fecha_fin'])) . '")')
-                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
-                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) . '")')
-                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
-                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) . '")')
-                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) .
-                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) . '")');
-            })->count();
+        $date_count = Cita::query()->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
+            ->validar($all['fecha_inicio'], $all['fecha_fin'])
+            ->count();
 
 
         if ($date_count > 0)
@@ -838,19 +839,25 @@ class CalendarioController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function reservar_editar(Request $request)
+    public function reservar_editar(Request $request, $cita)
     {
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
+        $request->merge(['cita' => $cita]);
         //Validate date
         $validate = Validator::make($request->all(), [
+            'cita'      => [
+                'required',
+                Rule::exists('citas', 'id_cita')
+                    ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+            ],
             'fecha_inicio'  => ['required', 'date'],
             'fecha_fin'     => ['required', 'date'],
-            'comentarios'   => ['required'],
+            'comentario'    => ['nullable'],
         ], [], [
             'fecha_inicio'  => 'Fecha inicio',
             'fecha_fin'     => 'Fecha fin',
-            'comentarios'   => 'Comentarios'
+            'comentario'    => 'Comentario'
         ]);
 
 
@@ -869,18 +876,10 @@ class CalendarioController extends Controller
         $all = $request->all();
 
         //Validar la disponibilidad de la cita
-        $date_count = Cita::query()->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
-            ->where(function ($query) use ($all){
-                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
-                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['fecha_fin'])) . '")')
-                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
-                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) . '")')
-                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) .
-                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['fecha_inicio'])) . '")')
-                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) .
-                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['fecha_fin'])) . '")');
-            })
-            ->where('id_cita', '!=', $all['id_cita'])
+        $date_count = Cita::query()
+            ->where('profesional_id', '=', $user->profesional->idPerfilProfesional)
+            ->validar($all['fecha_inicio'], $all['fecha_fin'])
+            ->where('id_cita', '!=', $all['cita'])
             ->count();
 
 
@@ -895,7 +894,7 @@ class CalendarioController extends Controller
         }
 
         $cita = Cita::query()
-            ->where('id_cita', '=', $request->get('id_cita'))
+            ->where('id_cita', '=', $request->get('cita'))
             ->where('profesional_id', '=', $user->profecional->idPerfilProfesional)
             ->first();
 

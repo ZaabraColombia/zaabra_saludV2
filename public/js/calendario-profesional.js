@@ -85,25 +85,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 method: 'POST',
                 success: function (res) {
+
                     var modal;
 
-                    if (res.item.estado === 'reservado')
+                    if (res.item.data.estado === 'reservado')
                     {
                         modal = $('#modal_ver_reserva');
 
-                        $('#btn-reserva-cancelar').data('url', res.item.data.ver);
-                        $('#btn-reserva-editar').data('url', res.item.data.ver);
+                        modal.find('.fecha_inicio').html(res.item.ver.fecha_inicio);
+                        modal.find('.fecha_fin').html(res.item.ver.fecha_fin);
+                        modal.find('.comentario').html(res.item.ver.comentario);
+
+                        $('#btn-reserva-cancelar,#btn-reserva-editar').data('url', res.item.data.ver);
+
                     } else {
 
                         modal = $('#modal_ver_cita');
 
+                        $.each(res.item.ver, function (key, item) {
+                            modal.find('.' + key).html(item);
+                        });
+
                         $('#btn-cita-cancelar, #btn-cita-reagendar, #btn-cita-editar, #btn-cita-completar')
                             .data('url', res.item.data.ver);
                     }
-
-                    $.each(res.item.ver, function (key, item) {
-                        modal.find('.' + key).html(item);
-                    });
 
                     modal.modal();
                 },
@@ -503,6 +508,53 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     /************* Fin Citas *************/
+    /************* Bloqueos *************/
+    //Abrir modal para bloquear rango de fecha
+    $('#bloquear-dia').click(function (event) {
+        $('#form-reserva-calendario-crear')[0].reset();
+
+        $('#fecha_inicio').val(moment().format('YYYY-MM-DD\THH:mm'));
+        $('#fecha_fin').val(moment().add(2, 'h').format('YYYY-MM-DD\THH:mm'));
+
+        $('#modal_crear_reserva_calendario').modal();
+    });
+
+    //Abrir modal para editar bloqueo rango de fecha
+    $('#btn-reserva-editar').click(function (e) {
+        var btn = $(this);
+        var form = $('#form-reserva-calendario-editar');
+        $('#modal_ver_reserva').modal('hide');
+
+        $.ajax({
+            data: { id: btn.data('id') },
+            dataType: 'json',
+            url: btn.data('url'),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            success: function (res) {
+                var modal = $('#modal_editar_reserva_calendario');
+
+                modal.find('.fecha_inicio').html(res.item.ver.fecha_inicio);
+                modal.find('.fecha_fin').html(res.item.ver.fecha_fin);
+                modal.find('.comentario').html(res.item.ver.comentario);
+
+                $('#fecha_inicio-editar').val(res.item.data.fecha_inicio);
+                $('#fecha_fin-editar').val(res.item.data.fecha_fin);
+                $('#comentarios-editar').val(res.item.data.comentario);
+
+                form.attr('action', res.item.data.reagendar);
+
+                modal.modal();
+            },
+            error: function (res, status) {
+                var response = res.responseJSON;
+                $('#alerta-general').html(alert(response.message, 'danger'));
+            }
+        });
+    });
+    /************* Fin Bloqueos *************/
 });
 /************* Cronometro *************/
 const stopwatch = document.getElementById('stopwatch');

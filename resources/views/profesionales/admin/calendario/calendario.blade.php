@@ -788,7 +788,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" action="{{ route('profesional.agenda.calendario.reservar-calendario') }}" id="form-reserva-calendario-crear">
+                <form method="post" action="{{ route('profesional.agenda.calendario.reservar-calendario') }}"
+                      id="form-reserva-calendario-crear"  class="forms-calendario" data-modal="#modal_crear_reserva_calendario"
+                      data-alerta="#alerta-crear-reserva-calendario">
                     <div class="modal-body">
                         <h1>Bloqueo del calendario</h1>
 
@@ -842,11 +844,11 @@
 
                     <div class="modal_info_cita">
                         <div class="p-3">
-                            <h2 class="fecha_inicio"></h2>
-                            <h2 class="fecha_fin"></h2>
+                            <h2>Fecha Inicio: <span class="fecha_inicio"></span></h2>
+                            <h2>Fecha Fin: <span class="fecha_fin"></span></h2>
                             <div class="col-12 p-0 mt-3 form_modal">
-                                <label for="comentarios-editar">Comentarios</label>
-                                <textarea class="comentario" name="comentarios" id="" readonly rows="5"></textarea>
+                                <label for="comentario">Comentarios</label>
+                                <textarea class="comentario" name="comentario" id="" readonly rows="5"></textarea>
                             </div>
                             <!-- <p class="comentario"></p> -->
                         </div>
@@ -874,7 +876,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" action="{{ route('profesional.agenda.calendario.editar-reservar-calendario') }}" id="form-reserva-calendario-editar">
+                <form method="post" id="form-reserva-calendario-editar" class="forms-calendario" data-modal="#modal_editar_reserva_calendario"
+                      data-alerta="#alerta-crear-reserva-calendario">
                     <div class="modal-body">
                         <h1>Bloqueo del calendario</h1>
 
@@ -935,7 +938,7 @@
                 </div>
 
                 <div class="modal-footer content_btn_center">
-                    <form action="{{ route('profesional.agenda.calendario.cancelar-reserva-calendario') }}" method="post" id="form-reserva-calendario-cancelar">
+                    <form method="post" id="form-reserva-calendario-cancelar">
                         <input type="hidden" class="form-control" id="id_reserva-cancelar" name="id_cita"/>
                         <button type="button" class="button_transparent" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="button_blue" id="">Confirmar</button>
@@ -968,235 +971,8 @@
 
         document.addEventListener('DOMContentLoaded', function() {
 
-            //Bloquera dia
-            $('#bloquear-dia').click(function (event) {
-                $('#form-reserva-calendario-crear')[0].reset();
 
-                $('#fecha_inicio').val(moment().format('YYYY-MM-DD\THH:mm'));
-                $('#fecha_fin').val(moment().add(2, 'h').format('YYYY-MM-DD\THH:mm'));
-
-                $('#modal_crear_reserva_calendario').modal();
-            });
-
-            //Abrir modal para cancelar la cita
-            /*$('#btn-cita-cancelar').click(function (e) {
-                var btn = $(this);
-                $('#modal_ver_cita').modal('hide');
-
-                $.ajax({
-                    data: { id: btn.data('id') },
-                    dataType: 'json',
-                    url: '',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res) {
-                        var modal = $('#modal_cancelar_cita');
-
-                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') +
-                            '-' + moment(res.item.fecha_fin).format('hh:mm A'));
-                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
-                        modal.find('.tipo_cita').html(res.item.tipo_cita);
-                        modal.find('.modalidad').html(res.item.modalidad);
-                        modal.find('.correo').html(res.item.correo);
-                        modal.find('.numero_id').html(res.item.numero_id);
-
-                        modal.find('#id_cita-cancelar').val(res.item.id);
-
-                        modal.modal();
-                    },
-                    error: function (res, status) {
-                        var response = res.responseJSON;
-                        $('#alerta-general').html(alert(response.message, 'danger'));
-                    }
-                });
-            });*/
-
-            //Aceptar cita cancelada
-            /*$('#form-cita-cancelar').submit(function (e) {
-                e.preventDefault();
-                var form = $(this);
-
-                $.ajax({
-                    data: form.serialize(),
-                    dataType: 'json',
-                    url: form.attr('action'),
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res, status) {
-
-                        $('#alerta-general').html(alert(res.message, 'success'));
-
-                        $('#modal_cancelar_cita').modal('hide');
-                        //resetear formulario
-                        form[0].reset();
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    },
-                    error: function (res, status) {
-
-                        var response = res.responseJSON;
-
-                        $('#alerta-general').html(alert(response.message, 'danger'));
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    }
-                });
-            });*/
-
-            //Abrir modal para completada la cita
-            /*$('#btn-cita-completar').click(function (e) {
-                var btn = $(this);
-                $('#modal_ver_cita').modal('hide');
-
-                $.ajax({
-                    data: { id: btn.data('id') },
-                    dataType: 'json',
-                    url: '',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res) {
-                        var modal = $('#modal_completar_cita');
-
-                        modal.find('.fecha').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                        modal.find('.hora').html(moment(res.item.fecha_inicio).format('hh:mm A') +
-                            '-' + moment(res.item.fecha_fin).format('hh:mm A'));
-                        modal.find('.nombre_paciente').html(res.item.nombre_paciente);
-                        modal.find('.tipo_cita').html(res.item.tipo_cita);
-                        modal.find('.modalidad').html(res.item.modalidad);
-                        modal.find('.correo').html(res.item.correo);
-                        modal.find('.numero_id').html(res.item.numero_id);
-
-                        modal.find('#id_cita-completar').val(res.item.id);
-
-                        modal.modal();
-                    },
-                    error: function (res, status) {
-                        var response = res.responseJSON;
-                        $('#alerta-general').html(alert(response.message, 'danger'));
-                    }
-                });
-            });*/
-
-            //Guardar cita completada
-            /*$('#form-completar-cita').submit(function (e) {
-                e.preventDefault();
-                var form = $(this);
-
-                $.ajax({
-                    data: form.serialize(),
-                    dataType: 'json',
-                    url: form.attr('action'),
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res, status) {
-
-                        $('#alerta-general').html(alert(res.message, 'success'));
-
-                        $('#modal_completar_cita').modal('hide');
-                        //resetear formulario
-                        form[0].reset();
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    },
-                    error: function (res, status) {
-
-                        var response = res.responseJSON;
-
-                        $('#alerta-editar').html(alert(response.message, 'danger'));
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    }
-                });
-            });*/
-
-            //Crear reserva del calendario
-            /*$('#form-reserva-calendario-crear').submit(function (e) {
-                e.preventDefault();
-                var form = $(this);
-                console.log(form);
-                $.ajax({
-                    data: form.serialize(),
-                    dataType: 'json',
-                    url: form.attr('action'),
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res, status) {
-
-                        $('#alerta-general').html(alert(res.message, 'success'));
-
-                        $('#modal_crear_reserva_calendario').modal('hide');
-                        //resetear formulario
-                        form[0].reset();
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    },
-                    error: function (res, status) {
-
-                        var response = res.responseJSON;
-
-                        $('#alerta-crear-reserva-calendario').html(alert(response.message, 'danger'));
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    }
-                });
-            });*/
-
-            //Abrir modal para completada la cita
-            /*$('#btn-reserva-editar').click(function (e) {
-                var btn = $(this);
-                $('#modal_ver_reserva').modal('hide');
-
-                $.ajax({
-                    data: { id: btn.data('id') },
-                    dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res) {
-                        var modal = $('#modal_editar_reserva_calendario');
-
-                        modal.find('.fecha_inicio').html(moment(res.item.fecha_inicio).format('dddd, D MMMM/YYYY'));
-                        modal.find('.fecha_fin').html(moment(res.item.fecha_fin).format('dddd, D MMMM/YYYY'));
-                        modal.find('.comentario').html(res.item.comentario);
-
-                        modal.find('#id_reserva-editar').val(res.item.id);
-                        modal.find('#fecha_inicio-editar').val(moment(res.item.fecha_inicio).format('YYYY-MM-DDTHH:mm'));
-                        modal.find('#fecha_fin-editar').val(moment(res.item.fecha_fin).format('YYYY-MM-DDTHH:mm'));
-                        modal.find('#comentario-editar').val(res.item.comentario);
-
-                        modal.modal();
-                    },
-                    error: function (res, status) {
-                        var response = res.responseJSON;
-                        $('#alerta-general').html(alert(response.message, 'danger'));
-                    }
-                });
-            });*/
+            /**/
 
             //Crear reserva del calendario
             /*$('#form-reserva-calendario-editar').submit(function (e) {
@@ -1244,7 +1020,7 @@
                 $.ajax({
                     data: { id: btn.data('id') },
                     dataType: 'json',
-                    url: '{{ route('profesional.agenda.calendario.ver-cita', ['cita' => 3]) }}',
+                    url: '',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
