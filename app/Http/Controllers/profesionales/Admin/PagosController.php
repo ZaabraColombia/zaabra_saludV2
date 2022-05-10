@@ -23,7 +23,7 @@ class PagosController extends Controller
                 'cita.paciente.user'
             ])
             ->whereHas('cita', function ($query) {
-                $query->where('profesional_id', '=', Auth::user()->profecional->idPerfilProfesional);
+                $query->where('profesional_id', '=', Auth::user()->profesional->idPerfilProfesional);
             })
             ->get();
 
