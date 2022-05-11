@@ -60,7 +60,7 @@
                                 <tr>
                                     <td class="pr-0">
                                         <div class="user__xl">
-                                            <a class="d-flex" href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
+                                            <a class="d-flex align-items-center" href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
                                                 <div class="pr-2">
                                                     <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
                                                 </div>

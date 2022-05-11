@@ -26332,10 +26332,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #b2b3b5;
 }
 
-.user__xl {
+.user__xl a {
   display: flex;
   align-items: center;
   line-height: 1.2;
+  color: #232323;
+}
+.user__xl a:hover {
+  color: #232323;
 }
 
 .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
