@@ -50,6 +50,7 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Valor</th>
+                            <th>Tipo de servicio</th>
                             <th>Especialidad</th>
                             <th class="text-center">Acción</th>
                         </tr>
@@ -60,6 +61,7 @@
                                 <tr>
                                     <td>{{ $servicio->nombre }}</td>
                                     <td>{{ number_format($servicio->valor, 0, ',', '.') }}</td>
+                                    <td>{{ $servicio->tipo_servicio->nombre }}</td>
                                     <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
                                     <td>
                                         <div class="d-flex justify-content-around px-3">

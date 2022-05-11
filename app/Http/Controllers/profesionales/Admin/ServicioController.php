@@ -25,6 +25,7 @@ class ServicioController extends Controller
         Gate::authorize('accesos-profesional', 'ver-servicios');
         $servicios = Servicio::query()
             ->where('profesional_id', '=', Auth::user()->profesional->idPerfilProfesional)
+            ->with(['especialidad', 'tipo_servicio'])
             ->get();
 
         return view('profesionales.admin.configuracion.servicios.index', compact('servicios'));
