@@ -69,13 +69,17 @@ class ServiciosController extends Controller
         $this->validator($request);
 
         $request->merge(['institucion_id' => Auth::user()->institucion->id]);
+        $valor = str_replace('.' , '', $request->valor);
 
-        $servicio = Servicio::query()->create($request->all());
+        $servicio = Servicio::query()->create(array_merge($request->except('valor'), ['valor' => $valor]));
+
 
         if ($servicio->convenios)
         {
             $array = collect($request->get('convenios-lista'))->map(function ($item) {
-                return ['valor_convenio' => $item['valor_convenio'], 'valor_paciente' => $item['valor_paciente']];
+                return [
+                    'valor_convenio' => str_replace('.' , '', $item['valor_convenio']),
+                    'valor_paciente' => str_replace('.' , '', $item['valor_paciente'])];
             })->toArray();
         }else{
             $array = array();
@@ -166,12 +170,16 @@ class ServiciosController extends Controller
 
         $this->validator($request);
 
-        $servicio->update($request->all());
+        $servicio->valor = str_replace('.' , '', $request->valor);
+
+        $servicio->update($request->except('valor'));
 
         if ($servicio->convenios)
         {
             $array = collect($request->get('convenios-lista'))->map(function ($item) {
-                return ['valor_convenio' => $item['valor_convenio'], 'valor_paciente' => $item['valor_paciente']];
+                return [
+                    'valor_convenio' => str_replace('.' , '', $item['valor_convenio']),
+                    'valor_paciente' => str_replace('.' , '', $item['valor_paciente'])];
             })->toArray();
         }else{
             $array = array();
