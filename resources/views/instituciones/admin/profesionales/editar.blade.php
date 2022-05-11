@@ -268,14 +268,29 @@
                     <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="password">Contraseña</label>
-                            <input type="password" id="password" name="password"
-                                   class="@error('password') is-invalid @enderror"/>
+                            <div class="input-group mb-3">
+                                <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success password" type="button" data-class="success"
+                                            data-password="#password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-md-6 input__box">
                             <label for="password_confirmation">Confirmar contraseña</label>
-                            <input type="password" id="password_confirmation" name="password_confirmation"
-                                   class="@error('password_confirmation') is-invalid @enderror"/>
+                            <div class="input-group mb-3">
+                                <input type="password" id="password_confirmation" name="password_confirmation"
+                                       class="form-control @error('password_confirmation') is-invalid @enderror">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success password" type="button" data-class="success"
+                                            data-password="#password_confirmation">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -295,6 +310,7 @@
 @section('scripts')
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="{{ asset('js/password.js') }}"></script>
 
     <script>
         // Obtener referencia al input y a la imagen
