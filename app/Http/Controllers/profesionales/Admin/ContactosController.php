@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -24,8 +25,9 @@ class ContactosController extends Controller
      */
     public function index()
     {
+        Gate::authorize('accesos-profesional', 'ver-contactos');
         $contactos = Contacto::query()
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->profesional->idUser)
             ->get();
 
         return view('profesionales.admin.contactos.contactos', compact('contactos'));
@@ -39,6 +41,8 @@ class ContactosController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('accesos-profesional', 'ver-contactos');
+
         //dd();
         $validator = $this->validador($request);
 
@@ -51,10 +55,10 @@ class ContactosController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        //$request->merge(['user_id' => Auth::user()->id]);
+        //$request->merge(['user_id' => Auth::user()->profesional->idUser]);
 
         $respueta = $request->all();
-        $respueta['user_id'] = Auth::user()->id;
+        $respueta['user_id'] = Auth::user()->profesional->idUser;
 
         if ($request->file('foto'))
         {
@@ -86,10 +90,13 @@ class ContactosController extends Controller
      */
     public function show(int $id)
     {
+        Gate::authorize('accesos-profesional', 'ver-contactos');
+
         $contacto = Contacto::query()
             ->where('id', '=', $id)
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->profesional->idUser)
             ->first();
+        Gate::authorize('update-contactos-profesional', $contacto);
 
         if (empty($contacto)) return response([
             'message' => [
@@ -116,6 +123,7 @@ class ContactosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize('accesos-profesional', 'editar-contacto');
         //dd($request->file('foto'));
         $validator = $this->validador($request);
 
@@ -130,8 +138,9 @@ class ContactosController extends Controller
 
         $contacto = Contacto::query()
             ->where('id', '=', $id)
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->profesional->idUser)
             ->first();
+        Gate::authorize('update-contactos-profesional', $contacto);
 
         if (empty($contacto)) return response([
             'message' => [
@@ -141,7 +150,7 @@ class ContactosController extends Controller
         ], Response::HTTP_NOT_FOUND);
 
         $respueta = $request->all();
-        $user_id = Auth::user()->id;
+        $user_id = Auth::user()->profesional->idUser;
 
         if ($request->file('foto'))
         {
@@ -175,10 +184,12 @@ class ContactosController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize('accesos-profesional', 'eliminar-contactos');
         $contacto = Contacto::query()
             ->where('id', '=', $id)
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->profesional->idUser)
             ->first();
+        Gate::authorize('update-contactos-profesional', $contacto);
 
         if (empty($contacto)) return response([
             'message' => [
