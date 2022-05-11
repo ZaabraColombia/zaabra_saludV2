@@ -192,7 +192,7 @@
                             <div class="input-group mb-3">
                                 <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-primary password" type="button" data-class="success"
+                                    <button class="btn btn-outline-success password" type="button" data-class="success"
                                             data-password="#password">
                                         <i class="fas fa-eye"></i>
                                     </button>
