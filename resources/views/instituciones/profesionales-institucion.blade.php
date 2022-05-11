@@ -75,7 +75,7 @@
 
                             <p class="name_university text_univ_card searching">{{$profesional->universidad->nombreuniversidad}}</p>
                             <h2 class="cargo_profInst text_cargo_card searching">{{$profesional->cargo}}</h2>
-                            <div style="display: none" class="searching">{{ $filtro ?? '' }}  {{ preg_replace('([^A-Za-z0-9 ])', '', "{$profesional->primer_nombre} {$profesional->primer_apellido}") }}</div>
+                            <div style="display: none" class="searching">{{ $filtro ?? '' }}  {{ eliminar_tildes("{$profesional->primer_nombre} {$profesional->primer_apellido}") }}</div>
 
                             <div class="content_btn_center mt-1">
                                 <a class="button_green" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
