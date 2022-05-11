@@ -32,6 +32,7 @@ class ServiciosController extends Controller
         $servicios = Servicio::query()
             ->with('tipo_servicio')
             ->where('institucion_id', '=', Auth::user()->institucion->id )
+            ->with(['especialidad', 'tipo_servicio'])
             ->get();
 
         return view('instituciones.admin.configuracion.servicios.index', compact('servicios'));
