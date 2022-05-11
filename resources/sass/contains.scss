@@ -225,10 +225,14 @@
     }
 }
 
-.user__xl {
+.user__xl a {
     display: flex; 
     align-items: center; 
-    line-height: 1.2
+    line-height: 1.2;
+    color: #232323;
+    &:hover {
+        color: #232323;
+    }
 }
 // Calendario pignose
 .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {

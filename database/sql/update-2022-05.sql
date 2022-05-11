@@ -20,3 +20,4 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`citas`
             ON UPDATE RESTRICT;
 
 #Subido cesar
+#Subido jhon 10-05-2022 16:24

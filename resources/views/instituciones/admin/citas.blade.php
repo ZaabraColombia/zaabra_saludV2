@@ -38,8 +38,8 @@
                 <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
                         <tr>
-                            <th>Hora</th>
-                            <th>Fecha</th>
+                            <th>Hora cita</th>
+                            <th>Fecha de cita</th>
                             <th>Especialidad</th>
                             <th>Profesional</th>
                             <th>Paciente</th>
