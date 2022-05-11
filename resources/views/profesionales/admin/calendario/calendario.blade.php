@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="row m-0 content_dias_agenda mb-md-3">
-                        <h2>Días</h2>
+                        <h2 class="blue_bold fs_title_module">Días</h2>
                         <div class="col-md-4 col-xl-12 p-0">
                             <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF" disabled readonly> Días disponibles</label>
                         </div>
@@ -38,7 +38,7 @@
                             <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8" disabled readonly> Días no disponibles</label>
                         </div>
 
-                        <h2>Eventos</h2>
+                        <h2 class="blue_bold fs_title_module">Eventos</h2>
 
                         <form action="{{ route('profesional.agenda.calendario.colors') }}" method="post"
                               id="form-actualizar-colores-calendario">
@@ -154,35 +154,35 @@
                             <div class="row m-0">
                                 <div class="col-12 p-0 alertas" id="alerta-agregar_cita"></div>
 
-                                <div class="col-12 mb-2">
-                                    <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Paciente</h2>
+                                <div class="col-12 my-2">
+                                    <h2 style="border-bottom: 2px solid #7fadcb; color: #0083D6"> Paciente</h2>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="numero_id">Número de identificación</label>
                                     <select type="text" id="numero_id" name="numero_id" data-url="{{ route('buscador-paciente') }}" required></select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="nombre">Nombres</label>
                                     <input type="text" id="nombre" name="nombre" readonly/>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="apellido">Apellidos</label>
                                     <input type="text" id="apellido" name="apellido" readonly/>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="correo">Correo</label>
                                     <input type="email" id="correo" name="correo" readonly/>
                                 </div>
 
-                                <div class="col-12 mb-2">
-                                    <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Servicio</h2>
+                                <div class="col-12 my-2">
+                                    <h2 style="border-bottom: 2px solid #7fadcb; color: #0083D6"> Servicio</h2>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="servicio">Servicios</label>
                                     <select id="servicio" name="servicio" class="servicio" required
                                             data-convenios="#convenio" data-disponibilidad="#disponibilidad">
@@ -198,9 +198,9 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="convenios">Convenio</label>
-                                    <div class="input-group mb-3">
+                                    <div class="input-group select_input_group mb-3">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
                                                 <input type="checkbox" class="checkbox-activar-convenios"
@@ -211,23 +211,23 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="fecha">Fecha</label>
                                     <input type="text" id="fecha" name="fecha" data-disponibilidad="#disponibilidad"
                                            class="fecha-disponible fecha form-control" readonly/>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="disponibilidad">Horario disponible</label>
                                     <select id="disponibilidad" name="disponibilidad" required
                                             data-fecha="#fecha" data-servicio="#servicio"></select>
                                 </div>
 
-                                <div class="col-12 mb-2">
-                                    <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Lugar</h2>
+                                <div class="col-12 my-2">
+                                    <h2 style="border-bottom: 2px solid #7fadcb; color: #0083D6"> Lugar</h2>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">     <!--menu dinamico ciudades -->
+                                <div class="col-12 col-lg-6 mb-2">     <!--menu dinamico ciudades -->
                                     <label for="pais_id">País</label>
                                     <select class="select2 pais" name="pais_id" id="pais_id" data-modal="#modal_agregar_cita"
                                             data-id="{{ $user->profesional->idpais }}" data-departamento="#departamento_id"
@@ -240,43 +240,43 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2 mb-2">
+                                <div class="col-12 col-lg-6 mb-2">
                                     <label for="departamento_id">Departamento</label>
                                     <select name="departamento_id" class="select2 departamento" id="departamento_id"
                                             data-modal="#modal_agregar_cita" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
                                             data-id="{{ $user->profesional->id_departamento }}"></select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2 mb-2">
+                                <div class="col-12 col-lg-6 mb-2">
                                     <label for="provincia_id" >Provincia</label>
                                     <select name="provincia_id" class="select2 provincia" id="provincia_id"
                                             data-modal="#modal_agregar_cita" data-ciudad="#ciudad_id"
                                             data-id="{{ $user->profesional->id_provincia }}"></select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pl-lg-2 mb-2">
+                                <div class="col-12 col-lg-6 mb-2">
                                     <label for="ciudad_id">Ciudad</label>
                                     <select name="ciudad_id" class="select2" id="ciudad_id" data-modal="#modal_agregar_cita"
                                             data-id="{{ $user->profesional->id_municipio }}"></select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="lugar">Lugar de cita</label>
                                     <input type="text" id="lugar" name="lugar" required
                                            value="{{ $user->profesional->direccion }}"
                                            data-default="{{ $user->profesional->direccion }}" />
                                 </div>
 
-                                <div class="col-12 mb-2">
-                                    <h2 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;"> Pago</h2>
+                                <div class="col-12 my-2">
+                                    <h2 style="border-bottom: 2px solid #7fadcb; color: #0083D6"> Pago</h2>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="cantidad">Pago</label>
                                     <input type="text" id="cantidad" name="cantidad" required class="valor"/>
                                 </div>
 
-                                <div class="col-12 col-lg-6 p-0 pr-lg-2">
+                                <div class="col-12 col-lg-6">
                                     <label for="modalidad_pago">Modalidad de pago</label>
                                     <select id="modalidad_pago" name="modalidad_pago" required>
                                         <option value="virtual">Virtual</option>

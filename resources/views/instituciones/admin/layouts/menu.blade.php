@@ -111,11 +111,11 @@
                 </li>
 
 
-                {{-- citas --}}
+                {{-- Histórico de citas --}}
                 @can('accesos-institucion','ver-citas')
                     <li class="sidebar-item  has-sub items_green">
                         <a id="" class="" href='{{ route('institucion.citas') }}'>
-                            <button class="{{ request()->routeIs('institucion.citas') ? 'btn_active_inst' : '' }}">Citas</button>
+                            <button class="{{ request()->routeIs('institucion.citas') ? 'btn_active_inst' : '' }}">Histórico de citas</button>
                         </a>
                     </li>
                 @endcan
