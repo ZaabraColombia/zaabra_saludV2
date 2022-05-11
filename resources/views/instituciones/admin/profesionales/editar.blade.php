@@ -3,6 +3,12 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/tagsinput/bootstrap-tagsinput.css') }}">
+    <style>
+        .bootstrap-tagsinput{
+            width: 100% !important;
+        }
+    </style>
 @endsection
 
 @section('contenido')
@@ -110,13 +116,13 @@
                         <div class="col-md-4 input__box">
                             <label for="telefono">Teléfono</label>
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono', $profesional->telefono) }}"
-                                   class="@error('telefono') is-invalid @enderror"/>
+                                   class="tags-input @error('telefono') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="celular">Móvil</label>
                             <input type="text" id="celular" name="celular" value="{{ old('celular', $profesional->celular) }}"
-                                   class="@error('celular') is-invalid @enderror"/>
+                                   class="tags-input @error('celular') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-4 input__box">
@@ -288,6 +294,7 @@
 
 @section('scripts')
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
 
     <script>
         // Obtener referencia al input y a la imagen
@@ -313,6 +320,17 @@
     </script>
 
     <script>
+        $('.tags-input').tagsinput({
+            tagClass: 'bg-primary p-1',
+            confirmKeys: [13, 44, 32]
+        });
+        $('form').keypress(function (event) {
+            if (event.which === 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
         $('.select2').select2({
             theme: 'bootstrap4'
         });
