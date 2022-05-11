@@ -1,0 +1,131 @@
+.containt__card {
+    background-color: #FFFFFF;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 2px rgb(206 212 218 / 50%);
+    transition-duration: 0.15s;
+     // transform: perspective(1px) translateZ(0);
+    // position: relative;
+    .card-header {
+        background-color: #079F86;
+        border: 1px solid #079F86;
+        color: #FFFFFF;
+    }
+}
+.content_btn_center {
+    .btn_green {
+        font-family: "Quicksand";
+        color: #FFFFFF;
+        background: #019F86;
+        border: solid 1px #019F86;
+        border-radius: 5px;
+        padding: 3px 15px;
+    }
+}
+// Animación de las tarjetas
+.containt__card:hover {   
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 10PX 15px 24px rgb(62 57 107 / 25%);
+}
+// End animación
+.estado__activo {
+    position: absolute;
+    top: 85px;
+    right: 5px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid #27e0c2;
+    background-color: #ddfdf8;
+    color: #079F86;
+}
+.estado__inactivo {
+    position: absolute;
+    top: 85px;
+    right: 5px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid #fc7c7c;
+    background-color: #fde0e0;
+    color: #f83636;
+}
+
+// Estado para el MODAL VER USUARIO
+.estado__activo_modal {
+    position: absolute;
+    top: 80px;
+    right: 25px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid #27e0c2;
+    background-color: #ddfdf8;
+    color: #079F86;
+}
+.estado__inactivo_modal {
+    position: absolute;
+    top: 80px;
+    right: 25px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid #fc7c7c;
+    background-color: #fde0e0;
+    color: #f83636;
+}
+// End estado para el MODAL VER USUARIO
+
+@media(min-width: 768px) {
+    .estado__activo {
+        position: absolute;
+        top: 58px;
+        right: 5px;
+        padding: 2px 7px;
+        border-radius: 3px;
+        border: 1px solid #27e0c2;
+        background-color: #ddfdf8;
+        color: #079F86;
+    }
+    .estado__inactivo {
+        position: absolute;
+        top: 58px;
+        right: 5px;
+        padding: 2px 7px;
+        border-radius: 3px;
+        border: 1px solid #fc7c7c;
+        background-color: #fde0e0;
+        color: #f83636;
+    }
+    
+    // Estado para el MODAL VER USUARIO
+    .estado__activo_modal {
+        position: absolute;
+        top: 86px;
+        right: 25px;
+        padding: 2px 7px;
+        border-radius: 3px;
+        border: 1px solid #27e0c2;
+        background-color: #ddfdf8;
+        color: #079F86;
+    }
+    .estado__inactivo_modal {
+        position: absolute;
+        top: 86px;
+        right: 25px;
+        padding: 2px 7px;
+        border-radius: 3px;
+        border: 1px solid #fc7c7c;
+        background-color: #fde0e0;
+        color: #f83636;
+    }
+    // End estado para el MODAL VER USUARIO
+}
+
+@media(min-width: 1024px) {
+
+}
+
+@media(min-width: 1300px) {
+
+}
+
+@media(min-width: 1920px) {
+
+}

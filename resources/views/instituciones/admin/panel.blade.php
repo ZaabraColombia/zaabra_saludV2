@@ -38,12 +38,12 @@
                         </div>
                     @endcan
 
-                    {{-- Citas --}}
+                    {{-- Histórico de citas --}}
                     @can('accesos-institucion','ver-citas')
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.citas') }}'>
                                 <div class="content__target_inst cita_green">
-                                    <span class="subtitle__lg">Citas</span>
+                                    <span class="subtitle__lg">Histórico de citas</span>
                                 </div>
                             </a>
                         </div>

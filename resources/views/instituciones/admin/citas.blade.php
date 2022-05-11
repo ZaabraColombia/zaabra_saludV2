@@ -13,7 +13,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf" id="basic-table">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Citas</h1>
+                <h1 class="title__xl green_bold">Histórico de citas</h1>
                 <span class="text__md black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
             </div>
 
