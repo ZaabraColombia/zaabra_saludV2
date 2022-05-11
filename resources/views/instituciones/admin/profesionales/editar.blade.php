@@ -151,7 +151,7 @@
                             <select id="pais_id" name="pais_id" class="@error('pais_id') is-invalid @enderror">
                                 @if($paises->isNotEmpty())
                                     @foreach($paises as $pais)
-                                        <option value="{{ $pais->id_pais }}" {{ old('pais_id', $profesional->red_social) == $pais->id_pais ? 'selected':'' }}>{{ $pais->nombre }}</option>
+                                        <option value="{{ $pais->id_pais }}" {{ old('pais_id', $profesional->pais_id) == $pais->id_pais ? 'selected':'' }}>{{ $pais->nombre }}</option>
                                     @endforeach
                                 @endif
                             </select>
