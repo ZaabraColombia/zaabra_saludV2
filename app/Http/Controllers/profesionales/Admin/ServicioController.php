@@ -25,6 +25,7 @@ class ServicioController extends Controller
         Gate::authorize('accesos-profesional', 'ver-servicios');
         $servicios = Servicio::query()
             ->where('profesional_id', '=', Auth::user()->profesional->idPerfilProfesional)
+            ->with(['especialidad', 'tipo_servicio'])
             ->get();
 
         return view('profesionales.admin.configuracion.servicios.index', compact('servicios'));
@@ -36,7 +37,7 @@ class ServicioController extends Controller
     public function create()
     {
         Gate::authorize('accesos-profesional', 'agregar-servicio');
-        $especialidades = especialidades::all();
+        $especialidades = especialidades::query()->orderBy('nombreEspecialidad')->get();
         $tipo_servicios = TipoServicio::all();
         $convenios = Convenios::query()
             ->where('id_user', '=', Auth::user()->profesional->idUser)
@@ -128,7 +129,7 @@ class ServicioController extends Controller
         Gate::authorize('accesos-profesional', 'editar-servicio');
         Gate::authorize('update-servicio-profesional', $servicio);
 
-        $especialidades = especialidades::all();
+        $especialidades = especialidades::query()->orderBy('nombreEspecialidad')->get();
         $tipo_servicios = TipoServicio::all();
 
         $convenios = Convenios::query()

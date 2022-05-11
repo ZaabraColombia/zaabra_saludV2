@@ -45,7 +45,7 @@ class ServiciosController extends Controller
     public function create()
     {
         Gate::authorize('accesos-institucion','editar-servicio');
-        $especialidades = especialidades::all();
+        $especialidades = especialidades::query()->orderBy('nombreEspecialidad')->get();
         $tipo_servicios = TipoServicio::all();
         $convenios = Convenios::query()
             ->where('id_user', '=', Auth::user()->institucion->user->id)
@@ -137,7 +137,7 @@ class ServiciosController extends Controller
         Gate::authorize('accesos-institucion','editar-servicio');
         Gate::authorize('update-servicio-institucion', $servicio);
 
-        $especialidades = especialidades::all();
+        $especialidades = especialidades::query()->orderBy('nombreEspecialidad')->get();
         $tipo_servicios = TipoServicio::all();
 
         $convenios = Convenios::query()
