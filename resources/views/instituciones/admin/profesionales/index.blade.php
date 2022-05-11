@@ -74,7 +74,7 @@
                                     <td>{{ $profesional->nombre_especialidad ?? '' }}</td>
                                     <td>{{ $profesional->correo }}</td>
                                     <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
-                                    <td>{{ $profesional->direccion }}</td>
+                                    <td style="line-height: 1.2">{{ $profesional->direccion }}</td>
                                     <td>
                                         <div class="d-flex justify-content-between">
                                             <a class="btn_action_green tool top"
