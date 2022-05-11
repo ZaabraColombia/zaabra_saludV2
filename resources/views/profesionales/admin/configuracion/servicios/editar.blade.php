@@ -52,8 +52,13 @@
 
                         <div class="col-md-4 input__box">
                             <label for="valor">Valor</label>
-                            <input type="number" id="valor" name="valor" value="{{ old('valor', $servicio->valor) }}"
-                                   class="@error('valor') is-invalid @enderror"/>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend signo_peso">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" id="valor" name="valor" value="{{ old('valor', $servicio->valor) }}"
+                                       class="form-control mask-money @error('valor') is-invalid @enderror"/>
+                            </div>
                         </div>
                     </div>
 
@@ -175,15 +180,15 @@
                                             <td>
                                                 <div class="input__box">
                                                     <div class="signo_peso" style="color: #0083D6"><span>$</span></div>
-                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
-                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="valor-paciente @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
+                                                    <input type="text" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
+                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="valor-paciente mask-money @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="input__box">
                                                     <div class="signo_peso" style="color: #0083D6"><span>$</span></div>
-                                                    <input type="number" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
-                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="valor-convenio @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
+                                                    <input type="text" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
+                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="valor-convenio mask-money @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
                                                 </div>
                                             </td>
                                         </tr>
@@ -207,6 +212,7 @@
 
 @section('scripts')
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('plugins/jquery-mask/jquery.mask.min.js') }}"></script>
 
     <script>
         // función para mostrar y ocultar la tabla de vincular convenios
@@ -246,12 +252,17 @@
                 }
             });
 
+            //Mascara
+            $('.mask-money').mask('000.000.000.000.000', {reverse: true});
+
             $('.valor-paciente').change(function () {
                 var input = $(this);
                 var valor = $('#valor');
+                var cantidad = valor.val().replace('.', '');
+                var cantidad_paciente = input.val().replace('.', '');
 
-                if (!input.prop('disabled') && input.val() !== '' && valor.val() !== '')
-                    input.parents('tr').find('.valor-convenio').val(valor.val() - input.val());
+                if (!input.prop('disabled') && cantidad_paciente !== '' && cantidad !== '')
+                    input.parents('tr').find('.valor-convenio').val(cantidad - cantidad_paciente).trigger('input');
             });
         });
     </script>

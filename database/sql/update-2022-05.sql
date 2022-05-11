@@ -19,7 +19,12 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`citas`
             ON DELETE RESTRICT
             ON UPDATE RESTRICT;
 
-#Subido cesar
 #Subido test
 #Subido production
 #Subido jhon 10-05-2022 16:24
+
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
+    CHANGE COLUMN `telefono` `telefono` VARCHAR(100) NULL DEFAULT NULL ,
+    CHANGE COLUMN `celular` `celular` VARCHAR(100) NULL DEFAULT NULL ;
+
+#Subido cesar

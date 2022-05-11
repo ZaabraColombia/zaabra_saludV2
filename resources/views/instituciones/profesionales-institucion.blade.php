@@ -75,7 +75,7 @@
 
                             <p class="name_university text_univ_card searching">{{$profesional->universidad->nombreuniversidad}}</p>
                             <h2 class="cargo_profInst text_cargo_card searching">{{$profesional->cargo}}</h2>
-                            <div style="display: none" class="searching">{{ $filtro ?? '' }}  {{ preg_replace('([^A-Za-z0-9 ])', '', "{$profesional->primer_nombre} {$profesional->primer_apellido}") }}</div>
+                            <div style="display: none" class="searching">{{ $filtro ?? '' }}  {{ eliminar_tildes("{$profesional->primer_nombre} {$profesional->primer_apellido}") }}</div>
 
                             <div class="content_btn_center mt-1">
                                 <a class="button_green" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
@@ -134,6 +134,34 @@
             </div>
         </div>
     @endif
+    @if(session()->has('warning-profesional'))
+        <!-- Modal info iniciar login como paciente -->
+        <div class="modal fade" id="modal_profesional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal_container">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="elemento_infortmativo mt-3">
+                            <i data-feather="alert-triangle" class="informativo"></i>
+                        </div>
+
+                        <div class="text-center mt-4 px-3 py-0">
+                            <p class="black_light fs_text">Para agendar cita medica, inicie sesión como paciente.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer content_btn_center">
+                        <button type="button" class="button_transparent" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
 
 @section('scripts')
@@ -147,6 +175,7 @@
 
     <script type="text/javascript">
         @if (session()->has('error-agenda')) $('#modal_agenda_no_disponible').modal();@endif
+        @if(session()->has('warning-profesional')) $('#modal_profesional').modal(); @endif
         @php $rest = request()->prof;@endphp
 
         jQuery(document).ready( function() {

@@ -57,6 +57,7 @@ class RolesMiddleware
 
         //Si no existe el rol
         if (empty($permiso)) {
+
             return redirect()->back()->with('warning-profesional', 'No esta autorizado para ingresar a esta vista');
         }
 
