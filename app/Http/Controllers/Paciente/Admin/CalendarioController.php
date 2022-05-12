@@ -72,8 +72,18 @@ class CalendarioController extends Controller{
             ->where('profesional_id', '=', $profesional->idPerfilProfesional)
             ->first();
 
+        $count_citas = Cita::query()
+            ->where('paciente_id', Auth::user()->paciente->id)
+            ->where('profesional_id', '=', $profesional->idPerfilProfesional)
+            ->whereHas('pago', function ($query) {
+                return $query->where('aprobado', 1);
+            })
+            ->count();
+
+        $activar_presencial = ($count_citas > 0 or $antiguedad->confirmacion);
+
         return view('paciente.admin.calendario.asignar-cita-profesional',
-            compact('profesional', 'weekDisabled', 'antiguedad'));
+            compact('profesional', 'weekDisabled', 'antiguedad', 'activar_presencial'));
     }
 
     public function antiguedad_profesional(Request $request, perfilesprofesionales $profesional)
@@ -99,8 +109,8 @@ class CalendarioController extends Controller{
                 'profesional_id' => $profesional->idPerfilProfesional,
             ]);
 
-        //Es verdadero si es nuevo, pero es falso si es antiguo, se invierte en el guardado
-        $antiguedad->confirmacion = !$request->get('antiguedad');
+        //Es verdadero si es antiguo, pero es falso si es nuevo
+        $antiguedad->confirmacion = $request->get('antiguedad');
         $antiguedad->save();
 
         return response([
@@ -337,8 +347,20 @@ class CalendarioController extends Controller{
             ->where('institucion_id', '=', $profesional->id_institucion)
             ->first();
 
+        $count_citas = Cita::query()
+            ->where('paciente_id', Auth::user()->paciente->id)
+            ->whereHas('profesional_ins', function ($query) use ($profesional){
+                return $query->where('id_institucion', '=', $profesional->id_institucion);
+            })
+            ->whereHas('pago', function ($query) {
+                return $query->where('aprobado', 1);
+            })
+            ->count();
+
+        $activar_presencial = ($count_citas > 0 or $antiguedad->confirmacion);
+
         return view('paciente.admin.calendario.asignar-cita-profesional-institucion', compact('profesional',
-            'weekDisabled', 'servicios', 'disponibilidad', 'consultorio', 'antiguedad'));
+            'weekDisabled', 'servicios', 'disponibilidad', 'consultorio', 'antiguedad', 'activar_presencial'));
     }
 
     public function dias_libre_institucion_profesional(Request $request, profesionales_instituciones $profesional)
@@ -593,7 +615,7 @@ class CalendarioController extends Controller{
                 'institucion_id' => $institucion->id,
             ]);
 
-        //Es verdadero si es nuevo, pero es falso si es antiguo,
+        //Es verdadero si es antiguo, pero es falso si es nuevo,
         $antiguedad->confirmacion = $request->get('antiguedad');
         $antiguedad->save();
 

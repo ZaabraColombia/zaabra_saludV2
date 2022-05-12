@@ -87,7 +87,7 @@
                                     <label for="modalidad">Modalidad de pago</label>
                                     <select id="modalidad" class="form-control" name="modalidad" required>
                                         <option value="virtual">Virtual</option>
-                                        @if(!empty($antiguedad) and $antiguedad->confirmacion == true)
+                                        @if(isset($activar_presencial) and $activar_presencial)
                                             <option value="presencial" id="option-presencial"> Presencial </option>
                                         @endif
                                     </select>
@@ -196,8 +196,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="button_blue" data-confirmacion="1">Si</button>
-                        <button class="button_transparent ml-2" data-confirmacion="0">No</button>
+                        <button class="button_blue" data-confirmacion="1">No</button>
+                        <button class="button_transparent ml-2" data-confirmacion="0">Si</button>
                     </div>
                 </div>
             </div>
