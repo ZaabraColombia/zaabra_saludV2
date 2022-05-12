@@ -60,7 +60,7 @@
                             @foreach($servicios as $servicio)
                                 <tr>
                                     <td>{{ $servicio->nombre }}</td>
-                                    <td>{{ number_format($servicio->valor, 0, ',', '.') }}</td>
+                                    <td>${{ number_format($servicio->valor, 0, ',', '.') }}</td>
                                     <td>{{ $servicio->tipo_servicio->nombre }}</td>
                                     <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
                                     <td>

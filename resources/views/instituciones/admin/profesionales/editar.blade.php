@@ -3,6 +3,12 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/tagsinput/bootstrap-tagsinput.css') }}">
+    <style>
+        .bootstrap-tagsinput{
+            width: 100% !important;
+        }
+    </style>
 @endsection
 
 @section('contenido')
@@ -110,13 +116,13 @@
                         <div class="col-md-4 input__box">
                             <label for="telefono">Teléfono</label>
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono', $profesional->telefono) }}"
-                                   class="@error('telefono') is-invalid @enderror"/>
+                                   class="tags-input @error('telefono') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-4 input__box">
                             <label for="celular">Móvil</label>
                             <input type="text" id="celular" name="celular" value="{{ old('celular', $profesional->celular) }}"
-                                   class="@error('celular') is-invalid @enderror"/>
+                                   class="tags-input @error('celular') is-invalid @enderror"/>
                         </div>
 
                         <div class="col-md-4 input__box">
@@ -151,7 +157,7 @@
                             <select id="pais_id" name="pais_id" class="@error('pais_id') is-invalid @enderror">
                                 @if($paises->isNotEmpty())
                                     @foreach($paises as $pais)
-                                        <option value="{{ $pais->id_pais }}" {{ old('pais_id', $profesional->red_social) == $pais->id_pais ? 'selected':'' }}>{{ $pais->nombre }}</option>
+                                        <option value="{{ $pais->id_pais }}" {{ old('pais_id', $profesional->pais_id) == $pais->id_pais ? 'selected':'' }}>{{ $pais->nombre }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -262,14 +268,29 @@
                     <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="password">Contraseña</label>
-                            <input type="password" id="password" name="password"
-                                   class="@error('password') is-invalid @enderror"/>
+                            <div class="input-group mb-3">
+                                <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success password" type="button" data-class="success"
+                                            data-password="#password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-md-6 input__box">
                             <label for="password_confirmation">Confirmar contraseña</label>
-                            <input type="password" id="password_confirmation" name="password_confirmation"
-                                   class="@error('password_confirmation') is-invalid @enderror"/>
+                            <div class="input-group mb-3">
+                                <input type="password" id="password_confirmation" name="password_confirmation"
+                                       class="form-control @error('password_confirmation') is-invalid @enderror">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success password" type="button" data-class="success"
+                                            data-password="#password_confirmation">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -288,6 +309,8 @@
 
 @section('scripts')
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="{{ asset('js/password.js') }}"></script>
 
     <script>
         // Obtener referencia al input y a la imagen
@@ -313,6 +336,17 @@
     </script>
 
     <script>
+        $('.tags-input').tagsinput({
+            tagClass: 'bg-primary p-1',
+            confirmKeys: [13, 44, 32]
+        });
+        $('form').keypress(function (event) {
+            if (event.which === 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
         $('.select2').select2({
             theme: 'bootstrap4'
         });

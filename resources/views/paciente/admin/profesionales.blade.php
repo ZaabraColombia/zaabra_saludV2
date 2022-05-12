@@ -96,7 +96,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a class="btn_action tool top" style="width: 33px" href="#">
+                                            <a class="btn_action tool top" style="width: 33px" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}">
                                                 <i data-feather="calendar"></i> <span class="tiptext">Agendar cita</span>
                                             </a>
                                         </td>
