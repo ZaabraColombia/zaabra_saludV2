@@ -4,6 +4,7 @@ namespace App\Http\Controllers\profesionales\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ConfirmacionCitaEmail;
+use App\Models\Antiguedad;
 use App\Models\Cita;
 use App\Models\Convenios;
 use App\Models\Horario;
@@ -465,6 +466,13 @@ class CalendarioController extends Controller
             'tipo'      => $all['modalidad_pago'],
             'cita_id'   => $date->id_cita,
         ]);
+
+        //permite registrar el usuario como antiguo
+        Antiguedad::query()
+            ->firstOrCreate([
+                'paciente_id'       => $patient->paciente->id,
+                'profesional_id'    => $user->profesional->idPerfilProfesional,
+            ], ['confirmacion' => true]);
 
         //Enviar notificación de confirmación de cita
         //Mail::to($patient->email)->send(new ConfirmacionCitaEmail($date, 'profesional'));
