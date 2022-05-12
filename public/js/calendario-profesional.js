@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        businessHours: calendarEl.dataset.weekbissness,
+        businessHours: [{"id":"XDNfeDCL0f","daysOfWeek":["1","2","3"],"startTime":"08:00","endTime":"12:35"}],
         events: calendarEl.dataset.events,
         // Botones de mes, semana y día.
         headerToolbar: {

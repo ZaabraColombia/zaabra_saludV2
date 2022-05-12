@@ -12,9 +12,12 @@
     <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">
 
     <style>
-        .fc-day-past, .fc-day-future .fc-non-business, .fc-day-today .fc-non-business{
+        .fc-non-business, .fc-day-past{
             background: rgba(216, 216, 216, 0.5) !important;
         }
+        /*.fc-day-past:has(:nth-child(.fc-non-business)){
+            background: rgba(216, 216, 216, 0.5) !important;
+        }*/
     </style>
 @endsection
 
