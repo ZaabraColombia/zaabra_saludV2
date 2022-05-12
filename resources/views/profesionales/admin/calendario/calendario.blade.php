@@ -10,6 +10,12 @@
 
     <!-- datepicker bootstrap -->
     <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">
+
+    <style>
+        .fc-day-past, .fc-day-future .fc-non-business, .fc-day-today .fc-non-business{
+            background: rgba(216, 216, 216, 0.5) !important;
+        }
+    </style>
 @endsection
 
 @section('contenido')
@@ -973,91 +979,4 @@
     <!-- datepicker bootstrap -->
     <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('plugins/datepicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
-
-    <script>
-
-        document.addEventListener('DOMContentLoaded', function() {
-
-
-            /**/
-
-            //Crear reserva del calendario
-            /*$('#form-reserva-calendario-editar').submit(function (e) {
-                e.preventDefault();
-                var form = $(this);
-                console.log(form);
-                $.ajax({
-                    data: form.serialize(),
-                    dataType: 'json',
-                    url: form.attr('action'),
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res, status) {
-
-                        $('#alerta-general').html(alert(res.message, 'success'));
-
-                        $('#modal_editar_reserva_calendario').modal('hide');
-                        //resetear formulario
-                        form[0].reset();
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    },
-                    error: function (res, status) {
-
-                        var response = res.responseJSON;
-
-                        $('#alerta-crear-reserva-calendario').html(alert(response.message, 'danger'));
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    }
-                });
-            });*/
-
-
-
-            //Aceptar cita reserva de calendario
-            /*$('#form-reserva-calendario-cancelar').submit(function (e) {
-                e.preventDefault();
-                var form = $(this);
-
-                $.ajax({
-                    data: form.serialize(),
-                    dataType: 'json',
-                    url: form.attr('action'),
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'POST',
-                    success: function (res, status) {
-
-                        $('#alerta-general').html(alert(res.message, 'success'));
-
-                        $('#modal_cancelar_reserva_calendario').modal('hide');
-                        //resetear formulario
-                        form[0].reset();
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    },
-                    error: function (res, status) {
-
-                        var response = res.responseJSON;
-
-                        $('#alerta-general').html(alert(response.message, 'danger'));
-
-                        setTimeout(function () {
-                            calendar.refetchEvents();
-                        },3000);
-                    }
-                });
-            });*/
-        });
-    </script>
 @endsection

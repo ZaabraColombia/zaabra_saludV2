@@ -29,20 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
         eventShortHeight: 15,
         slotDuration: '00:15',
         snapDuration: '02:00',
-        customButtons: {
-            bloquear: {
-                text: 'Bloquear',
-                click: function() {
-
-                }
-            },
-        },
         // Propiedad para cambio de lenguaje
         locale: 'es',
         allDaySlot: false,
 
         // Evento de mensaje de alerta
         dateClick: function (event) {
+            console.log(event);
             var today = moment();
 
             var day = moment(event.date);
@@ -121,11 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         select: function(info) {
 
-        },
-
-        dayCellDidMount: function (date) {
-
-        },
+        }
     });
     calendar.render();
 
