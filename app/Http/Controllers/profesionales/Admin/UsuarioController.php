@@ -102,6 +102,7 @@ class UsuarioController extends Controller
             'item' => [
                 'nombres'               => $user->nombres,
                 'apellidos'             => $user->apellidos,
+                'estado'                => ($user -> estado)? 'Activado' : 'Desactivado',
                 'numero_identificacion' => $user->identificacion,
                 'fecha_nacimiento'      => $user->auxiliar->fecha_nacimiento,
                 'direccion'             => $user->auxiliar->direccion,

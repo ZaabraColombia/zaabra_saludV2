@@ -21,6 +21,14 @@
         border-radius: 5px;
         padding: 3px 15px;
     }
+    .btn_blue {
+        font-family: "Quicksand";
+        color: #FFFFFF;
+        background: #0083D6;
+        border: solid 1px #0083D6;
+        border-radius: 5px;
+        padding: 3px 15px;
+    }
 }
 // Animación de las tarjetas
 .containt__card:hover {   
@@ -29,24 +37,32 @@
 }
 // End animación
 .estado__activo {
-    position: absolute;
-    top: 85px;
-    right: 5px;
-    padding: 2px 7px;
+    width: 95px;
+    margin-left: auto;
+    padding: 2px 7px 2px 22px;
     border-radius: 3px;
     border: 1px solid #27e0c2;
     background-color: #ddfdf8;
     color: #079F86;
+    background-image: url('/img/iconos/check-circle.svg');
+    background-repeat: no-repeat;
+    background-position-x: 3px;
+    background-position-y: center;
+    background-size: 16px;
 }
 .estado__inactivo {
-    position: absolute;
-    top: 85px;
-    right: 5px;
-    padding: 2px 7px;
+    width: 120px;
+    margin-left: auto;
+    padding: 2px 7px 2px 22px;
     border-radius: 3px;
     border: 1px solid #fc7c7c;
     background-color: #fde0e0;
     color: #f83636;
+    background-image: url('/img/iconos/x-circle.svg');
+    background-repeat: no-repeat;
+    background-position-x: 3px;
+    background-position-y: center;
+    background-size: 16px;
 }
 
 // Estado para el MODAL VER USUARIO
@@ -54,66 +70,55 @@
     position: absolute;
     top: 80px;
     right: 25px;
-    padding: 2px 7px;
+    padding: 2px 7px 2px 22px;
     border-radius: 3px;
     border: 1px solid #27e0c2;
     background-color: #ddfdf8;
     color: #079F86;
+    background-image: url('/img/iconos/check-circle.svg');
+    background-repeat: no-repeat;
+    background-position-x: 3px;
+    background-position-y: center;
+    background-size: 16px;
 }
 .estado__inactivo_modal {
     position: absolute;
     top: 80px;
     right: 25px;
-    padding: 2px 7px;
+    padding: 2px 7px 2px 22px;
     border-radius: 3px;
     border: 1px solid #fc7c7c;
     background-color: #fde0e0;
     color: #f83636;
+    background-image: url('/img/iconos/x-circle.svg');
+    background-repeat: no-repeat;
+    background-position-x: 3px;
+    background-position-y: center;
+    background-size: 16px;
 }
 // End estado para el MODAL VER USUARIO
 
 @media(min-width: 768px) {
+    .wid_75 {
+        width: 75px;
+    }
     .estado__activo {
-        position: absolute;
         top: 58px;
         right: 5px;
-        padding: 2px 7px;
-        border-radius: 3px;
-        border: 1px solid #27e0c2;
-        background-color: #ddfdf8;
-        color: #079F86;
     }
     .estado__inactivo {
-        position: absolute;
         top: 58px;
         right: 5px;
-        padding: 2px 7px;
-        border-radius: 3px;
-        border: 1px solid #fc7c7c;
-        background-color: #fde0e0;
-        color: #f83636;
     }
     
     // Estado para el MODAL VER USUARIO
     .estado__activo_modal {
-        position: absolute;
         top: 86px;
         right: 25px;
-        padding: 2px 7px;
-        border-radius: 3px;
-        border: 1px solid #27e0c2;
-        background-color: #ddfdf8;
-        color: #079F86;
     }
     .estado__inactivo_modal {
-        position: absolute;
         top: 86px;
         right: 25px;
-        padding: 2px 7px;
-        border-radius: 3px;
-        border: 1px solid #fc7c7c;
-        background-color: #fde0e0;
-        color: #f83636;
     }
     // End estado para el MODAL VER USUARIO
 }
