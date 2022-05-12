@@ -1055,9 +1055,9 @@ class CalendarioController extends Controller
         $user = Auth::user();
         $horario = Horario::query()->firstOrNew(['user_id' => $user->profesional->idUser]);
 
-        $semana = $request->get('semana');
+        $semana     = $request->get('semana');
         $hora_inicio = $request->get('hora_inicio');
-        $hora_fin = $request->get('hora_final');
+        $hora_fin   = $request->get('hora_final');
 
         //validar si el horario se cruza con otro
         $validar = collect($horario->horario)->filter(function ($item) use ($semana, $hora_inicio, $hora_fin) {
