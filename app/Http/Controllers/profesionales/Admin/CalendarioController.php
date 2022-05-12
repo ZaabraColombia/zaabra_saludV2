@@ -845,6 +845,7 @@ class CalendarioController extends Controller
      * Permite crear una reserva en el calendario
      *
      * @param Request $request
+     * @param $cita
      * @return Application|ResponseFactory|Response
      */
     public function reservar_editar(Request $request, $cita)
@@ -935,6 +936,7 @@ class CalendarioController extends Controller
      * Permite cancelar reserva
      *
      * @param Request $request
+     * @param $cita
      * @return Application|ResponseFactory|Response
      */
     public function reservar_cancelar(Request $request, $cita)
@@ -1052,6 +1054,55 @@ class CalendarioController extends Controller
         //user
         $user = Auth::user();
         $horario = Horario::query()->firstOrNew(['user_id' => $user->profesional->idUser]);
+
+        $semana = $request->get('semana');
+        $hora_inicio = $request->get('hora_inicio');
+        $hora_fin = $request->get('hora_final');
+
+        //validar si el horario se cruza con otro
+        $validar = collect($horario->horario)->filter(function ($item) use ($semana, $hora_inicio, $hora_fin) {
+            $flag = false;
+
+            foreach ($semana as $s)
+            {
+                if (in_array($s, $item['daysOfWeek']))
+                {
+                    if (
+                        //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
+                        (strtotime($item['startTime']) <= strtotime($hora_inicio)
+                            && strtotime($item['endTime']) > strtotime($hora_inicio))
+                        or
+                        //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
+                        (strtotime($item['startTime']) < strtotime($hora_fin)
+                            && strtotime($item['endTime']) >= strtotime($hora_fin))
+                        or
+                        //Validar si la hora inicio existente está entre la hora inicio y fin
+                        (strtotime($hora_inicio) <= strtotime($item['startTime'])
+                            && strtotime($hora_fin) > strtotime($item['startTime']))
+                        or
+                        //Validar si la hora din existente está entre la hora inicio y fin
+                        (strtotime($hora_inicio) < strtotime($item['endTime'])
+                            && strtotime($hora_fin) >= strtotime($item['endTime']))
+                    )
+                    {
+                        $flag = true;
+                        break;
+                    }
+                }
+            }
+
+            return ($flag) ? $item:null;
+        });
+
+        if ($validar->isNotEmpty())
+        {
+            return response([
+                'message' => [
+                    'title' => 'Error',
+                    'text'  => 'El horario esta cruzado con otro'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         $schedule[] = [
             'id' => Str::random(10),
