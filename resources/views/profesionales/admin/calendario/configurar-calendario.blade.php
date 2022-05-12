@@ -210,7 +210,7 @@
                 dataType: 'json',
                 method: 'post',
                 success: function (res, status) {
-                    $('#alert-horario-agregar').html(res.message);
+                    $('#alert-horario-agregar').html(alert(res.message, 'success'));
                     //clean form
                     form[0].reset();
 
