@@ -17,7 +17,6 @@ $('.pais').on('change', function () {
     var departamento = $(item.data('departamento'));
     departamento.empty();
 
-    console.log(departamento);
     var provincia = $(item.data('provincia'));
     provincia.empty();
 
@@ -34,7 +33,7 @@ $('.pais').on('change', function () {
                     departamento.append(newOption);
                 });
             }
-
+            item.val(val);
             departamento.val(departamento.data('id')).trigger('change');
         }, 'json');
     }

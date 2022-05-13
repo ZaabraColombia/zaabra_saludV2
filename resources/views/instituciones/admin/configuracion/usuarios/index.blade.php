@@ -49,6 +49,7 @@
                             <th>Nombre</th>
                             <th>Identificación</th>
                             <th>E-mail</th>
+                            <th>Cargo</th>
                             <th>Estado</th>
                             <th class="text-center">Acción</th>
                         </tr>
@@ -60,6 +61,7 @@
                                     <td>{{ $usuario->nombre_completo }}</td>
                                     <td>{{ "{$usuario->identificacion}" }}</td>
                                     <td>{{ $usuario->email }}</td>
+                                    <td>{{ $usuario->auxiliar->cargo }}</td>
                                     <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
                                     <td>
                                         <div class="d-flex justify-content-around px-3">

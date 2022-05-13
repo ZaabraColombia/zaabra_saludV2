@@ -33,6 +33,7 @@ class UsuariosController extends Controller
 
         $usuarios = User::query()
             ->where('institucion_id', Auth::user()->institucion->id)
+            ->with(['auxiliar'])
             ->get();
 
         return view('instituciones.admin.configuracion.usuarios.index', compact('usuarios'));
@@ -89,6 +90,7 @@ class UsuariosController extends Controller
             'direccion'         => $request->get('direccion'),
             'telefono'          => $request->get('telefono'),
             'celular'           => $request->get('celular'),
+            'cargo'             => $request->get('cargo'),
             'pais_id'           => $request->get('pais_id'),
             'departamento_id'   => $request->get('departamento_id'),
             'provincia_id'      => $request->get('provincia_id'),
@@ -174,6 +176,7 @@ class UsuariosController extends Controller
             'direccion'         => $request->get('direccion'),
             'telefono'          => $request->get('telefono'),
             'celular'           => $request->get('celular'),
+            'cargo'             => $request->get('cargo'),
             'pais_id'           => $request->get('pais_id'),
             'departamento_id'   => $request->get('departamento_id'),
             'provincia_id'      => $request->get('provincia_id'),

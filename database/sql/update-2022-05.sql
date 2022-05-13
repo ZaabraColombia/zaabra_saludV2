@@ -27,7 +27,11 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
     CHANGE COLUMN `telefono` `telefono` VARCHAR(100) NULL DEFAULT NULL ,
     CHANGE COLUMN `celular` `celular` VARCHAR(100) NULL DEFAULT NULL ;
 
-ALTER TABLE `zaabra_salud`.`users`
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
     CHANGE COLUMN `numerodocumento` `numerodocumento` VARCHAR(100) NULL DEFAULT NULL ;
+
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`auxiliares`
+    ADD COLUMN `cargo` VARCHAR(50) NULL AFTER `celular`;
+
 
 #Subido cesar
