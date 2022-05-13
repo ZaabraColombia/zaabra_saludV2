@@ -26,6 +26,7 @@ class UsuarioController extends Controller
         Gate::authorize('accesos-profesional', 'ver-usuarios');
         $usuarios = User::query()
             ->where('profesional_id', Auth::user()->profesional->idPerfilProfesional)
+            ->with(['auxiliar'])
             ->get();
 
         return view('profesionales.admin.configuracion.usuarios.index', compact('usuarios'));
@@ -71,6 +72,7 @@ class UsuarioController extends Controller
             'direccion'         => $request->get('direccion'),
             'telefono'          => $request->get('telefono'),
             'celular'           => $request->get('celular'),
+            'cargo'             => $request->get('cargo'),
             'pais_id'           => $request->get('pais_id'),
             'departamento_id'   => $request->get('departamento_id'),
             'provincia_id'      => $request->get('provincia_id'),
@@ -168,6 +170,7 @@ class UsuarioController extends Controller
             'direccion'         => $request->get('direccion'),
             'telefono'          => $request->get('telefono'),
             'celular'           => $request->get('celular'),
+            'cargo'             => $request->get('cargo'),
             'pais_id'           => $request->get('pais_id'),
             'departamento_id'   => $request->get('departamento_id'),
             'provincia_id'      => $request->get('provincia_id'),
