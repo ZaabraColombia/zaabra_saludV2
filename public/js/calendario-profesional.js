@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        businessHours: calendarEl.dataset.weekbissness,
+        businessHours: [{"id":"XDNfeDCL0f","daysOfWeek":["1","2","3"],"startTime":"08:00","endTime":"12:35"}],
         events: calendarEl.dataset.events,
         // Botones de mes, semana y día.
         headerToolbar: {
@@ -29,20 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
         eventShortHeight: 15,
         slotDuration: '00:15',
         snapDuration: '02:00',
-        customButtons: {
-            bloquear: {
-                text: 'Bloquear',
-                click: function() {
-
-                }
-            },
-        },
         // Propiedad para cambio de lenguaje
         locale: 'es',
         allDaySlot: false,
 
         // Evento de mensaje de alerta
         dateClick: function (event) {
+            console.log(event);
             var today = moment();
 
             var day = moment(event.date);
@@ -121,11 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         select: function(info) {
 
-        },
-
-        dayCellDidMount: function (date) {
-
-        },
+        }
     });
     calendar.render();
 

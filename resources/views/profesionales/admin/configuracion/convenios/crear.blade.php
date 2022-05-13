@@ -1,4 +1,4 @@
-@extends('instituciones.admin.layouts.layout')
+@extends('profesionales.admin.layouts.panel')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">

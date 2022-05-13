@@ -31,10 +31,8 @@
                 </div>
             </div>
 
-
-
-            <!-- Tarjetas de Usuarios -->
-            <div class="row">
+            <!-- Contenedor formato tabla de la lista de contactos -->
+            <div class="containt_main_table mb-3">
                 <div class="col-12">
                     @if(session()->has('success'))
                         <div class="alert alert-success" role="alert">
@@ -46,55 +44,48 @@
                         </div>
                     @endif
                 </div>
-
-                @if($usuarios->isNotEmpty())
-                    @foreach($usuarios as $usuario)
-                        <div class="col-xl-6 mb-3">
-                            <div class="card containt__card p-0">
-                                <div class="card-header" style="background-color: #0083D6">
-                                    <h4 class="m-0">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
-                                </div>
-                                
-                                <div class="card-body pt-3 px3">
-                                    <div class="{{ ($usuario->estado) ? 'estado__activo' : 'estado__inactivo'  }}">
-                                        <span style="vertical-align: middle">{{ ($usuario->estado) ? 'Activado' : 'Desactivado' }}</span>
-                                    </div>
-
-                                    <div class="d-md-flex align-items-center mt-2 mb-1 mb-md-0">
-                                        <h5 class="card-title mb-0 mb-md-2 wid_75">Cargo: &nbsp;</h5> 
-                                        <h5 class="card-title mb-0 mb-md-2">Gerente administrativo</h5>
-                                    </div>
-                                    <div class="d-md-flex align-items-center">
-                                        <p class="card-text m-0 wid_75">Teléfono: &nbsp;</p> 
-                                        <span>{{ $usuario->auxiliar->celular }}</span>
-                                    </div>
-                                    <div class="d-md-flex align-items-center">
-                                        <p class="card-text m-0 wid_75">Correo: &nbsp;</p> 
-                                        <span>{{ $usuario->email }}</span>
-                                    </div>
-                                </div>
-
-                                <div class="row content_btn_center mx-0 mb-3">
-                                    @can('accesos-institucion', 'usuario-editar')
-                                        <button type="submit" class="btn_blue modal-usuario mr-2" 
-                                            data-url="{{ route('profesional.configuracion.usuarios.show', ['usuario'=>$usuario->id]) }}">
-                                            Ver más
-                                        </button>
-                                    @endcan
-
-                                    @can('accesos-institucion', 'usuario-editar')
-                                        <a type="submit" class="btn_blue px-4" 
-                                            href="{{ route('profesional.configuracion.usuarios.edit', ['usuario'=>$usuario->id]) }}">
-                                            Editar
-                                        </a>
-                                    @endcan
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
+                <div class="table-responsive">
+                    <table class="table table_agenda" id="table-pacientes">
+                        <thead class="thead_blue">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Identificación</th>
+                            <th>E-mail</th>
+                            <th>cargo</th>
+                            <th>Estado</th>
+                            <th class="text-center">Acción</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if($usuarios->isNotEmpty())
+                            @foreach($usuarios as $usuario)
+                                <tr>
+                                    <td>{{ $usuario->nombre_completo }}</td>
+                                    <td>{{ "{$usuario->identificacion}" }}</td>
+                                    <td>{{ $usuario->email }}</td>
+                                    <td>{{ $usuario->auxiliar->cargo }}</td>
+                                    <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-around px-3">
+                                            <button class="btn_action  tool top modal-usuario" style="width: 33px"
+                                                    data-url="{{ route('profesional.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
+                                                <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
+                                            </button>
+                                            @can('accesos-profesional',['editar-usuario'])
+                                                <a class="btn_action  tool top" style="width: 33px"
+                                                   href="{{ route('profesional.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
+                                                </a>
+                                            @endcan
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
         </div>
     </div>
 
@@ -114,11 +105,7 @@
                     <div class="content__border_see_contacs"></div>
 
                     <div class="modal_info_cita pt-3 px-2">
-                        <div id="estado-modal">
-                            <span style="vertical-align: middle"></span>
-                        </div>
-
-                        <h4 class="fs_subtitle blue_light mt-4" style="border-bottom: 2px solid #7fadcb;">Información básica</h4>
+                        <h4 class="fs_subtitle blue_light" style="border-bottom: 2px solid #7fadcb;">Información básica</h4>
                         <div class="row mb-2">
                             <div class="col-lg-6 info_contac">
                                 <span>Nombres:&nbsp;</span>
@@ -235,11 +222,6 @@
                 $.each(response.item, function (key, item) {
                     if (key !== 'accesos') $('#' + key).html(item);
                 });
-
-               $('#estado-modal').attr('class', (response.item.estado === 'Activado') ? 'estado__activo_modal' : 'estado__inactivo_modal');
-               $('#estado-modal').find('span').html(response.item.estado);
-               
-                
                 $('#accesos-lista').html('');
                 $.each(response.item.accesos, function (key, item) {
                     $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'

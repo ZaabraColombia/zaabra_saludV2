@@ -111,14 +111,28 @@
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
                                    class="@error('telefono') is-invalid @enderror" required/>
                         </div>
-                    </div>
 
-                    <div class="row">
                         <div class="col-md-4 input__box">
                             <label for="celular">Celular</label>
                             <input type="text" id="celular" name="celular" value="{{ old('celular') }}"
                                    class="@error('celular') is-invalid @enderror" required/>
                         </div>
+
+                        <div class="col-md-4 input__box">
+                            <label for="cargo">Cargo</label>
+                            <input type="text" id="cargo" name="cargo" value="{{ old('cargo') }}"
+                                   class="@error('cargo') is-invalid @enderror" required/>
+                        </div>
+
+                        <div class="col-md-4 input__box">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                   class="@error('email') is-invalid @enderror" required/>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
 
                         <div class="col-md-4 input__box">
                             <label for="pais_id">País</label>
@@ -127,7 +141,7 @@
                                     data-id="{{ old('pais_id', 18/* colombia */) }}" required>
                                 @if($paises->isNotEmpty())
                                     @foreach($paises as $pais)
-                                        <option value="{{ $pais->id_pais }}">{{ $pais->nombre }}</option>
+                                        <option value="{{ $pais->id_pais }}" {{ (old('pais_id', 18/* colombia */) == $pais->id_pais) ? 'selected':'' }}>{{ $pais->nombre }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -155,11 +169,6 @@
                             </select>
                         </div>
 
-                        <div class="col-md-4 input__box">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" value="{{ old('email') }}"
-                                   class="@error('email') is-invalid @enderror" required/>
-                        </div>
                     </div>
 
                     <!-- Linea división de elementos -->
@@ -228,30 +237,11 @@
 
 @section('scripts')
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('js/filtro-ubicacion.js') }}"></script>
+    <script src="{{ asset('js/ubicacion.js') }}"></script>
     <script src="{{ asset('plugins/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
     <script src="{{ asset('js/password.js') }}"></script>
 
     <script>
-        // función para mostrar y ocultar la tabla de vincular convenios
-        $(document).ready(function(){
-            var pais = $('#pais_id');
-            pais.val(pais.data('id')).trigger('change');
-
-            var departamento = $('#departamento_id');
-            if (departamento.data('id') !== '') setTimeout(function () {
-                departamento.val(departamento.data('id')).trigger('change');
-            },500);
-
-            var provincia = $('#provincia_id');
-            if (provincia.data('id') !== '') setTimeout(function () {
-                provincia.val(provincia.data('id')).trigger('change');
-            },1000);
-
-            var ciudad = $('#ciudad_id');
-            if (ciudad.data('id') !== '') setTimeout(function () {
-                ciudad.val(ciudad.data('id')).trigger('change');
-            },1500);
-        });
+        $('#pais_id').trigger('change');
     </script>
 @endsection

@@ -15,6 +15,7 @@ class Auxiliar extends Model
         'direccion',
         'telefono',
         'celular',
+        'cargo',
         'pais_id',
         'departamento_id',
         'provincia_id',
