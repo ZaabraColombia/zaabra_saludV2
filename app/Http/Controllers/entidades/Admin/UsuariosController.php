@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
+use function GuzzleHttp\Promise\all;
 
 class UsuariosController extends Controller
 {
@@ -157,9 +158,10 @@ class UsuariosController extends Controller
             'tipodocumento'     => $request->get('tipo_documento'),
             'numerodocumento'   => $request->get('numero_documento'),
             'email'             => $request->get('email'),
-            'institucion_id'    => Auth::user()->institucion->id,
             'estado'            => $request->get('estado'),
         ]);
+
+
 
         if (!empty($request->get('password')))
         {
