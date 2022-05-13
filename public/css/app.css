@@ -26165,6 +26165,26 @@ a:hover {
   padding: 5px 15px;
 }
 
+.btn_ver_mas {
+  font-family: "Quicksand";
+  background: transparent;
+  color: #019F86;
+  border: none;
+}
+.btn_ver_mas:hover {
+  text-decoration: underline;
+}
+
+.btn_card_green {
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #FFFFFF;
+  background: #019F86;
+  border: solid 1px #019F86;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
 .buttons-excel.border_left {
   border-left: 2px solid white;
 }
@@ -26212,6 +26232,12 @@ div.dt-buttons {
   border: none;
   background: transparent;
   color: #019F86;
+}
+
+.servicio_medico, .btn_ver_servicio {
+  background-color: transparent;
+  border: none;
+  line-height: 1.1;
 }
 
 .button_blue_form {
@@ -26757,10 +26783,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
   .list__form_column ul li:nth-child(3) {
     background-size: 25px;
-  }
-
-  .w_xl_90 {
-    width: 90%;
   }
 }
 @media (min-width: 1300px) {

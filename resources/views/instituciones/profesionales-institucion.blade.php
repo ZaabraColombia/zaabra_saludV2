@@ -78,9 +78,12 @@
                             <div style="display: none" class="searching">{{ $filtro ?? '' }}  {{ eliminar_tildes("{$profesional->primer_nombre} {$profesional->primer_apellido}") }}</div>
 
                             <div class="content_btn_center mt-1">
-                                <a class="button_green" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
-                                    <i class="fas fa-arrow-right pl-2"></i>
+                                <a class="btn_card_green" href="{{ route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}"> Agendar cita
+                                    <i class="fas fa-arrow-right pl-1"></i>
                                 </a>
+                            </div>
+                            <div class="content_btn_center mt-1">
+                                <button class="btn_ver_mas" data-toggle="modal" data-target="#servicios_prof_inst">Ver más</button>
                             </div>
                         </div>
                     </div>
@@ -162,6 +165,81 @@
             </div>
         </div>
     @endif
+
+    <!-- Modal Servicios profesional de una institución -->
+    <div class="modal fade" id="servicios_prof_inst" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Información del profeisonal -->
+                    <div class="row align-items-md-center mx-0 mb-3">
+                        <div class="col-md-3 d-flex justify-content-center mb-3 mb-md-0">
+                            <img class="img__see_contacs" src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
+                        </div>
+                        <div class="col-md-9 p-0 p-md-2">
+                            <h5 class="fs_subtitle_module black_strong">Erika Caballero</h5>
+                            <p class="fs_text green_bold">Especialista en Otorrinolaringología</p>
+                        </div>
+                    </div>
+                    <!-- Servicios del profeesional -->
+                    <div class="acordeon" id="collapsed">
+                        <!-- Servicio visible -->
+                        <div class="row mx-0 mb-4 text-center text-md-left">
+                            <div class="col-md-7 p-0 py-md-1">
+                                <h5 class="fs_text black_strong mb-1 mb-md-0">Otorrinolaringología - Procedimiento quirúrgico</h5>
+                            </div>
+
+                            <div class="col-md-3 p-0 py-md-1 d-flex justify-content-center align-items-center">
+                                <span class="fs_text black_light">$ 0.000.000</span>
+                            </div>
+                        
+                            <div class="col-md-2 p-0 py-md-1 mt-1 mt-md-0 content_btn_center">
+                                <button class="btn_card_green">Agendar</button>
+                            </div>
+                        </div>
+
+                        <!-- Servicio oculto en desplegable -->
+                        <div class="row mx-0 mb-4 text-center text-md-left justify-content-center">
+                            <div class="card-header col-md-7 p-0 servicio_medico" id="servicio_one">
+                                <h5 class="p-0 mb-0 fs_text black_strong">
+                                    Otorrinolaringología - Procedimiento quirúrgico
+                                </h5>
+                            </div>
+
+                            <div class="col-md-3 p-0 py-md-1 d-flex justify-content-center align-items-center">
+                                <span class="fs_text black_light">$ 0.000.000</span>
+                            </div>
+
+                            <button class="d-none d-md-block col-md-2 p-0 btn_ver_servicio green_light" type="button" data-toggle="collapse" 
+                                data-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one" onclick="cambiarTexto()" id="texto2">
+                                Ver más
+                            </button>
+
+                            <div id="collapse_one" class="collapse" aria-labelledby="servicio_one" data-parent="#collapsed">
+                                <div class="card-body pt-2 px-2 pb-0">
+                                    Los precios de este servico pueden variar según el caso. Para agendar una cita, comuníquese al 000 0000.
+                                </div>
+                            </div>
+
+                            <button class="d-md-none d-md-2 p-0 mt-2 btn_ver_servicio green_light" type="button" data-toggle="collapse" 
+                                data-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one" onclick="cambiarTexto()" id="texto">
+                                Ver más
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer content_btn_center">
+                </div>
+            </div>
+        </div>
+    </div
 @endsection
 
 @section('scripts')
@@ -277,6 +355,14 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        // Función para cambiar el texto del botón desplegable "Más información"
+        function cambiarTexto() {
+			texto.innerHTML=texto.innerHTML=="Ver menos"?"Ver más":"Ver menos";
+            texto2.innerHTML=texto2.innerHTML=="Ver menos"?"Ver más":"Ver menos";
+		}
     </script>
 @endsection
 

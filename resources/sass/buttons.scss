@@ -51,6 +51,28 @@
     border-radius: 5px;
     padding: 5px 15px;
 }
+// Botones especiales
+// Botón VER MÁS de profesionales de una institución
+.btn_ver_mas {
+    font-family: "Quicksand";
+    background: transparent;
+    color: $green_official;
+    border: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+// Botón de tarjeta profesionales de una institución
+.btn_card_green {
+    font-family: "Quicksand";
+    font-size: 14px;
+    color: $withe_official;
+    background: $green_official;
+    border: solid 1px $green_official;
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+// Botones de funcionalidades en las tablas
 .buttons-excel.border_left {
     border-left: 2px solid white;
 }
@@ -95,8 +117,12 @@ div.dt-buttons {
     background: transparent;
     color: $green_official;
 }
-
-
+// Botones desplegables y contenido
+.servicio_medico, .btn_ver_servicio {
+    background-color: transparent;
+    border: none;
+    line-height: 1.1;
+}
 
 
 
