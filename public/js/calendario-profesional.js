@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         selectable: false,
         editable: false,
+        showNonCurrentDates: false,
 
         //Abrir evento
         eventClick: function(info) {
