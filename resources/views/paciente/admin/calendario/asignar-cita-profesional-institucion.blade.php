@@ -71,7 +71,7 @@
                         <div class="d-flex justify-content-between">
                              <input type="hidden" id="id_profesional" name="id_profesional">
                             <div>
-                                <p>Otorrinolaringología - Consulta control</p>
+                                <p id="imp_serv">Otorrinolaringología - Consulta control</p>
                                 <span>$185.000</span>
                             </div>
                             <div class="row m-0 content_btn_left">
@@ -236,16 +236,16 @@
                 </div>
 
                 <div class="modal-body">
-                    <h1 class="" id="exampleModalLabel">Tipo de sercicio</h1>
+                    <h1 class="" id="exampleModalLabel">Tipo de servicio</h1>
                     @if(!empty ($servicios))
                         @foreach($servicios as $servicio)
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <p>{{ $servicio->nombre }}</p>
+                                    <p id="servicio">{{ $servicio->nombre }}</p>
                                     <span>{{ number_format($servicio->valor, 0, ",", ".") }}</span>
                                 </div>
                                 <div class="row m-0 content_btn_left">
-                                    <button type="button" class="button_blue" id="">
+                                    <button type="button" class="button_blue" id="serv">
                                         Seleccionar
                                     </button>
                                 </div>
@@ -435,6 +435,20 @@
             $('#convenio').prop('disabled', !$(this).prop('checked'));
         });
 
+    </script>
+
+    <script>
+        // function recibir(){
+        //     var servicio=document.getElementById("serv").value;
+        //     document.write(servicio);
+        // }
+        let btn = document.getElementById('serv');
+
+        btn.onclick = () => {
+        let c1 = document.getElementById('servicio').value;
+        let c2 = document.getElementById('imp_serv');
+        c2.value = c1;
+        }
     </script>
 @endsection
 

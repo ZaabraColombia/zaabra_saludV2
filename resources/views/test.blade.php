@@ -56,3 +56,52 @@
 <script type="text/javascript"></script>
 </body>
 </html>
+
+
+
+@if($usuarios->isNotEmpty())
+    @foreach($usuarios as $usuario)
+        <div class="col-xl-6 mb-3">
+            <div class="card containt__card p-0">
+                <div class="card-header">
+                    <h4 class="m-0">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
+                </div>
+                
+                <div class="card-body pt-3 px3">
+                    <div class="{{ ($usuario->estado) ? 'estado__activo' : 'estado__inactivo' }}">
+                        <span style="vertical-align: middle">{{ ($usuario->estado)? 'Activado' : 'Desactivado' }}</span>
+                    </div>
+
+                    <div class="d-md-flex align-items-center mt-2 mb-1 mb-md-0">
+                        <h5 class="card-title mb-0 mb-md-2 wid_75">Cargo: &nbsp;</h5> 
+                        <h5 class="card-title mb-0 mb-md-2">Gerente administrativo</h5>
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <p class="card-text m-0 wid_75">Teléfono: &nbsp;</p> 
+                        <span>{{ $usuario->auxiliar->celular }}</span>
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <p class="card-text m-0 wid_75">Correo: &nbsp;</p> 
+                        <span>{{ $usuario->email }}</span>
+                    </div>
+                </div>
+
+                <div class="row content_btn_center mx-0 mb-3">
+                    @can('accesos-institucion', 'editar-usuario')
+                        <button type="submit" class="btn_green modal-usuario mr-2" 
+                            data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario'=>$usuario->id]) }}">
+                            Ver más
+                        </button>
+                    @endcan
+
+                    @can('accesos-institucion','editar-usuario')
+                        <a type="submit" class="btn_green px-4" 
+                            href="{{ route('institucion.configuracion.usuarios.edit', ['usuario'=>$usuario->id]) }}">
+                            Editar
+                        </a>
+                    @endcan
+                </div>
+            </div>
+        </div>
+    @endforeach
+@endif

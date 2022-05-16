@@ -30,7 +30,7 @@
             </div>
 
             <!-- Tarjetas de Usuarios -->
-            <div class="row">
+            <div class="row m-0">
                 <div class="col-12">
                     @if(session()->has('success'))
                         <div class="alert alert-success" role="alert">
@@ -42,31 +42,42 @@
                         </div>
                     @endif
                 </div>
-
                 @if($usuarios->isNotEmpty())
                     @foreach($usuarios as $usuario)
-                        <div class="col-xl-6 mb-3">
+                        <div class="col-md-6 col-xl-4 p-0 px-md-1 mb-3">
                             <div class="card containt__card p-0">
-                                <div class="card-header">
-                                    <h4 class="m-0">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
+                                <div class="card-header p-2">
+                                    <h5 class="m-0" style="line-height: 1.1">{{ "$usuario->primernombre $usuario->apellidos" }}</h5>
                                 </div>
                                 
-                                <div class="card-body pt-3 px3">
-                                    <div class="{{ ($usuario->estado) ? 'estado__activo' : 'estado__inactivo' }}">
-                                        <span style="vertical-align: middle">{{ ($usuario->estado)? 'Activado' : 'Desactivado' }}</span>
-                                    </div>
+                                <div class="card-body p-2 pb-3"> 
+                                    <div class="p-0 mb-2 d-flex justify-content-end">
+                                        <a href="#" class="{{ ($usuario->estado)?'btn__activado':'btn__desactivado' }}">
+                                            <span>{{ ($usuario->estado)?'Activado':'Desactivado' }}</span>
+                                        </a>
+                                    </div>  
+                                
+                                    <div class="row m-0 justify-content-center">
+                                        <div class="col-3 p-0 d-flex justify-content-xl-center">
+                                            <img class="img__cuadrada" src='/img/user/31/31-1630611954.jpg'>
+                                        </div>
 
-                                    <div class="d-md-flex align-items-center mt-2 mb-1 mb-md-0">
-                                        <h5 class="card-title mb-0 mb-md-2 wid_75">Cargo: &nbsp;</h5> 
-                                        <h5 class="card-title mb-0 mb-md-2">Gerente administrativo</h5>
-                                    </div>
-                                    <div class="d-md-flex align-items-center">
-                                        <p class="card-text m-0 wid_75">Teléfono: &nbsp;</p> 
-                                        <span>{{ $usuario->auxiliar->celular }}</span>
-                                    </div>
-                                    <div class="d-md-flex align-items-center">
-                                        <p class="card-text m-0 wid_75">Correo: &nbsp;</p> 
-                                        <span>{{ $usuario->email }}</span>
+                                        <div class="col-9 p-0" style="line-height: 1.3">
+                                            <div class="">
+                                                <span class="">Gerente administrativo</span>
+                                            </div>
+
+                                            <div class="">
+                                                <span class="">{{ $usuario->auxiliar->celular }}</span>
+                                            </div>
+
+                                            <div class="toolt bottom">
+                                                <div class=" mail">
+                                                    <span>{{ $usuario->email }}</span>
+                                                </div>
+                                                <span class="tiptext">{{ $usuario->email }}</span>    
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -77,18 +88,18 @@
                                             Ver más
                                         </button>
                                     @endcan
-
-                                    @can('accesos-institucion','editar-usuario')
+                        
+                                    @can('accesos-institucion', 'editar-usuario')
                                         <a type="submit" class="btn_green px-4" 
                                             href="{{ route('institucion.configuracion.usuarios.edit', ['usuario'=>$usuario->id]) }}">
                                             Editar
-                                        </a>
+                                        </a>   
                                     @endcan
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                @endif
+                    @endforeach    
+                @endif        
             </div>
         </div>
     </div>
