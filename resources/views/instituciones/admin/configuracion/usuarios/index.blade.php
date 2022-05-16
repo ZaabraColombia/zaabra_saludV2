@@ -65,7 +65,7 @@
 
                                         <div class="col-9 p-0" style="line-height: 1.3">
                                             <div class="">
-                                                <span class="">{{ $usuairo->auxiliar->cargo }}</span>
+                                                <span class="">{{ $usuario->auxiliar->cargo }}</span>
                                             </div>
 
                                             <div class="">
