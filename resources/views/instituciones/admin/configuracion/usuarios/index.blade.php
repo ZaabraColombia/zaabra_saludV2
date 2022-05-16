@@ -29,8 +29,8 @@
                 </div>
             </div>
 
-            <!-- Contenedor formato tabla de la lista de contactos -->
-            <div class="containt_main_table mb-3">
+            <!-- Tarjetas de Usuarios -->
+            <div class="row m-0">
                 <div class="col-12">
                     @if(session()->has('success'))
                         <div class="alert alert-success" role="alert">
@@ -42,52 +42,65 @@
                         </div>
                     @endif
                 </div>
-                <div class="table-responsive">
-                    <table class="table table_agenda" id="table-pacientes">
-                        <thead class="thead_green">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Identificación</th>
-                            <th>E-mail</th>
-                            <th>Cargo</th>
-                            <th>Estado</th>
-                            <th class="text-center">Acción</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @if($usuarios->isNotEmpty())
-                            @foreach($usuarios as $usuario)
-                                <tr>
-                                    <td>{{ $usuario->nombre_completo }}</td>
-                                    <td>{{ "{$usuario->identificacion}" }}</td>
-                                    <td>{{ $usuario->email }}</td>
-                                    <td>{{ $usuario->auxiliar->cargo }}</td>
-                                    <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
-                                    <td>
-                                        <div class="d-flex justify-content-around px-3">
 
-                                            @can('accesos-institucion','editar-usuario')
-                                                <button class="btn_action_green tool top modal-usuario" style="width: 33px"
-                                                        data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
-                                                    <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
-                                                </button>
-                                            @endcan
-
-
-                                            @can('accesos-institucion','editar-usuario')
-                                                <a class="btn_action_green tool top" style="width: 33px"
-                                                   href="{{ route('institucion.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
-                                                    <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
-                                                </a>
-                                            @endcan
+                @if($usuarios->isNotEmpty())
+                    @foreach($usuarios as $usuario)
+                        <div class="col-md-6 col-xl-4 p-0 px-md-1 mb-3">
+                            <div class="card containt__card p-0">
+                                <div class="card-header p-2">
+                                    <h5 class="m-0" style="line-height: 1.1">{{ "$usuario->primernombre $usuario->apellidos" }}</h5>
+                                </div>
+                                
+                                <div class="card-body p-2 pb-3"> 
+                                    <div class="p-0 mb-2 d-flex justify-content-end">
+                                        <a href="#" class="{{ ($usuario->estado)?'btn__activado':'btn__desactivado' }}">
+                                            <span>{{ ($usuario->estado)?'Activado':'Desactivado' }}</span>
+                                        </a>
+                                    </div>  
+                                
+                                    <div class="row m-0 justify-content-center">
+                                        <div class="col-3 p-0 d-flex justify-content-xl-center">
+                                            <img class="img__cuadrada" src='/img/user/31/31-1630611954.jpg'>
                                         </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                        </tbody>
-                    </table>
-                </div>
+
+                                        <div class="col-9 p-0" style="line-height: 1.3">
+                                            <div class="">
+                                                <span class="">Gerente administrativo</span>
+                                            </div>
+
+                                            <div class="">
+                                                <span class="">{{ $usuario->auxiliar->celular }}</span>
+                                            </div>
+
+                                            <div class="toolt bottom">
+                                                <div class=" mail">
+                                                    <span>{{ $usuario->email }}</span>
+                                                </div>
+                                                <span class="tiptext">{{ $usuario->email }}</span>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row content_btn_center mx-0 mb-3">
+                                    @can('accesos-institucion', 'editar-usuario')
+                                        <button type="submit" class="btn_green modal-usuario mr-2" 
+                                            data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario'=>$usuario->id]) }}">
+                                            Ver más
+                                        </button>
+                                    @endcan
+                        
+                                    @can('accesos-institucion', 'editar-usuario')
+                                        <a type="submit" class="btn_green px-4" 
+                                            href="{{ route('institucion.configuracion.usuarios.edit', ['usuario'=>$usuario->id]) }}">
+                                            Editar
+                                        </a>   
+                                    @endcan
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach    
+                @endif        
             </div>
         </div>
     </div>
@@ -108,6 +121,9 @@
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
 
                     <div class="modal_info_cita pt-3 px-2">
+                    <div id="estado-modal">
+                            <span style="vertical-align: middle"></span>
+                        </div>
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
                         <div class="row mb-2">
                             <div class="col-lg-6 info_contac">
@@ -225,6 +241,11 @@
                 $.each(response.item, function (key, item) {
                     if (key !== 'accesos') $('#' + key).html(item);
                 });
+
+                $('#estado-modal').attr('class', (response.item.estado === 'Activado') ? 'estado__activo_modal':'estado__inactivo_modal');
+                // $('#estado-modal').find('i').data('feather', ( response.item.estado === 'Activado') ? 'check-circle':'x-circle');
+                $('#estado-modal').find('span').html( response.item.estado);
+
                 $('#accesos-lista').html('');
                 $.each(response.item.accesos, function (key, item) {
                     $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
