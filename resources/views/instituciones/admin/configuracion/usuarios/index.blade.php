@@ -121,6 +121,9 @@
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
 
                     <div class="modal_info_cita pt-3 px-2">
+                    <div id="estado-modal">
+                            <span style="vertical-align: middle"></span>
+                        </div>
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
                         <div class="row mb-2">
                             <div class="col-lg-6 info_contac">
@@ -238,6 +241,11 @@
                 $.each(response.item, function (key, item) {
                     if (key !== 'accesos') $('#' + key).html(item);
                 });
+
+                $('#estado-modal').attr('class', (response.item.estado === 'Activado') ? 'estado__activo_modal':'estado__inactivo_modal');
+                // $('#estado-modal').find('i').data('feather', ( response.item.estado === 'Activado') ? 'check-circle':'x-circle');
+                $('#estado-modal').find('span').html( response.item.estado);
+
                 $('#accesos-lista').html('');
                 $.each(response.item.accesos, function (key, item) {
                     $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
