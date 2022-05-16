@@ -8,10 +8,10 @@
                 <div class="swiper-slide">
                     <img class="swiper-slide" src="{{URL::asset($objbannersprincipalHome->rutaImagenVenta)}}">
 
-                    <div class="main_banner_top {{ ($objbannersprincipalHome->banner_plantilla_id == 1)? 'banner_small': 
-                        (($objbannersprincipalHome->banner_plantilla_id == 2)? 'banner_medium': 
+                    <div class="main_banner_top {{ ($objbannersprincipalHome->banner_plantilla_id == 1)? 'banner_small':
+                        (($objbannersprincipalHome->banner_plantilla_id == 2)? 'banner_medium':
                         (($objbannersprincipalHome->banner_plantilla_id == 3)? 'banner_large': '')) }}">
-                        <div class="img_banner_top">    
+                        <div class="img_banner_top">
                             <img src="{{URL::asset($objbannersprincipalHome->ruta_logo)}}" alt="">
                         </div>
 
@@ -144,7 +144,7 @@
                             </p>
 
                             <div class="seccion_btn_central">
-                                <a href="{{ route('PerfilInstitucion', ['slug' => $profesional->institucion->slug]) }}"
+                                <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}"
                                    class="btn_central_verde">
                                     Ver detalles <i class="fas fa-arrow-right pl-1"></i>
                                 </a>
