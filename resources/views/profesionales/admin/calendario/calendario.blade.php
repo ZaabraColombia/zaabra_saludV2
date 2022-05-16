@@ -40,11 +40,17 @@
                     <div class="row m-0 content_dias_agenda mb-md-3">
                         <h2 class="blue_bold fs_title_module">Días</h2>
                         <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_disp"> <input id="dia_disp" type="color" value="#FFFFFF" disabled readonly> Días disponibles</label>
+                            <p>
+                                <span style="color: #FFFFFF;" class="colors mr-2"><i class="fas fa-square fa-2x"></i></span>
+                                Días disponibles
+                            </p>
                         </div>
 
-                        <div class="col-md-4 col-xl-12 p-0">
-                            <label for="dia_nodis"> <input id="dia_nodis" type="color" value="#D8D8D8" disabled readonly> Días no disponibles</label>
+                        <div class="col-md-4 col-xl-12 p-0 mb-1">
+                            <p>
+                                <span style="color: #D8D8D8;" class="colors mr-2"><i class="fas fa-square fa-2x"></i></span>
+                                Días no disponibles
+                            </p>
                         </div>
 
                         <h2 class="blue_bold fs_title_module">Eventos</h2>
