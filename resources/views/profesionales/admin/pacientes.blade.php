@@ -86,7 +86,29 @@
                     targets: [-1],
                     orderable: false,
                 }
-            ]
+            ],
+            dom: 'lfBrtip',
+            buttons: [
+                {
+                    extend: 'pdfHtml5',
+                    text: 'PDF',
+                    className: 'red',
+                    title:'Resultados',
+                    exportOptions: {
+                        //columns: ":not(:last-child)",
+                    },
+                    //text: 'Red',
+                },
+                {
+                    extend: 'excel',
+                    text: 'Excel',
+                    className: 'border_left',
+                    title: 'Resultados',
+                    exportOptions: {
+                        //columns: ":not(:last-child)",
+                    },
+                },
+            ],
         });
 
         $("#search").on('keyup change',function(){
