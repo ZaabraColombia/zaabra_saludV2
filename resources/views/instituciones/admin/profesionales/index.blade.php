@@ -78,9 +78,15 @@
                                     <td>
                                         <div class="d-flex justify-content-between">
 
-                                            {{--<a class="btn_action_red tool top" href="#">
-                                            <i style="width: 20px" data-feather="lock"></i> <span class="tiptext">Calendario no configurado</span>
-                                        </a>--}}
+                                            @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
+                                                <a class="btn_action_red tool top" href="#">
+                                                    <i style="width: 23px" data-feather="lock"></i> <span class="tiptext">Calendario no configurado</span>
+                                                </a>
+                                            @else
+                                                <a class="btn_action_green tool top" href="#">
+                                                    <i style="width: 23px" data-feather="unlock"></i> <span class="tiptext">Calendario configurado</span>
+                                                </a>
+                                            @endif
 
                                             <a class="btn_action_green tool top"
                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
