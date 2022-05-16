@@ -866,7 +866,7 @@
 
                 <div class="modal-footer content_btn_center">
                     <button type="button" class="button_transparent" id="btn-reserva-cancelar">
-                        Cancelar
+                        Desbloquear
                     </button>
                     <button type="submit" class="button_blue" id="btn-reserva-editar">
                         Editar
@@ -936,7 +936,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <h1>Cancelar bloqueo</h1>
+                    <h1>Desbloquear</h1>
                     <div class="modal_info_cita">
                         <div class="p-3">
                             <h2>Fecha Inicio: <span class="fecha_inicio"></span></h2>

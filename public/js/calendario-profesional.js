@@ -88,7 +88,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         modal.find('.fecha_fin').html(res.item.ver.fecha_fin);
                         modal.find('.comentario').html(res.item.ver.comentario);
 
-                        $('#btn-reserva-cancelar, #btn-reserva-editar').data('url', res.item.data.ver);
+                        $('#btn-reserva-editar').data('url', res.item.data.ver);
+
+                        if (res.item.data.cancelar === null || res.item.data.cancelar === undefined)
+                        {
+                            $('#btn-reserva-cancelar').hide();
+                        }else{
+                            $('#btn-reserva-cancelar').show().data('url', res.item.data.ver);
+                        }
 
                     } else {
 
