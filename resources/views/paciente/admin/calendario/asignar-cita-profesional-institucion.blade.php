@@ -106,7 +106,7 @@
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
                                     <option value="virtual">Virtual</option>
-                                    @if(!empty($antiguedad) and $antiguedad->confirmacion == false)
+                                    @if(isset($activar_presencial) and $activar_presencial)
                                         <option value="presencial" id="option-presencial"> Presencial </option>
                                     @endif
                                 </select>
@@ -165,7 +165,7 @@
 
                 <div class="modal-body">
                     <h1 class="" id="exampleModalLabel">Detalles de la cita</h1>
-                    
+
                     <h5 class="profesional">{{ $user->nombre_completo }}</h5>
                     <h5>{{ "{$user->tipo_documento->nombre_corto}" }}: {{ number_format($user->numerodocumento, 0, ",", ".") }}</h5>
                     <div>
@@ -175,7 +175,7 @@
                         <h5 >Fecha: &nbsp;<span id="modal-fecha"></span> </h5>
                         <h5 >Hora cita: &nbsp;<span id="modal-hora"></span> </h5>
                         <h5 >Direción de atención: &nbsp;
-                            <span>{{ ($profesional->sede->direccion ?? $profesional->institucion->direccion) }} 
+                            <span>{{ ($profesional->sede->direccion ?? $profesional->institucion->direccion) }}
 
                                 (Consultorio {{ $profesional->consultorio }})
                                 ({{ $profesional->sede->ciudad->nombre ?? $profesional->institucion->ciudad->nombre }})
@@ -217,8 +217,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="button_transparent" data-confirmacion="0">No</button>
-                        <button class="button_blue ml-3" data-confirmacion="1">Si</button>
+                        <button class="button_transparent" data-confirmacion="1">No</button>
+                        <button class="button_blue ml-3" data-confirmacion="0">Si</button>
                     </div>
                 </div>
             </div>

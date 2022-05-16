@@ -42,6 +42,7 @@
                         </div>
                     @endif
                 </div>
+
                 @if($usuarios->isNotEmpty())
                     @foreach($usuarios as $usuario)
                         <div class="col-md-6 col-xl-4 p-0 px-md-1 mb-3">
@@ -120,20 +121,16 @@
                     <div class="content__border_see_contacs" style="background-color: #6eb1a6"></div>
 
                     <div class="modal_info_cita pt-3 px-2">
-                        <div id="estado-modal">
-                            <span style="vertical-align: middle"></span>
-                        </div>
-
-                        <h4 class="fs_subtitle green_light mt-4" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
+                        <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Información básica</h4>
                         <div class="row mb-2">
                             <div class="col-lg-6 info_contac">
                                 <span>Nombres:&nbsp;</span>
-                                <span id="nombres"></span>
+                                <span id="nombres">Nombre 1 Nombre 2</span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
                                 <span>Apellidos:&nbsp;</span>
-                                <span id="apellidos"></span>
+                                <span id="apellidos">Apellido 1 Apellido 2</span>
                             </div>
 
                             <div class="col-lg-6 info_contac">
@@ -184,7 +181,7 @@
                         </div>
 
                         <h4 class="fs_subtitle green_light" style="border-bottom: 2px solid #6eb1a6;">Accesos del usuario</h4>
-                            <div class="row m-0 mb-2" id="accesos-lista">
+                        <div class="row m-0 mb-2" id="accesos-lista">
                         </div>
                     </div>
                 </div>
@@ -239,28 +236,19 @@
                 console.log(response);
 
                 $.each(response.item, function (key, item) {
-                    if (key !== 'accesos' && key !== 'estado' ) $('#' + key).html(item);
+                    if (key !== 'accesos') $('#' + key).html(item);
                 });
-
-                console.log(response.item);
-
-                $('#estado-modal').attr('class', (response.item.estado === 'Activado') ? 'estado__activo_modal':'estado__inactivo_modal');
-                // $('#estado-modal').find('i').data('feather', ( response.item.estado === 'Activado') ? 'check-circle':'x-circle');
-                $('#estado-modal').find('span').html( response.item.estado);
-
                 $('#accesos-lista').html('');
                 $.each(response.item.accesos, function (key, item) {
-                    $('#accesos-lista').append('<div class="col-lg-6 d-flex pl-0 info_contac">'
+                    $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 info_contac">'
                         + '<i data-feather="check-circle" style="color: #019F86;" width="17"></i>'
                         + '<span class="pl-2">' + item.nombre + '</span>'
                         + '</div>');
                 });
-                feather.replace()
-                
-                $('#modal_ver_usuario').modal();
-            }, 
 
-            "json").fail(function (error) {
+                feather.replace();
+                $('#modal_ver_usuario').modal();
+            }, "json").fail(function (error) {
                 console.log(error);
             });
         });

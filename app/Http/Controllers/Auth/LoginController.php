@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use SEO;
 
 class LoginController extends Controller
@@ -40,5 +41,25 @@ class LoginController extends Controller
         SEO::setCanonical('https://zaabrasalud.co/login');
 
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        $roles = auth()->user()->roles;
+
+        if ($roles->contains('idrol', 1))
+        {
+            return redirect()->route('paciente.panel');
+        }
+        elseif ($roles->contains('idrol', 2) or $roles->contains('idrol', 5))
+        {
+            return redirect()->route('profesional.panel');
+        }
+        elseif ($roles->contains('idrol', 3) or $roles->contains('idrol', 4))
+        {
+            return redirect()->route('institucion.panel');
+        }
+
+        return redirect('/home');
     }
 }
