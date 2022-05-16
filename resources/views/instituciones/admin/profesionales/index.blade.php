@@ -77,6 +77,11 @@
                                     <td style="line-height: 1.2">{{ $profesional->direccion }}</td>
                                     <td>
                                         <div class="d-flex justify-content-between">
+
+                                            {{--<a class="btn_action_red tool top" href="#">
+                                            <i style="width: 20px" data-feather="lock"></i> <span class="tiptext">Calendario no configurado</span>
+                                        </a>--}}
+
                                             <a class="btn_action_green tool top"
                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
                                                 <i style="width: 20px" data-feather="edit"></i> <span class="tiptext">Editar profesional</span>

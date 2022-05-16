@@ -35,7 +35,7 @@
     margin: auto;
 }
 // Fin de contenedores implementados con CSS puro
-// Listas 
+// Listas
 .list__form {
     ul {
         padding: 0;
@@ -193,6 +193,25 @@
             font-size: 18px;
         }
     }
+    .btn_action_red {
+        border: none;
+        background-color: transparent;
+        color: $red_official;
+        padding: 6px;
+        border-radius: 25px;
+        width: 35px;
+        height: 35px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        &:hover {
+            background-color: $red_official;
+            color: $withe_official;
+        }
+        i {
+            font-size: 18px;
+        }
+    }
 }
 
 // Tabla convenio modulo servicios agenda instituciones
@@ -226,8 +245,8 @@
 }
 
 .user__xl a {
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
     line-height: 1.2;
     color: #232323;
     &:hover {
