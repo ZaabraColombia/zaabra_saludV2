@@ -18,9 +18,6 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`citas`
             REFERENCES `zaabrac1_zaabra_salud_test`.`convenios` (`id`)
             ON DELETE RESTRICT
             ON UPDATE RESTRICT;
-
-#Subido test
-#Subido production
 #Subido jhon 10-05-2022 16:24
 
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`profesionales_instituciones`
@@ -33,5 +30,6 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`auxiliares`
     ADD COLUMN `cargo` VARCHAR(50) NULL AFTER `celular`;
 
-
 #Subido cesar
+#Subido test
+#Subido production
