@@ -65,19 +65,20 @@
                     <h5 class="fs_text gray_light">{{ $profesional->universidad->nombreuniversidad }}</h5>
                     <h5 class="fs_text gray_light">{{ "{$profesional->sede->direccion} ({$profesional->sede->ciudad->nombre})" }}</h5>
                     <!-- sección datos consulta perfil profesional-->
-                    <div class="mt-2 mb-3 mb-md-0 w_md_85 w_lg_100 w_xl_90">
-                        <h3 class="fs_subtitle_module black_bold">Tipo de consulta</h3>
-                        <div class="">
-                            <ul>
-                                @if(!empty($servicios))
-                                    @foreach ($servicios as $servicio)
-                                        <li>
-                                            <p>{{ $servicio->nombre }}</p>
-                                            <span>${{ number_format($servicio->valor, 0, ",", ".") }}</span>
-                                        </li>
-                                    @endforeach
-                                @endif
-                            </ul>
+                    <div class="mt-2 mb-3 mb-md-0 w_md_85 w_lg_100">
+                        <h3 class="fs_subtitle_module black_bold">Tipo de servicio</h3>
+
+                        <div class="d-flex justify-content-between">
+                             <input type="hidden" id="id_profesional" name="id_profesional">
+                            <div>
+                                <p id="imp_serv">Otorrinolaringología - Consulta control</p>
+                                <span>$185.000</span>
+                            </div>
+                            <div class="row m-0 content_btn_left">
+                                <button type="button" class="button_blue" id="" data-toggle="modal" data-target="#options_servicio">
+                                    Cambiar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -223,6 +224,38 @@
             </div>
         </div>
     @endempty
+
+    <!-- Modal Tipos de Servicios -->
+    <div class="modal fade" id="options_servicio" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content modal_container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h1 class="" id="exampleModalLabel">Tipo de servicio</h1>
+                    @if(!empty ($servicios))
+                        @foreach($servicios as $servicio)
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <p id="servicio">{{ $servicio->nombre }}</p>
+                                    <span>{{ number_format($servicio->valor, 0, ",", ".") }}</span>
+                                </div>
+                                <div class="row m-0 content_btn_left">
+                                    <button type="button" class="button_blue" id="serv">
+                                        Seleccionar
+                                    </button>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -402,6 +435,20 @@
             $('#convenio').prop('disabled', !$(this).prop('checked'));
         });
 
+    </script>
+
+    <script>
+        // function recibir(){
+        //     var servicio=document.getElementById("serv").value;
+        //     document.write(servicio);
+        // }
+        let btn = document.getElementById('serv');
+
+        btn.onclick = () => {
+        let c1 = document.getElementById('servicio').value;
+        let c2 = document.getElementById('imp_serv');
+        c2.value = c1;
+        }
     </script>
 @endsection
 
