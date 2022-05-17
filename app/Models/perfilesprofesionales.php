@@ -103,7 +103,7 @@ class perfilesprofesionales extends Model
      */
     public function pais(): BelongsTo
     {
-        return $this->belongsTo(pais::class, 'idpais', 'id_pais');
+        return $this->belongsTo(paises::class, 'idpais', 'id_pais');
     }
     /**
      * @return BelongsTo

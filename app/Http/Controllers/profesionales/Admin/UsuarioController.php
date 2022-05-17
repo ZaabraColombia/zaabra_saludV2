@@ -5,7 +5,7 @@ namespace App\Http\Controllers\profesionales\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Acceso;
 use App\Models\Auxiliar;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\TipoDocumento;
 use App\Models\User;
 use Illuminate\Database\Query\Builder;
@@ -40,7 +40,7 @@ class UsuarioController extends Controller
         $accesos = Acceso::query()
             ->profesional()
             ->get();
-        $paises = pais::all();
+        $paises = paises::all();
 
         return view('profesionales.admin.configuracion.usuarios.crear', compact('tipo_documentos',
             'accesos', 'paises'));
@@ -131,7 +131,7 @@ class UsuarioController extends Controller
         $accesos = Acceso::query()
             ->profesional()
             ->get();
-        $paises = pais::all();
+        $paises = paises::all();
 
         //extraer accesos
         $accesosUsuario = $user->accesos->map(function ($item){ return $item->id; })->toArray();

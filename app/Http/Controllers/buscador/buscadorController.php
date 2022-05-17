@@ -12,7 +12,7 @@ use App\Models\profesiones;
 use App\Models\especialidades;
 use App\Models\perfilesprofesionales;
 use App\Models\instituciones;
-use App\Models\pais;
+use App\Models\paises;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
