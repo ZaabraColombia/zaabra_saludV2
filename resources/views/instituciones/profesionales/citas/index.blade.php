@@ -13,7 +13,7 @@
     <div class="container-fluid p-0 pr-lg-4">
         <div class="containt_agendaProf" id="basic-table">
             <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Citas</h1>
+                <h1 class="title__xl green_bold">Citas</h1>
                 <span class="text__md black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
             </div>
 
@@ -36,7 +36,7 @@
                 --}}
 
                 <table class="table display responsive nowrap" style="width: 100%" id="table-citas">
-                    <thead>
+                    <thead class="thead_green">
                         <tr>
                             <th>Hora Inicio</th>
                             <th>Hora Fin</th>

@@ -11,7 +11,7 @@
         <div class="row containt__calendar" id="basic-table">
             <div class="col-12">
                 <div class="my-4 my-xl-5">
-                    <h1 class="title__xl blue_bold">Calendario</h1>
+                    <h1 class="title__xl green_bold">Calendario</h1>
                     <span class="text__md black_light">Administre su calendario de citas.</span>
                 </div>
             </div>
@@ -20,12 +20,8 @@
 
             <div class="col-12 col-lg-11 col-xl-8 p-0 mb-3">
                 <div class="col-12 d-flex justify-content-end px-0 pt-3">
-                    <button id="actualizar-calendar" class="button_blue_form">
+                    <button id="actualizar-calendar" class="button_green_form">
                         <i data-feather="refresh-cw" class="pr-2"></i>Actualizar
-                    </button>
-
-                    <button class="button_blue" data-toggle="modal" data-target="#modal_">
-                        launch modal
                     </button>
                 </div>
 
