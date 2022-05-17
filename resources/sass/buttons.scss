@@ -17,7 +17,7 @@
 // Botones rectangulares
 .button_blue {
     font-family: "Quicksand";
-    font-size: 16px;
+    // font-size: 16px;
     color: $withe_official;
     background: $blue_official;
     border: 1px solid $blue_official;
@@ -26,7 +26,7 @@
 }
 .button_transparent {
     font-family: "Quicksand";
-    font-size: 16px;
+    // font-size: 16px;
     color: $black_second !important;
     background: $withe_official;
     border: solid 1px $black_second;
@@ -35,7 +35,7 @@
 }
 .button_green {
     font-family: "Quicksand";
-    font-size: 16px;
+    // font-size: 16px;
     color: $withe_official;
     background: $green_official;
     border: solid 1px $green_official;
@@ -44,12 +44,21 @@
 }
 .button_red {
     font-family: "Quicksand";
-    font-size: 16px;
+    // font-size: 16px;
     color: $withe_official;
     background: $red_first;
     border: solid 1px $red_first;
     border-radius: 5px;
     padding: 5px 15px;
+}
+.button_seleccionado {
+    font-family: "Quicksand";
+    // font-size: 16px;
+    color:  $green_official;
+    background: $withe_official;
+    border: solid 1px $green_official;
+    border-radius: 5px;
+    padding: 5px 9px;
 }
 // Botones especiales
 // Botón VER MÁS de profesionales de una institución
@@ -125,13 +134,6 @@ div.dt-buttons {
 }
 
 
-
-
-
-
-
-
-
 // Buttons
 .button_blue_form {
     font-family: "Quicksand";
@@ -173,122 +175,4 @@ div.dt-buttons {
     font-size: 1.4em;
     color: #019f86;
     padding: 0;
-}
-
-
-///////// estilos de la tarjeta profesionales de una institución
-.btn__activado {
-    border: 1px solid #25d4ba;
-    background-color: #cbfaf3;
-    color: #13a58d !important;
-    text-decoration: none;
-    border-radius: 60px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    overflow:hidden;
-    width: auto;
-    max-width: 30px;
-    -webkit-transition: max-width 0.5s;
-    transition: max-width 0.1s;
-    // Icono estado activado y desactivado
-    background-image: url('/img/iconos/check-circle.svg');
-    background-repeat: no-repeat;
-    background-position-x: 3px;
-    background-position-y: center;
-    background-size: 22px;
-    // Texto activado y desactivado
-    white-space: nowrap;
-    padding-top: 2px;
-    padding-right: 0px;
-    padding-left: 28px;
-    &:hover {
-        max-width: 300px;
-        padding-right: 10px;
-    }
-}
-
-.btn__desactivado {
-    border: 1px solid #fc7c7c;
-    background-color: #fde0e0;
-    color: #f83636 !important;
-    text-decoration: none;
-    border-radius: 60px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    overflow:hidden;
-    width: auto;
-    max-width: 30px;
-    -webkit-transition: max-width 0.5s;
-    transition: max-width 0.1s;
-    // Icono estado activado y desactivado
-    background-image: url('/img/iconos/x-circle.svg');
-    background-repeat: no-repeat;
-    background-position-x: 3px;
-    background-position-y: center;
-    background-size: 22px;
-    // Texto activado y desactivado
-    white-space: nowrap;
-    padding-top: 2px;
-    padding-right: 0px;
-    padding-left: 28px;
-    &:hover {
-        max-width: 300px;
-        padding-right: 10px;
-    }
-}  
-.img__cuadrada {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 3px;
-}
-.mail {
-width: 200px;
-white-space: nowrap;
-text-overflow: ellipsis;
-overflow: hidden;
-}
-
-
-
-
-.toolt {
-    position: relative;
-    // border-bottom: 1px dotted black;
-    cursor: pointer;
-}
-.toolt .tiptext {
-    visibility: hidden;
-    width: max-content;
-    background-color: white;
-    color: black;
-    text-align: center;
-    border-radius: 3px;
-    padding: 6px 10px;
-    position: absolute;
-    z-index: 1;
-    box-shadow: 1px 0px 15px rgb(0 0 0 / 30%);
-    font-size: 10px;
-}
-.toolt .tiptext::after {
-    content: "";
-    position: absolute;
-    border-width: 5px;
-    border-style: solid;
-}
-.toolt:hover .tiptext {
-    visibility: visible;
-}
-.toolt.bottom .tiptext{
-    bottom: -28px;
-    right: 130px;
-}
-.toolt.bottom .tiptext::after{
-    margin-left: -5px;
-    bottom: 100%;
-    left: 50%;
-    border-color: transparent transparent #fff transparent;
 }
