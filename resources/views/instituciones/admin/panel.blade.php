@@ -103,8 +103,17 @@
                             </a>
                         </div>
                     @endcan
+
+                    {{-- Gestión --}}
+                    <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
+                        <a  href="#">
+                            <div class="content__target_inst gestion_green">
+                                <span class="subtitle__lg">Gestión</span>
+                            </div>
+                        </a>
+                    </div>
                     
-                    {{-- Favoritos --}}
+                    {{-- Favoritos 
                     @can('accesos-institucion','favoritos')
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.favoritos') }}'>
@@ -113,7 +122,7 @@
                                 </div>
                             </a>
                         </div>
-                    @endcan
+                    @endcan --}}
                 </div>
             </div>
 

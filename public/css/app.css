@@ -22998,6 +22998,13 @@ a:hover {
   background-image: url("/img/agenda/panelPrincipal/instituciones/icon_servicios_blanco.png");
 }
 
+.gestion_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_gestion_verde.png");
+}
+.gestion_green:hover {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_gestion_blanco.png");
+}
+
 .content__logos {
   display: flex;
   justify-content: center;

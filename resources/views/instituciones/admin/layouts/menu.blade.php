@@ -170,14 +170,21 @@
                     </li>
                 @endcan
 
-                {{-- Favoritos --}}
+                {{-- Gestión --}}
+                <li class="sidebar-item  has-sub items_green">
+                    <a class="" href="#">
+                        <button class="">Gestión</button>
+                    </a>
+                </li>
+
+                {{-- Favoritos 
                 @can('accesos-institucion','favoritos')
                     <li class="sidebar-item  has-sub items_green">
                         <a class="" href='{{ route('institucion.favoritos') }}'>
                             <button class="{{ request()->routeIs('institucion.favoritos') ? 'btn_active_inst' : '' }}">Favoritos</button>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
 
                 {{-- Logo Mipress --}}
