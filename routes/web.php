@@ -40,6 +40,18 @@ Route::post('/buscar-pacientes',[App\Http\Controllers\buscador\buscadorControlle
     ->name('buscador-paciente')
     ->middleware('auth');
 
+/** Ubicación **/
+Route::controller(\App\Http\Controllers\Api\UbicacionController::class)
+    ->as('ubicacion.')
+    ->prefix('/ubicacion/')
+    ->middleware('auth')
+    ->group(function () {
+        Route::post('paises', 'paises')->name('paises');
+        Route::post('regiones', 'regiones')->name('regiones');
+        Route::post('ciudades', 'ciudades')->name('ciudades');
+    });
+/** Fin Ubicación **/
+
 /*----------------------------------------------Pertenece a Publico-------------------------------------------------------------------------------*/
 
 /*Esta ruta es del home y dirige al controlador encargado de traer la información a la vista*/
