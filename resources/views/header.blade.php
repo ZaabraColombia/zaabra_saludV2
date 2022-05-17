@@ -197,7 +197,7 @@
                             <a class="dropdown-item p-0" href="{{ route('institucion.panel') }}">
                                 <div class="menu__item icon__agenda">Agenda</div>
                             </a>
-                        @elseif($objtipoUsuarioLogueado->idrol == 4)
+                        @elseif($objtipoUsuarioLogueado->idrol==4)
                             {{--Usuario Auxiliar --}}
                             <div class="menu__item_user_logueado">
                                 <img src="{{ asset($user->institucion->user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
@@ -209,6 +209,22 @@
                                 <div class="menu__item icon__agenda">Agenda </div>
                             </a>
                         @endif
+                    @endif
+                    @if( request()->routeIs('institucion.profesional.*') )
+                        {{--Usuario Auxiliar --}}
+                        <div class="menu__item_user_logueado align-items-center">
+                            <img src='{{ asset($user->foto_perfil_institucion ?? "img/menu/avatar.png" ) }}' alt="user.png">
+                            <div class="d-block pl-2">
+                                <h5 style="color: #019F86; line-height: 1.2">{{ $user->nombre_completo}}</h5>
+                                <span class="m-0">{{ $user->especialidad_pricipal->nombreEspecialidad ?? '' }}</span>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-divider m-0"></div>
+
+                        <a class="dropdown-item p-0" href="{{ route('institucion.panel') }}">
+                            <div class="menu__item icon__agenda">Agenda </div>
+                        </a>
                     @endif
 
                     <div class="dropdown-divider m-0"></div>
