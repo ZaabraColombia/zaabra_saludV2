@@ -190,7 +190,7 @@ class CalendarioController extends Controller
         Gate::authorize('accesos-profesional', 'ver-calendario');
 
         $dates = Cita::query()
-            ->select(['id_cita', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id', 'estado'])
+            ->select(['id_cita', 'fecha_inicio as start', 'fecha_fin as end', 'paciente_id', 'estado', 'fecha_fin'])
             //->selectRaw('CASE estado WHEN "reservado" THEN "background" WHEN "agendado" THEN "auto" END AS display')
             ->addSelect([
                 'tipo_cita' => tipoconsultas::query()
@@ -222,7 +222,8 @@ class CalendarioController extends Controller
                     'borderColor'   => 'black',
                     'display'   => 'block',
                     'title'     => 'Bloqueado',
-                    'estado' => $date->estado,
+                    'estado'    => $date->estado,
+                    'desbloquear' => $date->fecha_fin->diffInDays(Carbon::today()) < 1,
                     'ver'       => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
                 ];
             } else {
@@ -313,7 +314,8 @@ class CalendarioController extends Controller
                 'estado'        => $date->estado,
                 'ver'           => route('profesional.agenda.calendario.ver-cita', ['cita' => $date->id_cita]),
                 'reagendar'     => route('profesional.agenda.calendario.editar-reservar-calendario', ['cita' => $date->id_cita]),
-                'cancelar'      => route('profesional.agenda.calendario.cancelar-reserva-calendario', ['cita' => $date->id_cita]),
+                'cancelar'      => ($date->fecha_fin->diffInDays(Carbon::today()) <= 1) ?
+                    route('profesional.agenda.calendario.cancelar-reserva-calendario', ['cita' => $date->id_cita]):null,
             ];
         } else {
             $ver = [
@@ -785,11 +787,11 @@ class CalendarioController extends Controller
         $validate = Validator::make($request->all(), [
             'fecha_inicio'  => ['required', 'date'],
             'fecha_fin'     => ['required', 'date'],
-            'comentarios'   => ['required'],
+            //'comentarios'   => ['required'],
         ], [], [
             'fecha_inicio'  => 'Fecha inicio',
             'fecha_fin'     => 'Fecha fin',
-            'comentarios'   => 'Comentarios'
+            //'comentarios'   => 'Comentarios'
         ]);
 
 
@@ -862,11 +864,11 @@ class CalendarioController extends Controller
             ],
             'fecha_inicio'  => ['required', 'date'],
             'fecha_fin'     => ['required', 'date'],
-            'comentario'    => ['nullable'],
+            //'comentario'    => ['nullable'],
         ], [], [
             'fecha_inicio'  => 'Fecha inicio',
             'fecha_fin'     => 'Fecha fin',
-            'comentario'    => 'Comentario'
+            //'comentario'    => 'Comentario'
         ]);
 
 
@@ -952,7 +954,14 @@ class CalendarioController extends Controller
         if (empty($cita)) return response([
             'message' => [
                 'title' => 'Error',
-                'text'  => 'Cita no seleccionada'
+                'text'  => 'Bloqueo no encontrado'
+            ]
+        ], Response::HTTP_NOT_FOUND);
+
+        if ($cita->fecha_fin->diffInDays(Carbon::today()) > 1) return response([
+            'message' => [
+                'title' => 'Error',
+                'text'  => 'El bloqueo no se puede desbloquear, se estableció en el registro'
             ]
         ], Response::HTTP_NOT_FOUND);
 

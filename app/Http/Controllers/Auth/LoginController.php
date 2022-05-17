@@ -49,17 +49,20 @@ class LoginController extends Controller
 
         if ($roles->contains('idrol', 1))
         {
-            return redirect()->route('paciente.panel');
+            //return redirect()->route('paciente.panel');
+            $this->redirectTo = '/paciente/panel';
         }
         elseif ($roles->contains('idrol', 2) or $roles->contains('idrol', 5))
         {
-            return redirect()->route('profesional.panel');
+            //return redirect()->route('profesional.panel');
+            $this->redirectTo = '/profesional/panel';
         }
         elseif ($roles->contains('idrol', 3) or $roles->contains('idrol', 4))
         {
-            return redirect()->route('institucion.panel');
+            //return redirect()->route('institucion.panel');
+            $this->redirectTo = '/institucion/panel';
         }
 
-        return redirect('/home');
+        //return redirect('/home');
     }
 }

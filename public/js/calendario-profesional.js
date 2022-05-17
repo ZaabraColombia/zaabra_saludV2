@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        businessHours: [{"id":"XDNfeDCL0f","daysOfWeek":["1","2","3"],"startTime":"08:00","endTime":"12:35"}],
+        businessHours: JSON.parse(calendarEl.dataset.weekbissness),
         events: calendarEl.dataset.events,
         // Botones de mes, semana y día.
         headerToolbar: {
@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Evento de mensaje de alerta
         dateClick: function (event) {
-            console.log(event);
             var today = moment();
 
             var day = moment(event.date);
@@ -59,11 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
             } else {
-                alert('Día no laboral');
+                $('#alerta-general').html(alert({'title': 'Alerta!', 'text': 'El día no esta disponible'}, 'warning'));
             }
         },
         selectable: false,
         editable: false,
+        showNonCurrentDates: false,
 
         //Abrir evento
         eventClick: function(info) {
@@ -89,7 +89,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         modal.find('.fecha_fin').html(res.item.ver.fecha_fin);
                         modal.find('.comentario').html(res.item.ver.comentario);
 
-                        $('#btn-reserva-cancelar, #btn-reserva-editar').data('url', res.item.data.ver);
+                        $('#btn-reserva-editar').data('url', res.item.data.ver);
+
+                        if (res.item.data.cancelar === null || res.item.data.cancelar === undefined)
+                        {
+                            $('#btn-reserva-cancelar').hide();
+                        }else{
+                            $('#btn-reserva-cancelar').show().data('url', res.item.data.ver);
+                        }
 
                     } else {
 
