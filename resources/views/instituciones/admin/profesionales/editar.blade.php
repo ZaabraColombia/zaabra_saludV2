@@ -262,8 +262,10 @@
                         </div>
                     </div>
                     <!-- Contraseña del usuario -->
-
-                    <h2 class="subtitle__lg green_bold my-4">Contraseña</h2>
+                    <div class="my-4">
+                        <h2 class="subtitle__lg green_bold">Contraseña</h2>
+                        <p class="text__md black_light">Crea una contraseña para el usuario que esta creando.</p>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-6 input__box">

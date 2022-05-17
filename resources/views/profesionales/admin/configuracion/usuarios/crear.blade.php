@@ -175,7 +175,7 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Accesos del usuario -->
-                    <h2 class="subtitle__lg blue_bold mb-4">Accesos del usuario</h2>
+                    <h2 class="subtitle__lg blue_bold mb-4">Permiso a usuario</h2>
 
                     <div class="row list__form">
                         @if($accesos->isNotEmpty())
@@ -193,7 +193,10 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Contraseña del usuario -->
-                    <h2 class="subtitle__lg blue_bold mb-4">Contraseña</h2>
+                    <div class="mb-4">
+                        <h2 class="subtitle__lg blue_bold">Contraseña</h2>
+                        <p class="text__md black_light">Crea una contraseña para el usuario que esta creando.</p>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-6 input__box">

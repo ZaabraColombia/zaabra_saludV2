@@ -32,6 +32,16 @@
                         </div>
                     </div>
 
+                    <div class="row m-0 my-4 justify-content-center">
+                        <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                            <div class="img__upload">
+                                <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
+                                <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
+                                <p>Subir foto de perfil</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         @if($errors->any())
                             <div class="col-12">
@@ -176,7 +186,7 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Accesos del usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Accesos del usuario</h2>
+                    <h2 class="subtitle__lg green_bold mb-4">Permisos a usuario</h2>
 
                     <div class="row list__form">
                         @if($accesos->isNotEmpty())
@@ -194,7 +204,10 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Contraseña del usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Contraseña</h2>
+                    <div class="mb-4">
+                        <h2 class="subtitle__lg green_bold">Contraseña</h2>
+                        <p class="text__md black_light">Crea una contraseña para el usuario que esta creando.</p>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-6 input__box">
@@ -242,6 +255,29 @@
     <script src="{{ asset('js/ubicacion.js') }}"></script>
     <script src="{{ asset('js/password.js') }}"></script>
 
+    <!-- Script para cargar, subir y visualizar la imagen principal -->
+    <script>
+        // Obtener referencia al input y a la imagen
+        const $seleccionArchivos = document.querySelector("#foto"),
+        $imagenPrevisualizacion = document.querySelector("#imagen-foto");
+
+        // Escuchar cuando cambie
+        $seleccionArchivos.addEventListener("change", () => {
+            // Los archivos seleccionados, pueden ser muchos o uno
+            const archivos = $seleccionArchivos.files;
+            // Si no hay archivos salimos de la función y quitamos la imagen
+            if (!archivos || !archivos.length) {
+                $imagenPrevisualizacion.src = "";
+                return;
+            }
+            // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+            const primerArchivo = archivos[0];
+            // Lo convertimos a un objeto de tipo objectURL
+            const objectURL = URL.createObjectURL(primerArchivo);
+            // Y a la fuente de la imagen le ponemos el objectURL
+            $imagenPrevisualizacion.src = objectURL;
+        });
+    </script>
 
     <script>
         $('#pais_id').trigger('change');
