@@ -22477,6 +22477,22 @@ a:hover {
   border-color: #bec4c5 transparent transparent transparent;
 }
 
+.width_label {
+  width: 150px;
+}
+
+.pad_left_fecha {
+  padding-left: 35px;
+}
+
+.pad_left_hora {
+  padding-left: 40px;
+}
+
+.pad_left_valor {
+  padding-left: 37px;
+}
+
 @media (min-width: 768px) {
   .modal_container .modal-body .modal_medio_pago .info_medio_pago img {
     width: 100px;

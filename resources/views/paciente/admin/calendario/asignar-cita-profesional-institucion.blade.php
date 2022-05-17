@@ -154,7 +154,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Detalles de la Cita-->
     <div class="modal fade" id="confirmar-cita" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content modal_container">
@@ -167,22 +167,41 @@
                 <div class="modal-body">
                     <h1 class="" id="exampleModalLabel">Detalles de la cita</h1>
 
-                    <h5 class="profesional">{{ $user->nombre_completo }}</h5>
-                    <h5>{{ "{$user->tipo_documento->nombre_corto}" }}: {{ number_format($user->numerodocumento, 0, ",", ".") }}</h5>
-                    <div>
-                        <h5 class="profesional">Dr(a). {{ $profesional->nombre_completo }}</h5>
-                        <!-- <h5>{{ "{$user->tipo_documento->nombre_corto}" }}:</h5> -->
-                        <h5 id="modal-tipo-de-cita"></h5>
-                        <h5 >Fecha: &nbsp;<span id="modal-fecha"></span> </h5>
-                        <h5 >Hora cita: &nbsp;<span id="modal-hora"></span> </h5>
-                        <h5 >Direción de atención: &nbsp;
-                            <span>{{ ($profesional->sede->direccion ?? $profesional->institucion->direccion) }}
+                    <div class="mb-2">
+                        <h5 class="profesional fs_text black_strong">{{ $user->nombre_completo }}</h5>
+                        <h5 class="profesional fs_text_small black_strong">{{ "{$user->tipo_documento->nombre_corto}" }}: 
+                            <span class="fs_text_small black_light">{{ number_format($user->numerodocumento, 0, ",", ".") }}</span>
+                        </h5>
+                    </div>
 
+                    <div>
+                        <h5 class="profesional fs_text_small black_strong mb-2">Dr(a). 
+                            <span class="fs_text_small black_light">{{ $profesional->nombre_completo }}</span>
+                        </h5>
+                       
+                        <div class="row m-0">
+                            <h5 class="col-3 col-md-4 p-0 fs_text_small black_strong width_label">Tipo servicio:</h5> 
+                            <span id="modal-tipo-de-cita" class="col-9 col-md-8 p-0 pl-1 pl-md-0 fs_text_small black_light" style="line-height: 1.2"></span> 
+                        </div>
+                        <div class="row m-0">
+                            <h5 class="col-3 col-md-4 p-0 fs_text_small black_strong">Fecha cita:</h5>
+                            <span id="modal-fecha" class="col-9 col-md-8 p-0 pl-1 pl-md-0 fs_text_small black_light pad_left_fecha"></span> 
+                        </div>
+                        <div class="row m-0">
+                            <h5 class="col-3 col-md-4 p-0 fs_text_small black_strong">Hora cita:</h5> 
+                            <span id="modal-hora" class="col-9 col-md-8 p-0 pl-1 pl-md-0 fs_text_small black_light pad_left_hora"></span> 
+                        </div>
+                        <div class="row m-0">
+                            <h5 class="col-3 col-md-4 p-0 fs_text_small black_strong">Lugar atención:</h5>
+                            <span class="col-9 col-md-8 p-0 pl-1 pl-md-0 fs_text_small black_light" style="line-height: 1.2">{{ ($profesional->sede->direccion ?? $profesional->institucion->direccion) }}
                                 (Consultorio {{ $profesional->consultorio }})
                                 ({{ $profesional->sede->ciudad->nombre ?? $profesional->institucion->ciudad->nombre }})
                             </span>
-                        </h5>
-                        <h5>Valor cita: &nbsp; $ <span id="modal-valor"></span></h5>
+                        </div>
+                        <div class="row m-0">
+                            <h5 class="col-3 col-md-4 p-0 fs_text_small black_strong">Valor cita:</h5>
+                            <span id="modal-valor" class="col-9 col-md-8 p-0 pl-1 pl-md-0 fs_text_small black_light pad_left_valor"></span>
+                        </div>
                     </div>
                 </div>
 
