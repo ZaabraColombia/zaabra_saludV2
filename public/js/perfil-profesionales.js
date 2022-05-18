@@ -35,15 +35,22 @@ document.addEventListener('DOMContentLoaded', function () {
       // when window width is >= 1024px
       1024: {
         //enabled: false,
+        slidesPerView: 4,
+        spaceBetween: 3,
+      },
+
+      // when winddow width is => 1200px
+      1200: {
         slidesPerView: 5,
-        slidesPerGroup: 5,
+        slidePerGroup: 1,
+        spaceBetween: 1,
       },
 
       // when window width is >= 1600px
-      1600: {
+      1440: {
         slidesPerView: 5,
-        slidesPerGroup: 1,
-        spaceBetween: 5,
+        slidePerGroup: 1,
+        spaceBetween: 1,
       },
     }
   });
@@ -154,6 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
       
       sections.map(seccion => seccion.classList.remove('sections_active'));
       menu_item.map(item => item.classList.remove('perfil_clicked',
+      'servicio_clicked',
+      'convenio_clicked',
       'tratamientos_clicked',
       'premios_clicked',
       'publicaciones_clicked',
@@ -162,10 +171,12 @@ document.addEventListener('DOMContentLoaded', function () {
       sections[iterator].classList.toggle('sections_active');
   
       (iterator == 0) ? menu_item[0].classList.toggle('perfil_clicked'): count++
-      (iterator == 1) ? menu_item[1].classList.toggle('tratamientos_clicked'): count++
-      (iterator == 2) ? menu_item[2].classList.toggle('premios_clicked'): count++  
-      (iterator == 3) ? menu_item[3].classList.toggle('publicaciones_clicked'): count++
-      (iterator == 4) ? menu_item[4].classList.toggle('galeria_clicked'): count++
+      (iterator == 1) ? menu_item[1].classList.toggle('servicio_clicked'): count++
+      (iterator == 2) ? menu_item[2].classList.toggle('convenio_clicked'): count++
+      (iterator == 3) ? menu_item[3].classList.toggle('tratamientos_clicked'): count++
+      (iterator == 4) ? menu_item[4].classList.toggle('premios_clicked'): count++  
+      (iterator == 5) ? menu_item[5].classList.toggle('publicaciones_clicked'): count++
+      (iterator == 6) ? menu_item[6].classList.toggle('galeria_clicked'): count++
   
     }
   });

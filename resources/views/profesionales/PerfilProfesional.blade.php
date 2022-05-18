@@ -91,6 +91,12 @@
                     <a class="item_landing perfil perfil_clicked"><span>Perfil profesional</span></a>
                 </li>
                 <li class="swiper-slide">
+                    <a class="item_landing servicio"><span>Servicio</span></a> 
+                </li>
+                <li class="swiper-slide">
+                    <a class="item_landing convenio"><span>Convenio</span></a>
+                </li>
+                <li class="swiper-slide">
                     <a class="item_landing tratamientos"><span>Tratamientos y procedimientos</span></a>
                 </li>
                 <li class="swiper-slide">
@@ -177,6 +183,32 @@
                     @endforeach
                 </li>
             </ul>
+        </div>
+    </section>
+
+    <section class="sections sections_active section_servicios">
+        <div class="perfil_profesional">
+            <h2><i></i>Servicios</h2>
+        </div>
+    </section>
+
+    <section class="sections sections_active section_convenios">
+        <div class="perfil_profesional">
+            <h2><i></i>Convenios</h2>
+        </div>
+
+        <div class="convenios">
+            <div class="row m-0">
+                <div class="col-4 px-2">
+                    <img src="/img/logos/imgCompensar.png">
+                </div>
+                <div class="col-4 px-2">
+                    <img src="/img/logos/imgSura.jpg">
+                </div>
+                <div class="col-4 px-2">
+                    <img src="/img/logos/imgFamisanar.png">
+                </div>
+            </div>
         </div>
     </section>
 
