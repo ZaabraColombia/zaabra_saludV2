@@ -20,6 +20,11 @@ class Pais extends Model
 
     protected $primaryKey = 'code';
 
+    public $incrementing = false;
+
+    // In Laravel 6.0+ make sure to also set $keyType
+    protected $keyType = 'string';
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

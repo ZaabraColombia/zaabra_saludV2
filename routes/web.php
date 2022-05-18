@@ -44,7 +44,7 @@ Route::post('/buscar-pacientes',[App\Http\Controllers\buscador\buscadorControlle
 Route::controller(\App\Http\Controllers\Api\UbicacionController::class)
     ->as('ubicacion.')
     ->prefix('/ubicacion/')
-    ->middleware('auth')
+    //->middleware('auth')
     ->group(function () {
         Route::post('paises', 'paises')->name('paises');
         Route::post('regiones', 'regiones')->name('regiones');
