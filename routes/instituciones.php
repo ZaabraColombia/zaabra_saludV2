@@ -106,28 +106,18 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
         Route::resource('/usuarios', entidades\Admin\UsuariosController::class);
     });
 
-    Route::group(['prefix' => '/calendario', 'as' => 'calendario.'], function () {
-        Route::get('/iniciar-control', [entidades\Admin\CalendarioController::class, 'iniciar_control'])
-            ->name('iniciar-control');
-        Route::post('/buscar', [entidades\Admin\CalendarioController::class, 'buscar'])
-            ->name('buscar');
-        Route::post('/citas', [entidades\Admin\CalendarioController::class, 'citas'])
-            ->name('citas');
-        Route::post('/lista-citas', [entidades\Admin\CalendarioController::class, 'lista_citas'])
-            ->name('lista-citas');
+    Route::group(['prefix' => '/calendario', 'as' => 'calendario.', 'controller' => entidades\Admin\CalendarioController::class], function () {
+        Route::get('/iniciar-control', 'iniciar_control')->name('iniciar-control');
+        Route::post('/buscar', 'buscar')->name('buscar');
+        Route::get('/citas', 'citas')->name('citas');
+        Route::post('/lista-citas', 'lista_citas')->name('lista-citas');
 
-        Route::get('/crear-cita', [entidades\Admin\CalendarioController::class, 'create'])
-            ->name('crear-cita');
-        Route::post('/citas-libres', [entidades\Admin\CalendarioController::class, 'citas_libre'])
-            ->name('citas-libre');
-        Route::post('/guardar-cita', [entidades\Admin\CalendarioController::class, 'store'])
-            ->name('guardar-cita');
-        Route::get('/ver-cita/{cita}', [entidades\Admin\CalendarioController::class, 'show'])
-            ->name('ver-cita');
-        Route::post('/actualizar-cita/{cita}', [entidades\Admin\CalendarioController::class, 'update'])
-            ->name('actualizar-cita');
-        Route::post('/cancelar-cita/{cita}', [entidades\Admin\CalendarioController::class, 'cancelar'])
-            ->name('cancelar-cita');
+        Route::get('/crear-cita', 'create')->name('crear-cita');
+        Route::post('/citas-libres', 'citas_libre')->name('citas-libre');
+        Route::post('/guardar-cita', 'store')->name('guardar-cita');
+        Route::get('/ver-cita/{cita}', 'show')->name('ver-cita');
+        Route::post('/actualizar-cita/{cita}', 'update')->name('actualizar-cita');
+        Route::post('/cancelar-cita/{cita}', 'cancelar')->name('cancelar-cita');
     });
 
     Route::post('/institucion/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'calendario_disponible'])

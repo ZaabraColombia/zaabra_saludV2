@@ -2,7 +2,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/DataTables/Responsive-2.2.9/css/responsive.dataTables.min.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset('plugins/DataTables/Responsive-2.2.9/css/responsive.dataTables.min.css') }}">--}}
     {{--<link rel="stylesheet" href="{{ asset(' plugins/DataTables/Responsive-2.2.9/css/responsive.bootstrap.min.css') }}">--}}
 
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
@@ -295,11 +295,12 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
-    <script src="{{ asset('plugins/DataTables/DateTime-1.1.2/js/dataTables.dateTime.min.js') }}"></script>
     <script src="{{ asset('plugins/moment/moment-with-locales.min.js') }}"></script>
-    {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>--}}
-    <script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>
+    <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+    {{--<script src="{{ asset('plugins/DataTables/DateTime-1.1.2/js/dataTables.dateTime.min.js') }}"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>--}}
+    {{--<script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>--}}
+
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
     <script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
@@ -310,7 +311,7 @@
     <script>
         $(document).ready( function () {
 
-            $.fn.dataTable.moment( 'DD-MM / YYYY', 'es');
+            //$.fn.dataTable.moment( 'DD-MM / YYYY', 'es');
             //$.fn.dataTable.moment( 'HH:mm A \- HH:mm A', 'es');
 
 
@@ -324,9 +325,16 @@
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
+                dom: 'Plfrtip',
+                //dom: '<"dtsp-verticalContainer"<"dtsp-verticalPanes"P><"dtsp-dataTable"frtip>>',
                 responsive: true,
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                },
+                searchPanes:{
+                    //viewTotal: true,
+                    columns: [0, 1, 2],
+                    layout: 'columns-4',
                 },
                 columns:[
                     {data: "hora", name: "fecha_inicio"},
@@ -369,7 +377,6 @@
                 ],
                 serverSide: true,
                 ajax:{
-                    data:{ids: {!! json_encode($lista) !!}, fecha:'{{ $fecha }}'},
                     type: 'post',
                     url: '{{ route('institucion.calendario.lista-citas') }}',
                     // data: function ( d ) {
