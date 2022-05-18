@@ -91,10 +91,10 @@
                     <a class="item_landing perfil perfil_clicked"><span>Perfil profesional</span></a>
                 </li>
                 <li class="swiper-slide">
-                    <a class="item_landing servicio"><span>Servicio</span></a> 
+                    <a class="item_landing ico_servicios"><span>Servicio</span></a> 
                 </li>
                 <li class="swiper-slide">
-                    <a class="item_landing convenio"><span>Convenio</span></a>
+                    <a class="item_landing ico_convenios"><span>Convenio</span></a>
                 </li>
                 <li class="swiper-slide">
                     <a class="item_landing tratamientos"><span>Tratamientos y procedimientos</span></a>
