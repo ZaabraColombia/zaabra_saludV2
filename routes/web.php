@@ -199,18 +199,11 @@ Route::get('/test-historial-bloqueos', function(){
     return view('instituciones.admin.agenda.historial-bloqueos');
 });
 
-Route::get('/test', function (){
-//   $p = \App\Models\profesionales_instituciones::all();
-//   $p->map(function ($item){
-//       $item->update();
-//   });
-    //\App\Models\Cita::factory()->count(100)->create();
-});
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
 Route:: get('/comprobantes-pago',[App\Http\Controllers\pagosController::class,'index2'])->name('comprobantes-pago');
 
 //+++++++++ Ruta de prueba +++++++++//
-Route::get('/test-home-prueba', function(){
-    return view('testHome');
+Route::get('/test', function(){
+    return view('test');
 });
