@@ -105,7 +105,7 @@
     </div>
 
     <!-- Modal  bloquear cita -->
-    <div class="modal fade" id="modal-bloquear-agenda" tabindex="-1" >
+    <div class="modal fade" id="modal-bloquear-agenda" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">

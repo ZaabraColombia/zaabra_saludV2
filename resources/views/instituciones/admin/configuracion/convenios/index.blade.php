@@ -106,7 +106,7 @@
     </div>
 
     <!-- Modal Ver Convenio -->
-    <div class="modal fade" id="modal-convenio">
+    <div class="modal fade" id="modal-convenio" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
