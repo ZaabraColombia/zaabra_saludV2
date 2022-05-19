@@ -1,7 +1,7 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <div class="container py-4 px-lg-5">
+    <div class="container py-4 px-1 px-lg-5">
         <div class="row m-0 p-0">
             <div class="col-12">
                 @if(session()->has('success'))
@@ -21,7 +21,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.profesionales.index') }}'>
                                 <div class="content__target_inst profesional_green">
-                                    <span class="subtitle__lg">Profesionales</span>
+                                    <span class="fs_text">Profesionales</span>
                                 </div>
                             </a>
                         </div>
@@ -32,7 +32,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.pacientes') }}'>
                                 <div class="content__target_inst paciente_green">
-                                    <span class="subtitle__lg">Pacientes</span>
+                                    <span class="fs_text">Pacientes</span>
                                 </div>
                             </a>
                         </div>
@@ -43,7 +43,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.citas') }}'>
                                 <div class="content__target_inst cita_green">
-                                    <span class="subtitle__lg">Histórico de citas</span>
+                                    <span class="fs_text">Histórico de citas</span>
                                 </div>
                             </a>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.pagos') }}'>
                                 <div class="content__target_inst pago_green">
-                                    <span class="subtitle__lg">Pagos</span>
+                                    <span class="fs_text">Pagos</span>
                                 </div>
                             </a>
                         </div>
@@ -65,7 +65,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.configuracion.usuarios.index') }}'>
                                 <div class="content__target_inst usuario_green">
-                                    <span class="subtitle__lg">Usuarios</span>
+                                    <span class="fs_text">Usuarios</span>
                                 </div>
                             </a>
                         </div>
@@ -76,7 +76,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.contactos.index') }}'>
                                 <div class="content__target_inst contacto_green">
-                                    <span class="subtitle__lg">Contactos</span>
+                                    <span class="fs_text">Contactos</span>
                                 </div>
                             </a>
                         </div>
@@ -87,7 +87,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.configuracion.convenios.index') }}'>
                                 <div class="content__target_inst convenio_green">
-                                    <span class="subtitle__lg">Convenios</span>
+                                    <span class="fs_text">Convenios</span>
                                 </div>
                             </a>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.configuracion.servicios.index') }}'>
                                 <div class="content__target_inst servicio_green">
-                                    <span class="subtitle__lg">Servicios</span>
+                                    <span class="fs_text">Servicios</span>
                                 </div>
                             </a>
                         </div>
@@ -108,7 +108,7 @@
                     <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                         <a  href="#">
                             <div class="content__target_inst gestion_green">
-                                <span class="subtitle__lg">Gestión</span>
+                                <span class="fs_text">Gestión</span>
                             </div>
                         </a>
                     </div>
@@ -118,7 +118,7 @@
                         <div class="col-6 col-md-4 col-lg-6 col-xl-4 p-2">
                             <a  href='{{ route('institucion.favoritos') }}'>
                                 <div class="content__target_inst favorito_green">
-                                    <span class="subtitle__lg">Favoritos</span>
+                                    <span class="fs_text">Favoritos</span>
                                 </div>
                             </a>
                         </div>
@@ -129,7 +129,7 @@
             <div class="col-12 col-lg-4 col-xl-3 p-0 m-0">
                 <div class="row m-0">
                     {{-- Mipres --}}
-                    <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
+                    <div class="col-12 col-md-4 col-lg-12 py-3 px-4 px-md-2 py-lg-2">
                         <a  href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS" target="_blank">
                             <div class="content__logos_inst">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/mipres-zaabra.png') }}" alt="">
@@ -137,7 +137,7 @@
                         </a>
                     </div>
                     {{-- Medistoria --}}
-                    <div class="col-6 col-md-4 col-lg-12 py-3 px-2 py-lg-2">
+                    <div class="col-12 col-md-4 col-lg-12 py-3 px-4 px-md-2 py-lg-2">
                         <a  href="" target="_blank">
                             <div class="content__logos_inst ">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="">
@@ -145,7 +145,7 @@
                         </a>
                     </div>
                     {{-- PLM --}}
-                    <div class="col-6 col-lg-12 py-3 px-2 py-lg-2">
+                    <div class="col-12 col-md-4 col-lg-12 py-3 px-4 px-md-2 py-lg-2">
                         <a  href="https://www.prescripciontotal.com.co/consultorio-generico/login" target="_blank">
                             <div class="content__logos_inst">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="">
