@@ -367,14 +367,15 @@
                 data: {profesional: btn.data('id')},
                 dataType: 'json',
                 success: function (response) {
-                    $('#modal-profesional').html(response.profesional.nombre);
-                    $('#modal-especialidad').html(response.profesional.especialidad);
-                    $('#modal-foto').attr('src', response.profesional.foto);
+                    $('#modal-profesional').html(response.nombre);
+                    $('#modal-especialidad').html(response.especialidad);
+                    $('#modal-foto').attr('src', response.foto);
 
                     var servicios = $('#collapsed');
                     servicios.empty();
 
-                    $.each(response.profesional.servicios, function (key, item) {
+                    $.each(response.servicios, function (key, item) {
+
                         if (item.virtual) {
                             servicios.append('<div class="row mx-0 mb-4 text-center text-md-left">' +
                                 '<div class="col-md-7 p-0 py-md-1">' +
@@ -390,7 +391,7 @@
                                 '</div>' +
 
                                 '<div class="col-md-2 p-0 py-md-1 mt-1 mt-md-0 content_btn_center">' +
-                                '<a href="{{ url('/paciente/asignar-cita/institucion') }}/' + item.slug + '?servicio=' + item.id + '" class="btn_card_green">Agendar</a>' +
+                                '<a href="' + item.url + '" class="btn_card_green">Agendar</a>' +
                                 '</div>' +
                                 '</div>');
                         } else {

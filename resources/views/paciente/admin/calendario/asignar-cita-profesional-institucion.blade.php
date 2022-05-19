@@ -107,12 +107,11 @@
                             @csrf
                             @php
                                 $date_calendar = old('date-calendar');
-                                $tipo_servicio = old('tipo_servicio');
+                                $tipo_servicio = old('tipo_servicio', request('servicio'));
                             @endphp
                             <input type="hidden" name="date-calendar" id="date-calendar"
                                    value="{{ $date_calendar }}">
-                            <input type="hidden" name="tipo_servicio" id="servicio_prof_inst"
-                                   value="{{ $tipo_servicio }}">
+                            <input type="hidden" name="tipo_servicio" id="servicio_prof_inst">
                             <div class="input__box mb-3">
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
@@ -473,6 +472,11 @@
 
         @if(!empty($date_calendar) and !empty($tipo_servicio))
         $('#tipo_servicio').trigger('change');
+        @endif
+
+        @if(!empty($tipo_servicio))
+        $('.select_service[data-id={{ $tipo_servicio }}]').trigger('click');
+        console.log('ok');
         @endif
     </script>
 @endsection

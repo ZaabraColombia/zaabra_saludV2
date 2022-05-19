@@ -242,11 +242,11 @@ class perfilInstitucionController extends Controller
 
         $data = [
             'nombre' => $profesional->nombre_completo,
-            'slug' => $profesional->slug,
             'especialidad' => $profesional->especialidad_principal->nombreEspecialidad,
             'foto' => asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png'),
-            'servicios' => $profesional->servicios->map(function ($item) {
+            'servicios' => $profesional->servicios->map(function ($item) use ($profesional){
                 return [
+                    'url' => route('paciente.asignar-cita-institucion-profesional', ['profesional' => $profesional->slug, 'servicio' => $item->id]),
                     'nombre' => $item->nombre,
                     'virtual' => $item->agendamiento_virtual,
                     'valor' => "$" . number_format($item->valor, 0, ',', '.'),
@@ -254,9 +254,8 @@ class perfilInstitucionController extends Controller
                 ];
             })
         ];
-        return response([
-            'profesional' => $data
-        ], Response::HTTP_OK);
+
+        return response($data, Response::HTTP_OK);
     }
 
 
