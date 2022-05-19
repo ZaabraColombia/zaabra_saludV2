@@ -4,6 +4,7 @@
     <div class="container-fluid p-0">
 
         <!-- Row información zaabrasalud-->
+        {{--
         <div class="row footer_info-zaabrasalud">
             <!-- Column contenido contactanos-->
             <div class="col-lg-4 contactanos_contenido d-none d-lg-flex">
@@ -140,13 +141,15 @@
                 <div class="iconos_redes-sociales-cel">
                     <div class="col-2 icono_red-social-cel">
                         <a href="https://www.facebook.com/zaabrasalud" target="_blank">
-                            <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-facebook-blanco.svg')}}">
+                            <img class="imagen_red-social-cel"
+                                 src="{{URL::asset('/img/iconos/icono-facebook-blanco.svg')}}">
                         </a>
                     </div>
 
                     <div class="col-2 icono_red-social-cel">
                         <a href="https://www.instagram.com/zaabrasalud" target="_blank">
-                            <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-instagram-blanco.svg')}}">
+                            <img class="imagen_red-social-cel"
+                                 src="{{URL::asset('/img/iconos/icono-instagram-blanco.svg')}}">
                         </a>
                     </div>
 
@@ -163,7 +166,8 @@
 
                     <div class="col-2 icono_red-social-cel">
                         <a href="https://www.whatsapp.com/ZaabraCol/" target="_blank">
-                            <img class="imagen_red-social-cel" src="{{URL::asset('/img/iconos/icono-whatsapp-blanco.svg')}}">
+                            <img class="imagen_red-social-cel"
+                                 src="{{URL::asset('/img/iconos/icono-whatsapp-blanco.svg')}}">
                         </a>
                     </div>
 
@@ -179,8 +183,9 @@
             <div class="col-11 infoZaabra_contenido-cel d-block d-lg-none">
                 <div class="col-11 contenido_desplegable-cel">
                     <button class="boton_infoZaabra-cel rotacionBtn" type="button" data-toggle="collapse"
-                        data-target="#acercaZaabra" aria-expanded="false" aria-controls="acercaZaabra">
-                        <i onclick="direccionFlecha(this)"  data-rote="0" class="fas fa-chevron-down icono_flecha-boton-cel">
+                            data-target="#acercaZaabra" aria-expanded="false" aria-controls="acercaZaabra">
+                        <i onclick="direccionFlecha(this)" data-rote="0"
+                           class="fas fa-chevron-down icono_flecha-boton-cel">
                             <h6 class="titulo_infoZaabra-cel"> ACERCA DE ZAABRA </h6>
                         </i>
                     </button>
@@ -230,7 +235,8 @@
                 <div class="col-11 contenido_desplegable-cel">
                     <button class="boton_infoZaabra-cel rotacionBtn" type="button" data-toggle="collapse"
                             data-target="#politicasUse" aria-expanded="false" aria-controls="politicasUse">
-                        <i onclick="direccionFlecha(this)"  data-rote="0" class="fas fa-chevron-down icono_flecha-boton-cel">
+                        <i onclick="direccionFlecha(this)" data-rote="0"
+                           class="fas fa-chevron-down icono_flecha-boton-cel">
                             <h6 class="titulo_infoZaabra-cel"> POLÍTICAS DE USO </h6>
                         </i>
                     </button>
@@ -272,6 +278,7 @@
             </div>
             <!--******************************     Column end form suscribirme version MOBILE      *********************************-->
         </div>
+        --}}
 
         <!-- Row iconos gobierno de Colombia -->
         <div class="row footer_iconos-colombia">
