@@ -26127,7 +26127,6 @@ a:hover {
 
 .button_blue {
   font-family: "Quicksand";
-  font-size: 16px;
   color: #FFFFFF;
   background: #0083D6;
   border: 1px solid #0083D6;
@@ -26137,7 +26136,6 @@ a:hover {
 
 .button_transparent {
   font-family: "Quicksand";
-  font-size: 16px;
   color: #434343 !important;
   background: #FFFFFF;
   border: solid 1px #434343;
@@ -26147,7 +26145,6 @@ a:hover {
 
 .button_green {
   font-family: "Quicksand";
-  font-size: 16px;
   color: #FFFFFF;
   background: #019F86;
   border: solid 1px #019F86;
@@ -26157,12 +26154,20 @@ a:hover {
 
 .button_red {
   font-family: "Quicksand";
-  font-size: 16px;
   color: #FFFFFF;
   background: #721C24;
   border: solid 1px #721C24;
   border-radius: 5px;
   padding: 5px 15px;
+}
+
+.button_seleccionado {
+  font-family: "Quicksand";
+  color: #019F86;
+  background: #FFFFFF;
+  border: solid 1px #019F86;
+  border-radius: 5px;
+  padding: 5px 9px;
 }
 
 .btn_ver_mas {
@@ -26285,6 +26290,41 @@ div.dt-buttons {
   padding: 0;
 }
 
+.containt__card {
+  background-color: #FFFFFF;
+  border: 1px solid #CED4DA;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 2px rgba(206, 212, 218, 0.5);
+  transition-duration: 0.15s;
+}
+.containt__card .card-header {
+  background-color: #079F86;
+  border: 1px solid #079F86;
+  color: #FFFFFF;
+}
+
+.content_btn_center .btn_green {
+  font-family: "Quicksand";
+  color: #FFFFFF;
+  background: #019F86;
+  border: solid 1px #019F86;
+  border-radius: 5px;
+  padding: 3px 15px;
+}
+.content_btn_center .btn_blue {
+  font-family: "Quicksand";
+  color: #FFFFFF;
+  background: #0083D6;
+  border: solid 1px #0083D6;
+  border-radius: 5px;
+  padding: 3px 15px;
+}
+
+.containt__card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 10PX 15px 24px rgba(62, 57, 107, 0.25);
+}
+
 .btn__activado {
   border: 1px solid #25d4ba;
   background-color: #cbfaf3;
@@ -26402,80 +26442,15 @@ div.dt-buttons {
   border-color: transparent transparent #fff transparent;
 }
 
-.containt__card {
-  background-color: #FFFFFF;
-  border: 1px solid #CED4DA;
-  border-radius: 5px;
-  box-shadow: 1px 1px 10px 2px rgba(206, 212, 218, 0.5);
-  transition-duration: 0.15s;
-}
-.containt__card .card-header {
-  background-color: #079F86;
-  border: 1px solid #079F86;
-  color: #FFFFFF;
-}
-
-.content_btn_center .btn_green {
-  font-family: "Quicksand";
-  color: #FFFFFF;
-  background: #019F86;
-  border: solid 1px #019F86;
-  border-radius: 5px;
-  padding: 3px 15px;
-}
-.content_btn_center .btn_blue {
-  font-family: "Quicksand";
-  color: #FFFFFF;
-  background: #0083D6;
-  border: solid 1px #0083D6;
-  border-radius: 5px;
-  padding: 3px 15px;
-}
-
-.containt__card:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 10PX 15px 24px rgba(62, 57, 107, 0.25);
-}
-
-.estado__activo {
-  width: 95px;
-  margin-left: auto;
-  padding: 2px 7px 2px 22px;
-  border-radius: 3px;
-  border: 1px solid #27e0c2;
-  background-color: #ddfdf8;
-  color: #079F86;
-  background-image: url("/img/iconos/check-circle.svg");
-  background-repeat: no-repeat;
-  background-position-x: 3px;
-  background-position-y: center;
-  background-size: 16px;
-}
-
-.estado__inactivo {
-  width: 120px;
-  margin-left: auto;
-  padding: 2px 7px 2px 22px;
-  border-radius: 3px;
-  border: 1px solid #fc7c7c;
-  background-color: #fde0e0;
-  color: #f83636;
-  background-image: url("/img/iconos/x-circle.svg");
-  background-repeat: no-repeat;
-  background-position-x: 3px;
-  background-position-y: center;
-  background-size: 16px;
-}
-
 .estado__activo_modal {
   position: absolute;
   top: 80px;
   right: 25px;
   padding: 2px 7px 2px 22px;
   border-radius: 3px;
-  border: 1px solid #27e0c2;
-  background-color: #ddfdf8;
-  color: #079F86;
+  border: 1px solid #25d4ba;
+  background-color: #cbfaf3;
+  color: #13a58d;
   background-image: url("/img/iconos/check-circle.svg");
   background-repeat: no-repeat;
   background-position-x: 3px;
@@ -26839,8 +26814,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     width: 65%;
   }
 
-  .w_md_85 {
-    width: 85%;
+  .w_md_50 {
+    width: 55%;
   }
 
   .mt_md_lg {

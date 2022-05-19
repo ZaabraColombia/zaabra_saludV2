@@ -58,21 +58,21 @@
                 </div>
 
                 <div class="w-100 w_md_65 w_lg_100 pl-md-3">
-                    <h2 class="fs_title_module green_bold" id="nombre_profesional-paciente">
+                    <h2 class="fs_title_module green_bold mt-3" id="nombre_profesional-paciente">
                         Dr.(a) {{ $profesional->nombre_completo }}
                     </h2>
                     <h4 class="fs_subtitle_module black_bold mb-0" id="">{{ $profesional->especialidad_pricipal->nombreEspecialidad ?? '' }}</h4>
                     <h5 class="fs_text gray_light">{{ $profesional->universidad->nombreuniversidad }}</h5>
                     <h5 class="fs_text gray_light">{{ "{$profesional->sede->direccion} ({$profesional->sede->ciudad->nombre})" }}</h5>
                     <!-- sección datos consulta perfil profesional-->
-                    <div class="mt-2 mb-3 mb-md-0 w_md_85 w_lg_100">
+                    <div class="mt-2 mb-3 mb-md-0 w_md_50 w_lg_100">
                         <h3 class="fs_subtitle_module black_bold">Tipo de servicio</h3>
 
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between pr-xl-3">
                              <input type="hidden" id="id_profesional" name="id_profesional">
                             <div>
-                                <p id="imp_serv">Otorrinolaringología - Consulta control</p>
-                                <span>$185.000</span>
+                                <p id="imp_serv" class="fs_text gray_light">Otorrinolaringología - Consulta contro</p>
+                                <span id="valor_servicio" class="fs_text gray_light">$185.000</span>
                             </div>
                             <div class="row m-0 content_btn_left">
                                 <button type="button" class="button_blue" id="" data-toggle="modal" data-target="#options_servicio">
@@ -84,14 +84,14 @@
                 </div>
             </div>
 
-            <div class="content_row w_lg_65 my__md">
+            <div class="content_row w_lg_65 my__md align-items-center">
                 <div class="col_flex col_flex_md">
                     <div class="calendar w-100"></div>
                 </div>
 
                 <div class="content_row col_flex_md ml-md-auto mt-lg-2 align_between_1300">
                     <div class="col_flex">
-                        <div class="mt-4 mb-3 mt-md-0 width_pill">
+                        <div class="mt-4 mt-md-0 width_pill">
                             <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
                             <span class="badge rounded-pill bg-secondary mb-3 w-100" style="opacity: .5;">Días no disponibles</span>
                             <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
@@ -102,6 +102,7 @@
                         <form action="{{ route('paciente.finalizar-cita-institucion-profesional', ['profesional' => $profesional->slug]) }}" method="post" id="form-finalizar-cita-profesional">
                             @csrf
                             <input type="hidden" name="date-calendar" id="date-calendar">
+                            <input type="hidden" name="servicio_id" id="servicio_prof_inst">
                             <div class="input__box mb-3">
                                 <label for="modalidad">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
@@ -236,17 +237,20 @@
                 </div>
 
                 <div class="modal-body">
-                    <h1 class="" id="exampleModalLabel">Tipo de servicio</h1>
+                    <h1 class="mb-3" id="exampleModalLabel">Tipo de servicio</h1>
                     @if(!empty ($servicios))
                         @foreach($servicios as $servicio)
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between mb-3">
                                 <div>
                                     <p id="servicio">{{ $servicio->nombre }}</p>
-                                    <span>{{ number_format($servicio->valor, 0, ",", ".") }}</span>
+                                    <span>$ {{ number_format($servicio->valor, 0, ",", ".") }}</span>
                                 </div>
                                 <div class="row m-0 content_btn_left">
-                                    <button type="button" class="button_blue" id="serv">
-                                        Seleccionar
+                                    <button type="button" class="button_blue select_service" 
+                                            data-servicio="{{ $servicio->nombre }}"
+                                            data-precio="$ {{ number_format($servicio->valor, 0, ',', '.') }}"
+                                            data-id="{{ $servicio->id }}">
+                                            Seleccionar
                                     </button>
                                 </div>
                             </div>
@@ -438,17 +442,16 @@
     </script>
 
     <script>
-        // function recibir(){
-        //     var servicio=document.getElementById("serv").value;
-        //     document.write(servicio);
-        // }
-        let btn = document.getElementById('serv');
+        $('.select_service').click(function servicioProfesional(){
+            var btn_service=$(this);
 
-        btn.onclick = () => {
-        let c1 = document.getElementById('servicio').value;
-        let c2 = document.getElementById('imp_serv');
-        c2.value = c1;
-        }
+            $('#imp_serv').html(btn_service.data('servicio'));
+            $('#valor_servicio').html(btn_service.data('precio'));
+            $('#servicio_prof_inst').val(btn_service.data('id'));
+            $('#options_servicio').modal('hide');
+            $('.select_service').addClass('button_blue').removeClass('button_seleccionado').html('Seleccionar');
+            btn_service.removeClass('button_blue').addClass('button_seleccionado').html('Seleccionado');
+        });
     </script>
 @endsection
 
