@@ -13,6 +13,8 @@ class paises extends Model
         'nombre'
     ];
 
+    protected $table = 'pais';
+
     public function departamentos()
     {
         return $this->hasMany(provincia::class, 'id_pais', 'id_pais');
