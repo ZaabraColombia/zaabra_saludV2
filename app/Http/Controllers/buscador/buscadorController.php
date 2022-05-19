@@ -124,7 +124,7 @@ class buscadorController extends Controller
             ])
             ->where(function ($query) use ($term) {
                 $query
-                    ->whereHas('especialidad_pricipal', function ($query) use ($term){
+                    ->whereHas('especialidad_principal', function ($query) use ($term){
                         return $query->where('nombreEspecialidad', 'like', "%$term%");
                     })
                     ->orWhereHas('especialidades', function ($query) use ($term){

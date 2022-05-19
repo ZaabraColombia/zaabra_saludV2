@@ -82,6 +82,10 @@ Route:: get('/PerfilInstitucion/{slug}',[App\Http\Controllers\entidades\perfilIn
 /*Esta ruta es de la tarjeta de los profesionales de una institución que se llama desde el botón "ver profesional" de la landing page institucional y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/PerfilInstitucion/{slug}/profesionales',[App\Http\Controllers\entidades\perfilInstitucionController::class,'profesionales'])->name('PerfilInstitucion-profesionales');
 
+/*Permite ver los servicios de un profesional en una institución*/
+Route::post('institucion/profesional-servicios', [App\Http\Controllers\entidades\perfilInstitucionController::class, 'servicios'])
+    ->name('institucion.profesional-servicios');
+
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/
 Route::get('/acerca-de-Zaabra-salud', function () { return view('quienes-somos/acerca');})->name('acerca');
 

@@ -62,7 +62,7 @@
                         Dr.(a) {{ $profesional->nombre_completo }}
                     </h2>
                     <h4 class="fs_subtitle_module black_bold mb-0"
-                        id="">{{ $profesional->especialidad_pricipal->nombreEspecialidad ?? '' }}</h4>
+                        id="">{{ $profesional->especialidad_principal->nombreEspecialidad ?? '' }}</h4>
                     <h5 class="fs_text gray_light">{{ $profesional->universidad->nombreuniversidad }}</h5>
                     <h5 class="fs_text gray_light">{{ "{$profesional->sede->direccion} ({$profesional->sede->ciudad->nombre})" }}</h5>
                     <!-- sección datos consulta perfil profesional-->

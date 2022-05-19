@@ -338,7 +338,7 @@ class CalendarioController extends Controller
         if (empty($horario) or empty($servicios) or empty($disponibilidad) or empty($consultorio))
             return redirect()->back()->with('error-agenda', [
                 'nombre' => $profesional->nombre_completo,
-                'especialidad' => $profesional->especialidad_pricipal->nombreEspecialidad ?? ''
+                'especialidad' => $profesional->especialidad_principal->nombreEspecialidad ?? ''
             ]);
 
         //Atrae los dias de la semana que NO labora

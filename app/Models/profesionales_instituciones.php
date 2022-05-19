@@ -82,7 +82,7 @@ class profesionales_instituciones extends Authenticatable  implements MustVerify
     /**
      * @return BelongsTo
      */
-    public function especialidad_pricipal(): BelongsTo
+    public function especialidad_principal(): BelongsTo
     {
         return $this->belongsTo(especialidades::class, 'id_especialidad', 'idEspecialidad');
     }
@@ -137,7 +137,7 @@ class profesionales_instituciones extends Authenticatable  implements MustVerify
 
     public function getNombreEspecialidadAttribute(): ?string
     {
-        if (!empty($this->especialidad_pricipal)) return $this->especialidad_pricipal->nombreEspecialidad;
+        if (!empty($this->especialidad_principal)) return $this->especialidad_principal->nombreEspecialidad;
         return null;
     }
 
