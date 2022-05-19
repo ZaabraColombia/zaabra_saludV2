@@ -90,7 +90,7 @@
     </div>
 
     <!-- Modal Ver user -->
-    <div class="modal fade" id="modal_ver_usuario">
+    <div class="modal fade" id="modal_ver_usuario" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">

@@ -95,7 +95,7 @@
     </div>
     @can('accesos-profesional',['agregar-contacto', 'editar-contacto'])
         <!-- Modal Editar y Crear -->
-        <div class="modal fade modal_contactos" id="modal_contactos">
+        <div class="modal fade modal_contactos" id="modal_contactos" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content modal_container">
                     <div class="modal-header">
@@ -204,7 +204,7 @@
     @endcan
     @can('accesos-profesional',['eliminar-contacto'])
         <!-- Modal Eliminar -->
-        <div class="modal fade modal_contactos" id="modal_contactos_eliminar">
+        <div class="modal fade modal_contactos" id="modal_contactos_eliminar" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content modal_container">
                     <div class="modal-header">
@@ -285,7 +285,7 @@
 
     @can('accesos-profesional',['ver-contactos'])
         <!-- Modal Ver -->
-        <div class="modal fade modal_contactos" id="modal_contactos_ver">
+        <div class="modal fade modal_contactos" id="modal_contactos_ver" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content modal_container">
                     <div class="modal-header">

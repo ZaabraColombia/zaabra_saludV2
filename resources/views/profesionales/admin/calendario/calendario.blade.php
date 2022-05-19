@@ -649,7 +649,7 @@
     </div>
 
     <!-- Modal  Cancelar cita -->
-    <div class="modal fade" id="modal_cancelar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal_cancelar_cita" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -845,7 +845,7 @@
     </div>
 
     <!-- Modal detalle del bloqueo -->
-    <div class="modal fade" id="modal_ver_reserva" >
+    <div class="modal fade" id="modal_ver_reserva" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -883,7 +883,7 @@
     </div>
 
     <!-- Modal Editar Bloqueo del calendario -->
-    <div class="modal fade" id="modal_editar_reserva_calendario" tabindex="-1" >
+    <div class="modal fade" id="modal_editar_reserva_calendario" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -931,8 +931,8 @@
         </div>
     </div>
 
-    <!-- Modal  Cancelar reserva -->
-    <div class="modal fade" id="modal_cancelar_reserva_calendario" tabindex="-1" >
+    <!-- Modal  Desbloquear calendario -->
+    <div class="modal fade" id="modal_cancelar_reserva_calendario" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
