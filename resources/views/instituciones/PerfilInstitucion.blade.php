@@ -128,21 +128,81 @@
             @foreach ($objinstitucionlandinservicios as $objinstitucionlandinservicios)
                 <div class="card card_acordion px-0">
                     <div id="heading_{{$loop->iteration}}">
-                        <button class="button_acordion" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
+                        <button class="button_acordion" data-toggle="collapse" data-target="#collapse_{{$loop->iteration}}" 
+                        aria-expanded="true" aria-controls="collapse_{{$loop->iteration}}">{{$objinstitucionlandinservicios->tituloServicios}}</button>
                     </div>
 
                     <div id="collapse_{{$loop->iteration}}" class="collapse" aria-labelledby="heading_{{$loop->iteration}}" data-parent="#accordion">
-                        <div class="card-body toggle_info">
-                            <p class="text_p p-0">{{$objinstitucionlandinservicios->DescripcioServicios}}</p>
+                        <div class="table-responsive">
+                            <table class="table table_landPage thead_green">
+                                <thead class="thead_green">
+                                    <tr>
+                                        <th style="vertical-align: initial !important;">
+                                            <div class="txt_tehead">
+                                                <span>Servicios</span>
+                                            </div>    
+                                        </th>
+                                        <th style="vertical-align: initial !important;">
+                                            <div class="txt_tehead">
+                                                Precio
+                                            </div>    
+                                        </th>
+                                        <th style="vertical-align: initial !important;">
+                                            <div class="txt_tehead">
+                                                <span>Agendamiento  virtual</span>
+                                            </div>    
+                                        </th>
+                                        <th style="vertical-align: initial !important;">
+                                            <div class="txt_tehead">
+                                                <span>Descripción</span>
+                                            </div>    
+                                        </th>
+                                        <th style="vertical-align: initial !important;">
+                                            <div class="txt_tehead">
+                                                <span>Convenio</span>
+                                            </div>    
+                                        </th>
+                                        <!-- <th></th> -->
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Amigdalectomía</td>
+                                        <td>
+                                            <div class="w_85px">
+                                                <span>$ 150.000</span>
+                                            </div>
+                                        </td>
+                                        <td>Si</td>
+                                        <td>
+                                            <div class="w_150px">
+                                                <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt</span>
+                                            </div>    
+                                        </td>
+                                        <td>
+                                            <div class="input__box w_150px">
+                                                <select type="text" id="numero_id" name="numero_id" data-url="" required>
+                                                    <option value=""></option>
+                                                    <option value="">option 1</option>
+                                                    <option value="">option 2</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <!-- <td>
+                                            <div class="content_btn_center">
+                                                <a type="button" class="button_green" style="color: #FFF" id="">Agendar</a>
+                                            </div>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
-                        <div class="toggle_info">
-                            @if($objinstitucionlandinservicios->sucursalservicio)
-                                @php  $new_array = explode(',',$objinstitucionlandinservicios->sucursalservicio); @endphp
-                            @endif
-                            @foreach($new_array as $info)
-                                <li class="text_p p-0">{{$info}}</li>
-                            @endforeach
+                        <div class="content_btn_right my-3 my-xl-0">
+                            <a type="button" class="button_transparent_green" id="">Ver mási
+                                <i data-feather="arrow-right" style="width: 20px"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

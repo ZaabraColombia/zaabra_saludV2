@@ -4,19 +4,19 @@
   <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
   <section class="swiper-container swiper_principalGaleriaProf">
     <div class="swiper-wrapper">
-      @foreach ($objbannersprincipalEspecialidades as $objbannersprincipalEspecialidades)
+      @foreach ($objbannersprincipalEspecialidades as $banner)
         <div class="swiper-slide ">
-          <img class="swiper-slide" src="{{URL::asset($objbannersprincipalEspecialidades->rutaImagenVenta)}}">
+          <img class="swiper-slide" src="{{URL::asset($banner->rutaImagenVenta)}}">
 
-          <div class="main_banner_top {{ ($objbannersprincipalEspecialidades->banner_plantilla_id == 1)? 'banner_small': (($objbannersprincipalEspecialidades->banner_plantilla_id == 2)? 'banner_medium': (($objbannersprincipalEspecialidades->banner_plantilla_id == 3)? 'banner_large':'')) }}">
+          <div class="main_banner_top {{ ($banner->banner_plantilla_id == 1)? 'banner_small': (($banner->banner_plantilla_id == 2)? 'banner_medium': (($banner->banner_plantilla_id == 3)? 'banner_large':'')) }}">
             <div class="img_banner_top">    
-              <img src="{{URL::asset($objbannersprincipalEspecialidades->ruta_logo)}}" alt="">
+              <img src="{{URL::asset($banner->ruta_logo)}}" alt="">
             </div>   
           
-            <h1 style="color:{{($objbannersprincipalEspecialidades->color_titulo)}};">{{($objbannersprincipalEspecialidades->titulo_banner)}}</h1>
-            <p  style="color:{{($objbannersprincipalEspecialidades->color_texto)}};">{{($objbannersprincipalEspecialidades->texto_banner)}}</p>
-            @if(!empty($objbannerprincipalEspecioalidades->urlBoton_banner))
-              <a class="mt-lg-2" type="submit" href="{{($objbannersprincipalEspecialidades->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
+            <h1 style="color:{{($banner->color_titulo)}};">{{($banner->titulo_banner)}}</h1>
+            <p  style="color:{{($banner->color_texto)}};">{{($banner->texto_banner)}}</p>
+            @if(!empty($banner->urlBoton_banner))
+              <a class="mt-lg-2" type="submit" href="{{($banner->urlBoton_banner)}}" target="blank" class="btn_agendarHome"> {{ __('Ver más') }}
               </a>
             @endif
           </div>
@@ -51,7 +51,48 @@
         </div>
       </div>
     @endforeach
+
+
+
+
   </section>
+
+  <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
+  <section class="swiper-container swiper_principalGaleriaProf">
+    <div class="swiper-wrapper">
+      @foreach ($objbannerssecundarioEspecialidades as $banner)
+        <div class="swiper-slide ">
+          <img class="swiper-slide" src="{{URL::asset($banner->rutaImagenVenta)}}">
+
+          <div class="main_banner_top {{ ($banner->banner_plantilla_id == 1)? 'banner_small': (($banner->banner_plantilla_id == 2)? 'banner_medium': (($banner->banner_plantilla_id == 3)? 'banner_large':'')) }}">
+            <div class="img_banner_top">    
+              <img src="{{URL::asset($banner->ruta_logo)}}" alt="">
+            </div>   
+          
+            <h1 style="color:{{($banner->color_titulo)}};">{{($banner->titulo_banner)}}</h1>
+            <p  style="color:{{($banner->color_texto)}};">{{($banner->texto_banner)}}</p>
+            @if(!empty($banner->urlBoton_banner))
+              <a class="mt-lg-2" type="submit" href="{{($banner->urlBoton_banner)}}" target="blank"   
+                  style="background-color:{{($banner->background_btn)}}; color:{{($banner->color_btn)}};">
+                  {{($banner->texto_btn)}}
+              </a>
+            @endif
+          </div>
+        </div>
+      @endforeach
+    </div>
+
+    <div class="swiper-pagination pagination_home"></div>
+  </section>
+  
+
+
+
+
+
+
+
+
 
   <!--carousel universidades-->
   <section class="seccion_carrusel_inferior">   <!-- Funcionalidad del carrusel alojada en el archivo home.js -->

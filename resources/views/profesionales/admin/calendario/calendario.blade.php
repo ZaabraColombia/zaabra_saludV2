@@ -116,8 +116,8 @@
 
     </section>
 
-    <!-- Modal día calendario -->
-    <div class="modal fade" id="modal_dia_calendario" tabindex="-1">
+    <!-- Modal Día calendario -->
+    <div class="modal fade" id="modal_dia_calendario" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -149,8 +149,8 @@
         </div>
     </div>
 
-    <!-- Modal  agendar cita -->
-    <div class="modal fade" id="modal_agregar_cita" tabindex="-1" >
+    <!-- Modal  Agendar cita -->
+    <div class="modal fade" id="modal_agregar_cita" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -315,8 +315,8 @@
         </div>
     </div>
 
-    <!-- Modal ver cita -->
-    <div class="modal fade" id="modal_ver_cita" tabindex="-1" >
+    <!-- Modal Detalle cita -->
+    <div class="modal fade" id="modal_ver_cita" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -557,7 +557,7 @@
 </div>--}}
 
     <!-- Modal  reagendar cita -->
-    <div class="modal fade" id="modal_reagendar_cita" tabindex="-1" >
+    <div class="modal fade" id="modal_reagendar_cita" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -795,7 +795,7 @@
     </div>
 
     <!-- Modal Bloqueo del calendario -->
-    <div class="modal fade" id="modal_crear_reserva_calendario" tabindex="-1" >
+    <div class="modal fade" id="modal_crear_reserva_calendario" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">

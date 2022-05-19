@@ -490,6 +490,16 @@
     justify-content: center;
     align-items: center;
 }
+.serv__prof i {
+    background-image: url('/img/landing-profesional/icono-servicios-titulo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.conv__prof i {
+    background-image: url('/img/landing-profesional/icono-convenios-titulo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 .tratamientos_profesional h2 {
     display: flex;
     font-family: "Quicksand", sans-serif;

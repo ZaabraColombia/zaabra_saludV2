@@ -186,14 +186,93 @@
         </div>
     </section>
 
-    <section class="sections sections_active section_servicios">
-        <div class="perfil_profesional">
+    <section class="sections section_servicios mb-3">
+        <div class="perfil_profesional serv__prof">
             <h2><i></i>Servicios</h2>
+    
+            <div class="desplegable_LandInst accordion_blue" id="accordion"> <!--Función del cambio de color a verde en los botones del collapse estan ubicados en el archivo "footer.js". -->
+                <div class="accordion"> 
+                    <div class="card card_acordion px-0">
+                        <div id="heading">
+                            <button class="button_acordion" data-toggle="collapse" data-target="#collapse" 
+                            aria-expanded="true" aria-controls="collapse">Otorrinolaringología</button>
+                        </div>
+
+                        <div id="collapse" class="collapse" aria-labelledby="heading" data-parent="#accordion">
+                            <div class="table-responsive">
+                                <table class="table table_landPage">
+                                    <thead>
+                                        <tr>
+                                            <th style="vertical-align: initial !important;">
+                                                <div class="txt_tehead">
+                                                    <span>Servicios</span>
+                                                </div>    
+                                            </th>
+                                            <th style="vertical-align: initial !important;">
+                                                <div class="txt_tehead">
+                                                    Precio
+                                                </div>    
+                                            </th>
+                                            <th style="vertical-align: initial !important;">
+                                                <div class="txt_tehead">
+                                                    <span>Agendamiento  virtual</span>
+                                                </div>    
+                                            </th>
+                                            <th style="vertical-align: initial !important;">
+                                                <div class="txt_tehead">
+                                                    <span>Descripción</span>
+                                                </div>    
+                                            </th>
+                                            <th style="vertical-align: initial !important;">
+                                                <div class="txt_tehead">
+                                                    <span>Convenio</span>
+                                                </div>    
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Amigdalectomía</td>
+                                            <td>
+                                                <div class="w_85px">
+                                                    <span>$ 150.000</span>
+                                                </div>
+                                            </td>
+                                            <td>Si</td>
+                                            <td>
+                                                <div class="w_150px">
+                                                    <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt</span>
+                                                </div>    
+                                            </td>
+                                            <td>
+                                                <div class="input__box w_150px">
+                                                    <select type="text" id="numero_id" name="numero_id" data-url="" required>
+                                                        <option value=""></option>
+                                                        <option value="">option 1</option>
+                                                        <option value="">option 2</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="content_btn_center">
+                                                    <a type="button" class="button_blue" style="color: #FFF" id="">Agendar</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="sections sections_active section_convenios">
-        <div class="perfil_profesional">
+    <section class="sections section_convenios">
+        <div class="perfil_profesional conv__prof">
             <h2><i></i>Convenios</h2>
         </div>
 

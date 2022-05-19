@@ -30,10 +30,10 @@
         </div>
     </section>
 
-    <!-- Modal -->
-    <div class="modal fade modal_contactos" id="modal-finalizar-cita" data-backdrop="static" data-keyboard="false" >
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal-lg modal_container">
+    <!-- Modal Datos del paciente -->
+    <div class="modal fade modal_contactos" id="modal-finalizar-cita" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal_container">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -42,86 +42,86 @@
                 <form method="post" id="form-finalizar-cita">
                     <!-- Mantener las cases "label-*" -->
                     <div class="modal-body">
-                        <h1>Datos del paciente</h1>
+                        <h1 class="mb-3">Datos del paciente</h1>
 
                         <div class="d-flex justify-content-center mb-3">
                             <img id="foto" class="img__see_contacs foto">
                         </div>
 
-                        <div class="">
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Nombre: &nbsp;</span>
-                                <span class="fs_text paciente"></span>
+                        <div class="row m-0">
+                            <div class="col-12 p-0 col-lg-6 d-flex">
+                                <h5 class="fs_text_small black_strong">Nombre: &nbsp;</h5>
+                                <span class="fs_text_small black_light paciente"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Documento: &nbsp;</span>
-                                <span class="fs_text identificacion"></span>
+                            <div class="col-12 p-0 col-lg-6 d-flex">
+                                <h5 class="fs_text_small black_strong">Documento: &nbsp;</h5>
+                                <span class="fs_text_small black_light identificacion"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Celular: &nbsp;</span>
-                                <span class="fs_text celular"></span>
+                            <div class="col-12 p-0 col-lg-6 d-flex">
+                                <h5 class="fs_text_small black_strong">Teléfono: &nbsp;</h5>
+                                <span class="fs_text_small black_light celular"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Servicio: &nbsp;</span>
-                                <span class="fs_text servicio"></span>
+                            <div class="col-12 p-0 col-lg-6 d-flex">
+                                <h5 class="fs_text_small black_strong">Fecha de la atención: &nbsp;</h5>
+                                <span class="fs_text_small black_light fecha"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Categoría del servicio:</span>
-                                <span class="fs_text tipo_servicio"></span>
+                            <div class="col-12 p-0 col-lg-6 d-flex">
+                                <h5 class="fs_text_small black_strong">Hora de la atención: &nbsp;</h5>
+                                <span class="fs_text_small black_light hora"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Tipo de atención: </span>
-                                <span class="fs_text atencion"></span>
+                            <div class="col-12 col-lg-6 p-0 d-flex">
+                                <h5 class="fs_text_small black_strong">Tipo de atención: &nbsp;</h5>
+                                <span class="fs_text_small black_light atencion"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Especialidad: </span>
-                                <span class="fs_text especialidad"></span>
+                            <div class="col-12 p-0 col-lg-6 d-flex">
+                                <h5 class="fs_text_small black_strong">Servicio: &nbsp;</h5>
+                                <span class="fs_text_small black_light servicio"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Cups: </span>
-                                <span class="fs_text cups"></span>
+                            <div class="col-12 p-0 col-lg-6 d-flex">
+                                <h5 class="fs_text_small black_strong">Categoría del servicio: &nbsp;</h5>
+                                <span class="fs_text_small black_light tipo_servicio"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Fecha: </span>
-                                <span class="fs_text fecha"></span>
+                            <div class="col-12 p-0 col-lg-6 d-flex">
+                                <h5 class="fs_text_small black_strong">Especialidad: &nbsp;</h5>
+                                <span class="fs_text_small black_light especialidad"></span>
                             </div>
 
-                            <div>
-                                <span class="font_roboto fs_text_small black_light">Hora: </span>
-                                <span class="fs_text hora"></span>
+                            <div class="col-12 p-0 d-flex">
+                                <h5 class="fs_text_small black_strong">Cups:</h5>
+                                <span class="fs_text_small black_light cups pl-2" style="line-height: 1.3"></span>
                             </div>
                         </div>
 
                         <div class="dropdown-divider" style="color: #c2c2c2"></div>
 
-                        <label class="font_roboto fs_text_small black_light mb-0" for="">Duración de la cita:</label>
+                        <label class="fs_text_small black_strong mb-0" for="">Duración de la cita:</label>
                         <div class="main">
                             <div class="circle">
                                 <div id="stopwatch" class="stopwatch black_strong fs_title">00:00</div>
                                 <button id="play-pause" class="paused finalizar" type="button" onclick="playPause()">
-                                    <span id="texto">Iniciar</span>
+                                    <span class="fs_text_small" id="texto">Iniciar</span>
                                 </button>
                             </div>
                             <div id="seconds-sphere" class="seconds-sphere"></div>
                             <input type="hidden" name="segundos" id="segundos">
                         </div>
 
-                        <div class="col-12 p-0 input__box">
-                            <label class="font_roboto fs_text_small black_light mb-2" for="comentario">Observaciones</label>
+                        <div class="col-12 p-0 input__box_modal">
+                            <label class="fs_text_small black_strong mb-2" for="comentario">Observaciones</label>
                             <textarea name="comentario" id="comentario" cols="35" rows="5" class="comentario"></textarea>
                         </div>
                     </div>
 
                     <div class="modal-footer content_btn_center finalizar">
-                        <button type="submit" class="button_blue">Finalizar consulta</button>
+                        <button type="submit" class="button_blue fs_text_small">Finalizar consulta</button>
                     </div>
                 </form>
             </div>

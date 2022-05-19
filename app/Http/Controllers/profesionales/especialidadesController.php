@@ -60,7 +60,7 @@ class especialidadesController extends Controller
     // consulta para cargar banner secundario especialidades
     public function cargarBannerSecundarioEspecialidades(){
         $consultaBannerSecundarioEspecialidades = DB::table('ventabanners')
-        ->select('rutaImagenVenta')
+        ->select('ventabanners.*')
         ->where('aprobado', '<>', 0)
         ->where('idtipobanner', '=', 8)
         ->get();

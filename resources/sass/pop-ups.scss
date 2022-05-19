@@ -192,6 +192,35 @@
     }
 }
 
+.input__box_modal {
+    label {
+        margin-bottom: 4px;
+    }
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        margin-bottom: 0;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: $black_second;
+        background-color: $withe_official;
+        background-clip: padding-box;
+        border: 1px solid $gray_third;
+        border-radius: 5px;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        resize: none;
+        &:focus {
+            color: $black_second;
+            background-color: $gray_official;
+            border-color: $blue_gray;
+            outline: 0;
+            box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
+        }
+    }
+}
+
 .card_day {
     width: 175px;
     margin: auto;

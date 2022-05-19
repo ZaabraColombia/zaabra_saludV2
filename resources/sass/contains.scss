@@ -224,7 +224,19 @@
         color: #b2b3b5;
     }
 }
-
+.table_landPage tbody tr {
+    border-bottom: 2px solid #dee2e6;
+}
+.txt_tehead {
+    text-align: center;
+    line-height: 1;
+}
+.w_85px {
+    width: 85px;
+}
+.w_150px {
+    width: 150px;
+}
 .user__xl a {
     display: flex; 
     align-items: center; 
