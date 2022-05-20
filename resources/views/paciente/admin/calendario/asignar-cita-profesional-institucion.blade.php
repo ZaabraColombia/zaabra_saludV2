@@ -199,7 +199,7 @@
                                 ({{ $profesional->sede->ciudad->nombre ?? $profesional->institucion->ciudad->nombre }})
                             </span>
                         </h5>
-                        <h5>Valor cita: &nbsp; $ <span id="modal-valor"></span></h5>
+                        <h5>Valor cita: &nbsp;<span id="modal-valor"></span></h5>
                     </div>
                 </div>
 
@@ -366,16 +366,14 @@
                 );
 
                 // Hora de la cita
-                $('#modal-hora').html(moment(horario.start, 'YYYY-MM-DD HH:mm').format('hh:mm A')
-                    + ' - ' + moment(horario.end, 'YYYY-MM-DD HH:mm').format('hh:mm A')
-                );
+                $('#modal-hora').html($('#hora option:selected').html());
 
                 $('#modal-tipo-de-cita').html(tipo_cita.find('option:selected').html());
 
                 if (check_convenio.prop('checked')) {
                     $('#modal-valor').html(convenio.find('option:selected').data('valor'));
                 } else {
-                    $('#modal-valor').html(tipo_cita.find('option:selected').data('valor'));
+                    $('#modal-valor').html($('#valor_servicio').html());
                 }
 
                 btn_confirmar_cita.html((modalidad.val() === 'presencial') ? 'Finalizar' : 'Pagar')
@@ -444,7 +442,7 @@
                     $('#check-convenio').prop('checked', false);
 
                     $.each(response.items, function (key, item) {
-                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.pivot.valor_paciente + '">' + item.nombre_completo + '</option>');
+                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.valor + '">' + item.nombre_completo + '</option>');
                     });
                 }
             })
