@@ -110,7 +110,7 @@ class RecursosController extends Controller
             ->first();
 
         $lista = $servicio->convenios_lista->map(function ($item){
-            return ['nombre_completo' => $item->nombre_completo, 'pivot' => $item->pivot, 'id' => $item->id];
+            return ['nombre_completo' => $item->nombre_completo, 'valor' => "$" . number_format($item->pivot->valor_paciente, 0,',', '.'), 'id' => $item->id];
         });
 
         return response(['items' => $lista], Response::HTTP_OK);
