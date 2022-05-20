@@ -8,8 +8,17 @@
     width: -webkit-fill-available;
     padding: 0;
 }
+// Menú hamburguesa versión CELULAR Y TABLET
+.menu_mobile {
+    background-image: url('/img/header/icono-hamburguesa-azul.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 25px;
+    height: 25px;
+}
+// Sidebar Menú lateral
 .width_menu {
-    width: 220px !important; 
+    width: 230px !important; 
     top: 85px !important;
     left: 30px !important;
     z-index: 400 !important;
@@ -59,26 +68,24 @@
             box-shadow: 1px 1px 5px 1px #c3c3c3;
         }
         .user_data {
-            // display: block;
-            width: 170px;
+            width: 180px;
             padding-left: 10px;
             h2 {
-                font-size: 12px;
+                font-size: 14px;
                 font-family: 'Quicksand';
                 color: $blue_official;
                 margin: 0;
             }
             .cont_text {
-                width: 160px;
+                width: 170px;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
                 span {
-                    font-size: 10px;
+                    font-size: 12px;
                     font-family: 'Quicksand';
                     color: $black_third;
                     margin: 0;
-                    // white-space: nowrap;
                 }
             }
         }
@@ -106,7 +113,7 @@
 //++++++++ Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
 .sidebar-wrapper .menu  {
     .items_green button {
-        font-size: 12px;
+        font-size: 14px;
         font-family: 'Quicksand';
         margin: 0;
         padding: 7px 0 7px 20px;
@@ -140,11 +147,11 @@
 }
 // Items del submenu menú lateral INSTIRUCIONES
 .sidebar-wrapper .menu .sub_menu_green {
-    padding-left: 30px;
+    padding-left: 40px;
     .submenu-item {
+        font-size: 12px;
         padding-top: 10px;
         list-style: none;
-        font-size: 10px;
     }
     a:hover {
         color: $green_official;
@@ -155,14 +162,6 @@
     text-decoration: none;
 }
 //++++++++ Fin Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
-
-
-
-
-
-
-
-
 
 .sidebar-wrapper .menu .sidebar-title {
     padding: 0 1rem;
@@ -256,22 +255,10 @@
     }
 }
 
-
-@media (min-width: 320px){
-    // Menú hamburguesa versión CELULAR Y TABLET
-    .menu_mobile {
-        background-image: url('/img/header/icono-hamburguesa-azul.svg');
-        background-repeat: no-repeat;
-        background-position: bottom;
-        width: 25px;
-        height: 25px;
-    }
-}
-
 @media (min-width: 1200px){
     .sideb_lateral {
-        width: 275px;
-        min-height: 80vh;
+        width: 300px;
+        min-height: 95vh;
     }
     .sidebar-menu .sidebar__header {
         padding: 30px 5px 0 10px;
@@ -279,50 +266,37 @@
     //++++++++ Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
     .sidebar-wrapper .menu  {
         .items_green button {
+            font-size: 16px;
             padding: 7px 0 7px 25px;
         }
 
     }
-    // Items del submenu menú lateral INSTIRUCIONES
-    .sidebar-wrapper .menu .sub_menu_green {
-        padding-left: 35px;
-    }
     //++++++++ Fin Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
 }
 
-@media (min-width: 1440px){
-    .sideb_lateral {
-        width: 300px;
-    }
-}
-
 @media (min-width: 1920px){
+    .sideb_lateral {
+        width: 500px;
+    }
     .sidebar-menu {
         .sidebar__header {
             img {
-                width: 40px;
-                height: 40px;
+                width: 50px;
+                height: 50px;
             }
             .user_data {
-                width: 220px;
+                width: 300px;
                 padding-left: 10px;
                 h2 {
-                    font-size: 14px;
+                    font-size: 16px;
                 }
                 .cont_text {
-                    width: 210px;
+                    width: 280px;
                     span {
                         font-size: 12px;
                     }
                 }
             }
         }
-    }
-
-    .sidebar-wrapper .menu .items_green button {
-        font-size: 14px;
-    }
-    .sidebar-wrapper .menu .sub_menu_green .submenu-item {
-        font-size: 12px;
     }
 }

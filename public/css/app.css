@@ -22385,8 +22385,16 @@ a:hover {
   padding: 0;
 }
 
+.menu_mobile {
+  background-image: url("/img/header/icono-hamburguesa-azul.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 25px;
+  height: 25px;
+}
+
 .width_menu {
-  width: 220px !important;
+  width: 230px !important;
   top: 85px !important;
   left: 30px !important;
   z-index: 400 !important;
@@ -22443,23 +22451,23 @@ a:hover {
   box-shadow: 1px 1px 5px 1px #c3c3c3;
 }
 .sidebar-menu .sidebar__header .user_data {
-  width: 170px;
+  width: 180px;
   padding-left: 10px;
 }
 .sidebar-menu .sidebar__header .user_data h2 {
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Quicksand";
   color: #0083D6;
   margin: 0;
 }
 .sidebar-menu .sidebar__header .user_data .cont_text {
-  width: 160px;
+  width: 170px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 .sidebar-menu .sidebar__header .user_data .cont_text span {
-  font-size: 10px;
+  font-size: 12px;
   font-family: "Quicksand";
   color: #232323;
   margin: 0;
@@ -22488,7 +22496,7 @@ a:hover {
 }
 
 .sidebar-wrapper .menu .items_green button {
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Quicksand";
   margin: 0;
   padding: 7px 0 7px 20px;
@@ -22521,12 +22529,12 @@ a:hover {
 }
 
 .sidebar-wrapper .menu .sub_menu_green {
-  padding-left: 30px;
+  padding-left: 40px;
 }
 .sidebar-wrapper .menu .sub_menu_green .submenu-item {
+  font-size: 12px;
   padding-top: 10px;
   list-style: none;
-  font-size: 10px;
 }
 .sidebar-wrapper .menu .sub_menu_green a:hover {
   color: #019F86;
@@ -22630,19 +22638,10 @@ a:hover {
   padding-right: 0.5rem;
 }
 
-@media (min-width: 320px) {
-  .menu_mobile {
-    background-image: url("/img/header/icono-hamburguesa-azul.svg");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    width: 25px;
-    height: 25px;
-  }
-}
 @media (min-width: 1200px) {
   .sideb_lateral {
-    width: 275px;
-    min-height: 80vh;
+    width: 300px;
+    min-height: 95vh;
   }
 
   .sidebar-menu .sidebar__header {
@@ -22650,42 +22649,30 @@ a:hover {
   }
 
   .sidebar-wrapper .menu .items_green button {
+    font-size: 16px;
     padding: 7px 0 7px 25px;
-  }
-
-  .sidebar-wrapper .menu .sub_menu_green {
-    padding-left: 35px;
-  }
-}
-@media (min-width: 1440px) {
-  .sideb_lateral {
-    width: 300px;
   }
 }
 @media (min-width: 1920px) {
+  .sideb_lateral {
+    width: 500px;
+  }
+
   .sidebar-menu .sidebar__header img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
   .sidebar-menu .sidebar__header .user_data {
-    width: 220px;
+    width: 300px;
     padding-left: 10px;
   }
   .sidebar-menu .sidebar__header .user_data h2 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .sidebar-menu .sidebar__header .user_data .cont_text {
-    width: 210px;
+    width: 280px;
   }
   .sidebar-menu .sidebar__header .user_data .cont_text span {
-    font-size: 12px;
-  }
-
-  .sidebar-wrapper .menu .items_green button {
-    font-size: 14px;
-  }
-
-  .sidebar-wrapper .menu .sub_menu_green .submenu-item {
     font-size: 12px;
   }
 }

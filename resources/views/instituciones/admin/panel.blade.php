@@ -1,7 +1,7 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <div class="container py-4 px-1 px-lg-5">
+    <div class="container-fluid py-4 px-1 px-lg-5">
         <div class="row m-0 p-0">
             <div class="col-12">
                 @if(session()->has('success'))
