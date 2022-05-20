@@ -151,3 +151,11 @@ Route::middleware(['auth', 'roles', 'verified'])->as('profesional.')->group(func
         });
     });
 });
+
+/* ******************** Buscadores ******************** */
+/* Buscar convenios de un servicio */
+Route::post('/profesional/convenio/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'servicios_convenio_profesional'])
+    ->middleware('auth')
+    ->name('profesional.convenios-servicio');
+
+/* ******************** Fin Buscadores ******************** */

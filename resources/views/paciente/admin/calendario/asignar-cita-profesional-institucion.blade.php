@@ -314,11 +314,6 @@
             }
         });
 
-        //detectar cambio en tipo servicio
-        // $('#tipo_servicio').change(function (event) {
-        //
-        // });
-
         function dias_libres(fecha, servicio) {
             var hora = $('#hora');
             hora.html('<option></option>');
@@ -476,7 +471,6 @@
 
         @if(!empty($tipo_servicio))
         $('.select_service[data-id={{ $tipo_servicio }}]').trigger('click');
-        console.log('ok');
         @endif
     </script>
 @endsection

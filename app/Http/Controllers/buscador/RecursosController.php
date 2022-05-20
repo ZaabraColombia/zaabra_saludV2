@@ -86,6 +86,36 @@ class RecursosController extends Controller
         return response(['items' => $lista], Response::HTTP_OK);
     }
 
+    /**
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function servicios_convenio_profesional(Request $request)
+    {
+        $request->validate([
+            'servicio'      => ['required', 'exists:servicios,id'],
+            'profesional'   => ['required', 'exists:perfilesprofesionales,idPerfilProfesional'],
+        ]);
+
+        $servicio = Servicio::query()
+            ->with(['convenios_lista' => function($query){
+                $query
+                    ->select('convenios.id', 'convenios.primer_nombre', 'convenios.segundo_nombre',
+                        'convenios.primer_apellido', 'convenios.segundo_apellido', 'convenios.tipo_documento_id',
+                        'convenios.numero_documento');
+
+            }])
+            ->where('id', $request->get('servicio'))
+            ->where('institucion_id', $request->get('institucion'))
+            ->first();
+
+        $lista = $servicio->convenios_lista->map(function ($item){
+            return ['nombre_completo' => $item->nombre_completo, 'pivot' => $item->pivot, 'id' => $item->id];
+        });
+
+        return response(['items' => $lista], Response::HTTP_OK);
+    }
+
     public function calendario_disponible(Request $request)
     {
         $request->validate([

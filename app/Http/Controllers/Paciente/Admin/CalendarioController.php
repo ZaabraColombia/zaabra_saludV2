@@ -61,6 +61,7 @@ class CalendarioController extends Controller
 
         $servicios = Servicio::query()
             ->where('profesional_id', $profesional->idPerfilProfesional)
+            ->where('agendamiento_virtual', 1)
             ->with(['convenios_lista'])
             ->get();
 
@@ -136,7 +137,8 @@ class CalendarioController extends Controller
     {
         //Validate date
         $validate = Validator::make($request->all(), [
-            'date' => ['required', 'date_format:Y-m-d']
+            'date' => ['required', 'date_format:Y-m-d'],
+            'servicio' => ['required', 'integer']
         ]);
 
         if ($validate->fails()) {
@@ -148,82 +150,49 @@ class CalendarioController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $servicio = Servicio::query()
+            ->where('id', $request->servicio)
+            ->where('estado', 1)
+            ->where('agendamiento_virtual', 1)
+            ->where('profesional_id', $profesional->idPerfilProfesional)
+            ->first();
+
+        if (empty($servicio))
+            return response([
+                'message' => [
+                    'title' => 'Error!',
+                    'text' => 'EL servicio no existe.'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+
+
         //Citas médicas
         $datesOperatives = $profesional->citas()
             ->select(['id_cita', 'fecha_inicio', 'fecha_fin'])
             ->whereNotIn('estado', ['cancelado', 'completado'])
+            ->whereDate('fecha_inicio', $request->date)
             ->get()
             ->toArray();
 
         //Horario
         $horario = $profesional->user->horario;
 
-
         //Validar el número del dia de la semana
         $diaSemana = date('w', strtotime($request->date));
 
         //crear intervalos
-        $intervaloCita = ($horario->duracion + $horario->descanso) * 60;
+        $intervaloCita = ($servicio->duracion + $servicio->descanso) * 60;
         //Crear las citas libres
         $listDates = array();
 
         //Buscar los dias disponibles
         foreach ($horario->horario as $item) {
-
             if (in_array($diaSemana, $item['daysOfWeek'])) {
                 $startDate = strtotime("$request->date " . $item['startTime']);
                 $endDate = strtotime("$request->date " . $item['endTime']);
 
                 //generar posibles citas
-                $listDates = generar_citas($startDate, $endDate, $intervaloCita, $datesOperatives, 2);
-
-                /*for($date = $startDate; ($date + $intervaloCita) <= $endDate; $date+= $intervaloCita){
-
-                    $startTime = date('Y-m-d H:i', $date);
-                    $endTime = date('Y-m-d H:i', $date + $intervaloCita );
-
-
-                    //Validar la disponibilidad de las citas
-                    $valid = true;
-                    if (!empty($datesOperatives)) {
-                        foreach ($datesOperatives as $dateOperative) {
-                            if (
-                                //Validar si la hora de inicio está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->fecha_inicio) < strtotime($startTime)
-                                    && strtotime($dateOperative->fecha_fin) > strtotime($startTime))
-                                or
-                                //Validar si la hora de fin está entre la hora inicio y fin de la cita existente
-                                (strtotime($dateOperative->fecha_inicio) < strtotime($endTime)
-                                    && strtotime($dateOperative->fecha_fin) > strtotime($endTime))
-                                or
-                                //Validar si la hora inicio existente está entre la hora inicio y fin
-                                (strtotime($startTime) < strtotime($dateOperative->fecha_inicio)
-                                    && strtotime($startTime) > strtotime($dateOperative->fecha_inicio))
-                                or
-                                //Validar si la hora din existente está entre la hora inicio y fin
-                                (strtotime($startTime) < strtotime($dateOperative->fecha_fin)
-                                    && strtotime($startTime) > strtotime($dateOperative->fecha_fin))
-                            )
-                            {
-                                $valid = false;
-                                break;
-                            }
-                        }
-                    }
-
-                    //validar que no se pueda agendar 2 horas antes de llegar a la cita
-                    $hoy = Carbon::now()->subHours(2);
-                    $start = new Carbon($startTime);
-
-                    if ($valid and $hoy->lessThan($start))
-                    {
-                        //Agregar la disponibilidad
-                        $listDates[] = [
-                            'startTime' => $startTime,
-                            'endTime' => $endTime
-                        ];
-                    }
-                }*/
+                $listDates = array_merge($listDates, generar_citas($startDate, $endDate, $intervaloCita, $datesOperatives));
             }
         }
 
@@ -242,25 +211,71 @@ class CalendarioController extends Controller
 
         $request->validate([
             'disponibilidad' => ['required'],
-            'disponibilidad.*' => ['required', 'date_format:Y-m-d H:i'],
-            'tipo_cita' => ['required'],
+            'disponibilidad.*' => [
+                'required',
+                'date_format:Y-m-d H:i',
+                'before_or_equal:' . date('Y-m-d H:i', strtotime(date('Y-m-d') . " 23:59 +{$profesional->user->horario->dias_agenda} days"))
+            ],
+            'tipo_servicio' => [
+                'required',
+                Rule::exists('servicios', 'id')->where(function ($query) use ($profesional) {
+                    return $query->where('profesional_id', $profesional->idPerfilProfesional)
+                        ->where('agendamiento_virtual', 1);
+                })
+            ],
+            'convenio' => [
+                'required_if:check-convenio,1',
+                Rule::exists('convenios', 'id')->where(function ($query) use ($profesional) {
+                    return $query->where('id_user', $profesional->idUser);
+                })
+            ],
             'modalidad' => ['required', Rule::in(['virtual', 'presencial'])],
+        ], [], [
+            'disponibilidad.start' => 'Hora inicio',
+            'disponibilidad.end' => 'Hora fin',
+            'tipo_servicio' => 'Servicio',
         ]);
 
         $all = $request->all();
 
+        //Buscar servicio
+        $servicio = Servicio::query()
+            ->with(['convenios_lista' => function ($query) use ($all) {
+                if (isset($all['tipo_servicio']) and isset($all['convenio'])) return $query
+                    ->where('convenios.id', $all['convenio'])
+                    ->first();
+                return $query->first();
+            }])
+            ->find($all['tipo_servicio']);
+
+
+        //Validar el límite de agenda * servicio* usuario
+        $citas = Cita::query()
+            ->where('paciente_id', Auth::user()->paciente->id)
+            ->where('estado', 'like', 'agendado')
+            ->where('tipo_cita_id', $request->servicio)
+            ->count();
+        //dd(Auth::user()->paciente->id);
+        if ($citas >= $servicio->citas_activas) {
+            return redirect()
+                ->back()
+                ->withErrors(['cita' => 'Ya tiene citas agendadas con el servicios de la institución']);;
+        }
+
+        //Validar el límite de agenda * servicio * usuario
+        $citas = Cita::query()
+            ->where('paciente_id', Auth::user()->id)
+            ->where('estado', 'like', 'agendado')
+            ->where('tipo_cita_id', $request->servicio)
+            ->count();
+        if ($citas > 0) return response([
+            'message' => ['title' => 'Error', 'text' => 'Ya tiene citas agendadas con el servicios de la institución']
+        ], Response::HTTP_NOT_FOUND);
+
+
         //Validar la disponibilidad de la cita
         $date_count = Cita::query()->where('profesional_id', '=', $profesional->idPerfilProfesional)
-            ->where(function ($query) use ($all) {
-                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
-                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) . '")')
-                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
-                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")')
-                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
-                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) . '")')
-                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) .
-                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")');
-            })
+            ->validar($all['disponibilidad']['start'], $all['disponibilidad']['end'])
             ->whereNotIn('estado', ['cancelado'])
             ->count();
 
@@ -273,7 +288,7 @@ class CalendarioController extends Controller
         $user = Auth::user();
 
         //crear cita
-        $query = [
+        $date = Cita::query()->create([
             'fecha_inicio' => date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])),
             'fecha_fin' => date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])),
             'estado' => 'agendado',
@@ -282,38 +297,30 @@ class CalendarioController extends Controller
             'departamento_id' => $profesional->id_departamento,
             'provincia_id' => $profesional->id_provincia,
             'ciudad_id' => $profesional->id_municipio,
-            'tipo_cita_id' => $all['tipo_cita'],
+            'tipo_cita_id' => $all['tipo_servicio'],
             //'money'         => $all['money'],
             'profesional_id' => $profesional->idPerfilProfesional,
             'paciente_id' => $user->paciente->id,
-        ];
-
-        $date = Cita::query()->create($query);
+            'especialidad_id' => $servicio->especialidad_id,
+            'convenio_id' => $request->convenio,
+        ]);
 
         $fechaPago = Carbon::now();
-        $consulta = tipoconsultas::query()
-            ->where('id', '=', $all['tipo_cita'])
-            ->first(['valorconsulta']);
-
-//        $antiguedad = Antiguedad::query()
-//            ->updateOrCreate([
-//                'paciente_id' => Auth::user()->paciente->id,
-//                'profesional_id' => $profesional->idPerfilProfesional,
-//            ], ['confirmacion' => true]);
 
         //Crear pago
         $pago = PagoCita::query()->create([
             'fecha' => $fechaPago,
             'vencimiento' => $fechaPago->add(8, 'days'),
-            'valor' => $consulta->valorconsulta,
+            'valor' => (isset($all['tipo_servicio']) and isset($all['convenio'])) ? $servicio->convenios_lista[0]->pivot->valor_paciente : $servicio->valor,
+            'valor_convenio' => (isset($all['tipo_servicio']) and isset($all['convenio'])) ? $servicio->convenios_lista[0]->pivot->valor_convenio : 0,
             'aprobado' => 0,
             'tipo' => $all['modalidad'],
             'cita_id' => $date->id_cita,
         ]);
 
+
         //Enviar notificación de confirmación de cita
         Mail::to($user->email)->send(new ConfirmacionCitaEmail($date, 'profesional'));
-
 
         if ($all['modalidad'] == 'virtual')
             return redirect()
@@ -323,6 +330,7 @@ class CalendarioController extends Controller
         return redirect()
             ->route('paciente.citas')
             ->with('success', "Cita asignada con {$profesional->user->nombre_completo}");
+
     }
 
     public function asignar_cita_institucion(profesionales_instituciones $profesional)
@@ -484,6 +492,10 @@ class CalendarioController extends Controller
                 })
             ],
             'modalidad' => ['required', Rule::in(['virtual', 'presencial'])],
+        ], [], [
+            'disponibilidad.start' => 'Hora inicio',
+            'disponibilidad.end' => 'Hora fin',
+            'tipo_servicio' => 'Servicio',
         ]);
 
         $all = $request->all();
@@ -561,6 +573,7 @@ class CalendarioController extends Controller
             'profesional_ins_id' => $profesional->id_profesional_inst,
             'paciente_id' => $user->paciente->id,
             'especialidad_id' => $servicio->especialidad_id,
+            'convenio_id' => $request->convenio,
         ]);
 
         $fechaPago = Carbon::now();
