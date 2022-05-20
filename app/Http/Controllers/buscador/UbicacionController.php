@@ -5,14 +5,14 @@ namespace App\Http\Controllers\buscador;
 use App\Http\Controllers\Controller;
 use App\Models\departamento;
 use App\Models\municipio;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\provincia;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class UbicacionController extends Controller
 {
-    public function departamentos(pais $pais){
+    public function departamentos(paises $pais){
 
         $departamento = departamento::query()
             ->where("id_pais",$pais->id_pais)

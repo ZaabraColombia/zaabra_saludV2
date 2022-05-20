@@ -26558,6 +26558,22 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .table_agenda tbody tr td .btn_action_green i {
   font-size: 18px;
 }
+.table_agenda tbody tr td .btn_action_red {
+  border: none;
+  background-color: transparent;
+  color: #e3342f;
+  padding: 6px;
+  border-radius: 25px;
+  width: 35px;
+  height: 35px;
+}
+.table_agenda tbody tr td .btn_action_red:hover {
+  background-color: #e3342f;
+  color: #FFFFFF;
+}
+.table_agenda tbody tr td .btn_action_red i {
+  font-size: 18px;
+}
 
 .table_agenda tbody tr td .input__box {
   display: flex;

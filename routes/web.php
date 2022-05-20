@@ -40,6 +40,18 @@ Route::post('/buscar-pacientes',[App\Http\Controllers\buscador\buscadorControlle
     ->name('buscador-paciente')
     ->middleware('auth');
 
+/** Ubicación **/
+Route::controller(\App\Http\Controllers\Api\UbicacionController::class)
+    ->as('ubicacion.')
+    ->prefix('/ubicacion/')
+    //->middleware('auth')
+    ->group(function () {
+        Route::post('paises', 'paises')->name('paises');
+        Route::post('regiones', 'regiones')->name('regiones');
+        Route::post('ciudades', 'ciudades')->name('ciudades');
+    });
+/** Fin Ubicación **/
+
 /*----------------------------------------------Pertenece a Publico-------------------------------------------------------------------------------*/
 
 /*Esta ruta es del home y dirige al controlador encargado de traer la información a la vista*/
@@ -69,6 +81,10 @@ Route:: get('/PerfilInstitucion/{slug}',[App\Http\Controllers\entidades\perfilIn
 
 /*Esta ruta es de la tarjeta de los profesionales de una institución que se llama desde el botón "ver profesional" de la landing page institucional y dirige al controlador encargado de traer la informacion a la vista*/
 Route:: get('/PerfilInstitucion/{slug}/profesionales',[App\Http\Controllers\entidades\perfilInstitucionController::class,'profesionales'])->name('PerfilInstitucion-profesionales');
+
+/*Permite ver los servicios de un profesional en una institución*/
+Route::post('institucion/profesional-servicios', [App\Http\Controllers\entidades\perfilInstitucionController::class, 'servicios'])
+    ->name('institucion.profesional-servicios');
 
 /*Esta ruta direcciona a la vista de Acerca de Zaabra*/
 Route::get('/acerca-de-Zaabra-salud', function () { return view('quienes-somos/acerca');})->name('acerca');
@@ -187,18 +203,11 @@ Route::get('/test-historial-bloqueos', function(){
     return view('instituciones.admin.agenda.historial-bloqueos');
 });
 
-Route::get('/test', function (){
-//   $p = \App\Models\profesionales_instituciones::all();
-//   $p->map(function ($item){
-//       $item->update();
-//   });
-    //\App\Models\Cita::factory()->count(100)->create();
-});
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
 Route:: get('/comprobantes-pago',[App\Http\Controllers\pagosController::class,'index2'])->name('comprobantes-pago');
 
 //+++++++++ Ruta de prueba +++++++++//
-Route::get('/test-home-prueba', function(){
-    return view('testHome');
+Route::get('/test', function(){
+    return view('test');
 });

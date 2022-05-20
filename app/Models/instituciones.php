@@ -54,7 +54,7 @@ class instituciones extends Model
      */
     public function pais(): BelongsTo
     {
-        return $this->belongsTo(pais::class, 'idPais', 'id_pais');
+        return $this->belongsTo(paises::class, 'idPais', 'id_pais');
     }
     /**
      * @return BelongsTo

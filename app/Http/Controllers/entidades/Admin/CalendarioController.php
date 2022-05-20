@@ -117,26 +117,31 @@ class CalendarioController extends Controller
 
     public function citas(Request $request)
     {
-        //dd($request->all());
-        $request->validate([
-            'fecha' => ['required', 'date'],
-            'lista-profesionales' => ['required'],
-            'lista-profesionales.*.id' => [
-                //'required',
-                Rule::exists('profesionales_instituciones', 'id_profesional_inst')->where(function ($query) {
-                    $query->where('id_institucion', Auth::user()->institucion->id)
-                        ->where('estado', 1);
-                })
-            ],
-        ], [
-            //'lista-profesionales.*.id.required' => 'Asegúrese que los profesionales eaten agregados de forma correcta',
-            'lista-profesionales.*.id.exists'   => 'Asegúrese que el profesional estén agregados de forma correcta',
-        ]);
+        $user = Auth::user();
 
-        $lista = array_column($request->get('lista-profesionales'), 'id');
-        $fecha = $request->fecha;
+        $profesionales = profesionales_instituciones::query()
+            ->where('id_institucion', $user->institucion->id)
+            ->where('estado', 1)
+            ->get();
 
-        return view('instituciones.admin.calendario.citas', compact('lista', 'fecha'));
+        $servicios = Servicio::query()
+            ->where('institucion_id', $user->institucion->id)
+            ->where('estado', 1)
+            ->get();
+
+        $especialidades = especialidades::query()
+            ->whereHas('total_ins_profesionales', function ($query) use ($user){
+                return $query->where('id_institucion', $user->institucion->id)
+            ->where('estado', 1);
+            })
+            ->orWhereHas('ins_profesionales', function ($query) use ($user){
+                return $query->where('id_institucion', $user->institucion->id)
+            ->where('estado', 1);
+            })
+            ->get();
+
+        return view('instituciones.admin.calendario.citas', compact('profesionales',
+            'servicios', 'especialidades'));
     }
 
     public function lista_citas(Request $request)
@@ -148,10 +153,10 @@ class CalendarioController extends Controller
                 'paciente.user:id,primernombre,segundonombre,primerapellido,segundoapellido,numerodocumento',
                 'profesional_ins:id_profesional_inst,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido'
             ])
-            ->whereNotIn('estado', ['cancelado'])
+            ->whereNotIn('estado', ['cancelado']);
             //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
-            ->whereDate('fecha_inicio', $request->fecha)
-            ->whereIn('profesional_ins_id', $request->get('ids'));
+            //->whereDate('fecha_inicio', $request->fecha)
+            //->whereIn('profesional_ins_id', $request->get('ids'));
 
         return datatables()
             ->eloquent($query)

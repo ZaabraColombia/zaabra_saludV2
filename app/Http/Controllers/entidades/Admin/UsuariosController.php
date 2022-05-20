@@ -5,7 +5,7 @@ namespace App\Http\Controllers\entidades\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Acceso;
 use App\Models\Auxiliar;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\TipoDocumento;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
@@ -52,7 +52,7 @@ class UsuariosController extends Controller
         $accesos = Acceso::query()
             ->institucion()
             ->get();
-        $paises = pais::all();
+        $paises = paises::all();
 
         return view('instituciones.admin.configuracion.usuarios.crear', compact('tipo_documentos',
             'accesos', 'paises'));
@@ -126,7 +126,7 @@ class UsuariosController extends Controller
         $accesos = Acceso::query()
             ->institucion()
             ->get();
-        $paises = pais::all();
+        $paises = paises::all();
 
         //extraer accesos
         $accesosUsuario = $user->accesos->map(function ($item){ return $item->id; })->toArray();

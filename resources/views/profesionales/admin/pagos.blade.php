@@ -9,7 +9,7 @@
 
 @section('contenido')
     <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf" id="basic-table"> 
+        <div class="containt_agendaProf" id="basic-table">
             <div class="my-4 my-xl-5">
                 <h1 class="title__xl blue_bold">Pagos</h1>
                 <span class="text__md black_light">Encuentre aquí los pagos realizados por cada una de sus citas.</span>
@@ -72,6 +72,31 @@
                 url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
             searching: true,
+            dom: 'lfBrtip',
+            buttons: [
+                {
+                    extend: 'pdfHtml5',
+                    text: 'PDF',
+                    className: 'red',
+                    title:'Resultados',
+                    exportOptions: {
+                        //columns: ":not(:last-child)",
+                        modifier: {
+                            page: 'current'
+                        }
+                    },
+                    //text: 'Red',
+                },
+                {
+                    extend: 'excel',
+                    text: 'Excel',
+                    className: 'border_left',
+                    title: 'Resultados',
+                    exportOptions: {
+                        //columns: ":not(:last-child)",
+                    },
+                },
+            ],
         });
 
         $("#search").on('keyup change',function(){

@@ -54,9 +54,9 @@
 
                 @foreach ($profesionales as $profesional)
                     @php
-                        $esp = " " . Str::slug($profesional->especialidad_pricipal->nombreEspecialidad ?? '');
+                        $esp = " " . Str::slug($profesional->especialidad_principal->nombreEspecialidad ?? '');
                         $esp .= " " . $profesional->especialidades->map(function ($item) {return  Str::slug($item->nombreEspecialidad ?? '');})->implode(" ");
-                        $filtro = $profesional->especialidad_pricipal->nombreEspecialidad ?? '';
+                        $filtro = $profesional->especialidad_principal->nombreEspecialidad ?? '';
                         $filtro .= " ".$profesional->especialidades->pluck('nombreEspecialidad')->implode(' ');
 
                     @endphp
@@ -65,13 +65,13 @@
                         <img class="img_professional" src="{{ asset($profesional->foto_perfil_institucion) }}">
 
                         <div class="card-body px-1 py-3">
-                            <h2 class="specialty titulo_card mb-1 searching">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</h2>
-                            <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</h2>
+                            <h2 class="specialty titulo_card mb-1 searching">{{$profesional->especialidad_principal->nombreEspecialidad ?? ''}}</h2>
+                            <h2 class="subSpecialty subSpecialty_text titulo_card mb-1">{{$profesional->especialidad_principal->nombreEspecialidad ?? ''}}</h2>
 
                             <h2 class="niega_uppercase subTitulo_card searching">{{$profesional->primer_nombre}} {{$profesional->primer_apellido}}</h2>
 
-                            <p class="specialty text_card searching">Especialista en {{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</p>
-                            <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$profesional->especialidad_pricipal->nombreEspecialidad ?? ''}}</span></p>
+                            <p class="specialty text_card searching">Especialista en {{$profesional->especialidad_principal->nombreEspecialidad ?? ''}}</p>
+                            <p class="subSpecialty text_card">Especialista en <span class="subSpecialty_text">{{$profesional->especialidad_principal->nombreEspecialidad ?? ''}}</span></p>
 
                             <p class="name_university text_univ_card searching">{{$profesional->universidad->nombreuniversidad}}</p>
                             <h2 class="cargo_profInst text_cargo_card searching">{{$profesional->cargo}}</h2>
@@ -83,7 +83,7 @@
                                 </a>
                             </div>
                             <div class="content_btn_center mt-1">
-                                <button class="btn_ver_mas" data-toggle="modal" data-target="#servicios_prof_inst">Ver más</button>
+                                <button class="btn_ver_mas btn-servicios" data-id="{{ $profesional->id_profesional_inst }}">Ver más</button>
                             </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
     @endif
 
     <!-- Modal Servicios profesional de una institución -->
-    <div class="modal fade" id="servicios_prof_inst" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-profesional-servicios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -180,14 +180,14 @@
                     <!-- Información del profeisonal -->
                     <div class="row align-items-md-center mx-0 mb-3">
                         <div class="col-md-3 d-flex justify-content-center mb-3 mb-md-0">
-                            <img class="img__see_contacs" src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
+                            <img class="img__see_contacs" id="modal-foto" />
                         </div>
                         <div class="col-md-9 p-0 p-md-2">
-                            <h5 class="fs_subtitle_module black_strong">Erika Caballero</h5>
-                            <p class="fs_text green_bold">Especialista en Otorrinolaringología</p>
+                            <h5 class="fs_subtitle_module black_strong" id="modal-profesional">Erika Caballero</h5>
+                            <p class="fs_text green_bold" id="modal-especialidad">Especialista en Otorrinolaringología</p>
                         </div>
                     </div>
-                    <!-- Servicios del profeesional -->
+                    <!-- Servicios del profesional -->
                     <div class="acordeon" id="collapsed">
                         <!-- Servicio visible -->
                         <div class="row mx-0 mb-4 text-center text-md-left">
@@ -198,7 +198,7 @@
                             <div class="col-md-3 p-0 py-md-1 d-flex justify-content-center align-items-center">
                                 <span class="fs_text black_light">$ 0.000.000</span>
                             </div>
-                        
+
                             <div class="col-md-2 p-0 py-md-1 mt-1 mt-md-0 content_btn_center">
                                 <button class="btn_card_green">Agendar</button>
                             </div>
@@ -207,7 +207,7 @@
                         <!-- Servicio oculto en desplegable -->
                         <div class="row mx-0 mb-4 text-center text-md-left justify-content-center">
                             <div class="card-header col-md-7 p-0 servicio_medico" id="servicio_one">
-                                <h5 class="p-0 mb-0 fs_text black_strong">
+                                <h5 class="p-0 mb-0 fs_text black_strong" >
                                     Otorrinolaringología - Procedimiento quirúrgico
                                 </h5>
                             </div>
@@ -216,8 +216,8 @@
                                 <span class="fs_text black_light">$ 0.000.000</span>
                             </div>
 
-                            <button class="d-none d-md-block col-md-2 p-0 btn_ver_servicio green_light" type="button" data-toggle="collapse" 
-                                data-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one" onclick="cambiarTexto()" id="texto2">
+                            <button class="d-none d-md-block col-md-2 p-0 btn_ver_servicio green_light" type="button" data-toggle="collapse"
+                                    data-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one" onclick="cambiarTexto()" id="texto2">
                                 Ver más
                             </button>
 
@@ -227,8 +227,8 @@
                                 </div>
                             </div>
 
-                            <button class="d-md-none d-md-2 p-0 mt-2 btn_ver_servicio green_light" type="button" data-toggle="collapse" 
-                                data-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one" onclick="cambiarTexto()" id="texto">
+                            <button class="d-md-none d-md-2 p-0 mt-2 btn_ver_servicio green_light" type="button" data-toggle="collapse"
+                                    data-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one" onclick="cambiarTexto()" id="texto">
                                 Ver más
                             </button>
                         </div>
@@ -355,14 +355,91 @@
                 }
             });
         });
-    </script>
 
-    <script>
+        $('.btn-servicios').click(function () {
+            var btn = $(this);
+            $.ajax({
+                url: '{{ route('institucion.profesional-servicios') }}',
+                method: 'post',
+                header:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {profesional: btn.data('id')},
+                dataType: 'json',
+                success: function (response) {
+                    $('#modal-profesional').html(response.nombre);
+                    $('#modal-especialidad').html(response.especialidad);
+                    $('#modal-foto').attr('src', response.foto);
+
+                    var servicios = $('#collapsed');
+                    servicios.empty();
+
+                    $.each(response.servicios, function (key, item) {
+
+                        if (item.virtual) {
+                            servicios.append('<div class="row mx-0 mb-4 text-center text-md-left">' +
+                                '<div class="col-md-7 p-0 py-md-1">' +
+                                '<h5 class="fs_text black_strong mb-1 mb-md-0">' +
+                                item.nombre +
+                                '</h5>' +
+                                '</div>' +
+
+                                '<div class="col-md-3 p-0 py-md-1 d-flex justify-content-center align-items-center">' +
+                                '<span class="fs_text black_light">' +
+                                item.valor +
+                                '</span>' +
+                                '</div>' +
+
+                                '<div class="col-md-2 p-0 py-md-1 mt-1 mt-md-0 content_btn_center">' +
+                                '<a href="' + item.url + '" class="btn_card_green">Agendar</a>' +
+                                '</div>' +
+                                '</div>');
+                        } else {
+                            servicios.append('<div class="row mx-0 mb-4 text-center text-md-left justify-content-center">' +
+                                '<div class="card-header col-md-7 p-0 servicio_medico" id="servicio_one">' +
+                                '<h5 class="p-0 mb-0 fs_text black_strong" >' +
+                                item.nombre +
+                                '</h5>' +
+                                '</div>' +
+
+                                '<div class="col-md-3 p-0 py-md-1 d-flex justify-content-center align-items-center">' +
+                                '<span class="fs_text black_light">' +
+                                item.valor +
+                                '</span>' +
+                                '</div>' +
+
+                                '<button class="d-none d-md-block col-md-2 p-0 btn_ver_servicio green_light" type="button" data-toggle="collapse"' +
+                                'data-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one" onclick="cambiarTexto()" id="texto2">' +
+                                'Ver más' +
+                                '</button>' +
+
+                                '<div id="collapse_one" class="collapse" aria-labelledby="servicio_one" data-parent="#collapsed">' +
+                                '<div class="card-body pt-2 px-2 pb-0">' +
+                                'Los precios de este servico pueden variar según el caso. Para agendar una cita, comuníquese al {{ $institucion[0]->telefonouno }}.' +
+                                '</div>' +
+                                '</div>' +
+
+                                '<button class="d-md-none d-md-2 p-0 mt-2 btn_ver_servicio green_light" type="button" data-toggle="collapse"' +
+                                'data-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one" onclick="cambiarTexto()" id="texto">' +
+                                'Ver más' +
+                                '</button>' +
+                                '</div>');
+                        }
+                    });
+
+                    $('#modal-profesional-servicios').modal();
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+
         // Función para cambiar el texto del botón desplegable "Más información"
         function cambiarTexto() {
-			texto.innerHTML=texto.innerHTML=="Ver menos"?"Ver más":"Ver menos";
+            texto.innerHTML=texto.innerHTML=="Ver menos"?"Ver más":"Ver menos";
             texto2.innerHTML=texto2.innerHTML=="Ver menos"?"Ver más":"Ver menos";
-		}
+        }
     </script>
 @endsection
 

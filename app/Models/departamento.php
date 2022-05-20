@@ -22,6 +22,6 @@ class departamento extends Model
 
     public function pais()
     {
-        return $this->belongsTo(pais::class, 'id_pais', 'id_pais');
+        return $this->belongsTo(paises::class, 'id_pais', 'id_pais');
     }
 }

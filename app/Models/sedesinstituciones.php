@@ -32,7 +32,7 @@ class sedesinstituciones extends Model
      */
     public function pais(): BelongsTo
     {
-        return $this->belongsTo(pais::class, 'pais_id', 'id_pais');
+        return $this->belongsTo(paises::class, 'pais_id', 'id_pais');
     }
     /**
      * @return BelongsTo
