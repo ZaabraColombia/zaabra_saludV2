@@ -10,7 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         businessHours: JSON.parse(calendarEl.dataset.weekbissness),
-        events: calendarEl.dataset.events,
+        //events: calendarEl.dataset.events,
+        events: {
+            url: calendarEl.dataset.events,
+            method: 'POST',
+            failure: function() {
+                alert('there was an error while fetching events!');
+            },
+            //color: 'yellow',   // a non-ajax option
+            //textColor: 'black' // a non-ajax option
+        },
+
         // Botones de mes, semana y día.
         headerToolbar: {
             left: 'prev',

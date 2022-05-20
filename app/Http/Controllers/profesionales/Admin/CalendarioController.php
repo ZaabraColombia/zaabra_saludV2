@@ -229,7 +229,7 @@ class CalendarioController extends Controller
             } else {
 
                 //validar background
-                switch ($date->pago->tipo)
+                switch ($date->pago->tipo ?? '')
                 {
                     case 'presencial':
                         $color = $horario->color_cita_presencial ?? '#D6FFFB';
@@ -244,8 +244,8 @@ class CalendarioController extends Controller
                         $color = color_contrast($color);
                         break;
                     default:
-                        $background = null;
-                        $color = null;
+                        $background = '#ffffff';
+                        $color = '#000000';
                         break;
                 }
 
