@@ -207,6 +207,7 @@ class CalendarioController extends Controller
 
     public function finalizar_cita_profesional(Request $request, perfilesprofesionales $profesional)
     {
+
         $request->merge(['disponibilidad' => json_decode($request->get('hora'), true)]);
 
         $request->validate([
@@ -305,12 +306,13 @@ class CalendarioController extends Controller
             'convenio_id' => $request->convenio,
         ]);
 
-        $fechaPago = Carbon::now();
+        $fechaPago = Carbon::createFromFormat('Y-m-d H:i', date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])));
+        $vencimiento = $fechaPago->subHours(3);
 
         //Crear pago
         $pago = PagoCita::query()->create([
-            'fecha' => $fechaPago,
-            'vencimiento' => $fechaPago->add(8, 'days'),
+            'fecha' => date('Y-m-d H:i'),
+            'vencimiento' => $vencimiento,
             'valor' => (isset($all['tipo_servicio']) and isset($all['convenio'])) ? $servicio->convenios_lista[0]->pivot->valor_paciente : $servicio->valor,
             'valor_convenio' => (isset($all['tipo_servicio']) and isset($all['convenio'])) ? $servicio->convenios_lista[0]->pivot->valor_convenio : 0,
             'aprobado' => 0,
@@ -537,16 +539,7 @@ class CalendarioController extends Controller
 
         //Validar la disponibilidad de la cita
         $date_count = Cita::query()->where('profesional_id', '=', $profesional->idPerfilProfesional)
-            ->where(function ($query) use ($all) {
-                $query->whereRaw('(fecha_inicio >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
-                    '" and fecha_inicio < "' . date('Y-m-d H:i', strtotime($all['disponibilidad']['end'])) . '")')
-                    ->orWhereRaw('(fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
-                        '" and fecha_fin <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")')
-                    ->orWhereRaw('(fecha_inicio <= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) .
-                        '" and fecha_fin > "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['start'])) . '")')
-                    ->orWhereRaw('(fecha_inicio < "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) .
-                        '" and fecha_fin >= "' . date('Y-m-d H:i:s', strtotime($all['disponibilidad']['end'])) . '")');
-            })
+            ->validar($all['disponibilidad']['start'], $all['disponibilidad']['end'])
             ->whereNotIn('estado', ['cancelado'])
             ->count();
 
@@ -576,19 +569,13 @@ class CalendarioController extends Controller
             'convenio_id' => $request->convenio,
         ]);
 
-        $fechaPago = Carbon::now();
-
-//        $antiguedad = Antiguedad::query()
-//            ->updateOrCreate([
-//                'paciente_id' => Auth::user()->paciente->id,
-//                'profesional_id' => $profesional->idPerfilProfesional,
-//            ], ['confirmacion' => true]);
-
+        $fechaPago = Carbon::createFromFormat('Y-m-d H:i', date('Y-m-d H:i', strtotime($all['disponibilidad']['start'])));
+        $vencimiento = $fechaPago->subHours(3);
 
         //Crear pago
         $pago = PagoCita::query()->create([
-            'fecha' => $fechaPago,
-            'vencimiento' => $fechaPago->add(8, 'days'),
+           'fecha' => date('Y-m-d H:i'),
+            'vencimiento' => $vencimiento,
             'valor' => (isset($all['tipo_servicio']) and isset($all['convenio'])) ? $servicio->convenios_lista[0]->pivot->valor_paciente : $servicio->valor,
             'valor_convenio' => (isset($all['tipo_servicio']) and isset($all['convenio'])) ? $servicio->convenios_lista[0]->pivot->valor_convenio : 0,
             'aprobado' => 0,
@@ -597,7 +584,7 @@ class CalendarioController extends Controller
         ]);
 
         //Enviar notificación de confirmación de cita
-        //Mail::to($user->email)->send(new ConfirmacionCitaEmail($date, 'profesional'));
+        Mail::to($user->email)->send(new ConfirmacionCitaEmail($date, 'institucion'));
 
 
         if ($all['modalidad'] == 'virtual')

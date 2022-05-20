@@ -69,4 +69,9 @@ CREATE TABLE `zaabrac1_zaabra_salud_test`.`ciudades`
             ON DELETE RESTRICT
             ON UPDATE RESTRICT);
 
+ALTER TABLE `zaabrac1_zaabra_salud_test`.`pago_citas`
+    CHANGE COLUMN `fecha` `fecha` DATETIME NULL DEFAULT NULL ,
+    CHANGE COLUMN `vencimiento` `vencimiento` DATETIME NULL DEFAULT NULL ;
+
+
 #Subido cesar
