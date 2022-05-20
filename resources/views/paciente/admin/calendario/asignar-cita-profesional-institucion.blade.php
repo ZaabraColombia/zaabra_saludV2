@@ -192,7 +192,7 @@
                         <h5 id="modal-tipo-de-cita"></h5>
                         <h5>Fecha: &nbsp;<span id="modal-fecha"></span></h5>
                         <h5>Hora cita: &nbsp;<span id="modal-hora"></span></h5>
-                        <h5>Direción de atención: &nbsp;
+                        <h5>Dirección de atención: &nbsp;
                             <span>{{ ($profesional->sede->direccion ?? $profesional->institucion->direccion) }}
 
                                 (Consultorio {{ $profesional->consultorio }})
