@@ -30,8 +30,6 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`users`
 ALTER TABLE `zaabrac1_zaabra_salud_test`.`auxiliares`
     ADD COLUMN `cargo` VARCHAR(50) NULL AFTER `celular`;
 
-#Subido test
-#Subido production
 #Subido jhon 16-05-2022 12:19
 
 CREATE TABLE `zaabrac1_zaabra_salud_test`.`paises`
@@ -75,3 +73,5 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`pago_citas`
 
 
 #Subido cesar
+#Subido test
+#Subido production
