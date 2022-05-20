@@ -1,16 +1,17 @@
 @extends('layouts.app-admin')
 
 @section('content')
-    <div class="row m-0 p-0">
-        <div class="col-lg-3 d-none d-lg-block bg_white p-0" style="min-height: 80vh;">
+    <div class="contenedor__dashboard">
+        <div class="d-none d-xl-block bg_white p-0 sideb_lateral">
             @include('instituciones.admin.layouts.menu')
         </div>
 
-        <div class="col-12 col-lg-9 p-0">
-            <div class="dropdown d-lg-none pt-3 pl-3">
+        <div class="contenido_dashboard">
+            <div class="dropdown d-xl-none pt-3 pl-3">
+                <!-- Icono menú hamburguesa -->
                 <a class="dropdown-toggle menu_mobile" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <!-- Sidebar o menú lateral oculto de 320px a 1024px -->
+                <div class="dropdown-menu width_menu" aria-labelledby="dropdownMenu2">
                     @include('instituciones.admin.layouts.menu')
                 </div>
             </div>

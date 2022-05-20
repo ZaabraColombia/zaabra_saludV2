@@ -4,7 +4,7 @@
     <div class="container-fluid p-0">
 
         <!-- Row información zaabrasalud-->
-        <div class="row footer_info-zaabrasalud">
+        {{-- <div class="row footer_info-zaabrasalud">
             <!-- Column contenido contactanos-->
             <div class="col-lg-4 contactanos_contenido d-none d-lg-flex">
                 <div class="col-lg-9 logo_contactanos">
@@ -271,7 +271,7 @@
                 </div>
             </div>
             <!--******************************     Column end form suscribirme version MOBILE      *********************************-->
-        </div>
+        </div> --}}
 
         <!-- Row iconos gobierno de Colombia -->
         <div class="row footer_iconos-colombia">

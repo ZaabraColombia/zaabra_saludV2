@@ -1,3 +1,22 @@
+.contenedor__dashboard {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+}
+.contenido_dashboard {
+    width: -webkit-fill-available;
+    padding: 0;
+}
+.width_menu {
+    width: 220px !important; 
+    top: 85px !important;
+    left: 30px !important;
+    z-index: 400 !important;
+    transform: translate3d(-20px, -46px, 0px) !important;
+    border: none;
+    border-radius: 0;
+}
 .panel-Administrativo{
     background: #F9F9F9;
     padding: 3% 3% 5% 3%;
@@ -14,7 +33,7 @@
 .sidebar-wrapper {
     width: 100%;
     top: 0;
-    overflow-y: auto;
+    // overflow-y: auto;
     background-color: #fff;
     bottom: 0;
     transition: left .5s ease-out;
@@ -29,32 +48,38 @@
 }
 .sidebar-menu {
     .sidebar__header {
-        display: flex;
-        align-items: center;
-        padding: 25px 10px 10px 10px;
+        width: auto;
+        padding: 15px 5px 0 5px;
         img {
-            width: 55px;
-            height: 55px;
+            width: 35px;
+            height: 35px;
             object-fit: cover;
             object-position: top;
             border-radius: 50px;
             box-shadow: 1px 1px 5px 1px #c3c3c3;
         }
         .user_data {
-            display: block;
+            // display: block;
+            width: 170px;
             padding-left: 10px;
             h2 {
-                font-size: 16px;
+                font-size: 12px;
                 font-family: 'Quicksand';
                 color: $blue_official;
                 margin: 0;
             }
-            h3 {
-                font-size: 12px;
-                font-family: 'Quicksand';
-                color: $black_third;
-                margin: 0;
+            .cont_text {
+                width: 160px;
                 white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                span {
+                    font-size: 10px;
+                    font-family: 'Quicksand';
+                    color: $black_third;
+                    margin: 0;
+                    // white-space: nowrap;
+                }
             }
         }
     }
@@ -66,10 +91,79 @@
     display: none;
 }
 .sidebar-wrapper .menu {
-    margin-top: 2rem;
-    padding-left: 1rem;
-    font-weight: 600;
+    margin-top: 15px;
+    padding-left: 0;
 }
+.sidebar-wrapper .menu .sidebar-item {
+    list-style: none;
+    margin-top: 0;
+    position: relative;
+}
+.sidebar-wrapper .menu .sidebar-item a {
+    color: #232323;
+
+}
+//++++++++ Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
+.sidebar-wrapper .menu  {
+    .items_green button {
+        font-size: 12px;
+        font-family: 'Quicksand';
+        margin: 0;
+        padding: 7px 0 7px 20px;
+        width: 100%;
+        background: transparent;
+        border: none;
+        text-align: initial;
+        &:hover {
+            background: $green_official;
+            color: $withe_official;
+        }
+        &:focus {
+            background: $green_official;
+            color: $withe_official;
+        }
+    }
+    .items_logos_green button { 
+        margin: 0;
+        width: 100%;
+        background: transparent;
+        border: none;
+        &:hover {
+            background: #cff7f1;
+        }
+    }
+}
+// Botón activo del menú lateral
+.btn_active_inst {
+    background: $green_official !important;
+    color: $withe_official !important;
+}
+// Items del submenu menú lateral INSTIRUCIONES
+.sidebar-wrapper .menu .sub_menu_green {
+    padding-left: 30px;
+    .submenu-item {
+        padding-top: 10px;
+        list-style: none;
+        font-size: 10px;
+    }
+    a:hover {
+        color: $green_official;
+    }
+}
+.txt_active_green {
+    color: $green_official !important;
+    text-decoration: none;
+}
+//++++++++ Fin Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
+
+
+
+
+
+
+
+
+
 .sidebar-wrapper .menu .sidebar-title {
     padding: 0 1rem;
     margin: 1.5rem 0 1rem;
@@ -98,15 +192,7 @@
 .sidebar-wrapper .menu .sidebar-link:hover {
     background-color: #f0f1f5;
 }
-.sidebar-wrapper .menu .sidebar-item {
-    list-style: none;
-    margin-top: .5rem;
-    position: relative;
-}
-.sidebar-wrapper .menu .sidebar-item a {
-    color: #232323;
 
-}
 // Items del menú lateral profesionales
 .sidebar-wrapper .menu {
     .items_blue button {
@@ -170,61 +256,7 @@
     }
 }
 
-// Items del menú lateral INSTITUCIONES
-.sidebar-wrapper .menu {
-    .items_green button {
-        font-size: 16px;
-        font-family: 'Quicksand';
-        margin: 0;
-        padding: 7px 0 7px 25px;
-        width: 180px;
-        background: transparent;
-        border-radius: 5px;
-        border: none;
-        text-align: initial;
-        &:hover {
-            background: $green_official;
-            color: $withe_official;
-            border-radius: 5px;
-        }
-        &:focus {
-            background: $green_official;
-            color: $withe_official;
-            border-radius: 5px;
-        }
-    }
-    .items_logos_green button { 
-        margin: 0;
-        width: 180px;
-        background: transparent;
-        border-radius: 5px;
-        border: none;
-        &:hover {
-            background: #cff7f1;
-            border-radius: 5px;
-        }
-    }
-}
-.btn_active_inst {
-    background: $green_official !important;
-    color: $withe_official !important;
-    border-radius: 5px;
-}
-// Items del submenu menú lateral INSTIRUCIONES
-.sidebar-wrapper .menu .sub_menu_green {
-    padding-left: 45px;
-    .submenu-item {
-        padding-top: 10px;
-        list-style: none;
-    }
-    a:hover {
-        color: $green_official;
-    }
-}
-.txt_active_green {
-    color: $green_official !important;
-    text-decoration: none;
-}
+
 @media (min-width: 320px){
     // Menú hamburguesa versión CELULAR Y TABLET
     .menu_mobile {
@@ -236,21 +268,61 @@
     }
 }
 
+@media (min-width: 1200px){
+    .sideb_lateral {
+        width: 275px;
+        min-height: 80vh;
+    }
+    .sidebar-menu .sidebar__header {
+        padding: 30px 5px 0 10px;
+    }
+    //++++++++ Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
+    .sidebar-wrapper .menu  {
+        .items_green button {
+            padding: 7px 0 7px 25px;
+        }
+
+    }
+    // Items del submenu menú lateral INSTIRUCIONES
+    .sidebar-wrapper .menu .sub_menu_green {
+        padding-left: 35px;
+    }
+    //++++++++ Fin Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
+}
+
+@media (min-width: 1440px){
+    .sideb_lateral {
+        width: 300px;
+    }
+}
+
 @media (min-width: 1920px){
     .sidebar-menu {
         .sidebar__header {
             img {
-                width: 60px;
-                height: 60px;
+                width: 40px;
+                height: 40px;
             }
             .user_data {
+                width: 220px;
+                padding-left: 10px;
                 h2 {
-                    font-size: 20px;
-                }
-                h3 {
                     font-size: 14px;
+                }
+                .cont_text {
+                    width: 210px;
+                    span {
+                        font-size: 12px;
+                    }
                 }
             }
         }
+    }
+
+    .sidebar-wrapper .menu .items_green button {
+        font-size: 14px;
+    }
+    .sidebar-wrapper .menu .sub_menu_green .submenu-item {
+        font-size: 12px;
     }
 }

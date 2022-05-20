@@ -3,26 +3,28 @@
 @endphp
 <div class="active" id="sidebar">
     <div class="sidebar-wrapper active ps ps--active-y">
-        <div class="sidebar-menu">
+        <div class="sidebar-menu pb-3">
             <div class="sidebar__header">
                 <a class="d-flex" href="{{ route('PerfilInstitucion', ['slug' => $user->institucion->slug]) }}" target="_blank">
                     <img src="{{ asset($user->institucion->logo ?? 'img/menu/avatar.png') }}" alt="user.png">
                     <div class="user_data">
                         <h2 style="color: #019F86">{{ $user->nombre_completo ?? $user->nombreinstitucion }}</h2>
-                        <h3>{{ $user->email }}</h3>
+                        <div class="cont_text">
+                        <span>{{ $user->email }}</span>
+                        </div>
                     </div>
                 </a>
             </div>
 
             <ul class="menu">
-                {{-- menú --}}
+                {{-- Menú --}}
                 <li class="sidebar-item has-sub items_green">
                     <a id="" href="{{ route('institucion.panel') }}">
-                        <button class="{{ request()->routeIs('institucion.panel') ? 'btn_active_inst' : '' }}">Menu</button>
+                        <button class="{{ request()->routeIs('institucion.panel') ? 'btn_active_inst' : '' }}">Menú</button>
                     </a>
                 </li>
 
-                {{-- profesionales --}}
+                {{-- Profesionales --}}
                 @can('accesos-institucion','ver-profesionales')
                     <li class="sidebar-item  has-sub items_green">
                         <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
@@ -32,7 +34,7 @@
                 @endcan
 
 
-                {{-- mis pacientes --}}
+                {{-- Mis pacientes --}}
                 @can('accesos-institucion','ver-pacientes')
                     <li class="sidebar-item  has-sub items_green">
                         <a id="" class="" href='{{ route('institucion.pacientes') }}'>
@@ -188,28 +190,28 @@
 
 
                 {{-- Logo Mipress --}}
-                <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
+                <li class="sidebar-item  has-sub items_logos_green">
                     <a id="fav" class="" target="_blank" href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS">
                         <button class="d-flex justify-content-start pl-3">
-                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/mipres-zaabra.png') }}" alt="" width="100px">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/mipres-zaabra.png') }}" alt="" width="85px">
                         </button>
                     </a>
                 </li>
 
                 {{-- Logo Medihistoria --}}
-                <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
+                <li class="sidebar-item  has-sub items_logos_green">
                     <a id="fav" class="" target="_blank" href="">
                         <button class="d-flex justify-content-start p-3">
-                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="" width="160px" height="27px">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="" width="141px" height="22px">
                         </button>
                     </a>
                 </li>
 
                 <!-- Logo PLM -->
-                <li class="sidebar-item  has-sub items_logos_green" style="width: 180px">
+                <li class="sidebar-item  has-sub items_logos_green">
                     <a id="fav" class="" target="_blank" href="https://www.prescripciontotal.com.co/consultorio-generico/login">
-                        <button class="d-flex justify-content-start pl-3">
-                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="" width="100px">
+                        <button class="d-flex justify-content-start pl-2">
+                            <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="" width="85px">
                         </button>
                     </a>
                 </li>

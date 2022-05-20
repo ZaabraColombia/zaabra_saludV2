@@ -22373,6 +22373,28 @@ a:hover {
     font-size: 26px;
   }
 }
+.contenedor__dashboard {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+.contenido_dashboard {
+  width: -webkit-fill-available;
+  padding: 0;
+}
+
+.width_menu {
+  width: 220px !important;
+  top: 85px !important;
+  left: 30px !important;
+  z-index: 400 !important;
+  transform: translate3d(-20px, -46px, 0px) !important;
+  border: none;
+  border-radius: 0;
+}
+
 .panel-Administrativo {
   background: #F9F9F9;
   padding: 3% 3% 5% 3%;
@@ -22393,7 +22415,6 @@ a:hover {
 .sidebar-wrapper {
   width: 100%;
   top: 0;
-  overflow-y: auto;
   background-color: #fff;
   bottom: 0;
   transition: left 0.5s ease-out;
@@ -22408,13 +22429,12 @@ a:hover {
 }
 
 .sidebar-menu .sidebar__header {
-  display: flex;
-  align-items: center;
-  padding: 25px 10px 10px 10px;
+  width: auto;
+  padding: 15px 5px 0 5px;
 }
 .sidebar-menu .sidebar__header img {
-  width: 55px;
-  height: 55px;
+  width: 35px;
+  height: 35px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
@@ -22423,21 +22443,26 @@ a:hover {
   box-shadow: 1px 1px 5px 1px #c3c3c3;
 }
 .sidebar-menu .sidebar__header .user_data {
-  display: block;
+  width: 170px;
   padding-left: 10px;
 }
 .sidebar-menu .sidebar__header .user_data h2 {
-  font-size: 16px;
+  font-size: 12px;
   font-family: "Quicksand";
   color: #0083D6;
   margin: 0;
 }
-.sidebar-menu .sidebar__header .user_data h3 {
-  font-size: 12px;
+.sidebar-menu .sidebar__header .user_data .cont_text {
+  width: 160px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.sidebar-menu .sidebar__header .user_data .cont_text span {
+  font-size: 10px;
   font-family: "Quicksand";
   color: #232323;
   margin: 0;
-  white-space: nowrap;
 }
 
 .sidebar-wrapper .sidebar-toggler.x {
@@ -22448,9 +22473,68 @@ a:hover {
 }
 
 .sidebar-wrapper .menu {
-  margin-top: 2rem;
-  padding-left: 1rem;
-  font-weight: 600;
+  margin-top: 15px;
+  padding-left: 0;
+}
+
+.sidebar-wrapper .menu .sidebar-item {
+  list-style: none;
+  margin-top: 0;
+  position: relative;
+}
+
+.sidebar-wrapper .menu .sidebar-item a {
+  color: #232323;
+}
+
+.sidebar-wrapper .menu .items_green button {
+  font-size: 12px;
+  font-family: "Quicksand";
+  margin: 0;
+  padding: 7px 0 7px 20px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: initial;
+}
+.sidebar-wrapper .menu .items_green button:hover {
+  background: #019F86;
+  color: #FFFFFF;
+}
+.sidebar-wrapper .menu .items_green button:focus {
+  background: #019F86;
+  color: #FFFFFF;
+}
+.sidebar-wrapper .menu .items_logos_green button {
+  margin: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+.sidebar-wrapper .menu .items_logos_green button:hover {
+  background: #cff7f1;
+}
+
+.btn_active_inst {
+  background: #019F86 !important;
+  color: #FFFFFF !important;
+}
+
+.sidebar-wrapper .menu .sub_menu_green {
+  padding-left: 30px;
+}
+.sidebar-wrapper .menu .sub_menu_green .submenu-item {
+  padding-top: 10px;
+  list-style: none;
+  font-size: 10px;
+}
+.sidebar-wrapper .menu .sub_menu_green a:hover {
+  color: #019F86;
+}
+
+.txt_active_green {
+  color: #019F86 !important;
+  text-decoration: none;
 }
 
 .sidebar-wrapper .menu .sidebar-title {
@@ -22484,16 +22568,6 @@ a:hover {
 
 .sidebar-wrapper .menu .sidebar-link:hover {
   background-color: #f0f1f5;
-}
-
-.sidebar-wrapper .menu .sidebar-item {
-  list-style: none;
-  margin-top: 0.5rem;
-  position: relative;
-}
-
-.sidebar-wrapper .menu .sidebar-item a {
-  color: #232323;
 }
 
 .sidebar-wrapper .menu .items_blue button {
@@ -22556,61 +22630,6 @@ a:hover {
   padding-right: 0.5rem;
 }
 
-.sidebar-wrapper .menu .items_green button {
-  font-size: 16px;
-  font-family: "Quicksand";
-  margin: 0;
-  padding: 7px 0 7px 25px;
-  width: 180px;
-  background: transparent;
-  border-radius: 5px;
-  border: none;
-  text-align: initial;
-}
-.sidebar-wrapper .menu .items_green button:hover {
-  background: #019F86;
-  color: #FFFFFF;
-  border-radius: 5px;
-}
-.sidebar-wrapper .menu .items_green button:focus {
-  background: #019F86;
-  color: #FFFFFF;
-  border-radius: 5px;
-}
-.sidebar-wrapper .menu .items_logos_green button {
-  margin: 0;
-  width: 180px;
-  background: transparent;
-  border-radius: 5px;
-  border: none;
-}
-.sidebar-wrapper .menu .items_logos_green button:hover {
-  background: #cff7f1;
-  border-radius: 5px;
-}
-
-.btn_active_inst {
-  background: #019F86 !important;
-  color: #FFFFFF !important;
-  border-radius: 5px;
-}
-
-.sidebar-wrapper .menu .sub_menu_green {
-  padding-left: 45px;
-}
-.sidebar-wrapper .menu .sub_menu_green .submenu-item {
-  padding-top: 10px;
-  list-style: none;
-}
-.sidebar-wrapper .menu .sub_menu_green a:hover {
-  color: #019F86;
-}
-
-.txt_active_green {
-  color: #019F86 !important;
-  text-decoration: none;
-}
-
 @media (min-width: 320px) {
   .menu_mobile {
     background-image: url("/img/header/icono-hamburguesa-azul.svg");
@@ -22620,16 +22639,54 @@ a:hover {
     height: 25px;
   }
 }
+@media (min-width: 1200px) {
+  .sideb_lateral {
+    width: 275px;
+    min-height: 80vh;
+  }
+
+  .sidebar-menu .sidebar__header {
+    padding: 30px 5px 0 10px;
+  }
+
+  .sidebar-wrapper .menu .items_green button {
+    padding: 7px 0 7px 25px;
+  }
+
+  .sidebar-wrapper .menu .sub_menu_green {
+    padding-left: 35px;
+  }
+}
+@media (min-width: 1440px) {
+  .sideb_lateral {
+    width: 300px;
+  }
+}
 @media (min-width: 1920px) {
   .sidebar-menu .sidebar__header img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
+  }
+  .sidebar-menu .sidebar__header .user_data {
+    width: 220px;
+    padding-left: 10px;
   }
   .sidebar-menu .sidebar__header .user_data h2 {
-    font-size: 20px;
-  }
-  .sidebar-menu .sidebar__header .user_data h3 {
     font-size: 14px;
+  }
+  .sidebar-menu .sidebar__header .user_data .cont_text {
+    width: 210px;
+  }
+  .sidebar-menu .sidebar__header .user_data .cont_text span {
+    font-size: 12px;
+  }
+
+  .sidebar-wrapper .menu .items_green button {
+    font-size: 14px;
+  }
+
+  .sidebar-wrapper .menu .sub_menu_green .submenu-item {
+    font-size: 12px;
   }
 }
 #app {
