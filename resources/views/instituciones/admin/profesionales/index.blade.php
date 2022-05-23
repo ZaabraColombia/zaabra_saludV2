@@ -8,28 +8,28 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <div class="container-fluid">
+    <div class="container-fluid px-3">
         <div class="my-4">
             <h1 class="fs_title_module green_bold">Profesionales</h1>
         </div>
 
         <!-- Contenedor barra de búsqueda y botón agregar contacto -->
-        <div class="containt_main_table mb-3">
-            <div class="row m-0">
-                <div class="col-md-9 p-0 input__box mb-0">
-                    <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar profesional">
-                </div>
+        <div class="row m-0">
+            <div class="col-md-3 p-0 content_btn_center mb-3">
+                <a href="{{ route('institucion.profesionales.create') }}" class="button_green" id="btn-agregar-contacto">
+                    Agregar profesional
+                </a>
+            </div>
 
-                <div class="col-md-3 p-0 content_btn_right">
-                    <a href="{{ route('institucion.profesionales.create') }}" class="button_green" id="btn-agregar-contacto">
-                        Agregar
-                    </a>
-                </div>
+            <div class="col-md-9 p-0 mb-3 card_btn_search">
+                <button class="">
+                    <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar profesional">
+                </button>
             </div>
         </div>
 
-        <!-- Contenedor formato tabla de la lista de contactos -->
-        <div class="containt_main_table mb-3">
+        <!-- Tarjetas de Usuarios -->
+        <div class="row m-0">
             <div class="col-12" id="alertas" >
                 @if(session()->has('success'))
                     <div class="alert alert-success" role="alert">
@@ -41,64 +41,71 @@
                     </div>
                 @endif
             </div>
-            <div class="table-responsive">
-                <table class="table table_agenda" id="table-pacientes">
-                    <thead class="thead_green">
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Especialidad</th>
-                        <th>Correo</th>
-                        <th>Teléfonos</th>
-                        <th>Dirección</th>
-                        <th class="text-center">Acción</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @if($profesionales->isNotEmpty())
-                        @foreach($profesionales as $profesional)
-                            <tr>
-                                <td class="pr-0">
-                                    <div class="user__xl">
-                                        <a class="d-flex align-items-center" href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
-                                            <div class="pr-2">
-                                                <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
-                                            </div>
 
-                                            <div>
-                                                <span>{{ $profesional->nombre_completo }}</span>
-                                            </div>
+            @if($profesionales->isNotEmpty())
+                @foreach($profesionales as $profesional)
+                    <div class="col-md-6 col-xl-4 p-0 px-md-1 mb-3">
+                        <div class="card containt__card p-0">                            
+                            <div class="card-body p-2 pb-3">                             
+                                <div class="row card__row">
+                                    <div class="col-md-6 p-0 mb-2 d-flex justify-content-center">
+                                        <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
+                                            <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
                                         </a>
                                     </div>
-                                </td>
-                                <td>{{ $profesional->nombre_especialidad ?? '' }}</td>
-                                <td>{{ $profesional->correo }}</td>
-                                <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
-                                <td style="line-height: 1.2">{{ $profesional->direccion }}</td>
-                                <td>
-                                    <div class="d-flex justify-content-between">
-                                        <a class="btn_action_green tool top"
-                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i style="width: 20px" data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
-                                        </a>
 
-                                        <a class="btn_action_green tool top"
-                                            href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i style="width: 20px" data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
-                                        </a>
+                                    <div class="col-md-9 card_info_user">
+                                        <div class="card_txt_h">
+                                            <h4 class="card_h4">{{ $profesional->nombre_completo }}</h4>
+                                        </div>
 
-                                        <button class="btn_action_green tool top bloquear-agenda"
-                                                data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i style="width: 20px" data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
-                                        </button>
+                                        <div class="card_txt_h">
+                                            <h5 class="card_h5">{{ $profesional->nombre_especialidad ?? '' }}</h5>
+                                        </div>
+
+                                        <div class="card_content_btn_info">
+                                            <a class="card_btn_info tool top"
+                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i style="width: 20px" data-feather="lock"></i> <span class="tiptext">Editar profesional</span>
+                                            </a>
+
+                                            <a class="card_btn_info tool top"
+                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i style="width: 20px" data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
+                                            </a>
+
+                                            <a class="card_btn_info tool top"
+                                                href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i style="width: 20px" data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
+                                            </a>
+
+                                            <button class="card_btn_info tool top bloquear-agenda"
+                                                    data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i style="width: 20px" data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="toolt bottom">
+                                            <div class="card_txt_span mail">
+                                                <i data-feather="mail" class="card_icon"></i><span class="card_span">{{ $profesional->correo }}</span>
+                                            </div>
+                                            <span class="tiptext">{{ $profesional->correo }}</span>    
+                                        </div>
+
+                                        <div class="card_txt_span">
+                                            <i data-feather="phone" class="card_icon"></i><span class="card_span">{{ "{$profesional->celular} - {$profesional->telefono}" }}</span>
+                                        </div>
+
+                                        <div class="card_txt_span">
+                                            <i data-feather="map-pin" class="card_icon"></i><span class="card_span">{{ $profesional->direccion }}</span>
+                                        </div>
                                     </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
-
-                    </tbody>
-                </table>
-            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach    
+            @endif        
         </div>
     </div>
 

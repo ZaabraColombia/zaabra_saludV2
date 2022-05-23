@@ -182,3 +182,98 @@
         });
     </script>
 @endsection
+
+
+
+
+<div class="row content_btn_center mx-0 mb-3">
+    @can('accesos-institucion', 'editar-usuario')
+        <button type="submit" class="btn_green modal-usuario mr-2" 
+            data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario'=>$usuario->id]) }}">
+            Ver más
+        </button>
+    @endcan
+
+    @can('accesos-institucion', 'editar-usuario')
+        <a type="submit" class="btn_green px-4" 
+            href="{{ route('institucion.configuracion.usuarios.edit', ['usuario'=>$usuario->id]) }}">
+            Editar
+        </a>   
+    @endcan
+</div>
+
+
+
+
+{{-- <!-- Contenedor formato tabla de la lista de contactos -->
+<div class="containt_main_table mb-3">
+    <div class="col-12" id="alertas" >
+        @if(session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="alert-heading">Hecho!</h4>
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
+    </div>
+    <div class="table-responsive">
+        <table class="table table_agenda" id="table-pacientes">
+            <thead class="thead_green">
+            <tr>
+                <th>Nombre</th>
+                <th>Especialidad</th>
+                <th>Correo</th>
+                <th>Teléfonos</th>
+                <th>Dirección</th>
+                <th class="text-center">Acción</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if($profesionales->isNotEmpty())
+                @foreach($profesionales as $profesional)
+                    <tr>
+                        <td class="pr-0">
+                            <div class="user__xl">
+                                <a class="d-flex align-items-center" href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
+                                    <div class="pr-2">
+                                        <img class="img__contacs" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                                    </div>
+
+                                    <div>
+                                        <span>{{ $profesional->nombre_completo }}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>{{ $profesional->nombre_especialidad ?? '' }}</td>
+                        <td>{{ $profesional->correo }}</td>
+                        <td>{{ "{$profesional->celular} - {$profesional->telefono}" }}</td>
+                        <td style="line-height: 1.2">{{ $profesional->direccion }}</td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn_action_green tool top"
+                                    href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                    <i style="width: 20px" data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
+                                </a>
+
+                                <a class="btn_action_green tool top"
+                                    href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                    <i style="width: 20px" data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
+                                </a>
+
+                                <button class="btn_action_green tool top bloquear-agenda"
+                                        data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                    <i style="width: 20px" data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
+
+            </tbody>
+        </table>
+    </div>
+</div> --}}
