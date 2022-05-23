@@ -12,7 +12,7 @@ use App\Models\profesiones;
 use App\Models\especialidades;
 use App\Models\perfilesprofesionales;
 use App\Models\instituciones;
-use App\Models\pais;
+use App\Models\paises;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -124,7 +124,7 @@ class buscadorController extends Controller
             ])
             ->where(function ($query) use ($term) {
                 $query
-                    ->whereHas('especialidad_pricipal', function ($query) use ($term){
+                    ->whereHas('especialidad_principal', function ($query) use ($term){
                         return $query->where('nombreEspecialidad', 'like', "%$term%");
                     })
                     ->orWhereHas('especialidades', function ($query) use ($term){

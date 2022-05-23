@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\departamento;
 use App\Models\municipio;
 use App\Models\Paciente;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\provincia;
 use App\Models\tipoconsultas;
 use App\Models\TipoDocumento;
@@ -43,7 +43,7 @@ class FormularioPaciente extends Controller
 
 
         //Lista de paises
-        $listaPaises = pais::all();
+        $listaPaises = paises::all();
         //llamar lista de departamento, provincias y municipios
         if (!is_null($paciente->id_municipio))
         {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pais;
+use App\Models\paises;
 
 class paisController extends Controller
 {
@@ -46,7 +46,7 @@ class paisController extends Controller
      */
     public function show()
     {
-        $pais = pais::all();
+        $pais = paises::all();
         return $pais;
     }
 

@@ -15,7 +15,7 @@ use App\Models\serviciosinstituciones;
 use App\Models\profesionales_instituciones;
 use App\Models\certificaciones;
 use App\Models\sedesinstituciones;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\departamento;
 use App\Models\municipio;
 use App\Models\provincia;
@@ -79,7 +79,7 @@ class formularioInstitucionController extends Controller{
             ->get();
 
         //Lista de paises
-        $listaPaises = pais::all();
+        $listaPaises = paises::all();
 
         //llamar la lista de departamentos según el pais
         if (!is_null($objFormulario->id_pais)) {
@@ -102,7 +102,7 @@ class formularioInstitucionController extends Controller{
 
         $is_asociacion = $this->is_asociacion();
         $tipo_documentos = TipoDocumento::query()->get();
-        $paises = pais::all();
+        $paises = paises::all();
 
         return view('instituciones.FormularioInstitucion',compact(
             'tipoinstitucion',

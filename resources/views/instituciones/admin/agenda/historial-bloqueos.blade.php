@@ -329,6 +329,7 @@
                     className: 'red',
                     title:'Resultados',
                     exportOptions: {
+                        columns: ":not(:last-child)",
                         modifier: {
                             page: 'current'
                         }
@@ -339,9 +340,10 @@
                     extend: 'excel',
                     text: 'Excel',
                     className: 'border_left',
-                    title:function () {
-                        return 'Resultados';
-                    }
+                    title: 'Resultados',
+                    exportOptions: {
+                        columns: ":not(:last-child)",
+                    },
                 },
             ],
         });

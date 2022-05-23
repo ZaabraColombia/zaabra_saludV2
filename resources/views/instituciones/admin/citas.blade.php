@@ -92,20 +92,31 @@
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
                 },
-                //dom: 'lfBrtip',
-                // buttons: [
-                //     {
-                //         extend: 'excel',
-                //         text: 'Excel',
-                //         title:'Resultados',
-                //         // exportOptions: {
-                //         //     modifier: {
-                //         //         search: 'applied',
-                //         //         order: 'applied'
-                //         //     }
-                //         // }
-                //     },
-                // ],
+                dom: 'lfBrtip',
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        className: 'red',
+                        title:'Resultados',
+                        exportOptions: {
+                            //columns: ":not(:last-child)",
+                            modifier: {
+                                page: 'current'
+                            }
+                        },
+                        //text: 'Red',
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'Excel',
+                        className: 'border_left',
+                        title: 'Resultados',
+                        exportOptions: {
+                            //columns: ":not(:last-child)",
+                        },
+                    },
+                ],
                 searching: true,
                 columnDefs: [
                     {

@@ -28,7 +28,7 @@ class RecursosController extends Controller
      */
     public function sgsss(Request $request)
     {
-        $items =Sgsss::query()
+        $items = Sgsss::query()
             ->where('id', 'like', "%{$request->term}%")
             ->orWhere('nombre', 'like', "%{$request->term}%")
             ->get(['id', 'nombre as text']);
@@ -63,12 +63,12 @@ class RecursosController extends Controller
     public function servicios_convenio(Request $request)
     {
         $request->validate([
-            'servicio'      => ['required', 'exists:servicios,id'],
-            'institucion'   => ['required', 'exists:instituciones,id'],
+            'servicio' => ['required', 'exists:servicios,id'],
+            'institucion' => ['required', 'exists:instituciones,id'],
         ]);
 
         $servicio = Servicio::query()
-            ->with(['convenios_lista' => function($query){
+            ->with(['convenios_lista' => function ($query) {
                 $query
                     ->select('convenios.id', 'convenios.primer_nombre', 'convenios.segundo_nombre',
                         'convenios.primer_apellido', 'convenios.segundo_apellido', 'convenios.tipo_documento_id',
@@ -79,8 +79,46 @@ class RecursosController extends Controller
             ->where('institucion_id', $request->get('institucion'))
             ->first();
 
-        $lista = $servicio->convenios_lista->map(function ($item){
-            return ['nombre_completo' => $item->nombre_completo, 'pivot' => $item->pivot, 'id' => $item->id];
+        $lista = $servicio->convenios_lista->map(function ($item) {
+            return [
+                'nombre_completo' => $item->nombre_completo,
+                'valor' => "$" . number_format($item->pivot->valor_paciente, 0, ',', '.'),
+                'id' => $item->id
+            ];
+        });
+
+        return response(['items' => $lista], Response::HTTP_OK);
+    }
+
+    /**
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function servicios_convenio_profesional(Request $request)
+    {
+        $request->validate([
+            'servicio' => ['required', 'exists:servicios,id'],
+            'profesional' => ['required', 'exists:perfilesprofesionales,idPerfilProfesional'],
+        ]);
+
+        $servicio = Servicio::query()
+            ->with(['convenios_lista' => function ($query) {
+                $query
+                    ->select('convenios.id', 'convenios.primer_nombre', 'convenios.segundo_nombre',
+                        'convenios.primer_apellido', 'convenios.segundo_apellido', 'convenios.tipo_documento_id',
+                        'convenios.numero_documento');
+
+            }])
+            ->where('id', $request->get('servicio'))
+            ->where('institucion_id', $request->get('institucion'))
+            ->first();
+
+        $lista = $servicio->convenios_lista->map(function ($item) {
+            return [
+                'nombre_completo' => $item->nombre_completo,
+                'valor' => "$" . number_format($item->pivot->valor_paciente, 0, ',', '.'),
+                'id' => $item->id
+            ];
         });
 
         return response(['items' => $lista], Response::HTTP_OK);
@@ -101,8 +139,8 @@ class RecursosController extends Controller
             ->where('id_institucion', Auth::user()->institucion->id)
             ->first();
 
-        $agenda['disponibilidad']   = $profesional->disponibilidad_agenda;
-        $agenda['consultorio']      = $profesional->consultorio;
+        $agenda['disponibilidad'] = $profesional->disponibilidad_agenda;
+        $agenda['consultorio'] = $profesional->consultorio;
 
         $servicios = $profesional->servicios;
         $horario = $profesional->horario;
@@ -111,7 +149,7 @@ class RecursosController extends Controller
             return response([
                 'message' => [
                     'title' => 'Agenda no disponible',
-                    'text'  => "Profesional {$profesional->nombre_completo} no tiene la agenda disponible"
+                    'text' => "Profesional {$profesional->nombre_completo} no tiene la agenda disponible"
                 ]
             ], Response::HTTP_NOT_FOUND);
 
@@ -123,7 +161,7 @@ class RecursosController extends Controller
         $agenda['weekNotBusiness'] = array_unique($weekNotBusiness);
         //$agenda['weekNotBusiness'] = [0, 1, 2];
 
-        $lista = $profesional->servicios->map(function ($item){
+        $lista = $profesional->servicios->map(function ($item) {
             return ['id' => $item->id, 'nombre' => $item->nombre, 'valor' => $item->valor];
         });
 
@@ -138,8 +176,8 @@ class RecursosController extends Controller
      */
     public function profesionales_institucion(Request $request)
     {
-        $term       = $request->searchTerm;
-        $service    = $request->service;
+        $term = $request->searchTerm;
+        $service = $request->service;
 
         $profesionales = profesionales_instituciones::query()
             ->select('id_profesional_inst as id', 'nombre_completo as text', 'sede_id')
@@ -149,17 +187,17 @@ class RecursosController extends Controller
                 'sede',
                 'sede.ciudad',
             ])
-            ->where(function ($query) use ($term){
+            ->where(function ($query) use ($term) {
                 return $query->where('numero_documento', 'like', "%{$term}%")
-                    ->orWhere('primer_nombre','like','%' . $term . '%')
-                    ->orWhere('segundo_nombre','like','%' . $term . '%')
-                    ->orWhere('primer_apellido','like','%' . $term . '%')
-                    ->orWhere('segundo_apellido','like','%' . $term . '%')
-                    ->orWhere('nombre_completo','like','%' . $term . '%');
+                    ->orWhere('primer_nombre', 'like', '%' . $term . '%')
+                    ->orWhere('segundo_nombre', 'like', '%' . $term . '%')
+                    ->orWhere('primer_apellido', 'like', '%' . $term . '%')
+                    ->orWhere('segundo_apellido', 'like', '%' . $term . '%')
+                    ->orWhere('nombre_completo', 'like', '%' . $term . '%');
             });
 
         if (!empty($service))
-            $profesionales->whereHas('servicios', function ($query) use ($service){
+            $profesionales->whereHas('servicios', function ($query) use ($service) {
                 return $query->where('servicios.id', $service);
             });
 

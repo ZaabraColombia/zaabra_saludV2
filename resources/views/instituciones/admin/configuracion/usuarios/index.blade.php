@@ -50,22 +50,22 @@
                                 <div class="card-header p-2">
                                     <h5 class="m-0" style="line-height: 1.1">{{ "$usuario->primernombre $usuario->apellidos" }}</h5>
                                 </div>
-                                
-                                <div class="card-body p-2 pb-3"> 
+
+                                <div class="card-body p-2 pb-3">
                                     <div class="p-0 mb-2 d-flex justify-content-end">
                                         <a href="#" class="{{ ($usuario->estado)?'btn__activado':'btn__desactivado' }}">
                                             <span>{{ ($usuario->estado)?'Activado':'Desactivado' }}</span>
                                         </a>
-                                    </div>  
-                                
+                                    </div>
+
                                     <div class="row m-0 justify-content-center">
                                         <div class="col-3 p-0 d-flex justify-content-xl-center">
-                                            <img class="img__cuadrada" src='/img/user/31/31-1630611954.jpg'>
+                                            <img class="img__cuadrada" src='{{ asset($usuario->auxiliar->foto ?? 'img/menu/avatar.png') }}'>
                                         </div>
 
                                         <div class="col-9 p-0" style="line-height: 1.3">
                                             <div class="">
-                                                <span class="">Gerente administrativo</span>
+                                                <span class="">{{ $usuario->auxiliar->cargo }}</span>
                                             </div>
 
                                             <div class="">
@@ -76,7 +76,7 @@
                                                 <div class=" mail">
                                                     <span>{{ $usuario->email }}</span>
                                                 </div>
-                                                <span class="tiptext">{{ $usuario->email }}</span>    
+                                                <span class="tiptext">{{ $usuario->email }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -84,23 +84,23 @@
 
                                 <div class="row content_btn_center mx-0 mb-3">
                                     @can('accesos-institucion', 'editar-usuario')
-                                        <button type="submit" class="btn_green modal-usuario mr-2" 
+                                        <button type="submit" class="btn_green modal-usuario mr-2"
                                             data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario'=>$usuario->id]) }}">
                                             Ver más
                                         </button>
                                     @endcan
-                        
+
                                     @can('accesos-institucion', 'editar-usuario')
-                                        <a type="submit" class="btn_green px-4" 
+                                        <a type="submit" class="btn_green px-4"
                                             href="{{ route('institucion.configuracion.usuarios.edit', ['usuario'=>$usuario->id]) }}">
                                             Editar
-                                        </a>   
+                                        </a>
                                     @endcan
                                 </div>
                             </div>
                         </div>
-                    @endforeach    
-                @endif        
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -209,27 +209,10 @@
 
     <script>
         //Inicializar tabla
-        var table = $('#table-pacientes').DataTable({
-            bFilter: false,
-            bInfo: false,
-            response: true,
-            language: {
-                url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-            },
-            searching: true,
-            columnDefs: [
-                {
-                    targets: [-1],
-                    orderable: false,
-                }
-            ],
-            paging: true,
-
-        });
 
         $("#search").on('keyup change',function(){
-            var texto = $(this).val();
-            table.search(texto).draw();
+            // var texto = $(this).val();
+            // table.search(texto).draw();
         });
 
         $('.modal-usuario').click(function (event) {

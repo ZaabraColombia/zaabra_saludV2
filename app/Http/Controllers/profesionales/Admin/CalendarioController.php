@@ -10,7 +10,7 @@ use App\Models\Convenios;
 use App\Models\Horario;
 use App\Models\Paciente;
 use App\Models\PagoCita;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\Servicio;
 use App\Models\tipoconsultas;
 use App\Models\User;
@@ -61,7 +61,7 @@ class CalendarioController extends Controller
             ->where('profesional_id', '=', $profesional->profesional->idPerfilProfesional)
             ->get();
 
-        $paises = pais::all();
+        $paises = paises::all();
 
         return view('profesionales.admin.calendario.calendario', compact('dias_disponibles',
             'dias_bloqueados', 'horario', 'servicios', 'paises', 'user'));
@@ -229,7 +229,7 @@ class CalendarioController extends Controller
             } else {
 
                 //validar background
-                switch ($date->pago->tipo)
+                switch ($date->pago->tipo ?? '')
                 {
                     case 'presencial':
                         $color = $horario->color_cita_presencial ?? '#D6FFFB';
@@ -244,8 +244,8 @@ class CalendarioController extends Controller
                         $color = color_contrast($color);
                         break;
                     default:
-                        $background = null;
-                        $color = null;
+                        $background = '#ffffff';
+                        $color = '#000000';
                         break;
                 }
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
 use App\Models\perfilesprofesionales;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\departamento;
 use App\Models\municipio;
 use App\Models\provincia;
@@ -69,7 +69,7 @@ class formularioProfesionalController extends Controller
             $objFormulario = $objFormulario[0];
 
             //Lista de paises
-            $listaPaises = pais::all();
+            $listaPaises = paises::all();
 
             //llamar la lista de departamentos según el pais
             if (!is_null($objFormulario->id_pais)) {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\entidades\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Cita;
 use App\Models\especialidades;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\profesionales_instituciones;
 use App\Models\sedesinstituciones;
 use App\Models\Servicio;
@@ -58,7 +58,7 @@ class ProfesionalesController extends Controller
         Gate::authorize('accesos-institucion','agregar-profesional');
 
         $tipo_documentos = TipoDocumento::all();
-        $paises = pais::all();
+        $paises = paises::all();
         $universidades = universidades::all();
         $especialidades = especialidades::all();
 
@@ -119,7 +119,7 @@ class ProfesionalesController extends Controller
         Gate::authorize('update-profesional-institucion', $profesional);
 
         $tipo_documentos = TipoDocumento::all();
-        $paises = pais::all();
+        $paises = paises::all();
         $universidades = universidades::all();
         $especialidades = especialidades::all();
 

@@ -7,7 +7,7 @@ use App\Models\ActividadEconomica;
 use App\Models\Convenios;
 use App\Models\departamento;
 use App\Models\municipio;
-use App\Models\pais;
+use App\Models\paises;
 use App\Models\provincia;
 use App\Models\Sgsss;
 use App\Models\TipoContribuyente;
@@ -43,7 +43,7 @@ class ConvenioController extends Controller
         $tipo_documentos = TipoDocumento::all();
         $tipo_convenios = tipoinstituciones::activado()->get();
 
-        $paises = pais::all();
+        $paises = paises::all();
 
 
         return view('profesionales.admin.configuracion.convenios.crear', compact('tipo_documentos',
@@ -114,7 +114,7 @@ class ConvenioController extends Controller
                 'tipo_contribuyente' => TipoContribuyente::query()->select('nombre as tipo_contribuyente')->whereColumn('tipo_contribuyente_id', 'tipo_contribuyentes.id')->take(1),
                 'actividad_economica' => ActividadEconomica::query()->select('nombre as actividad_economica')->whereColumn('actividad_economica_id', 'actividades_economicas.id')->take(1),
                 'tipo_convenio' => tipoinstituciones::query()->select('nombretipo as tipo_convenio')->whereColumn('id_tipo_convenio', 'tipoinstituciones.id')->take(1),
-                'pais' => pais::query()->select('nombre as pais')->whereColumn('pais_id', 'pais.id_pais')->take(1),
+                'pais' => paises::query()->select('nombre as pais')->whereColumn('pais_id', 'pais.id_pais')->take(1),
                 'departamento' => departamento::query()->select('nombre as departamento')->whereColumn('departamento_id', 'departamentos.id_departamento')->take(1),
                 'provincia' => provincia::query()->select('nombre as provincia')->whereColumn('provincia_id', 'provincias.id_provincia')->take(1),
                 'ciudad' => municipio::query()->select('nombre as ciudad')->whereColumn('ciudad_id', 'municipios.id_municipio')->take(1)
@@ -142,7 +142,7 @@ class ConvenioController extends Controller
         $tipo_contribuyentes = TipoContribuyente::all();
         $actividades_economicas = ActividadEconomica::all();
         $tipo_documentos = TipoDocumento::all();
-        $paises = pais::all();
+        $paises = paises::all();
         $tipo_convenios = tipoinstituciones::activado()->get();
 
         return view('profesionales.admin.configuracion.convenios.editar', compact('tipo_documentos',
