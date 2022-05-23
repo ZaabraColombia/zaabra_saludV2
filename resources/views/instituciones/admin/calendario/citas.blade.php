@@ -63,14 +63,17 @@
                 <table class="table table_agenda" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
                         <tr>
-                            <th>Hora</th>
                             <th>Fecha</th>
+                            <th>Hora Inicio</th>
+                            <th>Hora Fin</th>
+                            <th>Servicio</th>
+                            <th>Especialidad</th>
                             <th>Profesional</th>
                             <th>Paciente</th>
                             <th>Identificación</th>
-                            <th>Acción</th>
-                            <th>Lugar</th>
                             <th>Celular</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                 </table>
@@ -327,30 +330,35 @@
             var table = $('#table-citas').DataTable({
                 dom: 'Plfrtip',
                 //dom: '<"dtsp-verticalContainer"<"dtsp-verticalPanes"P><"dtsp-dataTable"frtip>>',
+                serverSide: true,
+                ajax:{
+                    type: 'post',
+                    url: '{{ route('institucion.calendario.lista-citas') }}',
+                },
                 responsive: true,
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
                 },
-                searchPanes:{
-                    //viewTotal: true,
-                    columns: [0, 1, 2],
-                    layout: 'columns-4',
-                },
                 columns:[
-                    {data: "hora", name: "fecha_inicio"},
-                    {data: "fecha", name: "fecha_inicio"},
-                    {data: "profesional_ins.nombre_completo", name: 'profesional_ins.nombre_completo'},
-                    {data: "paciente.user.nombre_completo", name: 'paciente.user.nombre_completo'},
-                    {data: "paciente.user.numerodocumento", name: 'paciente.user.numerodocumento'},
+                    {data: "fecha", name: "fecha"},
+                    {data: "hora_inicio", name: "hora_inicio"},
+                    {data: "hora_fin", name: 'hora_fin'},
+                    {data: "especialidad", name: 'especialidad'},
+                    {data: "servicio", name: 'servicio'},
+                    {data: "profesional_nombre", name: 'profesional_nombre'},
+                    {data: "paciente_nombre", name: 'paciente_nombre'},
+                    {data: "paciente_identificacion", name: 'paciente_identificacion'},
+                    {data: "paciente_celular", name: "paciente_celular"},
+                    {data: "estado", name: "estado"},
                     {
                         name: 'edit',
                         className: '',
                         data: function (data, type, full, meta) {
-                            return '<button  class="btn_action_green tool top editar-cita" data-url="' + data.edit + '">' +
+                            return '<button  class="btn_action_green tool top editar-cita" data-url="">' +
                                 '<i class="fas fa-calendar-day fa-2x"></i>' +
                                 '<span class="tiptext">Editar cita</span>' +
                                 '</button>' +
-                                '<button  class="btn_action_green tool top cancelar-cita" data-url="' + data.edit + '">' +
+                                '<button  class="btn_action_green tool top cancelar-cita" data-url="">' +
                                 '<i class="fas fa-calendar-times fa-2x"></i>' +
                                 '<span class="tiptext">Cancelar cita</span>' +
                                 '</button>';
@@ -358,34 +366,27 @@
                         searchable: false,
                         //responsive: false,
                     },
-                    {data: "lugar", name: "lugar"},
-                    {data: "paciente.celular", name: "paciente.celular"},
                 ],
+                searchPanes:{
+                    //viewTotal: true,
+                    //columns: [0, 1, 2],
+                    //layout: 'columns-3',
+                    // dtOpts: {
+                    //     dom: 'tp',
+                    //     //paging: true,
+                    //     pagingType: 'number',
+                    //     searching: true,
+                    // },
+                    viewTotal: false,
+                },
                 columnDefs: [
                     {
-                        //name:    'edit',
-                        //target:    5,
-                        //search:     false,
-                        //responsive: false,
-                        className: '',
-                        data: function (data, type, full, meta) {
-                            console.log(data);
-                            return data;
-                        }
-
-                    }
+                        searchPanes: {
+                            show: true
+                        },
+                        targets: [5]
+                    },
                 ],
-                serverSide: true,
-                ajax:{
-                    type: 'post',
-                    url: '{{ route('institucion.calendario.lista-citas') }}',
-                    // data: function ( d ) {
-                    //     console.log(d);
-                    //     // return $.extend({}, d, {
-                    //     //     "extra_search": $('#extra').val()
-                    //     // });
-                    // }
-                },
                 // createdRow: function (row, data, dataIndex) {
                 //     $(row).addClass('bg-' + data.estado);
                 // }

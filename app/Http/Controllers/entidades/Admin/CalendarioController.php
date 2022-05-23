@@ -22,6 +22,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -132,11 +133,11 @@ class CalendarioController extends Controller
         $especialidades = especialidades::query()
             ->whereHas('total_ins_profesionales', function ($query) use ($user){
                 return $query->where('id_institucion', $user->institucion->id)
-            ->where('estado', 1);
+                    ->where('estado', 1);
             })
             ->orWhereHas('ins_profesionales', function ($query) use ($user){
                 return $query->where('id_institucion', $user->institucion->id)
-            ->where('estado', 1);
+                    ->where('estado', 1);
             })
             ->get();
 
@@ -147,23 +148,70 @@ class CalendarioController extends Controller
     public function lista_citas(Request $request)
     {
 
-        $query = Cita::query()
-            ->with([
-                'paciente:id,id_usuario,celular',
-                'paciente.user:id,primernombre,segundonombre,primerapellido,segundoapellido,numerodocumento',
-                'profesional_ins:id_profesional_inst,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido'
+//        $query = Cita::query()
+//            ->with([
+//                'paciente:id,id_usuario,celular',
+//                'paciente.user:id,primernombre,segundonombre,primerapellido,segundoapellido,numerodocumento',
+//                'profesional_ins:id_profesional_inst,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido,id_institucion'
+//            ])
+//            ->whereHas('profesional_ins', function ($query) {
+//                return $query->where('id_institucion', Auth::user()->institucion->id);
+//            })
+//            ->whereNotIn('estado', ['cancelado']);
+        //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
+        //->whereDate('fecha_inicio', $request->fecha)
+        //->whereIn('profesional_ins_id', $request->get('ids'));
+
+
+        $q = Cita::query()
+            ->select([
+                'id_cita',
+                'fecha_inicio',
+                'fecha_fin',
+                'nombreEspecialidad as especialidad',
+                'serv.nombre as servicio',
+                'citas.estado as estado',
+
+                //user
+                'pac_user.nombre_completo as paciente_nombre',
+                'pac.celular as paciente_celular',
+
+                //Profesionales
+                'prof.nombre_completo as profesional_nombre',
             ])
-            ->whereNotIn('estado', ['cancelado']);
-            //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
-            //->whereDate('fecha_inicio', $request->fecha)
-            //->whereIn('profesional_ins_id', $request->get('ids'));
+            ->selectRaw('DATE_FORMAT(fecha_inicio, "%Y-%m-%e") as fecha')
+            ->selectRaw('DATE_FORMAT(fecha_inicio, "%h-%S %p") as hora_inicio')
+            ->selectRaw('DATE_FORMAT(fecha_fin, "%h-%S %p") as hora_fin')
+            ->selectRaw('concat(pac_doc.nombre_corto, " ", pac_user.numerodocumento) as paciente_identificacion')
+            ->join('pacientes as pac', 'pac.id', '=', 'citas.paciente_id')
+            ->join('users as pac_user', 'pac_user.id', '=', 'pac.id_usuario')
+            ->join('tipo_documentos as pac_doc', 'pac_doc.id', '=', 'pac_user.tipodocumento')
+
+            ->join('profesionales_instituciones as prof', 'prof.id_profesional_inst', '=', 'citas.profesional_ins_id')
+
+            ->join('servicios as serv', 'serv.id', '=', 'citas.tipo_cita_id', 'right')
+            ->join('especialidades as esp', 'esp.idEspecialidad', '=', 'citas.especialidad_id')
+
+            ->where('serv.estado', 1)
+            ->where('prof.estado', 1)
+            ->where('id_institucion', Auth::user()->institucion->id);
+
+        $profesionales = profesionales_instituciones::query()
+            ->select('id_profesional_inst as id', 'nombre_completo as label')
+            ->where('id_institucion', Auth::user()->institucion->id)
+            ->where('estado', 1)
+            ->get();
 
         return datatables()
-            ->eloquent($query)
-            ->addColumn('edit', function (Cita $cita){
-                return route('institucion.calendario.ver-cita', ['cita' => $cita->id_cita]);
-            })
+            ->eloquent($q)
+//            ->addColumn('edit', function (Cita $cita){
+//                return route('institucion.calendario.ver-cita', ['cita' => $cita->id_cita]);
+//            })
+            ->searchPane('profesional_nombre', $profesionales)
             ->toJson();
+
+//        return  app('datatables')->of($q)
+//            ->searchPane('profesional_nombre', $profesionales);
     }
 
     /**
