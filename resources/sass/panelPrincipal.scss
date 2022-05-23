@@ -8,6 +8,30 @@
 align-self: flex-end;
     width: 100%;
 }
+// barra de búsqueda panel principal agenda
+.search_main_container {
+    background-color: #FFFFFF;
+    padding: 20px 15px;
+    width: 98%;
+    margin: auto;
+    .btnIn_search {
+        position: absolute;
+        right: 0px;
+        top: 0;
+        height: 100%;
+        border: none;
+        background-color: #FFFFFF;
+        width: 50px;
+        border-radius: 0 20px 20px 0;
+        color: #019f86;
+        border: 1px solid #CED4DA;
+        border-left: none;
+    }
+}
+.extremo_redondeado {
+    border-radius: 25px !important;
+
+}
 .content__target {
     border: 1px solid $blue_official;
     border-radius: 5px;
@@ -110,7 +134,7 @@ align-self: flex-end;
     text-align: center;
     padding: 0;
     // box-shadow: -1px -1px 6px 1px rgb(0 0 0 / 20%);
-    background-color: $withe_official;
+    background-color: #FFFFFF;
     background-repeat: no-repeat;
     background-size: 60px;
     background-position-x: center;
@@ -222,7 +246,7 @@ align-self: flex-end;
 .content__logos_inst {
     display: flex;
     justify-content: center;
-    background-color: $withe_official;
+    background-color: #FFFFFF;
     // border: 1px solid $green_official;
     border-radius: 7px;
     padding: 30px 15px;
@@ -232,13 +256,15 @@ align-self: flex-end;
         width: 150px;
         object-fit: scale-down;
     }
-    // &:hover {
-    //     // border-radius: 15px;
-    //     // image-rendering: pixelated;
-    //     box-shadow: 5px 5px 10px 3px rgb(0 0 0 / 15%);
-    //     // border-left: 3px solid #2f6a48;
-    //     // border-bottom: 3px solid #2f6a48;
-    // }
+    &:hover {
+        // background-color: $green_official;
+        // border-radius: 15px;
+        // image-rendering: pixelated;
+        box-shadow: 5px 5px 10px 3px rgb(0 0 0 / 15%);
+        // border-left: 3px solid #2f6a48;
+        // border-bottom: 3px solid #2f6a48;
+        // color: $withe_official;
+    }
 }
 
 @media (min-width: 768px){
@@ -268,5 +294,39 @@ align-self: flex-end;
 @media (min-width: 1024px){
     .content__logos {
         height: 150px;
+    }
+}
+
+@media(min-width: 1300px) {
+    .content__logos_inst {
+        height: 160px;
+        padding: 0;
+    }
+    .content__logos_inst img {
+        width: 200px;
+    }
+    .content__target_inst {
+        background-position-y: 20px;
+        height: 130px;
+    }
+    .content__target_inst span {
+        height: 40px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .content__target_inst {
+        background-size: 85px;
+        background-position-y: 35px;
+        height: 185px;
+    }
+    .content__target_inst span {
+        height: 50px;
+    }
+    .content__logos_inst {
+        height: 216px;
+    }
+    .content__logos_inst img {
+        width: 230px;
     }
 }
