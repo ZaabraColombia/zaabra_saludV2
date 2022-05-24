@@ -413,7 +413,7 @@
                                 '</div>';
                         },
                         searchable: false,
-                        //responsive: false,
+                        orderable: false,
                     },
                 ],
                 searchPanes: {
@@ -437,9 +437,11 @@
                     //Agregar los dos inputs
                     $('#filter-input').html(
                         '<div class="col-md-6 mb-3">' +
+                        '<label for="fecha">Fecha</label>' +
                         '<input id="fecha" name="fecha" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>' +
                         '</div>' +
                         '<div class="col-md-6 mb-3">' +
+                        '<label for="estado">Estado</label>' +
                         '<select name="estado" id="estado" class="form-control filter-data">' +
                         '<option value="">Todos</option>' +
                         '<option selected value="agendado">Agendado</option>' +
