@@ -295,6 +295,20 @@ overflow: hidden;
         &:hover {
             background-color: #019F86;
         }
+        .file_calendar {
+            background-image: url('/img/iconos/icono-calendario-verde.svg');
+            background-repeat: no-repeat;
+            width: 27px;
+            height: 27px;
+            margin: auto;
+            &:hover {
+                background-image: url('/img/iconos/icono-calendario-blanco.svg');
+                background-color: #019F86;
+            }
+        }
+        &:hover {
+            background-color: #019F86;
+        }
     }
 }
 .container_card {

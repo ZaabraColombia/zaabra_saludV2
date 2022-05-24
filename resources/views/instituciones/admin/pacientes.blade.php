@@ -16,19 +16,20 @@
 
         <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
         <div class="row m-0">
-            <div class="col-md-3 col-lg-2 p-0 card_content_btn_add mb-4">
+            <div class="col-md-12 col-lg-2 p-0 card_content_btn_add mb-4">
                 <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green py-2" id="btn-agregar-contacto">
                     Agregar pacientes
                 </a>
             </div>
 
-            <div class="col-md-5 col-lg-7 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
+            <div class="col-md-6 col-lg-6 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
                 <button id="search">
                     <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar">
                 </button>
             </div>
 
-            <div class="col-md-2 col-lg-2 p-0 mb-4 container_btn_docs">
+            <div class="col-md-4 col-lg-3 p-0 mb-4 container_btn_docs">
+                <button><div class="file_calendar"></div></button>
                 <button><div class="file_excel"></div></button>
                 <button><div class="file_pdf"></div></button>
                 <button><div class="file_printer"></div></button>

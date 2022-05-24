@@ -26518,6 +26518,20 @@ div.dt-buttons {
 .container_btn_docs button:hover {
   background-color: #019F86;
 }
+.container_btn_docs button .file_calendar {
+  background-image: url("/img/iconos/icono-calendario-verde.svg");
+  background-repeat: no-repeat;
+  width: 27px;
+  height: 27px;
+  margin: auto;
+}
+.container_btn_docs button .file_calendar:hover {
+  background-image: url("/img/iconos/icono-calendario-blanco.svg");
+  background-color: #019F86;
+}
+.container_btn_docs button:hover {
+  background-color: #019F86;
+}
 
 .container_card {
   background-color: #FFFFFF;
