@@ -26222,7 +26222,7 @@ div.dt-buttons {
 .containt__card {
   background-color: #FFFFFF;
   border: 1px solid #CED4DA;
-  border-radius: 5px;
+  border-radius: 7px;
   box-shadow: 1px 1px 10px 2px rgba(206, 212, 218, 0.5);
   transition-duration: 0.15s;
 }
@@ -26403,21 +26403,28 @@ div.dt-buttons {
   background-size: 16px;
 }
 
+.title_contain_card {
+  font-size: 25px;
+  color: #019F86;
+  font-weight: bold;
+  text-align: center;
+}
+
 .card_btn_search button {
   border: 1px solid #CED4DA;
   background-color: #FFF;
   text-decoration: none;
   border-radius: 7px;
-  height: 30px;
+  height: 41px;
   display: inline-flex;
   align-items: center;
   overflow: hidden;
   width: auto;
-  width: 30px;
+  width: 46px;
   transition: max-width 0.1s;
   background-image: url("/img/iconos/search_green.svg");
   background-repeat: no-repeat;
-  background-position-x: 3PX;
+  background-position-x: 10PX;
   background-position-y: center;
   background-size: 22px;
   white-space: nowrap;
@@ -26425,20 +26432,21 @@ div.dt-buttons {
   padding-right: 0px;
   padding-left: 30px;
 }
-.card_btn_search button:hover {
-  width: 285px;
+.card_btn_search .search_togggle {
+  width: 100%;
   padding-left: 0;
-  padding-right: 30px;
-  background-position-x: 257px;
+  padding-right: 40px;
+  background-position-x: 97%;
 }
 .card_btn_search input {
   display: block;
   width: 100%;
-  height: calc(1.6em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
+  height: 100%;
+  padding: 5px 0 5px 15px;
   margin-bottom: 15px;
-  font-size: 12px;
-  font-weight: 400;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.6;
   color: #434343;
   background-color: #FFFFFF;
@@ -26448,11 +26456,92 @@ div.dt-buttons {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.card_content_btn_add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_content_btn_add .card_btn_add_green {
+  font-family: "Quicksand";
+  color: #FFFFFF;
+  background: #019F86;
+  border: solid 1px #019F86;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.container_btn_docs {
+  display: flex;
+  justify-content: center;
+}
+.container_btn_docs button {
+  width: 46px;
+  height: 41px;
+  background-color: #FFFFFF;
+  border: 1px solid #DBDADA;
+  border-radius: 7px;
+  margin: 0 3px;
+}
+.container_btn_docs button .file_excel {
+  background-image: url("/img/iconos/icono-excel-verde.svg");
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 27px;
+  margin: auto;
+}
+.container_btn_docs button .file_excel:hover {
+  background-image: url("/img/iconos/icono-excel-blanco.svg");
+  background-color: #019F86;
+}
+.container_btn_docs button .file_pdf {
+  background-image: url("/img/iconos/icono-pdf-verde.svg");
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 27px;
+  margin: auto;
+}
+.container_btn_docs button .file_pdf:hover {
+  background-image: url("/img/iconos/icono-pdf-blanco.svg");
+  background-color: #019F86;
+}
+.container_btn_docs button .file_printer {
+  background-image: url("/img/iconos/icono-imprimir-verde.svg");
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 25px;
+  margin: auto;
+}
+.container_btn_docs button .file_printer:hover {
+  background-image: url("/img/iconos/icono-imprimir-blanco.svg");
+  background-color: #019F86;
+}
+.container_btn_docs button:hover {
+  background-color: #019F86;
+}
+
+.container_card {
+  background-color: #FFFFFF;
+  border: 1px solid #DBDADA;
+  border-radius: 7px;
+}
+
+.card__ {
+  padding: 15px 30px;
+}
+
 .card__row {
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
+}
+
+.card__imagen {
+  width: 57px;
+  height: 56px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card_info_user {
@@ -26462,7 +26551,7 @@ div.dt-buttons {
 .card_info_user .card_txt_h .card_h4 {
   font-size: 16px;
   font-family: "Roboto";
-  font-weight: bolder;
+  font-weight: 500;
   text-align: center;
   color: #434343;
   margin: 0;
@@ -26470,16 +26559,20 @@ div.dt-buttons {
 .card_info_user .card_txt_h .card_h5 {
   font-size: 14px;
   font-family: "Roboto";
-  font-weight: 100;
+  font-weight: 500;
   text-align: center;
   color: #707070;
 }
 .card_info_user .card_txt_span .card_icon {
-  width: 14px;
-  padding-right: 3px;
+  width: 12px;
+  height: 10PX;
+  margin-right: 5px;
 }
 .card_info_user .card_txt_span .card_span {
   font-size: 12px;
+  font-family: "Roboto";
+  font-weight: 500;
+  color: #707070;
 }
 .card_info_user .card_content_btn_info {
   display: flex;
@@ -26492,6 +26585,48 @@ div.dt-buttons {
   padding: 6px;
   width: 35px;
   height: 35px;
+}
+.card_info_user .card_content_btn_info .card_btn_info:nth-child(1) {
+  color: #FF3E3E;
+}
+.card_info_user .card_content_btn_info .card_btn_info:nth-child(4) {
+  color: #FF3E3E;
+}
+
+.pagination__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.pagination__right .pag_btn_right {
+  width: 47px;
+  height: 41px;
+  background-color: #FFFFFF;
+  border: 1px solid #707070;
+  border-radius: 7px 0 0 7px;
+  background-image: url("/img/iconos/flecha-derecha-gris.svg");
+  background-repeat: no-repeat;
+  background-size: 9px;
+  background-position: center;
+}
+.pagination__right .pag_btn_right:focus {
+  background-color: #707070;
+  background-image: url("/img/iconos/flecha-derecha-blanca.svg");
+}
+.pagination__right .pag_btn_left {
+  width: 47px;
+  height: 41px;
+  background-color: #FFFFFF;
+  border: 1px solid #707070;
+  border-radius: 0 7px 7px 0;
+  background-image: url("/img/iconos/flecha-izquierda-gris.svg");
+  background-repeat: no-repeat;
+  background-size: 9px;
+  background-position: center;
+}
+.pagination__right .pag_btn_left:focus {
+  background-color: #707070;
+  background-image: url("/img/iconos/flecha-izquierda-blanca.svg");
 }
 
 @media (min-width: 768px) {
@@ -26517,6 +26652,137 @@ div.dt-buttons {
   .estado__inactivo_modal {
     top: 86px;
     right: 25px;
+  }
+
+  .title_contain_card {
+    text-align: initial;
+  }
+
+  .card_btn_search .search_togggle {
+    width: 97%;
+    background-position-x: 95%;
+  }
+
+  .card__ {
+    padding: 15px 5px;
+  }
+
+  .card_info_user {
+    padding-left: 5px;
+  }
+
+  .card_content_btn_add {
+    justify-content: initial;
+  }
+  .card_content_btn_add .card_btn_add_green {
+    font-family: "Quicksand";
+    color: #FFFFFF;
+    background: #019F86;
+    border: solid 1px #019F86;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+
+  .card__row {
+    flex-direction: row;
+  }
+
+  .card__imagen {
+    width: 63px;
+    height: 62px;
+  }
+
+  .card__row .card_content_btn_info {
+    justify-content: flex-end;
+    padding: 0;
+  }
+  .card__row .card_content_btn_info .card_btn_info {
+    border: none;
+    background-color: transparent;
+    color: #019F86;
+    padding: 0 3px;
+  }
+  .card__row .card_content_btn_info .card_btn_info .icon_btn_info_md {
+    width: 13px;
+    height: 15px;
+  }
+  .card__row .card_content_btn_info .card_btn_info:nth-child(1) {
+    color: #FF3E3E;
+  }
+  .card__row .card_content_btn_info .card_btn_info:nth-child(4) {
+    color: #FF3E3E;
+  }
+
+  .card_info_user .card_txt_h .card_h4 {
+    font-size: 14px;
+    text-align: initial;
+  }
+  .card_info_user .card_txt_h .card_h5 {
+    font-size: 12px;
+    text-align: initial;
+  }
+}
+@media (min-width: 1024px) {
+  .card_content_btn_add .card_btn_add_green {
+    padding: 5px;
+  }
+
+  .card_btn_search .search_togggle {
+    width: 100%;
+    background-position-x: 98%;
+  }
+}
+@media (min-width: 1200px) {
+  .card_content_btn_add .card_btn_add_green {
+    font-size: 0.8rem;
+    padding: 5px 5px;
+  }
+
+  .card__imagen {
+    width: 51px;
+    height: 50px;
+  }
+
+  .card_info_user .card_txt_h .card_h4 {
+    font-size: 12px;
+  }
+  .card_info_user .card_txt_h .card_h5 {
+    font-size: 10px;
+  }
+
+  .card_info_user .card_txt_span .card_span {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1300px) {
+  .card_content_btn_add .card_btn_add_green {
+    padding: 5px 7px;
+    font-size: 0.9rem;
+  }
+
+  .card__imagen {
+    width: 63px;
+    height: 62px;
+  }
+
+  .card_info_user .card_txt_h .card_h4 {
+    font-size: 14px;
+  }
+  .card_info_user .card_txt_h .card_h5 {
+    font-size: 12px;
+  }
+
+  .card_info_user .card_txt_span .card_span {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1440px) {
+  .card_content_btn_add .card_btn_add_green {
+    padding: 5px 15px;
+  }
+
+  .width_xl_95 {
+    width: 95%;
   }
 }
 .containt_main_form {
