@@ -12,8 +12,8 @@
 
     <style>
         .dataTables_filter, .dataTables_info {
-            display: none;
-        !important;
+            /*    display: none;*/
+            /*!important;*/
         }
 
         .bg-agendado {
@@ -349,13 +349,19 @@
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
-                dom: 'Plfrtip',
-                //dom: '<"dtsp-verticalContainer"<"dtsp-verticalPanes"P><"dtsp-dataTable"frtip>>',
+                //dom: 'Plfrtip',
+                dom:
+                    "<'row'<'col-12'P>><'#filter-input.row'>"+
+                    "<'row'<'col-12'ltip><'col-12'>>",
                 serverSide: true,
                 processing: true,
                 ajax: {
                     type: 'post',
                     url: '{{ route('institucion.calendario.lista-citas') }}',
+                    data: (d) =>{
+                        d.fecha = $('#fecha').val();
+                        d.estado = $('#estado').val();
+                    }
                 },
                 responsive: true,
                 language: {
@@ -395,14 +401,16 @@
                         className: '',
                         data: function (data, type, full, meta) {
 
-                            return '<button  class="btn_action_green tool top editar-cita" data-url="">' +
+                            return '<div class="d-flex justify-content-center">' +
+                                '<button  class="btn_action_green tool top editar-cita" data-url="">' +
                                 '<i class="fas fa-calendar-day fa-2x"></i>' +
                                 '<span class="tiptext">Editar cita</span>' +
                                 '</button>' +
                                 '<button  class="btn_action_green tool top cancelar-cita" data-url="">' +
                                 '<i class="fas fa-calendar-times fa-2x"></i>' +
                                 '<span class="tiptext">Cancelar cita</span>' +
-                                '</button>';
+                                '</button>' +
+                                '</div>';
                         },
                         searchable: false,
                         //responsive: false,
@@ -423,6 +431,37 @@
                         targets: [-1]
                     }
                 ],
+                initComplete: function () {
+
+                    var api = this.api();
+                    //Agregar los dos inputs
+                    $('#filter-input').html(
+                        '<div class="col-md-6 mb-3">' +
+                        '<input id="fecha" name="fecha" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>' +
+                        '</div>' +
+                        '<div class="col-md-6 mb-3">' +
+                        '<select name="estado" id="estado" class="form-control filter-data">' +
+                        '<option value="">Todos</option>' +
+                        '<option selected value="agendado">Agendado</option>' +
+                        '<option value="completado">Completado</option>' +
+                        '<option value="cancelado">Cancelado</option>' +
+                        '</select>' +
+                        '</div>');
+
+                    $('.filter-data').on('change', function () {
+                        table.ajax.reload(null, false)
+                    });
+
+                    $('#fecha').datepicker({
+                        language: 'es',
+                        format: 'yyyy-mm-dd',
+                        startDate: moment().format('YYYY-MM-DD'),
+                    });
+
+                    table.ajax.reload(null, false);
+
+                    //table.search().draw();
+                }
                 // createdRow: function (row, data, dataIndex) {
                 //     $(row).addClass('bg-' + data.estado);
                 // }

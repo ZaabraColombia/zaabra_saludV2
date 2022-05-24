@@ -148,7 +148,6 @@ class CalendarioController extends Controller
 
     public function lista_citas(Request $request)
     {
-
 //        $query = Cita::query()
 //            ->with([
 //                'paciente:id,id_usuario,celular',
@@ -202,7 +201,15 @@ class CalendarioController extends Controller
             ->where('serv.estado', 1)
             ->where('prof.estado', 1)
             ->where('id_institucion', Auth::user()->institucion->id)
-            ;
+            //->whereDate('fecha_inicio', '>=', date('Y-m-d'))
+        ;
+
+        if ($request->has('fecha') and  $request->fecha != '') {
+            //$query->where('fecha_inicio', '>=', "%{$request->get('fecha')}%");
+            $q->whereDate('fecha_inicio', '=', $request->get('fecha'));
+        } else {
+            $q->whereDate('fecha_inicio', '=', date('Y-m-d'));
+        }
 
         $profesionales = profesionales_instituciones::query()
             ->select('id_profesional_inst as id', 'nombre_completo as label', 'nombre_completo as value')
@@ -261,7 +268,12 @@ class CalendarioController extends Controller
             ->get();
 
         $datatables = \Yajra\DataTables\Facades\DataTables::eloquent($q)
+            ->filter(function ($query) use ($request) {
 
+                if ($request->has('estado')) {
+                    $query->where('citas.estado', 'like', "%{$request->get('estado')}%");
+                }
+            })
             ->filterColumn('servicio', function($query, $keyword) {
                 return $query->whereRaw("serv.nombre like ?", ["%{$keyword}%"]);
             })
