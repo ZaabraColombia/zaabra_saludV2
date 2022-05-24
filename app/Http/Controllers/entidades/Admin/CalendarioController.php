@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Yajra\DataTables\DataTables;
 
 class CalendarioController extends Controller
 {
@@ -168,9 +169,11 @@ class CalendarioController extends Controller
                 'id_cita',
                 'fecha_inicio',
                 'fecha_fin',
-                'nombreEspecialidad as especialidad',
-                'serv.nombre as servicio',
-                'citas.estado as estado',
+                'idEspecialidad',
+                'nombreEspecialidad',
+                'tipo_cita_id',
+
+                'citas.estado as estado as estado',
 
                 //user
                 'pac_user.nombre_completo as paciente_nombre',
@@ -178,10 +181,14 @@ class CalendarioController extends Controller
 
                 //Profesionales
                 'prof.nombre_completo as profesional_nombre',
+                'prof.nombre_completo',
+
+                'serv.nombre as servicio',
+                'serv.nombre',
             ])
             ->selectRaw('DATE_FORMAT(fecha_inicio, "%Y-%m-%e") as fecha')
-            ->selectRaw('DATE_FORMAT(fecha_inicio, "%h-%S %p") as hora_inicio')
-            ->selectRaw('DATE_FORMAT(fecha_fin, "%h-%S %p") as hora_fin')
+            ->selectRaw('DATE_FORMAT(fecha_inicio, "%h:%S %p") as hora_inicio')
+            ->selectRaw('DATE_FORMAT(fecha_fin, "%h:%S %p") as hora_fin')
             ->selectRaw('concat(pac_doc.nombre_corto, " ", pac_user.numerodocumento) as paciente_identificacion')
             ->join('pacientes as pac', 'pac.id', '=', 'citas.paciente_id')
             ->join('users as pac_user', 'pac_user.id', '=', 'pac.id_usuario')
@@ -194,24 +201,103 @@ class CalendarioController extends Controller
 
             ->where('serv.estado', 1)
             ->where('prof.estado', 1)
-            ->where('id_institucion', Auth::user()->institucion->id);
+            ->where('id_institucion', Auth::user()->institucion->id)
+            ;
 
         $profesionales = profesionales_instituciones::query()
-            ->select('id_profesional_inst as id', 'nombre_completo as label')
+            ->select('id_profesional_inst as id', 'nombre_completo as label', 'nombre_completo as value')
+            ->addSelect([
+                'total' => Cita::query()
+                    ->selectRaw('count(*) as total')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.profesional_ins_id', 'profesionales_instituciones.id_profesional_inst')
+                    ->take(1),
+                'count' => Cita::query()
+                    ->selectRaw('count(*) as count')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.profesional_ins_id', 'profesionales_instituciones.id_profesional_inst')
+                    ->take(1),
+            ])
             ->where('id_institucion', Auth::user()->institucion->id)
             ->where('estado', 1)
+            ->having('total', '>', 0)
             ->get();
 
-        return datatables()
-            ->eloquent($q)
-//            ->addColumn('edit', function (Cita $cita){
-//                return route('institucion.calendario.ver-cita', ['cita' => $cita->id_cita]);
-//            })
-            ->searchPane('profesional_nombre', $profesionales)
-            ->toJson();
+        $especialidades = especialidades::query()
+            ->select('idEspecialidad as id', 'nombreEspecialidad as label', 'nombreEspecialidad as value')
+            ->addSelect([
+                'total' => Cita::query()
+                    ->selectRaw('count(*) as total')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.especialidad_id', 'especialidades.idEspecialidad')
+                    ->take(1),
+                'count' => Cita::query()
+                    ->selectRaw('count(*) as count')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.especialidad_id', 'especialidades.idEspecialidad')
+                    ->take(1),
+            ])
+            ->whereIn('idEspecialidad', $q->get()->pluck('idEspecialidad')->toArray())
+            ->having('total', '>', 0)
+            ->get();
 
-//        return  app('datatables')->of($q)
-//            ->searchPane('profesional_nombre', $profesionales);
+        $servicios = Servicio::query()
+            ->select('id', 'nombre as label', 'nombre as value')
+            ->addSelect([
+                'total' => Cita::query()
+                    ->selectRaw('count(*) as total')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.tipo_cita_id', 'servicios.id')
+                    ->take(1),
+                'count' => Cita::query()
+                    ->selectRaw('count(*) as count')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.tipo_cita_id', 'servicios.id')
+                    ->take(1),
+            ])
+            ->where('institucion_id', Auth::user()->institucion->id)
+            ->whereIn('id', $q->get()->pluck('tipo_cita_id')->toArray())
+            ->having('total', '>', 0)
+            ->get();
+
+        $datatables = \Yajra\DataTables\Facades\DataTables::eloquent($q)
+
+            ->filterColumn('servicio', function($query, $keyword) {
+                return $query->whereRaw("serv.nombre like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('estado', function($query, $keyword) {
+                return $query->whereRaw("citas.estado like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('paciente_nombre', function($query, $keyword) {
+                return $query->whereRaw("pac_user.nombre_completo like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('profesional_nombre', function($query, $keyword) {
+                return $query->whereRaw("prof.nombre_completo like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('nombreEspecialidad', function($query, $keyword) {
+                return $query->whereRaw("esp.nombreEspecialidad like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('fecha', function($query, $keyword) {
+                return $query->whereRaw("DATE_FORMAT(fecha_inicio, '%Y-%m-%e') like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('hora_inicio', function($query, $keyword) {
+                return $query->whereRaw("DATE_FORMAT(fecha_inicio, '%h:%S %p') like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('hora_fin', function($query, $keyword) {
+                return $query->whereRaw("DATE_FORMAT(fecha_fin, '%h:%S %p') like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('paciente_identificacion', function($query, $keyword) {
+                return $query->whereRaw("concat(pac_doc.nombre_corto, ' ', pac_user.numerodocumento) like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('paciente_celular', function($query, $keyword) {
+                return $query->whereRaw("pac.celular like ?", ["%{$keyword}%"]);
+            })
+            ->searchPane('prof.nombre_completo', $profesionales)
+            ->searchPane('nombreEspecialidad', $especialidades)
+            ->searchPane('serv.nombre', $servicios);
+
+
+        return $datatables->make(true);
     }
 
     /**

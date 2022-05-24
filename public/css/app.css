@@ -23026,7 +23026,7 @@ a:hover {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25rem;
-  width: 100%;
+  /*width: 100%;*/
 }
 
 .container_pagos {

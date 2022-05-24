@@ -11,11 +11,26 @@
     <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">
 
     <style>
-        .dataTables_filter, .dataTables_info { display: none;!important; }
-        .bg-agendado { background: rgba(1, 159, 134, 0.3)}
-        .bg-cancelado { background: rgba(157, 209, 249, 0.3)}
-        .bg-completado { background: rgba(71, 178, 0, 0.3)}
-        .bg-reservado { background: rgba(243, 119, 37, 0.3)}
+        .dataTables_filter, .dataTables_info {
+            display: none;
+        !important;
+        }
+
+        .bg-agendado {
+            background: rgba(1, 159, 134, 0.3)
+        }
+
+        .bg-cancelado {
+            background: rgba(157, 209, 249, 0.3)
+        }
+
+        .bg-completado {
+            background: rgba(71, 178, 0, 0.3)
+        }
+
+        .bg-reservado {
+            background: rgba(243, 119, 37, 0.3)
+        }
     </style>
 @endsection
 
@@ -43,11 +58,12 @@
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-8  p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar cita" />
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar cita"/>
                     </div>
 
                     <div class="col-md-4 p-0 content_btn_right">
-                        <a href="{{ route('institucion.calendario.iniciar-control') }}" class="button_transparent mr-2" id="">
+                        <a href="{{ route('institucion.calendario.iniciar-control') }}" class="button_transparent mr-2"
+                           id="">
                             Atras
                         </a>
                         <a href="{{ route('institucion.calendario.crear-cita') }}" class="button_green" target="_blank">
@@ -62,19 +78,23 @@
                 <div class="col-12" id="alertas"></div>
                 <table class="table table_agenda" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Hora Inicio</th>
-                            <th>Hora Fin</th>
-                            <th>Servicio</th>
-                            <th>Especialidad</th>
-                            <th>Profesional</th>
-                            <th>Paciente</th>
-                            <th>Identificación</th>
-                            <th>Celular</th>
-                            <th>Estado</th>
-                            <th>Acción</th>
-                        </tr>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora Inicio</th>
+                        <th>Hora Fin</th>
+                        {{--Es nesesario que esten duplicados--}}
+                        <th>Profesional</th>
+                        <th>Profesional</th>
+                        <th>Especialidad</th>
+                        {{--Es nesesario que esten duplicados--}}
+                        <th>Servicio</th>
+                        <th>Servicio</th>
+                        <th>Paciente</th>
+                        <th>Identificación</th>
+                        <th>Celular</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
                     </thead>
                 </table>
             </div>
@@ -82,7 +102,7 @@
     </div>
 
     <!-- Modal  reagendar cita -->
-    <div class="modal fade" id="modal-reagendar-cita" tabindex="-1" >
+    <div class="modal fade" id="modal-reagendar-cita" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -160,8 +180,8 @@
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
-                                <input type="hidden" id="paciente" name="paciente" />
-                                <input type="hidden" id="tipo_servicio" name="tipo_servicio" />
+                                <input type="hidden" id="paciente" name="paciente"/>
+                                <input type="hidden" id="tipo_servicio" name="tipo_servicio"/>
 
                                 <div class="col-12 p-0">
                                     <label for="profesional">Profesional</label>
@@ -177,7 +197,8 @@
                                         </button>
                                     </div>
                                     --}}
-                                    <input type="text" class="form-control" id="fecha-reasignar" name="date-calendar" disabled/>
+                                    <input type="text" class="form-control" id="fecha-reasignar" name="date-calendar"
+                                           disabled/>
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="basic-addon2">
                                         <i class="fas fa-calendar"></i>
@@ -208,7 +229,7 @@
     </div>
 
     <!-- Modal  Cancelar cita -->
-    <div class="modal fade" id="modal-cancelar-cita" tabindex="-1" >
+    <div class="modal fade" id="modal-cancelar-cita" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -312,7 +333,7 @@
     <script src="{{ asset('js/alertas.js') }}"></script>
 
     <script>
-        $(document).ready( function () {
+        $(document).ready(function () {
 
             //$.fn.dataTable.moment( 'DD-MM / YYYY', 'es');
             //$.fn.dataTable.moment( 'HH:mm A \- HH:mm A', 'es');
@@ -331,7 +352,8 @@
                 dom: 'Plfrtip',
                 //dom: '<"dtsp-verticalContainer"<"dtsp-verticalPanes"P><"dtsp-dataTable"frtip>>',
                 serverSide: true,
-                ajax:{
+                processing: true,
+                ajax: {
                     type: 'post',
                     url: '{{ route('institucion.calendario.lista-citas') }}',
                 },
@@ -339,13 +361,31 @@
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
                 },
-                columns:[
-                    {data: "fecha", name: "fecha"},
-                    {data: "hora_inicio", name: "hora_inicio"},
-                    {data: "hora_fin", name: 'hora_fin'},
-                    {data: "especialidad", name: 'especialidad'},
-                    {data: "servicio", name: 'servicio'},
-                    {data: "profesional_nombre", name: 'profesional_nombre'},
+                columns: [
+                    {data: "fecha", name: "fecha_inicio"},
+                    {data: "hora_inicio", name: "fecha_inicio"},
+                    {data: "hora_fin", name: 'fecha_fin'},
+                    {
+                        data: 'prof.nombre_completo',
+                        name: 'prof.nombre_completo',
+                        visible: false
+                    },
+                    {
+                        data: 'profesional_nombre',
+                        name: 'profesional_nombre',
+                        searchable: false
+                    },
+                    {data: "nombreEspecialidad", name: 'nombreEspecialidad'},
+                    {
+                        data: 'serv.nombre',
+                        name: 'serv.nombre',
+                        visible: false
+                    },
+                    {
+                        data: 'servicio',
+                        name: 'servicio',
+                        searchable: false
+                    },
                     {data: "paciente_nombre", name: 'paciente_nombre'},
                     {data: "paciente_identificacion", name: 'paciente_identificacion'},
                     {data: "paciente_celular", name: "paciente_celular"},
@@ -354,6 +394,7 @@
                         name: 'edit',
                         className: '',
                         data: function (data, type, full, meta) {
+
                             return '<button  class="btn_action_green tool top editar-cita" data-url="">' +
                                 '<i class="fas fa-calendar-day fa-2x"></i>' +
                                 '<span class="tiptext">Editar cita</span>' +
@@ -367,16 +408,7 @@
                         //responsive: false,
                     },
                 ],
-                searchPanes:{
-                    //viewTotal: true,
-                    //columns: [0, 1, 2],
-                    //layout: 'columns-3',
-                    // dtOpts: {
-                    //     dom: 'tp',
-                    //     //paging: true,
-                    //     pagingType: 'number',
-                    //     searching: true,
-                    // },
+                searchPanes: {
                     viewTotal: false,
                 },
                 columnDefs: [
@@ -384,23 +416,27 @@
                         searchPanes: {
                             show: true
                         },
-                        targets: [5]
+                        targets: [3, 5, 6]
                     },
+                    {
+                        responsivePriority: 1,
+                        targets: [-1]
+                    }
                 ],
                 // createdRow: function (row, data, dataIndex) {
                 //     $(row).addClass('bg-' + data.estado);
                 // }
             });
 
-            setInterval( function () {
+            setInterval(function () {
                 table.ajax.reload(null, false);
-            }, 30000 );
+            }, 30000);
 
-            $("#search").on('keyup change',function(){
+            $("#search").on('keyup change', function () {
                 var texto = $(this).val();
                 table.search(texto).draw();
             });
-            $("#date").on('change',function(){
+            $("#date").on('change', function () {
                 table.draw();
             });
 
@@ -487,7 +523,7 @@
                     },
                     processResults: function (response) {
                         return {
-                            results:response
+                            results: response
                         };
                     },
                     cache: true,
@@ -502,7 +538,7 @@
                     dataType: 'json',
                     method: 'post',
                     headers: {
-                        accept:'application/json',
+                        accept: 'application/json',
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: (response) => {
@@ -525,7 +561,7 @@
                         //date_picker.datepicker('update', moment().format('YYYY-MM-DD'));
                     }
                 });
-            }).on('select2:opening', function (e){
+            }).on('select2:opening', function (e) {
                 var date_picker = $('#fecha-reasignar');
                 $(this).val('').trigger('change');
 
