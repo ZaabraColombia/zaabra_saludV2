@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <!-- Tarjetas de Usuarios -->
+        <!-- Tarjetas Profesionales -->
         <div class="row m-0">
             <div class="col-12" id="alertas" >
                 @if(session()->has('success'))
@@ -58,7 +58,7 @@
                     <div class="col-md-6 col-xl-4 p-0 px-md-1 mb-3">
                         <div class="card container_card p-0">                            
                             <div class="card__">                             
-                                <div class="row card__row">
+                                <div class="row card__row_column">
                                     <div class="card_content_btn_info col-12 d-none d-md-flex mb-md-1">
                                         <a class="card_btn_info tool top"
                                             href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
