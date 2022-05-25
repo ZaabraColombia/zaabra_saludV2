@@ -1,7 +1,10 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
-        .dataTables_filter, .dataTables_info { display: none;!important; }
+        .dataTables_filter, .dataTables_info {
+            display: none;
+        !important;
+        }
     </style>
 @endsection
 
@@ -15,34 +18,54 @@
 
         <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
         <div class="row m-0">
+
             <div class="col-md-12 col-lg-2 p-0 card_content_btn_add mb-4">
-                <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green py-2" id="btn-agregar-contacto">
+                <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green py-2"
+                   id="btn-agregar-contacto">
                     Agregar profesional
                 </a>
             </div>
-
             <div class="col-md-6 col-lg-6 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
-                <button id="search">
-                    <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar">
-                </button>
+                <form method="get">
+                    <button id="search" type="button">
+                        <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar">
+                    </button>
+                </form>
             </div>
 
             <div class="col-md-4 col-lg-3 p-0 mb-4 container_btn_docs">
-                <button><div class="file_calendar"></div></button>
-                <button><div class="file_excel"></div></button>
-                <button><div class="file_pdf"></div></button>
-                <button><div class="file_printer"></div></button>
+                <button>
+                    <div class="file_calendar"></div>
+                </button>
+                <button>
+                    <div class="file_excel"></div>
+                </button>
+                <button>
+                    <div class="file_pdf"></div>
+                </button>
+                <button>
+                    <div class="file_printer"></div>
+                </button>
             </div>
 
             <div class="col-md-2 col-lg-1 d-none d-md-flex p-0 mb-4 pagination__right">
-                <button class="pag_btn_right"></button>
-                <button class="pag_btn_left"></button>
+                @if(!$profesionales->onFirstPage())
+                    <a href="{{ $profesionales->previousPageUrl() }}" class="pag_btn_right"></a>
+                @else
+                    <button disabled class="pag_btn_right disabled"></button>
+                @endif
+                @if(!$profesionales->onLastPage())
+                    <a href="{{ $profesionales->nextPageUrl() }}" class="pag_btn_left"></a>
+                @else
+                    <button disabled class="pag_btn_left disabled"></button>
+                @endif
+
             </div>
         </div>
 
         <!-- Tarjetas Profesionales -->
         <div class="row m-0">
-            <div class="col-12" id="alertas" >
+            <div class="col-12" id="alertas">
                 @if(session()->has('success'))
                     <div class="alert alert-success" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -57,23 +80,24 @@
             @if($profesionales->isNotEmpty())
                 @foreach($profesionales as $profesional)
                     <div class="col-md-6 col-xl-4 p-0 px-md-1 mb-3">
-                        <div class="card container_card p-0">                            
-                            <div class="card__">                             
+                        <div class="card container_card p-0">
+                            <div class="card__">
                                 <div class="row card__row_column">
                                     <div class="card_content_btn_info col-12 d-none d-md-flex mb-md-1">
                                         <a class="card_btn_info tool top"
-                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                           href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
                                             <i data-feather="lock" class="icon_btn_info_md"></i> <span class="tiptext">Editar profesional</span>
                                         </a>
 
                                         <a class="card_btn_info tool top"
-                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                           href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
                                             <i data-feather="edit" class="icon_btn_info_md"></i> <span class="tiptext">Editar profesional</span>
                                         </a>
 
                                         <a class="card_btn_info tool top"
-                                            href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="calendar" class="icon_btn_info_md"></i> <span class="tiptext">Configurar agenda</span>
+                                           href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                            <i data-feather="calendar" class="icon_btn_info_md"></i> <span
+                                                class="tiptext">Configurar agenda</span>
                                         </a>
 
                                         <button class="card_btn_info tool top bloquear-agenda"
@@ -83,8 +107,10 @@
                                     </div>
 
                                     <div class="col-md-3 p-0 mb-2 d-flex justify-content-center align-self-md-start">
-                                        <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
-                                            <img class="card__imagen" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                                        <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}"
+                                           target="_blank">
+                                            <img class="card__imagen"
+                                                 src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
                                         </a>
                                     </div>
 
@@ -99,48 +125,55 @@
 
                                         <div class="card_content_btn_info d-md-none">
                                             <a class="card_btn_info tool top"
-                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="lock"></i> <span class="tiptext">Editar profesional</span>
+                                               href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i data-feather="lock"></i> <span
+                                                    class="tiptext">Editar profesional</span>
                                             </a>
 
                                             <a class="card_btn_info tool top"
-                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="edit"></i> <span class="tiptext">Editar profesional</span>
+                                               href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i data-feather="edit"></i> <span
+                                                    class="tiptext">Editar profesional</span>
                                             </a>
 
                                             <a class="card_btn_info tool top"
-                                                href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="calendar"></i> <span class="tiptext">Configurar agenda</span>
+                                               href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                                <i data-feather="calendar"></i> <span
+                                                    class="tiptext">Configurar agenda</span>
                                             </a>
 
                                             <button class="card_btn_info tool top bloquear-agenda"
                                                     data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="slash"></i> <span class="tiptext">Bloquear agenda</span>
+                                                <i data-feather="slash"></i> <span
+                                                    class="tiptext">Bloquear agenda</span>
                                             </button>
                                         </div>
 
                                         <div class="toolt bottom">
                                             <div class="card_txt_span mail">
-                                                <i data-feather="mail" class="card_icon"></i><span class="card_span">{{ $profesional->correo }}</span>
+                                                <i data-feather="mail" class="card_icon"></i><span
+                                                    class="card_span">{{ $profesional->correo }}</span>
                                             </div>
-                                            <span class="tiptext">{{ $profesional->correo }}</span>    
+                                            <span class="tiptext">{{ $profesional->correo }}</span>
                                         </div>
 
                                         <div class="card_txt_span">
-                                            <i data-feather="phone" class="card_icon"></i><span class="card_span">{{ "{$profesional->celular} - {$profesional->telefono}" }}</span>
+                                            <i data-feather="phone" class="card_icon"></i><span
+                                                class="card_span">{{ "{$profesional->celular} - {$profesional->telefono}" }}</span>
                                         </div>
 
                                         <div class="card_txt_span">
-                                            <i data-feather="map-pin" class="card_icon"></i><span class="card_span">{{ $profesional->direccion }}</span>
+                                            <i data-feather="map-pin" class="card_icon"></i><span
+                                                class="card_span">{{ $profesional->direccion }}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach    
-            @endif  
-            
+                @endforeach
+            @endif
+
             <div class="col-12 d-md-none p-0 mb-4 pagination__right">
                 <button class="pag_btn_right"></button>
                 <button class="pag_btn_left"></button>
@@ -214,7 +247,7 @@
             searching: true,
             columnDefs: [
                 {
-                    targets: [-1,-2],
+                    targets: [-1, -2],
                     orderable: false,
                 }
             ],
@@ -222,7 +255,7 @@
 
         });
 
-        $("#search").on('keyup change',function(){
+        $("#search").on('keyup change', function () {
             var texto = $(this).val();
             table.search(texto).draw();
         });
@@ -264,7 +297,7 @@
     </script>
 
     <script>
-        $('#search').on('click', function(){
+        $('#search').on('click', function () {
             $('#search').addClass('search_togggle');
         });
     </script>

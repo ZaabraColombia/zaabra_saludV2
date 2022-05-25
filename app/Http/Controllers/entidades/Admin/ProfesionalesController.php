@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
+use Symfony\Component\Console\Input\Input;
 
 class ProfesionalesController extends Controller
 {
@@ -39,9 +40,15 @@ class ProfesionalesController extends Controller
         Gate::authorize('accesos-institucion','ver-profesionales');
 
         $user = Auth::user();
+
         $profesionales = profesionales_instituciones::query()
+            ->with('especialidad_principal')
             ->where('id_institucion', '=', $user->institucion->id)
-            ->get();
+            ->search(\request('search'))
+            ->orderBy('nombre_completo')
+            ->simplePaginate(12);
+
+        if (request('search')) $profesionales->appends(['search' => request('search')]);
 
         return view('instituciones.admin.profesionales.index',compact(
             'profesionales'
