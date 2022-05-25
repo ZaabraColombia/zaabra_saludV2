@@ -22,8 +22,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Yajra\DataTables\DataTables;
 
 class CalendarioController extends Controller
 {
@@ -132,11 +134,11 @@ class CalendarioController extends Controller
         $especialidades = especialidades::query()
             ->whereHas('total_ins_profesionales', function ($query) use ($user){
                 return $query->where('id_institucion', $user->institucion->id)
-            ->where('estado', 1);
+                    ->where('estado', 1);
             })
             ->orWhereHas('ins_profesionales', function ($query) use ($user){
                 return $query->where('id_institucion', $user->institucion->id)
-            ->where('estado', 1);
+                    ->where('estado', 1);
             })
             ->get();
 
@@ -146,24 +148,168 @@ class CalendarioController extends Controller
 
     public function lista_citas(Request $request)
     {
+//        $query = Cita::query()
+//            ->with([
+//                'paciente:id,id_usuario,celular',
+//                'paciente.user:id,primernombre,segundonombre,primerapellido,segundoapellido,numerodocumento',
+//                'profesional_ins:id_profesional_inst,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido,id_institucion'
+//            ])
+//            ->whereHas('profesional_ins', function ($query) {
+//                return $query->where('id_institucion', Auth::user()->institucion->id);
+//            })
+//            ->whereNotIn('estado', ['cancelado']);
+        //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
+        //->whereDate('fecha_inicio', $request->fecha)
+        //->whereIn('profesional_ins_id', $request->get('ids'));
 
-        $query = Cita::query()
-            ->with([
-                'paciente:id,id_usuario,celular',
-                'paciente.user:id,primernombre,segundonombre,primerapellido,segundoapellido,numerodocumento',
-                'profesional_ins:id_profesional_inst,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido'
+
+        $q = Cita::query()
+            ->select([
+                'id_cita',
+                'fecha_inicio',
+                'fecha_fin',
+                'idEspecialidad',
+                'nombreEspecialidad',
+                'tipo_cita_id',
+
+                'citas.estado as estado as estado',
+
+                //user
+                'pac_user.nombre_completo as paciente_nombre',
+                'pac.celular as paciente_celular',
+
+                //Profesionales
+                'prof.nombre_completo as profesional_nombre',
+                'prof.nombre_completo',
+
+                'serv.nombre as servicio',
+                'serv.nombre',
             ])
-            ->whereNotIn('estado', ['cancelado']);
-            //->where(DB::raw("DATE_FORMAT(fecha_inicio, '%Y-%c-%e') = '{$request->fecha}'"))
-            //->whereDate('fecha_inicio', $request->fecha)
-            //->whereIn('profesional_ins_id', $request->get('ids'));
+            ->selectRaw('DATE_FORMAT(fecha_inicio, "%Y-%m-%e") as fecha')
+            ->selectRaw('DATE_FORMAT(fecha_inicio, "%h:%S %p") as hora_inicio')
+            ->selectRaw('DATE_FORMAT(fecha_fin, "%h:%S %p") as hora_fin')
+            ->selectRaw('concat(pac_doc.nombre_corto, " ", pac_user.numerodocumento) as paciente_identificacion')
+            ->join('pacientes as pac', 'pac.id', '=', 'citas.paciente_id')
+            ->join('users as pac_user', 'pac_user.id', '=', 'pac.id_usuario')
+            ->join('tipo_documentos as pac_doc', 'pac_doc.id', '=', 'pac_user.tipodocumento')
 
-        return datatables()
-            ->eloquent($query)
-            ->addColumn('edit', function (Cita $cita){
-                return route('institucion.calendario.ver-cita', ['cita' => $cita->id_cita]);
+            ->join('profesionales_instituciones as prof', 'prof.id_profesional_inst', '=', 'citas.profesional_ins_id')
+
+            ->join('servicios as serv', 'serv.id', '=', 'citas.tipo_cita_id', 'right')
+            ->join('especialidades as esp', 'esp.idEspecialidad', '=', 'citas.especialidad_id')
+
+            ->where('serv.estado', 1)
+            ->where('prof.estado', 1)
+            ->where('id_institucion', Auth::user()->institucion->id)
+            //->whereDate('fecha_inicio', '>=', date('Y-m-d'))
+        ;
+
+        if ($request->has('fecha') and  $request->fecha != '') {
+            //$query->where('fecha_inicio', '>=', "%{$request->get('fecha')}%");
+            $q->whereDate('fecha_inicio', '=', $request->get('fecha'));
+        } else {
+            $q->whereDate('fecha_inicio', '=', date('Y-m-d'));
+        }
+
+        $profesionales = profesionales_instituciones::query()
+            ->select('id_profesional_inst as id', 'nombre_completo as label', 'nombre_completo as value')
+            ->addSelect([
+                'total' => Cita::query()
+                    ->selectRaw('count(*) as total')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.profesional_ins_id', 'profesionales_instituciones.id_profesional_inst')
+                    ->take(1),
+                'count' => Cita::query()
+                    ->selectRaw('count(*) as count')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.profesional_ins_id', 'profesionales_instituciones.id_profesional_inst')
+                    ->take(1),
+            ])
+            ->where('id_institucion', Auth::user()->institucion->id)
+            ->where('estado', 1)
+            ->having('total', '>', 0)
+            ->get();
+
+        $especialidades = especialidades::query()
+            ->select('idEspecialidad as id', 'nombreEspecialidad as label', 'nombreEspecialidad as value')
+            ->addSelect([
+                'total' => Cita::query()
+                    ->selectRaw('count(*) as total')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.especialidad_id', 'especialidades.idEspecialidad')
+                    ->take(1),
+                'count' => Cita::query()
+                    ->selectRaw('count(*) as count')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.especialidad_id', 'especialidades.idEspecialidad')
+                    ->take(1),
+            ])
+            ->whereIn('idEspecialidad', $q->get()->pluck('idEspecialidad')->toArray())
+            ->having('total', '>', 0)
+            ->get();
+
+        $servicios = Servicio::query()
+            ->select('id', 'nombre as label', 'nombre as value')
+            ->addSelect([
+                'total' => Cita::query()
+                    ->selectRaw('count(*) as total')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.tipo_cita_id', 'servicios.id')
+                    ->take(1),
+                'count' => Cita::query()
+                    ->selectRaw('count(*) as count')
+                    ->whereIn('id_cita', $q->get()->pluck('id_cita')->toArray())
+                    ->whereColumn('citas.tipo_cita_id', 'servicios.id')
+                    ->take(1),
+            ])
+            ->where('institucion_id', Auth::user()->institucion->id)
+            ->whereIn('id', $q->get()->pluck('tipo_cita_id')->toArray())
+            ->having('total', '>', 0)
+            ->get();
+
+        $datatables = \Yajra\DataTables\Facades\DataTables::eloquent($q)
+            ->filter(function ($query) use ($request) {
+
+                if ($request->has('estado')) {
+                    $query->where('citas.estado', 'like', "%{$request->get('estado')}%");
+                }
             })
-            ->toJson();
+            ->filterColumn('servicio', function($query, $keyword) {
+                return $query->whereRaw("serv.nombre like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('estado', function($query, $keyword) {
+                return $query->whereRaw("citas.estado like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('paciente_nombre', function($query, $keyword) {
+                return $query->whereRaw("pac_user.nombre_completo like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('profesional_nombre', function($query, $keyword) {
+                return $query->whereRaw("prof.nombre_completo like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('nombreEspecialidad', function($query, $keyword) {
+                return $query->whereRaw("esp.nombreEspecialidad like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('fecha', function($query, $keyword) {
+                return $query->whereRaw("DATE_FORMAT(fecha_inicio, '%Y-%m-%e') like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('hora_inicio', function($query, $keyword) {
+                return $query->whereRaw("DATE_FORMAT(fecha_inicio, '%h:%S %p') like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('hora_fin', function($query, $keyword) {
+                return $query->whereRaw("DATE_FORMAT(fecha_fin, '%h:%S %p') like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('paciente_identificacion', function($query, $keyword) {
+                return $query->whereRaw("concat(pac_doc.nombre_corto, ' ', pac_user.numerodocumento) like ?", ["%{$keyword}%"]);
+            })
+            ->filterColumn('paciente_celular', function($query, $keyword) {
+                return $query->whereRaw("pac.celular like ?", ["%{$keyword}%"]);
+            })
+            ->searchPane('prof.nombre_completo', $profesionales)
+            ->searchPane('nombreEspecialidad', $especialidades)
+            ->searchPane('serv.nombre', $servicios);
+
+
+        return $datatables->make(true);
     }
 
     /**

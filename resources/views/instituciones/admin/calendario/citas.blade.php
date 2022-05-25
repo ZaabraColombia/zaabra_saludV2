@@ -11,11 +11,26 @@
     <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker.min.css') }}">
 
     <style>
-        .dataTables_filter, .dataTables_info { display: none;!important; }
-        .bg-agendado { background: rgba(1, 159, 134, 0.3)}
-        .bg-cancelado { background: rgba(157, 209, 249, 0.3)}
-        .bg-completado { background: rgba(71, 178, 0, 0.3)}
-        .bg-reservado { background: rgba(243, 119, 37, 0.3)}
+        .dataTables_filter, .dataTables_info {
+            /*    display: none;*/
+            /*!important;*/
+        }
+
+        .bg-agendado {
+            background: rgba(1, 159, 134, 0.3)
+        }
+
+        .bg-cancelado {
+            background: rgba(157, 209, 249, 0.3)
+        }
+
+        .bg-completado {
+            background: rgba(71, 178, 0, 0.3)
+        }
+
+        .bg-reservado {
+            background: rgba(243, 119, 37, 0.3)
+        }
     </style>
 @endsection
 
@@ -43,11 +58,12 @@
             <div class="containt_main_table mb-3">
                 <div class="row m-0">
                     <div class="col-md-8  p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar cita" />
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar cita"/>
                     </div>
 
                     <div class="col-md-4 p-0 content_btn_right">
-                        <a href="{{ route('institucion.calendario.iniciar-control') }}" class="button_transparent mr-2" id="">
+                        <a href="{{ route('institucion.calendario.iniciar-control') }}" class="button_transparent mr-2"
+                           id="">
                             Atras
                         </a>
                         <a href="{{ route('institucion.calendario.crear-cita') }}" class="button_green" target="_blank">
@@ -62,16 +78,23 @@
                 <div class="col-12" id="alertas"></div>
                 <table class="table table_agenda" style="width: 100%" id="table-citas">
                     <thead class="thead_green">
-                        <tr>
-                            <th>Hora</th>
-                            <th>Fecha</th>
-                            <th>Profesional</th>
-                            <th>Paciente</th>
-                            <th>Identificación</th>
-                            <th>Acción</th>
-                            <th>Lugar</th>
-                            <th>Celular</th>
-                        </tr>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora Inicio</th>
+                        <th>Hora Fin</th>
+                        {{--Es nesesario que esten duplicados--}}
+                        <th>Profesional</th>
+                        <th>Profesional</th>
+                        <th>Especialidad</th>
+                        {{--Es nesesario que esten duplicados--}}
+                        <th>Servicio</th>
+                        <th>Servicio</th>
+                        <th>Paciente</th>
+                        <th>Identificación</th>
+                        <th>Celular</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
                     </thead>
                 </table>
             </div>
@@ -79,7 +102,7 @@
     </div>
 
     <!-- Modal  reagendar cita -->
-    <div class="modal fade" id="modal-reagendar-cita" tabindex="-1" >
+    <div class="modal fade" id="modal-reagendar-cita" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -157,8 +180,8 @@
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
-                                <input type="hidden" id="paciente" name="paciente" />
-                                <input type="hidden" id="tipo_servicio" name="tipo_servicio" />
+                                <input type="hidden" id="paciente" name="paciente"/>
+                                <input type="hidden" id="tipo_servicio" name="tipo_servicio"/>
 
                                 <div class="col-12 p-0">
                                     <label for="profesional">Profesional</label>
@@ -174,7 +197,8 @@
                                         </button>
                                     </div>
                                     --}}
-                                    <input type="text" class="form-control" id="fecha-reasignar" name="date-calendar" disabled/>
+                                    <input type="text" class="form-control" id="fecha-reasignar" name="date-calendar"
+                                           disabled/>
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="basic-addon2">
                                         <i class="fas fa-calendar"></i>
@@ -205,7 +229,7 @@
     </div>
 
     <!-- Modal  Cancelar cita -->
-    <div class="modal fade" id="modal-cancelar-cita" tabindex="-1" >
+    <div class="modal fade" id="modal-cancelar-cita" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal_container">
                 <div class="modal-header">
@@ -309,7 +333,7 @@
     <script src="{{ asset('js/alertas.js') }}"></script>
 
     <script>
-        $(document).ready( function () {
+        $(document).ready(function () {
 
             //$.fn.dataTable.moment( 'DD-MM / YYYY', 'es');
             //$.fn.dataTable.moment( 'HH:mm A \- HH:mm A', 'es');
@@ -325,81 +349,135 @@
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
-                dom: 'Plfrtip',
-                //dom: '<"dtsp-verticalContainer"<"dtsp-verticalPanes"P><"dtsp-dataTable"frtip>>',
+                //dom: 'Plfrtip',
+                dom:
+                    "<'row'<'col-12'P>><'#filter-input.row'>"+
+                    "<'row'<'col-12'ltip><'col-12'>>",
+                serverSide: true,
+                processing: true,
+                ajax: {
+                    type: 'post',
+                    url: '{{ route('institucion.calendario.lista-citas') }}',
+                    data: (d) =>{
+                        d.fecha = $('#fecha').val();
+                        d.estado = $('#estado').val();
+                    }
+                },
                 responsive: true,
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
                 },
-                searchPanes:{
-                    //viewTotal: true,
-                    columns: [0, 1, 2],
-                    layout: 'columns-4',
-                },
-                columns:[
-                    {data: "hora", name: "fecha_inicio"},
+                columns: [
                     {data: "fecha", name: "fecha_inicio"},
-                    {data: "profesional_ins.nombre_completo", name: 'profesional_ins.nombre_completo'},
-                    {data: "paciente.user.nombre_completo", name: 'paciente.user.nombre_completo'},
-                    {data: "paciente.user.numerodocumento", name: 'paciente.user.numerodocumento'},
+                    {data: "hora_inicio", name: "fecha_inicio"},
+                    {data: "hora_fin", name: 'fecha_fin'},
+                    {
+                        data: 'prof.nombre_completo',
+                        name: 'prof.nombre_completo',
+                        visible: false
+                    },
+                    {
+                        data: 'profesional_nombre',
+                        name: 'profesional_nombre',
+                        searchable: false
+                    },
+                    {data: "nombreEspecialidad", name: 'nombreEspecialidad'},
+                    {
+                        data: 'serv.nombre',
+                        name: 'serv.nombre',
+                        visible: false
+                    },
+                    {
+                        data: 'servicio',
+                        name: 'servicio',
+                        searchable: false
+                    },
+                    {data: "paciente_nombre", name: 'paciente_nombre'},
+                    {data: "paciente_identificacion", name: 'paciente_identificacion'},
+                    {data: "paciente_celular", name: "paciente_celular"},
+                    {data: "estado", name: "estado"},
                     {
                         name: 'edit',
                         className: '',
                         data: function (data, type, full, meta) {
-                            return '<button  class="btn_action_green tool top editar-cita" data-url="' + data.edit + '">' +
+
+                            return '<div class="d-flex justify-content-center">' +
+                                '<button  class="btn_action_green tool top editar-cita" data-url="">' +
                                 '<i class="fas fa-calendar-day fa-2x"></i>' +
                                 '<span class="tiptext">Editar cita</span>' +
                                 '</button>' +
-                                '<button  class="btn_action_green tool top cancelar-cita" data-url="' + data.edit + '">' +
+                                '<button  class="btn_action_green tool top cancelar-cita" data-url="">' +
                                 '<i class="fas fa-calendar-times fa-2x"></i>' +
                                 '<span class="tiptext">Cancelar cita</span>' +
-                                '</button>';
+                                '</button>' +
+                                '</div>';
                         },
                         searchable: false,
-                        //responsive: false,
+                        orderable: false,
                     },
-                    {data: "lugar", name: "lugar"},
-                    {data: "paciente.celular", name: "paciente.celular"},
                 ],
+                searchPanes: {
+                    viewTotal: false,
+                },
                 columnDefs: [
                     {
-                        //name:    'edit',
-                        //target:    5,
-                        //search:     false,
-                        //responsive: false,
-                        className: '',
-                        data: function (data, type, full, meta) {
-                            console.log(data);
-                            return data;
-                        }
-
+                        searchPanes: {
+                            show: true
+                        },
+                        targets: [3, 5, 6]
+                    },
+                    {
+                        responsivePriority: 1,
+                        targets: [-1]
                     }
                 ],
-                serverSide: true,
-                ajax:{
-                    type: 'post',
-                    url: '{{ route('institucion.calendario.lista-citas') }}',
-                    // data: function ( d ) {
-                    //     console.log(d);
-                    //     // return $.extend({}, d, {
-                    //     //     "extra_search": $('#extra').val()
-                    //     // });
-                    // }
-                },
+                initComplete: function () {
+
+                    var api = this.api();
+                    //Agregar los dos inputs
+                    $('#filter-input').html(
+                        '<div class="col-md-6 mb-3">' +
+                        '<label for="fecha">Fecha</label>' +
+                        '<input id="fecha" name="fecha" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>' +
+                        '</div>' +
+                        '<div class="col-md-6 mb-3">' +
+                        '<label for="estado">Estado</label>' +
+                        '<select name="estado" id="estado" class="form-control filter-data">' +
+                        '<option value="">Todos</option>' +
+                        '<option selected value="agendado">Agendado</option>' +
+                        '<option value="completado">Completado</option>' +
+                        '<option value="cancelado">Cancelado</option>' +
+                        '</select>' +
+                        '</div>');
+
+                    $('.filter-data').on('change', function () {
+                        table.ajax.reload(null, false)
+                    });
+
+                    $('#fecha').datepicker({
+                        language: 'es',
+                        format: 'yyyy-mm-dd',
+                        startDate: moment().format('YYYY-MM-DD'),
+                    });
+
+                    table.ajax.reload(null, false);
+
+                    //table.search().draw();
+                }
                 // createdRow: function (row, data, dataIndex) {
                 //     $(row).addClass('bg-' + data.estado);
                 // }
             });
 
-            setInterval( function () {
+            setInterval(function () {
                 table.ajax.reload(null, false);
-            }, 30000 );
+            }, 30000);
 
-            $("#search").on('keyup change',function(){
+            $("#search").on('keyup change', function () {
                 var texto = $(this).val();
                 table.search(texto).draw();
             });
-            $("#date").on('change',function(){
+            $("#date").on('change', function () {
                 table.draw();
             });
 
@@ -486,7 +564,7 @@
                     },
                     processResults: function (response) {
                         return {
-                            results:response
+                            results: response
                         };
                     },
                     cache: true,
@@ -501,7 +579,7 @@
                     dataType: 'json',
                     method: 'post',
                     headers: {
-                        accept:'application/json',
+                        accept: 'application/json',
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: (response) => {
@@ -524,7 +602,7 @@
                         //date_picker.datepicker('update', moment().format('YYYY-MM-DD'));
                     }
                 });
-            }).on('select2:opening', function (e){
+            }).on('select2:opening', function (e) {
                 var date_picker = $('#fecha-reasignar');
                 $(this).val('').trigger('change');
 

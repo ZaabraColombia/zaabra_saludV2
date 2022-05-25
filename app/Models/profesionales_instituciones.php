@@ -25,6 +25,7 @@ class profesionales_instituciones extends Authenticatable  implements MustVerify
         'segundo_nombre',
         'primer_apellido',
         'segundo_apellido',
+        'nombre_completo',
         'tipo_documento_id',
         'numero_documento',
         'fecha_nacimiento',
