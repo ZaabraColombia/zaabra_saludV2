@@ -4,6 +4,7 @@ namespace App\Http\Controllers\entidades\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Paciente;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -19,7 +20,9 @@ class PacientesController extends Controller
                 $query->where('id_institucion', '=', Auth::user()->institucion->id);
             })
             ->with('user')
-            ->get();
+            ->orderBy(User::query()->select('nombre_completo')->whereColumn('users.id', 'id_usuario'))
+            ->search(\request('search'))
+            ->simplePaginate(12);
 
         return view('instituciones.admin.pacientes', compact('pacientes'));
     }
