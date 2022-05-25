@@ -140,7 +140,7 @@
                     </div>
                 @endforeach    
             @endif  
-            
+            <!-- Botones de paginación -->
             <div class="col-12 d-md-none p-0 mb-4 pagination__right">
                 <button class="pag_btn_right"></button>
                 <button class="pag_btn_left"></button>

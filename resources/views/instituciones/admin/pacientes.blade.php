@@ -71,11 +71,11 @@
                                         </div>
 
                                         <div class="card_txt_h">
-                                            <h4 class="card_h4">{{ $paciente->eps }}</h4>
+                                            <h5 class="card_h5">{{ $paciente->eps }}</h5>
                                         </div>
 
                                         <div class="card_txt_h">
-                                            <h5 class="card_h5">{{ $paciente->user->numerodocumento }}</h5>
+                                            <h6 class="card_h6">{{ $paciente->user->identificacion }}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                     </div>
                 @endforeach    
             @endif  
-            
+            <!-- Botones de paginación -->
             <div class="col-12 d-md-none p-0 mb-4 pagination__right">
                 <button class="pag_btn_right"></button>
                 <button class="pag_btn_left"></button>
