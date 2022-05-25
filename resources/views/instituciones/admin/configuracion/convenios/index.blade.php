@@ -81,7 +81,7 @@
                             <div class="card_float">
                                 <div class="row card__row_column">
                                     <div class="card_content_img_float">
-                                        <img class="card__imagen_float" src="/img/menu/avatar.png">
+                                        <img class="card__imagen_float" src="{{ asset($convenio->url_image ?? '/img/menu/avatar.png') }}">
                                     </div>
 
                                     <div class="col-12 mb-3 card_float_info_float">
@@ -173,7 +173,7 @@
 
                 <div class="modal-body">
                     <div class="modal_body_img">
-                        <img class="modal_img_float" src="/img/menu/avatar.png">
+                        <img class="modal_img_float" id="modal-foto" src="{{ asset('img/menu/avatar.png') }}">
                     </div>
 
                     <div class="modal_info_data">
@@ -386,7 +386,7 @@
 
                 $.each(response.item, function (key, item) {
                     if (key !== 'foto') $('#' + key).html(item);
-                    if (key === 'foto') $('#' + key).attr('src', item);
+                    if (key === 'foto') $('#modal-foto').attr('src', item);
                 });
                 // $('#accesos-lista').html('');
                 // $.each(response.item.accesos, function (key, item) {
