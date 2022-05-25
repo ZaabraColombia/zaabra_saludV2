@@ -32,7 +32,7 @@ class Ruta extends Model
      */
     public function scopeInstitucion(Builder $query): Builder
     {
-        return $query->where('tipo', 'institucion');
+        return $query->where('rutas.tipo', 'institucion');
     }
 
     public function scopeValidar(Builder $query)
