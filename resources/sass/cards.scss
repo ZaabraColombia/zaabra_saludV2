@@ -423,6 +423,10 @@ overflow: hidden;
 //*******************************************
 //* Tarjetas pacientes agenda instituciones *
 //*******************************************
+.card_buttons_top {
+    width: 100%;
+    margin: auto;
+}
 .bord_bootom {
     border-bottom: 1px solid #E6E6E6;
 }
@@ -712,9 +716,19 @@ overflow: hidden;
 }
 
 @media(min-width: 1200px) {
+    //*******************************************
+    //* Tarjetas pacientes agenda instituciones *
+    //*******************************************
+    .card_buttons_top {
+        width: 98%;
+        margin: auto;
+    }
     //***********************************************
     //* Tarjetas profesionales agenda instituciones *
     //***********************************************
+    .title_contain_card {
+        padding-left: 7px;
+    }
     .card_content_btn_add .card_btn_add_green {
         font-size: .8rem;
         padding: 5px 5px;
@@ -795,18 +809,20 @@ overflow: hidden;
     .card_content_btn_add .card_btn_add_green {
         padding: 5px 15px;
     }
-    .width_xl_95 {
-        width: 95%;
-    }
+    // .width_xl_95 {
+    //     width: 95%;
+    // }
 }
 
-// @media(min-width: 1920px) {
-//     .card_content_buttons_bottom {
-//         .card_btn_green {
-//             font-size: 14px;
-//         }
-//         .card_btn_transparent {
-//             font-size: 14px;
-//         }
-//     }
-// }
+@media(min-width: 1600px) {
+    .card_buttons_top {
+        width: 98.8%;
+    }
+    .title_contain_card {
+        padding-left: 6px;
+    }
+    // Estilos predeterminados para las colummnas de las tarjetas
+    .card__col {
+        max-width: 25% !important;
+    }
+}

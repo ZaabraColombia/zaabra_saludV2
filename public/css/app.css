@@ -26759,6 +26759,11 @@ div.dt-buttons {
   background-image: url("/img/iconos/flecha-izquierda-blanca.svg");
 }
 
+.card_buttons_top {
+  width: 100%;
+  margin: auto;
+}
+
 .bord_bootom {
   border-bottom: 1px solid #E6E6E6;
 }
@@ -27041,6 +27046,15 @@ div.dt-buttons {
   }
 }
 @media (min-width: 1200px) {
+  .card_buttons_top {
+    width: 98%;
+    margin: auto;
+  }
+
+  .title_contain_card {
+    padding-left: 7px;
+  }
+
   .card_content_btn_add .card_btn_add_green {
     font-size: 0.8rem;
     padding: 5px 5px;
@@ -27107,9 +27121,18 @@ div.dt-buttons {
   .card_content_btn_add .card_btn_add_green {
     padding: 5px 15px;
   }
+}
+@media (min-width: 1600px) {
+  .card_buttons_top {
+    width: 98.8%;
+  }
 
-  .width_xl_95 {
-    width: 95%;
+  .title_contain_card {
+    padding-left: 6px;
+  }
+
+  .card__col {
+    max-width: 25% !important;
   }
 }
 .containt_main_form {
