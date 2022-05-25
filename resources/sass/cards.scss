@@ -347,7 +347,7 @@ overflow: hidden;
         .card_h5 {
             font-size: 14px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             text-align: center;
             color: #707070;
         }
@@ -361,7 +361,7 @@ overflow: hidden;
         .card_span {
             font-size: 12px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             color: #707070;
         }
     }
@@ -476,7 +476,7 @@ overflow: hidden;
         .card_span {
             font-size: 12px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             color: #3E3E3E;
         }
     }
@@ -484,9 +484,6 @@ overflow: hidden;
 //*******************************************
 //* Tarjetas convenios agenda instituciones *
 //*******************************************
-.pad_out_card {
-    padding: 0;
-}
 .card_float {
     padding: 60px 30px 20px 30px;
 }
@@ -520,14 +517,14 @@ overflow: hidden;
         .card_h5 {
             font-size: 15px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             text-align: center;
             color: #707070;
         }
         .card_h6 {
             font-size: 9px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             text-align: center;
             color: #707070;
             margin: 0;
@@ -542,7 +539,7 @@ overflow: hidden;
         .card_span {
             font-size: 12px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             color: #707070;
         }
     }
@@ -683,12 +680,6 @@ overflow: hidden;
             }
         }
     }
-    //*******************************************
-    //* Tarjetas convenios agenda instituciones *
-    //*******************************************
-    .pad_out_card {
-        padding: 0 15px;
-    }
 }
 
 @media(min-width: 1024px) {
@@ -707,9 +698,6 @@ overflow: hidden;
     //*******************************************
     //* Tarjetas convenios agenda instituciones *
     //*******************************************
-    .pad_out_card {
-        padding: 0 5px;
-    }
     .pad_buttons_bottom {
         padding: 0 20px;
     }
@@ -750,9 +738,6 @@ overflow: hidden;
     //*******************************************
     //* Tarjetas convenios agenda instituciones *
     //*******************************************
-    .pad_out_card {
-        padding: 0 3px;
-    }
     .card_info_user .card_txt_span .card_span {
         font-size: 10px;
     }
@@ -794,11 +779,8 @@ overflow: hidden;
     //*******************************************
     //* Tarjetas convenios agenda instituciones *
     //*******************************************
-    .pad_out_card {
-        padding: 0 15px;
-    }
     .pad_buttons_bottom {
-        padding: 0 40px;
+        padding: 0 45px;
     }
 }
 
@@ -809,9 +791,9 @@ overflow: hidden;
     .card_content_btn_add .card_btn_add_green {
         padding: 5px 15px;
     }
-    // .width_xl_95 {
-    //     width: 95%;
-    // }
+    .pad_buttons_bottom {
+        padding: 0 55px;
+    }
 }
 
 @media(min-width: 1600px) {

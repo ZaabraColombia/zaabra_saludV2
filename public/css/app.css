@@ -26688,7 +26688,7 @@ div.dt-buttons {
 .card_info_user .card_txt_h .card_h5 {
   font-size: 14px;
   font-family: "Roboto";
-  font-weight: 500;
+  font-weight: 100;
   text-align: center;
   color: #707070;
 }
@@ -26700,7 +26700,7 @@ div.dt-buttons {
 .card_info_user .card_txt_span .card_span {
   font-size: 12px;
   font-family: "Roboto";
-  font-weight: 500;
+  font-weight: 100;
   color: #707070;
 }
 .card_info_user .card_content_btn_info {
@@ -26815,12 +26815,8 @@ div.dt-buttons {
 .card_avatar_info_user .card_txt_span .card_span {
   font-size: 12px;
   font-family: "Roboto";
-  font-weight: 500;
+  font-weight: 100;
   color: #3E3E3E;
-}
-
-.pad_out_card {
-  padding: 0;
 }
 
 .card_float {
@@ -26860,14 +26856,14 @@ div.dt-buttons {
 .card_float_info_float .card_txt_h .card_h5 {
   font-size: 15px;
   font-family: "Roboto";
-  font-weight: 500;
+  font-weight: 100;
   text-align: center;
   color: #707070;
 }
 .card_float_info_float .card_txt_h .card_h6 {
   font-size: 9px;
   font-family: "Roboto";
-  font-weight: 500;
+  font-weight: 100;
   text-align: center;
   color: #707070;
   margin: 0;
@@ -26880,7 +26876,7 @@ div.dt-buttons {
 .card_float_info_float .card_txt_span .card_span {
   font-size: 12px;
   font-family: "Roboto";
-  font-weight: 500;
+  font-weight: 100;
   color: #707070;
 }
 .card_float_info_float .card_content_btn_info {
@@ -27022,10 +27018,6 @@ div.dt-buttons {
     font-size: 12px;
     text-align: initial;
   }
-
-  .pad_out_card {
-    padding: 0 15px;
-  }
 }
 @media (min-width: 1024px) {
   .card_content_btn_add .card_btn_add_green {
@@ -27035,10 +27027,6 @@ div.dt-buttons {
   .card_btn_search .search_togggle {
     width: 100%;
     background-position-x: 98%;
-  }
-
-  .pad_out_card {
-    padding: 0 5px;
   }
 
   .pad_buttons_bottom {
@@ -27070,10 +27058,6 @@ div.dt-buttons {
   }
   .card_info_user .card_txt_h .card_h5 {
     font-size: 10px;
-  }
-
-  .pad_out_card {
-    padding: 0 3px;
   }
 
   .card_info_user .card_txt_span .card_span {
@@ -27109,17 +27093,17 @@ div.dt-buttons {
     font-size: 12px;
   }
 
-  .pad_out_card {
-    padding: 0 15px;
-  }
-
   .pad_buttons_bottom {
-    padding: 0 40px;
+    padding: 0 45px;
   }
 }
 @media (min-width: 1440px) {
   .card_content_btn_add .card_btn_add_green {
     padding: 5px 15px;
+  }
+
+  .pad_buttons_bottom {
+    padding: 0 55px;
   }
 }
 @media (min-width: 1600px) {
