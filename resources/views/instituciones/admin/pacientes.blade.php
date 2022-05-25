@@ -18,7 +18,7 @@
         </div>
 
         <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
-        <div class="row m-0">
+        <div class="row card_buttons_top">
             <div class="col-md-12 col-lg-2 p-0 card_content_btn_add mb-4">
                 <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green py-2"
                    id="btn-agregar-contacto">
@@ -80,7 +80,7 @@
 
             @if($pacientes->isNotEmpty())
                 @foreach($pacientes as $paciente)
-                    <div class="col-md-6 col-xl-4 p-0 px-md-3 px-xl-2 mb-3">
+                    <div class="col-md-6 col-xl-4 p-0 px-md-3 px-xl-2 mb-3 card__col">
                         <div class="card container_card p-0">
                             <div class="card_avatar">
                                 <div class="row m-0 mb-3 pb-2 bord_bootom">
@@ -94,11 +94,11 @@
                                         </div>
 
                                         <div class="card_txt_h">
-                                            <h4 class="card_h4">{{ $paciente->eps }}</h4>
+                                            <h5 class="card_h5">{{ $paciente->eps }}</h5>
                                         </div>
 
                                         <div class="card_txt_h">
-                                            <h5 class="card_h5">{{ $paciente->user->numerodocumento }}</h5>
+                                            <h6 class="card_h6">{{ $paciente->user->identificacion }}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -122,6 +122,7 @@
                 @endforeach
             @endif
 
+            <!-- Botones de paginación -->
             <div class="col-12 d-md-none p-0 mb-4 pagination__right">
                 <button class="pag_btn_right"></button>
                 <button class="pag_btn_left"></button>

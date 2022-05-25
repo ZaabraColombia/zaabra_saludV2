@@ -338,4 +338,214 @@
         </div>
     </div> --}}
 
+
+    <!-- Antigua vista de convenios agenda instituciones -->
+    {{--<div class="container-fluid p-0 pr-lg-4">
+        <div class="containt_agendaProf">
+            <div class="my-4 my-xl-5">
+                <h1 class="title__xl green_bold">Mis Convenios</h1>
+            </div>
+
+            <!-- Contenedor barra de búsqueda y botón agregar contacto -->
+            <div class="containt_main_table mb-3">
+                <div class="row m-0">
+                    <div class="col-md-9 p-0 input__box mb-0">
+                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Convenio" />
+                    </div>
+
+                    <div class="col-md-3 p-0 content_btn_right">
+                        <a href="{{ route('institucion.configuracion.convenios.create') }}" class="button_green" id="btn-agregar-contacto">
+                            Agregar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor formato tabla de la lista de contactos -->
+            <div class="containt_main_table mb-3">
+                <div class="col-12">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
+                <div class="table-responsive">
+                    <table class="table table_agenda" id="table-pacientes">
+                        <thead class="thead_green">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Tipo de empresa</th>
+                            <th>Teléfonos</th>
+                            <th>Correo</th>
+                            <th class="text-center">Acción</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if($convenios->isNotEmpty())
+                            @foreach($convenios as $convenio)
+                                <tr>
+                                    <td>{{ $convenio->codigo_convenio }}</td>
+                                    <td>
+                                        <span>{{ $convenio->nombre_completo }}</span> <br>
+                                        {{--<span>EPS</span>--}}
+                                    </td>
+                                    <td>
+                                        <span>{{ $convenio->tipo_establecimiento }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ "{$convenio->telefono} - {$convenio->celular}" }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ $convenio->correo }}</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-around">
+
+                                            @can('accesos-institucion','ver-convenios')
+                                                <button class="btn_action_green tool top boton-convenio" style="width: 33px"
+                                                        data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
+                                                    <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
+                                                </button>
+                                            @endcan
+
+                                            @can('accesos-institucion','editar-convenio')
+                                                <a class="btn_action_green tool top" style="width: 33px"
+                                                   href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
+                                                    <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
+                                                </a>
+                                            @endcan
+
+                                            {{--<a class="btn_action_green tool top" style="width: 33px"
+                                               href="">
+                                                <i data-feather="settings"></i> <span class="tiptext">Configurar convenio</span>
+                                            </a>--}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>--}}
+
     <!-- src="{{ asset($paciente->foto ?? 'img/menu/avatar.png') }}" -->
+
+    <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
+    <div class="row m-0">
+        <div class="col-md-3 col-lg-2 p-0 card_content_btn_add mb-4">
+            <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green py-2" id="btn-agregar-contacto">
+                Agregar profesional
+            </a>
+        </div>
+
+        <div class="col-md-5 col-lg-7 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
+            <button id="search">
+                <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar">
+            </button>
+        </div>
+
+        <div class="col-md-2 col-lg-2 p-0 mb-4 container_btn_docs">
+            <button><div class="file_excel"></div></button>
+            <button><div class="file_pdf"></div></button>
+            <button><div class="file_printer"></div></button>
+        </div>
+
+        <div class="col-md-2 col-lg-1 d-none d-md-flex p-0 mb-4 pagination__right">
+            <button class="pag_btn_right"></button>
+            <button class="pag_btn_left"></button>
+        </div>
+    </div>
+
+
+
+    <!-- Antigua vista de servicios -->
+<div class="container-fluid p-0 pr-lg-4">
+    <div class="containt_agendaProf">
+        <div class="my-4 my-xl-5">
+            <h1 class="title__xl green_bold">Mis Servicios</h1>
+        </div>
+
+        <!-- Contenedor barra de búsqueda y botón agregar contacto -->
+        <div class="containt_main_table mb-3">
+            <div class="row m-0">
+                <div class="col-md-9 p-0 input__box mb-0">
+                    <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar Servicio">
+                </div>
+
+                <div class="col-md-3 p-0 content_btn_right">
+                    <a href="{{ route('institucion.configuracion.servicios.create') }}" class="button_green" id="btn-agregar-contacto">
+                        Agregar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor formato tabla de la lista de contactos -->
+        <div class="containt_main_table mb-3">
+            <div class="col-12">
+                @if(session()->has('success'))
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="alert-heading">Hecho!</h4>
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
+            </div>
+            <div class="table-responsive">
+                <table class="table table_agenda" id="table-pacientes">
+                    <thead class="thead_green">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo de servicio</th>
+                        <th>Valor</th>
+                        <th>Especialidad</th>
+                        <th class="text-center">Acción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if($servicios->isNotEmpty())
+                        @foreach($servicios as $servicio)
+                            <tr>
+                                <td>{{ $servicio->nombre }}</td>
+                                <td>{{ $servicio->tipo_servicio->nombre ?? '' }}</td>
+                                <td>${{ number_format($servicio->valor, 0, ',', '.') }}</td>
+                                <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
+                                <td>
+                                    <div class="d-flex justify-content-around px-3">
+
+                                        @can('accesos-institucion','ver-servicios')
+                                            <a class="btn_action_green tool top boton-servicio" style="width: 33px"
+                                                data-url="{{ route('institucion.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">
+                                                <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
+                                            </a>
+                                        @endcan
+
+                                        @can('accesos-institucion','editar-servicio')
+                                            <a class="btn_action_green tool top" style="width: 33px"
+                                                href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
+                                                <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
+                                            </a>
+                                        @endcan
+
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

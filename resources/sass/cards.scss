@@ -347,7 +347,7 @@ overflow: hidden;
         .card_h5 {
             font-size: 14px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             text-align: center;
             color: #707070;
         }
@@ -361,7 +361,7 @@ overflow: hidden;
         .card_span {
             font-size: 12px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             color: #707070;
         }
     }
@@ -408,6 +408,7 @@ overflow: hidden;
         height: 41px;
         background-color: #FFFFFF;
         border: 1px solid #707070;
+        border-left: none;
         border-radius: 0 7px 7px 0;
         background-image: url('/img/iconos/flecha-izquierda-gris.svg');
         background-repeat: no-repeat;
@@ -422,6 +423,10 @@ overflow: hidden;
 //*******************************************
 //* Tarjetas pacientes agenda instituciones *
 //*******************************************
+.card_buttons_top {
+    width: 100%;
+    margin: auto;
+}
 .bord_bootom {
     border-bottom: 1px solid #E6E6E6;
 }
@@ -449,7 +454,14 @@ overflow: hidden;
         .card_h5 {
             font-size: 14px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
+            text-align: initial;
+            color: #3E3E3E;
+        }
+        .card_h6 {
+            font-size: 12px;
+            font-family: 'Roboto';
+            font-weight: 100;
             text-align: initial;
             color: #3E3E3E;
         }
@@ -464,10 +476,124 @@ overflow: hidden;
         .card_span {
             font-size: 12px;
             font-family: 'Roboto';
-            font-weight: 500;
+            font-weight: 100;
             color: #3E3E3E;
         }
     }
+}
+//*******************************************
+//* Tarjetas convenios agenda instituciones *
+//*******************************************
+.card_float {
+    padding: 60px 30px 20px 30px;
+}
+.card_content_img_float {
+    position: absolute;
+    top: -40px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.card__imagen_float {
+    width: 84px;
+    height: 83px;
+    border-radius: 100px;
+    object-fit: cover;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.card_float_info_float {
+    padding: 0;
+    line-height: 1.3;
+    .card_txt_h {
+        .card_h4 {
+            font-size: 18px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            text-align: center;
+            color: #434343;
+            margin: 0;
+        }
+        .card_h5 {
+            font-size: 15px;
+            font-family: 'Roboto';
+            font-weight: 100;
+            text-align: center;
+            color: #707070;
+        }
+        .card_h6 {
+            font-size: 9px;
+            font-family: 'Roboto';
+            font-weight: 100;
+            text-align: center;
+            color: #707070;
+            margin: 0;
+        }
+    }
+    .card_txt_span {
+        .card_icon {
+            width: 10px;
+            height: 10PX;
+            margin-right: 10px;
+        }
+        .card_span {
+            font-size: 12px;
+            font-family: 'Roboto';
+            font-weight: 100;
+            color: #707070;
+        }
+    }
+    .card_content_btn_info {
+        display: flex;
+        justify-content: center;
+        .card_btn_info {
+            border: none;
+            background-color: transparent;
+            color: #019F86;
+            padding: 6px;
+            width: 35px;
+            height: 35px;
+            &:nth-child(1) {
+                color: #FF3E3E;
+            }
+            &:nth-child(4) {
+                color: #FF3E3E;
+            }
+        }
+    }
+}
+.pad_buttons_bottom {
+    padding: 0;
+}
+.card_content_buttons_bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card_btn_green {
+        font-family: "Quicksand";
+        font-size: 14px;
+        color: $withe_official;
+        background: $green_official;
+        border: solid 1px $green_official;
+        border-radius: 7px;
+        padding: 5px 15px;
+    }
+    .card_btn_transparent {
+        font-family: "Quicksand";
+        font-size: 14px;
+        color: $green_official;
+        background: $withe_official;
+        border: solid 1px $green_official;
+        border-radius: 7px;
+        padding: 5px 23px;
+    }
+}
+// Clases especiales
+.txt_doble_linea {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media(min-width: 768px) {
@@ -576,12 +702,36 @@ overflow: hidden;
         width: 100%;
         background-position-x: 98%;
     }
+    //*******************************************
+    //* Tarjetas convenios agenda instituciones *
+    //*******************************************
+    .pad_buttons_bottom {
+        padding: 0 20px;
+    }
+    .card_content_buttons_bottom {
+        .card_btn_green {
+            font-size: 10px;
+        }
+        .card_btn_transparent {
+            font-size: 10px;
+        }
+    }
 }
 
 @media(min-width: 1200px) {
+    //*******************************************
+    //* Tarjetas pacientes agenda instituciones *
+    //*******************************************
+    .card_buttons_top {
+        width: 98%;
+        margin: auto;
+    }
     //***********************************************
     //* Tarjetas profesionales agenda instituciones *
     //***********************************************
+    .title_contain_card {
+        padding-left: 7px;
+    }
     .card_content_btn_add .card_btn_add_green {
         font-size: .8rem;
         padding: 5px 5px;
@@ -630,9 +780,12 @@ overflow: hidden;
     .card_info_user .card_txt_span .card_span {
         font-size: 12px;
     }
-}
-
-@media(min-width: 1440px) {
+    //*******************************************
+    //* Tarjetas convenios agenda instituciones *
+    //*******************************************
+    .pad_buttons_bottom {
+        padding: 0 45px;
+    }
 }
 
 @media(min-width: 1440px) {
@@ -642,7 +795,20 @@ overflow: hidden;
     .card_content_btn_add .card_btn_add_green {
         padding: 5px 15px;
     }
-    .width_xl_95 {
-        width: 95%;
+    .pad_buttons_bottom {
+        padding: 0 55px;
+    }
+}
+
+@media(min-width: 1600px) {
+    .card_buttons_top {
+        width: 98.8%;
+    }
+    .title_contain_card {
+        padding-left: 6px;
+    }
+    // Estilos predeterminados para las colummnas de las tarjetas
+    .card__col {
+        max-width: 25% !important;
     }
 }

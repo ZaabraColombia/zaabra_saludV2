@@ -139,9 +139,8 @@
             <div class="col-12 col-lg-3 p-0 m-0">
                 <div class="row m-0">
                     {{-- Mipres --}}
-                    <div class="col-12 col-md-4 col-lg-12 py-3 px-4 px-md-2 py-lg-2 pr-xl-4">
-                        <a href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS"
-                           target="_blank">
+                    <div class="col-12 col-md-4 col-lg-12 pb-3 px-4 px-md-2 pr-xl-4">
+                        <a  href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS" target="_blank">
                             <div class="content__logos_inst">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/mipres-zaabra.png') }}"
                                      alt="">
@@ -149,8 +148,8 @@
                         </a>
                     </div>
                     {{-- Medistoria --}}
-                    <div class="col-12 col-md-4 col-lg-12 py-3 px-4 px-md-2 py-lg-2 pr-xl-4">
-                        <a href="" target="_blank">
+                    <div class="col-12 col-md-4 col-lg-12 pb-3 px-4 px-md-2 pr-xl-4">
+                        <a  href="" target="_blank">
                             <div class="content__logos_inst ">
                                 <img
                                     src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}"
@@ -159,8 +158,8 @@
                         </a>
                     </div>
                     {{-- PLM --}}
-                    <div class="col-12 col-md-4 col-lg-12 py-3 px-4 px-md-2 py-lg-2 pr-xl-4">
-                        <a href="https://www.prescripciontotal.com.co/consultorio-generico/login" target="_blank">
+                    <div class="col-12 col-md-4 col-lg-12 py-0 px-4 px-md-2 pr-xl-4">
+                        <a  href="https://www.prescripciontotal.com.co/consultorio-generico/login" target="_blank">
                             <div class="content__logos_inst">
                                 <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/plm.png') }}" alt="">
                             </div>

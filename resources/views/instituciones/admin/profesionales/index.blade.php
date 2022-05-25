@@ -25,6 +25,7 @@
                     Agregar profesional
                 </a>
             </div>
+
             <div class="col-md-6 col-lg-6 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
                 <form method="get">
                     <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">

@@ -4,6 +4,9 @@
 .font_roboto {
     font-family: 'Roboto';
 }
+.green_official {
+    color: $green_official !important;
+}
 // Color y grosor de la fuente
 .blue_bold {
     color: $blue_official;
@@ -36,6 +39,10 @@
 .black_bold {
     color: $black_firsrt;
     font-weight: bold;
+}
+.black_bolder {
+    color: $black_third;
+    font-weight: bolder;
 }
 .black_light {
     color: $black_firsrt;
