@@ -30,10 +30,13 @@ class ServiciosController extends Controller
         Gate::authorize('accesos-institucion','ver-servicios');
 
         $servicios = Servicio::query()
-            ->with('tipo_servicio')
             ->where('institucion_id', '=', Auth::user()->institucion->id )
             ->with(['especialidad', 'tipo_servicio'])
-            ->get();
+            ->search(\request('search'))
+            ->orderBy('nombre')
+            ->simplePaginate(12);
+
+        if (request('search')) $servicios->appends(['search' => request('search')]);
 
         return view('instituciones.admin.configuracion.servicios.index', compact('servicios'));
     }

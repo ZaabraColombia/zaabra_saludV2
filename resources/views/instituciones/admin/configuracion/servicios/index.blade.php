@@ -1,7 +1,10 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
-        .dataTables_filter, .dataTables_info { display: none;!important; }
+        .dataTables_filter, .dataTables_info {
+            display: none;
+        !important;
+        }
     </style>
 @endsection
 
@@ -16,32 +19,49 @@
         <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
         <div class="row card_buttons_top">
             <div class="col-md-3 col-lg-2 p-0 card_content_btn_add mb-4">
-                <a href="{{ route('institucion.configuracion.servicios.create') }}" class="card_btn_add_green py-2" id="btn-agregar-contacto">
+                <a href="{{ route('institucion.configuracion.servicios.create') }}" class="card_btn_add_green py-2"
+                   id="btn-agregar-contacto">
                     Agregar servicio
                 </a>
             </div>
 
             <div class="col-md-5 col-lg-7 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
-                <button id="search">
-                    <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar">
-                </button>
+                <form method="get">
+                    <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                        <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                    </button>
+                </form>
             </div>
 
             <div class="col-md-2 col-lg-2 p-0 mb-4 container_btn_docs">
-                <button><div class="file_excel"></div></button>
-                <button><div class="file_pdf"></div></button>
-                <button><div class="file_printer"></div></button>
+                <button>
+                    <div class="file_excel"></div>
+                </button>
+                <button>
+                    <div class="file_pdf"></div>
+                </button>
+                <button>
+                    <div class="file_printer"></div>
+                </button>
             </div>
 
             <div class="col-md-2 col-lg-1 d-none d-md-flex p-0 mb-4 pagination__right">
-                <button class="pag_btn_right"></button>
-                <button class="pag_btn_left"></button>
+                @if(!$servicios->onFirstPage())
+                    <a href="{{ $servicios->previousPageUrl() }}" class="pag_btn_right"></a>
+                @else
+                    <button disabled class="pag_btn_right disabled"></button>
+                @endif
+                @if(!$servicios->onLastPage())
+                    <a href="{{ $servicios->nextPageUrl() }}" class="pag_btn_left"></a>
+                @else
+                    <button disabled class="pag_btn_left disabled"></button>
+                @endif
             </div>
         </div>
 
         <!-- Tarjetas Profesionales -->
         <div class="row m-0">
-            <div class="col-12" id="alertas" >
+            <div class="col-12" id="alertas">
                 @if(session()->has('success'))
                     <div class="alert alert-success" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -56,8 +76,8 @@
             @if($servicios->isNotEmpty())
                 @foreach($servicios as $servicio)
                     <div class="col-md-6 col-lg-4 p-0 px-md-3 px-xl-2 my-3 card__col">
-                        <div class="card container_card p-0">                            
-                            <div class="card_float py-4">                             
+                        <div class="card container_card p-0">
+                            <div class="card_float py-4">
                                 <div class="row card__row_column">
                                     <div class="col-12 mb-3 card_float_info_float">
                                         <div class="card_txt_h txt_doble_linea">
@@ -69,18 +89,21 @@
                                         </div>
 
                                         <div class="card_txt_span">
-                                            <span class="card_span">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
+                                            <span
+                                                class="card_span">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
                                         </div>
 
                                         <div class="card_txt_span">
-                                            <span class="card_span">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
+                                            <span
+                                                class="card_span">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
                                         </div>
                                     </div>
 
                                     <div class="col-12 pad_buttons_bottom">
                                         <div class="row m-0">
                                             @can('accesos-institucion','ver-servicios')
-                                                <div class="col-12 col-lg-6 p-0 mb-3 mb-lg-0 card_content_buttons_bottom">
+                                                <div
+                                                    class="col-12 col-lg-6 p-0 mb-3 mb-lg-0 card_content_buttons_bottom">
                                                     <button class="card_btn_green boton-servicio"
                                                             data-url="{{ route('institucion.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">
                                                         Ver más
@@ -91,7 +114,7 @@
                                             @can('accesos-institucion','editar-servicio')
                                                 <div class="col-12 col-lg-6 p-0 card_content_buttons_bottom">
                                                     <a class="card_btn_transparent"
-                                                        href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
+                                                       href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
                                                         Editar
                                                     </a>
                                                 </div>
@@ -102,12 +125,20 @@
                             </div>
                         </div>
                     </div>
-                @endforeach    
-            @endif  
-            <!-- Botones de paginación -->
+                @endforeach
+            @endif
+            {{-- Botones de paginación --}}
             <div class="col-12 d-md-none p-0 mb-3 pagination__right">
-                <button class="pag_btn_right"></button>
-                <button class="pag_btn_left"></button>
+                @if(!$servicios->onFirstPage())
+                    <a href="{{ $servicios->previousPageUrl() }}" class="pag_btn_right"></a>
+                @else
+                    <button disabled class="pag_btn_right disabled"></button>
+                @endif
+                @if(!$servicios->onLastPage())
+                    <a href="{{ $servicios->nextPageUrl() }}" class="pag_btn_left"></a>
+                @else
+                    <button disabled class="pag_btn_left disabled"></button>
+                @endif
             </div>
         </div>
     </div>
@@ -127,7 +158,7 @@
                         <h1 class="modal_title_green">Ver Servicio</h1>
                     </div>
                 </div>
-                
+
                 <div class="modal-body">
                     <div class="modal_info_data py-4">
                         <div class="row m-0">
@@ -251,7 +282,7 @@
                     extend: 'pdfHtml5',
                     text: 'PDF',
                     className: 'red',
-                    title:'Resultados',
+                    title: 'Resultados',
                     exportOptions: {
                         columns: ":not(:last-child)",
                         modifier: {
@@ -272,7 +303,7 @@
             ],
         });
 
-        $("#search").on('keyup change',function(){
+        $("#search").on('keyup change', function () {
             var texto = $(this).val();
             table.search(texto).draw();
         });
@@ -292,26 +323,26 @@
                 $.each(response.item.convenios_lista, function (key, item) {
                     $('#convenios-lista').append(
                         '<div class="row m-0">' +
-                            '<div class="col-12 modal_info_user display_info_data">' +
-                                '<h4 class="modal_data_form">Nombre del convenio:</h4>' +
-                                '<div class="modal_data_user">' +
-                                    '<span>' + item.nombre_completo + '</span>' +
-                                '</div>' +
-                            '</div>' +
+                        '<div class="col-12 modal_info_user display_info_data">' +
+                        '<h4 class="modal_data_form">Nombre del convenio:</h4>' +
+                        '<div class="modal_data_user">' +
+                        '<span>' + item.nombre_completo + '</span>' +
+                        '</div>' +
+                        '</div>' +
 
-                            '<div class="col-lg-6 modal_info_user display_info_data">' +
-                                '<h4 class="modal_data_form">Pago convenio:</h4>' +
-                                '<div class="modal_data_user">' +
-                                    '<span>$' + item.pivot.valor_convenio + '</span>' +
-                                '</div>' +
-                            '</div>' +
+                        '<div class="col-lg-6 modal_info_user display_info_data">' +
+                        '<h4 class="modal_data_form">Pago convenio:</h4>' +
+                        '<div class="modal_data_user">' +
+                        '<span>$' + item.pivot.valor_convenio + '</span>' +
+                        '</div>' +
+                        '</div>' +
 
-                            '<div class="col-lg-6 modal_info_user display_info_data">' +
-                                '<h4 class="modal_data_form">Pago paciente:</h4>' +
-                                '<div class="modal_data_user">' +
-                                    '<span>$' + item.pivot.valor_paciente + '</span>' +
-                                '</div>' +
-                            '</div>' +
+                        '<div class="col-lg-6 modal_info_user display_info_data">' +
+                        '<h4 class="modal_data_form">Pago paciente:</h4>' +
+                        '<div class="modal_data_user">' +
+                        '<span>$' + item.pivot.valor_paciente + '</span>' +
+                        '</div>' +
+                        '</div>' +
                         '</div>' +
                         '<div class="dropdown-divider mt-0" style="height:2px; background-color: #E6E6E6"></div>'
                     );
@@ -321,6 +352,10 @@
             }, "json").fail(function (error) {
                 console.log(error);
             });
+        });
+
+        $('#search').on('click', function () {
+            $('#search').addClass('search_togggle');
         });
     </script>
 @endsection
