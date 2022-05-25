@@ -26039,6 +26039,33 @@ a:hover {
   padding: 1px 7px;
 }
 
+.main_banner_secundario {
+  position: absolute;
+  top: 10px;
+  left: 16%;
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: "Quicksand";
+  font-weight: bold;
+}
+.main_banner_secundario a {
+  font-size: 7px;
+  border: none;
+  border-radius: 3px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1px 5px;
+}
+
 .banner_small {
   width: 40%;
 }
@@ -26069,6 +26096,14 @@ a:hover {
     font-size: 16px;
     padding: 1px 20px;
   }
+
+  .main_banner_secundario {
+    top: 30px;
+  }
+  .main_banner_secundario a {
+    font-size: 10px;
+    padding: 1px 10px;
+  }
 }
 @media (min-width: 1024px) {
   .main_banner_top .img_banner_top {
@@ -26086,6 +26121,14 @@ a:hover {
   }
   .main_banner_top a {
     font-size: 18px;
+  }
+
+  .main_banner_secundario {
+    top: 45px;
+  }
+  .main_banner_secundario a {
+    font-size: 12px;
+    padding: 1px 15px;
   }
 
   .banner_medium {
@@ -26113,8 +26156,15 @@ a:hover {
   .main_banner_top a {
     font-size: 24px;
   }
+
+  .main_banner_secundario {
+    top: 55px;
+  }
+  .main_banner_secundario a {
+    font-size: 16px;
+  }
 }
-@media (min-width: 1920px) {
+@media (min-width: 1600px) {
   .main_banner_top {
     left: 10%;
   }
@@ -26132,6 +26182,13 @@ a:hover {
   }
   .main_banner_top a {
     font-size: 28px;
+  }
+
+  .main_banner_secundario {
+    top: 85px;
+  }
+  .main_banner_secundario a {
+    font-size: 22px;
   }
 
   .banner_small {
