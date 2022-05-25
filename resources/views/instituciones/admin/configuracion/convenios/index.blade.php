@@ -16,7 +16,7 @@
         <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
         <div class="row card_buttons_top">
             <div class="col-md-3 col-lg-2 p-0 card_content_btn_add mb-4">
-                <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green py-2" id="btn-agregar-contacto">
+                <a href="{{ route('institucion.configuracion.convenios.create') }}" class="card_btn_add_green py-2" id="btn-agregar-contacto">
                     Agregar convenio
                 </a>
             </div>

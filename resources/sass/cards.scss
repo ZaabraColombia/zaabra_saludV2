@@ -588,6 +588,13 @@ overflow: hidden;
         padding: 5px 23px;
     }
 }
+// Clases especiales
+.txt_doble_linea {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media(min-width: 768px) {
     .wid_75 {
@@ -701,6 +708,14 @@ overflow: hidden;
     .pad_buttons_bottom {
         padding: 0 20px;
     }
+    .card_content_buttons_bottom {
+        .card_btn_green {
+            font-size: 10px;
+        }
+        .card_btn_transparent {
+            font-size: 10px;
+        }
+    }
 }
 
 @media(min-width: 1200px) {
@@ -735,19 +750,8 @@ overflow: hidden;
             }
         }
     }
-    //*******************************************
-    //* Tarjetas convenios agenda instituciones *
-    //*******************************************
     .card_info_user .card_txt_span .card_span {
         font-size: 10px;
-    }
-    .card_content_buttons_bottom {
-        .card_btn_green {
-            font-size: 10px;
-        }
-        .card_btn_transparent {
-            font-size: 10px;
-        }
     }
 }
 
