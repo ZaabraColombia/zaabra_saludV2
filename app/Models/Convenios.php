@@ -122,4 +122,30 @@ class Convenios extends Model
     {
         return asset($this->url_image ?? 'img/menu/avatar.png');
     }
+
+    /**
+     * Permite buscar en convenios
+     *
+     * @param $query
+     * @param $value
+     * @return mixed
+     */
+    public function scopeSearch(Builder $query, $value)
+    {
+        if (empty($value)) return $query;
+
+        return $query->where(function ($query) use ($value) {
+            return $query->where('primer_nombre', 'like', "%$value%")
+                ->orWhere('segundo_nombre', 'like', "%$value%")
+                ->orWhere('primer_apellido', 'like', "%$value%")
+                ->orWhere('segundo_apellido', 'like', "%$value%")
+                ->orWhere('numero_documento', 'like', "%$value%")
+                ->orWhere('forma_pago', 'like', "%$value%")
+                ->orWhere('direccion', 'like', "%$value%")
+                ->orWhere('codigo_postal', 'like', "%$value%")
+                ->orWhere('telefono', 'like', "%$value%")
+                ->orWhere('celular', 'like', "%$value%")
+                ->orWhere('correo', 'like', "%$value%");
+        });
+    }
 }

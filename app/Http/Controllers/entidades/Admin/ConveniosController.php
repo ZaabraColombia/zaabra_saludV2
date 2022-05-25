@@ -35,8 +35,15 @@ class ConveniosController extends Controller
         Gate::authorize('accesos-institucion','ver-convenios');
 
         //Obtener él id de la institución, se hace el recorrido por los diferentes roles
-        $id_institucion =  Auth::user()->institucion->user->id;
-        $convenios = Convenios::query()->where('id_user', $id_institucion)->get();
+        $id_institucion =  Auth::user()->institucion->idUser;
+
+        $convenios = Convenios::query()
+            ->where('id_user', $id_institucion)
+            ->search(\request('search'))
+            ->orderBy('primer_nombre')
+            ->paginate(12);
+
+        if (request('search')) $convenios->appends(['search' => request('search')]);
 
         return view('instituciones.admin.configuracion.convenios.index', compact('convenios'));
     }
