@@ -85,10 +85,21 @@
                             <div class="card__">
                                 <div class="row card__row_column">
                                     <div class="card_content_btn_info col-12 d-none d-md-flex mb-md-1">
-                                        <a class="card_btn_info tool top"
-                                           href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                            <i data-feather="lock" class="icon_btn_info_md"></i> <span class="tiptext">Editar profesional</span>
+                                        <a class="card_btn_info tool top">
+                                            <i data-feather="lock" class="icon_btn_info_md"></i> <span class="tiptext">Agenda configurada</span>
                                         </a>
+
+                                        {{--@if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
+                                        <button class="card_btn_info tool top">
+                                            <i style="width: 23px" data-feather="lock"></i>
+                                            <span class="tiptext">Calendario no configurado</span>
+                                        </button>
+                                        @else
+                                        <button class="card_btn_info tool top">
+                                            <i style="width: 23px" data-feather="unlock"></i>
+                                            <span class="tiptext">Calendario configurado</span>
+                                        </button>
+                                        @endif--}}
 
                                         <a class="card_btn_info tool top"
                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
@@ -125,11 +136,22 @@
                                         </div>
 
                                         <div class="card_content_btn_info d-md-none">
-                                            <a class="card_btn_info tool top"
-                                               href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                            <a class="card_btn_info tool top">
                                                 <i data-feather="lock"></i> <span
-                                                    class="tiptext">Editar profesional</span>
+                                                    class="tiptext">Calendario no configurado</span>
                                             </a>
+
+                                            {{--@if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
+                                        <button class="card_btn_info tool top">
+                                            <i style="width: 23px" data-feather="lock"></i>
+                                            <span class="tiptext">Calendario no configurado</span>
+                                        </button>
+                                        @else
+                                        <button class="card_btn_info tool top">
+                                            <i style="width: 23px" data-feather="unlock"></i>
+                                            <span class="tiptext">Calendario configurado</span>
+                                        </button>
+                                        @endif--}}
 
                                             <a class="card_btn_info tool top"
                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
@@ -237,32 +259,8 @@
     <script src="{{ asset('js/alertas.js') }}"></script>
 
     <script>
-        //Inicializar tabla
-        var table = $('#table-pacientes').DataTable({
-            bFilter: false,
-            bInfo: false,
-            response: true,
-            language: {
-                url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-            },
-            searching: true,
-            columnDefs: [
-                {
-                    targets: [-1, -2],
-                    orderable: false,
-                }
-            ],
-            paging: true,
-
-        });
-
-        $("#search").on('keyup change', function () {
-            var texto = $(this).val();
-            table.search(texto).draw();
-        });
-
         //crear bloqueo
-        table.on('click', '.bloquear-agenda', function (eve) {
+        $('.bloquear-agenda').on('click', function (eve) {
             var btn = $(this);
             console.log('ok');
 
