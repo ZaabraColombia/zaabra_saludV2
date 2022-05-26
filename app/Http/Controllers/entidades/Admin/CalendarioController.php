@@ -112,9 +112,9 @@ class CalendarioController extends Controller
                 'serv.nombre as servicio',
                 'serv.nombre',
             ])
-            ->selectRaw('DATE_FORMAT(fecha_inicio, "%Y-%m-%e") as fecha')
-            ->selectRaw('DATE_FORMAT(fecha_inicio, "%h:%S %p") as hora_inicio')
-            ->selectRaw('DATE_FORMAT(fecha_fin, "%h:%S %p") as hora_fin')
+            ->selectRaw('date(fecha_inicio) as fecha')
+            ->selectRaw('time(fecha_inicio) as hora_inicio')
+            ->selectRaw('time(fecha_fin) as hora_fin')
             ->selectRaw('concat(pac_doc.nombre_corto, " ", pac_user.numerodocumento) as paciente_identificacion')
             ->join('pacientes as pac', 'pac.id', '=', 'citas.paciente_id')
             ->join('users as pac_user', 'pac_user.id', '=', 'pac.id_usuario')
@@ -195,6 +195,15 @@ class CalendarioController extends Controller
             ->get();
 
         $datatables = \Yajra\DataTables\Facades\DataTables::eloquent($q)
+            ->addColumn('ver', function (Cita $cita) {
+                return route('institucion.calendario.ver-cita', ['cita' => $cita->id_cita]);
+            })
+            ->addColumn('edit', function (Cita $cita) {
+                return route('institucion.calendario.actualizar-cita', ['cita' => $cita->id_cita]);
+            })
+            ->addColumn('cancel', function (Cita $cita) {
+                return route('institucion.calendario.cancelar-cita', ['cita' => $cita->id_cita]);
+            })
             ->filter(function ($query) use ($request) {
 
                 if ($request->has('estado')) {
@@ -296,7 +305,7 @@ class CalendarioController extends Controller
         $validate = Validator::make($request->all(), [
             'paciente'      => [
                 'required',
-                'exists:users,numerodocumento'
+                'exists:pacientes,id'
             ],
             'date-calendar'  => [
                 'required',
@@ -642,7 +651,7 @@ class CalendarioController extends Controller
             ],
             'paciente'      => [
                 'required',
-                'exists:users,numerodocumento'
+                'exists:pacientes,id'
             ],
             'tipo_servicio' => [
                 'required',
@@ -677,8 +686,9 @@ class CalendarioController extends Controller
 
         $paciente = $request->paciente;
         $paciente = Paciente::query()
-            ->whereHas('user', function ($query) use ($paciente){
-                $query->where('numerodocumento', $paciente);
+            ->where('id', $paciente)
+            ->whereHas('user.roles', function ($query){
+                $query->where('idrol', 1);
             })
             ->first();
 
