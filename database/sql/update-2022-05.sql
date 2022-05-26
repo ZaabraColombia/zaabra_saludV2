@@ -74,7 +74,7 @@ ALTER TABLE `zaabrac1_zaabra_salud_test`.`pago_citas`
     CHANGE COLUMN `fecha` `fecha` DATETIME NULL DEFAULT NULL,
     CHANGE COLUMN `vencimiento` `vencimiento` DATETIME NULL DEFAULT NULL;
 
-#Subido test
+
 #Subido production
 #Subido jhon f 23/05/2022 08:41
 CREATE TABLE `zaabrac1_zaabra_salud_test`.`rutas`
@@ -113,6 +113,5 @@ INSERT INTO `zaabrac1_zaabra_salud_test`.`accesos` (`nombre`, `slug`, `tipo`)
     VALUES ('Administrar citas', 'administracion-citas', 'institucion'),
            ('Crear cita', 'agregar-cita', 'institucion');
 
-
-
 #Subido cesar
+#Subido test

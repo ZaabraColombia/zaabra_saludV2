@@ -50,9 +50,7 @@ class ProfesionalesController extends Controller
 
         if (request('search')) $profesionales->appends(['search' => request('search')]);
 
-        return view('instituciones.admin.profesionales.index',compact(
-            'profesionales'
-        ));
+        return view('instituciones.admin.profesionales.index',compact('profesionales'));
     }
 
     /**

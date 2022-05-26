@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -65,6 +66,37 @@ class Servicio extends Model
     public function cups(): BelongsTo
     {
         return $this->belongsTo(Cups::class, 'codigo_cups', 'code');
+    }
+
+    /**
+     * Permite buscar en servicios
+     *
+     * @param $query
+     * @param $value
+     * @return mixed
+     */
+    public function scopeSearch(Builder $query, $value)
+    {
+        if (empty($value)) return $query;
+
+        return $query->where(function ($query) use ($value) {
+            return $query->where('duracion', 'like', "%$value%")
+                ->orWhere('descanso', 'like', "%$value%")
+                ->orWhere('valor', 'like', "%$value%")
+                ->orWhere('nombre', 'like', "%$value%")
+                ->orWhere('descripcion', 'like', "%$value%")
+                ->orWhere('convenios', 'like', "%$value%")
+                ->orWhere('citas_activas', 'like', "%$value%")
+                ->orWhereHas('especialidad', function ($q) use ($value) {
+                    return $q->where('nombreEspecialidad', 'like', "%$value%");
+                })
+                ->orWhereHas('tipo_servicio', function ($q) use ($value) {
+                    return $q->where('nombre', 'like', "%$value%");
+                })
+                ->orWhereHas('cups', function ($q) use ($value) {
+                    return $q->where('description', 'like', "%$value%");
+                });
+        });
     }
 
 }
