@@ -18,7 +18,8 @@
                 <div class="search_main_container mb-3">
                     <div class="row m-0">
                         <div class="col-12 p-0 input__box mb-0">
-                            <input class="mb-0 extremo_redondeado" type="search" name="search" id="search" placeholder="Buscar">
+                            <input class="mb-0 extremo_redondeado" type="search" name="search" id="search"
+                                   placeholder="Buscar" data-url="{{ route('institucion.filtro-vistas') }}">
                             <button class="btnIn_search"><i data-feather="search"></i></button>
                         </div>
                     </div>
@@ -28,7 +29,7 @@
                     {{-- Profesionales --}}
                     @can('accesos-institucion','ver-profesionales')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.profesionales.index') }}'>
+                            <a href='{{ route('institucion.profesionales.index') }}'>
                                 <div class="content__target_inst profesional_green">
                                     <span class="fs_text">Profesionales</span>
                                 </div>
@@ -39,7 +40,7 @@
                     {{-- Pacientes --}}
                     @can('accesos-institucion','ver-pacientes')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.pacientes') }}'>
+                            <a href='{{ route('institucion.pacientes') }}'>
                                 <div class="content__target_inst paciente_green">
                                     <span class="fs_text">Pacientes</span>
                                 </div>
@@ -50,7 +51,7 @@
                     {{-- Histórico de citas --}}
                     @can('accesos-institucion','ver-citas')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.citas') }}'>
+                            <a href='{{ route('institucion.citas') }}'>
                                 <div class="content__target_inst cita_green">
                                     <span class="fs_text">Histórico de citas</span>
                                 </div>
@@ -61,18 +62,18 @@
                     {{-- Pagos --}}
                     @can('accesos-institucion','ver-pagos')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.pagos') }}'>
+                            <a href='{{ route('institucion.pagos') }}'>
                                 <div class="content__target_inst pago_green">
                                     <span class="fs_text">Pagos</span>
                                 </div>
                             </a>
                         </div>
                     @endcan
-                    
+
                     {{-- Usuarios --}}
                     @can('accesos-institucion','ver-usuarios')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.configuracion.usuarios.index') }}'>
+                            <a href='{{ route('institucion.configuracion.usuarios.index') }}'>
                                 <div class="content__target_inst usuario_green">
                                     <span class="fs_text">Usuarios</span>
                                 </div>
@@ -83,7 +84,7 @@
                     {{-- Contactos --}}
                     @can('accesos-institucion','ver-contactos')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.contactos.index') }}'>
+                            <a href='{{ route('institucion.contactos.index') }}'>
                                 <div class="content__target_inst contacto_green">
                                     <span class="fs_text">Contactos</span>
                                 </div>
@@ -94,7 +95,7 @@
                     {{-- Convenios --}}
                     @can('accesos-institucion','ver-convenios')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.configuracion.convenios.index') }}'>
+                            <a href='{{ route('institucion.configuracion.convenios.index') }}'>
                                 <div class="content__target_inst convenio_green">
                                     <span class="fs_text">Convenios</span>
                                 </div>
@@ -105,7 +106,7 @@
                     {{-- Servicios --}}
                     @can('accesos-institucion','ver-servicios')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a  href='{{ route('institucion.configuracion.servicios.index') }}'>
+                            <a href='{{ route('institucion.configuracion.servicios.index') }}'>
                                 <div class="content__target_inst servicio_green">
                                     <span class="fs_text">Servicios</span>
                                 </div>
@@ -115,14 +116,14 @@
 
                     {{-- Gestión --}}
                     <div class="col-6 col-md-4 col-xl-4 p-2">
-                        <a  href="#">
+                        <a href="#">
                             <div class="content__target_inst gestion_green">
                                 <span class="fs_text">Gestión</span>
                             </div>
                         </a>
                     </div>
-                    
-                    {{-- Favoritos 
+
+                    {{-- Favoritos
                     @can('accesos-institucion','favoritos')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
                             <a  href='{{ route('institucion.favoritos') }}'>
@@ -141,7 +142,8 @@
                     <div class="col-12 col-md-4 col-lg-12 pb-3 px-4 px-md-2 pr-xl-4">
                         <a  href="https://mipres.sispro.gov.co/MIPRESNOPBS/Login.aspx?ReturnUrl=%2fMIPRESNOPBS" target="_blank">
                             <div class="content__logos_inst">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/mipres-zaabra.png') }}" alt="">
+                                <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/mipres-zaabra.png') }}"
+                                     alt="">
                             </div>
                         </a>
                     </div>
@@ -149,7 +151,9 @@
                     <div class="col-12 col-md-4 col-lg-12 pb-3 px-4 px-md-2 pr-xl-4">
                         <a  href="" target="_blank">
                             <div class="content__logos_inst ">
-                                <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="">
+                                <img
+                                    src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}"
+                                    alt="">
                             </div>
                         </a>
                     </div>
@@ -166,5 +170,9 @@
         </div>
 
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/panel.js') }}"></script>
 @endsection
 

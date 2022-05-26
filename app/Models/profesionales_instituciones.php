@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use function Symfony\Component\Translation\t;
 
-class profesionales_instituciones extends Authenticatable  implements MustVerifyEmail
+class profesionales_instituciones extends Authenticatable implements MustVerifyEmail
 {
     use Sluggable;
 
@@ -127,7 +127,7 @@ class profesionales_instituciones extends Authenticatable  implements MustVerify
      */
     public function scopeNombreCompleto(Builder $query): Builder
     {
-        return $query->selectRaw('concat( primer_nombre, " ", segundo_nombre, " ", primer_apellido, " ", segundo_apellido) as nombre_completo' );
+        return $query->selectRaw('concat( primer_nombre, " ", segundo_nombre, " ", primer_apellido, " ", segundo_apellido) as nombre_completo');
     }
 
     public function citas()
@@ -192,7 +192,7 @@ class profesionales_instituciones extends Authenticatable  implements MustVerify
      */
     public function hasVerifiedEmail()
     {
-        return ! is_null($this->correo_verified_at);
+        return !is_null($this->correo_verified_at);
     }
 
     /**
@@ -205,5 +205,32 @@ class profesionales_instituciones extends Authenticatable  implements MustVerify
         return $this->forceFill([
             'correo_verified_at' => $this->freshTimestamp(),
         ])->save();
+    }
+
+    /**
+     * Permite buscar en profesionales
+     *
+     * @param $query
+     * @param $value
+     * @return mixed
+     */
+    public function scopeSearch(Builder $query, $value)
+    {
+        if (empty($value)) return $query;
+
+        return $query->where(function ($query) use ($value) {
+            return $query->where('nombre_completo', 'like', "%$value%")
+                ->orWhere('numero_documento', 'like', "%$value%")
+                ->orWhere('direccion', 'like', "%$value%")
+                ->orWhere('telefono', 'like', "%$value%")
+                ->orWhere('celular', 'like', "%$value%")
+                ->orWhere('correo', 'like', "%$value%")
+                ->orWhere('numero_profesional', 'like', "%$value%")
+                ->orWhere('consultorio', 'like', "%$value%")
+                ->orWhere('estado', 'like', "%$value%")
+                ->orWhereHas('especialidad_principal', function ($q) use ($value) {
+                    return $q->where('nombreEspecialidad', 'like', "%$value%");
+                });
+        });
     }
 }

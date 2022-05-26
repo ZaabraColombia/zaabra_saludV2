@@ -122,6 +122,8 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
 
     Route::post('/institucion/servicios', [\App\Http\Controllers\buscador\RecursosController::class, 'calendario_disponible'])
         ->name('calendario-disponible');
+
+    Route::post('/institucion/filtro-vistas', [entidades\Admin\PanelController::class, 'search'])->name('filtro-vistas');
 });
 
 
