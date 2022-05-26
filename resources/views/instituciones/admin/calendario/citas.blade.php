@@ -457,7 +457,7 @@
                     $('#fecha').datepicker({
                         language: 'es',
                         format: 'yyyy-mm-dd',
-                        startDate: moment().format('YYYY-MM-DD'),
+                        //startDate: moment().format('YYYY-MM-DD'),
                     });
 
                     table.ajax.reload(null, false);
