@@ -93,8 +93,8 @@
                     <ul id="collapseAgenda" class="collapse sub_menu_green" aria-labelledby="headingAgenda"
                         data-parent="#accordion_agenda">
                         <li class="submenu-item">
-                            <a class="{{ (request()->routeIs('institucion.calendario.iniciar-control') or request()->routeIs('institucion.calendario.citas')) ? 'txt_active_green' : '' }}"
-                               href="{{ route('institucion.calendario.iniciar-control') }}">
+                            <a class="{{ (request()->routeIs('institucion.calendario.citas') or request()->routeIs('institucion.calendario.citas')) ? 'txt_active_green' : '' }}"
+                               href="{{ route('institucion.calendario.citas') }}">
                                 Administración citas
                             </a>
                         </li>
@@ -104,11 +104,13 @@
                                 Agendar cita
                             </a>
                         </li>
+                        {{--
                         <li class="submenu-item">
                             <a id="" class="" href="#">
                                 Historial de bloqueos
                             </a>
                         </li>
+                        --}}
                     </ul>
                 </li>
 
@@ -179,7 +181,7 @@
                     </a>
                 </li>
 
-                {{-- Favoritos 
+                {{-- Favoritos
                 @can('accesos-institucion','favoritos')
                     <li class="sidebar-item  has-sub items_green">
                         <a class="" href='{{ route('institucion.favoritos') }}'>
