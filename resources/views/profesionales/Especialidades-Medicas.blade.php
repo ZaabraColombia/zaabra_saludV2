@@ -51,10 +51,6 @@
         </div>
       </div>
     @endforeach
-
-
-
-
   </section>
 
   <!-- Carrusel Banner principal, funcionalidad del carrusel alojada en el archivo galeriaProfesionales.js -->
@@ -64,7 +60,7 @@
         <div class="swiper-slide ">
           <img class="swiper-slide" src="{{URL::asset($banner->rutaImagenVenta)}}">
 
-          <div class="main_banner_top {{ ($banner->banner_plantilla_id == 1)? 'banner_small': (($banner->banner_plantilla_id == 2)? 'banner_medium': (($banner->banner_plantilla_id == 3)? 'banner_large':'')) }}">
+          <div class="main_banner_secundario {{ ($banner->banner_plantilla_id == 1)? 'banner_small': (($banner->banner_plantilla_id == 2)? 'banner_medium': (($banner->banner_plantilla_id == 3)? 'banner_large':'')) }}">
             <div class="img_banner_top">    
               <img src="{{URL::asset($banner->ruta_logo)}}" alt="">
             </div>   

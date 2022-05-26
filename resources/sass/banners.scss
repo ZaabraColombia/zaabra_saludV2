@@ -44,6 +44,52 @@
         padding: 1px 7px;
     }
 }
+.main_banner_secundario {
+    position: absolute;
+    top: 10px;
+    left: 16%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: "Quicksand";
+    font-weight: bold;
+    // .img_banner_top {
+    //     width: 100px;
+    //     height: 27px;
+    //     img {
+    //         width: 100%;
+    //         image-rendering: -webkit-optimize-contrast;
+    //     }
+    // }
+    // h1 {
+    //     font-size: 12px;
+    //     height: 25px;
+    //     font-weight: bold;
+    //     font-family: "Quicksand";
+    //     margin: 0;
+    //     line-height: 1;
+    // }
+    // p {
+    //     font-size: 10px;
+    //     height: 25px;
+    //     margin: 0;
+    //     line-height: 1;
+    // }
+    a {
+        font-size: 7px;
+        border: none;
+        border-radius: 3px;
+        width: max-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 1px 5px;
+    }
+}
 // Banner medium 
 .banner_small {
     width: 40%;
@@ -77,6 +123,26 @@
             padding: 1px 20px;
         }
     }
+    .main_banner_secundario {
+        top: 30px;
+        // .img_banner_top {
+        //     width: 185px;
+        //     height: 30px;
+        //     margin-bottom: 20px;
+        // }
+        // h1 {
+        //     font-size: 24px;
+        //     height: 55px;
+        // }
+        // p {
+        //     font-size: 18px;
+        //     height: 45px;
+        // }
+        a {
+            font-size: 10px;
+            padding: 1px 10px;
+        }
+    }
 }
 
 @media(min-width: 1024px) {
@@ -96,6 +162,26 @@
         }
         a {
             font-size: 18px;
+        }
+    }
+    .main_banner_secundario {
+        top: 45px;
+        // .img_banner_top {
+        //     width: 225px;
+        //     height: 45px;
+        //     margin-bottom: 25px;
+        // }
+        // h1 {
+        //     font-size: 30px;
+        //     height: 75px;
+        // }
+        // p {
+        //     font-size: 24px;
+        //     height: 65px;
+        // }
+        a {
+            font-size: 12px;
+            padding: 1px 15px;
         }
     }
     // Banner medium 
@@ -127,9 +213,28 @@
             font-size: 24px;
         }
     }
+    .main_banner_secundario {
+        top: 55px;
+        // .img_banner_top {
+        //     width: 325px;
+        //     height: 50px;
+        //     margin-bottom: 40px;
+        // }
+        // h1 {
+        //     font-size: 40px;
+        //     height: 85px;
+        // }
+        // p {
+        //     font-size: 32px;
+        //     height: 85px;
+        // }
+        a {
+            font-size: 16px;
+        }
+    }
 }
 
-@media(min-width: 1920px) {
+@media(min-width: 1600px) {
     .main_banner_top {
         left: 10%;
         .img_banner_top {
@@ -146,6 +251,24 @@
         }
         a {
             font-size: 28px;
+        }
+    }
+    .main_banner_secundario {
+        top: 85px;
+        // .img_banner_top {
+        //     width: 400px;
+        //     height: 65px;
+        // }
+        // h1 {
+        //     font-size: 50px;
+        //     height: 115px;
+        // }
+        // p {
+        //     font-size: 40px;
+        //     height: 100px;
+        // }
+        a {
+            font-size: 22px;
         }
     }
     // Banner small 
