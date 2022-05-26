@@ -242,12 +242,15 @@
                                             </td>
                                             <td>Si</td>
                                             <td>
-                                                <div class="w_150px">
-                                                    <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt</span>
+                                                <div class="descrip_service">
+                                                    <div id="description_service" class="short_text">
+                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                                                    </div>
                                                 </div>    
                                             </td>
                                             <td>
-                                                <div class="input__box w_150px">
+                                                <div class="input__box convenio_service">
                                                     <select type="text" id="numero_id" name="numero_id" data-url="" required>
                                                         <option value=""></option>
                                                         <option value="">option 1</option>
@@ -598,4 +601,17 @@
         @endif
     </script>
 
+    <!-- Evento mostrar y ocultar un tramo del texto en los servicios-->
+    <script>
+        $("#description_service").on('click', function(){
+            var div = $(this);
+            
+            if (div.hasClass("short_text")){
+                div.removeClass("short_text").addClass("long_text");
+            }
+            else {
+                div.removeClass("long_text").addClass("short_text");
+            }
+        });
+    </script>
 @endsection

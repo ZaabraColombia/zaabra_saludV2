@@ -469,7 +469,40 @@
 .margin_top_section {
     margin-top: 7px;
 }
-
+.convenio_service {
+    width: 170px;
+    margin: auto;
+}
+// Sección de servicios profesionales
+// Propiedades de recorte y anexo de puntos suspensivos en determinada línea de un texto
+.descrip_service {
+    width: 170px;
+    margin: auto;
+}
+$font-size: 14px;
+$line-height: 1.4;
+$lines: 3;
+.short_text{
+    display: block;
+    display: -webkit-box;
+    width: 100%;
+    height: $font-size * $line-height * $lines;
+    font-size: $font-size;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+// Propiedaes para ocultar y mostrar cierta cantidad de texto.
+.long_text {
+    display: block;
+    height: max-content;
+    overflow: inherit;
+    width: 100%;
+    cursor: pointer;
+}
 
 @media(min-width: 500px) {
     // Contenedores, tarjetas y secciones
@@ -652,6 +685,12 @@
     .card_sede_ins {
         margin-right: 16px;
     }
+    .convenio_service {
+        width: 200px;
+    }
+    .descrip_service {
+        width: 200px;
+    }
 }
 @media(min-width: 1360px) {
     .content_convenio_ins {
@@ -774,5 +813,11 @@
     }
     .module_convenio_ins {
         padding-left: 5.3em;
+    }
+    .convenio_service {
+        width: 250px;
+    }
+    .descrip_service {
+        width: 250px;
     }
 }
