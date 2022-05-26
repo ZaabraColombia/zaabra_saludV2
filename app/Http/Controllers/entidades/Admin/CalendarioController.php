@@ -13,11 +13,13 @@ use App\Models\Servicio;
 use App\Models\TipoServicio;
 use App\Models\User;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -29,94 +31,12 @@ use Yajra\DataTables\DataTables;
 
 class CalendarioController extends Controller
 {
-    public function iniciar_control()
-    {
-        $institucion = Auth::user()->institucion->id;
-
-        //Profesionales
-        $profesionales = profesionales_instituciones::query()
-            ->select('id_profesional_inst', 'primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido')
-            //->nombreCompleto()
-            ->where('estado', 1)
-            ->where('id_institucion', $institucion)
-            ->get();
-
-        //Servicios
-        $servicios = Servicio::query()
-            ->select(['id', 'nombre'])
-            ->where('institucion_id', $institucion)
-            ->where('estado', 1)
-            ->get();
-
-        //Especialidades
-        $especialidades = especialidades::query()
-            ->where('estado', 1)
-            ->whereHas('servicios', function (Builder $query) use ($institucion){
-                $query->where('servicios.institucion_id', $institucion)
-                    ->where('servicios.estado', 1);
-            })
-            ->get();
-
-        return view('instituciones.admin.calendario.filtro', compact('profesionales',
-            'servicios', 'especialidades'));
-    }
-
-
-    public function buscar(Request $request)
-    {
-        $request->validate([
-            'id'    => ['required'],
-            'tipo'  => ['required', Rule::in(['profesional', 'servicio', 'especialidad'])]
-        ]);
-
-        $institucion = Auth::user()->institucion->id;
-        $id = $request->get('id');
-
-        $profesionales = array();
-
-        switch ($request->get('tipo'))
-        {
-            case 'profesional':
-                $profesionales[] = profesionales_instituciones::query()
-                    ->select('id_profesional_inst as id', 'primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido')
-                    ->nombreCompleto()
-                    ->where('id_profesional_inst', $id)
-                    ->where('estado', 1)
-                    ->where('id_institucion', $institucion)
-                    ->first()->toArray();
-                break;
-            case 'servicio':
-                $profesionales = profesionales_instituciones::query()
-                    ->select('id_profesional_inst as id', 'primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido')
-                    ->nombreCompleto()
-                    ->whereHas('servicios', function (Builder $query) use ($institucion, $id) {
-                        $query->where('institucion_id', $institucion)
-                            ->where('servicios.id', $id);
-                    })
-                    ->where('estado', 1)
-                    ->where('id_institucion', $institucion)
-                    ->get()->toArray();
-                break;
-            case 'especialidad':
-                $profesionales = profesionales_instituciones::query()
-                    ->select('id_profesional_inst as id', 'primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido')
-                    ->nombreCompleto()
-                    ->whereHas('servicios', function (Builder $query) use ($institucion, $id) {
-                        $query->where('institucion_id', $institucion)
-                            ->where('servicios.especialidad_id', $id);
-                    })
-                    ->where('estado', 1)
-                    ->where('id_institucion', $institucion)
-                    ->get()->toArray();
-                break;
-        }
-
-        return response([
-            'items' => $profesionales
-        ], Response::HTTP_OK);
-    }
-
-
+    /**
+     * Vista parar administrar vistas
+     *
+     * @param Request $request
+     * @return Application|Factory|View
+     */
     public function citas(Request $request)
     {
         $user = Auth::user();
@@ -146,7 +66,14 @@ class CalendarioController extends Controller
             'servicios', 'especialidades'));
     }
 
-    public function lista_citas(Request $request)
+    /**
+     * Permite Filtrar la citas por datatable
+     *
+     * @param Request $request
+     * @return JsonResponse
+     * @throws Exception
+     */
+    public function lista_citas(Request $request): JsonResponse
     {
 //        $query = Cita::query()
 //            ->with([
