@@ -37,15 +37,21 @@
                                 <select id="paciente" class="form-control" name="paciente" required></select>
                             </div>
                             <div class="input__box mb-3" style="display: none" id="div-paciente">
-                                <img id="foto" alt="foto" class="w-100 img-round"/>
-                                <h5 id="paciente-nombre-comppleto"></h5>
-                                <h5 id="paciente-identificacion"></h5>
-                                <h5 id="paciente-correo"></h5>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img id="foto" alt="foto" class="w-100 img-round"/>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <h5 id="paciente-nombre-comppleto"></h5>
+                                        <h5 id="paciente-identificacion"></h5>
+                                        <h5 id="paciente-correo"></h5>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="input__box mb-3">
                                 <label for="profesional">Profesional</label>
-                                <select id="profesional" class="form-control" name="profesional" required>
+                                <select id="profesional" name="profesional" required>
                                     <option></option>
                                     @if($profesionales->isNotEmpty())
                                         @foreach($profesionales as $profesional)
@@ -56,7 +62,7 @@
                             </div>
 
                             <div class="input__box mb-3">
-                                <label for="tipo_servicio">Tipo de servicio</label>
+                                <label for="tipo_servicio">Servicio</label>
                                 <select id="tipo_servicio" class="form-control" name="tipo_servicio" required>
                                     <option></option>
                                     @if(!empty($servicios))
@@ -86,12 +92,10 @@
                         </div>
 
                         <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
+
                             <div class="input__box mb-3">
-                                <label for="modalidad">Modalidad de pago</label>
-                                <select id="modalidad" class="form-control" name="modalidad" required>
-                                    <option value="virtual">Virtual</option>
-                                    <option value="presencial"> Presencial </option>
-                                </select>
+                                <label for="hora">Hora de la cita</label>
+                                <select id="hora" name="hora" class="form-control" required></select>
                             </div>
 
                             <div class="">
@@ -107,8 +111,11 @@
                             </div>
 
                             <div class="input__box mb-3">
-                                <label for="hora">Hora de la cita</label>
-                                <select id="hora" name="hora" class="form-control" required></select>
+                                <label for="modalidad">Modalidad de pago</label>
+                                <select id="modalidad" class="form-control" name="modalidad" required>
+                                    <option value="virtual">Virtual</option>
+                                    <option value="presencial"> Presencial </option>
+                                </select>
                             </div>
 
                             <div class="row m-0 content_btn_right">
@@ -141,7 +148,7 @@
                     <div>
                         <h5> Paciente<span id="modal-profesional"></span></h5>
                         <h5> Identificación<span id="modal-profesional-identificacion"></span></h5>
-                        <h5> Tipo de servicio:<span id="modal-tipo-cita"></span></h5>
+                        <h5> Servicio:<span id="modal-tipo-cita"></span></h5>
                         <h5> Profesional: <span id="modal-profesional"></span></h5>
                         <h5> Horario: <span id="modal-horario"></span></h5>
                         <h5> Lugar: <span id="modal-lugar"></span></h5>
@@ -236,6 +243,8 @@
             $('#paciente-nombre-comppleto').html('');
             $('#paciente-identificacion').html('');
             $('#paciente-correo').html('');
+        }).on('select2:open', function () {
+            $('input.select2-search__field')[0].focus();
         });
 
         //Agregar servicios
@@ -321,8 +330,12 @@
                     $('#check-convenio').prop('checked', false);
 
                     $.each(response.items, function (key, item) {
-                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.pivot.valor_paciente + '">' + item.nombre_completo + '</option>');
+                        $('#convenio').append('<option value="' + item.id + '" data-valor="' + item.valor + '">' + item.nombre_completo + '</option>');
                     });
+                },
+                error: function (response) {
+                    var response = res.responseJSON;
+                    $('#alertas').html(alert(response.message, 'danger'));
                 }
             })
         });
@@ -335,9 +348,6 @@
         function dias_libres(fecha, servicio) {
             var hora = $('#hora');
             hora.html('<option></option>');
-
-            console.log('fecha ' + fecha);
-            console.log('servicio ' + servicio);
 
             $.ajax({
                 data: $('#form-crear-cita-institucion').serialize(),
