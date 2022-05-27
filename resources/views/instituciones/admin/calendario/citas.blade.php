@@ -402,11 +402,11 @@
                         data: function (data, type, full, meta) {
 
                             return '<div class="d-flex justify-content-center">' +
-                                '<button  class="btn_action_green tool top editar-cita" data-url="">' +
+                                '<button  class="btn_action_green tool top editar-cita" data-url="' + data.ver + '">' +
                                 '<i class="fas fa-calendar-day fa-2x"></i>' +
                                 '<span class="tiptext">Editar cita</span>' +
                                 '</button>' +
-                                '<button  class="btn_action_green tool top cancelar-cita" data-url="">' +
+                                '<button  class="btn_action_green tool top cancelar-cita" data-url="' + data.ver + '">' +
                                 '<i class="fas fa-calendar-times fa-2x"></i>' +
                                 '<span class="tiptext">Cancelar cita</span>' +
                                 '</button>' +
@@ -457,7 +457,7 @@
                     $('#fecha').datepicker({
                         language: 'es',
                         format: 'yyyy-mm-dd',
-                        startDate: moment().format('YYYY-MM-DD'),
+                        //startDate: moment().format('YYYY-MM-DD'),
                     });
 
                     table.ajax.reload(null, false);
@@ -494,7 +494,7 @@
 
                     $('#form-reagendar-cita').attr('action', item.edit);
 
-                    $('#paciente').val(item.paciente);
+                    $('#paciente').val(item.paciente_id);
                     $('#tipo_servicio').val(item.tipo_cita_id);
 
                     info(modal, item);

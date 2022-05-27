@@ -162,7 +162,7 @@ class RecursosController extends Controller
         //$agenda['weekNotBusiness'] = [0, 1, 2];
 
         $lista = $profesional->servicios->map(function ($item) {
-            return ['id' => $item->id, 'nombre' => $item->nombre, 'valor' => $item->valor];
+            return ['id' => $item->id, 'nombre' => $item->nombre, 'valor' => "$" . number_format($item->valor,0, ',', '.')];
         });
 
         return response(['servicios' => $lista, 'agenda' => $agenda], Response::HTTP_OK);
