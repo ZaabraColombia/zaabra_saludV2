@@ -11,30 +11,27 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid px-3 px-md-5 px-xl-5 width_xl_95">
-
-        <div class="my-4">
+    <div class="container-fluid px-3 px-md-5 pt-5 left_alignment">
+        <div class="mb-4">
             <h1 class="title_contain_card">Pacientes</h1>
         </div>
 
-        <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
-        <div class="row card_buttons_top">
-            <div class="col-md-12 col-lg-2 p-0 card_content_btn_add mb-4">
-                <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green py-2"
-                   id="btn-agregar-contacto">
-                    Agregar pacientes
+        <div class="row m-0 pr-md-3 pr-xl-4">
+            <!-- Add patient -->
+            <div class="col-md-12 col-lg-2 p-0 mb-4 card_content_btn_add">
+                <a href="{{ route('institucion.pacientes.create') }}" class=" py-2 card_btn_add_green"
+                   id="btn-agregar-contacto">Agregar paciente
                 </a>
             </div>
-
-            <div class="col-md-6 col-lg-6 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
+            <!-- Search bar -->
+            <div class="col-md-6 col-lg-6 p-0 pl-lg-1 pl-xl-1 mb-4 card_btn_search">
                 <form method="get">
-                    <button id="search" class="{{ (request('search')) ? 'search_togggle':'' }}" type="button">
-                        <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar"
-                               value="{{ request('search') }}">
+                    <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                        <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                     </button>
                 </form>
             </div>
-
+            <!-- Document action buttons  -->
             <div class="col-md-4 col-lg-3 p-0 mb-4 container_btn_docs">
                 <button>
                     <div class="file_calendar"></div>
@@ -49,7 +46,7 @@
                     <div class="file_printer"></div>
                 </button>
             </div>
-
+            <!-- Pagination buttons -->
             <div class="col-md-2 col-lg-1 d-none d-md-flex p-0 mb-4 pagination__right">
                 @if(!$pacientes->onFirstPage())
                     <a href="{{ $pacientes->previousPageUrl() }}" class="pag_btn_right"></a>
@@ -64,8 +61,8 @@
             </div>
         </div>
 
-        <!-- Tarjetas Pacientes -->
         <div class="row m-0">
+            <!-- alert notice -->
             <div class="col-12" id="alertas">
                 @if(session()->has('success'))
                     <div class="alert alert-success" role="alert">
@@ -77,10 +74,10 @@
                     </div>
                 @endif
             </div>
-
+            <!-- Professional card -->
             @if($pacientes->isNotEmpty())
                 @foreach($pacientes as $paciente)
-                    <div class="col-md-6 col-xl-4 p-0 px-md-3 px-xl-2 mb-3 card__col">
+                    <div class="col-md-6 col-xl-4 p-0 pr-md-3 pr-xl-4 mb-4 card__col">
                         <div class="card container_card p-0">
                             <div class="card_avatar">
                                 <div class="row m-0 mb-3 pb-2 bord_bootom">
@@ -121,8 +118,7 @@
                     </div>
                 @endforeach
             @endif
-
-            <!-- Botones de paginación -->
+            <!-- Pagination buttons -->
             <div class="col-12 d-md-none p-0 mb-4 pagination__right">
                 <button class="pag_btn_right"></button>
                 <button class="pag_btn_left"></button>

@@ -195,7 +195,7 @@ overflow: hidden;
         background-color: #FFF;
         text-decoration: none;
         border-radius: 7px;
-        height: 41px;
+        height: 43px;
         display: inline-flex;
         align-items: center;
         overflow: hidden;
@@ -743,9 +743,9 @@ overflow: hidden;
     //***********************************************
     //* Tarjetas profesionales agenda instituciones *
     //***********************************************
-    .title_contain_card {
-        padding-left: 7px;
-    }
+                // .title_contain_card {
+                //     padding-left: 7px;
+                // }
     .card_content_btn_add .card_btn_add_green {
         font-size: .8rem;
         padding: 5px 5px;
@@ -818,9 +818,9 @@ overflow: hidden;
     .card_buttons_top {
         width: 98.8%;
     }
-    .title_contain_card {
-        padding-left: 6px;
-    }
+            // .title_contain_card {
+            //     padding-left: 6px;
+            // }
     // Estilos predeterminados para las colummnas de las tarjetas
     .card__col {
         max-width: 25% !important;

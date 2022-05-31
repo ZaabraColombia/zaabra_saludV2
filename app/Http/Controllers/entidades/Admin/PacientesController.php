@@ -24,6 +24,13 @@ class PacientesController extends Controller
             ->search(\request('search'))
             ->simplePaginate(12);
 
-        return view('instituciones.admin.pacientes', compact('pacientes'));
+        return view('instituciones.admin.pacientes.index', compact('pacientes'));
+    }
+
+    public function create()
+    {
+        // Gate::authorize('accesos-institucion','ver-pacientes');
+
+        return view('instituciones.admin.pacientes.crear');
     }
 }

@@ -82,7 +82,8 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
     Route::post('/guardar-instituciones', [entidades\Admin\FavoritosController::class, 'guardar_instituciones'])
         ->name('favoritos.guardar_instituciones');
 
-    Route::get('/pacientes', [entidades\Admin\PacientesController::class, 'index'])->name('pacientes');
+    Route::get('/pacientes', [entidades\Admin\PacientesController::class, 'index'])->name('pacientes.index');
+    Route::get('/pacientes/create', [entidades\Admin\PacientesController::class, 'create'])->name('pacientes.crear');
 
     Route::resource('contactos', entidades\Admin\ContactosController::class);
 

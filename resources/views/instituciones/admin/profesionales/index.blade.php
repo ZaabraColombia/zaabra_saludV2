@@ -1,3 +1,5 @@
+@extends('instituciones.admin.layouts.layout')
+
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
     <style>
@@ -8,15 +10,13 @@
     </style>
 @endsection
 
-@extends('instituciones.admin.layouts.layout')
-
 @section('contenido')
     <div class="container-fluid px-3 px-md-5 pt-5 left_alignment">
         <div class="mb-4">
             <h1 class="title_contain_card">Profesionales</h1>
         </div>
 
-        <div class="row m-0 pr-3 pr-4">
+        <div class="row m-0 pr-md-3 pr-xl-4">
             <!-- Add professional -->
             <div class="col-md-12 col-lg-2 p-0 mb-4 card_content_btn_add">
                 <a href="{{ route('institucion.profesionales.create') }}" class=" py-2 card_btn_add_green"
@@ -24,7 +24,7 @@
                 </a>
             </div>
             <!-- Search bar -->
-            <div class="col-md-6 col-lg-6 p-0 mb-4 card_btn_search">
+            <div class="col-md-6 col-lg-6 p-0 pl-lg-1 pl-xl-1 mb-4 card_btn_search">
                 <form method="get">
                     <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
                         <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
@@ -199,7 +199,7 @@
                     </div>
                 @endforeach
             @endif
-
+            <!-- Pagination buttons -->
             <div class="col-12 d-md-none p-0 mb-4 pagination__right">
                 <button class="pag_btn_right"></button>
                 <button class="pag_btn_left"></button>

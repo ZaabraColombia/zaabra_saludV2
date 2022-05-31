@@ -37,8 +37,8 @@
                 {{-- Mis pacientes --}}
                 @can('accesos-institucion','ver-pacientes')
                     <li class="sidebar-item  has-sub items_green">
-                        <a id="" class="" href='{{ route('institucion.pacientes') }}'>
-                            <button class="{{ request()->routeIs('institucion.pacientes') ? 'btn_active_inst' : '' }}">Pacientes</button>
+                        <a id="" class="" href='{{ route('institucion.pacientes.index') }}'>
+                            <button class="{{ request()->routeIs('institucion.pacientes.*') ? 'btn_active_inst' : '' }}">Pacientes</button>
                         </a>
                     </li>
                 @endcan

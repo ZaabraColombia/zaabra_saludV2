@@ -20729,6 +20729,13 @@ a:hover {
   width: 100%;
 }
 
+.container__main_form {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  padding: 20px 15px;
+  margin-bottom: 100px;
+}
+
 .card_module_form {
   background: #FFFFFF;
   margin: auto;
@@ -21771,6 +21778,13 @@ a:hover {
 
   .ubicacion_inst {
     width: 850px;
+  }
+
+  .container__main_form {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 20px 50px;
+    margin-bottom: 100px;
   }
 }
 @media (min-width: 1440px) {
@@ -26387,6 +26401,26 @@ a:hover {
   padding: 5px 9px;
 }
 
+.button__form_transparent {
+  font-size: 16px;
+  font-weight: 100;
+  color: #3E3E3E !important;
+  background: #FFFFFF;
+  border: solid 1px #707070;
+  border-radius: 4px;
+  padding: 5px 15px;
+}
+
+.button__form_green {
+  font-size: 16px;
+  font-weight: 100;
+  color: #FFFFFF;
+  background: #019F86;
+  border: solid 1px #019F86;
+  border-radius: 4px;
+  padding: 5px 15px;
+}
+
 .btn_ver_mas {
   font-family: "Quicksand";
   background: transparent;
@@ -26507,6 +26541,15 @@ div.dt-buttons {
   padding: 0;
 }
 
+@media (min-width: 1024px) {
+  .button__form_transparent {
+    font-size: 22px;
+  }
+
+  .button__form_green {
+    font-size: 22px;
+  }
+}
 .containt__card {
   background-color: #FFFFFF;
   border: 1px solid #CED4DA;
@@ -26703,7 +26746,7 @@ div.dt-buttons {
   background-color: #FFF;
   text-decoration: none;
   border-radius: 7px;
-  height: 41px;
+  height: 43px;
   display: inline-flex;
   align-items: center;
   overflow: hidden;
@@ -27241,10 +27284,6 @@ div.dt-buttons {
     margin: auto;
   }
 
-  .title_contain_card {
-    padding-left: 7px;
-  }
-
   .card_content_btn_add .card_btn_add_green {
     font-size: 0.8rem;
     padding: 5px 5px;
@@ -27304,10 +27343,6 @@ div.dt-buttons {
 @media (min-width: 1600px) {
   .card_buttons_top {
     width: 98.8%;
-  }
-
-  .title_contain_card {
-    padding-left: 6px;
   }
 
   .card__col {
@@ -27738,7 +27773,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 .input__box label {
   font-size: 14px;
-  font-family: "Roboto";
   color: #3E3E3E;
   margin-bottom: 4px;
 }
@@ -27831,6 +27865,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-color: #c3d5e5;
   outline: 0;
   box-shadow: 0px 0px 1.2px 2px rgba(30, 200, 252, 0.1);
+}
+
+.bootstrap-tagsinput {
+  padding: 0 6px !important;
+  line-height: 30px !important;
 }
 
 .no_brad_left {
@@ -28079,13 +28118,13 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
 @media (min-width: 768px) {
   .input__box label {
-    font-size: 16px;
+    font-size: 18px;
   }
   .input__box input {
-    font-size: 15px;
+    font-size: 16px;
   }
   .input__box select {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .input__check label {
@@ -28098,17 +28137,17 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 @media (min-width: 1440px) {
   .input__box label {
-    font-size: 16px;
+    font-size: 18px;
   }
   .input__box input {
-    font-size: 15px;
+    font-size: 16px;
   }
   .input__box select {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .input__check label {
-    font-size: 15px;
+    font-size: 14px;
   }
   .input__check input {
     width: 20px;
@@ -28237,7 +28276,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   width: 100%;
   border-radius: 100px;
   background: #D1D1D1;
-  border: 1px solid #707070;
+  border: 1px solid #DBDADA;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
