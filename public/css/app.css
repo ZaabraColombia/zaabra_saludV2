@@ -26838,7 +26838,7 @@ div.dt-buttons {
   width: 47px;
   height: 41px;
   background-color: #FFFFFF;
-  border: 1px solid #707070;
+  border: 1px solid #DBDADA;
   border-radius: 7px 0 0 7px;
   background-image: url("/img/iconos/flecha-derecha-gris.svg");
   background-repeat: no-repeat;
@@ -26853,7 +26853,7 @@ div.dt-buttons {
   width: 47px;
   height: 41px;
   background-color: #FFFFFF;
-  border: 1px solid #707070;
+  border: 1px solid #DBDADA;
   border-left: none;
   border-radius: 0 7px 7px 0;
   background-image: url("/img/iconos/flecha-izquierda-gris.svg");
@@ -27075,7 +27075,7 @@ div.dt-buttons {
   }
 
   .card__ {
-    padding: 15px 5px;
+    padding: 5px 5px 15px 5px;
   }
 
   .card_info_user {
@@ -27114,7 +27114,7 @@ div.dt-buttons {
     padding: 0 3px;
   }
   .card__row_column .card_content_btn_info .card_btn_info .icon_btn_info_md {
-    width: 13px;
+    width: 15px;
     height: 15px;
   }
   .card__row_column .card_content_btn_info .card_btn_info:nth-child(1) {
@@ -27231,6 +27231,11 @@ div.dt-buttons {
 
   .card__col {
     max-width: 25% !important;
+  }
+
+  .left_alignment {
+    width: 93%;
+    margin-left: initial;
   }
 }
 .containt_main_form {

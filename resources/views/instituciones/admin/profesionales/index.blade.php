@@ -11,29 +11,27 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <div class="container-fluid px-3 px-md-5 px-xl-5 width_xl_95">
-        <div class="my-4">
+    <div class="container-fluid px-3 px-md-5 pt-5 left_alignment">
+        <div class="mb-4">
             <h1 class="title_contain_card">Profesionales</h1>
         </div>
 
-        <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
-        <div class="row m-0">
-
-            <div class="col-md-12 col-lg-2 p-0 card_content_btn_add mb-4">
-                <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green py-2"
-                   id="btn-agregar-contacto">
-                    Agregar profesional
+        <div class="row m-0 pr-3 pr-4">
+            <!-- Add proffesional -->
+            <div class="col-md-12 col-lg-2 p-0 mb-4 card_content_btn_add">
+                <a href="{{ route('institucion.profesionales.create') }}" class=" py-2 card_btn_add_green"
+                   id="btn-agregar-contacto">Agregar profesional
                 </a>
             </div>
-
-            <div class="col-md-6 col-lg-6 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
+            <!-- Search bar -->
+            <div class="col-md-6 col-lg-6 p-0 mb-4 card_btn_search">
                 <form method="get">
                     <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
                         <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                     </button>
                 </form>
             </div>
-
+            <!-- Document action buttons  -->
             <div class="col-md-4 col-lg-3 p-0 mb-4 container_btn_docs">
                 <button>
                     <div class="file_calendar"></div>
@@ -48,7 +46,7 @@
                     <div class="file_printer"></div>
                 </button>
             </div>
-
+            <!-- Pagination buttons -->
             <div class="col-md-2 col-lg-1 d-none d-md-flex p-0 mb-4 pagination__right">
                 @if(!$profesionales->onFirstPage())
                     <a href="{{ $profesionales->previousPageUrl() }}" class="pag_btn_right"></a>
@@ -64,8 +62,8 @@
             </div>
         </div>
 
-        <!-- Tarjetas Profesionales -->
         <div class="row m-0">
+            <!-- alert notice -->
             <div class="col-12" id="alertas">
                 @if(session()->has('success'))
                     <div class="alert alert-success" role="alert">
@@ -77,10 +75,10 @@
                     </div>
                 @endif
             </div>
-
+            <!-- Proffesional card -->
             @if($profesionales->isNotEmpty())
                 @foreach($profesionales as $profesional)
-                    <div class="col-md-6 col-xl-4 p-0 px-md-1 mb-3">
+                    <div class="col-md-6 col-xl-4 p-0 pr-3 pr-4 mb-4 card__col">
                         <div class="card container_card p-0">
                             <div class="card__">
                                 <div class="row card__row_column">

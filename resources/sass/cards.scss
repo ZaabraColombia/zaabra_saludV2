@@ -392,7 +392,7 @@ overflow: hidden;
         width: 47px;
         height: 41px;
         background-color: #FFFFFF;
-        border: 1px solid #707070;
+        border: 1px solid #DBDADA;
         border-radius: 7px 0 0 7px;
         background-image: url('/img/iconos/flecha-derecha-gris.svg');
         background-repeat: no-repeat;
@@ -407,7 +407,7 @@ overflow: hidden;
         width: 47px;
         height: 41px;
         background-color: #FFFFFF;
-        border: 1px solid #707070;
+        border: 1px solid #DBDADA;
         border-left: none;
         border-radius: 0 7px 7px 0;
         background-image: url('/img/iconos/flecha-izquierda-gris.svg');
@@ -630,7 +630,7 @@ overflow: hidden;
         background-position-x: 95%;
     }
     .card__ {
-        padding: 15px 5px;
+        padding: 5px 5px 15px 5px;
     }
     .card_info_user {
         padding-left: 5px;
@@ -663,7 +663,7 @@ overflow: hidden;
                 color: #019F86;
                 padding: 0 3px;
                 .icon_btn_info_md {
-                    width: 13px;
+                    width: 15px;
                     height: 15px;
                 }
                 &:nth-child(1) {
@@ -810,5 +810,9 @@ overflow: hidden;
     // Estilos predeterminados para las colummnas de las tarjetas
     .card__col {
         max-width: 25% !important;
+    }
+    .left_alignment {
+        width: 93%;
+        margin-left: initial;
     }
 }
