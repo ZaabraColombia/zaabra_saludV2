@@ -19,7 +19,7 @@
         <div class="row m-0 pr-md-3 pr-xl-4">
             <!-- Add patient -->
             <div class="col-md-12 col-lg-2 p-0 mb-4 card_content_btn_add">
-                <a href="{{ route('institucion.pacientes.create') }}" class=" py-2 card_btn_add_green"
+                <a href="{{ route('institucion.pacientes.crear') }}" class=" py-2 card_btn_add_green"
                    id="btn-agregar-contacto">Agregar paciente
                 </a>
             </div>

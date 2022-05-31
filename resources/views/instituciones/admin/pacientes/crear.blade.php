@@ -41,6 +41,7 @@
                         <div class="img__upload">
                             <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
                             <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
+                            <!-- <p>Subir foto de perfil</p> -->
                         </div>
                     </div>
                 </div>
@@ -223,7 +224,6 @@
             </form>
         </div>
     </div>
-    
 @endsection
 
 @section('scripts')

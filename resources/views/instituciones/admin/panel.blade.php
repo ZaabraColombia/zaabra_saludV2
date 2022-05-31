@@ -40,7 +40,7 @@
                     {{-- Pacientes --}}
                     @can('accesos-institucion','ver-pacientes')
                         <div class="col-6 col-md-4 col-xl-4 p-2">
-                            <a href='{{ route('institucion.pacientes') }}'>
+                            <a href='{{ route('institucion.pacientes.index') }}'>
                                 <div class="content__target_inst paciente_green">
                                     <span class="fs_text">Pacientes</span>
                                 </div>
