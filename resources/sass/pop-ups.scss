@@ -364,8 +364,8 @@
         }
     }
     .modal_main_title {
-        padding: 0 0 0 3px;
-        margin-bottom: 50px;
+        padding: 0;
+        margin-bottom: 0;
         .modal_title_green {
             font-size: 25px;
             font-weight: bold;
@@ -377,7 +377,6 @@
 }
 .modal__ {
     .modal-body {
-        padding: 0 10px;
         border: none;
         .modal_body_img {
             position: absolute;
@@ -395,6 +394,7 @@
                 box-shadow: 0px 3px 6px #00000029;
             }
         }
+        // Sección data con borde
         .modal_info_data {
             background: #FFFFFF;
             border: 1px solid #DBDADA;
@@ -425,6 +425,52 @@
                 }
             }
         }
+        // Sección data sin borde
+        .modal_info_data_open {
+            background: #FFFFFF;
+            padding: 0;
+            margin-bottom: 0px;
+            .modal_info_user {
+                padding: 0;
+                margin-bottom: 10px;
+                .modal_data_form {
+                    font-size: 18px;
+                    font-family: 'Roboto';
+                    color: $black_firsrt;
+                    font-weight: 100;
+                    margin: 0;
+                }
+                // Data sin background
+                .modal_data_user {
+                    font-size: 18px;
+                    font-family: 'Quicksand';
+                    color: $black_third;
+                    font-weight: bold;
+                    line-height: 1.2;
+                    margin: 0;
+                    span {
+                        vertical-align: middle;
+                    }
+                }
+                // Data con background
+                .modal_data_user_bg {
+                    font-size: 18px;
+                    font-family: 'Quicksand';
+                    color: $black_third;
+                    font-weight: bold;
+                    display: block;
+                    .modal_data_user_bg {
+                        width: max-content;
+                        background: #DBDADA;
+                        border-radius: 7px;
+                        padding: 6px;
+                        margin: 7px 0 0 0;
+                        vertical-align: middle;
+                        line-height: 1;
+                    }
+                }
+            }
+        }
     }
 }
 .modal__ .modal_btn_down_center {
@@ -433,7 +479,7 @@
         align-items: center;
         .modal_btn_green {
             font-family: "Quicksand";
-            font-size: 18px;
+            font-size: 24px;
             font-weight: bold;
             color: #FFFFFF;
             background: #019F86;
@@ -488,7 +534,7 @@
     //*******************************************
     .modal__ .modal-header {
         .modal_main_title {
-            padding: 0 0 0 10px;
+            margin-bottom: 15px;
             .modal_title_green {
                 font-size: 30px;
             }
@@ -497,6 +543,7 @@
     .modal__ {
         .modal-body {
             padding: 0 25px;
+            //Sección data con borde
             .modal_info_data {
                 .modal_info_user {
                     .modal_data_form {
@@ -506,6 +553,31 @@
                         font-size: 18px;
                         span {
                             vertical-align: baseline;
+                        }
+                    }
+                }
+            }
+            // Sección data sin borde
+            .modal_info_data_open {
+                border: 1px solid #DBDADA;
+                border-radius: 7px;
+                padding: 25px;
+                .modal_info_user {
+                    display: flex;
+                    // Data sin background
+                    .modal_data_user {
+                        padding-left: 10px;
+                        span {
+                            vertical-align: baseline;
+                        }
+                    }
+                    // Data con background
+                    .modal_data_user_bg {
+                        display: flex;
+                        flex-wrap: wrap;
+                        .modal_data_user_bg {
+                            width: 30%;
+                            margin: 7px 10px 0 0;
                         }
                     }
                 }

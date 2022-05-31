@@ -17,7 +17,7 @@
         </div>
 
         <div class="row m-0 pr-3 pr-4">
-            <!-- Add proffesional -->
+            <!-- Add professional -->
             <div class="col-md-12 col-lg-2 p-0 mb-4 card_content_btn_add">
                 <a href="{{ route('institucion.profesionales.create') }}" class=" py-2 card_btn_add_green"
                    id="btn-agregar-contacto">Agregar profesional
@@ -75,13 +75,14 @@
                     </div>
                 @endif
             </div>
-            <!-- Proffesional card -->
+            <!-- Professional card -->
             @if($profesionales->isNotEmpty())
                 @foreach($profesionales as $profesional)
-                    <div class="col-md-6 col-xl-4 p-0 pr-3 pr-4 mb-4 card__col">
+                    <div class="col-md-6 col-xl-4 p-0 pr-md-3 pr-xl-4 mb-4 card__col">
                         <div class="card container_card p-0">
                             <div class="card__">
                                 <div class="row card__row_column">
+                                    <!-- Informative buttons desktop-->
                                     <div class="card_content_btn_info col-12 d-none d-md-flex mb-md-1">
                                         <a class="card_btn_info tool top">
                                             <i data-feather="lock" class="icon_btn_info_md"></i> <span class="tiptext">Agenda configurada</span>
@@ -115,7 +116,7 @@
                                             <i data-feather="slash" class="icon_btn_info_md"></i> <span class="tiptext">Bloquear agenda</span>
                                         </button>
                                     </div>
-
+                                    <!-- Image professional -->
                                     <div class="col-md-3 p-0 mb-2 d-flex justify-content-center align-self-md-start">
                                         <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}"
                                            target="_blank">
@@ -123,8 +124,8 @@
                                                  src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
                                         </a>
                                     </div>
-
-                                    <div class="col-md-9 card_info_user">
+                                    <!-- Information professional -->
+                                    <div class="col-md-9 mb-3 card_info_user">
                                         <div class="card_txt_h">
                                             <h4 class="card_h4">{{ $profesional->nombre_completo }}</h4>
                                         </div>
@@ -132,7 +133,7 @@
                                         <div class="card_txt_h">
                                             <h5 class="card_h5">{{ $profesional->nombre_especialidad ?? '' }}</h5>
                                         </div>
-
+                                        <!-- Informative buttons mobile-->
                                         <div class="card_content_btn_info d-md-none">
                                             <a class="card_btn_info tool top">
                                                 <i data-feather="lock"></i> <span
@@ -140,16 +141,16 @@
                                             </a>
 
                                             {{--@if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
-                                        <button class="card_btn_info tool top">
-                                            <i style="width: 23px" data-feather="lock"></i>
-                                            <span class="tiptext">Calendario no configurado</span>
-                                        </button>
-                                        @else
-                                        <button class="card_btn_info tool top">
-                                            <i style="width: 23px" data-feather="unlock"></i>
-                                            <span class="tiptext">Calendario configurado</span>
-                                        </button>
-                                        @endif--}}
+                                            <button class="card_btn_info tool top">
+                                                <i style="width: 23px" data-feather="lock"></i>
+                                                <span class="tiptext">Calendario no configurado</span>
+                                            </button>
+                                            @else
+                                            <button class="card_btn_info tool top">
+                                                <i style="width: 23px" data-feather="unlock"></i>
+                                                <span class="tiptext">Calendario configurado</span>
+                                            </button>
+                                            @endif--}}
 
                                             <a class="card_btn_info tool top"
                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
@@ -187,6 +188,10 @@
                                             <i data-feather="map-pin" class="card_icon"></i><span
                                                 class="card_span">{{ $profesional->direccion }}</span>
                                         </div>
+                                    </div>
+
+                                    <div class="col-12 p-0 card_content_btn_center">
+                                        <button class="card_btn_see_green" data-toggle="modal" data-target="#modal_see_professional">Ver más</button>
                                     </div>
                                 </div>
                             </div>
@@ -247,6 +252,149 @@
                         <button type="submit" class="button_green">Bloquear</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal see professional -->
+    <div class="modal fade" id="modal_see_professional" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal__">
+                <!-- Modal header -->
+                <div class="modal-header row m-0 px-3 pl-lg-4">
+                    <div class="col-12 p-0">
+                        <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
+                            <span class="modal_x_close" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Título principal verde -->
+                    <div class="col-12 modal_main_title">
+                        <h1 class="modal_title_green">Ver Profesional</h1>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
+                    <!-- Sección data sin borde -->
+                    <div class="modal_info_data_open">
+                        <div class="row m-0">
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Nombre:</h4>
+                                <div class="modal_data_user">
+                                    <span id="nombre">María Carolina Pérez Perdomo</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Identificación:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">C.C. 52458791</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Fecha de nacimiento:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">28/11/1985</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 dropdown-divider"></div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Correo:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">mariacaro85@gmail.com</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Teléfono:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">0000000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Móvil:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">300 000 0000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Dirección:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Calle 127A # 7-53 Cs 7003</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">País:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Colombia</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Departamento:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Norte de Santander</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Ciudad:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Santo Domingo de Silos</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 dropdown-divider"></div>
+
+                            <div class="col-lg-12 modal_info_user">
+                                <h4 class="modal_data_form">Especialidad principal:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Otorrinolaringología</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Tarjeta profesional</h4>
+                                <div class="modal_data_user">
+                                    <span id="">000000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Cargo:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Presidente</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Universidad:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Universidad del Rosario</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 modal_info_user d-lg-block">
+                                <h4 class="modal_data_form">Otras especialidades:</h4>
+                                <div class="modal_data_user_bg">
+                                    <span class="modal_data_user_bg" id="">Cirugía plástica facial</span>
+                                    <span class="modal_data_user_bg" id="">Rinitis alérgica y sinusitis</span>
+                                    <span class="modal_data_user_bg" id="">Otorrinolaringología</span>
+                                    <span class="modal_data_user_bg" id="">Cirugía plástica facial</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modalfooter -->
+                <div class="modal_btn_down_center mb-4">
+                    <button type="button" class="modal_btn_green" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>

@@ -22401,8 +22401,8 @@ a:hover {
   font-size: 26px;
 }
 .modal__ .modal-header .modal_main_title {
-  padding: 0 0 0 3px;
-  margin-bottom: 50px;
+  padding: 0;
+  margin-bottom: 0;
 }
 .modal__ .modal-header .modal_main_title .modal_title_green {
   font-size: 25px;
@@ -22413,7 +22413,6 @@ a:hover {
 }
 
 .modal__ .modal-body {
-  padding: 0 10px;
   border: none;
 }
 .modal__ .modal-body .modal_body_img {
@@ -22462,6 +22461,51 @@ a:hover {
 .modal__ .modal-body .modal_info_data .modal_info_user .modal_data_user span {
   vertical-align: middle;
 }
+.modal__ .modal-body .modal_info_data_open {
+  background: #FFFFFF;
+  padding: 0;
+  margin-bottom: 0px;
+}
+.modal__ .modal-body .modal_info_data_open .modal_info_user {
+  padding: 0;
+  margin-bottom: 10px;
+}
+.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_form {
+  font-size: 18px;
+  font-family: "Roboto";
+  color: #3E3E3E;
+  font-weight: 100;
+  margin: 0;
+}
+.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user {
+  font-size: 18px;
+  font-family: "Quicksand";
+  color: #232323;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0;
+}
+.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user span {
+  vertical-align: middle;
+}
+.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg {
+  font-size: 18px;
+  font-family: "Quicksand";
+  color: #232323;
+  font-weight: bold;
+  display: block;
+}
+.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg .modal_data_user_bg {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background: #DBDADA;
+  border-radius: 7px;
+  padding: 6px;
+  margin: 7px 0 0 0;
+  vertical-align: middle;
+  line-height: 1;
+}
 
 .modal__ .modal_btn_down_center {
   display: flex;
@@ -22470,7 +22514,7 @@ a:hover {
 }
 .modal__ .modal_btn_down_center .modal_btn_green {
   font-family: "Quicksand";
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   color: #FFFFFF;
   background: #019F86;
@@ -22515,7 +22559,7 @@ a:hover {
 }
 @media (min-width: 1024px) {
   .modal__ .modal-header .modal_main_title {
-    padding: 0 0 0 10px;
+    margin-bottom: 15px;
   }
   .modal__ .modal-header .modal_main_title .modal_title_green {
     font-size: 30px;
@@ -22532,6 +22576,28 @@ a:hover {
   }
   .modal__ .modal-body .modal_info_data .modal_info_user .modal_data_user span {
     vertical-align: baseline;
+  }
+  .modal__ .modal-body .modal_info_data_open {
+    border: 1px solid #DBDADA;
+    border-radius: 7px;
+    padding: 25px;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user {
+    display: flex;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user {
+    padding-left: 10px;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user span {
+    vertical-align: baseline;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg .modal_data_user_bg {
+    width: 30%;
+    margin: 7px 10px 0 0;
   }
 
   .modal__ .modal_btn_down_center .modal_btn_green {
@@ -26692,13 +26758,28 @@ div.dt-buttons {
   padding: 5px 15px;
 }
 
+.card_content_btn_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_content_btn_center .card_btn_see_green {
+  font-family: "Quicksand";
+  font-size: 10px;
+  color: #FFFFFF;
+  background: #019F86;
+  border: solid 1px #019F86;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
 .container_btn_docs {
   display: flex;
   justify-content: center;
 }
 .container_btn_docs button {
-  width: 46px;
-  height: 41px;
+  width: 47px;
+  height: 44px;
   background-color: #FFFFFF;
   border: 1px solid #DBDADA;
   border-radius: 7px;

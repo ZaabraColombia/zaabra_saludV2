@@ -249,12 +249,26 @@ overflow: hidden;
         padding: 5px 15px;
     }
 }
+.card_content_btn_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card_btn_see_green {
+        font-family: "Quicksand";
+        font-size: 10px;
+        color: $withe_official;
+        background: $green_official;
+        border: solid 1px $green_official;
+        border-radius: 5px;
+        padding: 5px 15px;
+    }
+}
 .container_btn_docs {
     display: flex;
     justify-content: center;
     button {
-        width: 46px;
-        height: 41px;
+        width: 47px;
+        height: 44px;
         background-color: #FFFFFF;
         border: 1px solid #DBDADA;
         border-radius: 7px;
