@@ -99,7 +99,7 @@
     border-radius: 3px;
 }
 .mail {
-width: 200px;
+width: 245px;
 white-space: nowrap;
 text-overflow: ellipsis;
 overflow: hidden;
@@ -688,6 +688,9 @@ overflow: hidden;
             }
         }
     }
+    .mail {
+        width: 285px;
+    }
 }
 
 @media(min-width: 1024px) {
@@ -716,6 +719,9 @@ overflow: hidden;
         .card_btn_transparent {
             font-size: 10px;
         }
+    }
+    .mail {
+        width: 250px;
     }
 }
 

@@ -6,176 +6,174 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <!-- Form update duration date -->
-            <div class="content_info_top">
-                <div class="title_config_cita">
-                    <h1 class="title__xl green_bold">Configuración de calendario</h1>
-                    <h2 class="text__md black_light">Administre el horario de las citas</h2>
-                </div>
-
-                <div class="prof_data_top">
-                    <a class="d-flex" href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
-                        <img class="prof_img_top" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
-                        <div class="pl-3">
-                            <h5 class="text__md black_light">{{ $profesional->nombre_completo }}</h5>
-                            <h5 class="text__md black_light">{{ $profesional->nombre_especialidad ?? '' }}</h5>
-                        </div>
-                    </a>
-                </div>
+    <div class="container-fluid px-3 px-md-5 pt-5 left_alignment">
+        <!-- Form update duration date -->
+        <div class="content_info_top">
+            <div class="title_config_cita">
+                <h1 class="fs_title_module green_bold">Configuración de calendario</h1>
+                <h2 class="text__md black_light">Administre el horario de las citas</h2>
             </div>
 
-            <form action="{{ route('institucion.profesionales.guardar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
-                  method="post" id="form-configurar-calendario" class="forms" data-alert="#alert-cita">
-                @csrf
-                <div class="containt_main_table mb-3">
-                    <div id="alert-configurar-calendario"></div>
-                    <div class="row">
-                        <div class="col-md-3 input__box">
-                            <label for="disponibilidad_agenda">Tiempo disponibilidad agenda</label>
-                            <input type="number" id="disponibilidad_agenda" name="disponibilidad_agenda"
-                                   value="{{ old('disponibilidad_agenda', $profesional->disponibilidad_agenda) }}"
-                                   class="@error('disponibilidad_agenda') is-invalid @enderror" />
-                        </div>
-
-                        <div class="col-md-6 input__box">
-                            <label for="sede_id">Sede</label>
-                            <select class="@error('sede_id') is-invalid @enderror" id="sede_id" name="sede_id">
-                                @if($sedes->isNotEmpty())
-                                    @foreach($sedes as $sede)
-                                        <option value="{{ $sede->id }}" {{ old('sede_id', $profesional->sede_id) ? 'selected':'' }}>{{ "{$sede->nombre} - {$sede->direccion}" }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
-                        </div>
-
-                        <div class="col-md-3 input__box">
-                            <label for="num_consultorio">Número de consultorio</label>
-                            <input type="number" id="consultorio" name="consultorio"
-                                   value="{{ old('consultorio', $profesional->consultorio) }}" class="@error('consultorio') is-invalid @enderror">
-                        </div>
-
-                        <div class="col-12 input__box mb-3">
-                            <label for="servicios">Servicios</label>
-                            <select type="text" id="servicios" name="servicios[]" class="select2" multiple>
-                                @if($servicios->isNotEmpty())
-                                    @foreach($servicios as $servicio)
-                                        <option value="{{ $servicio->id }}" {{ (collect(old('servicios', $servicios_profesional))->contains($servicio->id)) ? 'selected':'' }}>{{ $servicio->nombre }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
-                        </div>
+            <div class="prof_data_top">
+                <a class="d-flex" href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}" target="_blank">
+                    <img class="prof_img_top" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                    <div class="pl-3">
+                        <h5 class="text__md black_light">{{ $profesional->nombre_completo }}</h5>
+                        <h5 class="text__md black_light">{{ $profesional->nombre_especialidad ?? '' }}</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Calendar setup form -->
+        <form action="{{ route('institucion.profesionales.guardar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
+                method="post" id="form-configurar-calendario" class="forms" data-alert="#alert-cita">
+            @csrf
+            <div class="container__main_form mb-4">
+                <div id="alert-configurar-calendario"></div>
+                <div class="row">
+                    <div class="col-md-3 input__box">
+                        <label for="disponibilidad_agenda">Tiempo disponibilidad agenda</label>
+                        <input type="number" id="disponibilidad_agenda" name="disponibilidad_agenda"
+                                value="{{ old('disponibilidad_agenda', $profesional->disponibilidad_agenda) }}"
+                                class="@error('disponibilidad_agenda') is-invalid @enderror" />
                     </div>
 
-                    <!-- Buttons -->
-                    <div class="row m-0 content_btn_right">
-                        <button type="submit" class="button_green">Guardar</button>
-                    </div>
-                </div>
-            </form>
-
-            <!-- Form add schedule-->
-            <form action="{{ route('institucion.profesionales.guardar_horario', ['profesional' => $profesional->id_profesional_inst]) }}"
-                  method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
-                @csrf
-                <div class="containt_main_table mb-3">
-                    <div id="alert-horario-agregar"></div>
-                    <div class="mb-3">
-                        <h2 class="subtitle__lg green_bold">Nuevo Horario</h2>
+                    <div class="col-md-6 input__box">
+                        <label for="sede_id">Sede</label>
+                        <select class="@error('sede_id') is-invalid @enderror" id="sede_id" name="sede_id">
+                            @if($sedes->isNotEmpty())
+                                @foreach($sedes as $sede)
+                                    <option value="{{ $sede->id }}" {{ old('sede_id', $profesional->sede_id) ? 'selected':'' }}>{{ "{$sede->nombre} - {$sede->direccion}" }}</option>
+                                @endforeach
+                            @endif
+                        </select>
                     </div>
 
-                    <div class="list__form">
-                        <ul class="row m-0 mt-3">
-                            <li class="col-6 col-md-3 check__box_green">
-                                <input type="checkbox" value="1" id="semana-1" name="semana[]">
-                                <label class="label_check_green" for="semana-1">Lunes</label>
-                            </li>
-                            <li class="col-6 col-md-3 check__box_green">
-                                <input type="checkbox" value="2" id="semana-2" name="semana[]">
-                                <label class="label_check_green" for="semana-2">Martes</label>
-                            </li>
-                            <li class="col-6 col-md-3 check__box_green">
-                                <input type="checkbox" value="3" id="semana-3" name="semana[]">
-                                <label class="label_check_green" for="semana-3">Miércoles</label>
-                            </li>
-                            <li class="col-6 col-md-3 check__box_green">
-                                <input type="checkbox" value="4" id="semana-4" name="semana[]">
-                                <label class="label_check_green" for="semana-4">Jueves</label>
-                            </li>
-                            <li class="col-6 col-md-3 check__box_green">
-                                <input type="checkbox" value="5" id="semana-5" name="semana[]">
-                                <label class="label_check_green" for="semana-5">Viernes</label>
-                            </li>
-                            <li class="col-6 col-md-3 check__box_green">
-                                <input type="checkbox" value="6" id="semana-6" name="semana[]">
-                                <label class="label_check_green" for="semana-6">Sábado</label>
-                            </li>
-                            <li class="col-6 col-md-3 check__box_green">
-                                <input type="checkbox" value="0" id="semana-0" name="semana[]">
-                                <label class="label_check_green" for="semana-0">Domingo</label>
-                            </li>
-                        </ul>
+                    <div class="col-md-3 input__box">
+                        <label for="num_consultorio">Número de consultorio</label>
+                        <input type="number" id="consultorio" name="consultorio"
+                                value="{{ old('consultorio', $profesional->consultorio) }}" class="@error('consultorio') is-invalid @enderror">
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6 input__box">
-                            <label for="hora_inicio">Inicio</label>
-                            <input type="time" id="hora_inicio" name="hora_inicio">
-                        </div>
-
-                        <div class="col-md-6 input__box">
-                            <label for="hora_final">Fin</label>
-                            <input type="time" id="hora_final" name="hora_final">
-                        </div>
-                    </div>
-
-                    <!-- Buttons -->
-                    <div class="row m-0 content_btn_right">
-                        <button type="submit" class="button_green">Agregar</button>
+                    <div class="col-12 input__box mb-3">
+                        <label for="servicios">Servicios</label>
+                        <select type="text" id="servicios" name="servicios[]" class="select2" multiple>
+                            @if($servicios->isNotEmpty())
+                                @foreach($servicios as $servicio)
+                                    <option value="{{ $servicio->id }}" {{ (collect(old('servicios', $servicios_profesional))->contains($servicio->id)) ? 'selected':'' }}>{{ $servicio->nombre }}</option>
+                                @endforeach
+                            @endif
+                        </select>
                     </div>
                 </div>
-            </form>
 
-            <div class="containt_main_table mb-3">
+                <!-- Buttons -->
+                <div class="row m-0 my-4 content_btn_center">
+                    <button type="submit" class="button__form_green">Guardar</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Form add schedule-->
+        <form action="{{ route('institucion.profesionales.guardar_horario', ['profesional' => $profesional->id_profesional_inst]) }}"
+                method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
+            @csrf
+            <div class="container__main_form mb-4">
+                <div id="alert-horario-agregar"></div>
                 <div class="mb-3">
-                    <h2 class="subtitle__lg green_bold">Horario</h2>
+                    <h2 class="fs_subtitle green_bold">Nuevo Horario</h2>
                 </div>
 
-                <div class="table-responsive">
-                    <table class="table table_agenda" id="table-horario">
-                        <thead class="thead_green">
-                        <tr>
-                            <th>Días</th>
-                            <th>Horas</th>
-                            <th>Acción</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        @if(!empty($profesional->horario) and is_array($profesional->horario))
-                            @foreach($profesional->horario as $item)
-                                <tr>
-                                    <td>
-                                        @if(!empty($item['daysOfWeek']))
-                                            @php foreach ($item['daysOfWeek'] as $k => $i) $item['daysOfWeek'][$k] = daysWeekText($i); @endphp
-                                            {{ implode('-', $item['daysOfWeek']) }}
-                                        @endif
-                                    </td>
-                                    <td>{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
-                                    <td>
-                                        <button class="border-0 bg-transparent eliminar-horario tool top"
-                                                type="button" data-id="{{ $item['id'] }}">
-                                            <i data-feather="x-circle" class="green_bold"></i> <span class="tiptext">Eliminar horario</span>
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-
-                        </tbody>
-                    </table>
+                <div class="list__form">
+                    <ul class="row m-0 mt-3">
+                        <li class="col-6 col-md-3 check__box_green">
+                            <input type="checkbox" value="1" id="semana-1" name="semana[]">
+                            <label class="label_check_green" for="semana-1">Lunes</label>
+                        </li>
+                        <li class="col-6 col-md-3 check__box_green">
+                            <input type="checkbox" value="2" id="semana-2" name="semana[]">
+                            <label class="label_check_green" for="semana-2">Martes</label>
+                        </li>
+                        <li class="col-6 col-md-3 check__box_green">
+                            <input type="checkbox" value="3" id="semana-3" name="semana[]">
+                            <label class="label_check_green" for="semana-3">Miércoles</label>
+                        </li>
+                        <li class="col-6 col-md-3 check__box_green">
+                            <input type="checkbox" value="4" id="semana-4" name="semana[]">
+                            <label class="label_check_green" for="semana-4">Jueves</label>
+                        </li>
+                        <li class="col-6 col-md-3 check__box_green">
+                            <input type="checkbox" value="5" id="semana-5" name="semana[]">
+                            <label class="label_check_green" for="semana-5">Viernes</label>
+                        </li>
+                        <li class="col-6 col-md-3 check__box_green">
+                            <input type="checkbox" value="6" id="semana-6" name="semana[]">
+                            <label class="label_check_green" for="semana-6">Sábado</label>
+                        </li>
+                        <li class="col-6 col-md-3 check__box_green">
+                            <input type="checkbox" value="0" id="semana-0" name="semana[]">
+                            <label class="label_check_green" for="semana-0">Domingo</label>
+                        </li>
+                    </ul>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-6 input__box">
+                        <label for="hora_inicio">Inicio</label>
+                        <input type="time" id="hora_inicio" name="hora_inicio">
+                    </div>
+
+                    <div class="col-md-6 input__box">
+                        <label for="hora_final">Fin</label>
+                        <input type="time" id="hora_final" name="hora_final">
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="row m-0 my-4 content_btn_center">
+                    <button type="submit" class="button__form_green">Agregar</button>
+                </div>
+            </div>
+        </form>
+        <!-- Schedule table -->
+        <div class="container__main_form">
+            <div class="mb-3">
+                <h2 class="fs_subtitle green_bold">Horario</h2>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table_agenda" id="table-horario">
+                    <thead class="thead_green">
+                    <tr>
+                        <th>Días</th>
+                        <th>Horas</th>
+                        <th>Acción</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    @if(!empty($profesional->horario) and is_array($profesional->horario))
+                        @foreach($profesional->horario as $item)
+                            <tr>
+                                <td>
+                                    @if(!empty($item['daysOfWeek']))
+                                        @php foreach ($item['daysOfWeek'] as $k => $i) $item['daysOfWeek'][$k] = daysWeekText($i); @endphp
+                                        {{ implode('-', $item['daysOfWeek']) }}
+                                    @endif
+                                </td>
+                                <td>{{ date('h:i A', strtotime($item['startTime'])) }} - {{ date('h:i A', strtotime($item['endTime'])) }}</td>
+                                <td>
+                                    <button class="border-0 bg-transparent eliminar-horario tool top"
+                                            type="button" data-id="{{ $item['id'] }}">
+                                        <i data-feather="x-circle" class="green_bold"></i> <span class="tiptext">Eliminar horario</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

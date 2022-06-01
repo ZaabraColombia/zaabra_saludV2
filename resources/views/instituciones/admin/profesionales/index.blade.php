@@ -84,10 +84,6 @@
                                 <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
                                     <div class="card_content_btn_info col-12 d-none d-md-flex mb-md-1">
-                                        <!-- <a class="card_btn_info tool top">
-                                            <i data-feather="lock" class="icon_btn_info_md"></i> <span class="tiptext">Agenda configurada</span>
-                                        </a> -->
-
                                         @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
                                         <button class="card_btn_info tool top">
                                             <i data-feather="lock" class="icon_btn_info_md" style="color: #FF3E3E"></i>
@@ -135,11 +131,6 @@
                                         </div>
                                         <!-- Informative buttons mobile-->
                                         <div class="card_content_btn_info d-md-none">
-                                            <!-- <a class="card_btn_info tool top">
-                                                <i data-feather="lock"></i> <span
-                                                    class="tiptext">Calendario no configurado</span>
-                                            </a> -->
-
                                             @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
                                             <button class="card_btn_info tool top">
                                                 <i data-feather="lock" style="color: #FF3E3E"></i>
@@ -207,21 +198,27 @@
         </div>
     </div>
 
-    <!-- Modal  bloquear cita -->
+    <!-- Modal lock appoiment -->
     <div class="modal fade" id="modal-bloquear-agenda" tabindex="-1" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
-            <div class="modal-content modal_container">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal-content modal__ modal_container">
+                <!-- Modal header -->
+                <div class="modal-header row m-0 px-3 pl-lg-4">
+                    <div class="col-12 p-0">
+                        <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
+                            <span class="modal_x_close" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Título principal verde -->
+                    <div class="col-12 modal_main_title">
+                        <h1 class="modal_title_green">Bloquear agenda</h1>
+                    </div>
                 </div>
 
                 <form method="post" id="form-bloquear-agenda">
                     @csrf
-                    <div class="modal-body">
-                        <h1 style="color: #019f86">Bloquear Agenda</h1>
-
+                    <!-- Modal body -->
+                    <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
@@ -244,12 +241,10 @@
                             <input type="hidden" id="id_cita-reasignar" name="id_cita"/>
                         </div>
                     </div>
-
-                    <div class="modal-footer content_btn_center">
-                        <button type="button" class="button_transparent" data-dismiss="modal">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="button_green">Bloquear</button>
+                    <!-- Modalfooter -->
+                    <div class="modal_btn_down_center mb-4">
+                        <button type="button" class="button__form_transparent mr-3" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="modal_btn_green">Bloquear</button>
                     </div>
                 </form>
             </div>

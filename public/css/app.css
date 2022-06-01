@@ -22058,26 +22058,6 @@ a:hover {
   overflow-y: auto;
 }
 
-.modal_container .modal-header {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-.modal_container .modal-header button {
-  font-size: 40px;
-  font-weight: 200;
-  font-family: "Roboto";
-  text-transform: capitalize;
-  padding: 0px 10px 0px 85px;
-  margin-bottom: 0px;
-  margin-top: 0;
-  margin-right: -10px;
-}
-.modal_container .modal-header button:hover {
-  color: #d51313 !important;
-  background-color: #eaeced;
-  border-radius: 25px 5px 5px 25px;
-  padding: 0px 10px 0px 85px;
-}
 .modal_container .modal-body {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -26648,7 +26628,7 @@ div.dt-buttons {
 }
 
 .mail {
-  width: 200px;
+  width: 245px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -27243,6 +27223,10 @@ div.dt-buttons {
     font-size: 12px;
     text-align: initial;
   }
+
+  .mail {
+    width: 285px;
+  }
 }
 @media (min-width: 1024px) {
   .card_content_btn_add .card_btn_add_green {
@@ -27263,6 +27247,10 @@ div.dt-buttons {
   }
   .card_content_buttons_bottom .card_btn_transparent {
     font-size: 10px;
+  }
+
+  .mail {
+    width: 250px;
   }
 }
 @media (min-width: 1200px) {

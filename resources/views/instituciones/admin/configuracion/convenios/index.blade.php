@@ -74,7 +74,7 @@
             <!-- Agreement card -->
             @if($convenios->isNotEmpty())
                 @foreach($convenios as $convenio)
-                    <div class="col-md-6 col-xl-4 p-0 pr-md-3 pr-xl-4 mt-5 mb-4 card__col">
+                    <div class="col-md-6 col-lg-4 p-0 pr-md-3 pr-xl-4 mt-5 mb-4 card__col">
                         <div class="card container_card p-0">
                             <div class="card_float">
                                 <div class="row card__row_column">
@@ -101,13 +101,13 @@
                                             <h6 class="card_h6">Código: &nbsp;{{ $convenio->codigo_convenio }}</h6>
                                         </div>
 
-                                        <div class="card_txt_span">
+                                        <div class="pl-4 pl-md-5 pl-lg-4 pl-xl-2 card_txt_span">
                                             <i data-feather="phone" class="card_icon"></i><span
                                                 class="card_span">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
                                         </div>
 
                                         <div class="toolt bottom">
-                                            <div class="card_txt_span mail">
+                                            <div class="pl-4 pl-md-5 pl-lg-4 pl-xl-2 card_txt_span mail">
                                                 <i data-feather="mail" class="card_icon"></i><span
                                                     class="card_span">{{ $convenio->correo }}</span>
                                             </div>
