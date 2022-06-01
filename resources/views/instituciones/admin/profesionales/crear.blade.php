@@ -115,7 +115,6 @@
                 </div>
 
                 <div class="row">
-
                     <div class="col-md-4 input__box">
                         <label for="telefono">Teléfono</label>
                         <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
@@ -150,11 +149,9 @@
                         <input type="text" id="red_social" name="red_social" value="{{ old('red_social') }}"
                                 class="@error('red_social') is-invalid @enderror"/>
                     </div>
-
                 </div>
 
                 <div class="row">
-
                     <div class="col-md-4 input__box">     <!--menu dinamico ciudades -->
                         <label for="pais_id">País</label>
                         <select id="pais_id" name="pais_id" class="@error('pais_id') is-invalid @enderror">
@@ -202,11 +199,9 @@
                         <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"
                                 class="@error('direccion') is-invalid @enderror"/>
                     </div>
-
                 </div>
 
                 <div class="row">
-
                     <div class="col-md-4 input__box">
                         <label for="numero_profesional">Tarjeta profesional</label>
                         <input type="text" id="numero_profesional" name="numero_profesional" value="{{ old('numero_profesional') }}"
@@ -248,7 +243,6 @@
                             @endif
                         </select>
                     </div>
-
                 </div>
 
                 <div class="row">
@@ -300,9 +294,9 @@
                 </div>
 
                 <!-- Buttons -->
-                <div class="row m-0 mt-3 content_btn_right">
-                    <a href="{{ route('institucion.profesionales.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
-                    <button type="submit" class="button_green">Guardar</button>
+                <div class="row m-0 my-4 content_btn_center">
+                    <a href="{{ route('institucion.profesionales.index') }}" class="button__form_transparent mr-3">Cancelar</a>
+                    <button type="submit" class="button__form_green">Guardar</button>
                 </div>
             </form>
         </div>

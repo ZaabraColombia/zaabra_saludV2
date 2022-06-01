@@ -84,21 +84,21 @@
                                 <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
                                     <div class="card_content_btn_info col-12 d-none d-md-flex mb-md-1">
-                                        <a class="card_btn_info tool top">
+                                        <!-- <a class="card_btn_info tool top">
                                             <i data-feather="lock" class="icon_btn_info_md"></i> <span class="tiptext">Agenda configurada</span>
-                                        </a>
+                                        </a> -->
 
-                                        {{--@if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
+                                        @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
                                         <button class="card_btn_info tool top">
-                                            <i style="width: 23px" data-feather="lock"></i>
+                                            <i data-feather="lock" class="icon_btn_info_md" style="color: #FF3E3E"></i>
                                             <span class="tiptext">Calendario no configurado</span>
                                         </button>
                                         @else
                                         <button class="card_btn_info tool top">
-                                            <i style="width: 23px" data-feather="unlock"></i>
+                                            <i data-feather="unlock" class="icon_btn_info_md"></i>
                                             <span class="tiptext">Calendario configurado</span>
                                         </button>
-                                        @endif--}}
+                                        @endif
 
                                         <a class="card_btn_info tool top"
                                            href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
@@ -135,22 +135,22 @@
                                         </div>
                                         <!-- Informative buttons mobile-->
                                         <div class="card_content_btn_info d-md-none">
-                                            <a class="card_btn_info tool top">
+                                            <!-- <a class="card_btn_info tool top">
                                                 <i data-feather="lock"></i> <span
                                                     class="tiptext">Calendario no configurado</span>
-                                            </a>
+                                            </a> -->
 
-                                            {{--@if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
+                                            @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
                                             <button class="card_btn_info tool top">
-                                                <i style="width: 23px" data-feather="lock"></i>
+                                                <i data-feather="lock" style="color: #FF3E3E"></i>
                                                 <span class="tiptext">Calendario no configurado</span>
                                             </button>
                                             @else
                                             <button class="card_btn_info tool top">
-                                                <i style="width: 23px" data-feather="unlock"></i>
+                                                <i data-feather="unlock"></i>
                                                 <span class="tiptext">Calendario configurado</span>
                                             </button>
-                                            @endif--}}
+                                            @endif
 
                                             <a class="card_btn_info tool top"
                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">

@@ -218,7 +218,7 @@
 
                 <!-- Buttons -->
                 <div class="row m-0 my-4 content_btn_center">
-                    <a href="{{ route('institucion.profesionales.index') }}" class="button__form_transparent mr-3" style="color: #434343">Cancelar</a>
+                    <a href="{{ route('institucion.profesionales.index') }}" class="button__form_transparent mr-3">Cancelar</a>
                     <button type="submit" class="button__form_green">Guardar</button>
                 </div>
             </form>
