@@ -167,24 +167,28 @@
     @endif
 
     <!-- Modal Servicios profesional de una institución -->
-    <div class="modal fade" id="modal-profesional-servicios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-profesional-servicios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content modal_container">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal-content modal__">
+                <!-- Modal header -->
+                <div class="modal-header row m-0 px-3 pl-lg-4">
+                    <div class="col-12 p-0">
+                        <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
+                            <span class="modal_x_close" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Título principal -->
                 </div>
-
+                <!-- modal body -->
                 <div class="modal-body">
                     <!-- Información del profeisonal -->
-                    <div class="row align-items-md-center mx-0 mb-3">
-                        <div class="col-md-3 d-flex justify-content-center mb-3 mb-md-0">
+                    <div class="row align-items-md-center mx-0 mb-4">
+                        <div class="col-md-3 col-lg-2 d-flex justify-content-center mb-3 mb-md-0 p-0">
                             <img class="img__see_contacs" id="modal-foto" />
                         </div>
-                        <div class="col-md-9 p-0 p-md-2">
-                            <h5 class="fs_subtitle_module black_strong" id="modal-profesional">Erika Caballero</h5>
-                            <p class="fs_text green_bold" id="modal-especialidad">Especialista en Otorrinolaringología</p>
+                        <div class="col-md-9 col-lg-10 p-0 pl-md-2">
+                            <h5 class="fs_subtitle_module black_strong" id="modal-profesional"></h5>
+                            <p class="fs_text green_bold" id="modal-especialidad"></p>
                         </div>
                     </div>
                     <!-- Servicios del profesional -->
@@ -233,9 +237,6 @@
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <div class="modal-footer content_btn_center">
                 </div>
             </div>
         </div>
