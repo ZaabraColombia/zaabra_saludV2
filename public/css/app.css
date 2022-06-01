@@ -23043,72 +23043,6 @@ a:hover {
   background-image: url("/img/agenda/panelPrincipal/profesionales/icon_usuarios_blanco.png");
 }
 
-.content__target_inst {
-  border-radius: 7px;
-  text-align: center;
-  padding: 0;
-  background-color: #FFFFFF;
-  background-repeat: no-repeat;
-  background-size: 60px;
-  background-position-x: center;
-  background-position-y: 30px;
-  height: 150px;
-  position: relative;
-  color: #232323;
-}
-.content__target_inst span {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  line-height: 1.1;
-  height: 50px;
-  padding: 0 5px;
-}
-.content__target_inst:hover {
-  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.15);
-}
-
-.profesional_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_profesionales_verde.png");
-}
-
-.cita_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_citas_verde.png");
-}
-
-.pago_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_pagos_verde.png");
-}
-
-.paciente_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_pacientes_verde.png");
-}
-
-.contacto_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_contactos_verde.png");
-}
-
-.favorito_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png");
-}
-
-.usuario_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_usuarios_verde.png");
-}
-
-.convenio_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_convenios_verde.png");
-}
-
-.servicio_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_servicios_verde.png");
-}
-
-.gestion_green {
-  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_gestion_verde.png");
-}
-
 .content__logos {
   display: flex;
   justify-content: center;
@@ -23133,23 +23067,6 @@ a:hover {
   border-bottom: 3px solid #1a6395;
 }
 
-.content__logos_inst {
-  display: flex;
-  justify-content: center;
-  background-color: #FFFFFF;
-  border-radius: 7px;
-  padding: 30px 15px;
-  height: 130px;
-}
-.content__logos_inst img {
-  width: 150px;
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
-}
-.content__logos_inst:hover {
-  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.15);
-}
-
 @media (min-width: 768px) {
   .content__target {
     padding: 35px 0;
@@ -23163,52 +23080,10 @@ a:hover {
   .content__logos {
     height: 105px;
   }
-
-  .content__logos_inst {
-    height: 150px;
-  }
 }
 @media (min-width: 1024px) {
   .content__logos {
     height: 150px;
-  }
-}
-@media (min-width: 1300px) {
-  .content__logos_inst {
-    height: 164px;
-    padding: 0;
-  }
-
-  .content__logos_inst img {
-    width: 200px;
-  }
-
-  .content__target_inst {
-    background-position-y: 20px;
-    height: 130px;
-  }
-
-  .content__target_inst span {
-    height: 40px;
-  }
-}
-@media (min-width: 1920px) {
-  .content__target_inst {
-    background-size: 85px;
-    background-position-y: 35px;
-    height: 185px;
-  }
-
-  .content__target_inst span {
-    height: 50px;
-  }
-
-  .content__logos_inst {
-    height: 219px;
-  }
-
-  .content__logos_inst img {
-    width: 230px;
   }
 }
 .container_citas {
@@ -27323,11 +27198,6 @@ div.dt-buttons {
   .card__col {
     max-width: 25% !important;
   }
-
-  .left_alignment {
-    width: 93%;
-    margin-left: initial;
-  }
 }
 .containt_main_form {
   background-color: #FFFFFF;
@@ -28518,5 +28388,176 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
   .fs_text_small {
     font-size: 17px;
+  }
+}
+.container_moduls {
+  padding: 53px 5px;
+}
+
+@media (min-width: 768px) {
+  .container_moduls {
+    padding: 40px 70px 0 50px;
+  }
+}
+@media (min-width: 1200px) {
+  .container_moduls {
+    padding: 50px 30px 0 35px;
+  }
+}
+@media (min-width: 1300px) {
+  .container_moduls {
+    padding: 65px 28px 0 35px;
+  }
+}
+@media (min-width: 1600px) {
+  .container_moduls {
+    padding: 65px 160px 0 50px;
+  }
+}
+.card__menu_panel {
+  border-radius: 7px;
+  text-align: center;
+  padding: 0;
+  height: 150px;
+  color: #232323;
+  position: relative;
+  background-color: #FFFFFF;
+  background-repeat: no-repeat;
+  background-size: 60px;
+  background-position-x: center;
+  background-position-y: 30px;
+}
+.card__menu_panel span {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  line-height: 1.1;
+  padding: 0 5px;
+}
+.card__menu_panel:hover {
+  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.15);
+}
+
+.card__logo_menu_panel {
+  display: flex;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+  padding: 30px 15px;
+  height: 130px;
+}
+.card__logo_menu_panel:hover {
+  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 768px) {
+  .card__logo_menu_panel {
+    height: 150px;
+  }
+}
+@media (min-width: 1300px) {
+  .card__menu_panel {
+    background-position-y: 20px;
+    height: 130px;
+  }
+  .card__menu_panel span {
+    height: 40px;
+  }
+
+  .card__logo_menu_panel {
+    height: 164px;
+    padding: 0;
+  }
+}
+@media (min-width: 1600px) {
+  .card__menu_panel {
+    background-size: 81px;
+    background-position-y: 35px;
+    height: 185px;
+  }
+  .card__menu_panel span {
+    height: 50px;
+  }
+
+  .card__logo_menu_panel {
+    height: 219px;
+  }
+}
+.txt_name_card {
+  font-size: 16px;
+  font-weight: 500;
+  color: #232323;
+}
+
+@media (min-width: 768px) {
+  .txt_name_card {
+    font-size: 20px;
+    font-weight: 500;
+    color: #232323;
+  }
+}
+@media (min-width: 1600px) {
+  .txt_name_card {
+    font-size: 25px;
+    font-weight: 500;
+    color: #232323;
+  }
+}
+.icon__prof_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_profesionales_verde.png");
+}
+
+.icon__paci_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_pacientes_verde.png");
+}
+
+.icon__cita_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_citas_verde.png");
+}
+
+.icon__pago_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_pagos_verde.png");
+}
+
+.icon__usua_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_usuarios_verde.png");
+}
+
+.icon__cont_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_contactos_verde.png");
+}
+
+.icon__conv_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_convenios_verde.png");
+}
+
+.icon__serv_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_servicios_verde.png");
+}
+
+.icon__gest_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_gestion_verde.png");
+}
+
+.icon__favo_green {
+  background-image: url("/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png");
+}
+
+.img_card_menu_panel {
+  width: 150px;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+
+@media (min-width: 1300px) {
+  .img_card_menu_panel {
+    width: 175px;
+  }
+}
+@media (min-width: 1600px) {
+  .img_card_menu_panel {
+    width: 200px;
   }
 }

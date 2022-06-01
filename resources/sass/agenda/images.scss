@@ -1,0 +1,18 @@
+// Imágenes cards menú panel
+.img_card_menu_panel {
+    width: 150px;
+    object-fit: scale-down;
+}
+@media(min-width: 768px) {
+
+}
+@media(min-width: 1300px) {
+    .img_card_menu_panel {
+        width: 175px;
+    }
+}
+@media(min-width: 1600px) {
+    .img_card_menu_panel {
+        width: 200px;
+    }
+}

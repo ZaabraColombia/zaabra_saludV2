@@ -39,5 +39,11 @@
 @import 'inputs';
 @import 'images';
 @import 'texts';
+// Agenda instituciones
+@import 'agenda/panel';
+@import 'agenda/cards';
+@import 'agenda/typography';
+@import 'agenda/icons';
+@import 'agenda/images';
 
 $urlZaabra: 'http://localhost:8000/';

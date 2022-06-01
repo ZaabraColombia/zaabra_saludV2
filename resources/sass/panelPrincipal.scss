@@ -127,101 +127,6 @@ align-self: flex-end;
     }
 }
 
-
-.content__target_inst {
-    // border: 1px solid $green_official;
-    border-radius: 7px;
-    text-align: center;
-    padding: 0;
-    // box-shadow: -1px -1px 6px 1px rgb(0 0 0 / 20%);
-    background-color: #FFFFFF;
-    background-repeat: no-repeat;
-    background-size: 60px;
-    background-position-x: center;
-    background-position-y: 30px;
-    height: 150px;
-    position: relative;
-    // font-weight: bold;
-    color: $black_third;
-    span{
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-        line-height: 1.1;
-        height: 50px;
-        padding: 0 5px;
-    }    
-    &:hover {
-        // background-color: $green_official;
-        // border-radius: 15px;
-        // image-rendering: pixelated;
-        box-shadow: 5px 5px 10px 3px rgb(0 0 0 / 15%);
-        // border-left: 3px solid #2f6a48;
-        // border-bottom: 3px solid #2f6a48;
-        // color: $withe_official;
-    }
-}
-.profesional_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_profesionales_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_profesionales_blanco.png');
-    // }
-}
-.cita_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_citas_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_citas_blanco.png');
-    // }
-}
-.pago_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pagos_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pagos_blanco.png');
-    // }
-}
-.paciente_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pacientes_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pacientes_blanco.png');
-    // }
-}
-.contacto_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_contactos_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_contactos_blanco.png');
-    // }
-}
-.favorito_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_favoritos_blanco.png');
-    // }
-}
-.usuario_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_usuarios_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_usuarios_blanco.png');
-    // }
-}
-.convenio_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_convenios_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_convenios_blanco.png');
-    // }
-}
-.servicio_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_servicios_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_servicios_blanco.png');
-    // }
-}
-.gestion_green {
-    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_gestion_verde.png');
-    // &:hover {
-    //     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_gestion_blanco.png');
-    // }
-}
 .content__logos {
     display: flex;
     justify-content: center;
@@ -243,30 +148,6 @@ align-self: flex-end;
     }
 }
 
-.content__logos_inst {
-    display: flex;
-    justify-content: center;
-    background-color: #FFFFFF;
-    // border: 1px solid $green_official;
-    border-radius: 7px;
-    padding: 30px 15px;
-    // box-shadow: -1px -1px 6px 1px rgb(0 0 0 / 20%);
-    height: 130px;
-    img {
-        width: 150px;
-        object-fit: scale-down;
-    }
-    &:hover {
-        // background-color: $green_official;
-        // border-radius: 15px;
-        // image-rendering: pixelated;
-        box-shadow: 5px 5px 10px 3px rgb(0 0 0 / 15%);
-        // border-left: 3px solid #2f6a48;
-        // border-bottom: 3px solid #2f6a48;
-        // color: $withe_official;
-    }
-}
-
 @media (min-width: 768px){
     .content__target {
         padding: 35px 0;
@@ -279,17 +160,6 @@ align-self: flex-end;
     .content__logos {
         height: 105px;
     }
-    .content__logos_inst {
-        height: 150px;
-    }
-    // .content__target_inst {
-    //     padding: 35px 0;
-    //     background-size: 75px;
-    //     height: 200px;
-    //     span{
-    //         height: 60px;
-    //     } 
-    // }
 }
 @media (min-width: 1024px){
     .content__logos {
@@ -298,35 +168,9 @@ align-self: flex-end;
 }
 
 @media(min-width: 1300px) {
-    .content__logos_inst {
-        height: 164px;
-        padding: 0;
-    }
-    .content__logos_inst img {
-        width: 200px;
-    }
-    .content__target_inst {
-        background-position-y: 20px;
-        height: 130px;
-    }
-    .content__target_inst span {
-        height: 40px;
-    }
+
 }
 
 @media (min-width: 1920px) {
-    .content__target_inst {
-        background-size: 85px;
-        background-position-y: 35px;
-        height: 185px;
-    }
-    .content__target_inst span {
-        height: 50px;
-    }
-    .content__logos_inst {
-        height: 219px;
-    }
-    .content__logos_inst img {
-        width: 230px;
-    }
+
 }
