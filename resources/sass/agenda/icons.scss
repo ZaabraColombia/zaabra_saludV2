@@ -29,6 +29,18 @@
 .icon__favo_green {
     background-image: url('/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png');
 } 
+// Icons card
+.icon_span_card {
+    width: 12px;
+    height: 10PX;
+    margin-right: 5px;
+}
+.icon_span_green_card {
+    width: 12px;
+    height: 10PX;
+    margin-right: 5px;
+    color: #019F86;
+}
 @media(min-width: 768px) {
 
 }

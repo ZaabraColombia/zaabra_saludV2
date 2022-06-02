@@ -12,11 +12,13 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid px-3 px-md-5 pt-5 left_alignment">
-        <div class="mb-4 mb-xl-5">
-            <h1 class="fs_title_module green_bold">Agregar Paciente</h1>
-        </div>
-
+    <div class="container-fluid panel_container">
+        <div class="panel_container_form">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="fs_title_module green_bold">Agregar paciente</h1>
+            </div>
+            <!-- Formulario -->
         <div class="container__main_form">
             <form action="" method="post" id="" enctype="multipart/form-data">
                 @csrf
@@ -223,6 +225,7 @@
                 </div>
             </form>
         </div>
+    </div>
     </div>
 @endsection
 

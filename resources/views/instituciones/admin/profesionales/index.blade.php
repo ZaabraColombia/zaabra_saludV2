@@ -15,18 +15,18 @@
         <div class="panel_head">
             <!-- Main title -->
             <div class="mb-4">
-                <h1 class="title_contain_card">Profesionales</h1>
+                <h1 class="txt_title_panel_head">Profesionales</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add professional -->
-                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 card_content_btn_add">
-                    <a href="{{ route('institucion.profesionales.create') }}" class="card_btn_add_green"
+                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
+                    <a href="{{ route('institucion.profesionales.create') }}" class="button__green"
                     id="btn-agregar-contacto">Agregar profesional
                     </a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 card_btn_search">
+                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 button__search_card">
                     <form method="get">
                         <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
@@ -34,23 +34,23 @@
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="col-md-4 col-lg-3 col-xl-3 p-0 mb-4 container_btn_docs">
+                <div class="col-md-4 col-lg-3 col-xl-3 p-0 mb-4 button__doc_download">
                     <button class="file_calendar"></button>
                     <button class="file_excel"></button>
                     <button class="file_pdf"></button>
                     <button class="file_printer"></button>
                 </div>
                 <!-- Pagination buttons -->
-                <div class="col-md-2 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex pagination__right">
+                <div class="col-md-2 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex butons__pagination_card">
                     @if(!$profesionales->onFirstPage())
-                        <a href="{{ $profesionales->previousPageUrl() }}" class="pag_btn_right"></a>
+                        <a href="{{ $profesionales->previousPageUrl() }}" class="btn_right_pag_card"></a>
                     @else
-                        <button disabled class="pag_btn_right disabled"></button>
+                        <button disabled class="btn_right_pag_card disabled"></button>
                     @endif
                     @if(!$profesionales->onLastPage())
-                        <a href="{{ $profesionales->nextPageUrl() }}" class="pag_btn_left"></a>
+                        <a href="{{ $profesionales->nextPageUrl() }}" class="btn_left_pag_card"></a>
                     @else
-                        <button disabled class="pag_btn_left disabled"></button>
+                        <button disabled class="btn_left_pag_card disabled"></button>
                     @endif
 
                 </div>
@@ -75,115 +75,115 @@
                 @if($profesionales->isNotEmpty())
                     @foreach($profesionales as $profesional)
                         <div class="col-md-6 col-xl-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
-                            <div class="card container_card p-0">
-                                <div class="card__">
-                                    <div class="row card__row_column">
-                                        <!-- Informative buttons desktop-->
-                                        <div class="card_content_btn_info col-12 d-none d-lg-flex mb-md-1">
-                                            <button class="card_btn_info tool top"
+                            <div class="card card__">
+                                <div class="row card__row_column">
+                                    <!-- Informative buttons desktop-->
+                                    <div class="col-12 mb-md-1 d-none d-lg-flex button__info_card">
+                                        <button class="btn_icon_card tool top"
+                                                data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
+                                                data-toggle="modal" data-target="#modal_see_professional">
+                                            <i data-feather="eye" class="icon_btn_card_desk"></i> <span class="tiptext">Ver profesional</span>
+                                        </button>
+                                        @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
+                                        <button class="btn_icon_card tool top">
+                                            <i data-feather="lock" class="icon_btn_card_desk" style="color: #FF3E3E"></i>
+                                            <span class="tiptext">Calendario no configurado</span>
+                                        </button>
+                                        @else
+                                        <button class="btn_icon_card tool top">
+                                            <i data-feather="unlock" class="icon_btn_card_desk"></i>
+                                            <span class="tiptext">Calendario configurado</span>
+                                        </button>
+                                        @endif
+
+                                        <a class="btn_icon_card tool top"
+                                        href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                            <i data-feather="edit" class="icon_btn_card_desk"></i> <span class="tiptext">Editar profesional</span>
+                                        </a>
+
+                                        <a class="btn_icon_card tool top"
+                                        href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                            <i data-feather="calendar" class="icon_btn_card_desk"></i> <span
+                                                class="tiptext">Configurar agenda</span>
+                                        </a>
+
+                                        <button class="btn_icon_card tool top bloquear-agenda"
+                                                data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
+                                            <i data-feather="slash" class="icon_btn_card_desk"></i> <span class="tiptext">Bloquear agenda</span>
+                                        </button>
+                                    </div>
+                                    <!-- Image professional -->
+                                    <div class="col-lg-3 p-0 mb-2 d-flex justify-content-center align-self-md-start">
+                                        <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => '$profesional->primer_nombre $profesional->primer_apellido']) }}"
+                                        target="_blank">
+                                            <img class="img_card_module" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
+                                        </a>
+                                    </div>
+                                    <!-- Information professional -->
+                                    <div class="col-lg-9 card__data">
+                                        <!-- card data top -->
+                                        <div class="card__data_top">
+                                            <div class="">
+                                                <h4 class="txt_h4_card">{{ $profesional->nombre_completo }}</h4>
+                                            </div>
+
+                                            <div class="">
+                                                <h5 class="txt_h5_card">{{ $profesional->nombre_especialidad ?? '' }}</h5>
+                                            </div>
+                                        </div>
+                                        <!-- Informative buttons mobile-->
+                                        <div class="d-lg-none button__info_card">
+                                            <button class="btn_icon_card tool top"
                                                     data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
                                                     data-toggle="modal" data-target="#modal_see_professional">
-                                                <i data-feather="eye" class="icon_btn_info_md"></i> <span class="tiptext">Ver profesional</span>
+                                                <i data-feather="eye" class="icon_btn_card_mobile"></i> <span class="tiptext">Ver profesional</span>
                                             </button>
                                             @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
-                                            <button class="card_btn_info tool top">
-                                                <i data-feather="lock" class="icon_btn_info_md" style="color: #FF3E3E"></i>
-                                                <span class="tiptext">Calendario no configurado</span>
+                                            <button class="btn_icon_card tool top">
+                                                <i data-feather="lock" class="icon_btn_card_mobile" style="color: #FF3E3E"></i> <span class="tiptext">Calendario no configurado</span>
                                             </button>
                                             @else
-                                            <button class="card_btn_info tool top">
-                                                <i data-feather="unlock" class="icon_btn_info_md"></i>
-                                                <span class="tiptext">Calendario configurado</span>
+                                            <button class="btn_icon_card tool top">
+                                                <i data-feather="unlock" class="icon_btn_card_mobile"></i> <span class="tiptext">Calendario configurado</span>
                                             </button>
                                             @endif
 
-                                            <a class="card_btn_info tool top"
+                                            <a class="btn_icon_card tool top"
                                             href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="edit" class="icon_btn_info_md"></i> <span class="tiptext">Editar profesional</span>
+                                                <i data-feather="edit" class="icon_btn_card_mobile"></i> <span class="tiptext">Editar profesional</span>
                                             </a>
 
-                                            <a class="card_btn_info tool top"
+                                            <a class="btn_icon_card tool top"
                                             href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="calendar" class="icon_btn_info_md"></i> <span
-                                                    class="tiptext">Configurar agenda</span>
+                                                <i data-feather="calendar" class="icon_btn_card_mobile"></i> <span class="tiptext">Configurar agenda</span>
                                             </a>
 
-                                            <button class="card_btn_info tool top bloquear-agenda"
+                                            <button class="btn_icon_card tool top bloquear-agenda"
                                                     data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                <i data-feather="slash" class="icon_btn_info_md"></i> <span class="tiptext">Bloquear agenda</span>
+                                                <i data-feather="slash" class="icon_btn_card_mobile"></i> <span class="tiptext">Bloquear agenda</span>
                                             </button>
                                         </div>
-                                        <!-- Image professional -->
-                                        <div class="col-lg-3 p-0 mb-2 d-flex justify-content-center align-self-md-start">
-                                            <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => "$profesional->primer_nombre $profesional->primer_apellido"]) }}"
-                                            target="_blank">
-                                                <img class="card__imagen"
-                                                    src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
-                                            </a>
-                                        </div>
-                                        <!-- Information professional -->
-                                        <div class="col-lg-9 card_info_user">
-                                            <!-- card first information user -->
-                                            <div class="card_first_info">
-                                                <div class="card_txt_h">
-                                                    <h4 class="card_h4">{{ $profesional->nombre_completo }}</h4>
+                                        <!-- card data down -->
+                                        <div class="card__data_down">
+                                            <div class="toolt bottom">
+                                                <div class="width__tool_tip">
+                                                    <i data-feather="mail" class="icon_span_card"></i>
+                                                    <span class="txt_span_card">{{ $profesional->correo }}</span>
                                                 </div>
-
-                                                <div class="card_txt_h">
-                                                    <h5 class="card_h5">{{ $profesional->nombre_especialidad ?? '' }}</h5>
-                                                </div>
+                                                <span class="tiptext">{{ $profesional->correo }}</span>
                                             </div>
-                                            <!-- Informative buttons mobile-->
-                                            <div class="card_content_btn_info d-lg-none">
-                                                <button class="card_btn_info tool top"
-                                                        data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
-                                                        data-toggle="modal" data-target="#modal_see_professional">
-                                                    <i data-feather="eye" class="icon_feather_card"></i> <span class="tiptext">Ver profesional</span>
-                                                </button>
-                                                @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
-                                                <button class="card_btn_info tool top">
-                                                    <i data-feather="lock" class="icon_feather_card" style="color: #FF3E3E"></i> <span class="tiptext">Calendario no configurado</span>
-                                                </button>
-                                                @else
-                                                <button class="card_btn_info tool top">
-                                                    <i data-feather="unlock" class="icon_feather_card"></i> <span class="tiptext">Calendario configurado</span>
-                                                </button>
-                                                @endif
 
-                                                <a class="card_btn_info tool top"
-                                                href="{{ route('institucion.profesionales.edit', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                    <i data-feather="edit" class="icon_feather_card"></i> <span class="tiptext">Editar profesional</span>
-                                                </a>
-
-                                                <a class="card_btn_info tool top"
-                                                href="{{ route('institucion.profesionales.configurar_calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                    <i data-feather="calendar" class="icon_feather_card"></i> <span class="tiptext">Configurar agenda</span>
-                                                </a>
-
-                                                <button class="card_btn_info tool top bloquear-agenda"
-                                                        data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}">
-                                                    <i data-feather="slash" class="icon_feather_card"></i> <span class="tiptext">Bloquear agenda</span>
-                                                </button>
+                                            <div class="">
+                                                <i data-feather="phone" class="icon_span_card"></i>
+                                                <span class="txt_span_card">{{ "{$profesional->celular} - {$profesional->telefono}" }}</span>
                                             </div>
-                                            <!-- card second information user -->
-                                            <div class="card_second_info">
-                                                <div class="toolt bottom">
-                                                    <div class="card_txt_span width__tool_tip">
-                                                        <i data-feather="mail" class="card_icon"></i><span class="card_span">{{ $profesional->correo }}</span>
-                                                    </div>
-                                                    <span class="tiptext">{{ $profesional->correo }}</span>
-                                                </div>
 
-                                                <div class="card_txt_span">
-                                                    <i data-feather="phone" class="card_icon"></i><span class="card_span">{{ "{$profesional->celular} - {$profesional->telefono}" }}</span>
+                                            <div class="toolt bottom">
+                                                <div class="width__tool_tip">
+                                                    <i data-feather="map-pin" class="icon_span_card"></i>
+                                                    <span class="txt_span_card">{{ $profesional->direccion }}</span>
                                                 </div>
-
-                                                <div class="toolt bottom">
-                                                    <div class="card_txt_span width__tool_tip">
-                                                        <i data-feather="map-pin" class="card_icon"></i><span class="card_span">{{ $profesional->direccion }}</span>
-                                                    </div>
-                                                    <span class="tiptext">{{ $profesional->direccion }}</span>
-                                                </div>
+                                                <span class="tiptext">{{ $profesional->direccion }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -193,9 +193,9 @@
                     @endforeach
                 @endif
                 <!-- Pagination buttons -->
-                <div class="col-12 d-md-none p-0 mt-4 pagination__right">
-                    <button class="pag_btn_right"></button>
-                    <button class="pag_btn_left"></button>
+                <div class="col-12 d-md-none p-0 mt-4 butons__pagination_card">
+                    <button class="btn_right_pag_card"></button>
+                    <button class="btn_left_pag_card"></button>
                 </div>
             </div>
         </div>
@@ -212,7 +212,7 @@
                             <span class="modal_x_close" aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <!-- Título principal verde -->
+                    <!-- Título principal -->
                     <div class="col-12 modal_main_title">
                         <h1 class="modal_title_green">Bloquear agenda</h1>
                     </div>
@@ -265,7 +265,7 @@
                             <span class="modal_x_close" aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <!-- Título principal verde -->
+                    <!-- Título principal -->
                     <div class="col-12 modal_main_title">
                         <h1 class="modal_title_green">Ver Profesional</h1>
                     </div>

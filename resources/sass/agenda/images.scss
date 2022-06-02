@@ -3,6 +3,12 @@
     width: 150px;
     object-fit: scale-down;
 }
+.img_card_module {
+    width: 57px;
+    height: 56px;
+    border-radius: 100px;
+    object-fit: cover;
+}
 .img_printed_modal {
     width: 100px;
     height: 100px;
@@ -10,7 +16,16 @@
     object-fit: cover;
 }
 @media(min-width: 768px) {
-
+    .img_card_module {
+        width: 63px;
+        height: 62px;
+    }
+}
+@media(min-width: 1200px) {
+    .img_card_module {
+        width: 51px;
+        height: 50px;
+    }
 }
 @media(min-width: 1300px) {
     .img_card_menu_panel {

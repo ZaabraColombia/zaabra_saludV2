@@ -36,8 +36,24 @@
         box-shadow: 5px 5px 10px 3px rgb(0 0 0 / 15%);
     }
 }
-// Cards modulo profesionales 
-.card_second_info {
+// Cards modules 
+.card__ {
+    background-color: #FFFFFF;
+    border: 1px solid #DBDADA;
+    border-radius: 7px;
+    padding: 15px;
+}
+.card__row_column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.card__data {
+    padding: 0;
+    line-height: 1.3;
+}
+.card__data_down {
     padding-left: 25px;
     padding-right: 10px;
 }
@@ -48,8 +64,14 @@
     }
 }
 @media(min-width: 1024px) {
-    // Cards modulo profesionales 
-    .card_second_info {
+    // Cards modules 
+    .card__ {
+        padding: 5px 5px 15px 5px;
+    }
+    .card__row_column {
+        flex-direction: row;
+    }
+    .card__data_down {
         padding-left: 0;
         padding-right: 0;
     }
