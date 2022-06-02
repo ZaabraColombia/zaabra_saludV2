@@ -22402,7 +22402,7 @@ a:hover {
   font-size: 25px;
   font-weight: bold;
   color: #019F86;
-  text-align: left;
+  text-align: center;
   margin: 0;
 }
 
@@ -22505,6 +22505,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column-reverse;
 }
 .modal__ .modal_btn_down_center .modal_btn_green {
   font-family: "Quicksand";
@@ -22550,6 +22551,10 @@ a:hover {
   .modal_container .modal-body h1 {
     font-size: 26px;
   }
+
+  .modal__ .modal_btn_down_center {
+    flex-direction: row;
+  }
 }
 @media (min-width: 1024px) {
   .modal__ .modal-header .modal_main_title {
@@ -22557,6 +22562,7 @@ a:hover {
   }
   .modal__ .modal-header .modal_main_title .modal_title_green {
     font-size: 30px;
+    text-align: left;
   }
 
   .modal__ .modal-body {
@@ -26449,7 +26455,9 @@ div.dt-buttons {
   align-items: center;
   overflow: hidden;
   width: auto;
-  max-width: 24px;
+  max-width: 20px;
+  border: none;
+  background-color: transparent;
   transition: max-width 0.1s;
   background-image: url("/img/iconos/check-circle.svg");
   background-repeat: no-repeat;
@@ -26475,7 +26483,9 @@ div.dt-buttons {
   align-items: center;
   overflow: hidden;
   width: auto;
-  max-width: 24px;
+  max-width: 20px;
+  border: none;
+  background-color: transparent;
   transition: max-width 0.1s;
   background-image: url("/img/iconos/x-circle.svg");
   background-repeat: no-repeat;
@@ -26502,8 +26512,8 @@ div.dt-buttons {
   border-radius: 3px;
 }
 
-.mail {
-  width: 245px;
+.width__tool_tip {
+  width: 220px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -26543,13 +26553,12 @@ div.dt-buttons {
 
 .toolt.bottom .tiptext {
   bottom: -28px;
-  right: 130px;
+  left: 0;
 }
 
 .toolt.bottom .tiptext::after {
-  margin-left: -5px;
   bottom: 100%;
-  left: 50%;
+  left: 10%;
   border-color: transparent transparent #fff transparent;
 }
 
@@ -26649,7 +26658,7 @@ div.dt-buttons {
   background: #019F86;
   border: solid 1px #019F86;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 7px 10px;
 }
 
 .card_content_btn_center {
@@ -26678,56 +26687,36 @@ div.dt-buttons {
   border: 1px solid #DBDADA;
   border-radius: 7px;
   margin: 0 3px;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
 }
-.container_btn_docs button .file_excel {
+.container_btn_docs button:hover {
+  background-color: #019F86;
+}
+.container_btn_docs .file_excel {
   background-image: url("/img/iconos/icono-excel-verde.svg");
-  background-repeat: no-repeat;
-  width: 24px;
-  height: 27px;
-  margin: auto;
 }
-.container_btn_docs button .file_excel:hover {
+.container_btn_docs .file_excel:hover {
   background-image: url("/img/iconos/icono-excel-blanco.svg");
-  background-color: #019F86;
 }
-.container_btn_docs button .file_pdf {
+.container_btn_docs .file_pdf {
   background-image: url("/img/iconos/icono-pdf-verde.svg");
-  background-repeat: no-repeat;
-  width: 24px;
-  height: 27px;
-  margin: auto;
 }
-.container_btn_docs button .file_pdf:hover {
+.container_btn_docs .file_pdf:hover {
   background-image: url("/img/iconos/icono-pdf-blanco.svg");
-  background-color: #019F86;
 }
-.container_btn_docs button .file_printer {
+.container_btn_docs .file_printer {
   background-image: url("/img/iconos/icono-imprimir-verde.svg");
-  background-repeat: no-repeat;
-  width: 26px;
-  height: 25px;
-  margin: auto;
 }
-.container_btn_docs button .file_printer:hover {
+.container_btn_docs .file_printer:hover {
   background-image: url("/img/iconos/icono-imprimir-blanco.svg");
-  background-color: #019F86;
 }
-.container_btn_docs button:hover {
-  background-color: #019F86;
-}
-.container_btn_docs button .file_calendar {
+.container_btn_docs .file_calendar {
   background-image: url("/img/iconos/icono-calendario-verde.svg");
-  background-repeat: no-repeat;
-  width: 27px;
-  height: 27px;
-  margin: auto;
 }
-.container_btn_docs button .file_calendar:hover {
+.container_btn_docs .file_calendar:hover {
   background-image: url("/img/iconos/icono-calendario-blanco.svg");
-  background-color: #019F86;
-}
-.container_btn_docs button:hover {
-  background-color: #019F86;
 }
 
 .container_card {
@@ -26737,7 +26726,7 @@ div.dt-buttons {
 }
 
 .card__ {
-  padding: 15px 30px;
+  padding: 15px;
 }
 
 .card__row_column {
@@ -26760,7 +26749,7 @@ div.dt-buttons {
   line-height: 1.3;
 }
 .card_info_user .card_txt_h .card_h4 {
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Roboto";
   font-weight: 500;
   text-align: center;
@@ -26768,7 +26757,7 @@ div.dt-buttons {
   margin: 0;
 }
 .card_info_user .card_txt_h .card_h5 {
-  font-size: 14px;
+  font-size: 12px;
   font-family: "Roboto";
   font-weight: 100;
   text-align: center;
@@ -26793,12 +26782,18 @@ div.dt-buttons {
   border: none;
   background-color: transparent;
   color: #049372;
-  padding: 6px;
-  width: 35px;
-  height: 35px;
+  padding: 3px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
 }
-.card_info_user .card_content_btn_info .card_btn_info:nth-child(4) {
+.card_info_user .card_content_btn_info .card_btn_info:nth-child(5) {
   color: #FF3E3E;
+}
+.card_info_user .card_content_btn_info .card_btn_info .icon_feather_card {
+  width: 20px !important;
+  height: 18px !important;
 }
 
 .pagination__right {
@@ -26970,7 +26965,7 @@ div.dt-buttons {
   width: 35px;
   height: 35px;
 }
-.card_float_info_float .card_content_btn_info .card_btn_info:nth-child(4) {
+.card_float_info_float .card_content_btn_info .card_btn_info:nth-child(5) {
   color: #FF3E3E;
 }
 
@@ -27043,33 +27038,31 @@ div.dt-buttons {
     background-position-x: 95%;
   }
 
-  .card__ {
-    padding: 5px 5px 15px 5px;
-  }
-
-  .card_info_user {
-    padding-left: 5px;
-  }
-
   .card_content_btn_add {
     justify-content: initial;
   }
-  .card_content_btn_add .card_btn_add_green {
-    font-family: "Quicksand";
-    color: #FFFFFF;
-    background: #019F86;
-    border: solid 1px #019F86;
-    border-radius: 5px;
-    padding: 5px 10px;
+
+  .card__imagen {
+    width: 63px;
+    height: 62px;
+  }
+
+  .width__tool_tip {
+    width: 255px;
+  }
+}
+@media (min-width: 1024px) {
+  .card_btn_search .search_togggle {
+    width: 100%;
+    background-position-x: 98%;
   }
 
   .card__row_column {
     flex-direction: row;
   }
 
-  .card__imagen {
-    width: 63px;
-    height: 62px;
+  .card__ {
+    padding: 5px 5px 15px 5px;
   }
 
   .card__row_column .card_content_btn_info {
@@ -27086,31 +27079,15 @@ div.dt-buttons {
     width: 15px;
     height: 15px;
   }
-  .card__row_column .card_content_btn_info .card_btn_info:nth-child(4) {
+  .card__row_column .card_content_btn_info .card_btn_info:nth-child(5) {
     color: #FF3E3E;
   }
 
   .card_info_user .card_txt_h .card_h4 {
-    font-size: 14px;
     text-align: initial;
   }
   .card_info_user .card_txt_h .card_h5 {
-    font-size: 12px;
     text-align: initial;
-  }
-
-  .mail {
-    width: 285px;
-  }
-}
-@media (min-width: 1024px) {
-  .card_content_btn_add .card_btn_add_green {
-    padding: 5px;
-  }
-
-  .card_btn_search .search_togggle {
-    width: 100%;
-    background-position-x: 98%;
   }
 
   .pad_buttons_bottom {
@@ -27124,8 +27101,8 @@ div.dt-buttons {
     font-size: 10px;
   }
 
-  .mail {
-    width: 250px;
+  .width__tool_tip {
+    width: 310px;
   }
 }
 @media (min-width: 1200px) {
@@ -27135,8 +27112,8 @@ div.dt-buttons {
   }
 
   .card_content_btn_add .card_btn_add_green {
-    font-size: 0.8rem;
-    padding: 5px 5px;
+    padding: 10px 5px;
+    font-size: 13px;
   }
 
   .card__imagen {
@@ -27154,11 +27131,15 @@ div.dt-buttons {
   .card_info_user .card_txt_span .card_span {
     font-size: 10px;
   }
+
+  .width__tool_tip {
+    width: 190px;
+  }
 }
 @media (min-width: 1300px) {
   .card_content_btn_add .card_btn_add_green {
-    padding: 5px 7px;
-    font-size: 0.9rem;
+    padding: 9px 10px;
+    font-size: 14px;
   }
 
   .card__imagen {
@@ -27180,14 +27161,18 @@ div.dt-buttons {
   .pad_buttons_bottom {
     padding: 0 45px;
   }
+
+  .width__tool_tip {
+    width: 230px;
+  }
 }
 @media (min-width: 1440px) {
-  .card_content_btn_add .card_btn_add_green {
-    padding: 5px 15px;
-  }
-
   .pad_buttons_bottom {
     padding: 0 55px;
+  }
+
+  .width__tool_tip {
+    width: 245px;
   }
 }
 @media (min-width: 1600px) {
@@ -27197,6 +27182,10 @@ div.dt-buttons {
 
   .card__col {
     max-width: 25% !important;
+  }
+
+  .width__tool_tip {
+    width: 215px;
   }
 }
 .containt_main_form {
@@ -28390,27 +28379,59 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     font-size: 17px;
   }
 }
-.container_moduls {
+.panel_container {
   padding: 53px 5px;
 }
 
+.panel_head {
+  padding: 0 8px;
+}
+
+.panel_body {
+  padding: 0 8px;
+}
+
+.panel_container_form {
+  padding: 0 10px;
+}
+
 @media (min-width: 768px) {
-  .container_moduls {
+  .panel_container {
     padding: 40px 70px 0 50px;
+  }
+
+  .panel_body {
+    padding: 0;
   }
 }
 @media (min-width: 1200px) {
-  .container_moduls {
+  .panel_container {
     padding: 50px 30px 0 35px;
+  }
+
+  .panel_head {
+    padding: 0 20px 0 8px;
   }
 }
 @media (min-width: 1300px) {
-  .container_moduls {
+  .panel_container {
     padding: 65px 28px 0 35px;
+  }
+
+  .panel_head {
+    padding: 0 25px 0 8px;
+  }
+
+  .panel_body {
+    padding: 0 8px 0 0;
+  }
+
+  .panel_container_form {
+    padding: 0 25px 0 10px;
   }
 }
 @media (min-width: 1600px) {
-  .container_moduls {
+  .panel_container {
     padding: 65px 160px 0 50px;
   }
 }
@@ -28452,9 +28473,20 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.15);
 }
 
+.card_second_info {
+  padding-left: 25px;
+  padding-right: 10px;
+}
+
 @media (min-width: 768px) {
   .card__logo_menu_panel {
     height: 150px;
+  }
+}
+@media (min-width: 1024px) {
+  .card_second_info {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @media (min-width: 1300px) {
@@ -28487,22 +28519,18 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 .txt_name_card {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 100;
   color: #232323;
 }
 
 @media (min-width: 768px) {
   .txt_name_card {
     font-size: 20px;
-    font-weight: 500;
-    color: #232323;
   }
 }
 @media (min-width: 1600px) {
   .txt_name_card {
     font-size: 25px;
-    font-weight: 500;
-    color: #232323;
   }
 }
 .icon__prof_green {
@@ -28549,6 +28577,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   width: 150px;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+}
+
+.img_printed_modal {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (min-width: 1300px) {

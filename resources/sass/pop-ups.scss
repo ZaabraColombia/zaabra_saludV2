@@ -350,7 +350,7 @@
             font-size: 25px;
             font-weight: bold;
             color: #019F86;
-            text-align: left;
+            text-align: center;
             margin: 0;
         }
     }
@@ -457,6 +457,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column-reverse;
         .modal_btn_green {
             font-family: "Quicksand";
             font-size: 24px;
@@ -506,6 +507,9 @@
             font-size: 26px;
         }
     }
+    .modal__ .modal_btn_down_center {
+        flex-direction: row;
+    }
 }
 
 @media(min-width: 1024px) {
@@ -517,6 +521,7 @@
             margin-bottom: 15px;
             .modal_title_green {
                 font-size: 30px;
+                text-align: left;
             }
         }
     }
@@ -568,5 +573,5 @@
         .modal_btn_green {
             font-size: 24px;
         }
-}
+    }
 }

@@ -35,11 +35,23 @@
     &:hover {
         box-shadow: 5px 5px 10px 3px rgb(0 0 0 / 15%);
     }
-} 
+}
+// Cards modulo profesionales 
+.card_second_info {
+    padding-left: 25px;
+    padding-right: 10px;
+}
 @media(min-width: 768px) {
     // Cards logos menú panel
     .card__logo_menu_panel {
         height: 150px;
+    }
+}
+@media(min-width: 1024px) {
+    // Cards modulo profesionales 
+    .card_second_info {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 @media(min-width: 1300px) {

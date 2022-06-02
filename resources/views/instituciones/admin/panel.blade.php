@@ -1,7 +1,7 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <div class="container-fluid container_moduls">
+    <div class="container-fluid panel_container">
         <div class="row m-0 p-0">
             <div class="col-12">
                 @if(session()->has('success'))
