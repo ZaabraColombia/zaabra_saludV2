@@ -473,6 +473,34 @@
     display: flex;
     align-items: flex-start;
 }
+.disp_img_modal_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.disp__modal_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.disp_txt_modal_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// .convenio_vinculado:nth-child(2n+0) {
+//     border-bottom: 2px solid #DBDADA;
+// }
+// .convenio_vinculado:nth-child(2n+1) {
+//     border-bottom: 2px solid #DBDADA;
+// }
+.convenio_vinculado:nth-child(1) {
+    border: none;
+}
+.convenio_vinculado:nth-child(1n+2) {
+    border-top: 2px solid #DBDADA;
+}
 
 @media(min-width: 768px) {
     .modal_container {
@@ -573,5 +601,44 @@
         .modal_btn_green {
             font-size: 24px;
         }
+    }
+    .disp_txt_modal_card {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .row__convenio {
+        border: none !important;
+        padding: 0 !important;
+    }
+
+
+
+    .convenio_vinculado:nth-child(1n+2) {
+        border-top: none;
+    }
+
+    .convenio_vinculado:nth-child(1) {
+        border-right: 2px solid #DBDADA;
+        border-bottom: 2px solid #DBDADA;
+    }
+    .convenio_vinculado:nth-child(2) {
+        border-bottom: 2px solid #DBDADA;
+    }
+    .convenio_vinculado:nth-child(3) {
+        border-right: 2px solid #DBDADA;
+    }
+    .convenio_vinculado:nth-child(4) {
+        border: none;
+    }
+    
+
+    .convenio_vinculado:nth-child(2n+5) {
+        border-top: 2px solid #DBDADA;
+        border-right: 2px solid #DBDADA;
+    }
+    .convenio_vinculado:nth-child(2n+6) {
+        border-top: 2px solid #DBDADA;
     }
 }

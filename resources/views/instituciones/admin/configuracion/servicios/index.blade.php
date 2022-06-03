@@ -137,7 +137,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal__">
                 <!-- Modal header -->
-                <div class="modal-header row m-0 px-3 mb-lg-5 pl-lg-4">
+                <div class="modal-header row m-0 px-3 pl-lg-4">
                     <div class="col-12 p-0">
                         <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
                             <span class="modal_x_close" aria-hidden="true">&times;</span>
@@ -149,42 +149,14 @@
                     </div>
                 </div>
                 <!-- Modal body -->
-                <div class="modal-body px-3 px-lg-4 m-0 mt-5 mt-lg-0 mb-lg-3">
+                <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
                     <!-- Sección data -->
                     <div class="mb-lg-4 modal_info_data_open">
                         <div class="row m-0">
-                            <div class="col-lg-4 modal_info_user">
-                                <h4 class="modal_data_form">Duración (minuto):</h4>
-                                <div class="modal_data_user">
-                                    <span id="duracion"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 modal_info_user">
-                                <h4 class="modal_data_form">Descanso (minuto):</h4>
-                                <div class="modal_data_user">
-                                    <span id="descanso"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 modal_info_user">
-                                <h4 class="modal_data_form">Valor:</h4>
-                                <div class="modal_data_user">
-                                    <span id="valor"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Nombre:</h4>
                                 <div class="modal_data_user">
                                     <span id="nombre"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Especialidad:</h4>
-                                <div class="modal_data_user">
-                                    <span id="especialidad"></span>
                                 </div>
                             </div>
 
@@ -196,20 +168,48 @@
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Especialidad:</h4>
+                                <div class="modal_data_user">
+                                    <span id="especialidad"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Duración (minuto):</h4>
+                                <div class="modal_data_user">
+                                    <span id="duracion"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Valor:</h4>
+                                <div class="modal_data_user">
+                                    <span id="valor"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Descanso (minuto):</h4>
+                                <div class="modal_data_user">
+                                    <span id="descanso"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">CUPS:</h4>
                                 <div class="modal_data_user">
                                     <span id="cup">CUPS - 00000 111</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Número de citas activas del paciente:</h4>
                                 <div class="modal_data_user">
                                     <span id="citas_activas">000</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Tipo de atención:</h4>
                                 <div class="modal_data_user">
                                     <span id="tipo_atencion"></span>
@@ -225,9 +225,10 @@
                         </div>
                     </div>
 
-                    <div class="modal_info_data py-4">
-                        <h4 class="fs_subtitle black_bolder mb-3">Convenios vinculados</h4>
-                        <div id="convenios-lista"></div>
+                    <div class="mb-4 modal_info_data_open row__convenio">
+                        <h4 class="txt_subtitle_modal_card mb-3">Convenios vinculados</h4>
+                     
+                        <div class="row m-0" id="convenios-lista"></div>
                     </div>
                 </div>
 
@@ -313,29 +314,26 @@
                 $('#convenios-lista').html('');
                 $.each(response.item.convenios_lista, function (key, item) {
                     $('#convenios-lista').append(
-                        '<div class="row m-0">' +
-                        '<div class="col-12 modal_info_user display_info_data">' +
-                        '<h4 class="modal_data_form">Nombre del convenio:</h4>' +
-                        '<div class="modal_data_user">' +
-                        '<span>' + item.nombre_completo + '</span>' +
-                        '</div>' +
-                        '</div>' +
+                        '<div class="col-lg-6 p-0 py-2 convenio_vinculado">' +
+                            '<div class="row m-0">' +
+                                '<div class="col-12 col-lg-3 p-0 mb-2 pl-lg-1 disp_img_modal_card">' +
+                                    '<img class="img_section_modal" src="/img/menu/avatar.png">' +  
+                                    '<h5 class="txt_span_sm_card">' + item.nombre_completo + '</h5>' +
+                                '</div>' +
 
-                        '<div class="col-lg-6 modal_info_user display_info_data">' +
-                        '<h4 class="modal_data_form">Pago convenio:</h4>' +
-                        '<div class="modal_data_user">' +
-                        '<span>$' + item.pivot.valor_convenio + '</span>' +
-                        '</div>' +
-                        '</div>' +
+                                '<div class="col-12 col-lg-9 p-0 px-lg-3 disp__modal_card">' +
+                                    '<div class="disp_txt_modal_card">' +
+                                        '<h4 class="txt_h5_sect_modal_card pr-2">Pago convenio:</h4>' +
+                                        '<span class="txt_span_sect_modal_card">$' + item.pivot.valor_convenio + '</span>' +
+                                    '</div>' +
 
-                        '<div class="col-lg-6 modal_info_user display_info_data">' +
-                        '<h4 class="modal_data_form">Pago paciente:</h4>' +
-                        '<div class="modal_data_user">' +
-                        '<span>$' + item.pivot.valor_paciente + '</span>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="dropdown-divider mt-0" style="height:2px; background-color: #E6E6E6"></div>'
+                                    '<div class="disp_txt_modal_card">' +
+                                        '<h4 class="txt_h5_sect_modal_card pr-2">Pago paciente:</h4>' +
+                                        '<span class="txt_span_sect_modal_card">$' + item.pivot.valor_paciente + '</span>' + 
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>'
                     );
                 });
 

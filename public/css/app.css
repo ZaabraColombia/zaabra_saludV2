@@ -22523,6 +22523,33 @@ a:hover {
   align-items: flex-start;
 }
 
+.disp_img_modal_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.disp__modal_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.disp_txt_modal_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.convenio_vinculado:nth-child(1) {
+  border: none;
+}
+
+.convenio_vinculado:nth-child(1n+2) {
+  border-top: 2px solid #DBDADA;
+}
+
 @media (min-width: 768px) {
   .modal_container .modal-body .modal_medio_pago .info_medio_pago img {
     width: 100px;
@@ -22602,6 +22629,46 @@ a:hover {
 
   .modal__ .modal_btn_down_center .modal_btn_green {
     font-size: 24px;
+  }
+
+  .disp_txt_modal_card {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .row__convenio {
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .convenio_vinculado:nth-child(1n+2) {
+    border-top: none;
+  }
+
+  .convenio_vinculado:nth-child(1) {
+    border-right: 2px solid #DBDADA;
+    border-bottom: 2px solid #DBDADA;
+  }
+
+  .convenio_vinculado:nth-child(2) {
+    border-bottom: 2px solid #DBDADA;
+  }
+
+  .convenio_vinculado:nth-child(3) {
+    border-right: 2px solid #DBDADA;
+  }
+
+  .convenio_vinculado:nth-child(4) {
+    border: none;
+  }
+
+  .convenio_vinculado:nth-child(2n+5) {
+    border-top: 2px solid #DBDADA;
+    border-right: 2px solid #DBDADA;
+  }
+
+  .convenio_vinculado:nth-child(2n+6) {
+    border-top: 2px solid #DBDADA;
   }
 }
 .contenedor__dashboard {
@@ -28434,6 +28501,32 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #232323;
 }
 
+.txt_span_sm_card {
+  font-size: 11px;
+  font-family: "Roboto";
+  font-weight: 100;
+  text-align: center;
+  color: #3E3E3E;
+}
+
+.txt_h5_sect_modal_card {
+  font-size: 14px;
+  font-family: "Roboto";
+  font-weight: 100;
+  text-align: center;
+  color: #3E3E3E;
+  margin: 0;
+}
+
+.txt_span_sect_modal_card {
+  font-size: 14px;
+  font-family: "Roboto";
+  font-weight: bold;
+  text-align: center;
+  color: #232323;
+  margin: 0;
+}
+
 @media (min-width: 768px) {
   .txt_name_card {
     font-size: 20px;
@@ -28458,6 +28551,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
   .txt_subtitle_modal_card {
     font-size: 25px;
+  }
+
+  .txt_h5_sect_modal_card {
+    font-size: 18px;
+  }
+
+  .txt_span_sect_modal_card {
+    font-size: 18px;
   }
 }
 @media (min-width: 1200px) {
@@ -28572,6 +28673,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.img_section_modal {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .img_card_float {
