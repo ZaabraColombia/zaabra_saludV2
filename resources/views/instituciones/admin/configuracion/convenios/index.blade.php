@@ -121,18 +121,16 @@
                                 <div class="row mx-0 mt-3 mt-md-2 justify-content-md-center">
                                     @can('accesos-institucion','ver-convenios')
                                         <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
-                                            <button class="button__border_green_card boton-convenio"
-                                                    data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
-                                                Ver más
+                                            <button class="button__bg_green_card boton-convenio"
+                                                data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">Ver más
                                             </button>
                                         </div>
                                     @endcan
 
                                     @can('accesos-institucion','editar-convenio')
                                         <div class="col-12 col-md-3 p-0 button__down_card">
-                                            <a class="button__transparent_card"
-                                            href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
-                                                Editar
+                                            <a class="button__border_green_card"
+                                                href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">Editar
                                             </a>
                                         </div>
                                     @endcan
@@ -150,60 +148,55 @@
         </div>
     </div>
 
-    <!-- Modal Ver Convenio -->
+    <!-- Modal see agreement -->
     <div class="modal fade" id="modal-convenio" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal__">
-                <div class="modal-header row m-0 px-2 px-lg-3">
+                <!-- Modal header -->
+                <div class="modal-header row m-0 px-3 mb-lg-5 pl-lg-4">
                     <div class="col-12 p-0">
                         <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
                             <span class="modal_x_close" aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
+                    <!-- Título principal -->
                     <div class="col-12 modal_main_title">
                         <h1 class="modal_title_green">Ver Convenio</h1>
                     </div>
                 </div>
-
-                <div class="modal-body">
+                <!-- Modal body -->
+                <div class="modal-body px-3 px-lg-4 m-0 mt-5 mt-lg-0 mb-lg-3">
+                    <!-- Imagen imprersa del profesional -->
                     <div class="modal_body_img">
-                        <img class="modal_img_float" id="modal-foto" src="{{ asset('img/menu/avatar.png') }}">
+                        <img class="modal_img_float" src="{{ asset('img/menu/avatar.png') }}">
                     </div>
-
-                    <div class="modal_info_data">
-                        <h4 class="fs_subtitle black_bolder mt-3">Información básica</h4>
+                    <!-- Sección data -->
+                    <div class="mb-lg-4 modal_info_data_open">
+                        <h4 class="pt-5 pt-lg-4 mb-3 txt_subtitle_modal_card">Información básica</h4>
 
                         <div class="row m-0">
-                            <div class="col-lg-6 modal_info_user display_info_data">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Nombre:</h4>
                                 <div class="modal_data_user">
                                     <span id="nombre_completo"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user display_info_data">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">NIT:</h4>
                                 <div class="modal_data_user">
                                     <span id="mascara_identificacion"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Código del prestador del servicio:</h4>
                                 <div class="modal_data_user">
                                     <span id="sgsss"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user display_info_data">
-                                <h4 class="modal_data_form">Código del convenio:</h4>
-                                <div class="modal_data_user">
-                                    <span id="codigo_convenio"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Tipo del contribuyente:</h4>
                                 <div class="modal_data_user">
                                     <span id="tipo_contribuyente"></span>
@@ -211,82 +204,54 @@
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Actividad económica:</h4>
+                                <h4 class="modal_data_form">Código del convenio:</h4>
                                 <div class="modal_data_user">
-                                    <span id="actividad_economica"></span>
+                                    <span id="codigo_convenio"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user display_info_data">
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Tipo de convenio:</h4>
+                                <div class="modal_data_user">
+                                    <span id="tipo_convenio"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Forma de pago:</h4>
                                 <div class="modal_data_user">
                                     <span id="forma_pago"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user display_info_data">
-                                <h4 class="modal_data_form">Tipo de convenio:</h4>
-                                <div class="modal_data_user">
-                                    <span id="tipo_convenio"></span>
+                            <div class="col-12 d-lg-block modal_info_user">
+                                <h4 class="modal_data_form">Actividad económica:</h4>
+                                <div class="pl-lg-0 modal_data_user">
+                                    <span id="actividad_economica"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="modal_info_data">
-                        <h4 class="fs_subtitle black_bolder">Información de contacto</h4>
+                    <div class="modal_info_data_open">
+                        <h4 class="txt_subtitle_modal_card my-3">Información de contacto</h4>
 
                         <div class="row m-0">
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Tipo de establecimiento:</h4>
                                 <div class="modal_data_user">
                                     <span id="tipo_establecimiento"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user display_info_data">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Dirección:</h4>
                                 <div class="modal_data_user">
                                     <span id="direccion">Cll 00 # 00 - 00</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user display_info_data">
-                                <h4 class="modal_data_form">Código postal:</h4>
-                                <div class="modal_data_user">
-                                    <span id="codigo_postal"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user display_info_data">
-                                <h4 class="modal_data_form">País:</h4>
-                                <div class="modal_data_user">
-                                    <span id="pais"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user display_info_data">
-                                <h4 class="modal_data_form">Departamento:</h4>
-                                <div class="modal_data_user">
-                                    <span id="departamento"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user display_info_data">
-                                <h4 class="modal_data_form">Provincia:</h4>
-                                <div class="modal_data_user">
-                                    <span id="provincia"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user display_info_data">
-                                <h4 class="modal_data_form">Ciudad:</h4>
-                                <div class="modal_data_user">
-                                    <span id="ciudad"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user display_info_data">
+                            <div class="col-lg-7 modal_info_user">
                                 <h4 class="modal_data_form">Teléfonos:</h4>
                                 <div class="modal_data_user">
                                     <span id="telefono"></span> -
@@ -294,7 +259,42 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user display_info_data d-block d-lg-flex">
+                            <div class="col-lg-5 modal_info_user">
+                                <h4 class="modal_data_form">Código postal:</h4>
+                                <div class="modal_data_user">
+                                    <span id="codigo_postal"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">País:</h4>
+                                <div class="modal_data_user">
+                                    <span id="pais"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Departamento:</h4>
+                                <div class="modal_data_user">
+                                    <span id="departamento"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Ciudad:</h4>
+                                <div class="modal_data_user">
+                                    <span id="ciudad"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Provincia:</h4>
+                                <div class="modal_data_user">
+                                    <span id="provincia"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Correo:</h4>
                                 <div class="modal_data_user">
                                     <span id="correo"></span>

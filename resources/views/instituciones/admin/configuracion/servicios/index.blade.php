@@ -11,172 +11,163 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <div class="container-fluid px-3 px-md-5 px-xl-5">
-        <div class="my-4">
-            <h1 class="title_contain_card">Servicios</h1>
-        </div>
-
-        <!-- Contenedor barra de búsqueda, botón agregar contacto, descargas y paginación -->
-        <div class="row card_buttons_top">
-            <div class="col-md-3 col-lg-2 p-0 card_content_btn_add mb-4">
-                <a href="{{ route('institucion.configuracion.servicios.create') }}" class="card_btn_add_green py-2"
-                   id="btn-agregar-contacto">
-                    Agregar servicio
-                </a>
+    <div class="container-fluid panel_container">
+        <div class="panel_head">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="txt_title_panel_head">Servicios</h1>
             </div>
-
-            <div class="col-md-5 col-lg-7 pl-0 pr-0 pr-md-2 pr-xl-1 mb-4 card_btn_search">
-                <form method="get">
-                    <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
-                        <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
-                    </button>
-                </form>
-            </div>
-
-            <div class="col-md-2 col-lg-2 p-0 mb-4 container_btn_docs">
-                <button>
-                    <div class="file_excel"></div>
-                </button>
-                <button>
-                    <div class="file_pdf"></div>
-                </button>
-                <button>
-                    <div class="file_printer"></div>
-                </button>
-            </div>
-
-            <div class="col-md-2 col-lg-1 d-none d-md-flex p-0 mb-4 pagination__right">
-                @if(!$servicios->onFirstPage())
-                    <a href="{{ $servicios->previousPageUrl() }}" class="pag_btn_right"></a>
-                @else
-                    <button disabled class="pag_btn_right disabled"></button>
-                @endif
-                @if(!$servicios->onLastPage())
-                    <a href="{{ $servicios->nextPageUrl() }}" class="pag_btn_left"></a>
-                @else
-                    <button disabled class="pag_btn_left disabled"></button>
-                @endif
-            </div>
-        </div>
-
-        <!-- Tarjetas Profesionales -->
-        <div class="row m-0">
-            <div class="col-12" id="alertas">
-                @if(session()->has('success'))
-                    <div class="alert alert-success" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add professional -->
+                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
+                    <a href="{{ route('institucion.configuracion.servicios.create') }}" class="button__green_card"
+                    id="btn-agregar-contacto">Agregar servicio
+                    </a>
+                </div>
+                <!-- Search bar -->
+                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 button__search_card">
+                    <form method="get">
+                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                            <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
-                        <h4 class="alert-heading">Hecho!</h4>
-                        <p>{{ session('success') }}</p>
-                    </div>
-                @endif
+                    </form>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="col-8 col-md-4 col-lg-3 col-xl-3 p-0 mb-4 button__doc_download">
+                    <button class="file_excel"></button>
+                    <button class="file_pdf"></button>
+                    <button class="file_printer"></button>
+                </div>
+                <!-- Pagination buttons -->
+                <div class="col-4 col-md-2 col-lg-1 col-xl-1 p-0 mb-4 butons__pagination_card">
+                    @if(!$servicios->onFirstPage())
+                    <a href="{{ $servicios->previousPageUrl() }}" class="btn_right_pag_card"></a>
+                    @else
+                        <button disabled class="btn_right_pag_card disabled"></button>
+                    @endif
+                    @if(!$servicios->onLastPage())
+                    <a href="{{ $servicios->nextPageUrl() }}" class="btn_left_pag_card"></a>
+                    @else
+                        <button disabled class="btn_left_pag_card disabled"></button>
+                    @endif
+
+                </div>
             </div>
+        </div>
 
-            @if($servicios->isNotEmpty())
-                @foreach($servicios as $servicio)
-                    <div class="col-md-6 col-lg-4 p-0 px-md-3 px-xl-2 my-3 card__col">
-                        <div class="card container_card p-0">
-                            <div class="card_float py-4">
+        <div class="panel_body">
+            <div class="row m-0">
+                <!-- alert notice -->
+                <div class="col-12" id="alertas">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
+                <!-- Professional card -->
+                @if($servicios->isNotEmpty())
+                    @foreach($servicios as $servicio)
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
+                            <div class="card card__">
                                 <div class="row card__row_column">
-                                    <div class="col-12 mb-3 card_float_info_float">
-                                        <div class="card_txt_h txt_doble_linea">
-                                            <h4 class="card_h4 green_official">{{ $servicio->nombre }}</h4>
+                                    <div class="col-12 card__data">
+                                        <!-- card data top -->
+                                        <div class="card__data_top mb-1 px-3 pt-2">
+                                            <div class="card__content_fixed_height">
+                                                <h4 class="txt_h4_green_card_float">{{ $servicio->nombre }}</h4>
+                                            </div>
+
+                                            <div class="col-12 p-0 my-1 d-flex justify-content-center">
+                                                <a href="#" class="btn__activado">
+                                                    <span>activo</span>
+                                                </a>
+                                            </div>
+
+                                            <div class="">
+                                                <h5 class="txt_h5_card_float">{{ $servicio->tipo_servicio->nombre ?? '' }}</h5>
+                                            </div>
                                         </div>
+                                        <!-- card data down -->
+                                        <div class="card__data_down pl-xl-4">
+                                            <div class="pl-3">
+                                                <span class="txt_span_card">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
+                                            </div>
 
-                                        <div class="card_txt_h">
-                                            <h5 class="card_h5">{{ $servicio->tipo_servicio->nombre ?? '' }}</h5>
-                                        </div>
-
-                                        <div class="card_txt_span">
-                                            <span
-                                                class="card_span">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
-                                        </div>
-
-                                        <div class="card_txt_span">
-                                            <span
-                                                class="card_span">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 pad_buttons_bottom">
-                                        <div class="row m-0">
-                                            @can('accesos-institucion','ver-servicios')
-                                                <div
-                                                    class="col-12 col-lg-6 p-0 mb-3 mb-lg-0 card_content_buttons_bottom">
-                                                    <button class="card_btn_green boton-servicio"
-                                                            data-url="{{ route('institucion.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">
-                                                        Ver más
-                                                    </button>
-                                                </div>
-                                            @endcan
-
-                                            @can('accesos-institucion','editar-servicio')
-                                                <div class="col-12 col-lg-6 p-0 card_content_buttons_bottom">
-                                                    <a class="card_btn_transparent"
-                                                       href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
-                                                        Editar
-                                                    </a>
-                                                </div>
-                                            @endcan
+                                            <div class="pl-3">
+                                                <span class="txt_span_card">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- view more and edit buttons -->
+                                <div class="row mx-0 mt-3 mt-md-2 justify-content-md-center">
+                                    @can('accesos-institucion','ver-servicios')
+                                        <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
+                                            <button class="button__bg_green_card boton-servicio"
+                                                data-url="{{ route('institucion.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">Ver más
+                                            </button>
+                                        </div>
+                                    @endcan
+
+                                    @can('accesos-institucion','editar-servicio')
+                                        <div class="col-12 col-md-3 p-0 button__down_card">
+                                            <a class="button__border_green_card"
+                                                href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">Editar
+                                            </a>
+                                        </div>
+                                    @endcan
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            @endif
-            {{-- Botones de paginación --}}
-            <div class="col-12 d-md-none p-0 mb-3 pagination__right">
-                @if(!$servicios->onFirstPage())
-                    <a href="{{ $servicios->previousPageUrl() }}" class="pag_btn_right"></a>
-                @else
-                    <button disabled class="pag_btn_right disabled"></button>
+                    @endforeach
                 @endif
-                @if(!$servicios->onLastPage())
-                    <a href="{{ $servicios->nextPageUrl() }}" class="pag_btn_left"></a>
-                @else
-                    <button disabled class="pag_btn_left disabled"></button>
-                @endif
+
             </div>
         </div>
     </div>
 
-    <!-- Modal Ver Servicio -->
+    <!-- Modal see service -->
     <div class="modal fade" id="modal-servicio" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal__">
-                <div class="modal-header row m-0 px-2 px-lg-3">
+                <!-- Modal header -->
+                <div class="modal-header row m-0 px-3 mb-lg-5 pl-lg-4">
                     <div class="col-12 p-0">
                         <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
                             <span class="modal_x_close" aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
-                    <div class="col-12 mb-3 modal_main_title">
+                    <!-- Título principal -->
+                    <div class="col-12 modal_main_title">
                         <h1 class="modal_title_green">Ver Servicio</h1>
                     </div>
                 </div>
-
-                <div class="modal-body">
-                    <div class="modal_info_data py-4">
+                <!-- Modal body -->
+                <div class="modal-body px-3 px-lg-4 m-0 mt-5 mt-lg-0 mb-lg-3">
+                    <!-- Sección data -->
+                    <div class="mb-lg-4 modal_info_data_open">
                         <div class="row m-0">
-                            <div class="col-lg-4 modal_info_user display_info_data">
+                            <div class="col-lg-4 modal_info_user">
                                 <h4 class="modal_data_form">Duración (minuto):</h4>
                                 <div class="modal_data_user">
                                     <span id="duracion"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 modal_info_user display_info_data">
+                            <div class="col-lg-4 modal_info_user">
                                 <h4 class="modal_data_form">Descanso (minuto):</h4>
                                 <div class="modal_data_user">
                                     <span id="descanso"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 modal_info_user display_info_data">
+                            <div class="col-lg-4 modal_info_user">
                                 <h4 class="modal_data_form">Valor:</h4>
                                 <div class="modal_data_user">
                                     <span id="valor"></span>

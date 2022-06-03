@@ -162,7 +162,7 @@
                             <img class="img_printed_modal" src="/img/menu/avatar.png">
                         </div>
                     </div>
-                    <!-- Sección data sin borde -->
+                    <!-- Sección data -->
                     <div class="modal_info_data_open">
                         <div class="row m-0">
                             <div class="col-12 modal_info_user">

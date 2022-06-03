@@ -57,6 +57,12 @@
     padding-left: 25px;
     padding-right: 10px;
 }
+.card__content_fixed_height {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
 @media(min-width: 768px) {
     // Cards logos menú panel
     .card__logo_menu_panel {
