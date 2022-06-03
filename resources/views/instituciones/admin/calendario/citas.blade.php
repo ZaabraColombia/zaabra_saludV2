@@ -339,13 +339,13 @@
             //$.fn.dataTable.moment( 'HH:mm A \- HH:mm A', 'es');
 
 
-            $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-                var dateS = $('#date').val();
-                var startDate = moment(data[0], 'DD-MM / YYYY');
-
-                if (dateS == null || dateS === '') return true;
-                return startDate.format('YYYY-MM-DD') === dateS;
-            });
+            // $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+            //     var dateS = $('#date').val();
+            //     var startDate = moment(data[0], 'DD-MM / YYYY');
+            //
+            //     if (dateS == null || dateS === '') return true;
+            //     return startDate.format('YYYY-MM-DD') === dateS;
+            // });
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
