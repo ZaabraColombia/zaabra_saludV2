@@ -197,8 +197,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+
     <script src="{{ asset('js/alertas.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
@@ -210,16 +209,10 @@
     <script>
         //Inicializar tabla
 
-        $("#search").on('keyup change',function(){
-            // var texto = $(this).val();
-            // table.search(texto).draw();
-        });
-
         $('.modal-usuario').click(function (event) {
             var btn = $(this);
 
             $.get(btn.data('url'), function (response) {
-                console.log(response);
 
                 $.each(response.item, function (key, item) {
                     if (key !== 'accesos') $('#' + key).html(item);

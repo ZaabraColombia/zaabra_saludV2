@@ -313,8 +313,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+
     <script src="{{ asset('js/alertas.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
@@ -324,74 +323,18 @@
     </script>
 
     <script>
-        //Inicializar tabla
-        var table = $('#table-pacientes').DataTable({
-            bFilter: false,
-            bInfo: false,
-            response: true,
-            language: {
-                url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-            },
-            searching: true,
-            columnDefs: [
-                {
-                    targets: [-1],
-                    orderable: false,
-                }
-            ],
-            paging: true,
-            dom: 'lfBrtip',
-            buttons: [
-                {
-                    extend: 'pdfHtml5',
-                    text: 'PDF',
-                    className: 'red',
-                    title: 'Resultados',
-                    exportOptions: {
-                        columns: ":not(:last-child)",
-                        modifier: {
-                            page: 'current'
-                        }
-                    },
-                    //text: 'Red',
-                },
-                {
-                    extend: 'excel',
-                    text: 'Excel',
-                    className: 'border_left',
-                    title: 'Resultados',
-                    exportOptions: {
-                        columns: ":not(:last-child)",
-                    },
-                },
-            ],
-        });
-
-        $("#search").on('keyup change', function () {
-            var texto = $(this).val();
-            table.search(texto).draw();
-        });
 
         //ver convenio
         $('.boton-convenio').click(function (event) {
             var btn = $(this);
 
             $.get(btn.data('url'), function (response) {
-                console.log(response);
 
                 $.each(response.item, function (key, item) {
                     if (key !== 'foto') $('#' + key).html(item);
                     if (key === 'foto') $('#modal-foto').attr('src', item);
                 });
-                // $('#accesos-lista').html('');
-                // $.each(response.item.accesos, function (key, item) {
-                //     $('#accesos-lista').append('<div class="col-md-6 col-lg-4 d-flex pl-0 modal_info_user">'
-                //         + '<i data-feather="check-circle" style="color: #0083D6;" width="17"></i>'
-                //         + '<span class="pl-2">' + item.nombre + '</span>'
-                //         + '</div>');
-                // });
-                //
-                // feather.replace();
+
                 $('#modal-convenio').modal();
             }, "json").fail(function (error) {
                 console.log(error);

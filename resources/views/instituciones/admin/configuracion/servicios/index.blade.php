@@ -240,8 +240,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+
     <script src="{{ asset('js/alertas.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
@@ -251,53 +250,6 @@
     </script>
 
     <script>
-        //Inicializar tabla
-        var table = $('#table-pacientes').DataTable({
-            bFilter: false,
-            bInfo: false,
-            response: true,
-            language: {
-                url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-            },
-            searching: true,
-            columnDefs: [
-                {
-                    targets: [-1],
-                    orderable: false,
-                }
-            ],
-            paging: true,
-            dom: 'lfBrtip',
-            buttons: [
-                {
-                    extend: 'pdfHtml5',
-                    text: 'PDF',
-                    className: 'red',
-                    title: 'Resultados',
-                    exportOptions: {
-                        columns: ":not(:last-child)",
-                        modifier: {
-                            page: 'current'
-                        }
-                    },
-                    //text: 'Red',
-                },
-                {
-                    extend: 'excel',
-                    text: 'Excel',
-                    className: 'border_left',
-                    title: 'Resultados',
-                    exportOptions: {
-                        columns: ":not(:last-child)",
-                    },
-                },
-            ],
-        });
-
-        $("#search").on('keyup change', function () {
-            var texto = $(this).val();
-            table.search(texto).draw();
-        });
 
         //ver servicios
         $('.boton-servicio').click(function (event) {
