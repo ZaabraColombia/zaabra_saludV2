@@ -242,7 +242,8 @@ class CalendarioController extends Controller
             })
             ->searchPane('prof.nombre_completo', $profesionales)
             ->searchPane('nombreEspecialidad', $especialidades)
-            ->searchPane('serv.nombre', $servicios);
+            ->searchPane('serv.nombre', $servicios)
+        ;
 
 
         return $datatables->make(true);
