@@ -28294,6 +28294,13 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding-right: 10px;
 }
 
+.card__content_fixed_height {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
 @media (min-width: 768px) {
   .card__logo_menu_panel {
     height: 150px;
@@ -28385,6 +28392,15 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   font-weight: 500;
   text-align: center;
   color: #434343;
+  margin: 0;
+}
+
+.txt_h4_green_card_float {
+  font-size: 18px;
+  font-family: "Roboto";
+  font-weight: 500;
+  text-align: center;
+  color: #019F86;
   margin: 0;
 }
 

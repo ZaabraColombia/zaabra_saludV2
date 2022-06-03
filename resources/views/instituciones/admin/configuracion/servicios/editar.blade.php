@@ -6,19 +6,18 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Servicios</h1>
+    <div class="container-fluid panel_container">
+        <div class="panel_container_form">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="fs_title_module green_bold">Servicio</h1>
             </div>
-
-
-            <div class="containt_main_table mb-3">
+            <!-- Formulario -->
+            <div class="container__main_form">
                 <form action="{{ route('institucion.configuracion.servicios.update', ['servicio' => $servicio->id]) }}" method="post">
                     @csrf
                     @method('PUT')
-                    <div class="d-block d-md-flex justify-content-between py-3">
-                        <h2 class="subtitle__lg green_bold mb-4">Editar servicio</h2>
+                    <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" {{ old('estado', $servicio->estado) == 1 ? 'checked':'' }} name="estado" id="estado" value="1">
@@ -216,9 +215,9 @@
                     </div>
 
                     <!-- Buttons -->
-                    <div class="row m-0 mt-3 content_btn_right">
-                        <a href="{{ route('institucion.configuracion.servicios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
-                        <button type="submit" class="button_green">Guardar</button>
+                    <div class="row m-0 my-4 content_btn_center">
+                        <a href="{{ route('institucion.configuracion.servicios.index') }}" class="button__form_transparent mr-3">Cancelar</a>
+                        <button type="submit" class="button__form_green">Guardar</button>
                     </div>
                 </form>
             </div>

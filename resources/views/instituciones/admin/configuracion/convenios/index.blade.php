@@ -122,8 +122,7 @@
                                     @can('accesos-institucion','ver-convenios')
                                         <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
                                             <button class="button__bg_green_card boton-convenio"
-                                                    data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
-                                                Ver más
+                                                data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">Ver más
                                             </button>
                                         </div>
                                     @endcan
@@ -131,8 +130,7 @@
                                     @can('accesos-institucion','editar-convenio')
                                         <div class="col-12 col-md-3 p-0 button__down_card">
                                             <a class="button__border_green_card"
-                                            href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
-                                                Editar
+                                                href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">Editar
                                             </a>
                                         </div>
                                     @endcan
