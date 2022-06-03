@@ -11,72 +11,69 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid px-3 px-md-5 pt-5 left_alignment">
-        <div class="mb-4">
-            <h1 class="title_contain_card">Convenios</h1>
-        </div>
-
-        <div class="row m-0 pr-md-3 pr-xl-4">
-            <!-- Add agreement -->
-            <div class="col-md-12 col-lg-2 p-0 mb-4 card_content_btn_add">
-                <a href="{{ route('institucion.configuracion.convenios.create') }}" class="py-2 card_btn_add_green"
-                   id="btn-agregar-contacto">Agregar convenio
-                </a>
+    <div class="container-fluid panel_container">
+        <div class="panel_head">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="txt_title_panel_head">Convenios</h1>
             </div>
-            <!-- Search bar -->
-            <div class="col-md-6 col-lg-6 p-0 pl-lg-1 pl-xl-1 mb-4 card_btn_search">
-                <form method="get">
-                    <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
-                        <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
-                    </button>
-                </form>
-            </div>
-            <!-- Document action buttons  -->
-            <div class="col-md-4 col-lg-3 p-0 mb-4 container_btn_docs">
-                <button>
-                    <div class="file_excel"></div>
-                </button>
-                <button>
-                    <div class="file_pdf"></div>
-                </button>
-                <button>
-                    <div class="file_printer"></div>
-                </button>
-            </div>
-            <!-- Pagination buttons -->
-            <div class="col-md-2 col-lg-1 d-none d-md-flex p-0 mb-4 pagination__right">
-                @if(!$convenios->onFirstPage())
-                    <a href="{{ $convenios->previousPageUrl() }}" class="pag_btn_right"></a>
-                @else
-                    <button disabled class="pag_btn_right disabled"></button>
-                @endif
-                @if(!$convenios->onLastPage())
-                    <a href="{{ $convenios->nextPageUrl() }}" class="pag_btn_left"></a>
-                @else
-                    <button disabled class="pag_btn_left disabled"></button>
-                @endif
-            </div>
-        </div>
-
-        <div class="row m-0">
-            <!-- alert notice -->
-            <div class="col-12" id="alertas">
-                @if(session()->has('success'))
-                    <div class="alert alert-success" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add agreement -->
+                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
+                    <a href="{{ route('institucion.configuracion.convenios.create') }}" class="button__green_card"
+                    id="btn-agregar-contacto">Agregar convenio
+                    </a>
+                </div>
+                <!-- Search bar -->
+                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 button__search_card">
+                    <form method="get">
+                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                            <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
-                        <h4 class="alert-heading">Hecho!</h4>
-                        <p>{{ session('success') }}</p>
-                    </div>
-                @endif
+                    </form>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="col-md-4 col-lg-3 col-xl-3 p-0 mb-4 button__doc_download">
+                    <button class="file_excel"></button>
+                    <button class="file_pdf"></button>
+                    <button class="file_printer"></button>
+                </div>
+                <!-- Pagination buttons -->
+                <div class="col-md-2 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex butons__pagination_card">
+                    @if(!$convenios->onFirstPage())
+                        <a href="{{ $convenios->previousPageUrl() }}" class="btn_right_pag_card"></a>
+                    @else
+                        <button disabled class="btn_right_pag_card disabled"></button>
+                    @endif
+                    @if(!$convenios->onLastPage())
+                        <a href="{{ $convenios->nextPageUrl() }}" class="btn_left_pag_card"></a>
+                    @else
+                        <button disabled class="btn_left_pag_card disabled"></button>
+                    @endif
+                </div>
             </div>
-            <!-- Agreement card -->
-            @if($convenios->isNotEmpty())
-                @foreach($convenios as $convenio)
-                    <div class="col-md-6 col-lg-4 p-0 pr-md-3 pr-xl-4 mt-5 mb-4 card__col">
-                        <div class="card container_card p-0">
-                            <div class="card_float">
+        </div>
+
+        <div class="panel_body">
+            <div class="row m-0">
+                <!-- alert notice -->
+                <div class="col-12" id="alertas">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
+                <!-- Agreement card -->
+                @if($convenios->isNotEmpty())
+                    @foreach($convenios as $convenio)
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-5 mb-4 card__col">
+                            <div class="card card__">
                                 <div class="row card__row_column">
                                     <div class="col-12 p-0 mb-3 d-flex justify-content-end">
                                         <a href="#" class="btn__activado">
@@ -84,77 +81,71 @@
                                         </a>
                                     </div>
 
-                                    <div class="card_content_img_float">
-                                        <img class="card__imagen_float" src="{{ asset($convenio->url_image ?? '/img/menu/avatar.png') }}">
+                                    <div class="img_card_float">
+                                        <img src="{{ asset($convenio->url_image ?? '/img/menu/avatar.png') }}">
                                     </div>
 
-                                    <div class="col-12 mb-3 card_float_info_float">
-                                        <div class="card_txt_h">
-                                            <h4 class="card_h4">{{ $convenio->nombre_completo }}</h4>
-                                        </div>
-
-                                        <div class="card_txt_h">
-                                            <h5 class="card_h5">{{ $convenio->tipo_establecimiento }}</h5>
-                                        </div>
-
-                                        <div class="card_txt_h">
-                                            <h6 class="card_h6">Código: &nbsp;{{ $convenio->codigo_convenio }}</h6>
-                                        </div>
-
-                                        <div class="pl-4 pl-md-5 pl-lg-4 pl-xl-2 card_txt_span">
-                                            <i data-feather="phone" class="card_icon"></i><span
-                                                class="card_span">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
-                                        </div>
-
-                                        <div class="toolt bottom">
-                                            <div class="pl-4 pl-md-5 pl-lg-4 pl-xl-2 card_txt_span mail">
-                                                <i data-feather="mail" class="card_icon"></i><span
-                                                    class="card_span">{{ $convenio->correo }}</span>
+                                    <div class="col-12 card__data">
+                                        <!-- card data top -->
+                                        <div class="card__data_top mb-1">
+                                            <div class="">
+                                                <h4 class="txt_h4_card_float">{{ $convenio->nombre_completo }}</h4>
                                             </div>
-                                            <span class="tiptext">{{ $convenio->correo }}</span>
+
+                                            <div class="">
+                                                <h5 class="txt_h5_card_float">{{ $convenio->tipo_establecimiento }}</h5>
+                                            </div>
+
+                                            <div class="">
+                                                <h6 class="txt_h6_card_float">Código: &nbsp;{{ $convenio->codigo_convenio }}</h6>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <!-- card data down -->
+                                        <div class="card__data_down pl-xl-4">
+                                            <div class="pl-md-3 width__tool_tip">
+                                                <i data-feather="phone" class="icon_span_card"></i>
+                                                <span class="txt_span_card">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
+                                            </div>
 
-                                    <div class="col-12 pad_buttons_bottom">
-                                        <div class="row m-0">
-                                            @can('accesos-institucion','ver-convenios')
-                                                <div
-                                                    class="col-12 col-lg-6 p-0 mb-3 mb-lg-0 card_content_buttons_bottom">
-                                                    <button class="card_btn_green boton-convenio"
-                                                            data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
-                                                        Ver más
-                                                    </button>
+                                            <div class="toolt bottom">
+                                                <div class="pl-md-3 width__tool_tip">
+                                                    <i data-feather="mail" class="icon_span_card"></i>
+                                                    <span class="txt_span_card">{{ $convenio->correo }}</span>
                                                 </div>
-                                            @endcan
-
-                                            @can('accesos-institucion','editar-convenio')
-                                                <div class="col-12 col-lg-6 p-0 card_content_buttons_bottom">
-                                                    <a class="card_btn_transparent"
-                                                       href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
-                                                        Editar
-                                                    </a>
-                                                </div>
-                                            @endcan
+                                                <span class="tiptext">{{ $convenio->correo }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- view more and edit buttons -->
+                                <div class="row mx-0 mt-3 mt-md-2 justify-content-md-center">
+                                    @can('accesos-institucion','ver-convenios')
+                                        <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
+                                            <button class="button__border_green_card boton-convenio"
+                                                    data-url="{{ route('institucion.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
+                                                Ver más
+                                            </button>
+                                        </div>
+                                    @endcan
+
+                                    @can('accesos-institucion','editar-convenio')
+                                        <div class="col-12 col-md-3 p-0 button__down_card">
+                                            <a class="button__transparent_card"
+                                            href="{{ route('institucion.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
+                                                Editar
+                                            </a>
+                                        </div>
+                                    @endcan
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            @endif
-            <!-- Pagination buttons -->
-            <div class="col-12 d-md-none p-0 mb-4 pagination__right">
-                @if(!$convenios->onFirstPage())
-                    <a href="{{ $convenios->previousPageUrl() }}" class="pag_btn_right"></a>
-                @else
-                    <button disabled class="pag_btn_right disabled"></button>
+                    @endforeach
                 @endif
-                @if(!$convenios->onLastPage())
-                    <a href="{{ $convenios->nextPageUrl() }}" class="pag_btn_left"></a>
-                @else
-                    <button disabled class="pag_btn_left disabled"></button>
-                @endif
+                <!-- Pagination buttons -->
+                <div class="col-12 d-md-none p-0 mt-4 butons__pagination_card">
+                    <button class="btn_right_pag_card"></button>
+                    <button class="btn_left_pag_card"></button>
+                </div>
             </div>
         </div>
     </div>

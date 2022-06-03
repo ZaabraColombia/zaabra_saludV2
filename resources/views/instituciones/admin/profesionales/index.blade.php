@@ -21,7 +21,7 @@
             <div class="row m-0">
                 <!-- Add professional -->
                 <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
-                    <a href="{{ route('institucion.profesionales.create') }}" class="button__green"
+                    <a href="{{ route('institucion.profesionales.create') }}" class="button__green_card"
                     id="btn-agregar-contacto">Agregar profesional
                     </a>
                 </div>

@@ -41,7 +41,7 @@
     justify-content: center;
     align-items: center;
 }
-.button__green {
+.button__green_card {
     font-family: "Quicksand";
     color: $withe_official;
     background: $green_official;
@@ -162,6 +162,31 @@
         }
     }
 }
+// Botones inferiores (ver más, editar)
+.button__down_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button__border_green_card {
+    font-family: "Quicksand";
+     font-size: 14px;
+    color: $withe_official;
+    background: $green_official;
+    border: solid 1px $green_official;
+    border-radius: 7px;
+    padding: 2px 15px;
+}
+.button__transparent_card {
+    font-family: "Quicksand";
+     font-size: 14px;
+    color: $green_official;
+    background: $withe_official;
+    border: solid 1px $green_official;
+    border-radius: 7px;
+    padding: 2px 23px;
+}
+
 @media(min-width: 768px) {
     // Botones add
     .button__add_card {
@@ -173,6 +198,15 @@
             width: 97%;
             background-position-x: 95%;
         }
+    }
+    // Botones inferiores (ver más, editar)
+    .button__border_green_card {
+        font-size: 10px;
+         padding: 5px 10px;
+    }
+    .button__transparent_card {
+        font-size: 10px;
+         padding: 5px 15px;
     }
 }
 @media(min-width: 1024px) {
@@ -203,13 +237,13 @@
     }
 }
 @media(min-width: 1200px) {
-    .button__green {
+    .button__green_card {
         padding: 10px 5px;
         font-size: 13px;
     }
 }
 @media(min-width: 1300px) {
-    .button__green {
+    .button__green_card {
         padding: 9px 10px;
         font-size: 14px;
     }

@@ -21,7 +21,7 @@
             <div class="row m-0">
                 <!-- Add patient -->
                 <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
-                    <a href="{{ route('institucion.pacientes.crear') }}" class="button__green"
+                    <a href="{{ route('institucion.pacientes.crear') }}" class="button__green_card"
                     id="btn-agregar-contacto">Agregar paciente
                     </a>
                 </div>
@@ -73,7 +73,7 @@
                 <!-- Patient card -->
                 @if($pacientes->isNotEmpty())
                     @foreach($pacientes as $paciente)
-                        <div class="col-md-6 col-xl-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
