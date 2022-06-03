@@ -8,18 +8,18 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Editar Convenio</h1>
+<div class="container-fluid panel_container">
+        <div class="panel_container_form">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="fs_title_module green_bold">Convenio</h1>
             </div>
-
-            <div class="containt_main_table mb-3">
+            <!-- Formulario -->
+            <div class="container__main_form">
                 <form action="{{ route('institucion.configuracion.convenios.update', ['convenio' => $convenio->id]) }}" method="post"
                       id="form-convenio-crear" enctype="multipart/form-data">
                     <!-- Información básica -->
-                    <div class="d-block d-md-flex justify-content-between py-3">
-                        <h2 class="subtitle__lg green_bold mb-4">Editar convenio</h2>
+                    <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" {{ old('estado', $convenio->estado) == 1 ? 'checked':'' }}
@@ -55,9 +55,14 @@
                             <div class="img__upload">
                                 <img id="imagen-foto" src="{{ asset( $convenio->url_image ?? 'img/menu/avatar.png') }}">
                                 <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
-                                <p>Foto de convenio</p>
+                                <!-- <p>Foto de convenio</p> -->
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Información Básica -->
+                    <div class="my-4">
+                        <h2 class="fs_subtitle green_bold">Información Básica</h2>
                     </div>
 
                     <div class="row">
@@ -281,9 +286,9 @@
 
 
                     <!-- Buttons -->
-                    <div class="row m-0 mt-2 content_btn_right">
-                        <a href="{{ route('institucion.configuracion.convenios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
-                        <button type="submit" class="button_green">Guardar</button>
+                    <div class="row m-0 my-4 content_btn_center">
+                        <a href="{{ route('institucion.configuracion.convenios.index') }}" class="button__form_transparent mr-3">Cancelar</a>
+                        <button type="submit" class="button__form_green">Guardar</button>
                     </div>
                 </form>
             </div>
