@@ -8,20 +8,19 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Usuarios</h1>
+    <div class="container-fluid panel_container">
+        <div class="panel_container_form">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="fs_title_module green_bold">Agregar usuario</h1>
             </div>
-
-
-            <div class="containt_main_table mb-3">
+            <!-- Formulario -->
+            <div class="container__main_form">
                 <form action="{{ route('institucion.configuracion.usuarios.store') }}" method="post"
                       id="form-usuario-crear" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="d-block d-md-flex justify-content-between py-3">
-                        <h2 class="subtitle__lg green_bold mb-4">Nuevo usuario</h2>
+                    <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" {{ old('estado') == 1 ? 'checked':'' }} name="estado" id="estado" value="1">
@@ -37,9 +36,14 @@
                             <div class="img__upload">
                                 <img id="imagen-foto" src="{{ asset('img/menu/avatar.png') }}">
                                 <input type="file" name="foto"  id="foto" accept="image/png, image/jpeg" />
-                                <p>Subir foto de perfil</p>
+                                <!-- <p>Subir foto de perfil</p> -->
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Información Básica -->
+                    <div class="my-4">
+                        <h2 class="fs_subtitle green_bold">Información Básica</h2>
                     </div>
 
                     <div class="row">
@@ -144,7 +148,6 @@
                     </div>
 
                     <div class="row">
-
                         <div class="col-md-4 input__box">
                             <label for="pais_id">País</label>
                             <select id="pais_id" name="pais_id" class="select2 pais @error('pais_id') is-invalid @enderror"
@@ -186,7 +189,7 @@
                     <div class="dropdown-divider my-4"></div>
 
                     <!-- Accesos del usuario -->
-                    <h2 class="subtitle__lg green_bold mb-4">Permisos a usuario</h2>
+                    <h2 class="fs_subtitle green_bold mb-4">Permisos a usuario</h2>
 
                     <div class="row list__form">
                         @if($accesos->isNotEmpty())
@@ -205,7 +208,7 @@
 
                     <!-- Contraseña del usuario -->
                     <div class="mb-4">
-                        <h2 class="subtitle__lg green_bold">Contraseña</h2>
+                        <h2 class="fs_subtitle green_bold">Contraseña</h2>
                         <p class="text__md black_light">Crea una contraseña para el usuario que esta creando.</p>
                     </div>
 
@@ -239,9 +242,9 @@
                     </div>
 
                     <!-- Buttons -->
-                    <div class="row m-0 mt-3 content_btn_right">
-                        <a href="{{ route('institucion.configuracion.usuarios.index') }}" class="button_transparent mr-2" style="color: #434343">Cancelar</a>
-                        <button type="submit" class="button_green">Guardar</button>
+                    <div class="row m-0 mt-5 mb-4 content_btn_center">
+                        <a href="{{ route('institucion.configuracion.usuarios.index') }}" class="button__form_transparent mr-3">Cancelar</a>
+                        <button type="submit" class="button__form_green">Guardar</button>
                     </div>
                 </form>
             </div>

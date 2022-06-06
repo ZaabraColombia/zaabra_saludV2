@@ -489,18 +489,14 @@
     justify-content: center;
     align-items: center;
 }
-// .convenio_vinculado:nth-child(2n+0) {
-//     border-bottom: 2px solid #DBDADA;
-// }
-// .convenio_vinculado:nth-child(2n+1) {
-//     border-bottom: 2px solid #DBDADA;
-// }
+// Seccción convenios vinculados modulo servicios Mobile
 .convenio_vinculado:nth-child(1) {
     border: none;
 }
 .convenio_vinculado:nth-child(1n+2) {
     border-top: 2px solid #DBDADA;
 }
+// Fin sección convenios vinculados
 
 @media(min-width: 768px) {
     .modal_container {
@@ -614,11 +610,10 @@
     }
 
 
-
+    // Sección convenios vinculados modulo servicios Desktop
     .convenio_vinculado:nth-child(1n+2) {
         border-top: none;
     }
-
     .convenio_vinculado:nth-child(1) {
         border-right: 2px solid #DBDADA;
         border-bottom: 2px solid #DBDADA;
@@ -632,7 +627,6 @@
     .convenio_vinculado:nth-child(4) {
         border: none;
     }
-    
 
     .convenio_vinculado:nth-child(2n+5) {
         border-top: 2px solid #DBDADA;
@@ -641,4 +635,5 @@
     .convenio_vinculado:nth-child(2n+6) {
         border-top: 2px solid #DBDADA;
     }
+    // Fin sección convenios vinculados
 }

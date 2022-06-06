@@ -35,66 +35,7 @@
 }
 // End animación
 ///////// estilos de la tarjeta profesionales de una institución
-.btn__activado {
-    font-weight: bold;
-    color: #049372 !important;
-    text-decoration: none;
-    height: 24px;
-    display: inline-flex;
-    align-items: center;
-    overflow:hidden;
-    width: auto;
-    max-width: 20px;
-    border: none;
-    background-color: transparent;
-    -webkit-transition: max-width 0.5s;
-    transition: max-width 0.1s;
-    // Icono estado activado y desactivado
-    background-image: url('/img/iconos/check-circle.svg');
-    background-repeat: no-repeat;
-    background-position-x: 0;
-    background-position-y: center;
-    background-size: 20px;
-    // Texto activado y desactivado
-    white-space: nowrap;
-    padding-top: 2px;
-    padding-right: 0px;
-    padding-left: 23px;
-    &:hover {
-        max-width: 300px;
-        padding-right: 0;
-    }
-}
-.btn__desactivado {
-    font-weight: bold;
-    color: #FF3E3E !important;
-    text-decoration: none;
-    height: 24px;
-    display: inline-flex;
-    align-items: center;
-    overflow:hidden;
-    width: auto;
-    max-width: 20px;
-    border: none;
-    background-color: transparent;
-    -webkit-transition: max-width 0.5s;
-    transition: max-width 0.1s;
-    // Icono estado activado y desactivado
-    background-image: url('/img/iconos/x-circle.svg');
-    background-repeat: no-repeat;
-    background-position-x: 0;
-    background-position-y: center;
-    background-size: 20px;
-    // Texto activado y desactivado
-    white-space: nowrap;
-    padding-top: 2px;
-    padding-right: 0px;
-    padding-left: 23px;
-    &:hover {
-        max-width: 300px;
-        padding-right: 0;
-    }
-}  
+
 .img__cuadrada {
     width: 60px;
     height: 60px;

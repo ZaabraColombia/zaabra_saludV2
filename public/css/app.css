@@ -26513,62 +26513,6 @@ div.dt-buttons {
   box-shadow: 10PX 15px 24px rgba(62, 57, 107, 0.25);
 }
 
-.btn__activado {
-  font-weight: bold;
-  color: #049372 !important;
-  text-decoration: none;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  overflow: hidden;
-  width: auto;
-  max-width: 20px;
-  border: none;
-  background-color: transparent;
-  transition: max-width 0.1s;
-  background-image: url("/img/iconos/check-circle.svg");
-  background-repeat: no-repeat;
-  background-position-x: 0;
-  background-position-y: center;
-  background-size: 20px;
-  white-space: nowrap;
-  padding-top: 2px;
-  padding-right: 0px;
-  padding-left: 23px;
-}
-.btn__activado:hover {
-  max-width: 300px;
-  padding-right: 0;
-}
-
-.btn__desactivado {
-  font-weight: bold;
-  color: #FF3E3E !important;
-  text-decoration: none;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  overflow: hidden;
-  width: auto;
-  max-width: 20px;
-  border: none;
-  background-color: transparent;
-  transition: max-width 0.1s;
-  background-image: url("/img/iconos/x-circle.svg");
-  background-repeat: no-repeat;
-  background-position-x: 0;
-  background-position-y: center;
-  background-size: 20px;
-  white-space: nowrap;
-  padding-top: 2px;
-  padding-right: 0px;
-  padding-left: 23px;
-}
-.btn__desactivado:hover {
-  max-width: 300px;
-  padding-right: 0;
-}
-
 .img__cuadrada {
   width: 60px;
   height: 60px;
@@ -28241,6 +28185,62 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border: solid 1px #019F86;
   border-radius: 7px;
   padding: 2px 23px;
+}
+
+.btn__activado {
+  font-weight: bold;
+  color: #049372 !important;
+  text-decoration: none;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  width: auto;
+  max-width: 20px;
+  border: none;
+  background-color: transparent;
+  transition: max-width 0.1s;
+  background-image: url("/img/iconos/check-circle.svg");
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: center;
+  background-size: 20px;
+  white-space: nowrap;
+  padding-top: 2px;
+  padding-right: 0px;
+  padding-left: 23px;
+}
+.btn__activado:hover {
+  max-width: 300px;
+  padding-right: 0;
+}
+
+.btn__desactivado {
+  font-weight: bold;
+  color: #FF3E3E !important;
+  text-decoration: none;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  width: auto;
+  max-width: 20px;
+  border: none;
+  background-color: transparent;
+  transition: max-width 0.1s;
+  background-image: url("/img/iconos/x-circle.svg");
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: center;
+  background-size: 20px;
+  white-space: nowrap;
+  padding-top: 2px;
+  padding-right: 0px;
+  padding-left: 23px;
+}
+.btn__desactivado:hover {
+  max-width: 300px;
+  padding-right: 0;
 }
 
 @media (min-width: 768px) {

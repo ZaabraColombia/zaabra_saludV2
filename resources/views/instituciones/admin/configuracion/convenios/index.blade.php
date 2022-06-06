@@ -102,7 +102,7 @@
                                         </div>
                                         <!-- card data down -->
                                         <div class="card__data_down pl-xl-4">
-                                            <div class="pl-md-3 width__tool_tip">
+                                            <div class="pl-md-3">
                                                 <i data-feather="phone" class="icon_span_card"></i>
                                                 <span class="txt_span_card">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
                                             </div>

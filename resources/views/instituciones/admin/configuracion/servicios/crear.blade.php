@@ -17,7 +17,7 @@
                 <form action="{{ route('institucion.configuracion.servicios.store') }}" method="post">
                     @csrf
 
-                    <div class="d-block d-md-flex justify-content-between py-3">
+                    <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
                             <input type="checkbox" name="estado" id="estado" value="1"
