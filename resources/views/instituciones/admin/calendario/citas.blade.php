@@ -35,71 +35,76 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf" id="basic-table">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl green_bold">Citas</h1>
-                <span class="text__md black_light">Encuentre aquí las citas agendadas por sus pacientes.</span>
-
-                {{--
-                <div class="col-md-4 p-0 content_btn_right">
-                    <a href="" class="button_transparent mr-2" id="" data-toggle="modal"
-                       data-target="#modal_cancelar_cita">
-                        eliminar
-                    </a>
-                    <a href="" class="button_green" id="" data-toggle="modal" data-target="#modal_reagendar_cita">
-                        reagendar
+    <div class="container-fluid panel_container_top">
+        <div class="panel_head">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="txt_title_panel_head">Administración de citas</h1>
+                <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
+            </div>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add enviroment -->
+                <div class="col-md-12 col-lg-2 p-0 mb-4 button__add_card">
+                    <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card"
+                    id="btn-agregar-contacto">Agregar cita
                     </a>
                 </div>
-                --}}
-            </div>
-
-            <!-- Contenedor barra de búsqueda pacientes -->
-            <div class="containt_main_table mb-3">
-                <div class="row m-0">
-                    <div class="col-md-8  p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar cita"/>
-                    </div>
-
-                    <div class="col-md-4 p-0 content_btn_right">
-                        <a href="{{ route('institucion.calendario.iniciar-control') }}" class="button_transparent mr-2"
-                           id="">
-                            Atras
-                        </a>
-                        <a href="{{ route('institucion.calendario.crear-cita') }}" class="button_green" target="_blank">
-                            Crear cita
-                        </a>
-                    </div>
+                <!-- Search bar -->
+                <div class="col-md-8 col-lg-7 p-0 mb-4 button__search_card">
+                    <form method="get">
+                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                            <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                        </button>
+                    </form>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="col-md-4 col-lg-3 p-0 mb-4 justify-content-md-end button__doc_download">
+                    <button class="file_calendar"></button>
+                    <button class="file_excel"></button>
+                    <button class="file_pdf"></button>
+                    <button class="file_printer"></button>
                 </div>
             </div>
-
-            <!-- Contenedor formato tabla de la lista de pacientes -->
-            <div class="containt_main_table mb-3">
-                <div class="col-12" id="alertas"></div>
-                <table class="table table_agenda" style="width: 100%" id="table-citas">
-                    <thead class="thead_green">
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Hora Inicio</th>
-                        <th>Hora Fin</th>
-                        {{--Es nesesario que esten duplicados--}}
-                        <th>Profesional</th>
-                        <th>Profesional</th>
-                        <th>Especialidad</th>
-                        {{--Es nesesario que esten duplicados--}}
-                        <th>Servicio</th>
-                        <th>Servicio</th>
-                        <th>Paciente</th>
-                        <th>Identificación</th>
-                        <th>Celular</th>
-                        <th>Estado</th>
-                        <th>Acción</th>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
+            {{--<div class="col-md-4 p-0 content_btn_right">
+                <a href="" class="button_transparent mr-2" id="" data-toggle="modal"
+                data-target="#modal_cancelar_cita">
+                    eliminar
+                </a>
+                <a href="" class="button_green" id="" data-toggle="modal" data-target="#modal_reagendar_cita">
+                    reagendar
+                </a>
+            </div>--}}
         </div>
     </div>
+
+    <div class="container-fluid panel_container_down">
+        <div class="card__container_main">
+            <div class="col-12" id="alertas"></div>
+            <table class="table table_agenda" style="width: 100%" id="table-citas">
+                <thead class="thead_green">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora Inicio</th>
+                    <th>Hora Fin</th>
+                    {{--Es nesesario que esten duplicados--}}
+                    <th>Profesional</th>
+                    <th>Profesional</th>
+                    <th>Especialidad</th>
+                    {{--Es nesesario que esten duplicados--}}
+                    <th>Servicio</th>
+                    <th>Servicio</th>
+                    <th>Paciente</th>
+                    <th>Identificación</th>
+                    <th>Celular</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    
 
     <!-- Modal  reagendar cita -->
     <div class="modal fade" id="modal-reagendar-cita" tabindex="-1">
@@ -663,6 +668,13 @@
 
             });
 
+        });
+    </script>
+
+    <!-- Script barra de búsqueda desplegable -->
+    <script>
+        $('#search').on('click', function () {
+            $('#search').addClass('search_togggle');
         });
     </script>
 @endsection

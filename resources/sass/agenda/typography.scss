@@ -9,6 +9,12 @@
     font-weight: bold;
     text-align: center;
 } 
+.txt_subtitle_panel_head {
+    font-size: 20px;
+    color: #3E3E3E;
+    font-weight: bold;
+    text-align: center;
+} 
 .txt_h4_card {
     font-size: 14px;
     font-family: 'Roboto';
@@ -103,6 +109,9 @@
         font-size: 20px;
     } 
     .txt_title_panel_head {
+        text-align: initial;
+    }
+    .txt_subtitle_panel_head {
         text-align: initial;
     }
 }

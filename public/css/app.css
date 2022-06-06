@@ -20731,6 +20731,7 @@ a:hover {
 
 .container__main_form {
   background-color: #FFFFFF;
+  border: 1px solid #DBDADA;
   border-radius: 5px;
   padding: 20px 15px;
   margin-bottom: 100px;
@@ -21781,8 +21782,6 @@ a:hover {
   }
 
   .container__main_form {
-    background-color: #FFFFFF;
-    border-radius: 5px;
     padding: 20px 50px;
     margin-bottom: 100px;
   }
@@ -27946,6 +27945,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 53px 5px;
 }
 
+.panel_container_top {
+  padding: 53px 5px 0 5px;
+}
+
+.panel_container_down {
+  padding: 0 13px 53px 13px;
+}
+
 .panel_head {
   padding: 0 8px;
 }
@@ -27963,6 +27970,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding: 40px 70px 0 50px;
   }
 
+  .panel_container_top {
+    padding: 40px 70px 0 50px;
+  }
+
+  .panel_container_down {
+    padding: 0 78px 40px 58px;
+  }
+
   .panel_body {
     padding: 0;
   }
@@ -27970,6 +27985,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 @media (min-width: 1200px) {
   .panel_container {
     padding: 50px 30px 0 35px;
+  }
+
+  .panel_container_top {
+    padding: 50px 0 0 8px;
+  }
+
+  .panel_container_down {
+    padding: 0 22px 50px 15px;
   }
 
   .panel_head {
@@ -27996,6 +28019,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 @media (min-width: 1600px) {
   .panel_container {
     padding: 65px 160px 0 50px;
+  }
+
+  .panel_container_top {
+    padding: 65px 160px 0 50px;
+  }
+
+  .panel_container_down {
+    padding: 0 183px 65px 57px;
   }
 }
 .butons__pagination_card {
@@ -28344,6 +28375,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 15px;
 }
 
+.card__container_main {
+  background-color: #FFFFFF;
+  border: 1px solid #DBDADA;
+  border-radius: 5px;
+  padding: 20px 15px;
+  margin-bottom: 100px;
+}
+
 .card__row_column {
   flex-direction: column;
   justify-content: center;
@@ -28400,6 +28439,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     height: 164px;
     padding: 0;
   }
+
+  .card__container_main {
+    padding: 20px 50px;
+    margin-bottom: 100px;
+  }
 }
 @media (min-width: 1600px) {
   .card__menu_panel {
@@ -28424,6 +28468,13 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .txt_title_panel_head {
   font-size: 25px;
   color: #019F86;
+  font-weight: bold;
+  text-align: center;
+}
+
+.txt_subtitle_panel_head {
+  font-size: 20px;
+  color: #3E3E3E;
   font-weight: bold;
   text-align: center;
 }
@@ -28533,6 +28584,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 
   .txt_title_panel_head {
+    text-align: initial;
+  }
+
+  .txt_subtitle_panel_head {
     text-align: initial;
   }
 }

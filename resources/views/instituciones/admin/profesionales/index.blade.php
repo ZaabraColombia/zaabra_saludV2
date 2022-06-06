@@ -458,6 +458,7 @@
         });
     </script>
 
+    <!-- Script barra de búsqueda desplegable -->
     <script>
         $('#search').on('click', function () {
             $('#search').addClass('search_togggle');
