@@ -272,6 +272,15 @@
 
     }
     //++++++++ Fin Propiedades y evento HOVER de los ITEMS INSTITUCIONES Menú lateral ++++++++//
+    .sidebar-menu .sidebar__header .user_data .cont_text {
+        width: 135px;
+    }
+}
+
+@media (min-width: 1300px){
+    .sidebar-menu .sidebar__header .user_data .cont_text {
+        width: 165px;
+    }
 }
 
 @media (min-width: 1920px){

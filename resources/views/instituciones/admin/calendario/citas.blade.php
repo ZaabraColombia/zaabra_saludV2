@@ -35,12 +35,13 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid panel_container_top">
-        <div class="panel_head">
+    <div class="container-fluid panel_container">
+        <div class="panel_head_op2">
             <!-- Main title -->
             <div class="mb-4">
                 <h1 class="txt_title_panel_head">Administración de citas</h1>
                 <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
+                <a  class="button_transparent" type="button" data-toggle="modal" data-target="#modal_appoiment_detail">Launch modal</a>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
@@ -76,35 +77,164 @@
                 </a>
             </div>--}}
         </div>
-    </div>
 
-    <div class="container-fluid panel_container_down">
-        <div class="card__container_main">
-            <div class="col-12" id="alertas"></div>
-            <table class="table table_agenda" style="width: 100%" id="table-citas">
-                <thead class="thead_green">
-                <tr>
-                    <th>Fecha</th>
-                    <th>Hora Inicio</th>
-                    <th>Hora Fin</th>
-                    {{--Es nesesario que esten duplicados--}}
-                    <th>Profesional</th>
-                    <th>Profesional</th>
-                    <th>Especialidad</th>
-                    {{--Es nesesario que esten duplicados--}}
-                    <th>Servicio</th>
-                    <th>Servicio</th>
-                    <th>Paciente</th>
-                    <th>Identificación</th>
-                    <th>Celular</th>
-                    <th>Estado</th>
-                    <th>Acción</th>
-                </tr>
-                </thead>
-            </table>
+        <div class="panel_body_op2">
+            <div class="card__container_main">
+                <div class="col-12" id="alertas"></div>
+                <table class="table table_agenda" style="width: 100%" id="table-citas">
+                    <thead class="thead_green">
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora Inicio</th>
+                        <th>Hora Fin</th>
+                        {{--Es nesesario que esten duplicados--}}
+                        <th>Profesional</th>
+                        <th>Profesional</th>
+                        <th>Especialidad</th>
+                        {{--Es nesesario que esten duplicados--}}
+                        <th>Servicio</th>
+                        <th>Servicio</th>
+                        <th>Paciente</th>
+                        <th>Identificación</th>
+                        <th>Celular</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
-    
+
+    <!-- Modal see professional -->
+    <div class="modal fade" id="modal_appoiment_detail" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal__">
+                <!-- Modal header -->
+                <div class="modal-header row m-0 px-3 pl-lg-4">
+                    <div class="col-12 p-0">
+                        <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
+                            <span class="modal_x_close" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Título principal -->
+                    <div class="col-12 modal_main_title">
+                        <h1 class="modal_title_green">Detalles de la cita</h1>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
+                    <!-- Imagen imprersa del profesional -->
+                    <div class="row m-0">
+                        <div class="col-12 p-0 mb-2 mb-lg-3 d-flex justify-content-center">
+                            <img class="img_printed_modal" src="{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}">
+                        </div>
+                    </div>
+                    <!-- Sección data sin borde -->
+                    <div class="modal_info_data_open">
+                        <div class="row m-0">
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Paciente:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Santiago Jonathan Buenaventura Santamaria</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Especialidad:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Otorrinolaringología</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-3 dropdown-divider"></div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Profesional:</h4>
+                                <div class="modal_data_user">
+                                    <span id="nombre">Carlos Arturo Quiroga Galvis</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Identificación:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">C.C. 1.070.000.000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Tipo de servicio:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Cirugía plástica facial</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Fecha:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">28/11/1985</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Teléfono:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">0000000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Hora:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">7:00 a.m. - 7:30 a.m.</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Lugar:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Calle 127A # 7-53 Cs 7003</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Pago:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Virtual</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Consultorio:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Consultorio 105</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Valor de la cita:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">$ 1.440.000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Convenio:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Sura E.P.S.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modalfooter -->
+                <div class="modal_btn_down_center mb-4">
+                    <button type="button" class="button__form_green" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal  reagendar cita -->
     <div class="modal fade" id="modal-reagendar-cita" tabindex="-1">
