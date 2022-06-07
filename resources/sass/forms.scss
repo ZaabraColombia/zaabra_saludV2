@@ -20,6 +20,7 @@
 }
 .container__main_form {
     background-color: #FFFFFF;
+    border: 1px solid #DBDADA;
     border-radius: 5px;
     padding: 20px 15px;
     margin-bottom: 100px;
@@ -1070,8 +1071,8 @@
         width: 850px;
     }
     .container__main_form {
-        background-color: #FFFFFF;
-        border-radius: 5px;
+        // background-color: #FFFFFF;
+        // border-radius: 5px;
         padding: 20px 50px;
         margin-bottom: 100px;
     }

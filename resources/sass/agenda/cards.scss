@@ -43,6 +43,13 @@
     border-radius: 7px;
     padding: 15px;
 }
+.card__container_main { // contenedor
+    background-color: #FFFFFF;
+    border: 1px solid #DBDADA;
+    border-radius: 5px;
+    padding: 20px 15px;
+    margin-bottom: 100px;
+}
 .card__row_column {
     flex-direction: column;
     justify-content: center;
@@ -95,6 +102,11 @@
     .card__logo_menu_panel {
         height: 164px;
         padding: 0;
+    }
+    // Cards modules 
+    .card__container_main { // contenedor
+        padding: 20px 50px;
+        margin-bottom: 100px;
     }
 }
 @media(min-width: 1600px) {

@@ -9,6 +9,12 @@
     font-weight: bold;
     text-align: center;
 } 
+.txt_subtitle_panel_head {
+    font-size: 20px;
+    color: #3E3E3E;
+    font-weight: bold;
+    text-align: center;
+} 
 .txt_h4_card {
     font-size: 14px;
     font-family: 'Roboto';
@@ -75,11 +81,37 @@
     font-weight: bold;
     color: #232323;
 }
+.txt_span_sm_card {
+    font-size: 11px;
+    font-family: 'Roboto';
+    font-weight: 100;
+    text-align: center;
+    color: #3E3E3E;
+}
+.txt_h5_sect_modal_card {
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: 100;
+    text-align: center;
+    color: #3E3E3E;
+    margin: 0;
+}
+.txt_span_sect_modal_card {
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    text-align: center;
+    color: #232323;
+    margin: 0;
+}
 @media(min-width: 768px) {
     .txt_name_card {
         font-size: 20px;
     } 
     .txt_title_panel_head {
+        text-align: initial;
+    }
+    .txt_subtitle_panel_head {
         text-align: initial;
     }
 }
@@ -95,6 +127,12 @@
     } 
     .txt_subtitle_modal_card {
         font-size: 25px;
+    }
+    .txt_h5_sect_modal_card {
+        font-size: 18px;
+    }
+    .txt_span_sect_modal_card {
+        font-size: 18px;
     }
 }
 @media(min-width: 1200px) {

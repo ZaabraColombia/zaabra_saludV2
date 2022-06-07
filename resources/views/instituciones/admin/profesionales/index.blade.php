@@ -281,7 +281,7 @@
                     <!-- Sección data sin borde -->
                     <div class="modal_info_data_open">
                         <div class="row m-0">
-                            <div class="col-12 p-0 mb-3 mb-lg-0 d-flex justify-content-end">
+                            <div class="col-12 p-0 mb-3 mb-lg-0 d-flex justify-content-center justify-content-lg-end">
                                 <button class="btn__activado">
                                     <span>activo</span>
                                 </button>
@@ -458,6 +458,7 @@
         });
     </script>
 
+    <!-- Script barra de búsqueda desplegable -->
     <script>
         $('#search').on('click', function () {
             $('#search').addClass('search_togggle');
