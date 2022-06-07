@@ -7,10 +7,25 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid content_asig_cita">
-
-        <div class="content_row">
-            <div class="col-12 w_lg_35" id="alertas">
+    <div class="container-fluid panel_container">
+        <div class="panel_head_op2">
+            <!-- Main title -->
+            <div class="mb-4 mb-lg-0">
+                <h1 class="txt_title_panel_head">Agendar cita</h1>
+            </div>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add appoiment -->
+                <div class="col-12 p-0 mb-4 button__add_card justify-content-end">
+                    <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card py-lg-1" id="btn-agregar-contacto">
+                        <i data-feather="user-plus" style="width: 20px"></i>&nbsp; Agregar paciente
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Mensaje de alerta -->
+        <div class="row m-0">
+            <div class="col-12 p-0" id="alertas">
                 @if ($errors->any())
                     <div class="alert alert-danger" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -23,46 +38,42 @@
             </div>
         </div>
 
-        <form action="{{ route('institucion.calendario.guardar-cita') }}" method="post" id="form-crear-cita-institucion">
-            <div class="content_row mt_md_lg">
+        <div class="panel_body_op2">
+            <form action="{{ route('institucion.calendario.guardar-cita') }}" method="post" id="form-crear-cita-institucion">
                 @csrf
-                {{-- Información del Profesional --}}
-                <div class="col_flex w_lg_35 align_between_1300">
-                    <div class="w-100 w_md_65 w_lg_100 px_xl pl-md-3">
-                        <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-                            @csrf
+                <div class="row m-0">
+                    <!-- Información del paciente -->
+                    <div class="col-12 col-lg-3 card__section_head">
+                        <div class="row m-0">
                             <input type="hidden" name="date-calendar" id="date-calendar">
-                            <div class="input__box mb-3">
-                                <label for="paciente">Paciente</label>
+                            <!-- Paciente -->
+                            <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
+                                <label for="paciente" class="txt_calendar_cita">Paciente</label>
                                 <select id="paciente" class="form-control" name="paciente" required></select>
                             </div>
-                            <div class="input__box mb-3" style="display: none" id="div-paciente">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img id="foto" alt="foto" class="w-100 img-round"/>
+                                        <!-- Imagen e info del paciente -->
+                            <div class="col-md-6 col-lg-12 px-1 px-lg-0 mt-3 mb-2" style="display: none" id="div-paciente">
+                                <div class="row m-0">
+                                    <div class="col-3 col-lg-2 p-0">
+                                        <img id="foto" alt="foto" class="img__user_cita"/>
                                     </div>
-                                    <div class="col-md-9">
-                                        <h5 id="paciente-nombre-comppleto"></h5>
-                                        <h5 id="paciente-identificacion"></h5>
-                                        <h5 id="paciente-correo"></h5>
+                                    <div class="col-9 col-lg-10 pad_l_dat">
+                                        <h4 class="txt_h4_data_cita" id="paciente-nombre-comppleto"></h4>
+                                        <h5 class="txt_h5_data_cita" id="paciente-identificacion"></h5>
+                                        <div class="d-flex">
+                                            <i data-feather="phone" class="icon_txt_data"></i>
+                                            <h5 class="txt_h5_data_cita pl-2" id="">313 000 00 00</h5>
+                                        </div>
+                                        <div class="d-flex">
+                                            <i data-feather="mail" class="icon_txt_data"></i>
+                                            <h5 class="txt_h5_data_cita pl-2" id="paciente-correo"></h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="input__box mb-3">
-                                <label for="profesional">Profesional</label>
-                                <select id="profesional" name="profesional" required>
-                                    <option></option>
-                                    @if($profesionales->isNotEmpty())
-                                        @foreach($profesionales as $profesional)
-                                            <option value="{{ $profesional->id_profesional_inst }}" data-lugar="{{ $profesional->consultorio_completo }}">{{ $profesional->nombre_completo }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-
-                            <div class="input__box mb-3">
-                                <label for="tipo_servicio">Servicio</label>
+                            <!-- Servicio -->
+                            <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
+                                <label for="tipo_servicio" class="txt_calendar_cita">Servicio</label>
                                 <select id="tipo_servicio" class="form-control" name="tipo_servicio" required>
                                     <option></option>
                                     @if(!empty($servicios))
@@ -72,62 +83,105 @@
                                     @endif
                                 </select>
                             </div>
+                            <!-- Especialidad -->
+                            <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
+                                <label for="especialidad" class="txt_calendar_cita">Eespecialidad</label>
+                                <select id="especialidad" class="form-control" name="especialidad" required>
+                                    <option></option>
+                                    <option value="Especialidad 1" data-lugar="">Especialidad 1</option>
+                                    <option value="Especialidad 2" data-lugar="">Especialidad 2</option>
+                                </select>
+                            </div>
+                            <!-- Profesional -->
+                            <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
+                                <label for="profesional" class="txt_calendar_cita">Profesional</label>
+                                <select id="profesional" class="form-control" name="profesional" required>
+                                    <option></option>
+                                    @if($profesionales->isNotEmpty())
+                                        @foreach($profesionales as $profesional)
+                                            <option value="{{ $profesional->id_profesional_inst }}" data-lugar="{{ $profesional->consultorio_completo }}">{{ $profesional->nombre_completo }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="content_row w_lg_65 my__md">
-                    <!-- Calendario -->
-                    <div class="col_flex col_flex_md">
-                        <div id="calendar" class="calendar w-100"></div>
+                    <div class="col-12 col-lg-6 p-0 px-lg-3">
+                        <div class="card__section_body">
+                            <!-- Pildoras informativas mobile -->
+                            <div class="row m-0 mb-4 pill_mobile">
+                                <div class="col-12 p-0 mb-2 d-flex align-items-center">    
+                                    <span class="pill_informative_blue"></span>
+                                    <span class="ml-3 txt_calendar_cita">Días disponibles</span>
+                                </div>
+                                <div class="col-12 p-0 mb-2 d-flex align-items-center">
+                                    <span class="pill_informative_gray"></span>
+                                    <span class="ml-3 txt_calendar_cita">Días no disponibles</span>
+                                </div>
+                                <div class="col-12 p-0 mb-2 d-flex align-items-center">
+                                    <span class="pill_informative_gree"></span>
+                                    <span class="ml-3 txt_calendar_cita">Días seleccionados</span>
+                                </div>
+                            </div>
+                        
+                            <!-- Calendario -->
+                            <div id="calendar" class="calendar px-md-5 px-lg-2"></div>
+                        </div>
                     </div>
 
-                    <div class="content_row col_flex_md ml-md-auto mt-lg-2 align_between_1300">
-                        <div class="col_flex">
-                            <div class="mt-4 mb-3 mt-md-0">
-                                <span class="badge rounded-pill bg-primary mb-3 w-100">Días disponibles</span>
-                                <span class="badge rounded-pill bg-secondary mb-3 w-100" style="opacity: .5;">Días no disponibles</span>
-                                <span class="badge rounded-pill bg-success mb-3 w-100">Días seleccionados</span>
+                    <div class="col-12 col-lg-3 card__section_foot">
+                        <!-- Pildoras informativas desktop -->
+                        <div class="row m-0 pill_desktop">
+                            <div class="col-12 p-0 mb-2 d-flex align-items-center">    
+                                <span class="pill_informative_blue"></span>
+                                <span class="ml-3 txt_calendar_cita">Días disponibles</span>
+                            </div>
+                            <div class="col-12 p-0 mb-2 d-flex align-items-center">
+                                <span class="pill_informative_gray"></span>
+                                <span class="ml-3 txt_calendar_cita">Días no disponibles</span>
+                            </div>
+                            <div class="col-12 p-0 mb-2 d-flex align-items-center">
+                                <span class="pill_informative_gree"></span>
+                                <span class="ml-3 txt_calendar_cita">Días seleccionados</span>
                             </div>
                         </div>
 
-                        <div class="col_block mb-3 mt-md-1 mb-md-0 mt-lg-0">
-
-                            <div class="input__box mb-3">
-                                <label for="hora">Hora de la cita</label>
+                        <div class="row m-0">
+                            <!-- Hora de cita -->
+                            <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
+                                <label for="hora" class="txt_calendar_cita_green">Hora de la cita</label>
                                 <select id="hora" name="hora" class="form-control" required></select>
                             </div>
-
-                            <div class="">
-                                <label for="convenio">Convenio</label>
-                                <div class="input-group mb-3">
+                            <!-- Convenio -->
+                            <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
+                                <label for="convenio" class="txt_calendar_cita_green">Convenio</label>
+                                <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
                                             <input type="checkbox" id="check-convenio" name="check-convenio" value="1">
                                         </div>
                                     </div>
-                                    <select class="custom-select" id="convenio" name="convenio" disabled></select>
+                                    <select class="custom-select" id="convenio" class="form-control" name="convenio" disabled></select>
                                 </div>
                             </div>
-
-                            <div class="input__box mb-3">
-                                <label for="modalidad">Modalidad de pago</label>
+                            <!-- Modalidad de pago -->
+                            <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
+                                <label for="modalidad" class="txt_calendar_cita_green">Modalidad de pago</label>
                                 <select id="modalidad" class="form-control" name="modalidad" required>
                                     <option value="virtual">Virtual</option>
                                     <option value="presencial"> Presencial </option>
                                 </select>
                             </div>
-
-                            <div class="row m-0 content_btn_right">
-                                <button type="button" class="button_blue" id="btn-finalizar-cita-profesional">
-                                    Finalizar
-                                </button>
+                            <!-- Botón inferior -->
+                            <div class="col-12 px-2 px-lg-0 mt-3 content__btn_inferior">
+                                <button type="button" class="button_green py-1" id="btn-finalizar-cita-profesional">Agendar</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
     <!-- Modal confirmar cita -->

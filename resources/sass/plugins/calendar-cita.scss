@@ -1,0 +1,80 @@
+// Tarjeta principal calendario (parte externa)
+.pignose-calendar {
+    border: none !important;
+    box-shadow: none !important;
+}
+// Cabecera del calendario (mes, año y flechas)
+.pignose-calendar .pignose-calendar-top {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+// Flecha previus
+.pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev {
+    border: 1px solid #DBDADA;
+    border-radius: 7px 0 0 7px;
+    height: 35px;
+    font-size: 20px;
+    margin-left: 0 !important;
+}
+// Contenedor del año y el mes
+.pignose-calendar .pignose-calendar-top .pignose-calendar-top-date {
+    padding: 3px 0 !important;
+}
+// Mes y año
+.pignose-calendar .pignose-calendar-top .pignose-calendar-top-month, .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
+    display: inline !important;
+    margin: 0 !important;
+    font-size: 20px !important;
+}
+// Flecha next
+.pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-next {
+    border: 1px solid #DBDADA;
+    border-radius: 0 7px 7px 0;
+    height: 35px;
+    font-size: 20px;
+    margin-right: 0 !important;
+}
+// Sección de los días de la semana
+.pignose-calendar .pignose-calendar-header {
+    font-size: 8px;
+    border: 1px solid#DBDADA;
+    border-radius: 7px 7px 0 0;
+}
+// Sección días formato número
+.pignose-calendar .pignose-calendar-body {
+    border: 1px solid#DBDADA;
+    border-top: none;
+    border-radius: 0 0 7px 7px;
+    font-size: 9px;
+}
+// Forma de los días enumerados
+.pignose-calendar .pignose-calendar-unit a {
+    width: 3em !important;
+    border-radius: 20% !important;
+}
+@media(min-width: 768px) {
+    // ancho del calendario 
+    .pignose-calendar {
+        max-width: 100% !important;
+    }
+    // Sección de los días de la semana
+    .pignose-calendar .pignose-calendar-header {
+        font-size: 17px;
+    }
+    // Sección días formato número
+    .pignose-calendar .pignose-calendar-body {
+        font-size: 19px;
+    }
+}
+@media(min-width: 1024px) {
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-month, .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
+        font-size: 18px !important;
+    }
+    .pignose-calendar .pignose-calendar-header {
+        font-size: 14px;
+    }
+    .pignose-calendar .pignose-calendar-body {
+        font-size: 12px;
+    }
+}

@@ -45,7 +45,7 @@
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
-                <!-- Add enviroment -->
+                <!-- Add appoiment -->
                 <div class="col-md-12 col-lg-2 p-0 mb-4 button__add_card">
                     <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card"
                     id="btn-agregar-contacto">Agregar cita
@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    <!-- Modal see professional -->
+    <!-- Modal appoiment detail -->
     <div class="modal fade" id="modal_appoiment_detail" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal__">
