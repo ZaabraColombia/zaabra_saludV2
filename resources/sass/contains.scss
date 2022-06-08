@@ -271,27 +271,6 @@
         color: #232323;
     }
 }
-// Calendario pignose
-.pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
-    color: #212529 !important;
-}
-.pignose-calendar .pignose-calendar-unit a {
-    font-weight: bold !important;
-    color: #FFFFFF !important;
-    background-color: #3490dc !important;
-}
-.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-disabled a {
-    background-color: #6c757d !important;
-    color: #ffffff !important;
-}
-.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
-    background-color: #38c172 !important;
-    color: #ffffff !important;
-}
-// Calendario pacientes (plugin Pignose)
-.pignose-calendar {
-    width: 100% !important;
-}
 @media(min-width: 768px) {
     // Contenedores de elementos de los formularios
     .containt_right {

@@ -64,9 +64,9 @@
                         <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
-                                    <div class="col-12 p-0 mb-3 d-flex justify-content-end">
+                                    <div class="pos">
                                         <a href="#" class="{{ ($usuario->estado)?'btn__activado':'btn__desactivado' }}">
-                                            <span>{{ ($usuario->estado)?'Activado':'Desactivado' }}</span>
+                                            <span>{{ ($usuario->estado)?'Activo':'Inactivo' }}</span>
                                         </a>
                                     </div>
 
