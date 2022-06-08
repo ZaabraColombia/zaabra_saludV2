@@ -28454,6 +28454,13 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 2px 23px;
 }
 
+.pos {
+  position: absolute;
+  z-index: 5;
+  top: 5px;
+  right: 16px;
+}
+
 .btn__activado {
   font-weight: bold;
   color: #049372 !important;
