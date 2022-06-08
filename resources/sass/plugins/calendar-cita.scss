@@ -1,15 +1,17 @@
 // Tarjeta principal calendario (parte externa)
 .pignose-calendar {
+    max-width: 100% !important;
+    width: 100% !important;
     border: none !important;
     box-shadow: none !important;
 }
-// Cabecera del calendario (mes, año y flechas)
+// Contenedor principal calendario (mes, año y flechas next y prev)
 .pignose-calendar .pignose-calendar-top {
     border-bottom: none !important;
     box-shadow: none !important;
     padding: 0 !important;
 }
-// Flecha previus
+// Flecha previus (<)
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev {
     border: 1px solid #DBDADA;
     border-radius: 7px 0 0 7px;
@@ -17,17 +19,7 @@
     font-size: 20px;
     margin-left: 0 !important;
 }
-// Contenedor del año y el mes
-.pignose-calendar .pignose-calendar-top .pignose-calendar-top-date {
-    padding: 3px 0 !important;
-}
-// Mes y año
-.pignose-calendar .pignose-calendar-top .pignose-calendar-top-month, .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
-    display: inline !important;
-    margin: 0 !important;
-    font-size: 20px !important;
-}
-// Flecha next
+// Flecha next (>)
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-next {
     border: 1px solid #DBDADA;
     border-radius: 0 7px 7px 0;
@@ -35,46 +27,84 @@
     font-size: 20px;
     margin-right: 0 !important;
 }
-// Sección de los días de la semana
+// Contenedor del año y el mes
+.pignose-calendar .pignose-calendar-top .pignose-calendar-top-date {
+    padding: 3px 0 !important;
+}
+// Texto del mes y número del año (jul 2022)
+.pignose-calendar .pignose-calendar-top .pignose-calendar-top-month, 
+.pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
+    display: inline !important;
+    margin: 0 !important;
+    font-size: 20px !important;
+}
+// Cabecera tarjeta días de la semana (D L M M J V S)
 .pignose-calendar .pignose-calendar-header {
     font-size: 8px;
     border: 1px solid#DBDADA;
     border-radius: 7px 7px 0 0;
 }
-// Sección días formato número
+// Color del día sábado (Sá)
+.pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat {
+    color: #212529 !important;
+}
+// Cuerpo tarjeta días del mes formato número (1 2 3 4 ..)
 .pignose-calendar .pignose-calendar-body {
     border: 1px solid#DBDADA;
     border-top: none;
     border-radius: 0 0 7px 7px;
     font-size: 9px;
 }
-// Forma de los días enumerados
+// Formato días enumerados ancho, background y color (| 1 |)
 .pignose-calendar .pignose-calendar-unit a {
-    width: 3em !important;
-    border-radius: 20% !important;
+    width: 3.2em !important;
+    border-radius: 15% !important;
+}
+// Background y color día disponible 
+.pignose-calendar .pignose-calendar-unit a {
+    background-color: #3490dc !important;
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+}
+// Bckground y color día no disponible
+.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-disabled a {
+    background-color: #DBDADA !important;
+    color: #3E3E3E !important;
+    font-weight: 500 !important;
+    opacity: inherit !important;
+}
+// Background y color día seleccionado
+.pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
+    background-color: #38c172 !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
 }
 @media(min-width: 768px) {
-    // ancho del calendario 
-    .pignose-calendar {
-        max-width: 100% !important;
-    }
-    // Sección de los días de la semana
+    // Cabecera tarjeta días de la semana (D L M M J V S)
     .pignose-calendar .pignose-calendar-header {
         font-size: 17px;
     }
-    // Sección días formato número
+    // Cuerpo tarjeta días del mes formato número (1 2 3 4 ..)
     .pignose-calendar .pignose-calendar-body {
         font-size: 19px;
     }
 }
 @media(min-width: 1024px) {
-    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-month, .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
+    // Texto del mes y número del año (jul 2022)
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-month, 
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
         font-size: 18px !important;
     }
+    // Cabecera tarjeta días de la semana (D L M M J V S)
     .pignose-calendar .pignose-calendar-header {
         font-size: 14px;
     }
+    // Cuerpo tarjeta días del mes formato número (1 2 3 4 ..)
     .pignose-calendar .pignose-calendar-body {
         font-size: 12px;
+    }
+    // Formato días enumerados ancho, background y color (| 1 |)
+    .pignose-calendar .pignose-calendar-unit a {
+        width: 3.7em !important;
     }
 }

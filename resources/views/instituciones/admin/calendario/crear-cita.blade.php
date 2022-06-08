@@ -16,8 +16,8 @@
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add appoiment -->
-                <div class="col-12 p-0 mb-4 button__add_card justify-content-end">
-                    <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card py-lg-1" id="btn-agregar-contacto">
+                <div class="col-12 p-0 mb-4 button__add_card justify-content-md-end">
+                    <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card py-1" id="btn-agregar-contacto">
                         <i data-feather="user-plus" style="width: 20px"></i>&nbsp; Agregar paciente
                     </a>
                 </div>
@@ -104,13 +104,33 @@
                                     @endif
                                 </select>
                             </div>
+                            <!-- Imagen e info del profesional -->
+                            <div class="col-md-6 col-lg-12 px-1 px-lg-0 mt-3 mb-2" id="">
+                                <div class="row m-0">
+                                    <div class="col-3 col-lg-2 p-0">
+                                        <img id="" alt="" src="{{ asset('img/menu/avatar.png') }}" class="img__user_cita"/>
+                                    </div>
+                                    <div class="col-9 col-lg-10 pad_l_dat">
+                                        <h4 class="txt_h4_data_cita" id="">Alexander Montenegro Caballero</h4>
+                                        <h5 class="txt_h5_data_cita" id="">C.C. 1.000.000.000</h5>
+                                        <div class="d-flex">
+                                            <i data-feather="phone" class="icon_txt_data"></i>
+                                            <h5 class="txt_h5_data_cita pl-2" id="">313 000 00 00</h5>
+                                        </div>
+                                        <div class="d-flex">
+                                            <i data-feather="mail" class="icon_txt_data"></i>
+                                            <h5 class="txt_h5_data_cita pl-2" id="">alexmaonte@hotmail.com</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-12 col-lg-6 p-0 px-lg-3">
+                    <div class="col-12 col-lg-6 pad_entre_tarjetas">
                         <div class="card__section_body">
                             <!-- Pildoras informativas mobile -->
-                            <div class="row m-0 mb-4 pill_mobile">
+                            <div class="row m-0 mb-4 pl-3 pill_mobile">
                                 <div class="col-12 p-0 mb-2 d-flex align-items-center">    
                                     <span class="pill_informative_blue"></span>
                                     <span class="ml-3 txt_calendar_cita">Días disponibles</span>
@@ -126,7 +146,7 @@
                             </div>
                         
                             <!-- Calendario -->
-                            <div id="calendar" class="calendar px-md-5 px-lg-2"></div>
+                            <div id="calendar" class="calendar pad_externo_calendar"></div>
                         </div>
                     </div>
 
@@ -151,24 +171,24 @@
                             <!-- Hora de cita -->
                             <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
                                 <label for="hora" class="txt_calendar_cita_green">Hora de la cita</label>
-                                <select id="hora" name="hora" class="form-control" required></select>
+                                <select id="hora" name="hora" class="form-control input_height_min" required></select>
                             </div>
                             <!-- Convenio -->
                             <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
                                 <label for="convenio" class="txt_calendar_cita_green">Convenio</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend">
+                                    <div class="input-group-prepend input_height_min_ckec">
                                         <div class="input-group-text">
                                             <input type="checkbox" id="check-convenio" name="check-convenio" value="1">
                                         </div>
                                     </div>
-                                    <select class="custom-select" id="convenio" class="form-control" name="convenio" disabled></select>
+                                    <select class="custom-select input_height_min" id="convenio" name="convenio" disabled></select>
                                 </div>
                             </div>
                             <!-- Modalidad de pago -->
                             <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
                                 <label for="modalidad" class="txt_calendar_cita_green">Modalidad de pago</label>
-                                <select id="modalidad" class="form-control" name="modalidad" required>
+                                <select id="modalidad" class="form-control input_height_min" name="modalidad" required>
                                     <option value="virtual">Virtual</option>
                                     <option value="presencial"> Presencial </option>
                                 </select>
