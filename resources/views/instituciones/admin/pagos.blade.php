@@ -8,62 +8,82 @@
 @endsection
 
 @section('contenido')
-        <section class="section pr-lg-4">
-            <div class="row containt_agendaProf mb-3" id="basic-table">
-                <div class="col-12 p-0">
-                    <div class="my-4 my-xl-5">
-                        <h1 class="title__xl green_bold">Pagos</h1>
-                        <span class="text__md black_light">Encuentre aquí los pagos realizados por cada una de sus citas.</span>
-                    </div>
-
-                    <!-- Contenedor barra de búsqueda -->
-                    <div class="containt_main_table mb-3">
-                        <div class="row m-0">
-                            <div class="col-md-9 p-0 input__box mb-0">
-                                <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar pagos">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="containt_main_table mb-3">
-                        <div class="table-responsive">
-                            <table class="table table_agenda" id="table-pagos">
-                                <thead class="thead_green">
-                                    <tr>
-                                        <th>Nombre paciente</th>
-                                        <th>Nombre profesional</th>
-                                        <th>Especialidad</th>
-                                        <th>Lugar de atención</th>
-                                        <th>Estado</th>
-                                        <th>Fecha</th>
-                                        <th>Valor</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    @if($pagos->isNotEmpty())
-                                        @foreach($pagos as $pago)
-                                            <tr>
-                                                <td>{{ $pago->cita->paciente->user->nombre_completo ?? ''}}</td>
-                                                <td>{{ $pago->cita->profesional_ins->nombre_completo ?? ''}}</td>
-                                                <td>{{ $pago->cita->especialidad->nombreEspecialidad ?? ''}}</td>
-                                                <td>{{ $pago->cita->lugar ?? ''}}</td>
-                                                <td>{{ ($pago->aprobado) ? 'Aprobado':'Por pagar' }}</td>
-                                                <td>{{ $pago->fecha->format('d-m /Y') }}</td>
-                                                <td>${{ number_format($pago->valor, 0, ",", ".") }}</td>
-                                                <!-- <td class="content_btn_descargar">
-
-                                                </td> -->
-                                            </tr>
-                                        @endforeach
-                                    @endif
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+    <div class="container-fluid panel_container">
+        <div class="panel_head_op2">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="txt_title_panel_head">Pagos</h1>
+                <h2 class="txt_subtitle_panel_head">Encuentre aquí los pagos realizados por cada una de sus citas.</h2>
+            </div>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Search bar -->
+                <div class="col-md-6 p-0 mb-4 button__search_card">
+                    <form method="get">
+                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                            <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                        </button>
+                    </form>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="col-md-4 p-0 mb-4 justify-content-md-end button__doc_download">
+                    <button class="file_calendar"></button>
+                    <button class="file_excel"></button>
+                    <button class="file_pdf"></button>
+                    <button class="file_printer"></button>
+                </div>
+                <!-- Pagination buttons -->
+                <div class="col-md-2 p-0 mb-4 d-none d-md-flex butons__pagination_card">
+                    <button class="btn_right_pag_card"></button>
+                    <button class="btn_left_pag_card"></button>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <div class="panel_body_op2">
+            <div class="containt_main_table mb-3">
+                <div class="table-responsive">
+                    <table class="table table_agenda" id="table-pagos">
+                        <thead class="thead_green">
+                            <tr>
+                                <th>Nombre paciente</th>
+                                <th>Nombre profesional</th>
+                                <th>Especialidad</th>
+                                <th>Lugar de atención</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if($pagos->isNotEmpty())
+                                @foreach($pagos as $pago)
+                                    <tr>
+                                        <td>{{ $pago->cita->paciente->user->nombre_completo ?? ''}}</td>
+                                        <td>{{ $pago->cita->profesional_ins->nombre_completo ?? ''}}</td>
+                                        <td>{{ $pago->cita->especialidad->nombreEspecialidad ?? ''}}</td>
+                                        <td>{{ $pago->cita->lugar ?? ''}}</td>
+                                        <td>{{ ($pago->aprobado) ? 'Aprobado':'Por pagar' }}</td>
+                                        <td>{{ $pago->fecha->format('d-m /Y') }}</td>
+                                        <td>${{ number_format($pago->valor, 0, ",", ".") }}</td>
+                                        <!-- <td class="content_btn_descargar">
+
+                                        </td> -->
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Pagination buttons -->
+            <div class="col-12 d-md-none p-0 mt-4 butons__pagination_card">
+                <button class="btn_right_pag_card"></button>
+                <button class="btn_left_pag_card"></button>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -108,6 +128,13 @@
         $("#search").on('keyup change',function(){
             var texto = $(this).val();
             table.search(texto).draw();
+        });
+    </script>
+
+    <!-- Script barra de búsqueda desplegable -->
+    <script>
+        $('#search').on('click', function () {
+            $('#search').addClass('search_togggle');
         });
     </script>
 @endsection

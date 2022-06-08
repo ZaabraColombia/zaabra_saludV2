@@ -43,7 +43,6 @@
         </div>
 
         <div class="panel_body_op2">
-            <!-- Contenedor formato tabla de la lista de pacientes -->
             <div class="containt_main_table mb-3">
                 {{--
                 <div class="col-md-4 col-xl-3 p-0 input__box">
