@@ -28746,6 +28746,12 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   text-align: center;
 }
 
+.txt_inside_panel_body {
+  font-size: 20px !important;
+  color: #3E3E3E;
+  font-weight: bold;
+}
+
 .txt_h4_card {
   font-size: 14px;
   font-family: "Roboto";

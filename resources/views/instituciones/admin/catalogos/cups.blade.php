@@ -31,13 +31,13 @@
                     <div class=" card mr-lg-3 mb-4 mb-lg-0">
                         <div class="card-body pt-4 pb-5">
                             <div class="input__box">
-                                <label for="search">Nombre</label>
+                                <label class="txt_inside_panel_body" for="search">Nombre</label>
                                 <input type="text" name="search" id="search"
                                 class="search" data-description="#description" data-type="cups"/>
                             </div>
                             <!-- Botón inferior -->
                             <div class="col-12 px-2 px-lg-0 mt-3 d-flex justify-content-center justify-content-lg-start">
-                                <button type="button" class="button_green py-1" id="btn-finalizar-cita-profesional">Buscar</button>
+                                <button type="button" class="button_green py-1" id="">Buscar</button>
                             </div>
                         </div>
                     </div>
@@ -47,8 +47,8 @@
                     <div class="card ml-lg-3">
                         <div class="card-body pt-4 pb-5">
                             <div class="input__box">
-                                <label for="description">Descripción</label>
-                                <div id="description"></div>
+                                <label class="txt_inside_panel_body" for="description">Descripción</label>
+                                <div class="txt_inside_panel_body" id="description"></div>
                             </div>
                         </div>
                     </div>
