@@ -37,7 +37,7 @@
                             </div>
                         @endif
                     </div>
-
+                    <!-- Botón activo o inactivo -->
                     <div class="d-block d-md-flex justify-content-end py-3">
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
@@ -49,7 +49,7 @@
                             </label>
                         </div>
                     </div>
-
+                    <!-- Imagen de encabezado -->
                     <div class="row m-0 my-4 justify-content-center">
                         <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                             <div class="img__upload">
@@ -59,12 +59,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Información Básica -->
+                    <!-- Subtítulo información Básica -->
                     <div class="my-4">
                         <h2 class="fs_subtitle green_bold">Información Básica</h2>
                     </div>
-
+                    <!-- Data del formulario -->
                     <div class="row">
                         <div class="col-md-3 input__box">
                             <label for="primer_nombre">Primer nombre</label>
@@ -259,8 +258,7 @@
                             </select>
                         </div>
                     </div>
-
-                    <!-- Contraseña del usuario -->
+                    <!-- Campo de contraseña -->
                     <div class="my-4">
                         <h2 class="subtitle__lg green_bold">Contraseña</h2>
                         <p class="text__md black_light">Crea una contraseña para el usuario que esta creando.</p>
@@ -294,8 +292,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Buttons -->
+                    <!-- Botones inferiores -->
                     <div class="row m-0 my-4 content_btn_center">
                         <a href="{{ route('institucion.profesionales.index') }}" class="button__form_transparent mr-3">Cancelar</a>
                         <button type="submit" class="button__form_green">Guardar</button>
