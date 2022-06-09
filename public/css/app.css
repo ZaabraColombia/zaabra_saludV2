@@ -28216,7 +28216,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 
   .panel_head {
-    padding: 0 20px 0 8px;
+    padding: 0 16px 0 8px;
   }
 
   .panel_head_op2 {
@@ -28515,6 +28515,30 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .btn__desactivado:hover {
   max-width: 300px;
   padding-right: 0;
+}
+
+.btn_big_green_modal {
+  width: 160px;
+  height: 50px;
+  font-family: "Quicksand";
+  font-size: 22px;
+  color: #FFFFFF;
+  background: #019F86;
+  border: solid 1px #019F86;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.btn_big_bord_green_modal {
+  width: 160px;
+  height: 50px;
+  font-family: "Quicksand";
+  font-size: 22px;
+  color: #3E3E3E;
+  background: #FFFFFF;
+  border: solid 1px #707070;
+  border-radius: 5px;
+  padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -28821,6 +28845,23 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   margin: 0;
 }
 
+.txt_h5_bold_modal {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: #232323;
+  margin: 0;
+}
+
+.txt_h5_regular_modal {
+  font-size: 18px;
+  font-family: "Roboto";
+  font-weight: 500;
+  text-align: center;
+  color: #3E3E3E;
+  margin: 0;
+}
+
 @media (min-width: 768px) {
   .txt_name_card {
     font-size: 20px;
@@ -28951,6 +28992,12 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #019F86;
 }
 
+.icon_delete_modal {
+  height: 45px;
+  width: 45px;
+  color: #FF3E3E;
+}
+
 .img_card_menu_panel {
   width: 150px;
   -o-object-fit: scale-down;
@@ -28963,6 +29010,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .img_printed_modal {
@@ -28971,6 +29020,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .img_section_modal {
@@ -28979,6 +29030,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-radius: 100px;
   -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .img_card_float {
@@ -28995,6 +29048,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   box-shadow: 0px 3px 6px #00000029;
 }
 
@@ -29014,12 +29069,28 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .img_card_menu_panel {
     width: 175px;
   }
+
+  .img_card_module {
+    width: 63px;
+    height: 62px;
+  }
 }
 @media (min-width: 1600px) {
   .img_card_menu_panel {
     width: 200px;
   }
 }
+.modal__content_icon {
+  width: 75px;
+  height: 75px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid #FF3E3E;
+}
+
 .pignose-calendar {
   max-width: 100% !important;
   width: 100% !important;

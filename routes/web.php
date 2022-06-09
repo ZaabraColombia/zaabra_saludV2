@@ -203,6 +203,10 @@ Route::get('/test-historial-bloqueos', function(){
     return view('instituciones.admin.agenda.historial-bloqueos');
 });
 
+Route::get('/test-index-contactos', function(){
+    return view('instituciones.admin.contactos.index');
+});
+
 // Ruta detalles-pago
 Route:: get('/detalles-pago',[App\Http\Controllers\pagosController::class,'index'])->name('detalles-pago');
 Route:: get('/comprobantes-pago',[App\Http\Controllers\pagosController::class,'index2'])->name('comprobantes-pago');
