@@ -254,7 +254,29 @@
     }
 }  
 // Fin botón activado y desactivado
-
+// Botones modales
+.btn_big_green_modal {
+    width: 160px;
+    height: 50px;
+    font-family: "Quicksand";
+    font-size: 22px;
+    color: #FFFFFF;
+    background: #019F86;
+    border: solid 1px #019F86;
+    border-radius: 5px;
+    padding: 0;
+}
+.btn_big_bord_green_modal {
+    width: 160px;
+    height: 50px;
+    font-family: "Quicksand";
+    font-size: 22px;
+    color: #3E3E3E;
+    background: #FFFFFF;
+    border: solid 1px #707070;
+    border-radius: 5px;
+    padding: 0;
+}
 @media(min-width: 768px) {
     // Botones add
     .button__add_card {

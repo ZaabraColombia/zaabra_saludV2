@@ -30,7 +30,7 @@ class ContactosController extends Controller
             ->where('user_id', '=', Auth::user()->institucion->user->id)
             ->get();
 
-        return view('instituciones.admin.contactos', compact('contactos'));
+        return view('instituciones.admin.contactos.index', compact('contactos'));
     }
 
     /**
