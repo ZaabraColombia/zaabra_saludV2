@@ -203,8 +203,8 @@ Route::get('/test-historial-bloqueos', function(){
     return view('instituciones.admin.agenda.historial-bloqueos');
 });
 
-Route::get('/test-index-contactos', function(){
-    return view('instituciones.admin.contactos.index');
+Route::get('/test-crear-contactos', function(){
+    return view('instituciones.admin.contactos.crear');
 });
 
 // Ruta detalles-pago

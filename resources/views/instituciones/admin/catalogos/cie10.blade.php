@@ -1,36 +1,59 @@
 @extends('instituciones.admin.layouts.layout')
 
 @section('contenido')
-    <section class="section mb-3 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="p-0">
-                <div class="my-4 my-xl-5">
-                    <h1 class="title__xl green_bold">Diagnósticos (CIE - 10)</h1>
-                    <p class="text__md black_light">
+    <div class="container-fluid panel_container">
+        <div class="panel_head_op2">
+            <!-- Main title -->
+            <div class="mb-4">
+                <h1 class="txt_title_panel_head">Diagnósticos (CIE - 10)</h1>
+            </div>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <div class="col-md-9 col-lg-10 p-0 mb-4">
+                    <h2 class="txt_subtitle_panel_head px-4 px-md-0">
                         Consulte el documento de diagnóstico (CIE - 10).
-                    </p>
+                    </h2>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="col-md-3 col-lg-2 p-0 mb-4 mb-md-0 justify-content-md-end button__doc_download">
+                    <button class="file_excel"></button>
+                    <button class="file_pdf"></button>
+                    <button class="file_printer"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel_body_op2">
+            <div class="row m-0">
+                <div class="col-lg-6 p-0">
+                    <div class=" card mr-lg-3 mb-4 mb-lg-0">
+                        <div class="card-body pt-4 pb-5">
+                            <div class="input__box">
+                                <label class="txt_inside_panel_body" for="search">Nombre</label>
+                                <input type="text" name="search" id="search"
+                                class="search" data-description="#description" data-type="cie10"/>
+                            </div>
+                            <!-- Botón inferior -->
+                            <div class="col-12 px-2 px-lg-0 mt-3 d-flex justify-content-center justify-content-lg-start">
+                                <button type="button" class="button_green py-1" id="">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card container_proced">
-                    <div class="card-content">
-                        <div class="card-body">
+                <div class="col-lg-6 p-0">
+                    <div class="card ml-lg-3">
+                        <div class="card-body pt-4 pb-5">
                             <div class="input__box">
-                                <label for="search"><b>Nombre:</b></label>
-                                <input type="text" name="search" id="search"
-                                        class="search" placeholder="Buscar diagnóstico"
-                                        data-description="#description" data-type="cie10"/>
-                            </div>
-
-                            <div class="mt-2">
-                                <label class="fs_text_small font_roboto black_bold"><b>Descripción :</b></label>
-                                <div id="description"></div>
+                                <label class="txt_inside_panel_body" for="description">Descripción</label>
+                                <div class="txt_inside_panel_body" id="description"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection
 
 @section('scripts')
