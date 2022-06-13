@@ -29204,17 +29204,17 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     width: 150px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1300px) {
   .footer_logo:nth-child(1) img {
-    width: 200px;
+    width: 175px;
   }
 
   .footer_logo:nth-child(2) img {
-    width: 200px;
+    width: 175px;
   }
 
   .footer_logo:nth-child(3) img {
-    width: 200px;
+    width: 175px;
   }
 }
 .pignose-calendar {

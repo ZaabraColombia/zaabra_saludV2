@@ -124,7 +124,7 @@
                                         <!-- card data top -->
                                         <div class="card__data_top">
                                             <div class="">
-                                                <h4 class="txt_h4_card">{{ $profesional->nombre_completo }}</h4>
+                                                <h4 class="txt_h4_card">Dr.(a)&nbsp;{{ "{$profesional->primer_nombre} {$profesional->primer_apellido} {$profesional->segundo_apellido}" }}</h4>
                                             </div>
 
                                             <div class="">
