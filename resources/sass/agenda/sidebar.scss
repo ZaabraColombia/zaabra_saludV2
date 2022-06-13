@@ -1,0 +1,269 @@
+// Contenedor menú interno
+.sidebar-wrapper {
+    width: 100%;
+    background-color: #fff;
+    transition: left .5s ease-out;
+    position: absolute;
+    top: 90px;
+    width: 250px;
+    max-width: 250px;
+}
+// Sidebar HEADER
+.sidebar__header {
+    width: auto;
+    padding: 15px 5px 0 5px;
+    img {
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 50px;
+        box-shadow: 1px 1px 5px 1px #c3c3c3;
+    }
+    .user_data {
+        width: 180px;
+        padding-left: 10px;
+        h2 {
+            font-size: 14px;
+            font-family: 'Quicksand';
+            color: $blue_official;
+            margin: 0;
+        }
+        .cont_text {
+            width: 170px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            span {
+                font-size: 12px;
+                font-family: 'Quicksand';
+                color: $black_third;
+                margin: 0;
+            }
+        }
+    }
+}
+// Sidebar BODY
+.sidebar_body {
+    height: 65vh;
+    overflow-y: auto;
+    .menu {
+        margin-top: 15px;
+        padding-left: 0;
+        .sidebar-item {
+            list-style: none;
+            margin-top: 7px;
+            position: relative;
+            a {
+                color: #232323;
+            }
+        }
+    }
+    .submenu_green {
+        padding-left: 45px;
+        .submenu-item {
+            font-size: 12px;
+            padding-top: 10px;
+            list-style: none;
+        }
+        a:hover {
+            color: $green_official;
+        }
+    }
+}
+// Item VERDE
+.item__green button {
+    font-size: 14px;
+    font-family: 'Quicksand';
+    margin: 0;
+    padding: 7px 0 7px 20px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    text-align: initial;
+    &:hover {
+        background: $green_official;
+        color: $withe_official;
+    }
+    &:focus {
+        background: $green_official;
+        color: $withe_official;
+    }
+}
+// Item logo VERDE
+.item__logo_green button { 
+    margin: 0;
+    width: 100%;
+    background: transparent;
+    border: none;
+    &:hover {
+        background: #cff7f1;
+    }
+}
+// Item VERDE ACTIVO
+.item_green_activ {
+    background: $green_official !important;
+    color: $withe_official !important;
+}
+// Subitem VERDE ACTIVO
+.subitem_green_activ {
+    color: $green_official !important;
+    text-decoration: none;
+}
+// Animación flecha item desplegable
+.accordion button[aria-expanded="true"] {
+    .icon_angle {
+        transform: rotate(180deg);
+        padding-right: .5rem;
+    }
+}
+
+//+++++++++++++++++++++++ Item AZUL agenda profesionales ++++++++++++++++++
+// Items del menú lateral profesionales
+.sidebar-wrapper .menu {
+    .items_blue button {
+        font-size: 16px;
+        font-family: 'Quicksand';
+        margin: 0;
+        padding: 7px 0 7px 25px;
+        width: 180px;
+        background: transparent;
+        border-radius: 5px;
+        border: none;
+        text-align: initial;
+        &:hover {
+            background: $blue_official;
+            color: $withe_official;
+            border-radius: 5px;
+        }
+        &:focus {
+            background: $blue_official;
+            color: $withe_official;
+            border-radius: 5px;
+        }
+    }
+    .items_logos_blue button { 
+        margin: 0;
+        width: 180px;
+        background: transparent;
+        border-radius: 5px;
+        border: none;
+        &:hover {
+            background: #cde6f3;
+            border-radius: 5px;
+        }
+    }
+}
+.btn_active {
+    background: $blue_official !important;
+    color: $withe_official !important;
+    border-radius: 5px;
+}
+// Items del submenu menú lateral PROFESIONAL Y PACIENTES
+.sidebar-wrapper .menu .sub_menu_blue {
+    padding-left: 45px;
+    .submenu-item {
+        padding-top: 10px;
+        list-style: none;
+    }
+    a:hover {
+        color: $blue_official;
+    }
+}
+.txt_active_blue {
+    color: $blue_official !important;
+    text-decoration: none;
+}
+//+++++++++++++++++++++ Fin Item AZUL agenda profesionales ++++++++++++++++
+
+@media(min-width: 768px) {
+    // Contenedor menú interno
+    .sidebar-wrapper {
+      top: 100px;
+    }
+    // Sidebar BODY
+    .sidebar_body {
+      height: 68vh;
+    }
+  }
+
+@media (min-width: 1200px){
+    // Contenedor menú interno
+    .sidebar-wrapper {
+        top: 60px;
+        height: 100%;
+        width: 100%;
+    }
+    // Sidebar HEADER
+    .sidebar__header {
+        padding: 30px 5px 0 10px;
+        .user_data {
+            width: 165px;
+            .cont_text {
+                width: 150px;
+            }
+        }
+
+    }
+    // Sidebar BODY
+    .sidebar_body {
+        height: 76vh;
+        .menu {
+            .items_green button {
+                font-size: 16px;
+                padding: 7px 0 7px 25px;
+            }
+    
+        }
+    }
+}
+
+@media (min-width: 1300px){
+    // Sidebar HEADER
+    .sidebar__header .user_data .cont_text {
+        width: 145px;
+    }
+    // Sidebar BODY
+    .sidebar_body {
+        height: 70vh;
+    }
+}
+
+@media (min-width: 1440px){
+    // Sidebar HEADER
+    .sidebar__header .user_data {
+        width: 160px;
+    }
+    // Sidebar BODY
+    .sidebar_body {
+        height: 78vh;
+    }
+}
+
+@media (min-width: 1600px){
+    // Contenedor menú interno
+    .sidebar-wrapper {
+        top: 70px;
+        max-width: 395px;
+    }
+    // Sidebar HEADER
+    .sidebar__header {
+        img {
+            width: 50px;
+            height: 50px;
+        }
+        .user_data {
+            width: 300px;
+            padding-left: 10px;
+            h2 {
+                font-size: 16px;
+            }
+            .cont_text {
+                width: 290px;
+                span {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

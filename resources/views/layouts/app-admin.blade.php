@@ -51,18 +51,13 @@
         </script>
     </head>
 
-    <body>
+    <body id="body">
         <div id="page_overlay"></div>
 
         @include('header')
 
-        <div id="app">
-            <!--    Contenido   -->
-            <main style="width: 100%">
-                @yield('content')
-            </main>
-
-            @include('layouts.footer-admin')
+        <div>
+            @yield('content') 
         </div>
 
         <script src="{{ mix('js/app.js') }}"></script>
@@ -75,7 +70,7 @@
         <!-- Scripts  areas-->
         <script src="{{ asset('js/header.js') }}"></script>
         <script src="{{ asset('js/home.js') }}"></script>
-{{--        <script src="{{ asset('js/footer.js') }}"></script>--}}
+        {{-- <script src="{{ asset('js/footer.js') }}"></script> --}}
         <script src="{{ asset('js/formularios.js') }}"></script>
         <script src="{{ asset('js/comentarios.js') }}"></script>
         <script src="{{ asset('js/filtroBusquedad.js') }}"></script>
@@ -88,7 +83,7 @@
         <!--<script src="{{ asset('js/adicionarcamposformulario.js') }}"></script>-->
 
         <!--js admin template-->
-{{--        <script src="{{ asset('js/admin.js') }}"></script>--}}
+        {{-- <script src="{{ asset('js/admin.js') }}"></script> --}}
 
         <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
         <script>

@@ -21,7 +21,6 @@
 @import 'forms';
 @import 'error101';
 @import 'pop-ups';
-@import 'dashboard';
 @import 'panelPrincipal';
 @import 'mis-citas';
 @import 'calendar';
@@ -47,6 +46,9 @@
 @import 'agenda/icons';
 @import 'agenda/images';
 @import 'agenda/modals';
+@import 'agenda/dashboard';
+@import 'agenda/sidebar';
+@import 'agenda/footer';
 // Calendars
 @import 'plugins/calendar-cita';
 

@@ -30,3 +30,47 @@ $(document).click(function(e) {
       $('#collap').collapse('hide');	   
    }
 });
+
+// $(document).click(function(e) {
+   // var menu = $('#sid').find(e.target).length;
+   // if (menu === 0 && $(e.target) != $('#nav_toggle')) {
+   //    $('#nav_toggle').prop('checked', false);
+   // }
+// });
+
+
+// Code to show and hide sidebar on mobile, vertical scrolling of main body. View (layout.blade.php (instituciones/admin/layouts)),
+// and style file (dashboard.scss (agenda/dashboard.scss))
+const openEls = document.querySelectorAll("[data-open]");
+const closeEls = document.querySelectorAll("[data-close]");
+const isVisible = "is-visible";
+
+for (const el of openEls) {
+  el.addEventListener("click", function() {
+    const sideBarId = this.dataset.open;
+    document.getElementById(sideBarId).classList.add(isVisible);
+    $('#body').addClass('scroll_body');
+  });
+}
+
+for (const el of closeEls) {
+  el.addEventListener("click", function() {
+    this.parentElement.parentElement.parentElement.classList.remove(isVisible);
+  });
+  $('#body').removeClass('scroll_body');
+}
+
+document.addEventListener("click", e => {
+  if (e.target == document.querySelector(".sideBar.is-visible")) {
+    document.querySelector(".sideBar.is-visible").classList.remove(isVisible);
+    $('#body').removeClass('scroll_body');
+  }
+});
+
+document.addEventListener("keyup", e => {
+  // if we press the ESC
+  if (e.key == "Escape" && document.querySelector(".sideBar.is-visible")) {
+    document.querySelector(".sideBar.is-visible").classList.remove(isVisible);
+  }
+});
+// End code
