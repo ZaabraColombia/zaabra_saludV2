@@ -73,7 +73,8 @@
 @media(min-width: 768px) {
     // Cards logos menú panel
     .card__logo_menu_panel {
-        height: 150px;
+        padding: 25px 15px;
+        height: 115px;
     }
 }
 @media(min-width: 1024px) {
@@ -100,7 +101,7 @@
     }
     // Cards logos menú panel
     .card__logo_menu_panel {
-        height: 164px;
+        height: 162px;
         padding: 0;
     }
     // Cards modules 
@@ -121,6 +122,6 @@
     }
     // Cards logos menú panel
     .card__logo_menu_panel {
-        height: 219px;
+        height: 217px;
     }
 }
