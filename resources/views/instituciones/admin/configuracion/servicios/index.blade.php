@@ -162,7 +162,7 @@
                             <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Tipo del servicio:</h4>
                                 <div class="modal_data_user">
-                                    <span id="tipo_servicio">Tipo del servicio 1</span>
+                                    <span id="tipo_servicio"></span>
                                 </div>
                             </div>
 
@@ -174,48 +174,48 @@
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Duración (minuto):</h4>
+                                <h4 class="modal_data_form">Duración (min):</h4>
                                 <div class="modal_data_user">
                                     <span id="duracion"></span>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Valor:</h4>
-                                <div class="modal_data_user">
-                                    <span id="valor"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Descanso (minuto):</h4>
+                                <h4 class="modal_data_form">Descanso (min):</h4>
                                 <div class="modal_data_user">
                                     <span id="descanso"></span>
                                 </div>
-                            </div>
+                            </div> 
 
                             <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">CUPS:</h4>
-                                <div class="modal_data_user">
-                                    <span id="cup">CUPS - 00000 111</span>
-                                </div>
-                            </div>
-
-                            <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">Número de citas activas del paciente:</h4>
+                                <h4 class="modal_data_form">Número de citas activas:</h4>
                                 <div class="modal_data_user">
                                     <span id="citas_activas">000</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Valor:</h4>
+                                <div class="modal_data_user">
+                                    $ &nbsp;<span id="valor"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Tipo de atención:</h4>
                                 <div class="modal_data_user">
                                     <span id="tipo_atencion"></span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user mt-lg-2">
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">CUPS:</h4>
+                                <div class="modal_data_user">
+                                    <span id="cup"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Descripción:</h4>
                                 <div class="modal_data_user">
                                     <span id="descripcion"></span>
@@ -232,7 +232,7 @@
                 </div>
 
                 <div class="modal_btn_down_center mb-4">
-                    <button type="button" class="modal_btn_green" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="button__form_green" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -321,14 +321,18 @@
                                 '</div>' +
 
                                 '<div class="col-12 col-lg-9 p-0 px-lg-3 disp__modal_card">' +
-                                    '<div class="disp_txt_modal_card">' +
-                                        '<h4 class="txt_h5_sect_modal_card pr-2">Pago convenio:</h4>' +
-                                        '<span class="txt_span_sect_modal_card">$' + item.pivot.valor_convenio + '</span>' +
+                                    '<div class="modal_info_user disp_txt_modal_card">' +
+                                        '<h4 class="modal_data_form pr-2">Pago convenio:</h4>' +
+                                        '<div class="modal_data_user">' +
+                                            '<span>$' + '&nbsp;' + item.pivot.valor_convenio + '</span>' +
+                                        '</div>' +
                                     '</div>' +
 
-                                    '<div class="disp_txt_modal_card">' +
-                                        '<h4 class="txt_h5_sect_modal_card pr-2">Pago paciente:</h4>' +
-                                        '<span class="txt_span_sect_modal_card">$' + item.pivot.valor_paciente + '</span>' + 
+                                    '<div class="modal_info_user disp_txt_modal_card">' +
+                                        '<h4 class="modal_data_form pr-2">Pago paciente:</h4>' +
+                                        '<div class="modal_data_user">' +
+                                            '<span>$' + '&nbsp;' + item.pivot.valor_paciente + '</span>' + 
+                                        '</div>' +
                                     '</div>' +
                                 '</div>' +
                             '</div>' +

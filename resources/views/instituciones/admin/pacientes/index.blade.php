@@ -165,42 +165,42 @@
                     <!-- Sección data -->
                     <div class="modal_info_data_open">
                         <div class="row m-0">
-                            <div class="col-12 modal_info_user">
+                            <div class="col-12 col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Nombre:</h4>
                                 <div class="modal_data_user">
                                     <span id="nombre">María Carolina Pérez Perdomo</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Identificación:</h4>
                                 <div class="modal_data_user">
                                     <span id="">C.C. 52458791</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Fecha de nacimiento:</h4>
                                 <div class="modal_data_user">
                                     <span id="">28/11/1985</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Sexo Biológico:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Femenino</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Estado Civil:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Casado/a</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Ocupación:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Empleado/a</span>
@@ -209,28 +209,28 @@
 
                             <div class="col-12 mb-3 dropdown-divider"></div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Grupo Sanguíneo:</h4>
                                 <div class="modal_data_user">
                                     <span id="">B+</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Entidad Médica:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Lorem ipsum do</span>
                                 </div>
                             </div>
 
-                            <div class="modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Categoría de Discapacidad:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Lorem ipsum do</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Alergias:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Lorem ipsum do</span>
@@ -239,42 +239,42 @@
 
                             <div class="col-12 mb-3 dropdown-divider"></div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">País:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Colombia</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Departamento:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Norte de Santander</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Ciudad:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Santo Domingo de Silos</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Dirección:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Calle 127A # 7-53 Cs 7003</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Teléfono:</h4>
                                 <div class="modal_data_user">
                                     <span id="">0000000</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Correo:</h4>
                                 <div class="modal_data_user">
                                     <span id="">mariacaro85@gmail.com</span>

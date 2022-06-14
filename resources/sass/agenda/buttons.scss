@@ -256,10 +256,10 @@
 // Fin botón activado y desactivado
 // Botones modales
 .btn_big_green_modal {
-    width: 160px;
-    height: 50px;
+    width: 150px;
+    height: 42px;
     font-family: "Quicksand";
-    font-size: 22px;
+    font-size: 20px;
     color: #FFFFFF;
     background: #019F86;
     border: solid 1px #019F86;
@@ -267,15 +267,35 @@
     padding: 0;
 }
 .btn_big_bord_green_modal {
-    width: 160px;
-    height: 50px;
+    width: 150px;
+    height: 42px;
     font-family: "Quicksand";
-    font-size: 22px;
+    font-size: 20px;
     color: #3E3E3E;
     background: #FFFFFF;
     border: solid 1px #707070;
     border-radius: 5px;
     padding: 0;
+}
+// Botones de formulario agendas
+.button__form_transparent {
+    font-size: 20px;
+    font-weight: 100;
+    color: #3E3E3E !important;
+    background: $withe_official;
+    border: solid 1px #707070;
+    border-radius: 7px;
+    padding: 5px 15px;
+}
+
+.button__form_green {
+    font-size: 20px;
+    font-weight: 100;
+    color: $withe_official;
+    background: $green_official;
+    border: solid 1px $green_official;
+    border-radius: 7px;
+    padding: 5px 15px;
 }
 @media(min-width: 768px) {
     // Botones add

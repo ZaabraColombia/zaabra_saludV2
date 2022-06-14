@@ -22135,7 +22135,7 @@ a:hover {
   font-weight: 100;
 }
 .modal_container .modal-body .form_modal label {
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Roboto";
   color: #707070;
   margin-bottom: 3px;
@@ -22464,14 +22464,14 @@ a:hover {
   margin-bottom: 10px;
 }
 .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_form {
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Roboto";
   color: #3E3E3E;
   font-weight: 100;
   margin: 0;
 }
 .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user {
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Quicksand";
   color: #232323;
   font-weight: bold;
@@ -22482,7 +22482,7 @@ a:hover {
   vertical-align: middle;
 }
 .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg {
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Quicksand";
   color: #232323;
   font-weight: bold;
@@ -22549,9 +22549,72 @@ a:hover {
   border-top: 2px solid #DBDADA;
 }
 
+.modal_content_txt {
+  width: 100%;
+  margin: auto;
+}
+
+.modal_short_text {
+  display: block;
+  display: -webkit-box;
+  width: 50%;
+  height: 19.6px;
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.modal_long_text {
+  display: block;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  overflow: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .modal_container .modal-body .modal_medio_pago .info_medio_pago img {
     width: 100px;
+  }
+
+  .modal__ .modal-header .modal_main_title .modal_title_green {
+    text-align: left;
+  }
+
+  .modal__ .modal-body {
+    padding: 0 25px;
+  }
+  .modal__ .modal-body .modal_info_data .modal_info_user .modal_data_form {
+    font-size: 18px;
+  }
+  .modal__ .modal-body .modal_info_data .modal_info_user .modal_data_user {
+    font-size: 18px;
+  }
+  .modal__ .modal-body .modal_info_data .modal_info_user .modal_data_user span {
+    vertical-align: baseline;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user {
+    display: flex;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user {
+    padding-left: 10px;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user span {
+    vertical-align: baseline;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg .modal_data_user_bg {
+    width: 30%;
+    margin: 7px 10px 0 0;
   }
 
   .modal_container .modal-body h1 {
@@ -22583,49 +22646,6 @@ a:hover {
   }
 }
 @media (min-width: 1024px) {
-  .modal__ .modal-header .modal_main_title {
-    margin-bottom: 15px;
-  }
-  .modal__ .modal-header .modal_main_title .modal_title_green {
-    font-size: 30px;
-    text-align: left;
-  }
-
-  .modal__ .modal-body {
-    padding: 0 25px;
-  }
-  .modal__ .modal-body .modal_info_data .modal_info_user .modal_data_form {
-    font-size: 18px;
-  }
-  .modal__ .modal-body .modal_info_data .modal_info_user .modal_data_user {
-    font-size: 18px;
-  }
-  .modal__ .modal-body .modal_info_data .modal_info_user .modal_data_user span {
-    vertical-align: baseline;
-  }
-  .modal__ .modal-body .modal_info_data_open {
-    border: 1px solid #DBDADA;
-    border-radius: 7px;
-    padding: 25px;
-  }
-  .modal__ .modal-body .modal_info_data_open .modal_info_user {
-    display: flex;
-  }
-  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user {
-    padding-left: 10px;
-  }
-  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user span {
-    vertical-align: baseline;
-  }
-  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg .modal_data_user_bg {
-    width: 30%;
-    margin: 7px 10px 0 0;
-  }
-
   .modal__ .modal_btn_down_center .modal_btn_green {
     font-size: 24px;
   }
@@ -22633,6 +22653,12 @@ a:hover {
   .disp_txt_modal_card {
     display: flex;
     justify-content: space-between;
+  }
+
+  .modal_info_data_open {
+    border: 1px solid #DBDADA;
+    border-radius: 7px;
+    padding: 25px !important;
   }
 
   .row__convenio {
@@ -26250,26 +26276,6 @@ a:hover {
   padding: 5px 9px;
 }
 
-.button__form_transparent {
-  font-size: 16px;
-  font-weight: 100;
-  color: #3E3E3E !important;
-  background: #FFFFFF;
-  border: solid 1px #707070;
-  border-radius: 7px;
-  padding: 5px 15px;
-}
-
-.button__form_green {
-  font-size: 16px;
-  font-weight: 100;
-  color: #FFFFFF;
-  background: #019F86;
-  border: solid 1px #019F86;
-  border-radius: 7px;
-  padding: 5px 15px;
-}
-
 .btn_ver_mas {
   font-family: "Quicksand";
   background: transparent;
@@ -26390,15 +26396,6 @@ div.dt-buttons {
   padding: 0;
 }
 
-@media (min-width: 1024px) {
-  .button__form_transparent {
-    font-size: 22px;
-  }
-
-  .button__form_green {
-    font-size: 22px;
-  }
-}
 .containt__card {
   background-color: #FFFFFF;
   border: 1px solid #CED4DA;
@@ -28206,10 +28203,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .btn_big_green_modal {
-  width: 160px;
-  height: 50px;
+  width: 150px;
+  height: 42px;
   font-family: "Quicksand";
-  font-size: 22px;
+  font-size: 20px;
   color: #FFFFFF;
   background: #019F86;
   border: solid 1px #019F86;
@@ -28218,15 +28215,35 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .btn_big_bord_green_modal {
-  width: 160px;
-  height: 50px;
+  width: 150px;
+  height: 42px;
   font-family: "Quicksand";
-  font-size: 22px;
+  font-size: 20px;
   color: #3E3E3E;
   background: #FFFFFF;
   border: solid 1px #707070;
   border-radius: 5px;
   padding: 0;
+}
+
+.button__form_transparent {
+  font-size: 20px;
+  font-weight: 100;
+  color: #3E3E3E !important;
+  background: #FFFFFF;
+  border: solid 1px #707070;
+  border-radius: 7px;
+  padding: 5px 15px;
+}
+
+.button__form_green {
+  font-size: 20px;
+  font-weight: 100;
+  color: #FFFFFF;
+  background: #019F86;
+  border: solid 1px #019F86;
+  border-radius: 7px;
+  padding: 5px 15px;
 }
 
 @media (min-width: 768px) {
@@ -28508,7 +28525,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .txt_subtitle_modal_card {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: #232323;
 }
@@ -28521,26 +28538,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #3E3E3E;
 }
 
-.txt_h5_sect_modal_card {
-  font-size: 14px;
-  font-family: "Roboto";
-  font-weight: 100;
-  text-align: center;
-  color: #3E3E3E;
-  margin: 0;
-}
-
-.txt_span_sect_modal_card {
-  font-size: 14px;
-  font-family: "Roboto";
-  font-weight: bold;
-  text-align: center;
-  color: #232323;
-  margin: 0;
-}
-
 .txt_h5_bold_modal {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
   color: #232323;
@@ -28548,7 +28547,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .txt_h5_regular_modal {
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Roboto";
   font-weight: 500;
   text-align: center;
@@ -28580,10 +28579,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
   .txt_h6_card {
     text-align: initial;
-  }
-
-  .txt_subtitle_modal_card {
-    font-size: 25px;
   }
 
   .txt_h5_sect_modal_card {
@@ -29056,7 +29051,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
 @media (min-width: 768px) {
   .sidebar-wrapper {
-    top: 100px;
+    top: 107px;
   }
 
   .sidebar_body {

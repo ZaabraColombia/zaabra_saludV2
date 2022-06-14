@@ -56,7 +56,7 @@
 
         @include('header')
 
-        <div>
+        <div style="background-color: #F9F9F9">
             @yield('content') 
         </div>
 

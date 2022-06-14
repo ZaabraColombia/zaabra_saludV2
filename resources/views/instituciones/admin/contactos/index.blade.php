@@ -168,30 +168,30 @@
                 <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
                     <!-- Imagen imprersa -->
                     <div class="row m-0">
-                        <div class="col-12 p-0 mb-2 mb-lg-3 d-flex justify-content-center">
+                        <div class="col-12 p-0 mb-4 mb-lg-3 d-flex justify-content-center">
                             <img class="img_printed_modal" id="ver-foto" src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
                         </div>
                     </div>
                     <!-- Sección data -->
                     <div class="modal_info_data_open">
                         <div class="row m-0">
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Nombre:</h4>
                                 <div class="modal_data_user">
                                     <span class="label-nombre"></span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Identificación:</h4>
                                 <div class="modal_data_user">
                                     <span class="label-numero_identificacion"></span>
                                 </div>
                             </div>
 
-                            <div class="col-12 mb-3 dropdown-divider"></div>
+                            <div class="col-12 mb-3 px-md-4 dropdown-divider" style="border: 1px solid #DBDADA"></div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Correo:</h4>
                                 <div class="modal_data_user">
                                     <span class="label-correo"></span>
@@ -203,10 +203,6 @@
                                 <div class="modal_data_user">
                                     <span class="label-telefono"></span>
                                 </div>
-                            </div>
-                             
-                            <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Móvil:</h4>
                                 <div class="modal_data_user">
                                     <span class="label-telefono_adicional"></span>
                                 </div>
@@ -227,6 +223,13 @@
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Tipo de contrato:</h4>
+                                <div class="modal_data_user">
+                                    <span class="label-tipo"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Dependencia:</h4>
                                 <div class="modal_data_user">
                                     <span class="label-dependencia"></span>
@@ -234,20 +237,13 @@
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Tipo de contrato:</h4>
-                                <div class="modal_data_user">
-                                    <span class="label-tipo"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Banco:</h4>
                                 <div class="modal_data_user">
                                     <span class="">Bancolombia</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Tipo de cuenta bancaria:</h4>
                                 <div class="modal_data_user">
                                     <span class="label-tipo_cuenta"></span>
@@ -301,12 +297,12 @@
                 <form method="post" id="form-contacto-eliminar" class="forms">
                     @csrf
                     @method('delete')
-                    <div class="row m-0 mt-2 mb-5 justify-content-md-center flex-md-row-reverse">
-                        <div class="col-12 col-md-3 p-0 mb-3 mb-md-0 ml-md-3 button__down_card">
+                    <div class="row m-0 mt-md-3 mb-5 d-block d-md-flex justify-content-center">
+                        <div class="col-12 col-md-4 p-0 mb-3 mb-md-0 button__down_card">
                             <button type="submit" class="btn_big_green_modal">Eliminar</button>
                         </div>
 
-                        <div class="col-12 col-md-3 p-0 button__down_card">
+                        <div class="col-12 col-md-4 p-0 button__down_card">
                             <button type="button" class="btn_big_bord_green_modal" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>

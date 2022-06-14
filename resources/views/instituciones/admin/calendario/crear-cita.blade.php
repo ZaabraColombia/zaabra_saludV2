@@ -227,7 +227,7 @@
                         <h5> Horario: <span id="modal-horario"></span></h5>
                         <h5> Lugar: <span id="modal-lugar"></span></h5>
                         <h5> Pago: <span id="modal-modalidad"></span></h5>
-                        <h5>Valor cita: <span id="modal-valor"></span></h5>
+                        <h5> Valor cita: <span id="modal-valor"></span></h5>
                         <h5> Convenio: <span id="modal-convenio"></span></h5>
                     </div>
                 </div>

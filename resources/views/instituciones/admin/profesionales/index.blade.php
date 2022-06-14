@@ -259,7 +259,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal__">
                 <!-- Modal header -->
-                <div class="modal-header row m-0 px-3 pl-lg-4">
+                <div class="modal-header row m-0 px-3 pb-lg-2 pl-lg-4">
                     <div class="col-12 p-0">
                         <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
                             <span class="modal_x_close" aria-hidden="true">&times;</span>
@@ -294,14 +294,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Identificación:</h4>
                                 <div class="modal_data_user">
                                     <span id="">C.C. 52458791</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Fecha de nacimiento:</h4>
                                 <div class="modal_data_user">
                                     <span id="">28/11/1985</span>
@@ -317,42 +317,42 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Teléfono:</h4>
                                 <div class="modal_data_user">
                                     <span id="">0000000</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Móvil:</h4>
                                 <div class="modal_data_user">
                                     <span id="">300 000 0000</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Dirección:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Calle 127A # 7-53 Cs 7003</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">País:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Colombia</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Departamento:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Norte de Santander</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Ciudad:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Santo Domingo de Silos</span>
@@ -361,35 +361,35 @@
 
                             <div class="col-12 mb-3 dropdown-divider"></div>
 
-                            <div class="col-lg-12 modal_info_user">
+                            <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Especialidad principal:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Otorrinolaringología</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Tarjeta profesional</h4>
                                 <div class="modal_data_user">
                                     <span id="">000000</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">RETHUS:</h4>
                                 <div class="modal_data_user">
                                     <span id="">000 000 000</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Cargo:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Presidente</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            <div class="col-md-6 modal_info_user">
                                 <h4 class="modal_data_form">Universidad:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Universidad del Rosario</span>

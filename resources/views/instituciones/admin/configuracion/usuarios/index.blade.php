@@ -234,12 +234,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 modal_info_user">
+                            {{--<div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Provincia:</h4>
                                 <div class="modal_data_user">
                                     <span id="provincia"></span>
                                 </div>
-                            </div>
+                            </div>--}}
 
                             <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Ciudad:</h4>
