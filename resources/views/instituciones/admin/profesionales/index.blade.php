@@ -14,19 +14,19 @@
     <div class="container-fluid panel_container">
         <div class="panel_head">
             <!-- Main title -->
-            <div class="mb-4">
+            <div class="card_main_title">
                 <h1 class="txt_title_panel_head">Profesionales</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add professional -->
-                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
+                <div class="col-md-12 col-lg-2 button__add_card">
                     <a href="{{ route('institucion.profesionales.create') }}" class="button__green_card"
                     id="btn-agregar-contacto">Agregar profesional
                     </a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 button__search_card">
+                <div class="col-md-6 button__search_card">
                     <form method="get">
                         <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
@@ -34,13 +34,13 @@
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="col-md-4 col-lg-3 col-xl-3 p-0 mb-4 button__doc_download">
+                <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
                     <button class="file_calendar"></button>
                     <button class="file_excel"></button>
                     <button class="file_pdf"></button>
                     <button class="file_printer"></button>
                 </div>
-                <!-- Pagination buttons -->
+                {{--<!-- Pagination buttons -->
                 <div class="col-md-2 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex butons__pagination_card">
                     @if(!$profesionales->onFirstPage())
                         <a href="{{ $profesionales->previousPageUrl() }}" class="btn_right_pag_card"></a>
@@ -53,7 +53,7 @@
                         <button disabled class="btn_left_pag_card disabled"></button>
                     @endif
 
-                </div>
+                </div>--}}
             </div>
         </div>
 
@@ -74,7 +74,7 @@
                 <!-- Professional card -->
                 @if($profesionales->isNotEmpty())
                     @foreach($profesionales as $profesional)
-                        <div class="col-md-6 col-xl-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
+                        <div class="col-md-6 col-xl-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
@@ -113,7 +113,7 @@
                                         </button>
                                     </div>
                                     <!-- Image professional -->
-                                    <div class="col-lg-3 p-0 mb-2 d-flex justify-content-center align-self-md-start">
+                                    <div class="col-lg-3 p-0 mb-3 d-flex justify-content-center align-self-md-start">
                                         <a href="{{ route('PerfilInstitucion-profesionales', ['slug' => $profesional->institucion->slug, 'prof' => '$profesional->primer_nombre $profesional->primer_apellido']) }}"
                                         target="_blank">
                                             <img class="img_card_module" src='{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}'>
@@ -123,16 +123,16 @@
                                     <div class="col-lg-9 card__data">
                                         <!-- card data top -->
                                         <div class="card__data_top">
-                                            <div class="">
+                                            <div class="mb_card">
                                                 <h4 class="txt_h4_card">Dr.(a)&nbsp;{{ "{$profesional->primer_nombre} {$profesional->primer_apellido} {$profesional->segundo_apellido}" }}</h4>
                                             </div>
 
-                                            <div class="">
+                                            <div class="mb_card">
                                                 <h5 class="txt_h5_card">{{ $profesional->nombre_especialidad ?? '' }}</h5>
                                             </div>
                                         </div>
                                         <!-- Informative buttons mobile-->
-                                        <div class="d-lg-none button__info_card">
+                                        <div class="d-lg-none button__info_card mb_card">
                                             <button class="btn_icon_card tool top"
                                                     data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
                                                     data-toggle="modal" data-target="#modal_see_professional">
@@ -165,7 +165,7 @@
                                         </div>
                                         <!-- card data down -->
                                         <div class="card__data_down">
-                                            <div class="toolt bottom">
+                                            <div class="toolt bottom mb_card">
                                                 <div class="width__tool_tip">
                                                     <i data-feather="mail" class="icon_span_card"></i>
                                                     <span class="txt_span_card">{{ $profesional->correo }}</span>
@@ -173,7 +173,7 @@
                                                 <span class="tiptext">{{ $profesional->correo }}</span>
                                             </div>
 
-                                            <div class="">
+                                            <div class="mb_card">
                                                 <i data-feather="phone" class="icon_span_card"></i>
                                                 <span class="txt_span_card">{{ "{$profesional->celular} - {$profesional->telefono}" }}</span>
                                             </div>
@@ -193,7 +193,7 @@
                     @endforeach
                 @endif
                 <!-- Pagination buttons -->
-                <div class="col-12 d-md-none p-0 mt-4 butons__pagination_card">
+                <div class="col-12 p-0 mt-4 butons__pagination_card">
                     <button class="btn_right_pag_card"></button>
                     <button class="btn_left_pag_card"></button>
                 </div>
@@ -331,30 +331,30 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Dirección:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Calle 127A # 7-53 Cs 7003</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">País:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Colombia</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Departamento:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Norte de Santander</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Ciudad:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Santo Domingo de Silos</span>
                                 </div>
                             </div>
@@ -382,34 +382,34 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Cargo:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Presidente</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Universidad:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Universidad del Rosario</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-12 modal_info_user d-lg-block">
+                            <div class="col-lg-12 d-md-block modal_info_user">
                                 <h4 class="modal_data_form">Otras especialidades:</h4>
-                                <div class="modal_data_user_bg">
-                                    <span class="modal_data_user_bg" id="">Cirugía plástica facial</span>
-                                    <span class="modal_data_user_bg" id="">Rinitis alérgica y sinusitis</span>
-                                    <span class="modal_data_user_bg" id="">Otorrinolaringología</span>
-                                    <span class="modal_data_user_bg" id="">Cirugía plástica facial</span>
+                                <div class="modal_pill_data">
+                                    <span class="pill_data" id="">Cirugía plástica facial</span>
+                                    <span class="pill_data" id="">Rinitis alérgica y sinusitis</span>
+                                    <span class="pill_data" id="">Otorrinolaringología</span>
+                                    <span class="pill_data" id="">Cirugía plástica facial</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Modalfooter -->
-                <div class="modal_btn_down_center mb-4">
+                <div class="modal_btn_down_center mt-0 mt-md-3 mb-4 mt-lg-2">
                     <button type="button" class="button__form_green" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

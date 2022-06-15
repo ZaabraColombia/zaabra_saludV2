@@ -20734,7 +20734,6 @@ a:hover {
   border: 1px solid #DBDADA;
   border-radius: 5px;
   padding: 20px 15px;
-  margin-bottom: 100px;
 }
 
 .card_module_form {
@@ -21783,7 +21782,6 @@ a:hover {
 
   .container__main_form {
     padding: 20px 50px;
-    margin-bottom: 100px;
   }
 }
 @media (min-width: 1440px) {
@@ -22481,14 +22479,15 @@ a:hover {
 .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user span {
   vertical-align: middle;
 }
-.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg {
+.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_pill_data {
   font-size: 14px;
   font-family: "Quicksand";
   color: #232323;
   font-weight: bold;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
-.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg .modal_data_user_bg {
+.modal__ .modal-body .modal_info_data_open .modal_info_user .modal_pill_data .pill_data {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -22608,13 +22607,9 @@ a:hover {
   .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user span {
     vertical-align: baseline;
   }
-  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_user_bg .modal_data_user_bg {
-    width: 30%;
-    margin: 7px 10px 0 0;
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_pill_data .pill_data {
+    width: 45%;
+    margin: 10px 10px 0 0;
   }
 
   .modal_container .modal-body h1 {
@@ -22664,6 +22659,10 @@ a:hover {
   .row__convenio {
     border: none !important;
     padding: 0 !important;
+  }
+
+  .pill_data {
+    width: 30%;
   }
 
   .convenio_vinculado:nth-child(1n+2) {
@@ -27590,14 +27589,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .img__upload {
   display: flex;
   flex-direction: column;
-  width: 170px;
+  width: 130px;
   margin: auto;
   padding: 0;
 }
 
 .img__upload img {
-  height: 170px;
-  width: 100%;
+  width: 125px;
+  height: 124px;
   border-radius: 100px;
   background: #D1D1D1;
   border: 1px solid #DBDADA;
@@ -28024,6 +28023,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
+  margin-bottom: 15px;
 }
 
 .button__green_card {
@@ -28035,8 +28036,12 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 7px 10px;
 }
 
+.button__search_card {
+  margin-bottom: 20px;
+  padding: 0;
+}
 .button__search_card button {
-  border: 1px solid #CED4DA;
+  border: 1px solid #DBDADA;
   background-color: #FFF;
   text-decoration: none;
   border-radius: 7px;
@@ -28045,23 +28050,17 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   align-items: center;
   overflow: hidden;
   width: auto;
-  width: 46px;
+  width: 100%;
   transition: max-width 0.1s;
-  background-image: url("/img/iconos/search_green.svg");
+  background-image: url("/img/iconos/search_verde.svg");
   background-repeat: no-repeat;
-  background-position-x: 10PX;
+  background-position-x: 93%;
   background-position-y: center;
   background-size: 22px;
   white-space: nowrap;
   padding-top: 2px;
-  padding-right: 0px;
-  padding-left: 30px;
-}
-.button__search_card .search_togggle {
-  width: 100%;
   padding-left: 0;
-  padding-right: 40px;
-  background-position-x: 97%;
+  padding-right: 52px;
 }
 .button__search_card input {
   display: block;
@@ -28080,10 +28079,20 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+.button__search_card input::-moz-placeholder {
+  color: #DBDADA;
+}
+.button__search_card input:-ms-input-placeholder {
+  color: #DBDADA;
+}
+.button__search_card input::placeholder {
+  color: #DBDADA;
+}
 
 .button__doc_download {
   display: flex;
   justify-content: center;
+  padding: 0;
 }
 .button__doc_download button {
   width: 47px;
@@ -28091,7 +28100,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   background-color: #FFFFFF;
   border: 1px solid #DBDADA;
   border-radius: 7px;
-  margin: 0 3px;
+  margin: 0 5px;
   background-repeat: no-repeat;
   background-size: 25px;
   background-position: center;
@@ -28282,11 +28291,18 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 @media (min-width: 768px) {
   .button__add_card {
     justify-content: initial;
+    margin-bottom: 27px;
   }
 
-  .button__search_card .search_togggle {
-    width: 97%;
-    background-position-x: 95%;
+  .button__search_card {
+    padding-right: 8px;
+  }
+
+  .button__doc_download {
+    justify-content: flex-end;
+  }
+  .button__doc_download button {
+    margin: 0 0 0 10px;
   }
 
   .button__bg_green_card {
@@ -28300,9 +28316,26 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 }
 @media (min-width: 1024px) {
+  .button__add_card {
+    margin-bottom: 0;
+  }
+
+  .button__search_card {
+    margin-bottom: 0;
+  }
+  .button__search_card button {
+    width: auto;
+    width: 45px;
+    background-position-x: 10PX;
+    padding-top: 2px;
+    padding-right: 0px;
+    padding-left: 30px;
+  }
   .button__search_card .search_togggle {
     width: 100%;
-    background-position-x: 98%;
+    padding-left: 0;
+    padding-right: 50px;
+    background-position-x: 95%;
   }
 
   .button__info_card {
@@ -28313,26 +28346,40 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     border: none;
     background-color: transparent;
     color: #049372;
-    padding: 0 3px;
+    padding: 0;
+    width: 23px;
+    height: 22px;
   }
   .button__info_card .btn_icon_card .icon_btn_card_desk {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 17px;
   }
   .button__info_card .btn_icon_card:nth-child(5) {
     color: #FF3E3E;
   }
-}
-@media (min-width: 1200px) {
+
   .button__green_card {
-    padding: 10px 5px;
-    font-size: 13px;
+    padding: 10px;
+    font-size: 12px;
   }
 }
 @media (min-width: 1300px) {
   .button__green_card {
-    padding: 9px 10px;
-    font-size: 14px;
+    padding: 7px;
+    font-size: 15px;
+  }
+}
+@media (min-width: 1600px) {
+  .button__search_card .search_togggle {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 50px;
+    background-position-x: 97%;
+  }
+
+  .button__green_card {
+    padding: 7px 20px;
+    font-size: 15px;
   }
 }
 .card__menu_panel {
@@ -28388,6 +28435,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   margin-bottom: 100px;
 }
 
+.card_main_title {
+  margin-bottom: 25px;
+}
+
 .card__row_column {
   flex-direction: column;
   justify-content: center;
@@ -28412,10 +28463,18 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   height: 50px;
 }
 
+.mb_card {
+  margin-bottom: 3px;
+}
+
 @media (min-width: 768px) {
   .card__logo_menu_panel {
     padding: 25px 15px;
     height: 115px;
+  }
+
+  .card_main_title {
+    margin-bottom: 27px;
   }
 }
 @media (min-width: 1024px) {
@@ -28476,6 +28535,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #019F86;
   font-weight: bold;
   text-align: center;
+  margin: 0;
 }
 
 .txt_subtitle_panel_head {
@@ -28764,6 +28824,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   justify-content: center;
   margin: 0;
   padding: 0;
+  border-radius: 100px;
+  background-color: #FFFFFF;
 }
 .img_card_float img {
   width: 84px;

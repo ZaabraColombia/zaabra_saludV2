@@ -433,13 +433,14 @@
                     }
                 }
                 // Data con background
-                .modal_data_user_bg {
+                .modal_pill_data {
                     font-size: 14px;
                     font-family: 'Quicksand';
                     color: $black_third;
                     font-weight: bold;
-                    display: block;
-                    .modal_data_user_bg {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .pill_data {
                         width: max-content;
                         background: #DBDADA;
                         border-radius: 7px;
@@ -574,12 +575,10 @@ $lines: 1;
                         }
                     }
                     // Data con background
-                    .modal_data_user_bg {
-                        display: flex;
-                        flex-wrap: wrap;
-                        .modal_data_user_bg {
-                            width: 30%;
-                            margin: 7px 10px 0 0;
+                    .modal_pill_data {
+                        .pill_data {
+                            width: 45%;
+                            margin: 10px 10px 0 0;
                         }
                     }
                 }
@@ -636,7 +635,9 @@ $lines: 1;
         border: none !important;
         padding: 0 !important;
     }
-
+    .pill_data {
+        width: 30%;
+    }
 
     // Sección convenios vinculados modulo servicios Desktop
     .convenio_vinculado:nth-child(1n+2) {
