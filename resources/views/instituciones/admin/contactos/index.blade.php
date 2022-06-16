@@ -11,27 +11,22 @@
     <div class="container-fluid panel_container">
         <div class="panel_head">
             <!-- Main title -->
-            <div class="mb-4">
+            <div class="card_main_title">
                 <h1 class="txt_title_panel_head">Contactos</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
-                <!-- Add contacto -->
-                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
+                <!-- Add contact -->
+                <div class="col-md-12 col-lg-2 button__add_card">
                     <a href="" class="button__green_card" id="">Agregar contacto</a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 button__search_card">
+                <div class="col-md-6 button__search_card">
                     <form method="get">
                         <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
                     </form>
-                </div>
-                <!-- Pagination buttons -->
-                <div class="offset-md-4 col-md-2 offset-lg-3 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex butons__pagination_card">
-                    <button disabled class="btn_right_pag_card disabled"></button>
-                    <button disabled class="btn_left_pag_card disabled"></button>
                 </div>
             </div>
         </div>
@@ -53,7 +48,7 @@
                 <!-- Professional card -->
                 @if($contactos->isNotEmpty())
                     @foreach($contactos as $contacto)
-                        <div class="col-md-6 col-xl-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
@@ -77,20 +72,20 @@
                                         </button>
                                         @endcan
                                     </div>
-                                    <!-- Image professional -->
-                                    <div class="col-lg-3 p-0 mb-2 d-flex justify-content-center align-self-md-start">
+                                    <!-- Image contact -->
+                                    <div class="col-lg-3 p-0 mb-3 d-flex justify-content-center align-self-md-start">
                                         <img class="img_card_module" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                                     </div>
                                     <!-- Information professional -->
                                     <div class="col-lg-9 card__data">
                                         <!-- card data top -->
                                         <div class="card__data_top">
-                                            <div class="">
+                                            <div class="mb_card">
                                                 <h4 class="txt_h4_card">{{ $contacto->nombre }}</h4>
                                             </div>
                                         </div>
                                         <!-- Informative buttons mobile-->
-                                        <div class="d-lg-none button__info_card">
+                                        <div class="d-lg-none button__info_card mb_card">
                                             @can('accesos-institucion','ver-contactos')
                                                 <button class="btn_icon_card btn-ver-contacto tool top" data-id="{{ $contacto->id }}">
                                                     <i data-feather="eye" class="icon_btn_card_mobile"></i> 
@@ -112,7 +107,7 @@
                                         </div>
                                         <!-- card data down -->
                                         <div class="card__data_down">
-                                            <div class="toolt bottom">
+                                            <div class="toolt bottom mb_card">
                                                 <div class="width__tool_tip">
                                                     <i data-feather="mail" class="icon_span_card"></i>
                                                     <span class="txt_span_card">{{ $contacto->correo }}</span>
@@ -120,7 +115,7 @@
                                                 <span class="tiptext">{{ $contacto->correo }}</span>
                                             </div>
 
-                                            <div class="">
+                                            <div class="mb_card">
                                                 <i data-feather="phone" class="icon_span_card"></i>
                                                 <span class="txt_span_card">{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</span>
                                             </div>
@@ -140,9 +135,16 @@
                     @endforeach
                 @endif
                 <!-- Pagination buttons -->
-                <div class="col-12 d-md-none p-0 mt-4 butons__pagination_card">
-                    <button class="btn_right_pag_card"></button>
-                    <button class="btn_left_pag_card"></button>
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    <div class="toolt bottom">
+                        <a disabled class="btn_right_pag_card disabled"></a>
+                        <span class="tiptext">Previus</span>
+                    </div>
+
+                    <div class="toolt bottom">
+                        <a disabled class="btn_left_pag_card disabled"></a>
+                        <span class="tiptext">Next</span>
+                    </div>
                 </div>
             </div>
         </div>

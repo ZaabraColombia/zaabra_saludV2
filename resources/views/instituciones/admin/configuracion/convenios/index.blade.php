@@ -14,19 +14,19 @@
     <div class="container-fluid panel_container">
         <div class="panel_head">
             <!-- Main title -->
-            <div class="mb-4">
+            <div class="card_main_title">
                 <h1 class="txt_title_panel_head">Convenios</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add agreement -->
-                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
+                <div class="col-md-12 col-lg-2 button__add_card">
                     <a href="{{ route('institucion.configuracion.convenios.create') }}" class="button__green_card"
                     id="btn-agregar-contacto">Agregar convenio
                     </a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 button__search_card">
+                <div class="col-md-6 button__search_card">
                     <form method="get">
                         <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
@@ -34,23 +34,23 @@
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="col-md-4 col-lg-3 col-xl-3 p-0 mb-4 button__doc_download">
-                    <button class="file_excel"></button>
-                    <button class="file_pdf"></button>
-                    <button class="file_printer"></button>
-                </div>
-                <!-- Pagination buttons -->
-                <div class="col-md-2 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex butons__pagination_card">
-                    @if(!$convenios->onFirstPage())
-                        <a href="{{ $convenios->previousPageUrl() }}" class="btn_right_pag_card"></a>
-                    @else
-                        <button disabled class="btn_right_pag_card disabled"></button>
-                    @endif
-                    @if(!$convenios->onLastPage())
-                        <a href="{{ $convenios->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                    @else
-                        <button disabled class="btn_left_pag_card disabled"></button>
-                    @endif
+                <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
+                    <div class="toolt bottom">
+                        <button class="file_calendar"></button>
+                        <span class="tiptext">Calendario</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Doc. Excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Doc. PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,15 +72,16 @@
                 <!-- Agreement card -->
                 @if($convenios->isNotEmpty())
                     @foreach($convenios as $convenio)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-5 mb-4 card__col">
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt_card_float card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
+                                    <!-- Estado activo o inactivo -->
                                     <div class="col-12 p-0 mb-3 d-flex justify-content-end">
                                         <a href="#" class="btn__activado">
                                             <span>activo</span>
                                         </a>
                                     </div>
-
+                                    <!-- Image agreement -->
                                     <div class="img_card_float">
                                         <img src="{{ asset($convenio->url_image ?? '/img/menu/avatar.png') }}">
                                     </div>
@@ -140,9 +141,29 @@
                     @endforeach
                 @endif
                 <!-- Pagination buttons -->
-                <div class="col-12 d-md-none p-0 mt-4 butons__pagination_card">
-                    <button class="btn_right_pag_card"></button>
-                    <button class="btn_left_pag_card"></button>
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    @if(!$convenios->onFirstPage())
+                        <div class="toolt bottom">
+                            <a href="{{ $convenios->previousPageUrl() }}" class="btn_right_pag_card"></a>
+                            <span class="tiptext">Previus</span>
+                        </div>
+                    @else
+                        <div class="toolt bottom">
+                            <a disabled class="btn_right_pag_card disabled"></a>
+                            <span class="tiptext">Previus</span>
+                        </div>
+                    @endif
+                    @if(!$convenios->onLastPage())
+                        <div class="toolt bottom">
+                            <a href="{{ $convenios->nextPageUrl() }}" class="btn_left_pag_card"></a>
+                            <span class="tiptext">Next</span>
+                        </div>
+                    @else
+                        <div class="toolt bottom">
+                            <a disabled class="btn_left_pag_card disabled"></a>
+                            <span class="tiptext">Next</span>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

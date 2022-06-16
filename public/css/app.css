@@ -28179,7 +28179,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 2px 23px;
 }
 
-.pos {
+.btn_position {
   position: absolute;
   z-index: 5;
   top: 5px;
@@ -28474,6 +28474,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   margin-bottom: 3px;
 }
 
+.mt_card_float {
+  margin-top: 80px;
+}
+
 @media (min-width: 768px) {
   .card__logo_menu_panel {
     padding: 25px 15px;
@@ -28482,6 +28486,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
   .card_main_title {
     margin-bottom: 27px;
+  }
+
+  .mt_card_float {
+    margin-top: 45px;
+    margin-bottom: 20px;
   }
 }
 @media (min-width: 1024px) {
@@ -28496,6 +28505,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .card__data_down {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .mt_card_float {
+    margin-top: 70px;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 1300px) {
@@ -28763,8 +28777,18 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .img_card_module {
-  width: 57px;
-  height: 56px;
+  width: 63px;
+  height: 62px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.img_card2_module {
+  width: 49px;
+  height: 47px;
   border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -28813,12 +28837,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   box-shadow: 0px 3px 6px #00000029;
 }
 
-@media (min-width: 768px) {
-  .img_card_module {
-    width: 63px;
-    height: 62px;
-  }
-}
 @media (min-width: 1200px) {
   .img_card_module {
     width: 51px;

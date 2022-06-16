@@ -14,19 +14,19 @@
     <div class="container-fluid panel_container">
         <div class="panel_head">
             <!-- Main title -->
-            <div class="mb-4">
+            <div class="card_main_title">
                 <h1 class="txt_title_panel_head">Servicios</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
-                <!-- Add professional -->
-                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
+                <!-- Add service -->
+                <div class="col-md-12 col-lg-2 button__add_card">
                     <a href="{{ route('institucion.configuracion.servicios.create') }}" class="button__green_card"
                     id="btn-agregar-contacto">Agregar servicio
                     </a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 button__search_card">
+                <div class="col-md-6 button__search_card">
                     <form method="get">
                         <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
@@ -34,12 +34,20 @@
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="col-8 col-md-4 col-lg-3 col-xl-3 p-0 mb-4 button__doc_download">
-                    <button class="file_excel"></button>
-                    <button class="file_pdf"></button>
-                    <button class="file_printer"></button>
+                <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Doc. Excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Doc. PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
-
             </div>
         </div>
 
@@ -57,43 +65,43 @@
                         </div>
                     @endif
                 </div>
-                <!-- Professional card -->
+                <!-- Service card -->
                 @if($servicios->isNotEmpty())
                     @foreach($servicios as $servicio)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <div class="col-12 card__data">
                                         <!-- card data top -->
-                                        <div class="card__data_top mb-1 px-3 pt-2">
+                                        <div class="card__data_top">
                                             <div class="card__content_fixed_height">
                                                 <h4 class="txt_h4_green_card_float">{{ $servicio->nombre }}</h4>
                                             </div>
 
-                                            <div class="col-12 p-0 my-1 d-flex justify-content-center">
+                                            <div class="col-12 p-0 d-flex justify-content-center mb_card">
                                                 <a href="#" class="btn__activado">
                                                     <span>activo</span>
                                                 </a>
                                             </div>
 
-                                            <div class="">
+                                            <div class="mb_card">
                                                 <h5 class="txt_h5_card_float">{{ $servicio->tipo_servicio->nombre ?? '' }}</h5>
                                             </div>
                                         </div>
                                         <!-- card data down -->
                                         <div class="card__data_down pl-xl-4">
-                                            <div class="pl-3">
+                                            <div class="pl-3 mb_card">
                                                 <span class="txt_span_card">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
                                             </div>
 
-                                            <div class="pl-3">
+                                            <div class="pl-3 mb_card">
                                                 <span class="txt_span_card">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- view more and edit buttons -->
-                                <div class="row mx-0 mt-3 mt-md-2 justify-content-md-center">
+                                <div class="row m-0 mt-2 justify-content-md-center">
                                     @can('accesos-institucion','ver-servicios')
                                         <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
                                             <button class="button__bg_green_card boton-servicio"
@@ -115,15 +123,15 @@
                     @endforeach
                 @endif
                 <!-- Pagination buttons -->
-                <div class="col-4 col-md-2 col-lg-1 col-xl-1 p-0 mb-4 butons__pagination_card">
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
                     @if(!$servicios->onFirstPage())
                         <div class="toolt bottom">
                             <a href="{{ $servicios->previousPageUrl() }}" class="btn_right_pag_card"></a>
                             <span class="tiptext">Previus</span>
                         </div>
-                    @else
+                    @else   
                         <div class="toolt bottom">
-                            <button disabled class="btn_right_pag_card disabled"></button>
+                            <a disabled class="btn_right_pag_card disabled"></a>
                             <span class="tiptext">Previus</span>
                         </div>
                     @endif
@@ -134,7 +142,7 @@
                         </div>
                     @else
                         <div class="toolt bottom">
-                            <button disabled class="btn_left_pag_card disabled"></button>
+                            <a disabled class="btn_left_pag_card disabled"></a>
                             <span class="tiptext">Next</span>
                         </div>
                     @endif

@@ -52,20 +52,6 @@
                         <span class="tiptext">Imprimir</span>
                     </div>
                 </div>
-                {{--<!-- Pagination buttons -->
-                <div class="col-md-2 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex butons__pagination_card">
-                    @if(!$profesionales->onFirstPage())
-                        <a href="{{ $profesionales->previousPageUrl() }}" class="btn_right_pag_card"></a>
-                    @else
-                        <button disabled class="btn_right_pag_card disabled"></button>
-                    @endif
-                    @if(!$profesionales->onLastPage())
-                        <a href="{{ $profesionales->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                    @else
-                        <button disabled class="btn_left_pag_card disabled"></button>
-                    @endif
-
-                </div>--}}
             </div>
         </div>
 
@@ -94,7 +80,8 @@
                                         <button class="btn_icon_card tool top"
                                                 data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
                                                 data-toggle="modal" data-target="#modal_see_professional">
-                                            <i data-feather="eye" class="icon_btn_card_desk"></i> <span class="tiptext">Ver profesional</span>
+                                            <i data-feather="eye" class="icon_btn_card_desk"></i> 
+                                            <span class="tiptext">Ver profesional</span>
                                         </button>
                                         @if (empty($profesional->horario) or empty($profesional->disponibilidad_agenda) or empty( $profesional->consultorio))
                                         <button class="btn_icon_card tool top">

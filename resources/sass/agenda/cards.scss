@@ -77,6 +77,9 @@
 .mb_card {
     margin-bottom: 3px;
 }
+.mt_card_float {
+    margin-top: 80px;
+}
 @media(min-width: 768px) {
     // Cards logos menú panel
     .card__logo_menu_panel {
@@ -86,6 +89,10 @@
     //Título principal header de las tarjetas agenda inst.
     .card_main_title {
         margin-bottom: 27px;
+    }
+    .mt_card_float {
+        margin-top: 45px;
+        margin-bottom: 20px;
     }
 }
 @media(min-width: 1024px) {
@@ -99,6 +106,10 @@
     .card__data_down {
         padding-left: 0;
         padding-right: 0;
+    }
+    .mt_card_float {
+        margin-top: 70px;
+        margin-bottom: 0;
     }
 }
 @media(min-width: 1300px) {
