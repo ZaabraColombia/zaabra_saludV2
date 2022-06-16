@@ -39,20 +39,7 @@
                     <button class="file_pdf"></button>
                     <button class="file_printer"></button>
                 </div>
-                <!-- Pagination buttons -->
-                <div class="col-4 col-md-2 col-lg-1 col-xl-1 p-0 mb-4 butons__pagination_card">
-                    @if(!$servicios->onFirstPage())
-                    <a href="{{ $servicios->previousPageUrl() }}" class="btn_right_pag_card"></a>
-                    @else
-                        <button disabled class="btn_right_pag_card disabled"></button>
-                    @endif
-                    @if(!$servicios->onLastPage())
-                    <a href="{{ $servicios->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                    @else
-                        <button disabled class="btn_left_pag_card disabled"></button>
-                    @endif
 
-                </div>
             </div>
         </div>
 
@@ -127,6 +114,32 @@
                         </div>
                     @endforeach
                 @endif
+                <!-- Pagination buttons -->
+                <div class="col-4 col-md-2 col-lg-1 col-xl-1 p-0 mb-4 butons__pagination_card">
+                    @if(!$servicios->onFirstPage())
+                        <div class="toolt bottom">
+                            <a href="{{ $servicios->previousPageUrl() }}" class="btn_right_pag_card"></a>
+                            <span class="tiptext">Previus</span>
+                        </div>
+                    @else
+                        <div class="toolt bottom">
+                            <button disabled class="btn_right_pag_card disabled"></button>
+                            <span class="tiptext">Previus</span>
+                        </div>
+                    @endif
+                    @if(!$servicios->onLastPage())
+                        <div class="toolt bottom">
+                            <a href="{{ $servicios->nextPageUrl() }}" class="btn_left_pag_card"></a>
+                            <span class="tiptext">Next</span>
+                        </div>
+                    @else
+                        <div class="toolt bottom">
+                            <button disabled class="btn_left_pag_card disabled"></button>
+                            <span class="tiptext">Next</span>
+                        </div>
+                    @endif
+
+                </div>
             </div>
         </div>
     </div>

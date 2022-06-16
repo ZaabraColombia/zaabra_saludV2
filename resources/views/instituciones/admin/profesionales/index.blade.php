@@ -35,10 +35,22 @@
                 </div>
                 <!-- Document action buttons  -->
                 <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
-                    <button class="file_calendar"></button>
-                    <button class="file_excel"></button>
-                    <button class="file_pdf"></button>
-                    <button class="file_printer"></button>
+                    <div class="toolt bottom">
+                        <button class="file_calendar"></button>
+                        <span class="tiptext">Calendario</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Doc. Excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Doc. PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
                 {{--<!-- Pagination buttons -->
                 <div class="col-md-2 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex butons__pagination_card">
@@ -193,9 +205,29 @@
                     @endforeach
                 @endif
                 <!-- Pagination buttons -->
-                <div class="col-12 p-0 mt-4 butons__pagination_card">
-                    <button class="btn_right_pag_card"></button>
-                    <button class="btn_left_pag_card"></button>
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    @if(!$profesionales->onFirstPage())
+                        <div class="toolt bottom">
+                            <a href="{{ $profesionales->previousPageUrl() }}" class="btn_right_pag_card"></a>
+                            <span class="tiptext">Previus</span>
+                        </div>
+                    @else
+                        <div class="toolt bottom">
+                            <a disabled class="btn_right_pag_card disabled"></a>
+                            <span class="tiptext">Previus</span>
+                        </div>
+                    @endif
+                    @if(!$profesionales->onLastPage())
+                        <div class="toolt bottom">
+                            <a href="{{ $profesionales->nextPageUrl() }}" class="btn_left_pag_card"></a>
+                            <span class="tiptext">Next</span>
+                        </div>
+                    @else
+                        <div class="toolt bottom">
+                            <a disabled class="btn_left_pag_card disabled"></a>
+                            <span class="tiptext">Next</span>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

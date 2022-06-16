@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="tipo_documento">Tipo de Documento</label>
                         <select id="tipo_documento" name="tipo_documento" class="select2 @error('tipo_documento') is-invalid @enderror">
                             <option value=""></option>
@@ -90,13 +90,13 @@
                         </select>
                     </div>
 
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="numero_documento">Número de Documento</label>
                         <input type="text" id="numero_documento" name="numero_documento" value="{{ old('numero_documento') }}"
                                 class="@error('numero_documento') is-invalid @enderror"/>
                     </div>
 
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="fecha_nacimiento">Fecha de Nacimiento</label>
                         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}"
                                 class="@error('fecha_nacimiento') is-invalid @enderror"/>
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="sexo_biologico">Sexo Biológico</label>
                         <select id="sexo_biologico" name="sexo_biologico" class="select2 @error('sexo_biologico') is-invalid @enderror">
                             <option value=""></option>
@@ -114,7 +114,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="estado_civil">Estado Civil</label>
                         <select id="estado_civil" name="estado_civil" class="select2 @error('estado_civil') is-invalid @enderror">
                             <option value=""></option>
@@ -124,7 +124,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="cargo">Ocupación</label>
                         <input type="text" id="cargo" name="cargo" value="{{ old('cargo') }}"
                                 class="@error('cargo') is-invalid @enderror" required/>
@@ -177,21 +177,21 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 mb-3 input__box">
+                    <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="pais_id">País</label>
                         <select id="pais_id" name="pais_id" class="@error('pais_id') is-invalid @enderror">
             
                         </select>
                     </div>
 
-                    <div class="col-md-4 mb-3 input__box">
+                    <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="departamento_id">Departamento</label>
                         <select name="departamento_id" id="departamento_id" class="select2 departamento @error('departamento_id') is-invalid @enderror"
                                 data-provincia="#provincia_id" data-ciudad="#ciudad_id" data-id="{{ old('departamento_id') }}" required>
                         </select>
                     </div>
 
-                    <div class="col-md-4 mb-3 input__box">
+                    <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="ciudad_id">Ciudad</label>
                         <select name="ciudad_id" id="ciudad_id" class="select2 @error('ciudad_id') is-invalid @enderror"
                                 data-id="{{ old('ciudad_id') }}" required>
@@ -200,18 +200,18 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="direccion">Dirección</label>
                         <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"
                                 class="@error('direccion') is-invalid @enderror"/>
                     </div>
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="telefono">Teléfono</label>
                         <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
                                 class="tags-input @error('telefono') is-invalid @enderror"/>
                     </div>
 
-                    <div class="col-md-4 input__box">
+                    <div class="col-md-6 col-lg-4 input__box">
                         <label for="correo">Correo Electrónico</label>
                         <input type="email" id="correo" name="correo" value="{{ old('correo') }}"
                                 class="@error('primer_nombre') is-invalid @enderror"/>
@@ -220,7 +220,7 @@
 
                 <!-- Buttons -->
                 <div class="row m-0 my-4 content_btn_center">
-                    <a href="{{ route('institucion.profesionales.index') }}" class="button__form_transparent mr-3">Cancelar</a>
+                    <a href="{{ route('institucion.pacientes.index') }}" class="button__form_transparent mr-3">Cancelar</a>
                     <button type="submit" class="button__form_green">Guardar</button>
                 </div>
             </form>

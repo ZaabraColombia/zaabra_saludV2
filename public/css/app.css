@@ -27676,10 +27676,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     width: 150px;
   }
 
-  .img__upload img {
-    height: 150px;
-  }
-
   .img__upload input {
     width: 150px;
   }
@@ -27869,7 +27865,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 }
 .panel_container {
-  padding: 53px 5px;
+  padding: 53px 5px 25px 5px;
 }
 
 .panel_container_top {
@@ -27904,7 +27900,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
 @media (min-width: 768px) {
   .panel_container {
-    padding: 40px 70px 40px 50px;
+    padding: 40px 70px 25px 50px;
   }
 
   .panel_container_top {
@@ -27921,7 +27917,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 @media (min-width: 1200px) {
   .panel_container {
-    padding: 50px 30px 0 35px;
+    padding: 50px 30px 25px 35px;
   }
 
   .panel_container_top {
@@ -27946,7 +27942,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 @media (min-width: 1300px) {
   .panel_container {
-    padding: 65px 28px 0 35px;
+    padding: 65px 28px 25px 35px;
   }
 
   .panel_head {
@@ -27971,7 +27967,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 @media (min-width: 1600px) {
   .panel_container {
-    padding: 65px 160px 0 50px;
+    padding: 65px 160px 25px 50px;
   }
 
   .panel_container_top {
@@ -27997,6 +27993,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   background-repeat: no-repeat;
   background-size: 9px;
   background-position: center;
+  padding: 10px 20px;
 }
 .butons__pagination_card .btn_right_pag_card:focus {
   background-color: #707070;
@@ -28013,6 +28010,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   background-repeat: no-repeat;
   background-size: 9px;
   background-position: center;
+  padding: 10px 20px;
 }
 .butons__pagination_card .btn_left_pag_card:focus {
   background-color: #707070;
@@ -28358,14 +28356,24 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     color: #FF3E3E;
   }
 
+  .button__add_card {
+    align-items: flex-start;
+  }
+
   .button__green_card {
     padding: 10px;
     font-size: 12px;
   }
 }
+@media (min-width: 1200px) {
+  .button__green_card {
+    padding: 11px;
+    font-size: 12px;
+  }
+}
 @media (min-width: 1300px) {
   .button__green_card {
-    padding: 7px;
+    padding: 8px;
     font-size: 15px;
   }
 }
@@ -28378,8 +28386,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 
   .button__green_card {
-    padding: 7px 20px;
-    font-size: 15px;
+    padding: 8px 20px;
   }
 }
 .card__menu_panel {
@@ -28566,6 +28573,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   font-weight: 100;
   text-align: center;
   color: #707070;
+  margin: 0;
 }
 
 .txt_h6_card {
@@ -28574,6 +28582,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   font-weight: 100;
   text-align: center;
   color: #3E3E3E;
+  margin: 0;
 }
 
 .txt_h4_card_float {
@@ -28683,40 +28692,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     font-size: 18px;
   }
 }
-@media (min-width: 1200px) {
-  .txt_h4_card {
-    font-size: 12px;
-  }
-
-  .txt_h5_card {
-    font-size: 10px;
-  }
-
-  .txt_h6_card {
-    font-size: 10px;
-  }
-
-  .txt_span_card {
-    font-size: 10px;
-  }
-}
-@media (min-width: 1300px) {
-  .txt_h4_card {
-    font-size: 14px;
-  }
-
-  .txt_h5_card {
-    font-size: 12px;
-  }
-
-  .txt_h6_card {
-    font-size: 12px;
-  }
-
-  .txt_span_card {
-    font-size: 12px;
-  }
-}
 @media (min-width: 1600px) {
   .txt_name_card {
     font-size: 25px;
@@ -28763,14 +28738,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .icon_span_card {
-  width: 12px;
-  height: 10PX;
+  width: 13px;
+  height: 12PX;
   margin-right: 5px;
 }
 
 .icon_span_green_card {
-  width: 12px;
-  height: 10PX;
+  width: 13px;
+  height: 12PX;
   margin-right: 5px;
   color: #019F86;
 }

@@ -13,6 +13,7 @@
         background-repeat: no-repeat;
         background-size: 9px;
         background-position: center;
+        padding: 10px 20px;
         &:focus {
             background-color: #707070;
             background-image: url('/img/iconos/flecha-derecha-blanca.svg');
@@ -29,6 +30,7 @@
         background-repeat: no-repeat;
         background-size: 9px;
         background-position: center;
+        padding: 10px 20px;
         &:focus {
             background-color: #707070;
             background-image: url('/img/iconos/flecha-izquierda-blanca.svg');
@@ -369,16 +371,23 @@
             }
         }
     }
+    .button__add_card {
+        align-items: flex-start;
+    }
     .button__green_card {
         padding: 10px;
         font-size: 12px;
     }
 }
 @media(min-width: 1200px) {
+    .button__green_card {
+        padding: 11px;
+        font-size: 12px;
+    }
 }
 @media(min-width: 1300px) {
     .button__green_card {
-        padding: 7px;
+        padding: 8px;
         font-size: 15px;
     }
 }
@@ -392,7 +401,6 @@
         }
     }
     .button__green_card {
-        padding: 7px 20px;
-        font-size: 15px;
+        padding: 8px 20px;
     }
 }
