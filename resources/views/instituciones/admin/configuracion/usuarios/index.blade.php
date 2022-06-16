@@ -11,19 +11,19 @@
     <div class="container-fluid panel_container">
         <div class="panel_head">
             <!-- Main title -->
-            <div class="mb-4">
+            <div class="card_main_title">
                 <h1 class="txt_title_panel_head">Usuarios</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add user -->
-                <div class="col-md-12 col-lg-3 col-xl-2 p-0 mb-4 button__add_card">
-                    <a href="{{ route('institucion.configuracion.usuarios.create') }}" class="button__green_card" id="btn-agregar-contacto">
-                        Agregar Usuario
+                <div class="col-md-12 col-lg-2 button__add_card">
+                    <a href="{{ route('institucion.configuracion.usuarios.create') }}" class="button__green_card" 
+                    id="btn-agregar-contacto">Agregar Usuario
                     </a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 col-lg-5 col-xl-6 p-0 mb-4 button__search_card">
+                <div class="col-md-6 button__search_card">
                     <form method="get">
                         <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
@@ -31,15 +31,19 @@
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="col-8 col-md-4 col-lg-3 col-xl-3 p-0 mb-4 button__doc_download">
-                    <button class="file_excel"></button>
-                    <button class="file_pdf"></button>
-                    <button class="file_printer"></button>
-                </div>
-                <!-- Pagination buttons -->
-                <div class="col-4 col-md-2 col-lg-1 col-xl-1 p-0 mb-4 butons__pagination_card">
-                    <a href="" class="btn_right_pag_card"></a>
-                    <a href="" class="btn_left_pag_card"></a>
+                <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Doc. Excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Doc. PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,24 +65,24 @@
                 <!-- User card -->
                 @if($usuarios->isNotEmpty())
                     @foreach($usuarios as $usuario)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mb-4 card__col">
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
-                                    <div class="pos">
+                                    <!-- Estado activo o inactivo -->
+                                    <div class="btn_position">
                                         <a href="#" class="{{ ($usuario->estado)?'btn__activado':'btn__desactivado' }}">
                                             <span>{{ ($usuario->estado)?'Activo':'Inactivo' }}</span>
                                         </a>
                                     </div>
-
                                     <!-- Image user -->
                                     <div class="col-12 p-0 mb-2 d-flex justify-content-center">
-                                        <img class="img_card_module" src='{{ asset($usuario->auxiliar->foto ?? 'img/menu/avatar.png') }}'>
+                                        <img class="img_card2_module" src='{{ asset($usuario->auxiliar->foto ?? 'img/menu/avatar.png') }}'>
                                     </div>
-
+                                    <!-- Information patient -->
                                     <div class="col-12 card__data">
                                         <!-- card data top -->
-                                        <div class="card__data_top mb-1">
-                                            <div class="">
+                                        <div class="card__data_top">
+                                            <div class="mb_card">
                                                 <h4 class="txt_h4_card text-center">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
                                             </div>
                                             <div class="">
@@ -86,19 +90,19 @@
                                             </div>
                                         </div>   
                                     </div>
-                               
+                                    <div class="col-12 my-2 dropdown-divider"></div>
+                                    <!-- Information patient -->
                                     <div class="col-12 px-0 px-lg-4 px-xl-3">
-                                        <div class="mb-2 dropdown-divider"></div>
                                         <!-- card data down -->
                                         <div class="card__data_down">
-                                            <div class="pl-md-3">
-                                                <i data-feather="phone" class="icon_span_card"></i>
+                                            <div class="pl-md-3 mb_card">
+                                                <i data-feather="phone" class="icon_span_green_card"></i>
                                                 <span class="txt_span_card">{{ $usuario->auxiliar->celular }}</span>
                                             </div>
 
                                             <div class="toolt bottom">
-                                                <div class="pl-md-3 width__tool_tip">
-                                                    <i data-feather="mail" class="icon_span_card"></i>
+                                                <div class="pl-md-3 mb_card width__tool_tip">
+                                                    <i data-feather="mail" class="icon_span_green_card"></i>
                                                     <span class="txt_span_card">{{ $usuario->email }}</span>
                                                 </div>
                                                 <span class="tiptext">{{ $usuario->email }}</span>
@@ -107,7 +111,7 @@
                                     </div>  
                                 </div>
                                 <!-- view more and edit buttons -->
-                                <div class="row mx-0 mt-3 mt-md-2 justify-content-md-center">
+                                <div class="row m-0 mt-2 justify-content-md-center">
                                     @can('accesos-institucion', 'editar-usuario')
                                         <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
                                             <button type="submit" class="button__bg_green_card modal-usuario"
@@ -130,6 +134,18 @@
                         </div>
                     @endforeach
                 @endif
+                <!-- Pagination buttons -->
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    <div class="toolt bottom">
+                        <a disabled class="btn_right_pag_card disabled"></a>
+                        <span class="tiptext">Previus</span>
+                    </div>
+
+                    <div class="toolt bottom">
+                        <a disabled class="btn_left_pag_card disabled"></a>
+                        <span class="tiptext">Next</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

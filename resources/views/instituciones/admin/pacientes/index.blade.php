@@ -83,7 +83,7 @@
                                         </button>
                                     </div>
                                     <!-- Image patient -->
-                                    <div class="col-lg-3 p-0 mb-1 mb-lg-1 d-flex justify-content-center align-self-md-start">
+                                    <div class="col-lg-3 p-0 mb-1 d-flex justify-content-center align-self-md-start">
                                         <img class="img_card2_module" src="/img/menu/avatar.png">
                                     </div>
                                     <!-- Information patient -->
@@ -109,8 +109,9 @@
                                         </div>
                                     </div>
                                     <div class="col-11 my-2 dropdown-divider"></div>
-                                    <!-- card data down -->
+                                    <!-- Information patient -->
                                     <div class="col-12 px-0 px-lg-4 px-xl-3">
+                                        <!-- card data down -->
                                         <div class="card__data_down">
                                             <div class="mb_card">
                                                 <i data-feather="phone" class="icon_span_green_card"></i>

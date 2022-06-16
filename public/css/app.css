@@ -28179,7 +28179,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 2px 23px;
 }
 
-.pos {
+.btn_position {
   position: absolute;
   z-index: 5;
   top: 5px;

@@ -68,7 +68,7 @@
                 <!-- Service card -->
                 @if($servicios->isNotEmpty())
                     @foreach($servicios as $servicio)
-                        <div class="col-md-6 col-xl-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <div class="col-12 card__data">
