@@ -28474,6 +28474,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   margin-bottom: 3px;
 }
 
+.mt_card_float {
+  margin-top: 80px;
+}
+
 @media (min-width: 768px) {
   .card__logo_menu_panel {
     padding: 25px 15px;
@@ -28482,6 +28486,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
   .card_main_title {
     margin-bottom: 27px;
+  }
+
+  .mt_card_float {
+    margin-top: 45px;
+    margin-bottom: 20px;
   }
 }
 @media (min-width: 1024px) {
@@ -28496,6 +28505,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .card__data_down {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .mt_card_float {
+    margin-top: 70px;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 1300px) {
