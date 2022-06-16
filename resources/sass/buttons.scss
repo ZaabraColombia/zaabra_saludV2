@@ -69,26 +69,6 @@
     border-radius: 5px;
     padding: 5px 9px;
 }
-// Botones de formulario agendas
-.button__form_transparent {
-    font-size: 16px;
-    font-weight: 100;
-    color: #3E3E3E !important;
-    background: $withe_official;
-    border: solid 1px #707070;
-    border-radius: 7px;
-    padding: 5px 15px;
-}
-
-.button__form_green {
-    font-size: 16px;
-    font-weight: 100;
-    color: $withe_official;
-    background: $green_official;
-    border: solid 1px $green_official;
-    border-radius: 7px;
-    padding: 5px 15px;
-}
 // Botones especiales
 // Botón VER MÁS de profesionales de una institución
 .btn_ver_mas {
@@ -206,12 +186,5 @@ div.dt-buttons {
     padding: 0;
 }
 @media(min-width: 1024px) {
-    // Botones de formulario agendas
-    .button__form_transparent {
-        font-size: 22px;
-    }
 
-    .button__form_green {
-        font-size: 22px;
-    }
 }

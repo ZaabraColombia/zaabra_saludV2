@@ -50,6 +50,10 @@
     padding: 20px 15px;
     margin-bottom: 100px;
 }
+//Título principal header de las tarjetas agenda inst.
+.card_main_title {
+    margin-bottom: 25px;
+}
 .card__row_column {
     flex-direction: column;
     justify-content: center;
@@ -70,10 +74,18 @@
     align-items: center;
     height: 50px;
 }
+.mb_card {
+    margin-bottom: 3px;
+}
 @media(min-width: 768px) {
     // Cards logos menú panel
     .card__logo_menu_panel {
-        height: 150px;
+        padding: 25px 15px;
+        height: 115px;
+    }
+    //Título principal header de las tarjetas agenda inst.
+    .card_main_title {
+        margin-bottom: 27px;
     }
 }
 @media(min-width: 1024px) {
@@ -100,7 +112,7 @@
     }
     // Cards logos menú panel
     .card__logo_menu_panel {
-        height: 164px;
+        height: 162px;
         padding: 0;
     }
     // Cards modules 
@@ -121,6 +133,6 @@
     }
     // Cards logos menú panel
     .card__logo_menu_panel {
-        height: 219px;
+        height: 217px;
     }
 }

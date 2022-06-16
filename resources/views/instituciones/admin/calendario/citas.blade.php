@@ -145,7 +145,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 mb-3 dropdown-divider"></div>
+                            <div class="col-12 mb-3 px-md-4 dropdown-divider" style="border: 1px solid #DBDADA"></div>
 
                             <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Profesional:</h4>

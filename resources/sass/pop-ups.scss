@@ -82,7 +82,7 @@
         }
         .form_modal {
             label{
-                font-size: 16px;
+                font-size: 14px;
                 font-family: 'Roboto';
                 color: $gray_second;
                 margin-bottom: 3px;
@@ -414,7 +414,7 @@
                 padding: 0;
                 margin-bottom: 10px;
                 .modal_data_form {
-                    font-size: 18px;
+                    font-size: 14px;
                     font-family: 'Roboto';
                     color: $black_firsrt;
                     font-weight: 100;
@@ -422,7 +422,7 @@
                 }
                 // Data sin background
                 .modal_data_user {
-                    font-size: 18px;
+                    font-size: 14px;
                     font-family: 'Quicksand';
                     color: $black_third;
                     font-weight: bold;
@@ -433,13 +433,14 @@
                     }
                 }
                 // Data con background
-                .modal_data_user_bg {
-                    font-size: 18px;
+                .modal_pill_data {
+                    font-size: 14px;
                     font-family: 'Quicksand';
                     color: $black_third;
                     font-weight: bold;
-                    display: block;
-                    .modal_data_user_bg {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .pill_data {
                         width: max-content;
                         background: #DBDADA;
                         border-radius: 7px;
@@ -497,12 +498,90 @@
     border-top: 2px solid #DBDADA;
 }
 // Fin sección convenios vinculados
-
+// Propiedades de recorte y anexo de puntos suspensivos en determinada línea de un texto
+.modal_content_txt {
+    width: 100%;
+    margin: auto;
+}
+$font-size: 14px;
+$line-height: 1.4;
+$lines: 1;
+.modal_short_text{
+    display: block;
+    display: -webkit-box;
+    width: 50%;
+    height: $font-size * $line-height * $lines;
+    font-size: $font-size;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+// Propiedaes para mostrar 100% del texto.
+.modal_long_text {
+    display: block;
+    height: max-content;
+    overflow: inherit;
+    width: 100%;
+    cursor: pointer;
+}
+// Fin recorte de texto
 @media(min-width: 768px) {
     .modal_container {
         .modal-body .modal_medio_pago .info_medio_pago {  
             img {
                 width: 100px;
+            }
+        }
+    }
+    .modal__ .modal-header {
+        .modal_main_title {
+            .modal_title_green {
+                text-align: left;
+            }
+        }
+    }
+    .modal__ {
+        .modal-body {
+            padding: 0 25px;
+            //Sección data con borde
+            .modal_info_data {
+                .modal_info_user {
+                    .modal_data_form {
+                        font-size: 18px;
+                    }
+                    .modal_data_user {
+                        font-size: 18px;
+                        span {
+                            vertical-align: baseline;
+                        }
+                    }
+                }
+            }
+            // Sección data sin borde
+            .modal_info_data_open {
+                // border: 1px solid #DBDADA;
+                // border-radius: 7px;
+                // padding: 25px;
+                .modal_info_user {
+                    display: flex;
+                    // Data sin background
+                    .modal_data_user {
+                        padding-left: 10px;
+                        span {
+                            vertical-align: baseline;
+                        }
+                    }
+                    // Data con background
+                    .modal_pill_data {
+                        .pill_data {
+                            width: 45%;
+                            margin: 10px 10px 0 0;
+                        }
+                    }
+                }
             }
         }
     }
@@ -537,62 +616,6 @@
 }
 
 @media(min-width: 1024px) {
-    //*******************************************
-    //* Tarjetas pacientes agenda instituciones *
-    //*******************************************
-    .modal__ .modal-header {
-        .modal_main_title {
-            margin-bottom: 15px;
-            .modal_title_green {
-                font-size: 30px;
-                text-align: left;
-            }
-        }
-    }
-    .modal__ {
-        .modal-body {
-            padding: 0 25px;
-            //Sección data con borde
-            .modal_info_data {
-                .modal_info_user {
-                    .modal_data_form {
-                        font-size: 18px;
-                    }
-                    .modal_data_user {
-                        font-size: 18px;
-                        span {
-                            vertical-align: baseline;
-                        }
-                    }
-                }
-            }
-            // Sección data sin borde
-            .modal_info_data_open {
-                border: 1px solid #DBDADA;
-                border-radius: 7px;
-                padding: 25px;
-                .modal_info_user {
-                    display: flex;
-                    // Data sin background
-                    .modal_data_user {
-                        padding-left: 10px;
-                        span {
-                            vertical-align: baseline;
-                        }
-                    }
-                    // Data con background
-                    .modal_data_user_bg {
-                        display: flex;
-                        flex-wrap: wrap;
-                        .modal_data_user_bg {
-                            width: 30%;
-                            margin: 7px 10px 0 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
     .modal__ .modal_btn_down_center {
         .modal_btn_green {
             font-size: 24px;
@@ -603,12 +626,18 @@
         justify-content: space-between;
     }
 
-
+    .modal_info_data_open {
+        border: 1px solid #DBDADA;
+        border-radius: 7px;
+        padding: 25px !important;
+    }
     .row__convenio {
         border: none !important;
         padding: 0 !important;
     }
-
+    .pill_data {
+        width: 30%;
+    }
 
     // Sección convenios vinculados modulo servicios Desktop
     .convenio_vinculado:nth-child(1n+2) {

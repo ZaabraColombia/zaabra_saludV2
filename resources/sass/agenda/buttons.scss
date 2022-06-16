@@ -13,6 +13,7 @@
         background-repeat: no-repeat;
         background-size: 9px;
         background-position: center;
+        padding: 10px 20px;
         &:focus {
             background-color: #707070;
             background-image: url('/img/iconos/flecha-derecha-blanca.svg');
@@ -29,6 +30,7 @@
         background-repeat: no-repeat;
         background-size: 9px;
         background-position: center;
+        padding: 10px 20px;
         &:focus {
             background-color: #707070;
             background-image: url('/img/iconos/flecha-izquierda-blanca.svg');
@@ -40,6 +42,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
+    margin-bottom: 15px;
 }
 .button__green_card {
     font-family: "Quicksand";
@@ -51,8 +55,10 @@
 }
 // Botones de búsqueda
 .button__search_card {
+    margin-bottom: 20px;
+    padding: 0;
     button {
-        border: 1px solid #CED4DA;
+        border: 1px solid #DBDADA;
         background-color: #FFF;
         text-decoration: none;
         border-radius: 7px;
@@ -61,23 +67,17 @@
         align-items: center;
         overflow: hidden;
         width: auto;
-        width: 46px;
+        width: 100%;
         transition: max-width 0.1s;
-        background-image: url('/img/iconos/search_green.svg');
+        background-image: url('/img/iconos/search_verde.svg');
         background-repeat: no-repeat;
-        background-position-x: 10PX;
+        background-position-x: 93%;
         background-position-y: center;
         background-size: 22px;
         white-space: nowrap;
         padding-top: 2px;
-        padding-right: 0px;
-        padding-left: 30px;
-    }
-    .search_togggle {
-        width: 100%;
         padding-left: 0;
-        padding-right: 40px;
-        background-position-x: 97%;
+        padding-right: 52px;
     }
     input {
         display: block;
@@ -95,19 +95,23 @@
         border: none;
         border-radius: 0.25rem;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        &::placeholder { 
+            color: #DBDADA; 
+        }
     }
 }
 // Botones documentos de descarga
 .button__doc_download {
     display: flex;
     justify-content: center;
+    padding: 0;
     button {
         width: 47px;
         height: 44px;
         background-color: #FFFFFF;
         border: 1px solid #DBDADA;
         border-radius: 7px;
-        margin: 0 3px;
+        margin: 0 5px;
         background-repeat: no-repeat;
         background-size: 25px;
         background-position: center;
@@ -256,10 +260,10 @@
 // Fin botón activado y desactivado
 // Botones modales
 .btn_big_green_modal {
-    width: 160px;
-    height: 50px;
+    width: 150px;
+    height: 42px;
     font-family: "Quicksand";
-    font-size: 22px;
+    font-size: 20px;
     color: #FFFFFF;
     background: #019F86;
     border: solid 1px #019F86;
@@ -267,26 +271,51 @@
     padding: 0;
 }
 .btn_big_bord_green_modal {
-    width: 160px;
-    height: 50px;
+    width: 150px;
+    height: 42px;
     font-family: "Quicksand";
-    font-size: 22px;
+    font-size: 20px;
     color: #3E3E3E;
     background: #FFFFFF;
     border: solid 1px #707070;
     border-radius: 5px;
     padding: 0;
 }
+// Botones de formulario agendas
+.button__form_transparent {
+    font-size: 20px;
+    font-weight: 100;
+    color: #3E3E3E !important;
+    background: $withe_official;
+    border: solid 1px #707070;
+    border-radius: 7px;
+    padding: 5px 15px;
+}
+
+.button__form_green {
+    font-size: 20px;
+    font-weight: 100;
+    color: $withe_official;
+    background: $green_official;
+    border: solid 1px $green_official;
+    border-radius: 7px;
+    padding: 5px 15px;
+}
 @media(min-width: 768px) {
     // Botones add
     .button__add_card {
         justify-content: initial;
+        margin-bottom: 27px;
     }
     // Botones de búsqueda
     .button__search_card {
-        .search_togggle {
-            width: 97%;
-            background-position-x: 95%;
+        padding-right: 8px;
+    }
+    // Botones documentos de descarga
+    .button__doc_download {
+        justify-content: flex-end;
+        button {
+            margin: 0 0 0 10px;
         }
     }
     // Botones inferiores (ver más, editar)
@@ -300,11 +329,26 @@
     }
 }
 @media(min-width: 1024px) {
+    // Botones add
+    .button__add_card {
+        margin-bottom: 0;
+    }
     // Botones de búsqueda
     .button__search_card {
+        margin-bottom: 0;
+        button {
+            width: auto;
+            width: 45px;
+            background-position-x: 10PX;
+            padding-top: 2px;
+            padding-right: 0px;
+            padding-left: 30px;
+        }
         .search_togggle {
             width: 100%;
-            background-position-x: 98%;
+            padding-left: 0;
+            padding-right: 50px;
+            background-position-x: 95%;
         }
     }
     // Botones informativos
@@ -315,29 +359,48 @@
             border: none;
             background-color: transparent;
             color: #049372;
-            padding: 0 3px;
+            padding: 0;
+            width: 23px;
+            height: 22px;
             .icon_btn_card_desk {
-                width: 15px;
-                height: 15px;
+                width: 20px;
+                height: 17px;
             }
             &:nth-child(5) {
                 color: #FF3E3E;
             }
         }
     }
+    .button__add_card {
+        align-items: flex-start;
+    }
+    .button__green_card {
+        padding: 10px;
+        font-size: 12px;
+    }
 }
 @media(min-width: 1200px) {
     .button__green_card {
-        padding: 10px 5px;
-        font-size: 13px;
+        padding: 11px;
+        font-size: 12px;
     }
 }
 @media(min-width: 1300px) {
     .button__green_card {
-        padding: 9px 10px;
-        font-size: 14px;
+        padding: 8px;
+        font-size: 15px;
     }
 }
 @media(min-width: 1600px) {
-
+    .button__search_card {
+        .search_togggle {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 50px;
+            background-position-x: 97%;
+        }
+    }
+    .button__green_card {
+        padding: 8px 20px;
+    }
 }

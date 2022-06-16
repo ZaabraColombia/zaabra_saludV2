@@ -98,13 +98,13 @@
 .img__upload {
     display: flex;
     flex-direction: column;
-    width: 170px;
+    width: 130px;
     margin: auto;
     padding: 0;
 }
 .img__upload img {
-    height: 170px;
-    width: 100%;
+    width: 125px;
+    height: 124px;
     border-radius: 100px;
     background: $gray_first;
     border: 1px solid #DBDADA;
@@ -172,9 +172,6 @@
     /// Upload User profile image
     .img__upload {
         width: 150px;
-    }
-    .img__upload img {
-        height: 150px;
     }
     .img__upload input {
         width: 150px;

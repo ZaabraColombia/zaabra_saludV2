@@ -171,42 +171,28 @@
                         <img class="modal_img_float" src="{{ asset('img/menu/avatar.png') }}">
                     </div>
                     <!-- Sección data -->
-                    <div class="mb-lg-4 modal_info_data_open">
+                    <div class="mb-lg-4 pt-md-3 px-md-4 modal_info_data_open">
                         <h4 class="pt-5 pt-lg-4 mb-3 txt_subtitle_modal_card">Información básica</h4>
 
                         <div class="row m-0">
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Nombre:</h4>
                                 <div class="modal_data_user">
                                     <span id="nombre_completo"></span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">NIT:</h4>
                                 <div class="modal_data_user">
                                     <span id="mascara_identificacion"></span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Código del prestador del servicio:</h4>
                                 <div class="modal_data_user">
                                     <span id="sgsss"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">Tipo del contribuyente:</h4>
-                                <div class="modal_data_user">
-                                    <span id="tipo_contribuyente"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Código del convenio:</h4>
-                                <div class="modal_data_user">
-                                    <span id="codigo_convenio"></span>
                                 </div>
                             </div>
 
@@ -218,40 +204,83 @@
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Código del convenio:</h4>
+                                <div class="modal_data_user">
+                                    <span id="codigo_convenio"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Forma de pago:</h4>
                                 <div class="modal_data_user">
                                     <span id="forma_pago"></span>
                                 </div>
                             </div>
 
-                            <div class="col-12 d-lg-block modal_info_user">
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Tipo del contribuyente:</h4>
+                                <div class="modal_data_user">
+                                    <span id="tipo_contribuyente"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 d-md-block modal_info_user">
                                 <h4 class="modal_data_form">Actividad económica:</h4>
-                                <div class="pl-lg-0 modal_data_user">
-                                    <span id="actividad_economica"></span>
+                                <div class="pl-md-0 modal_data_user modal_content_txt">
+                                    <div id="actividad_economica" class="modal_short_text"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="modal_info_data_open">
+                    <div class="pb-md-3 px-md-4 modal_info_data_open">
+                        <div class="col-12 mb-3 px-md-4 d-lg-none dropdown-divider" style="border: 1px solid #DBDADA"></div>
                         <h4 class="txt_subtitle_modal_card my-3">Información de contacto</h4>
 
                         <div class="row m-0">
-                            <div class="col-12 modal_info_user">
+                            <div class="col-md-6 col-lg-12 d-md-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Tipo de establecimiento:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="tipo_establecimiento"></span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-md-6 d-md-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Dirección:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="direccion">Cll 00 # 00 - 00</span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-7 modal_info_user">
+                            <div class="col-md-6 d-md-block d-lg-flex modal_info_user">
+                                <h4 class="modal_data_form">Código postal:</h4>
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
+                                    <span id="codigo_postal"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-block d-lg-flex modal_info_user">
+                                <h4 class="modal_data_form">País:</h4>
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
+                                    <span id="pais"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-block d-lg-flex modal_info_user">
+                                <h4 class="modal_data_form">Departamento:</h4>
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
+                                    <span id="departamento"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-block d-lg-flex modal_info_user">
+                                <h4 class="modal_data_form">Ciudad:</h4>
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
+                                    <span id="ciudad"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Teléfonos:</h4>
                                 <div class="modal_data_user">
                                     <span id="telefono"></span> -
@@ -259,40 +288,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-5 modal_info_user">
-                                <h4 class="modal_data_form">Código postal:</h4>
-                                <div class="modal_data_user">
-                                    <span id="codigo_postal"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">País:</h4>
-                                <div class="modal_data_user">
-                                    <span id="pais"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">Departamento:</h4>
-                                <div class="modal_data_user">
-                                    <span id="departamento"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">Ciudad:</h4>
-                                <div class="modal_data_user">
-                                    <span id="ciudad"></span>
-                                </div>
-                            </div>
-
-                            <div class="col-12 modal_info_user">
+                            {{-- <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Provincia:</h4>
                                 <div class="modal_data_user">
                                     <span id="provincia"></span>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Correo:</h4>
@@ -305,7 +306,7 @@
                 </div>
 
                 <div class="modal_btn_down_center mb-4">
-                    <button type="button" class="modal_btn_green" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="button__form_green" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -345,6 +346,20 @@
     <script>
         $('#search').on('click', function () {
             $('#search').addClass('search_togggle');
+        });
+    </script>
+
+    <!-- Evento mostrar y ocultar un tramo del texto en los servicios-->
+    <script>
+        $("#actividad_economica").on('click', function(){
+            var div = $(this);
+            
+            if (div.hasClass("modal_short_text")){
+                div.removeClass("modal_short_text").addClass("modal_long_text");
+            }
+            else {
+                div.removeClass("modal_long_text").addClass("modal_short_text");
+            }
         });
     </script>
 @endsection

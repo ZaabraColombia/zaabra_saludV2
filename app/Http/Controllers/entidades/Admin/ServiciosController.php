@@ -121,13 +121,23 @@ class ServiciosController extends Controller
             ->addSelect([
                 'especialidad'  => especialidades::query()->select('nombreespecialidad as especialidad')->whereColumn('especialidad_id', 'idEspecialidad')->take(1),
                 'tipo_servicio' => TipoServicio::query()->select('nombre as tipo_servicio')->whereColumn('tipo_servicio_id', 'tipo_servicios.id')->take(1),
-                'cup'           => Cups::query()->selectRaw('concat(cups.code, "-", cups.description) as cup')->whereColumn('codigo_cups', 'cups.code')->take(1),
+                'cup'           => Cups::query()->select('code as cup')->whereColumn('codigo_cups', 'cups.code')->take(1),
             ])
             ->where('id', $servicio)
             ->with([
                 'convenios_lista:id,tipo_documento_id,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido'
             ])
             ->first();
+
+        $servicio->valor = number_format($servicio->valor, 0, ',', '.');
+
+        $servicio->convenios_lista->each(function ($item) {
+            $item->pivot->valor_convenio = number_format($item->pivot->valor_convenio, 0, ',', '.');
+
+            $item->pivot->valor_paciente = number_format($item->pivot->valor_paciente, 0, ',', '.');
+
+            return $item;
+        });
 
         return response([
             'item' => $servicio

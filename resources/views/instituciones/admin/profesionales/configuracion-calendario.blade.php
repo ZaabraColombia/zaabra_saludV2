@@ -32,7 +32,7 @@
                 <div class="container__main_form mb-4">
                     <div id="alert-configurar-calendario"></div>
                     <div class="row">
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 input__box">
                             <label for="disponibilidad_agenda">Tiempo disponibilidad agenda</label>
                             <input type="number" id="disponibilidad_agenda" name="disponibilidad_agenda"
                                     value="{{ old('disponibilidad_agenda', $profesional->disponibilidad_agenda) }}"
@@ -50,7 +50,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 input__box">
                             <label for="num_consultorio">Número de consultorio</label>
                             <input type="number" id="consultorio" name="consultorio"
                                     value="{{ old('consultorio', $profesional->consultorio) }}" class="@error('consultorio') is-invalid @enderror">
