@@ -28763,8 +28763,18 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .img_card_module {
-  width: 57px;
-  height: 56px;
+  width: 63px;
+  height: 62px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.img_card2_module {
+  width: 49px;
+  height: 47px;
   border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -28813,12 +28823,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   box-shadow: 0px 3px 6px #00000029;
 }
 
-@media (min-width: 768px) {
-  .img_card_module {
-    width: 63px;
-    height: 62px;
-  }
-}
 @media (min-width: 1200px) {
   .img_card_module {
     width: 51px;

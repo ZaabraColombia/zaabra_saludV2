@@ -35,24 +35,23 @@
                 </div>
                 <!-- Document action buttons  -->
                 <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
-                    <button class="file_calendar"></button>
-                    <button class="file_excel"></button>
-                    <button class="file_pdf"></button>
-                    <button class="file_printer"></button>
+                    <div class="toolt bottom">
+                        <button class="file_calendar"></button>
+                        <span class="tiptext">Calendario</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Doc. Excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Doc. PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
-              {{--<!-- Pagination buttons -->
-                <div class="col-md-2 col-lg-1 col-xl-1 p-0 mb-4 d-none d-md-flex butons__pagination_card">
-                    @if(!$pacientes->onFirstPage())
-                        <a href="{{ $pacientes->previousPageUrl() }}" class="btn_right_pag_card"></a>
-                    @else
-                        <button disabled class="btn_right_pag_card disabled"></button>
-                    @endif
-                    @if(!$pacientes->onLastPage())
-                        <a href="{{ $pacientes->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                    @else
-                        <button disabled class="btn_left_pag_card disabled"></button>
-                    @endif
-                </div>--}}
             </div>
         </div>
 
@@ -77,16 +76,16 @@
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
-                                    <div class="col-12 mb-md-1 d-none d-lg-flex button__info_card">
+                                    <div class="col-12 d-none d-lg-flex button__info_card">
                                         <button class="btn_icon_card tool top" data-url="" data-toggle="modal" data-target="#modal_see_patient">
-                                            <i data-feather="eye" class="icon_btn_card_desk"></i> <span class="tiptext">Ver paciente</span>
+                                            <i data-feather="eye" class="icon_btn_card_desk"></i> 
+                                            <span class="tiptext">Ver paciente</span>
                                         </button>
                                     </div>
                                     <!-- Image patient -->
-                                    <div class="col-lg-3 p-0 mb-2 d-flex justify-content-center align-self-md-start">
-                                        <img class="img_card_module" src="/img/menu/avatar.png">
+                                    <div class="col-lg-3 p-0 mb-1 mb-lg-1 d-flex justify-content-center align-self-md-start">
+                                        <img class="img_card2_module" src="/img/menu/avatar.png">
                                     </div>
-
                                     <!-- Information patient -->
                                     <div class="col-lg-9 card__data">
                                         <!-- card data top -->
@@ -97,21 +96,21 @@
                                             <div class="mb_card">
                                                 <h5 class="txt_h5_card">{{ $paciente->eps }}</h5>
                                             </div>
-                                            <div class="">
+                                            <div class="mb_card">
                                                 <h6 class="txt_h6_card">{{ $paciente->user->identificacion }}</h6>
                                             </div>
                                         </div>
                                         <!-- Informative buttons mobile-->
-                                        <div class="d-lg-none button__info_card">
+                                        <div class="d-lg-none button__info_card mb_card">
                                             <button class="btn_icon_card tool top" data-url="" data-toggle="modal" data-target="#modal_see_patient">
                                                 <i data-feather="eye" class="icon_btn_card_mobile"></i> 
                                                 <span class="tiptext">Ver paciente</span>
                                             </button>
                                         </div>
                                     </div>
+                                    <div class="col-11 my-2 dropdown-divider"></div>
                                     <!-- card data down -->
                                     <div class="col-12 px-0 px-lg-4 px-xl-3">
-                                        <div class="mt-1 mb-3 dropdown-divider"></div>
                                         <div class="card__data_down">
                                             <div class="mb_card">
                                                 <i data-feather="phone" class="icon_span_green_card"></i>
@@ -138,7 +137,7 @@
                         </div>
                     @else
                         <div class="toolt bottom">
-                            <button disabled class="btn_right_pag_card disabled"></button>
+                            <a disabled class="btn_right_pag_card disabled"></a>
                             <span class="tiptext">Previus</span>
                         </div>
                     @endif
@@ -149,7 +148,7 @@
                         </div>
                     @else
                         <div class="toolt bottom">
-                            <button disabled class="btn_left_pag_card disabled"></button>
+                            <a disabled class="btn_left_pag_card disabled"></a>
                             <span class="tiptext">Next</span>
                         </div>
                     @endif
