@@ -63,25 +63,25 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 col-lg-3 input__box">
                             <label for="primer_nombre">Primer nombre</label>
                             <input type="text" id="primer_nombre" name="primer_nombre" value="{{ old('primer_nombre') }}"
                                    class="@error('primer_nombre') is-invalid @enderror" required/>
                         </div>
 
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 col-lg-3 input__box">
                             <label for="segundo_nombre">Segundo nombre</label>
                             <input type="text" id="segundo_nombre" name="segundo_nombre" value="{{ old('segundo_nombre') }}"
                                    class="@error('segundo_nombre') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 col-lg-3 input__box">
                             <label for="primer_apellido">Primer apellido</label>
                             <input type="text" id="primer_apellido" name="primer_apellido" value="{{ old('primer_apellido') }}"
                                    class="@error('primer_apellido') is-invalid @enderror" required/>
                         </div>
 
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 col-lg-3 input__box">
                             <label for="segundo_apellido">Segundo apellido</label>
                             <input type="text" id="segundo_apellido" name="segundo_apellido" value="{{ old('segundo_apellido') }}"
                                    class="@error('segundo_apellido') is-invalid @enderror" />
@@ -148,7 +148,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-4 mb-3 input__box">
                             <label for="pais_id">País</label>
                             <select id="pais_id" name="pais_id" class="select2 pais @error('pais_id') is-invalid @enderror"
                                     data-departamento="#departamento_id" data-provincia="#provincia_id" data-ciudad="#ciudad_id"
@@ -161,7 +161,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-4 mb-3 input__box">
                             <label for="departamento_id">Departamento</label>
                             {{-- @dd(old('departamento_id'))--}}
                             <select name="departamento_id" id="departamento_id" class="select2 departamento @error('departamento_id') is-invalid @enderror"
@@ -169,7 +169,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-4 mb-3 input__box">
                             <label for="provincia_id">Provincia</label>
                             <select name="provincia_id" id="provincia_id" data-ciudad="#ciudad_id" data-id="{{ old('provincia_id') }}"
                                     class="select2 provincia @error('provincia_id') is-invalid @enderror" required>
@@ -182,7 +182,6 @@
                                     data-id="{{ old('ciudad_id') }}" required>
                             </select>
                         </div>
-
                     </div>
 
                     <!-- Linea división de elementos -->
@@ -194,10 +193,10 @@
                     <div class="row list__form">
                         @if($accesos->isNotEmpty())
                             @foreach($accesos as $acceso)
-                                <div class="col-6 col-md-4 check__box_green">
+                                <div class="col-md-6 col-lg-4 check__box_green">
                                     <input type="checkbox" {{ (collect(old('accesos'))->contains($acceso->id)) ? 'checked':'' }}
                                     value="{{ $acceso->id }}" id="acceso-{{ $acceso->id }}" name="accesos[]">
-                                    <label class="label_check_green" for="acceso-{{ $acceso->id }}">{{ $acceso->nombre }}</label>
+                                    <label class="label_check_green txt_line_height" for="acceso-{{ $acceso->id }}">{{ $acceso->nombre }}</label>
                                 </div>
                             @endforeach
                         @endif
@@ -218,8 +217,7 @@
                             <div class="input-group mb-3">
                                 <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-success password" type="button" data-class="success"
-                                            data-password="#password">
+                                    <button class="btn btn-outline-success password py-0" type="button" data-class="success" data-password="#password">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                 </div>
@@ -232,8 +230,7 @@
                                 <input type="password" id="password_confirmation" name="password_confirmation"
                                        class="form-control @error('password_confirmation') is-invalid @enderror">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-success password" type="button" data-class="success"
-                                            data-password="#password_confirmation">
+                                    <button class="btn btn-outline-success password py-0" type="button" data-class="success" data-password="#password_confirmation">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                 </div>

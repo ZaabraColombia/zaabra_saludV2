@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 col-lg-4 input__box">
+                    <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="tipo_documento">Tipo de Documento</label>
                         <select id="tipo_documento" name="tipo_documento" class="select2 @error('tipo_documento') is-invalid @enderror">
                             <option value=""></option>
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 col-lg-4 input__box">
+                    <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="sexo_biologico">Sexo Biológico</label>
                         <select id="sexo_biologico" name="sexo_biologico" class="select2 @error('sexo_biologico') is-invalid @enderror">
                             <option value=""></option>
@@ -114,7 +114,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-6 col-lg-4 input__box">
+                    <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="estado_civil">Estado Civil</label>
                         <select id="estado_civil" name="estado_civil" class="select2 @error('estado_civil') is-invalid @enderror">
                             <option value=""></option>
@@ -154,7 +154,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-6 input__box">
+                    <div class="col-md-6 mb-3 input__box">
                         <label for="categoria_discapacidad">Categoria de Discapacidad</label>
                         <select id="categoria_discapacidad" name="categoria_discapacidad" class="select2 @error('categoria_discapacidad') is-invalid @enderror">
                             <option value=""></option>
@@ -205,7 +205,7 @@
                         <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"
                                 class="@error('direccion') is-invalid @enderror"/>
                     </div>
-                    <div class="col-md-6 col-lg-4 input__box">
+                    <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="telefono">Teléfono</label>
                         <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
                                 class="tags-input @error('telefono') is-invalid @enderror"/>

@@ -63,25 +63,25 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 col-lg-3 input__box">
                             <label for="primer_nombre">Primer nombre</label>
                             <input type="text" id="primer_nombre" name="primer_nombre" value="{{ old('primer_nombre', $user->primernombre) }}"
                                    class="@error('primer_nombre') is-invalid @enderror" required/>
                         </div>
 
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 col-lg-3 input__box">
                             <label for="segundo_nombre">Segundo nombre</label>
                             <input type="text" id="segundo_nombre" name="segundo_nombre" value="{{ old('segundo_nombre', $user->segundonombre) }}"
                                    class="@error('segundo_nombre') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 col-lg-3 input__box">
                             <label for="primer_apellido">Primer apellido</label>
                             <input type="text" id="primer_apellido" name="primer_apellido" value="{{ old('primer_apellido', $user->primerapellido) }}"
                                    class="@error('primer_apellido') is-invalid @enderror" required/>
                         </div>
 
-                        <div class="col-md-3 input__box">
+                        <div class="col-md-6 col-lg-3 input__box">
                             <label for="segundo_apellido">Segundo apellido</label>
                             <input type="text" id="segundo_apellido" name="segundo_apellido" value="{{ old('segundo_apellido', $user->segundoapellido) }}"
                                    class="@error('segundo_apellido') is-invalid @enderror" />
@@ -194,7 +194,7 @@
                     <div class="row list__form">
                         @if($accesos->isNotEmpty())
                             @foreach($accesos as $acceso)
-                                <div class="col-12 col-md-6 col-xl-4 check__box_green">
+                                <div class="col-md-6 col-xl-4 check__box_green">
                                     <input type="checkbox" {{ (collect(old('accesos', $accesosUsuario))->contains($acceso->id)) ? 'checked':'' }}
                                            value="{{ $acceso->id }}" id="acceso-{{ $acceso->id }}" name="accesos[]">
                                     <label class="label_check_green" for="acceso-{{ $acceso->id }}">{{ $acceso->nombre }}</label>

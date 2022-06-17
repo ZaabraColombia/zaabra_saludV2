@@ -528,6 +528,11 @@ $lines: 1;
     cursor: pointer;
 }
 // Fin recorte de texto
+.convenio_scroll {
+    min-height: 1px;
+    max-height: 300px;
+    overflow: auto;
+}
 @media(min-width: 768px) {
     .modal_container {
         .modal-body .modal_medio_pago .info_medio_pago {  
@@ -613,6 +618,36 @@ $lines: 1;
     .modal__ .modal_btn_down_center {
         flex-direction: row;
     }
+        // Sección convenios vinculados modulo servicios Desktop
+        .convenio_vinculado:nth-child(1n+2) {
+            border-top: none;
+        }
+        .convenio_vinculado:nth-child(1) {
+            border-right: 2px solid #DBDADA;
+            border-bottom: 2px solid #DBDADA;
+        }
+        .convenio_vinculado:nth-child(2) {
+            border-bottom: 2px solid #DBDADA;
+        }
+        .convenio_vinculado:nth-child(3) {
+            border-right: 2px solid #DBDADA;
+        }
+        .convenio_vinculado:nth-child(4) {
+            border: none;
+        }
+    
+        .convenio_vinculado:nth-child(2n+5) {
+            border-top: 2px solid #DBDADA;
+            border-right: 2px solid #DBDADA;
+        }
+        .convenio_vinculado:nth-child(2n+6) {
+            border-top: 2px solid #DBDADA;
+        }
+        .convenio_scroll {
+            max-height: 286px;
+            overflow: auto;
+        }
+        // Fin sección convenios vinculados
 }
 
 @media(min-width: 1024px) {
@@ -638,31 +673,8 @@ $lines: 1;
     .pill_data {
         width: 30%;
     }
-
-    // Sección convenios vinculados modulo servicios Desktop
-    .convenio_vinculado:nth-child(1n+2) {
-        border-top: none;
+    .convenio_scroll {
+        max-height: 192px;
+        overflow: auto;
     }
-    .convenio_vinculado:nth-child(1) {
-        border-right: 2px solid #DBDADA;
-        border-bottom: 2px solid #DBDADA;
-    }
-    .convenio_vinculado:nth-child(2) {
-        border-bottom: 2px solid #DBDADA;
-    }
-    .convenio_vinculado:nth-child(3) {
-        border-right: 2px solid #DBDADA;
-    }
-    .convenio_vinculado:nth-child(4) {
-        border: none;
-    }
-
-    .convenio_vinculado:nth-child(2n+5) {
-        border-top: 2px solid #DBDADA;
-        border-right: 2px solid #DBDADA;
-    }
-    .convenio_vinculado:nth-child(2n+6) {
-        border-top: 2px solid #DBDADA;
-    }
-    // Fin sección convenios vinculados
 }
