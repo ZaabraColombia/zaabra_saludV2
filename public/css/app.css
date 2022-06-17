@@ -27094,6 +27094,16 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding-right: 0;
   }
 }
+.txt_label_form {
+  font-size: 14px;
+  color: #3E3E3E;
+  margin-bottom: 4px;
+}
+
+.txt_input_form {
+  font-size: 12px !important;
+}
+
 .input__box label {
   font-size: 14px;
   color: #3E3E3E;
@@ -27104,8 +27114,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
-  margin-bottom: 15px;
-  font-size: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
   color: #434343;
@@ -27440,6 +27450,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 @media (min-width: 768px) {
+  .txt_label_form {
+    font-size: 18px;
+  }
+
+  .txt_input_form {
+    font-size: 16px !important;
+  }
+
   .input__box label {
     font-size: 18px;
   }
@@ -27459,6 +27477,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 }
 @media (min-width: 1440px) {
+  .txt_label_form {
+    font-size: 18px;
+  }
+
+  .txt_input_form {
+    font-size: 16px !important;
+  }
+
   .input__box label {
     font-size: 18px;
   }

@@ -91,8 +91,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-lg-4 input__box">
-                            <label for="tipo_documento_id">Tipo de documento</label>
+                        <div class="col-md-6 col-lg-4 mb-3 input__box">
+                            <label class="txt_label_form" for="tipo_documento_id">Tipo de documento</label>
                             <select id="tipo_documento_id" name="tipo_documento_id" class="select2 @error('tipo_documento_id') is-invalid @enderror">
                                 @if($tipo_documentos->isNotEmpty())
                                     @foreach($tipo_documentos as $tipo)
@@ -116,14 +116,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-lg-4 input__box">
-                            <label for="telefono">Teléfono</label>
+                        <div class="col-md-6 col-lg-4 mb-3 input__box">
+                            <label class="txt_label_form" for="telefono">Teléfono</label>
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
                                     class="input_box_form tags-input @error('telefono') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-6 col-lg-4 input__box">
-                            <label for="celular">Móvil</label>
+                        <div class="col-md-6 col-lg-4 mb-3 input__box">
+                            <label class="txt_label_form" for="celular">Móvil</label>
                             <input type="text" id="celular" name="celular" value="{{ old('celular') }}"
                                     class="input_box_form tags-input @error('celular') is-invalid @enderror"/>
                         </div>
@@ -153,8 +153,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-lg-4 input__box">     <!--menu dinamico ciudades -->
-                            <label for="pais_id">País</label>
+                        <div class="col-md-6 col-lg-4 mb-3 input__box">     <!--menu dinamico ciudades -->
+                            <label class="txt_label_form" for="pais_id">País</label>
                             <select id="pais_id" name="pais_id" class="@error('pais_id') is-invalid @enderror">
                                 @if($paises->isNotEmpty())
                                     @foreach($paises as $pais)
@@ -164,9 +164,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 col-lg-4 input__box">
+                        <div class="col-md-6 col-lg-4 mb-3 input__box">
                             @php $departamento = (old('departamento_id') === null)?null:\App\Models\departamento::query()->where('id_departamento', old('departamento_id'))->first()@endphp
-                            <label for="departamento_id">Departamento</label>
+                            <label class="txt_label_form" for="departamento_id">Departamento</label>
                             {{-- @dd(old('departamento_id'))--}}
                             <select name="departamento_id" id="departamento_id" class="@error('departamento_id') is-invalid @enderror">
                                 @if(!empty($departamento))
@@ -175,9 +175,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 col-lg-4 input__box">
+                        <div class="col-md-6 col-lg-4 mb-3 input__box">
                             @php $provincia = (old('provincia_id') === null)?null:\App\Models\provincia::query()->where('id_provincia', old('provincia_id'))->first()@endphp
-                            <label for="provincia_id">Provincia</label>
+                            <label class="txt_label_form" for="provincia_id">Provincia</label>
                             <select name="provincia_id" id="provincia_id" class="@error('provincia_id') is-invalid @enderror">
                                 @if(!empty($provincia))
                                     <option value="{{ $provincia->id_provincia }}" selected>{{ $provincia->nombre }}</option>
@@ -185,9 +185,9 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 col-lg-4 input__box">
+                        <div class="col-md-6 col-lg-4 mb-3 input__box">
                             @php $ciudad = (old('ciudad_id') === null)?null:\App\Models\municipio::query()->where('id_municipio', old('ciudad_id'))->first()@endphp
-                            <label for="ciudad_id">Ciudad</label>
+                            <label class="txt_label_form" for="ciudad_id">Ciudad</label>
                             <select name="ciudad_id" id="ciudad_id" class="@error('ciudad_id') is-invalid @enderror">
                                 @if(!empty($ciudad))
                                     <option value="{{ $ciudad->id_municipio }}" selected>{{ $ciudad->nombre }}</option>
@@ -196,7 +196,7 @@
                         </div>
 
                         <div class="col-md-6 col-lg-4 input__box">
-                            <label for="direccion">Dirección</label>
+                            <label class="txt_label_form" for="direccion">Dirección</label>
                             <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"
                                     class="@error('direccion') is-invalid @enderror"/>
                         </div>
@@ -270,8 +270,7 @@
                             <div class="input-group mb-3">
                                 <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-success password py-0" type="button" data-class="success"
-                                            data-password="#password">
+                                    <button class="btn btn-outline-success password py-0" type="button" data-class="success" data-password="#password">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                 </div>
@@ -284,8 +283,7 @@
                                 <input type="password" id="password_confirmation" name="password_confirmation"
                                         class="form-control @error('password_confirmation') is-invalid @enderror">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-success password py-0" type="button" data-class="success"
-                                            data-password="#password_confirmation">
+                                    <button class="btn btn-outline-success password py-0" type="button" data-class="success" data-password="#password_confirmation">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                 </div>
