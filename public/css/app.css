@@ -22577,6 +22577,11 @@ a:hover {
   cursor: pointer;
 }
 
+.convenio_scroll {
+  height: 300px;
+  overflow: auto;
+}
+
 @media (min-width: 768px) {
   .modal_container .modal-body .modal_medio_pago .info_medio_pago img {
     width: 100px;
@@ -22693,6 +22698,11 @@ a:hover {
 
   .convenio_vinculado:nth-child(2n+6) {
     border-top: 2px solid #DBDADA;
+  }
+
+  .convenio_scroll {
+    height: 180px;
+    overflow: auto;
   }
 }
 .search_main_container {
@@ -26918,13 +26928,13 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   width: 130px;
 }
 .table_agenda tbody tr td .input__box .signo_peso {
-  height: calc(1.6em + 0.75rem + 3px);
+  height: auto;
   background-color: #e0e4e7;
   color: #019f86;
   font-weight: bold;
   border-radius: 5px 0 0 5px;
   border: 1px solid #e0e4e7;
-  padding: 5px 10px;
+  padding: 0 10px;
   display: flex;
   align-content: center;
 }
@@ -27503,6 +27513,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     height: 20px;
   }
 }
+@media (min-width: 1440px) {
+  .citas_activas {
+    width: 30% !important;
+  }
+}
 @media (min-width: 1920px) {
   .citas_activas {
     width: 40% !important;
@@ -27838,6 +27853,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
 .modalidad {
   text-transform: uppercase;
+}
+
+.txt_line_height {
+  line-height: initial;
 }
 
 @media (min-width: 768px) {

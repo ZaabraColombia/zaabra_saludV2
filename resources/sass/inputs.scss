@@ -456,6 +456,11 @@
     }
 }
 
+@media(min-width: 1440px) {
+    .citas_activas {
+        width: 30% !important;
+    }
+}
 
 @media(min-width: 1920px) {
     .citas_activas {

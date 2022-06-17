@@ -528,6 +528,10 @@ $lines: 1;
     cursor: pointer;
 }
 // Fin recorte de texto
+.convenio_scroll {
+    height: 300px;
+    overflow: auto;
+}
 @media(min-width: 768px) {
     .modal_container {
         .modal-body .modal_medio_pago .info_medio_pago {  
@@ -663,6 +667,10 @@ $lines: 1;
     }
     .convenio_vinculado:nth-child(2n+6) {
         border-top: 2px solid #DBDADA;
+    }
+    .convenio_scroll {
+        height: 180px;
+        overflow: auto;
     }
     // Fin sección convenios vinculados
 }

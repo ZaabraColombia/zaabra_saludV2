@@ -86,6 +86,9 @@
 .modalidad {
     text-transform: uppercase;
 }
+.txt_line_height {
+    line-height: initial;
+}
 // Media query (Responsive)
 @media(min-width: 768px) {
     .fs_title {

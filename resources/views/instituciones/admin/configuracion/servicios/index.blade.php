@@ -248,7 +248,7 @@
                     <div class="mb-4 modal_info_data_open row__convenio">
                         <h4 class="txt_subtitle_modal_card mb-3">Convenios vinculados</h4>
                      
-                        <div class="row m-0" id="convenios-lista"></div>
+                        <div class="row m-0 convenio_scroll" id="convenios-lista"></div>
                     </div>
                 </div>
 

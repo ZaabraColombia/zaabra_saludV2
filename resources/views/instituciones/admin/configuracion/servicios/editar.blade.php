@@ -79,13 +79,9 @@
 
                         <div class="col-md-4 input__box">
                             <label for="valor">Valor</label>
-
-
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend signo_peso">
-                                    <span class="input-group-text">
-                                        $
-                                    </span>
+                                    <span class="input-group-text py-0">$</span>
                                 </div>
                                 <input type="text" id="valor" name="valor" value="{{ old('valor', $servicio->valor) }}"
                                        class="form-control mask-money @error('valor') is-invalid @enderror"/>
@@ -94,7 +90,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 input__box">
+                        <div class="col-lg-6 input__box">
                             <label for="tipo_servicio_id">Tipo de servicio</label>
                             <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id">
                                 <option></option>
@@ -106,8 +102,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-8 input__box">
-
+                        <div class="col-lg-6 mb-3 input__box">
                             @php $codigo_cups = old('codigo_cups', $servicio->codigo_cups); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
                             <label for="codigo_cups">CUPS</label>
                             <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups">
@@ -119,13 +114,13 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-7 col-xl-5 d-flex justify-content-between align-self-end input__box">
-                            <label class="align-self-center" for="citas_activas">Número de citas activas por paciente</label>
+                        <div class="col-md-7 col-lg-6 py-3 d-flex justify-content-between align-items-center align-items-md-end input__box">
+                            <label class="m-0 txt_line_height" for="citas_activas">Número de citas activas por paciente</label>
                             <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas', $servicio->citas_activas) }}"
-                                   class="citas_activas @error('citas_activas') is-invalid @enderror"/>
+                                   class="m-0 citas_activas @error('citas_activas') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-5 col-xl-7 input__box pl-md-0">
+                        <div class="col-md-5 col-lg-6 input__box pl-md-0">
                             <label for="tipo_atencion">Tipo de atención</label>
                             <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion">
                                 <option></option>
@@ -136,31 +131,33 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12 d-flex">
-                            <label class="mt-2">Agendamiento virtual</label>&nbsp;
+                        <div class="col-12 py-3 d-flex align-items-center">
+                            <label class="m-0 txt_label_form txt_line_height">Agendamiento virtual</label>&nbsp;
                             <!-- Check box interactivo y personalizado -->
                             <div class="checkbox">
                                 <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual"
                                        value="1" {{ old('agendamiento_virtual', $servicio->agendamiento_virtual) == 1 ? 'checked':'' }}>
-                                <label class="label_check" for="agendamiento_virtual">
+                                <label class="label_check m-0" for="agendamiento_virtual">
                                     <b class="txt1">Desactivado</b>
                                     <b class="txt2">Activado</b>
                                 </label>
                             </div>
                         </div>
+
                         <div class="col-12 input__box">
                             <label for="descripcion">Descripción</label>
                             <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
                                       rows="5">{{ old('descripcion', $servicio->descripcion) }}</textarea>
                         </div>
+
                         <div class="col-12">
-                            <div class="d-flex align-items-center mt-3 py-2" style="background: #eff3f3;padding-left: 10px;">
+                            <div class="d-flex align-items-center mt-4 py-2 pl-2" style="background: #eff3f3;">
                                 <p class="fs_text_small black_light">Vincular convenios</p>
-                                <input class="ml-4 mr-2" type="radio" name="convenios" id="convenios-1"
+                                <input class="ml-4 mr-2 check__radio" type="radio" name="convenios" id="convenios-1"
                                        value="1" {{ (old('convenios', $servicio->convenios) == 1) ? 'checked':'' }}/>
                                 <label class="fs_text_small black_light mb-0" for="convenios-1">Si</label>
 
-                                <input class="ml-4 mr-2" type="radio" name="convenios" id="convenios-0"
+                                <input class="ml-4 mr-2 check__radio" type="radio" name="convenios" id="convenios-0"
                                        value="0" {{ (old('convenios', $servicio->convenios) == 0) ? 'checked':'' }}/>
                                 <label class="fs_text_small black_light mb-0" for="convenios-0">No</label>
                             </div>
@@ -189,21 +186,21 @@
                                         <tr>
                                             <td class="check__box_green">
                                                 <input type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
-                                                <label class="label_check_green" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
+                                                <label class="label_check_green txt_line_height" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
                                                 <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
                                             </td>
                                             <td>
                                                 <div class="input__box">
                                                     <div class="signo_peso"><span>$</span></div>
                                                     <input type="text" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
-                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="valor-paciente mask-money @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
+                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="m-0 valor-paciente mask-money @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="input__box">
                                                     <div class="signo_peso"><span>$</span></div>
                                                     <input type="text" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
-                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="valor-convenio mask-money @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
+                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="m-0 valor-convenio mask-money @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
                                                 </div>
                                             </td>
                                         </tr>
