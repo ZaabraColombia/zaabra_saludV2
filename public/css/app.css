@@ -22578,7 +22578,8 @@ a:hover {
 }
 
 .convenio_scroll {
-  height: 300px;
+  min-height: 1px;
+  max-height: 300px;
   overflow: auto;
 }
 
@@ -22644,31 +22645,6 @@ a:hover {
   .modal__ .modal_btn_down_center {
     flex-direction: row;
   }
-}
-@media (min-width: 1024px) {
-  .modal__ .modal_btn_down_center .modal_btn_green {
-    font-size: 24px;
-  }
-
-  .disp_txt_modal_card {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .modal_info_data_open {
-    border: 1px solid #DBDADA;
-    border-radius: 7px;
-    padding: 25px !important;
-  }
-
-  .row__convenio {
-    border: none !important;
-    padding: 0 !important;
-  }
-
-  .pill_data {
-    width: 30%;
-  }
 
   .convenio_vinculado:nth-child(1n+2) {
     border-top: none;
@@ -22701,7 +22677,37 @@ a:hover {
   }
 
   .convenio_scroll {
-    height: 180px;
+    max-height: 286px;
+    overflow: auto;
+  }
+}
+@media (min-width: 1024px) {
+  .modal__ .modal_btn_down_center .modal_btn_green {
+    font-size: 24px;
+  }
+
+  .disp_txt_modal_card {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .modal_info_data_open {
+    border: 1px solid #DBDADA;
+    border-radius: 7px;
+    padding: 25px !important;
+  }
+
+  .row__convenio {
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .pill_data {
+    width: 30%;
+  }
+
+  .convenio_scroll {
+    max-height: 192px;
     overflow: auto;
   }
 }

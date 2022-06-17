@@ -80,26 +80,26 @@
                     </div>
                     <!-- Data del formulario -->
                     <div class="row">
-                        <div class="col-md-4 input__box">
+                        <div class="col-12 input__box">
                             <label for="correo">Correo electrónico</label>
                             <input type="email" id="correo" name="correo" value="{{ old('correo') }}"
                                 class="@error('primer_nombre') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-6 input__box">
                             <label for="telefono">Teléfono 1</label>
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono') }}"
                                 class="tags-input @error('telefono') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-4 input__box">
+                        <div class="col-md-6 input__box">
                             <label for="celular">Teléfono 2</label>
                             <input type="text" id="celular" name="celular" value="{{ old('celular') }}"
                                 class="tags-input @error('celular') is-invalid @enderror"/>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 input__box">
+                        <div class="col-lg-6 input__box">
                             <label for="ciudad">Ciudad / Municipio de Residencia</label>
                             <input type="text" id="ciudad" name="ciudad" value="{{ old('ciudad') }}"
                                 class="@error('ciudad') is-invalid @enderror"/>

@@ -245,10 +245,10 @@
                         </div>
                     </div>
 
-                    <div class="mb-4 modal_info_data_open row__convenio">
+                    <div class="modal_info_data_open row__convenio">
                         <h4 class="txt_subtitle_modal_card mb-3">Convenios vinculados</h4>
                      
-                        <div class="row m-0 convenio_scroll" id="convenios-lista"></div>
+                        <div class="row m-0 mb-md-3 convenio_scroll" id="convenios-lista"></div>
                     </div>
                 </div>
 
@@ -334,7 +334,7 @@
                 $('#convenios-lista').html('');
                 $.each(response.item.convenios_lista, function (key, item) {
                     $('#convenios-lista').append(
-                        '<div class="col-lg-6 p-0 py-2 convenio_vinculado">' +
+                        '<div class="col-md-6 p-0 py-2 convenio_vinculado">' +
                             '<div class="row m-0">' +
                                 '<div class="col-12 col-lg-3 p-0 mb-2 pl-lg-1 disp_img_modal_card">' +
                                     '<img class="img_section_modal" src="/img/menu/avatar.png">' +  
