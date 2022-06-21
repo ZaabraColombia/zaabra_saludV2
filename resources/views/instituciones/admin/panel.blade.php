@@ -14,6 +14,7 @@
                     </div>
                 @endif
             </div>
+            
             <div class="col-12 col-lg-9 px-0 m-0">
                 <!-- Contenedor barra de búsqueda -->
                 <div class="search_main_container mb-4">

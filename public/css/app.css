@@ -22737,10 +22737,24 @@ a:hover {
   background-color: #F9F9F9;
   width: 55px;
   border-radius: 0 14px 14px 0;
-  color: #019f86;
   border: 1px solid #DBDADA;
   border-left: none;
   background-image: url("/img/iconos/search_verde.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.search_main_container .btnIn_search_blue {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  height: 100%;
+  border: none;
+  background-color: #F9F9F9;
+  width: 55px;
+  border-radius: 0 14px 14px 0;
+  border: 1px solid #DBDADA;
+  border-left: none;
+  background-image: url("/img/iconos/search_azul.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -22779,76 +22793,6 @@ a:hover {
   border-left: 3px solid #1a6395;
   border-bottom: 3px solid #1a6395;
   color: #FFFFFF;
-}
-
-.calendario_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_calendario_azul.png");
-}
-.calendario_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_calendario_blanco.png");
-}
-
-.cita_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_citas_azul.png");
-}
-.cita_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_citas_blanco.png");
-}
-
-.pago_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pagos_azul.png");
-}
-.pago_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pagos_blanco.png");
-}
-
-.paciente_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png");
-}
-.paciente_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_blanco.png");
-}
-
-.contacto_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_contactos_azul.png");
-}
-.contacto_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_contactos_blanco.png");
-}
-
-.favorito_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_favoritos_azul.png");
-}
-.favorito_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_favoritos_blanco.png");
-}
-
-.profesional_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_azul.png");
-}
-.profesional_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_blanco.png");
-}
-
-.convenio_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_convenios_azul.png");
-}
-.convenio_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_convenios_blanco.png");
-}
-
-.servicio_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_servicios_azul.png");
-}
-.servicio_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_servicios_blanco.png");
-}
-
-.usuario_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_usuarios_azul.png");
-}
-.usuario_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_usuarios_blanco.png");
 }
 
 .content__logos {
@@ -28778,6 +28722,46 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
 .icon__favo_green {
   background-image: url("/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png");
+}
+
+.calendario_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_calendario_azul.png");
+}
+
+.cita_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_citas_azul.png");
+}
+
+.pago_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pagos_azul.png");
+}
+
+.paciente_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png");
+}
+
+.contacto_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_contactos_azul.png");
+}
+
+.favorito_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_favoritos_azul.png");
+}
+
+.profesional_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_azul.png");
+}
+
+.convenio_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_convenios_azul.png");
+}
+
+.servicio_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_servicios_azul.png");
+}
+
+.usuario_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_usuarios_azul.png");
 }
 
 .icon_span_card {
