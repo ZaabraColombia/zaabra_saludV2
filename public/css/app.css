@@ -29067,6 +29067,17 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .sidebar_body .submenu_green a:hover {
   color: #019F86;
 }
+.sidebar_body .submenu_blue {
+  padding-left: 45px;
+}
+.sidebar_body .submenu_blue .submenu-item {
+  font-size: 12px;
+  padding-top: 10px;
+  list-style: none;
+}
+.sidebar_body .submenu_blue a:hover {
+  color: #0083D6;
+}
 
 .item__green button {
   font-size: 14px;
@@ -29112,57 +29123,41 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding-right: 0.5rem;
 }
 
-.sidebar-wrapper .menu .items_blue button {
-  font-size: 16px;
+.item__blue button {
+  font-size: 14px;
   font-family: "Quicksand";
   margin: 0;
-  padding: 7px 0 7px 25px;
-  width: 180px;
+  padding: 7px 0 7px 20px;
+  width: 100%;
   background: transparent;
-  border-radius: 5px;
   border: none;
   text-align: initial;
 }
-.sidebar-wrapper .menu .items_blue button:hover {
+.item__blue button:hover {
   background: #0083D6;
   color: #FFFFFF;
-  border-radius: 5px;
 }
-.sidebar-wrapper .menu .items_blue button:focus {
+.item__blue button:focus {
   background: #0083D6;
   color: #FFFFFF;
-  border-radius: 5px;
 }
-.sidebar-wrapper .menu .items_logos_blue button {
+
+.item__logo_blue button {
   margin: 0;
-  width: 180px;
+  width: 100%;
   background: transparent;
-  border-radius: 5px;
   border: none;
 }
-.sidebar-wrapper .menu .items_logos_blue button:hover {
+.item__logo_blue button:hover {
   background: #cde6f3;
-  border-radius: 5px;
 }
 
-.btn_active {
+.item_blue_activ {
   background: #0083D6 !important;
   color: #FFFFFF !important;
-  border-radius: 5px;
 }
 
-.sidebar-wrapper .menu .sub_menu_blue {
-  padding-left: 45px;
-}
-.sidebar-wrapper .menu .sub_menu_blue .submenu-item {
-  padding-top: 10px;
-  list-style: none;
-}
-.sidebar-wrapper .menu .sub_menu_blue a:hover {
-  color: #0083D6;
-}
-
-.txt_active_blue {
+.subitem_blue_activ {
   color: #0083D6 !important;
   text-decoration: none;
 }

@@ -10,7 +10,7 @@
                 <div class="user_data">
                     <h2 style="color: #019F86">{{ $user->nombre_completo ?? $user->nombreinstitucion }}</h2>
                     <div class="cont_text">
-                    <span>{{ $user->email }}</span>
+                        <span>{{ $user->email }}</span>
                     </div>
                 </div>
             </a>

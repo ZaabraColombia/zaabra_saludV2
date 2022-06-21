@@ -70,6 +70,17 @@
             color: $green_official;
         }
     }
+    .submenu_blue {
+        padding-left: 45px;
+        .submenu-item {
+            font-size: 12px;
+            padding-top: 10px;
+            list-style: none;
+        }
+        a:hover {
+            color: $blue_official;
+        }
+    }
 }
 // Item VERDE
 .item__green button {
@@ -117,64 +128,45 @@
         padding-right: .5rem;
     }
 }
-
-//+++++++++++++++++++++++ Item AZUL agenda profesionales ++++++++++++++++++
-// Items del menú lateral profesionales
-.sidebar-wrapper .menu {
-    .items_blue button {
-        font-size: 16px;
-        font-family: 'Quicksand';
-        margin: 0;
-        padding: 7px 0 7px 25px;
-        width: 180px;
-        background: transparent;
-        border-radius: 5px;
-        border: none;
-        text-align: initial;
-        &:hover {
-            background: $blue_official;
-            color: $withe_official;
-            border-radius: 5px;
-        }
-        &:focus {
-            background: $blue_official;
-            color: $withe_official;
-            border-radius: 5px;
-        }
+// Item BLUE
+.item__blue button {
+    font-size: 14px;
+    font-family: 'Quicksand';
+    margin: 0;
+    padding: 7px 0 7px 20px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    text-align: initial;
+    &:hover {
+        background: $blue_official;
+        color: $withe_official;
     }
-    .items_logos_blue button { 
-        margin: 0;
-        width: 180px;
-        background: transparent;
-        border-radius: 5px;
-        border: none;
-        &:hover {
-            background: #cde6f3;
-            border-radius: 5px;
-        }
+    &:focus {
+        background: $blue_official;
+        color: $withe_official;
     }
 }
-.btn_active {
+// Item logo BLUE
+.item__logo_blue button { 
+    margin: 0;
+    width: 100%;
+    background: transparent;
+    border: none;
+    &:hover {
+        background: #cde6f3;
+    }
+}
+// Item BLUE ACTIVO
+.item_blue_activ {
     background: $blue_official !important;
     color: $withe_official !important;
-    border-radius: 5px;
 }
-// Items del submenu menú lateral PROFESIONAL Y PACIENTES
-.sidebar-wrapper .menu .sub_menu_blue {
-    padding-left: 45px;
-    .submenu-item {
-        padding-top: 10px;
-        list-style: none;
-    }
-    a:hover {
-        color: $blue_official;
-    }
-}
-.txt_active_blue {
+// Subitem BLUE ACTIVO
+.subitem_blue_activ {
     color: $blue_official !important;
     text-decoration: none;
 }
-//+++++++++++++++++++++ Fin Item AZUL agenda profesionales ++++++++++++++++
 
 @media(min-width: 768px) {
     // Contenedor menú interno
