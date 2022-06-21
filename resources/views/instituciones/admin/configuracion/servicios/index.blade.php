@@ -334,7 +334,7 @@
                 $('#convenios-lista').html('');
                 $.each(response.item.convenios_lista, function (key, item) {
                     $('#convenios-lista').append(
-                        '<div class="col-md-6 p-0 py-2 convenio_vinculado">' +
+                        '<div id="cov" class="col-md-6 p-0 py-2 convenio_vinculado">' +
                             '<div class="row m-0">' +
                                 '<div class="col-12 col-lg-3 p-0 mb-2 pl-lg-1 disp_img_modal_card">' +
                                     '<img class="img_section_modal" src="/img/menu/avatar.png">' +  
