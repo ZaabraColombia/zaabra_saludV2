@@ -180,29 +180,44 @@
         </div>
     </div>
 
-    <!-- Modal  Eliminar horario -->
-    <div class="modal fade" id="modal_eliminar_horario" tabindex="-1" >
+    <!-- Modal delete contac -->
+    <div class="modal fade" id="modal_eliminar_horario" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
-            <div class="modal-content modal_container">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-                    <h1>Eliminar horario</h1>
-
-                    <div class="eliminar_horario">
-                        <i data-feather="trash-2" class="trash_2"></i>
-                        <h3>Desea eliminar el horario</h3>
+            <div class="modal-content modal__">
+                <!-- Modal header -->
+                <div class="modal-header row m-0 px-3 pl-lg-4">
+                    <div class="col-12 p-0">
+                        <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
+                            <span class="modal_x_close" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Título principal -->
+                    <div class="col-12 modal_main_title">
+                        <h1 class="modal_title_green text-center">Eliminar horario</h1>
                     </div>
                 </div>
-
-                <div class="modal-footer content_btn_center">
-                    <button type="button" class="button_transparent btn-eliminar-horario" data-status="0">Cancelar</button>
-                    <button type="submit" class="button_blue btn-eliminar-horario" data-status="1">Confirmar</button>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="modal__content_icon mb-3">
+                        <i data-feather="trash-2" class="icon_delete_modal"></i>
+                    </div>
+                    <h5 class="txt_h5_regular_modal">¿Está seguro de eliminar el horario?</h5>
                 </div>
+
+                <!-- Delete and cancel buttons -->
+                <form method="post" id="form-contacto-eliminar" class="forms">
+                    @csrf
+                    @method('delete')
+                    <div class="row m-0 mt-md-3 mb-5 d-block d-md-flex justify-content-center">
+                        <div class="col-12 col-md-4 p-0 mb-3 mb-md-0 button__down_card">
+                            <button type="submit" class="btn_big_green_modal">Eliminar</button>
+                        </div>
+
+                        <div class="col-12 col-md-4 p-0 button__down_card">
+                            <button type="button" class="btn_big_bord_green_modal" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

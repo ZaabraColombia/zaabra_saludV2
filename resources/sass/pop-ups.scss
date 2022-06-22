@@ -490,14 +490,6 @@
     justify-content: center;
     align-items: center;
 }
-// Seccción convenios vinculados modulo servicios Mobile
-.convenio_vinculado:nth-child(1) {
-    border: none;
-}
-.convenio_vinculado:nth-child(1n+2) {
-    border-top: 2px solid #DBDADA;
-}
-// Fin sección convenios vinculados
 // Propiedades de recorte y anexo de puntos suspensivos en determinada línea de un texto
 .modal_content_txt {
     width: 100%;
@@ -528,11 +520,22 @@ $lines: 1;
     cursor: pointer;
 }
 // Fin recorte de texto
+// Seccción convenios vinculados modulo servicios Mobile
 .convenio_scroll {
     min-height: 1px;
-    max-height: 300px;
+    max-height: 345px;
     overflow: auto;
 }
+.convenio_vinculado {
+    margin-bottom: 15px;
+    padding: 0;
+}
+.card__conven {
+    border: 1px solid #DBDADA;
+    border-radius: 7px;
+    padding: 15px 0;
+}
+// Fin sección convenios vinculados
 @media(min-width: 768px) {
     .modal_container {
         .modal-body .modal_medio_pago .info_medio_pago {  
@@ -618,43 +621,18 @@ $lines: 1;
     .modal__ .modal_btn_down_center {
         flex-direction: row;
     }
-        // Sección convenios vinculados modulo servicios Desktop
-        .convenio_vinculado:nth-child(1n+2) {
-            border-top: none;
-        }
-        .convenio_vinculado:nth-child(odd) { // impar
-            border-right: 2px solid #DBDADA;
-        }
-        // .convenio_vinculado_:nth-child(1n+2) {
-        //     border-top: 2px solid #DBDADA;
-        // }
-        // .convenio_vinculado:nth-child(1) {
-        //     border-right: 2px solid #DBDADA;
-        //     border-bottom: 2px solid #DBDADA;
-        // }
-        // .convenio_vinculado:nth-child(2) {
-        //     border-bottom: 2px solid #DBDADA;
-        // }
-        // .convenio_vinculado:nth-child(3) {
-        //     border-right: 2px solid #DBDADA;
-        //     // border-bottom: 2px solid #DBDADA;
-        // }
-        // .convenio_vinculado:nth-child(4) {
-        //     border-bottom: 2px solid #DBDADA;
-        // }
-    
-        // .convenio_vinculado:nth-child(2n+5) {
-        //     border-top: 2px solid #DBDADA;
-        //     border-right: 2px solid #DBDADA;
-        // }
-        // .convenio_vinculado:nth-child(2n+6) {
-        //     border-top: 2px solid #DBDADA;
-        // }
-        .convenio_scroll {
-            max-height: 286px;
-            overflow: auto;
-        }
-        // Fin sección convenios vinculados
+    // Seccción convenios vinculados modulo servicios Desktop
+    // .convenio_scroll {
+    //     max-height: 286px;
+    //     overflow: auto;
+    // }
+    .convenio_vinculado:nth-child(odd) { // impar
+        padding-right: 15px;
+    }
+    .convenio_vinculado:nth-child(even) { // par
+        padding-left: 15px;
+    }
+    // Fin sección convenios vinculados
 }
 
 @media(min-width: 1024px) {
@@ -687,7 +665,12 @@ $lines: 1;
     }
  
     .convenio_scroll {
-        max-height: 192px;
-        overflow: auto;
+        max-height: 233px;
+    }
+    .card__conven {
+        padding: 15px 0 0 0;
+    }
+    .heigth_txt_conv {
+        height: 30px;
     }
 }

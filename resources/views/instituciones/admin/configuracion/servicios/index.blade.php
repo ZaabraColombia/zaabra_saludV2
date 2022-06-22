@@ -275,11 +275,11 @@
                 $('#convenios-lista').html('');
                 $.each(response.item.convenios_lista, function (key, item) {
                     $('#convenios-lista').append(
-                        '<div id="cov" class="col-md-6 p-0 py-2 convenio_vinculado">' +
-                            '<div class="row m-0">' +
+                        '<div id="cov" class="col-md-6 convenio_vinculado">' +
+                            '<div class="row m-0 card__conven">' +
                                 '<div class="col-12 col-lg-3 p-0 mb-2 pl-lg-1 disp_img_modal_card">' +
                                     '<img class="img_section_modal" src="/img/menu/avatar.png">' +  
-                                    '<h5 class="txt_span_sm_card">' + item.nombre_completo + '</h5>' +
+                                    '<h5 class="txt_span_sm_card heigth_txt_conv">' + item.nombre_completo + '</h5>' +
                                 '</div>' +
 
                                 '<div class="col-12 col-lg-9 p-0 px-lg-3 disp__modal_card">' +
