@@ -34,7 +34,7 @@ class UsuariosController extends Controller
         $usuarios = User::query()
             ->where('institucion_id', Auth::user()->institucion->id)
             ->with(['auxiliar'])
-            ->get();
+            ->simplePaginate(12);
 
         return view('instituciones.admin.configuracion.usuarios.index', compact('usuarios'));
     }

@@ -22680,8 +22680,11 @@ a:hover {
     padding: 0 !important;
   }
 
-  .pill_data {
-    width: 30%;
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_pill_data {
+    font-size: 16px;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_pill_data .pill_data {
+    width: 31%;
   }
 
   .convenio_scroll {
@@ -22737,10 +22740,24 @@ a:hover {
   background-color: #F9F9F9;
   width: 55px;
   border-radius: 0 14px 14px 0;
-  color: #019f86;
   border: 1px solid #DBDADA;
   border-left: none;
   background-image: url("/img/iconos/search_verde.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.search_main_container .btnIn_search_blue {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  height: 100%;
+  border: none;
+  background-color: #F9F9F9;
+  width: 55px;
+  border-radius: 0 14px 14px 0;
+  border: 1px solid #DBDADA;
+  border-left: none;
+  background-image: url("/img/iconos/search_azul.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -22779,76 +22796,6 @@ a:hover {
   border-left: 3px solid #1a6395;
   border-bottom: 3px solid #1a6395;
   color: #FFFFFF;
-}
-
-.calendario_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_calendario_azul.png");
-}
-.calendario_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_calendario_blanco.png");
-}
-
-.cita_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_citas_azul.png");
-}
-.cita_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_citas_blanco.png");
-}
-
-.pago_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pagos_azul.png");
-}
-.pago_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pagos_blanco.png");
-}
-
-.paciente_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png");
-}
-.paciente_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_blanco.png");
-}
-
-.contacto_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_contactos_azul.png");
-}
-.contacto_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_contactos_blanco.png");
-}
-
-.favorito_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_favoritos_azul.png");
-}
-.favorito_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_favoritos_blanco.png");
-}
-
-.profesional_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_azul.png");
-}
-.profesional_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_blanco.png");
-}
-
-.convenio_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_convenios_azul.png");
-}
-.convenio_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_convenios_blanco.png");
-}
-
-.servicio_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_servicios_azul.png");
-}
-.servicio_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_servicios_blanco.png");
-}
-
-.usuario_blue {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_usuarios_azul.png");
-}
-.usuario_blue:hover {
-  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_usuarios_blanco.png");
 }
 
 .content__logos {
@@ -22945,14 +22892,14 @@ a:hover {
 
 .pill_informative_blue {
   padding: 0 12px;
-  background-color: #3490dc;
+  background-color: #1B85D7;
   border-radius: 5px;
   height: 20px;
 }
 
 .pill_informative_gray {
   padding: 0 12px;
-  background-color: #6c757d;
+  background-color: #DBDADA;
   border-radius: 5px;
   opacity: 0.5;
   height: 20px;
@@ -22960,7 +22907,7 @@ a:hover {
 
 .pill_informative_gree {
   padding: 0 12px;
-  background-color: #38c172;
+  background-color: #049372;
   border-radius: 5px;
   height: 20px;
 }
@@ -23406,7 +23353,7 @@ a:hover {
   }
 
   .content__btn_inferior {
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 
   .txt_calendar_cita_green {
@@ -23515,7 +23462,7 @@ a:hover {
   }
 
   .content__btn_inferior {
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 
   .card__section {
@@ -28007,6 +27954,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding: 0 183px 65px 57px;
   }
 }
+.btn__blue {
+  background: #0083D6 !important;
+  border: solid 1px #0083D6 !important;
+}
+
 .butons__pagination_card {
   display: flex;
   justify-content: flex-end;
@@ -28033,7 +27985,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   height: 41px;
   background-color: #FFFFFF;
   border: 1px solid #DBDADA;
-  border-left: none;
   border-radius: 0 7px 7px 0;
   background-image: url("/img/iconos/flecha-izquierda-gris.svg");
   background-repeat: no-repeat;
@@ -28059,6 +28010,15 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #FFFFFF;
   background: #019F86;
   border: solid 1px #019F86;
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+.button__blue_card {
+  font-family: "Quicksand";
+  color: #FFFFFF;
+  background: #0083D6;
+  border: solid 1px #0083D6;
   border-radius: 5px;
   padding: 7px 10px;
 }
@@ -28116,6 +28076,59 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #DBDADA;
 }
 
+.button__search_blue_card {
+  margin-bottom: 20px;
+  padding: 0;
+}
+.button__search_blue_card button {
+  border: 1px solid #DBDADA;
+  background-color: #FFF;
+  text-decoration: none;
+  border-radius: 7px;
+  height: 43px;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  width: auto;
+  width: 100%;
+  transition: max-width 0.1s;
+  background-image: url("/img/iconos/search_azul.svg");
+  background-repeat: no-repeat;
+  background-position-x: 93%;
+  background-position-y: center;
+  background-size: 22px;
+  white-space: nowrap;
+  padding-top: 2px;
+  padding-left: 0;
+  padding-right: 52px;
+}
+.button__search_blue_card input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 0 5px 15px;
+  margin-bottom: 15px;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #434343;
+  background-color: #FFFFFF;
+  background-clip: padding-box;
+  border: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.button__search_blue_card input::-moz-placeholder {
+  color: #DBDADA;
+}
+.button__search_blue_card input:-ms-input-placeholder {
+  color: #DBDADA;
+}
+.button__search_blue_card input::placeholder {
+  color: #DBDADA;
+}
+
 .button__doc_download {
   display: flex;
   justify-content: center;
@@ -28157,6 +28170,50 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   background-image: url("/img/iconos/icono-calendario-verde.svg");
 }
 .button__doc_download .file_calendar:hover {
+  background-image: url("/img/iconos/icono-calendario-blanco.svg");
+}
+
+.button__blue_doc_download {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.button__blue_doc_download button {
+  width: 47px;
+  height: 44px;
+  background-color: #FFFFFF;
+  border: 1px solid #DBDADA;
+  border-radius: 7px;
+  margin: 0 5px;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+.button__blue_doc_download button:hover {
+  background-color: #0083D6;
+}
+.button__blue_doc_download .file_excel {
+  background-image: url("/img/iconos/icono-excel-verde.svg");
+}
+.button__blue_doc_download .file_excel:hover {
+  background-image: url("/img/iconos/icono-excel-blanco.svg");
+}
+.button__blue_doc_download .file_pdf {
+  background-image: url("/img/iconos/icono-pdf-verde.svg");
+}
+.button__blue_doc_download .file_pdf:hover {
+  background-image: url("/img/iconos/icono-pdf-blanco.svg");
+}
+.button__blue_doc_download .file_printer {
+  background-image: url("/img/iconos/icono-imprimir-verde.svg");
+}
+.button__blue_doc_download .file_printer:hover {
+  background-image: url("/img/iconos/icono-imprimir-blanco.svg");
+}
+.button__blue_doc_download .file_calendar {
+  background-image: url("/img/iconos/icono-calendario-verde.svg");
+}
+.button__blue_doc_download .file_calendar:hover {
   background-image: url("/img/iconos/icono-calendario-blanco.svg");
 }
 
@@ -28204,6 +28261,26 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #019F86 !important;
   background: #FFFFFF;
   border: solid 1px #019F86;
+  border-radius: 7px;
+  padding: 2px 23px;
+}
+
+.button__bg_blue_card {
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #FFFFFF;
+  background: #0083D6;
+  border: solid 1px #0083D6;
+  border-radius: 7px;
+  padding: 2px 15px;
+}
+
+.button__border_blue_card {
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #0083D6 !important;
+  background: #FFFFFF;
+  border: solid 1px #0083D6;
   border-radius: 7px;
   padding: 2px 23px;
 }
@@ -28325,10 +28402,21 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding-right: 8px;
   }
 
+  .button__search_blue_card {
+    padding-right: 8px;
+  }
+
   .button__doc_download {
     justify-content: flex-end;
   }
   .button__doc_download button {
+    margin: 0 0 0 10px;
+  }
+
+  .button__blue_doc_download {
+    justify-content: flex-end;
+  }
+  .button__blue_doc_download button {
     margin: 0 0 0 10px;
   }
 
@@ -28338,6 +28426,16 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 
   .button__border_green_card {
+    font-size: 10px;
+    padding: 5px 15px;
+  }
+
+  .button__bg_blue_card {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .button__border_blue_card {
     font-size: 10px;
     padding: 5px 15px;
   }
@@ -28365,6 +28463,24 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     background-position-x: 95%;
   }
 
+  .button__search_blue_card {
+    margin-bottom: 0;
+  }
+  .button__search_blue_card button {
+    width: auto;
+    width: 45px;
+    background-position-x: 10PX;
+    padding-top: 2px;
+    padding-right: 0px;
+    padding-left: 30px;
+  }
+  .button__search_blue_card .search_togggle {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 50px;
+    background-position-x: 95%;
+  }
+
   .button__info_card {
     justify-content: flex-end;
     padding: 0;
@@ -28385,11 +28501,23 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     color: #FF3E3E;
   }
 
+  .btn_float_right {
+    position: absolute;
+    top: 4px;
+    padding-right: 4px;
+    z-index: 10;
+  }
+
   .button__add_card {
     align-items: flex-start;
   }
 
   .button__green_card {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .button__blue_card {
     padding: 10px;
     font-size: 12px;
   }
@@ -28399,9 +28527,19 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding: 11px;
     font-size: 12px;
   }
+
+  .button__blue_card {
+    padding: 11px;
+    font-size: 12px;
+  }
 }
 @media (min-width: 1300px) {
   .button__green_card {
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  .button__blue_card {
     padding: 8px;
     font-size: 15px;
   }
@@ -28414,7 +28552,18 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     background-position-x: 97%;
   }
 
+  .button__search_blue_card .search_togggle {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 50px;
+    background-position-x: 97%;
+  }
+
   .button__green_card {
+    padding: 8px 20px;
+  }
+
+  .button__blue_card {
     padding: 8px 20px;
   }
 }
@@ -28540,6 +28689,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     margin-top: 70px;
     margin-bottom: 0;
   }
+
+  .pt_card_float {
+    padding-top: 14px;
+  }
 }
 @media (min-width: 1300px) {
   .card__menu_panel {
@@ -28574,6 +28727,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     height: 217px;
   }
 }
+.blue__ {
+  color: #0083D6 !important;
+}
+
 .txt_name_card {
   font-size: 16px;
   font-weight: 100;
@@ -28778,6 +28935,46 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
 .icon__favo_green {
   background-image: url("/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png");
+}
+
+.calendario_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_calendario_azul.png");
+}
+
+.cita_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_citas_azul.png");
+}
+
+.pago_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pagos_azul.png");
+}
+
+.paciente_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png");
+}
+
+.contacto_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_contactos_azul.png");
+}
+
+.favorito_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_favoritos_azul.png");
+}
+
+.profesional_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_profesionales_azul.png");
+}
+
+.convenio_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_convenios_azul.png");
+}
+
+.servicio_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_servicios_azul.png");
+}
+
+.usuario_blue {
+  background-image: url("/img/agenda/panelPrincipal/profesionales/icon_usuarios_azul.png");
 }
 
 .icon_span_card {
@@ -29067,6 +29264,17 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .sidebar_body .submenu_green a:hover {
   color: #019F86;
 }
+.sidebar_body .submenu_blue {
+  padding-left: 45px;
+}
+.sidebar_body .submenu_blue .submenu-item {
+  font-size: 12px;
+  padding-top: 10px;
+  list-style: none;
+}
+.sidebar_body .submenu_blue a:hover {
+  color: #0083D6;
+}
 
 .item__green button {
   font-size: 14px;
@@ -29112,57 +29320,41 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding-right: 0.5rem;
 }
 
-.sidebar-wrapper .menu .items_blue button {
-  font-size: 16px;
+.item__blue button {
+  font-size: 14px;
   font-family: "Quicksand";
   margin: 0;
-  padding: 7px 0 7px 25px;
-  width: 180px;
+  padding: 7px 0 7px 20px;
+  width: 100%;
   background: transparent;
-  border-radius: 5px;
   border: none;
   text-align: initial;
 }
-.sidebar-wrapper .menu .items_blue button:hover {
+.item__blue button:hover {
   background: #0083D6;
   color: #FFFFFF;
-  border-radius: 5px;
 }
-.sidebar-wrapper .menu .items_blue button:focus {
+.item__blue button:focus {
   background: #0083D6;
   color: #FFFFFF;
-  border-radius: 5px;
 }
-.sidebar-wrapper .menu .items_logos_blue button {
+
+.item__logo_blue button {
   margin: 0;
-  width: 180px;
+  width: 100%;
   background: transparent;
-  border-radius: 5px;
   border: none;
 }
-.sidebar-wrapper .menu .items_logos_blue button:hover {
+.item__logo_blue button:hover {
   background: #cde6f3;
-  border-radius: 5px;
 }
 
-.btn_active {
+.item_blue_activ {
   background: #0083D6 !important;
   color: #FFFFFF !important;
-  border-radius: 5px;
 }
 
-.sidebar-wrapper .menu .sub_menu_blue {
-  padding-left: 45px;
-}
-.sidebar-wrapper .menu .sub_menu_blue .submenu-item {
-  padding-top: 10px;
-  list-style: none;
-}
-.sidebar-wrapper .menu .sub_menu_blue a:hover {
-  color: #0083D6;
-}
-
-.txt_active_blue {
+.subitem_blue_activ {
   color: #0083D6 !important;
   text-decoration: none;
 }
@@ -29341,6 +29533,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-bottom: none !important;
   box-shadow: none !important;
   padding: 0 !important;
+  background-color: #FFFFFF !important;
 }
 
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev {
@@ -29367,7 +29560,9 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
   display: inline !important;
   margin: 0 !important;
-  font-size: 20px !important;
+  font-size: 16px !important;
+  color: #3E3E3E !important;
+  font-weight: bold !important;
 }
 
 .pignose-calendar .pignose-calendar-header {
@@ -29393,7 +29588,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .pignose-calendar .pignose-calendar-unit a {
-  background-color: #3490dc !important;
+  background-color: #1B85D7 !important;
   color: #FFFFFF !important;
   font-weight: 500 !important;
 }
@@ -29406,7 +29601,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
-  background-color: #38c172 !important;
+  background-color: #049372 !important;
   color: #ffffff !important;
   font-weight: 500 !important;
 }

@@ -36,10 +36,6 @@
                 <!-- Document action buttons  -->
                 <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
                     <div class="toolt bottom">
-                        <button class="file_calendar"></button>
-                        <span class="tiptext">Calendario</span>
-                    </div>
-                    <div class="toolt bottom">
                         <button class="file_excel"></button>
                         <span class="tiptext">Doc. Excel</span>
                     </div>
@@ -147,20 +143,10 @@
                             <a href="{{ $convenios->previousPageUrl() }}" class="btn_right_pag_card"></a>
                             <span class="tiptext">Previus</span>
                         </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_right_pag_card disabled"></a>
-                            <span class="tiptext">Previus</span>
-                        </div>
                     @endif
                     @if(!$convenios->onLastPage())
                         <div class="toolt bottom">
                             <a href="{{ $convenios->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                            <span class="tiptext">Next</span>
-                        </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_left_pag_card disabled"></a>
                             <span class="tiptext">Next</span>
                         </div>
                     @endif

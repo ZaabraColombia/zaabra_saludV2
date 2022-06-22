@@ -8,31 +8,55 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Convenios</h1>
+    <div class="container-fluid panel_container">
+        <div class="panel_head">
+            <!-- Main title -->
+            <div class="card_main_title">
+                <h1 class="txt_title_panel_head blue__">Convenios</h1>
             </div>
-
-            <!-- Contenedor barra de búsqueda y botón agregar contacto -->
-            <div class="containt_main_table mb-3">
-                <div class="row m-0">
-                    <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar convenio" />
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add agreement -->
+                @can('accesos-profesional',['agregar-convenio'])
+                    <div class="col-md-12 col-lg-2 button__add_card">
+                        <a href="{{ route('profesional.configuracion.convenios.create') }}" class="button__blue_card" id="btn-agregar-contacto">
+                            Agregar convenio
+                        </a>
                     </div>
-
-                    @can('accesos-profesional',['agregar-convenio'])
-                        <div class="col-md-3 p-0 content_btn_right">
-                            <a href="{{ route('profesional.configuracion.convenios.create') }}" class="button_blue" id="btn-agregar-contacto">
-                                Agregar
-                            </a>
-                        </div>
-                    @endcan
+                @endcan
+                <!-- Search bar -->
+                <div class="col-md-6 button__search_blue_card">
+                    <form method="get">
+                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                            <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                        </button>
+                    </form>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__blue_doc_download">
+                    <div class="toolt bottom">
+                        <button class="file_calendar"></button>
+                        <span class="tiptext">Calendario</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Doc. Excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Doc. PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Contenedor formato tabla de la lista de contactos -->
-            <div class="containt_main_table mb-3">
+        <div class="panel_body">
+            <div class="row m-0">
+                <!-- alert notice -->
                 <div class="col-12">
                     @if(session()->has('success'))
                         <div class="alert alert-success" role="alert">
@@ -44,47 +68,88 @@
                         </div>
                     @endif
                 </div>
-                <div class="table-responsive">
-                    <table class="table table_agenda" id="table-pacientes">
-                        <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Tipo de empresa</th>
-                            <th>Teléfonos</th>
-                            <th>Correo</th>
-                            <th class="text-center">Acción</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @if($convenios->isNotEmpty())
-                            @foreach($convenios as $convenio)
-                                <tr>
-                                    <td>{{ $convenio->codigo_convenio }}</td>
-                                    <td>{{ $convenio->nombre_completo }}</td>
-                                    <td>{{ $convenio->tipo_establecimiento }}</td>
-                                    <td>{{ "{$convenio->telefono} - {$convenio->celular}" }}</td>
-                                    <td>{{ $convenio->correo }}</td>
-                                    <td>
-                                        <div class="d-flex justify-content-around">
-                                            <button class="btn_action tool top boton-convenio" style="width: 33px"
-                                                    data-url="{{ route('profesional.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">
-                                                <i data-feather="eye"></i> <span class="tiptext">Ver convenio</span>
-                                            </button>
+                <!-- Agreement card -->
+                @if($convenios->isNotEmpty())
+                    @foreach($convenios as $convenio)
+                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt_card_float card__col">
+                            <div class="card card__">
+                                <div class="row card__row_column">
+                                    <!-- Estado activo o inactivo -->
+                                    <div class="col-12 p-0 mb-3 d-flex justify-content-end">
+                                        <a href="#" class="btn__activado">
+                                            <span>activo</span>
+                                        </a>
+                                    </div>
+                                    <!-- Image agreement -->
+                                    <div class="img_card_float">
+                                        <img src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
+                                    </div>
 
-                                            @can('accesos-profesional',['editar-convenio'])
-                                                <a class="btn_action tool top" style="width: 33px"
-                                                   href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
-                                                    <i data-feather="edit"></i> <span class="tiptext">Editar convenio</span>
-                                                </a>
-                                            @endcan
+                                    <div class="col-12 card__data">
+                                        <!-- card data top -->
+                                        <div class="card__data_top mb-1">
+                                            <div class="">
+                                                <h4 class="txt_h4_card_float">{{ $convenio->nombre_completo }}</h4>
+                                            </div>
+
+                                            <div class="">
+                                                <h5 class="txt_h5_card_float">{{ $convenio->tipo_establecimiento }}</h5>
+                                            </div>
+
+                                            <div class="">
+                                                <h6 class="txt_h6_card_float">Código: &nbsp;{{ $convenio->codigo_convenio }}</h6>
+                                            </div>
                                         </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                        </tbody>
-                    </table>
+                                        <!-- card data down -->
+                                        <div class="card__data_down pl-xl-4">
+                                            <div class="pl-md-3">
+                                                <i data-feather="phone" class="icon_span_card"></i>
+                                                <span class="txt_span_card">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
+                                            </div>
+
+                                            <div class="toolt bottom">
+                                                <div class="pl-md-3 width__tool_tip">
+                                                    <i data-feather="mail" class="icon_span_card"></i>
+                                                    <span class="txt_span_card">{{ $convenio->correo }}</span>
+                                                </div>
+                                                <span class="tiptext">{{ $convenio->correo }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- view more and edit buttons -->
+                                <div class="row mx-0 mt-3 mt-md-2 justify-content-md-center">
+                                    @can('accesos-institucion','ver-convenios')
+                                        <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
+                                            <button class="button__bg_blue_card boton-convenio"
+                                                data-url="{{ route('profesional.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">Ver más
+                                            </button>
+                                        </div>
+                                    @endcan
+
+                                    @can('accesos-institucion','editar-convenio')
+                                        <div class="col-12 col-md-3 p-0 button__down_card">
+                                            <a class="button__border_blue_card"
+                                                href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">Editar
+                                            </a>
+                                        </div>
+                                    @endcan
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+                <!-- Pagination buttons -->
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    <div class="toolt bottom">
+                        <a disabled class="btn_right_pag_card disabled"></a>
+                        <span class="tiptext">Previus</span>
+                    </div>
+
+                    <div class="toolt bottom">
+                        <a disabled class="btn_left_pag_card disabled"></a>
+                        <span class="tiptext">Next</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -286,6 +351,12 @@
             }, "json").fail(function (error) {
                 console.log(error);
             });
+        });
+    </script>
+
+    <script>
+        $('#search').on('click', function () {
+            $('#search').addClass('search_togggle');
         });
     </script>
 @endsection

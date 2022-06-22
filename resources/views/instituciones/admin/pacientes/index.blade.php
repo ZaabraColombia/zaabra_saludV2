@@ -74,9 +74,9 @@
                     @foreach($pacientes as $paciente)
                         <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
                             <div class="card card__">
-                                <div class="row card__row_column">
+                                <div class="row pt-2 card__row_column">
                                     <!-- Informative buttons desktop-->
-                                    <div class="col-12 d-none d-lg-flex button__info_card">
+                                    <div class="col-12 d-none d-lg-flex button__info_card btn_float_right">
                                         <button class="btn_icon_card tool top" data-url="" data-toggle="modal" data-target="#modal_see_patient">
                                             <i data-feather="eye" class="icon_btn_card_desk"></i> 
                                             <span class="tiptext">Ver paciente</span>
@@ -87,7 +87,7 @@
                                         <img class="img_card2_module" src="/img/menu/avatar.png">
                                     </div>
                                     <!-- Information patient -->
-                                    <div class="col-lg-9 card__data">
+                                    <div class="col-lg-9 card__data pt_card_float">
                                         <!-- card data top -->
                                         <div class="card__data_top">
                                             <div class="mb_card">
@@ -136,20 +136,10 @@
                             <a href="{{ $pacientes->previousPageUrl() }}" class="btn_right_pag_card"></a>
                             <span class="tiptext">Previus</span>
                         </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_right_pag_card disabled"></a>
-                            <span class="tiptext">Previus</span>
-                        </div>
                     @endif
                     @if(!$pacientes->onLastPage())
                         <div class="toolt bottom">
                             <a href="{{ $pacientes->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                            <span class="tiptext">Next</span>
-                        </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_left_pag_card disabled"></a>
                             <span class="tiptext">Next</span>
                         </div>
                     @endif

@@ -677,9 +677,15 @@ $lines: 1;
         border: none !important;
         padding: 0 !important;
     }
-    .pill_data {
-        width: 30%;
+    .modal__ .modal-body .modal_info_data_open .modal_info_user {
+        .modal_pill_data {
+            font-size: 16px;
+            .pill_data {
+                width: 31%;
+            }
+        }
     }
+ 
     .convenio_scroll {
         max-height: 192px;
         overflow: auto;

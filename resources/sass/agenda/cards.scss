@@ -80,6 +80,7 @@
 .mt_card_float {
     margin-top: 80px;
 }
+
 @media(min-width: 768px) {
     // Cards logos menú panel
     .card__logo_menu_panel {
@@ -110,6 +111,9 @@
     .mt_card_float {
         margin-top: 70px;
         margin-bottom: 0;
+    }
+    .pt_card_float {
+        padding-top: 14px;
     }
 }
 @media(min-width: 1300px) {

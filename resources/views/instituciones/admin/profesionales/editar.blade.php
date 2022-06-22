@@ -264,7 +264,7 @@
                     <!-- Contraseña del usuario -->
                     <div class="my-4">
                         <h2 class="fs_subtitle green_bold">Contraseña</h2>
-                        <p class="text__md black_light">Crea una contraseña para el usuario que esta creando.</p>
+                        <p class="text__md black_light">Crea una contraseña para el profesional que esta creando.</p>
                     </div>
 
                     <div class="row">

@@ -14,6 +14,7 @@
                     </div>
                 @endif
             </div>
+            
             <div class="col-12 col-lg-9 px-0 m-0">
                 <!-- Contenedor barra de búsqueda -->
                 <div class="search_main_container mb-4">
@@ -149,7 +150,7 @@
                     </div>
                     {{-- Medistoria --}}
                     <div class="col-12 col-md-4 col-lg-12 pb-4 px-4 px-md-2 pr-xl-4">
-                        <a  href="" target="_blank">
+                        <a  href="https://medhistoria.com/" target="_blank">
                             <div class="card__logo_menu_panel ">
                                 <img class="img_card_menu_panel"
                                 src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="">

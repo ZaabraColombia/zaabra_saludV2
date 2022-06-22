@@ -198,20 +198,10 @@
                             <a href="{{ $profesionales->previousPageUrl() }}" class="btn_right_pag_card"></a>
                             <span class="tiptext">Previus</span>
                         </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_right_pag_card disabled"></a>
-                            <span class="tiptext">Previus</span>
-                        </div>
                     @endif
                     @if(!$profesionales->onLastPage())
                         <div class="toolt bottom">
                             <a href="{{ $profesionales->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                            <span class="tiptext">Next</span>
-                        </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_left_pag_card disabled"></a>
                             <span class="tiptext">Next</span>
                         </div>
                     @endif
@@ -380,17 +370,10 @@
 
                             <div class="col-12 mb-3 dropdown-divider"></div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Especialidad principal:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Otorrinolaringología</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 modal_info_user">
-                                <h4 class="modal_data_form">Tarjeta profesional</h4>
-                                <div class="modal_data_user">
-                                    <span id="">000000</span>
                                 </div>
                             </div>
 
@@ -402,16 +385,23 @@
                             </div>
 
                             <div class="col-md-6 d-block d-lg-flex modal_info_user">
-                                <h4 class="modal_data_form">Cargo:</h4>
+                                <h4 class="modal_data_form">Universidad:</h4>
                                 <div class="pl-md-0 pl-lg-2 modal_data_user">
-                                    <span id="">Presidente</span>
+                                    <span id="">Universidad del Rosario</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 modal_info_user">
+                                <h4 class="modal_data_form">Tarjeta profesional:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">000000</span>
                                 </div>
                             </div>
 
                             <div class="col-md-6 d-block d-lg-flex modal_info_user">
-                                <h4 class="modal_data_form">Universidad:</h4>
+                                <h4 class="modal_data_form">Cargo:</h4>
                                 <div class="pl-md-0 pl-lg-2 modal_data_user">
-                                    <span id="">Universidad del Rosario</span>
+                                    <span id="">Presidente</span>
                                 </div>
                             </div>
 
