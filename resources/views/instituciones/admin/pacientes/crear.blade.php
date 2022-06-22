@@ -54,25 +54,25 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 input__box">
+                    <div class="col-md-6 col-xl-3 input__box">
                         <label for="primer_nombre">Primer Nombre</label>
                         <input type="text" id="primer_nombre" name="primer_nombre" value="{{ old('primer_nombre') }}"
                                 class="@error('primer_nombre') is-invalid @enderror"/>
                     </div>
 
-                    <div class="col-md-6 input__box">
+                    <div class="col-md-6 col-xl-3 input__box">
                         <label for="segundo_nombre">Segundo Nombre</label>
                         <input type="text" id="segundo_nombre" name="segundo_nombre" value="{{ old('segundo_nombre') }}"
                                 class="@error('segundo_nombre') is-invalid @enderror"/>
                     </div>
 
-                    <div class="col-md-6 input__box">
+                    <div class="col-md-6 col-xl-3 input__box">
                         <label for="primer_apellido">Primer Apellido</label>
                         <input type="text" id="primer_apellido" name="primer_apellido" value="{{ old('primer_apellido') }}"
                                 class="@error('primer_apellido') is-invalid @enderror"/>
                     </div>
 
-                    <div class="col-md-6 input__box">
+                    <div class="col-md-6 col-xl-3 input__box">
                         <label for="segundo_apellido">Segundo Apellido</label>
                         <input type="text" id="segundo_apellido" name="segundo_apellido" value="{{ old('segundo_apellido') }}"
                                 class="@error('segundo_apellido') is-invalid @enderror"/>
@@ -101,9 +101,7 @@
                         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}"
                                 class="@error('fecha_nacimiento') is-invalid @enderror"/>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="sexo_biologico">Sexo Biológico</label>
                         <select id="sexo_biologico" name="sexo_biologico" class="select2 @error('sexo_biologico') is-invalid @enderror">
@@ -197,9 +195,7 @@
                                 data-id="{{ old('ciudad_id') }}" required>
                         </select>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-md-6 col-lg-4 input__box">
                         <label for="direccion">Dirección</label>
                         <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"
