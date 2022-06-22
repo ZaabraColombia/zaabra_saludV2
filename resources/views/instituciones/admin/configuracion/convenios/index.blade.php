@@ -147,20 +147,10 @@
                             <a href="{{ $convenios->previousPageUrl() }}" class="btn_right_pag_card"></a>
                             <span class="tiptext">Previus</span>
                         </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_right_pag_card disabled"></a>
-                            <span class="tiptext">Previus</span>
-                        </div>
                     @endif
                     @if(!$convenios->onLastPage())
                         <div class="toolt bottom">
                             <a href="{{ $convenios->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                            <span class="tiptext">Next</span>
-                        </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_left_pag_card disabled"></a>
                             <span class="tiptext">Next</span>
                         </div>
                     @endif

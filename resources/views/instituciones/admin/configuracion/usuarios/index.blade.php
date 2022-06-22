@@ -136,15 +136,18 @@
                 @endif
                 <!-- Pagination buttons -->
                 <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
-                    <div class="toolt bottom">
-                        <a disabled class="btn_right_pag_card disabled"></a>
-                        <span class="tiptext">Previus</span>
-                    </div>
-
-                    <div class="toolt bottom">
-                        <a disabled class="btn_left_pag_card disabled"></a>
-                        <span class="tiptext">Next</span>
-                    </div>
+                    @if(!$usuarios->onFirstPage())
+                        <div class="toolt bottom">
+                            <a href="{{ $usuarios->previousPageUrl() }}" class="btn_right_pag_card"></a>
+                            <span class="tiptext">Previus</span>
+                        </div>
+                    @endif
+                    @if(!$usuarios->onLastPage())
+                        <div class="toolt bottom">
+                            <a href="{{ $usuarios->nextPageUrl() }}" class="btn_left_pag_card"></a>
+                            <span class="tiptext">Next</span>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

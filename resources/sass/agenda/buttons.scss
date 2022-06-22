@@ -1,3 +1,7 @@
+.btn__blue {
+    background: $blue_official !important;
+    border: solid 1px $blue_official !important;
+}
 // Botones paginación card
 .butons__pagination_card {
     display: flex;
@@ -24,7 +28,6 @@
         height: 41px;
         background-color: #FFFFFF;
         border: 1px solid #DBDADA;
-        border-left: none;
         border-radius: 0 7px 7px 0;
         background-image: url('/img/iconos/flecha-izquierda-gris.svg');
         background-repeat: no-repeat;
@@ -53,6 +56,14 @@
     border-radius: 5px;
     padding: 7px 10px;
 }
+.button__blue_card {
+    font-family: "Quicksand";
+    color: $withe_official;
+    background: $blue_official;
+    border: solid 1px $blue_official;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
 // Botones de búsqueda
 .button__search_card {
     margin-bottom: 20px;
@@ -70,6 +81,52 @@
         width: 100%;
         transition: max-width 0.1s;
         background-image: url('/img/iconos/search_verde.svg');
+        background-repeat: no-repeat;
+        background-position-x: 93%;
+        background-position-y: center;
+        background-size: 22px;
+        white-space: nowrap;
+        padding-top: 2px;
+        padding-left: 0;
+        padding-right: 52px;
+    }
+    input {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 5px 0 5px 15px;
+        margin-bottom: 15px;
+        font-family: 'Roboto';
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.6;
+        color: #434343;
+        background-color: #FFFFFF;
+        background-clip: padding-box;
+        border: none;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        &::placeholder { 
+            color: #DBDADA; 
+        }
+    }
+}
+.button__search_blue_card {
+    margin-bottom: 20px;
+    padding: 0;
+    button {
+        border: 1px solid #DBDADA;
+        background-color: #FFF;
+        text-decoration: none;
+        border-radius: 7px;
+        height: 43px;
+        display: inline-flex;
+        align-items: center;
+        overflow: hidden;
+        width: auto;
+        width: 100%;
+        transition: max-width 0.1s;
+        background-image: url('/img/iconos/search_azul.svg');
         background-repeat: no-repeat;
         background-position-x: 93%;
         background-position-y: center;
@@ -144,6 +201,49 @@
         }
     }
 }
+.button__blue_doc_download {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    button {
+        width: 47px;
+        height: 44px;
+        background-color: #FFFFFF;
+        border: 1px solid #DBDADA;
+        border-radius: 7px;
+        margin: 0 5px;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        background-position: center;
+        &:hover {
+            background-color: #0083D6;
+        }
+    }
+    .file_excel{
+        background-image: url('/img/iconos/icono-excel-verde.svg');
+        &:hover {
+            background-image: url('/img/iconos/icono-excel-blanco.svg');
+        }
+    }
+    .file_pdf{
+        background-image: url('/img/iconos/icono-pdf-verde.svg');
+        &:hover {
+            background-image: url('/img/iconos/icono-pdf-blanco.svg');
+        }
+    }
+    .file_printer {
+        background-image: url('/img/iconos/icono-imprimir-verde.svg');
+        &:hover {
+            background-image: url('/img/iconos/icono-imprimir-blanco.svg');
+        }
+    }
+    .file_calendar {
+        background-image: url('/img/iconos/icono-calendario-verde.svg');
+        &:hover {
+            background-image: url('/img/iconos/icono-calendario-blanco.svg');
+        }
+    }
+}
 // Botones informativos
 .button__info_card {
     display: flex;
@@ -187,6 +287,24 @@
     color: $green_official !important;
     background: $withe_official;
     border: solid 1px $green_official;
+    border-radius: 7px;
+    padding: 2px 23px;
+}
+.button__bg_blue_card {
+    font-family: "Quicksand";
+    font-size: 14px;
+    color: $withe_official;
+    background: $blue_official;
+    border: solid 1px $blue_official;
+    border-radius: 7px;
+    padding: 2px 15px;
+}
+.button__border_blue_card {
+    font-family: "Quicksand";
+    font-size: 14px;
+    color: $blue_official !important;
+    background: $withe_official;
+    border: solid 1px $blue_official;
     border-radius: 7px;
     padding: 2px 23px;
 }
@@ -311,8 +429,17 @@
     .button__search_card {
         padding-right: 8px;
     }
+    .button__search_blue_card {
+        padding-right: 8px;
+    }
     // Botones documentos de descarga
     .button__doc_download {
+        justify-content: flex-end;
+        button {
+            margin: 0 0 0 10px;
+        }
+    }
+    .button__blue_doc_download {
         justify-content: flex-end;
         button {
             margin: 0 0 0 10px;
@@ -327,6 +454,14 @@
         font-size: 10px;
         padding: 5px 15px;
     }
+    .button__bg_blue_card {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+    .button__border_blue_card {
+        font-size: 10px;
+        padding: 5px 15px;
+    }
 }
 @media(min-width: 1024px) {
     // Botones add
@@ -335,6 +470,23 @@
     }
     // Botones de búsqueda
     .button__search_card {
+        margin-bottom: 0;
+        button {
+            width: auto;
+            width: 45px;
+            background-position-x: 10PX;
+            padding-top: 2px;
+            padding-right: 0px;
+            padding-left: 30px;
+        }
+        .search_togggle {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 50px;
+            background-position-x: 95%;
+        }
+    }
+    .button__search_blue_card {
         margin-bottom: 0;
         button {
             width: auto;
@@ -371,10 +523,19 @@
             }
         }
     }
+    .btn_float_right {
+        position: absolute;
+        top: 4px;
+        padding-right: 4px;
+    }
     .button__add_card {
         align-items: flex-start;
     }
     .button__green_card {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .button__blue_card {
         padding: 10px;
         font-size: 12px;
     }
@@ -384,9 +545,17 @@
         padding: 11px;
         font-size: 12px;
     }
+    .button__blue_card {
+        padding: 11px;
+        font-size: 12px;
+    }
 }
 @media(min-width: 1300px) {
     .button__green_card {
+        padding: 8px;
+        font-size: 15px;
+    }
+    .button__blue_card {
         padding: 8px;
         font-size: 15px;
     }
@@ -400,7 +569,18 @@
             background-position-x: 97%;
         }
     }
+    .button__search_blue_card {
+        .search_togggle {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 50px;
+            background-position-x: 97%;
+        }
+    }
     .button__green_card {
+        padding: 8px 20px;
+    }
+    .button__blue_card {
         padding: 8px 20px;
     }
 }

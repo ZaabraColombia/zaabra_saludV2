@@ -150,7 +150,7 @@
                     </div>
                     {{-- Medistoria --}}
                     <div class="col-12 col-md-4 col-lg-12 pb-4 px-4 px-md-2 pr-xl-4">
-                        <a  href="" target="_blank">
+                        <a  href="https://medhistoria.com/" target="_blank">
                             <div class="card__logo_menu_panel ">
                                 <img class="img_card_menu_panel"
                                 src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="">

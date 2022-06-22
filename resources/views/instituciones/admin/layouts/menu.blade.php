@@ -202,7 +202,7 @@
 
                 {{-- Logo Medihistoria --}}
                 <li class="sidebar-item  has-sub item__logo_green">
-                    <a id="fav" class="" target="_blank" href="">
+                    <a id="fav" class="" target="_blank" href="https://medhistoria.com/">
                         <button class="d-flex justify-content-start p-3">
                             <img src="{{ asset('/img/agenda/panelPrincipal/profesionales/logo_medhistoria_banner.png') }}" alt="" width="141px" height="22px">
                         </button>

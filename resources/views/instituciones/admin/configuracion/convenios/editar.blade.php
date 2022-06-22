@@ -210,9 +210,7 @@
                             <input type="text" id="codigo_postal" name="codigo_postal" value="{{ old('codigo_postal', $convenio->codigo_postal) }}"
                                    class="@error('codigo_postal') is-invalid @enderror" required/>
                         </div>
-                    </div>
-
-                    <div class="row">
+ 
                         <div class="col-md-6 col-lg-4 mb-3 input__box">     <!--menu dinamico ciudades -->
                             <label for="pais_id">País</label>
                             <select id="pais_id" name="pais_id" class="select2 pais @error('pais_id') is-invalid @enderror"
@@ -262,22 +260,19 @@
                             </select>
                         </div>
 
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 input__box">
+                        <div class="col-md-6 col-lg-4 input__box">
                             <label for="telefono">Teléfono</label>
                             <input type="text" id="telefono" name="telefono" value="{{ old('telefono', $convenio->telefono) }}"
                                    class="w-100 @error('telefono') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-6 input__box">
+                        <div class="col-md-6 col-lg-4 input__box">
                             <label for="celular">Móvil</label>
                             <input type="text" id="celular" name="celular" value="{{ old('celular', $convenio->celular) }}"
                                    class="w-100 @error('celular') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-6 input__box">
+                        <div class="col-md-6 col-lg-8 input__box">
                             <label for="correo">Correo</label>
                             <input type="email" id="correo" name="correo" value="{{ old('correo', $convenio->correo) }}"
                                    class="@error('correo') is-invalid @enderror" required/>

@@ -22680,8 +22680,11 @@ a:hover {
     padding: 0 !important;
   }
 
-  .pill_data {
-    width: 30%;
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_pill_data {
+    font-size: 16px;
+  }
+  .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_pill_data .pill_data {
+    width: 31%;
   }
 
   .convenio_scroll {
@@ -22889,14 +22892,14 @@ a:hover {
 
 .pill_informative_blue {
   padding: 0 12px;
-  background-color: #3490dc;
+  background-color: #1B85D7;
   border-radius: 5px;
   height: 20px;
 }
 
 .pill_informative_gray {
   padding: 0 12px;
-  background-color: #6c757d;
+  background-color: #DBDADA;
   border-radius: 5px;
   opacity: 0.5;
   height: 20px;
@@ -22904,7 +22907,7 @@ a:hover {
 
 .pill_informative_gree {
   padding: 0 12px;
-  background-color: #38c172;
+  background-color: #049372;
   border-radius: 5px;
   height: 20px;
 }
@@ -27951,6 +27954,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding: 0 183px 65px 57px;
   }
 }
+.btn__blue {
+  background: #0083D6 !important;
+  border: solid 1px #0083D6 !important;
+}
+
 .butons__pagination_card {
   display: flex;
   justify-content: flex-end;
@@ -27977,7 +27985,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   height: 41px;
   background-color: #FFFFFF;
   border: 1px solid #DBDADA;
-  border-left: none;
   border-radius: 0 7px 7px 0;
   background-image: url("/img/iconos/flecha-izquierda-gris.svg");
   background-repeat: no-repeat;
@@ -28003,6 +28010,15 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #FFFFFF;
   background: #019F86;
   border: solid 1px #019F86;
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+.button__blue_card {
+  font-family: "Quicksand";
+  color: #FFFFFF;
+  background: #0083D6;
+  border: solid 1px #0083D6;
   border-radius: 5px;
   padding: 7px 10px;
 }
@@ -28060,6 +28076,59 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #DBDADA;
 }
 
+.button__search_blue_card {
+  margin-bottom: 20px;
+  padding: 0;
+}
+.button__search_blue_card button {
+  border: 1px solid #DBDADA;
+  background-color: #FFF;
+  text-decoration: none;
+  border-radius: 7px;
+  height: 43px;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  width: auto;
+  width: 100%;
+  transition: max-width 0.1s;
+  background-image: url("/img/iconos/search_azul.svg");
+  background-repeat: no-repeat;
+  background-position-x: 93%;
+  background-position-y: center;
+  background-size: 22px;
+  white-space: nowrap;
+  padding-top: 2px;
+  padding-left: 0;
+  padding-right: 52px;
+}
+.button__search_blue_card input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 0 5px 15px;
+  margin-bottom: 15px;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #434343;
+  background-color: #FFFFFF;
+  background-clip: padding-box;
+  border: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.button__search_blue_card input::-moz-placeholder {
+  color: #DBDADA;
+}
+.button__search_blue_card input:-ms-input-placeholder {
+  color: #DBDADA;
+}
+.button__search_blue_card input::placeholder {
+  color: #DBDADA;
+}
+
 .button__doc_download {
   display: flex;
   justify-content: center;
@@ -28101,6 +28170,50 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   background-image: url("/img/iconos/icono-calendario-verde.svg");
 }
 .button__doc_download .file_calendar:hover {
+  background-image: url("/img/iconos/icono-calendario-blanco.svg");
+}
+
+.button__blue_doc_download {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.button__blue_doc_download button {
+  width: 47px;
+  height: 44px;
+  background-color: #FFFFFF;
+  border: 1px solid #DBDADA;
+  border-radius: 7px;
+  margin: 0 5px;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+.button__blue_doc_download button:hover {
+  background-color: #0083D6;
+}
+.button__blue_doc_download .file_excel {
+  background-image: url("/img/iconos/icono-excel-verde.svg");
+}
+.button__blue_doc_download .file_excel:hover {
+  background-image: url("/img/iconos/icono-excel-blanco.svg");
+}
+.button__blue_doc_download .file_pdf {
+  background-image: url("/img/iconos/icono-pdf-verde.svg");
+}
+.button__blue_doc_download .file_pdf:hover {
+  background-image: url("/img/iconos/icono-pdf-blanco.svg");
+}
+.button__blue_doc_download .file_printer {
+  background-image: url("/img/iconos/icono-imprimir-verde.svg");
+}
+.button__blue_doc_download .file_printer:hover {
+  background-image: url("/img/iconos/icono-imprimir-blanco.svg");
+}
+.button__blue_doc_download .file_calendar {
+  background-image: url("/img/iconos/icono-calendario-verde.svg");
+}
+.button__blue_doc_download .file_calendar:hover {
   background-image: url("/img/iconos/icono-calendario-blanco.svg");
 }
 
@@ -28148,6 +28261,26 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #019F86 !important;
   background: #FFFFFF;
   border: solid 1px #019F86;
+  border-radius: 7px;
+  padding: 2px 23px;
+}
+
+.button__bg_blue_card {
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #FFFFFF;
+  background: #0083D6;
+  border: solid 1px #0083D6;
+  border-radius: 7px;
+  padding: 2px 15px;
+}
+
+.button__border_blue_card {
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #0083D6 !important;
+  background: #FFFFFF;
+  border: solid 1px #0083D6;
   border-radius: 7px;
   padding: 2px 23px;
 }
@@ -28269,10 +28402,21 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding-right: 8px;
   }
 
+  .button__search_blue_card {
+    padding-right: 8px;
+  }
+
   .button__doc_download {
     justify-content: flex-end;
   }
   .button__doc_download button {
+    margin: 0 0 0 10px;
+  }
+
+  .button__blue_doc_download {
+    justify-content: flex-end;
+  }
+  .button__blue_doc_download button {
     margin: 0 0 0 10px;
   }
 
@@ -28282,6 +28426,16 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 
   .button__border_green_card {
+    font-size: 10px;
+    padding: 5px 15px;
+  }
+
+  .button__bg_blue_card {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .button__border_blue_card {
     font-size: 10px;
     padding: 5px 15px;
   }
@@ -28309,6 +28463,24 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     background-position-x: 95%;
   }
 
+  .button__search_blue_card {
+    margin-bottom: 0;
+  }
+  .button__search_blue_card button {
+    width: auto;
+    width: 45px;
+    background-position-x: 10PX;
+    padding-top: 2px;
+    padding-right: 0px;
+    padding-left: 30px;
+  }
+  .button__search_blue_card .search_togggle {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 50px;
+    background-position-x: 95%;
+  }
+
   .button__info_card {
     justify-content: flex-end;
     padding: 0;
@@ -28329,11 +28501,22 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     color: #FF3E3E;
   }
 
+  .btn_float_right {
+    position: absolute;
+    top: 4px;
+    padding-right: 4px;
+  }
+
   .button__add_card {
     align-items: flex-start;
   }
 
   .button__green_card {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .button__blue_card {
     padding: 10px;
     font-size: 12px;
   }
@@ -28343,9 +28526,19 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding: 11px;
     font-size: 12px;
   }
+
+  .button__blue_card {
+    padding: 11px;
+    font-size: 12px;
+  }
 }
 @media (min-width: 1300px) {
   .button__green_card {
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  .button__blue_card {
     padding: 8px;
     font-size: 15px;
   }
@@ -28358,7 +28551,18 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     background-position-x: 97%;
   }
 
+  .button__search_blue_card .search_togggle {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 50px;
+    background-position-x: 97%;
+  }
+
   .button__green_card {
+    padding: 8px 20px;
+  }
+
+  .button__blue_card {
     padding: 8px 20px;
   }
 }
@@ -28484,6 +28688,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     margin-top: 70px;
     margin-bottom: 0;
   }
+
+  .pt_card_float {
+    padding-top: 14px;
+  }
 }
 @media (min-width: 1300px) {
   .card__menu_panel {
@@ -28518,6 +28726,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     height: 217px;
   }
 }
+.blue__ {
+  color: #0083D6 !important;
+}
+
 .txt_name_card {
   font-size: 16px;
   font-weight: 100;
@@ -29320,6 +29532,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-bottom: none !important;
   box-shadow: none !important;
   padding: 0 !important;
+  background-color: #FFFFFF !important;
 }
 
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev {
@@ -29346,7 +29559,9 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
   display: inline !important;
   margin: 0 !important;
-  font-size: 20px !important;
+  font-size: 16px !important;
+  color: #3E3E3E !important;
+  font-weight: bold !important;
 }
 
 .pignose-calendar .pignose-calendar-header {
@@ -29372,7 +29587,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .pignose-calendar .pignose-calendar-unit a {
-  background-color: #3490dc !important;
+  background-color: #1B85D7 !important;
   color: #FFFFFF !important;
   font-weight: 500 !important;
 }
@@ -29385,7 +29600,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
-  background-color: #38c172 !important;
+  background-color: #049372 !important;
   color: #ffffff !important;
   font-weight: 500 !important;
 }

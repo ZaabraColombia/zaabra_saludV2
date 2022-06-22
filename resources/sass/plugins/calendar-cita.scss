@@ -10,6 +10,7 @@
     border-bottom: none !important;
     box-shadow: none !important;
     padding: 0 !important;
+    background-color: #FFFFFF !important;
 }
 // Flecha previus (<)
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev {
@@ -36,7 +37,9 @@
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
     display: inline !important;
     margin: 0 !important;
-    font-size: 20px !important;
+    font-size: 16px !important;
+    color: #3E3E3E !important;
+    font-weight: bold !important;
 }
 // Cabecera tarjeta días de la semana (D L M M J V S)
 .pignose-calendar .pignose-calendar-header {
@@ -62,7 +65,7 @@
 }
 // Background y color día disponible 
 .pignose-calendar .pignose-calendar-unit a {
-    background-color: #3490dc !important;
+    background-color: #1B85D7 !important;
     color: #FFFFFF !important;
     font-weight: 500 !important;
 }
@@ -75,7 +78,7 @@
 }
 // Background y color día seleccionado
 .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
-    background-color: #38c172 !important;
+    background-color: #049372 !important;
     color: #ffffff !important;
     font-weight: 500 !important;
 }

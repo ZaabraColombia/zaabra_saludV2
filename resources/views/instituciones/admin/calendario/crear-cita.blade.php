@@ -85,7 +85,7 @@
                             </div>
                             <!-- Especialidad -->
                             <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
-                                <label for="especialidad" class="txt_calendar_cita">Eespecialidad</label>
+                                <label for="especialidad" class="txt_calendar_cita">Especialidad</label>
                                 <select id="especialidad" class="form-control" name="especialidad" required>
                                     <option></option>
                                     <option value="Especialidad 1" data-lugar="">Especialidad 1</option>
@@ -132,7 +132,7 @@
                             <!-- Pildoras informativas mobile -->
                             <div class="row m-0 mb-4 pl-3 pill_mobile">
                                 <div class="col-12 p-0 mb-2 d-flex align-items-center">    
-                                    <span class="pill_informative_blue"></span>
+                                    <span class="pill_informative_gree"></span>
                                     <span class="ml-3 txt_calendar_cita">Días disponibles</span>
                                 </div>
                                 <div class="col-12 p-0 mb-2 d-flex align-items-center">
@@ -140,7 +140,7 @@
                                     <span class="ml-3 txt_calendar_cita">Días no disponibles</span>
                                 </div>
                                 <div class="col-12 p-0 mb-2 d-flex align-items-center">
-                                    <span class="pill_informative_gree"></span>
+                                    <span class="pill_informative_blue"></span>
                                     <span class="ml-3 txt_calendar_cita">Días seleccionados</span>
                                 </div>
                             </div>
@@ -154,7 +154,7 @@
                         <!-- Pildoras informativas desktop -->
                         <div class="row m-0 pill_desktop">
                             <div class="col-12 p-0 mb-2 d-flex align-items-center">    
-                                <span class="pill_informative_blue"></span>
+                                <span class="pill_informative_gree"></span>
                                 <span class="ml-3 txt_calendar_cita">Días disponibles</span>
                             </div>
                             <div class="col-12 p-0 mb-2 d-flex align-items-center">
@@ -162,7 +162,7 @@
                                 <span class="ml-3 txt_calendar_cita">Días no disponibles</span>
                             </div>
                             <div class="col-12 p-0 mb-2 d-flex align-items-center">
-                                <span class="pill_informative_gree"></span>
+                                <span class="pill_informative_blue"></span>
                                 <span class="ml-3 txt_calendar_cita">Días seleccionados</span>
                             </div>
                         </div>
@@ -478,5 +478,7 @@
         });
 
     </script>
+
+
 @endsection
 

@@ -129,24 +129,13 @@
                             <a href="{{ $servicios->previousPageUrl() }}" class="btn_right_pag_card"></a>
                             <span class="tiptext">Previus</span>
                         </div>
-                    @else   
-                        <div class="toolt bottom">
-                            <a disabled class="btn_right_pag_card disabled"></a>
-                            <span class="tiptext">Previus</span>
-                        </div>
                     @endif
                     @if(!$servicios->onLastPage())
                         <div class="toolt bottom">
                             <a href="{{ $servicios->nextPageUrl() }}" class="btn_left_pag_card"></a>
                             <span class="tiptext">Next</span>
                         </div>
-                    @else
-                        <div class="toolt bottom">
-                            <a disabled class="btn_left_pag_card disabled"></a>
-                            <span class="tiptext">Next</span>
-                        </div>
                     @endif
-
                 </div>
             </div>
         </div>
