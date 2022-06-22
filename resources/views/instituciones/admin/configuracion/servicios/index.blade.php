@@ -103,16 +103,16 @@
                                 <!-- view more and edit buttons -->
                                 <div class="row m-0 mt-2 justify-content-md-center">
                                     @can('accesos-institucion','ver-servicios')
-                                        <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
-                                            <button class="button__bg_green_card boton-servicio"
+                                        <div class="col-12 col-lg-3 p-0 mb-2 mb-lg-0 button__down_card">
+                                            <button class="button2__bg_green_card boton-servicio"
                                                 data-url="{{ route('institucion.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">Ver más
                                             </button>
                                         </div>
                                     @endcan
 
                                     @can('accesos-institucion','editar-servicio')
-                                        <div class="col-12 col-md-3 p-0 button__down_card">
-                                            <a class="button__border_green_card"
+                                        <div class="col-12 col-lg-3 p-0 button__down_card">
+                                            <a class="button2__border_green_card"
                                                 href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">Editar
                                             </a>
                                         </div>
@@ -161,7 +161,7 @@
                 <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
                     <!-- Sección data -->
                     <div class="mb-lg-4 modal_info_data_open">
-                        <div class="row m-0">
+                        <div class="row m-0 pl-lg-3">
                             <div class="col-12 modal_info_user">
                                 <h4 class="modal_data_form">Nombre:</h4>
                                 <div class="modal_data_user">

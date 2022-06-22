@@ -229,24 +229,6 @@
         }
     } 
 }
-.citas_activas {
-    width: 20% !important;
-    text-align: center;
-}
-// codigo sin casi soporte
-// .input__check {
-//     label {
-//         font-size: 14px;
-//         font-family: 'Roboto';
-//         color: $black_firsrt;
-//         margin-bottom: 0;
-//     }
-//     input {
-//         width: 15px;
-//         height: 15px;
-//         margin-right: 5px;
-//     }
-// }
 
 // ================ Check box interactivo acción "Activo e Inactivo" ================
 // Check green
@@ -396,7 +378,7 @@
 
 @media(min-width: 768px) {
     .txt_label_form {
-        font-size: 18px;
+        font-size: 16px;
     }
     .txt_input_form {
         font-size: 16px !important;
@@ -404,7 +386,7 @@
     // Inputs
     .input__box {
         label {
-            font-size: 18px;
+            font-size: 16px;
         }
         input {
             font-size: 16px;
@@ -453,17 +435,5 @@
             width: 20px;
             height: 20px;
         }
-    }
-}
-
-@media(min-width: 1440px) {
-    .citas_activas {
-        width: 30% !important;
-    }
-}
-
-@media(min-width: 1920px) {
-    .citas_activas {
-        width: 40% !important;
     }
 }

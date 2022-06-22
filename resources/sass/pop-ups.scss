@@ -533,7 +533,7 @@ $lines: 1;
 .card__conven {
     border: 1px solid #DBDADA;
     border-radius: 7px;
-    padding: 15px 0;
+    padding: 15px 0 0 0;
 }
 // Fin sección convenios vinculados
 @media(min-width: 768px) {
@@ -667,9 +667,6 @@ $lines: 1;
  
     .convenio_scroll {
         max-height: 233px;
-    }
-    .card__conven {
-        padding: 15px 0 0 0;
     }
     .heigth_txt_conv {
         height: 30px;

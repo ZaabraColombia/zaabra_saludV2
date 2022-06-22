@@ -22583,7 +22583,7 @@ a:hover {
 .card__conven {
   border: 1px solid #DBDADA;
   border-radius: 7px;
-  padding: 15px 0;
+  padding: 15px 0 0 0;
 }
 
 @media (min-width: 768px) {
@@ -22690,10 +22690,6 @@ a:hover {
 
   .convenio_scroll {
     max-height: 233px;
-  }
-
-  .card__conven {
-    padding: 15px 0 0 0;
   }
 
   .heigth_txt_conv {
@@ -27265,11 +27261,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #0083D6;
 }
 
-.citas_activas {
-  width: 20% !important;
-  text-align: center;
-}
-
 .label_check {
   display: inline-block;
   cursor: pointer;
@@ -27400,7 +27391,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 
 @media (min-width: 768px) {
   .txt_label_form {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .txt_input_form {
@@ -27408,7 +27399,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 
   .input__box label {
-    font-size: 18px;
+    font-size: 16px;
   }
   .input__box input {
     font-size: 16px;
@@ -27450,16 +27441,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .input__check input {
     width: 20px;
     height: 20px;
-  }
-}
-@media (min-width: 1440px) {
-  .citas_activas {
-    width: 30% !important;
-  }
-}
-@media (min-width: 1920px) {
-  .citas_activas {
-    width: 40% !important;
   }
 }
 .content_img_center {
@@ -28273,6 +28254,26 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 2px 23px;
 }
 
+.button2__bg_green_card {
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #FFFFFF;
+  background: #049372;
+  border: solid 1px #049372;
+  border-radius: 7px;
+  padding: 2px 15px;
+}
+
+.button2__border_green_card {
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #049372 !important;
+  background: #FFFFFF;
+  border: solid 1px #049372;
+  border-radius: 7px;
+  padding: 2px 23px;
+}
+
 .button__bg_blue_card {
   font-family: "Quicksand";
   font-size: 14px;
@@ -28528,6 +28529,16 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .button__blue_card {
     padding: 10px;
     font-size: 12px;
+  }
+
+  .button2__bg_green_card {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .button2__border_green_card {
+    font-size: 10px;
+    padding: 5px 15px;
   }
 }
 @media (min-width: 1200px) {
@@ -28807,7 +28818,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   font-family: "Roboto";
   font-weight: 500;
   text-align: center;
-  color: #019F86;
+  color: #049372;
   margin: 0;
 }
 

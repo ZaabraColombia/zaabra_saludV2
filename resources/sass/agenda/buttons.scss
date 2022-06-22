@@ -290,6 +290,24 @@
     border-radius: 7px;
     padding: 2px 23px;
 }
+.button2__bg_green_card {
+    font-family: "Quicksand";
+    font-size: 14px;
+    color: $withe_official;
+    background: #049372;
+    border: solid 1px #049372;
+    border-radius: 7px;
+    padding: 2px 15px;
+}
+.button2__border_green_card {
+    font-family: "Quicksand";
+    font-size: 14px;
+    color: #049372 !important;
+    background: $withe_official;
+    border: solid 1px #049372;
+    border-radius: 7px;
+    padding: 2px 23px;
+}
 .button__bg_blue_card {
     font-family: "Quicksand";
     font-size: 14px;
@@ -539,6 +557,15 @@
     .button__blue_card {
         padding: 10px;
         font-size: 12px;
+    }
+    // Botones inferiores (ver más, editar)
+    .button2__bg_green_card {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+    .button2__border_green_card {
+        font-size: 10px;
+        padding: 5px 15px;
     }
 }
 @media(min-width: 1200px) {
