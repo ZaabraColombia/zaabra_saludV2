@@ -22540,14 +22540,6 @@ a:hover {
   align-items: center;
 }
 
-.convenio_vinculado:nth-child(1) {
-  border: none;
-}
-
-.convenio_vinculado:nth-child(1n+2) {
-  border-top: 2px solid #DBDADA;
-}
-
 .modal_content_txt {
   width: 100%;
   margin: auto;
@@ -22579,8 +22571,19 @@ a:hover {
 
 .convenio_scroll {
   min-height: 1px;
-  max-height: 300px;
+  max-height: 345px;
   overflow: auto;
+}
+
+.convenio_vinculado {
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.card__conven {
+  border: 1px solid #DBDADA;
+  border-radius: 7px;
+  padding: 15px 0;
 }
 
 @media (min-width: 768px) {
@@ -22646,17 +22649,12 @@ a:hover {
     flex-direction: row;
   }
 
-  .convenio_vinculado:nth-child(1n+2) {
-    border-top: none;
-  }
-
   .convenio_vinculado:nth-child(odd) {
-    border-right: 2px solid #DBDADA;
+    padding-right: 15px;
   }
 
-  .convenio_scroll {
-    max-height: 286px;
-    overflow: auto;
+  .convenio_vinculado:nth-child(even) {
+    padding-left: 15px;
   }
 }
 @media (min-width: 1024px) {
@@ -22688,8 +22686,15 @@ a:hover {
   }
 
   .convenio_scroll {
-    max-height: 192px;
-    overflow: auto;
+    max-height: 233px;
+  }
+
+  .card__conven {
+    padding: 15px 0 0 0;
+  }
+
+  .heigth_txt_conv {
+    height: 30px;
   }
 }
 .search_main_container {
