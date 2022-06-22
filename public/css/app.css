@@ -22398,7 +22398,7 @@ a:hover {
 .modal__ .modal-header .modal_main_title .modal_title_green {
   font-size: 25px;
   font-weight: bold;
-  color: #019F86;
+  color: #049372;
   text-align: center;
   margin: 0;
 }
@@ -22510,7 +22510,7 @@ a:hover {
   font-size: 24px;
   font-weight: bold;
   color: #FFFFFF;
-  background: #019F86;
+  background: #049372;
   border: none;
   border-radius: 7px;
   padding: 5px 15px;
@@ -28016,8 +28016,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .button__green_card {
   font-family: "Quicksand";
   color: #FFFFFF;
-  background: #019F86;
-  border: solid 1px #019F86;
+  background: #049372;
+  border: solid 1px #049372;
   border-radius: 5px;
   padding: 7px 10px;
 }
@@ -28257,8 +28257,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   font-family: "Quicksand";
   font-size: 14px;
   color: #FFFFFF;
-  background: #019F86;
-  border: solid 1px #019F86;
+  background: #049372;
+  border: solid 1px #049372;
   border-radius: 7px;
   padding: 2px 15px;
 }
@@ -28266,9 +28266,9 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .button__border_green_card {
   font-family: "Quicksand";
   font-size: 14px;
-  color: #019F86 !important;
+  color: #049372 !important;
   background: #FFFFFF;
-  border: solid 1px #019F86;
+  border: solid 1px #049372;
   border-radius: 7px;
   padding: 2px 23px;
 }
@@ -28394,8 +28394,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   font-size: 20px;
   font-weight: 100;
   color: #FFFFFF;
-  background: #019F86;
-  border: solid 1px #019F86;
+  background: #049372;
+  border: solid 1px #049372;
   border-radius: 7px;
   padding: 5px 15px;
 }
@@ -28986,14 +28986,15 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .icon_span_card {
-  width: 13px;
-  height: 12PX;
+  width: 8px;
+  height: 8PX;
   margin-right: 5px;
+  color: #707070;
 }
 
 .icon_span_green_card {
   width: 13px;
-  height: 12PX;
+  height: 13PX;
   margin-right: 5px;
   color: #019F86;
 }
