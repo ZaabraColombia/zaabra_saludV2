@@ -22650,30 +22650,8 @@ a:hover {
     border-top: none;
   }
 
-  .convenio_vinculado:nth-child(1) {
+  .convenio_vinculado:nth-child(odd) {
     border-right: 2px solid #DBDADA;
-    border-bottom: 2px solid #DBDADA;
-  }
-
-  .convenio_vinculado:nth-child(2) {
-    border-bottom: 2px solid #DBDADA;
-  }
-
-  .convenio_vinculado:nth-child(3) {
-    border-right: 2px solid #DBDADA;
-  }
-
-  .convenio_vinculado:nth-child(4) {
-    border: none;
-  }
-
-  .convenio_vinculado:nth-child(2n+5) {
-    border-top: 2px solid #DBDADA;
-    border-right: 2px solid #DBDADA;
-  }
-
-  .convenio_vinculado:nth-child(2n+6) {
-    border-top: 2px solid #DBDADA;
   }
 
   .convenio_scroll {
