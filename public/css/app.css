@@ -23353,7 +23353,7 @@ a:hover {
   }
 
   .content__btn_inferior {
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 
   .txt_calendar_cita_green {
@@ -23462,7 +23462,7 @@ a:hover {
   }
 
   .content__btn_inferior {
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 
   .card__section {
@@ -28505,6 +28505,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     position: absolute;
     top: 4px;
     padding-right: 4px;
+    z-index: 10;
   }
 
   .button__add_card {

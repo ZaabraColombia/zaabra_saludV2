@@ -204,36 +204,131 @@
         </div>
     </div>
 
-    <!-- Modal confirmar cita -->
-    <div class="modal fade" id="confirmar-cita" tabindex="-1" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="fs_title_module black_bold" id="exampleModalLabel">Detalles de la cita</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <h5 id="modal-paciente"></h5>
-                        <h5 id="modal-paciente-identificacion"></h5>
+    <!-- Modal appoiment detail -->
+    <div class="modal fade" id="confirmar-cita" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal__">
+                <!-- Modal header -->
+                <div class="modal-header row m-0 px-3 pl-lg-4">
+                    <div class="col-12 p-0">
+                        <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
+                            <span class="modal_x_close" aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div>
-                        <h5> Paciente<span id="modal-profesional"></span></h5>
-                        <h5> Identificación<span id="modal-profesional-identificacion"></span></h5>
-                        <h5> Servicio:<span id="modal-tipo-cita"></span></h5>
-                        <h5> Profesional: <span id="modal-profesional"></span></h5>
-                        <h5> Horario: <span id="modal-horario"></span></h5>
-                        <h5> Lugar: <span id="modal-lugar"></span></h5>
-                        <h5> Pago: <span id="modal-modalidad"></span></h5>
-                        <h5> Valor cita: <span id="modal-valor"></span></h5>
-                        <h5> Convenio: <span id="modal-convenio"></span></h5>
+                    <!-- Título principal -->
+                    <div class="col-12 modal_main_title">
+                        <h1 class="modal_title_green">Detalles de la cita</h1>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btn_confirmar_cita">Guardar</button>
+                <!-- Modal body -->
+                <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
+                    <!-- Imagen imprersa del profesional -->
+                    <div class="row m-0">
+                        <div class="col-12 p-0 mb-2 mb-lg-3 d-flex justify-content-center">
+                            <img class="img_printed_modal" src="{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}">
+                        </div>
+                    </div>
+                    <!-- Sección data sin borde -->
+                    <div class="modal_info_data_open">
+                        <div class="row m-0">
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Paciente:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Santiago Jonathan Buenaventura Santamaria</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Especialidad:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Otorrinolaringología</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-3 px-md-4 dropdown-divider" style="border: 1px solid #DBDADA"></div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Profesional:</h4>
+                                <div class="modal_data_user">
+                                    <span id="nombre">Carlos Arturo Quiroga Galvis</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Identificación:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">C.C. 1.070.000.000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 modal_info_user">
+                                <h4 class="modal_data_form">Tipo de servicio:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Cirugía plástica facial</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Fecha:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">28/11/1985</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Teléfono:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">0000000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Hora:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">7:00 a.m. - 7:30 a.m.</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Lugar:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Calle 127A # 7-53 Cs 7003</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Pago:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Virtual</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Consultorio:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Consultorio 105</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Valor de la cita:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">$ 1.440.000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Convenio:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">Sura E.P.S.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modalfooter -->
+                <div class="modal_btn_down_center mb-4">
+                    <button type="button" class="button__form_green" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>

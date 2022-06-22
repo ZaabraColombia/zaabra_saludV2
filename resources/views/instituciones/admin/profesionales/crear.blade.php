@@ -261,7 +261,7 @@
                     <!-- Campo de contraseña -->
                     <div class="my-4">
                         <h2 class="subtitle__lg green_bold">Contraseña</h2>
-                        <p class="text__md black_light">Crea una contraseña para el usuario que esta creando.</p>
+                        <p class="text__md black_light">Crea una contraseña para el profesional que esta creando.</p>
                     </div>
 
                     <div class="row">
