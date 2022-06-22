@@ -107,10 +107,10 @@
                         <div class="col-md-6 mb-3 input__box">
                             <label for="numero_documento">Número de identificación</label>
                             <div class="row m-0">
-                                <input class="col-md-8 m-0 mb-1 mb-md-0 no_brad_right @error('numero_documento') is-invalid @enderror" required
+                                <input class="col-10 m-0 no_brad_right @error('numero_documento') is-invalid @enderror" required
                                        type="text" id="numero_documento" name="numero_documento" value="{{ old('numero_documento', $convenio->numero_documento) }}" />
 
-                                <input class="col-md-4 m-0 no_brad_left @error('dv_documento') is-invalid @enderror" type="text"
+                                <input class="col-2 m-0 no_brad_left @error('dv_documento') is-invalid @enderror" type="text"
                                        id="dv_documento" name="dv_documento" value="{{ old('dv_documento', $convenio->dv_documento) }}" placeholder="# verificación"/>
                             </div>
                         </div>

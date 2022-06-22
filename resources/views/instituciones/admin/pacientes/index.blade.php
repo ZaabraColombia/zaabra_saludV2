@@ -175,61 +175,54 @@
                     <!-- Sección data -->
                     <div class="modal_info_data_open">
                         <div class="row m-0">
-                            <div class="col-12 col-lg-6 modal_info_user">
+                            <div class="col-lg-6 d-block d-lg-flex  modal_info_user">
                                 <h4 class="modal_data_form">Nombre:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="nombre">María Carolina Pérez Perdomo</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Identificación:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">C.C. 52458791</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Fecha de nacimiento:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">28/11/1985</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Sexo Biológico:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Femenino</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Estado Civil:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Casado/a</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Ocupación:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">Empleado/a</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 mb-3 dropdown-divider"></div>
+                            <div class="col-12 mb-4 dropdown-divider"></div>
 
                             <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Grupo Sanguíneo:</h4>
                                 <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">B+</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
-                                <h4 class="modal_data_form">Alergias:</h4>
-                                <div class="pl-md-0 pl-lg-2 modal_data_user">
-                                    <span id="">Lorem ipsum do</span>
                                 </div>
                             </div>
 
@@ -247,7 +240,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 mb-3 dropdown-divider"></div>
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
+                                <h4 class="modal_data_form">Alergias:</h4>
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
+                                    <span id="">Lorem ipsum do</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-4 dropdown-divider"></div>
 
                             <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">País:</h4>
@@ -278,16 +278,16 @@
                             </div>
 
                             <div class="col-md-6 d-block d-lg-flex modal_info_user">
-                                <h4 class="modal_data_form">Teléfono:</h4>
+                                <h4 class="modal_data_form">Correo:</h4>
                                 <div class="pl-md-0 pl-lg-2 modal_data_user">
-                                    <span id="">0000000</span>
+                                    <span id="">mariacaro85@gmail.com</span>
                                 </div>
                             </div>
 
                             <div class="col-md-6 d-block d-lg-flex modal_info_user">
-                                <h4 class="modal_data_form">Correo:</h4>
+                                <h4 class="modal_data_form">Teléfono:</h4>
                                 <div class="pl-md-0 pl-lg-2 modal_data_user">
-                                    <span id="">mariacaro85@gmail.com</span>
+                                    <span id="">0000000</span>
                                 </div>
                             </div>
                         </div>

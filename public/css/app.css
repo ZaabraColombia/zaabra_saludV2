@@ -22459,7 +22459,7 @@ a:hover {
 }
 .modal__ .modal-body .modal_info_data_open .modal_info_user {
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_data_form {
   font-size: 14px;
@@ -22678,6 +22678,9 @@ a:hover {
     padding: 0 !important;
   }
 
+  .modal__ .modal-body .modal_info_data_open .modal_info_user {
+    margin-bottom: 10px;
+  }
   .modal__ .modal-body .modal_info_data_open .modal_info_user .modal_pill_data {
     font-size: 16px;
   }

@@ -412,7 +412,7 @@
             margin-bottom: 0px;
             .modal_info_user {
                 padding: 0;
-                margin-bottom: 10px;
+                margin-bottom: 20px;
                 .modal_data_form {
                     font-size: 14px;
                     font-family: 'Roboto';
@@ -656,6 +656,7 @@ $lines: 1;
         padding: 0 !important;
     }
     .modal__ .modal-body .modal_info_data_open .modal_info_user {
+        margin-bottom: 10px;
         .modal_pill_data {
             font-size: 16px;
             .pill_data {

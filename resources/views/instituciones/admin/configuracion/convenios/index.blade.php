@@ -73,9 +73,9 @@
                                 <div class="row card__row_column">
                                     <!-- Estado activo o inactivo -->
                                     <div class="col-12 p-0 mb-3 d-flex justify-content-end">
-                                        <a href="#" class="btn__activado">
+                                        <button class="btn__activado">
                                             <span>activo</span>
-                                        </a>
+                                        </button>
                                     </div>
                                     <!-- Image agreement -->
                                     <div class="img_card_float">

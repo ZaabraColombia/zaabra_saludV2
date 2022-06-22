@@ -79,9 +79,9 @@
                                             </div>
 
                                             <div class="col-12 p-0 d-flex justify-content-center mb_card">
-                                                <a href="#" class="btn__activado">
+                                                <button class="btn__activado">
                                                     <span>activo</span>
-                                                </a>
+                                                </button>
                                             </div>
 
                                             <div class="mb_card">
