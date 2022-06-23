@@ -87,7 +87,17 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-6 input__box">
+                        <div class="col-md-4 col-lg-6 mb-3 input__box">
+                            @php $codigo_cups = old('codigo_cups'); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
+                            <label for="codigo_cups">CUPS</label>
+                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups" required>
+                                @if(!empty($cup))
+                                    <option value="{{ $cup->code }}" selected>{{ $cup->nombre }}</option>
+                                @endif
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 col-lg-6 input__box">
                             <label for="tipo_servicio_id">Tipo de servicio</label>
                             <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id" required>
                                 <option></option>
@@ -99,25 +109,7 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-6 mb-3 input__box">
-                            @php $codigo_cups = old('codigo_cups'); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
-                            <label for="codigo_cups">CUPS</label>
-                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups" required>
-                                @if(!empty($cup))
-                                    <option value="{{ $cup->code }}" selected>{{ $cup->nombre }}</option>
-                                @endif
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-7 col-lg-6 py-3 d-flex justify-content-between align-items-center align-items-md-end input__box">
-                            <label class="m-0 txt_line_height" for="citas_activas">Número de citas activas por paciente</label>
-                            <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas') }}"
-                                class="m-0 citas_activas @error('citas_activas') is-invalid @enderror" required/>
-                        </div>
-
-                        <div class="col-md-5 col-lg-6 input__box pl-md-0">
+                        <div class="col-md-4 input__box">
                             <label for="tipo_atencion">Tipo de atención</label>
                             <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion" required>
                                 <option></option>
@@ -125,15 +117,19 @@
                                 <option value="virtual" {{old('tipo_atencion') == 'virtual' ? 'selected':''}}>Virtual</option>
                             </select>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 py-3 d-flex align-items-center">
-                            <label class="m-0 txt_label_form txt_line_height">Agendamiento virtual</label>&nbsp;
+                  
+                        <div class="col-md-7 col-lg-5 input__box">
+                            <label for="citas_activas">Número de citas activas por paciente</label>
+                            <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas') }}"
+                                class="citas_activas @error('citas_activas') is-invalid @enderror" required/>
+                        </div>
+     
+                        <div class="col-md-5 col-lg-3 mb-3 input__box">
+                            <label>Agendamiento virtual</label>
                             <!-- Check box interactivo y personalizado -->
                             <div class="checkbox">
                                 <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual" value="1" {{ old('agendamiento_virtual') == 1 ? 'checked':'' }}>
-                                <label class="label_check m-0" for="agendamiento_virtual">
+                                <label class="label_check m-0 pt-2" for="agendamiento_virtual">
                                     <b class="txt1">Desactivado</b>
                                     <b class="txt2">Activado</b>
                                 </label>

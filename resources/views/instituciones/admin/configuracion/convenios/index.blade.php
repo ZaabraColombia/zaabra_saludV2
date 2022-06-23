@@ -73,9 +73,9 @@
                                 <div class="row card__row_column">
                                     <!-- Estado activo o inactivo -->
                                     <div class="col-12 p-0 mb-3 d-flex justify-content-end">
-                                        <a href="#" class="btn__activado">
+                                        <button class="btn__activado">
                                             <span>activo</span>
-                                        </a>
+                                        </button>
                                     </div>
                                     <!-- Image agreement -->
                                     <div class="img_card_float">
@@ -178,10 +178,10 @@
                         <img class="modal_img_float" src="{{ asset('img/menu/avatar.png') }}">
                     </div>
                     <!-- Sección data -->
-                    <div class="mb-lg-4 pt-md-3 px-md-4 modal_info_data_open">
-                        <h4 class="pt-5 pt-lg-4 mb-3 txt_subtitle_modal_card">Información básica</h4>
+                    <div class="mb-lg-4 pt-md-3 px-md-3 modal_info_data_open">
+                        <h4 class="pt-5 pt-lg-4 mb-3 text-center text-md-left txt_subtitle_modal_card">Información básica</h4>
 
-                        <div class="row m-0">
+                        <div class="row m-0 pl-md-3">
                             <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Nombre:</h4>
                                 <div class="modal_data_user">
@@ -240,11 +240,11 @@
                         </div>
                     </div>
 
-                    <div class="pb-md-3 px-md-4 modal_info_data_open">
-                        <div class="col-12 mb-3 px-md-4 d-lg-none dropdown-divider" style="border: 1px solid #DBDADA"></div>
-                        <h4 class="txt_subtitle_modal_card my-3">Información de contacto</h4>
+                    <div class="pb-md-3 px-md-3 modal_info_data_open">
+                        <div class="col-md-11 mb-4 mx-md-auto d-lg-none dropdown-divider" style="border: 1px solid #DBDADA"></div>
+                        <h4 class="my-3 text-center text-md-left txt_subtitle_modal_card">Información de contacto</h4>
 
-                        <div class="row m-0">
+                        <div class="row m-0 pl-md-3">
                             <div class="col-md-6 col-lg-12 d-md-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Tipo de establecimiento:</h4>
                                 <div class="pl-md-0 pl-lg-2 modal_data_user">

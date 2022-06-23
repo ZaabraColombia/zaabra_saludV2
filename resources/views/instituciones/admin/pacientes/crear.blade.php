@@ -101,9 +101,7 @@
                         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}"
                                 class="@error('fecha_nacimiento') is-invalid @enderror"/>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-md-6 col-lg-4 mb-3 input__box">
                         <label for="sexo_biologico">Sexo Biológico</label>
                         <select id="sexo_biologico" name="sexo_biologico" class="select2 @error('sexo_biologico') is-invalid @enderror">
@@ -197,9 +195,7 @@
                                 data-id="{{ old('ciudad_id') }}" required>
                         </select>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-md-6 col-lg-4 input__box">
                         <label for="direccion">Dirección</label>
                         <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"

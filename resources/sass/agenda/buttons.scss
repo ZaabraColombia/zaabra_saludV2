@@ -51,8 +51,8 @@
 .button__green_card {
     font-family: "Quicksand";
     color: $withe_official;
-    background: $green_official;
-    border: solid 1px $green_official;
+    background: #049372;
+    border: solid 1px #049372;
     border-radius: 5px;
     padding: 7px 10px;
 }
@@ -276,19 +276,39 @@
     font-family: "Quicksand";
     font-size: 14px;
     color: $withe_official;
-    background: $green_official;
-    border: solid 1px $green_official;
+    background: #049372;
+    border: solid 1px #049372;
     border-radius: 7px;
     padding: 2px 15px;
 }
 .button__border_green_card {
     font-family: "Quicksand";
     font-size: 14px;
-    color: $green_official !important;
+    color: #049372 !important;
     background: $withe_official;
-    border: solid 1px $green_official;
+    border: solid 1px #049372;
     border-radius: 7px;
     padding: 2px 23px;
+}
+.button2__bg_green_card {
+    font-family: "Quicksand";
+    font-size: 14px;
+    font-weight: bold;
+    color: $withe_official;
+    background: #049372;
+    border: solid 1px #049372;
+    border-radius: 7px;
+    padding: 2px 18px;
+}
+.button2__border_green_card {
+    font-family: "Quicksand";
+    font-size: 14px;
+    font-weight: bold;
+    color: #049372 !important;
+    background: $withe_official;
+    border: solid 1px #049372;
+    border-radius: 7px;
+    padding: 2px 25px;
 }
 .button__bg_blue_card {
     font-family: "Quicksand";
@@ -308,6 +328,13 @@
     border-radius: 7px;
     padding: 2px 23px;
 }
+.btn_right {
+    padding: 0;
+    margin-bottom: 8px;
+}
+.btn_left {
+    padding: 0;
+}
 // Botón activado y desactivado
 .btn_position {
     position: absolute;
@@ -315,16 +342,22 @@
     top: 5px;
     right: 16px;
 }
+.btn_position_user {
+    position: absolute;
+    z-index: 5;
+    top: 15px;
+    right: 10px;
+}
 .btn__activado {
     font-weight: bold;
     color: #049372 !important;
     text-decoration: none;
-    height: 24px;
+    height: 22px;
     display: inline-flex;
     align-items: center;
     overflow:hidden;
     width: auto;
-    max-width: 20px;
+    max-width: 22px;
     border: none;
     background-color: transparent;
     -webkit-transition: max-width 0.5s;
@@ -334,12 +367,12 @@
     background-repeat: no-repeat;
     background-position-x: 0;
     background-position-y: center;
-    background-size: 20px;
+    background-size: 22px;
     // Texto activado y desactivado
     white-space: nowrap;
     padding-top: 2px;
     padding-right: 0px;
-    padding-left: 23px;
+    padding-left: 30px;
     &:hover {
         max-width: 300px;
         padding-right: 0;
@@ -349,12 +382,12 @@
     font-weight: bold;
     color: #FF3E3E !important;
     text-decoration: none;
-    height: 24px;
+    height: 22px;
     display: inline-flex;
     align-items: center;
     overflow:hidden;
     width: auto;
-    max-width: 20px;
+    max-width: 22px;
     border: none;
     background-color: transparent;
     -webkit-transition: max-width 0.5s;
@@ -364,12 +397,12 @@
     background-repeat: no-repeat;
     background-position-x: 0;
     background-position-y: center;
-    background-size: 20px;
+    background-size: 22px;
     // Texto activado y desactivado
     white-space: nowrap;
     padding-top: 2px;
     padding-right: 0px;
-    padding-left: 23px;
+    padding-left: 30px;
     &:hover {
         max-width: 300px;
         padding-right: 0;
@@ -412,10 +445,10 @@
 
 .button__form_green {
     font-size: 20px;
-    font-weight: 100;
+    font-weight: bold;
     color: $withe_official;
-    background: $green_official;
-    border: solid 1px $green_official;
+    background: #049372;
+    border: solid 1px #049372;
     border-radius: 7px;
     padding: 5px 15px;
 }
@@ -461,6 +494,9 @@
     .button__border_blue_card {
         font-size: 10px;
         padding: 5px 15px;
+    }
+    .btn_right {
+        margin-bottom: 0;
     }
 }
 @media(min-width: 1024px) {
@@ -540,6 +576,21 @@
         padding: 10px;
         font-size: 12px;
     }
+    // Botones inferiores (ver más, editar)
+    .button2__bg_green_card {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+    .button2__border_green_card {
+        font-size: 10px;
+        padding: 5px 15px;
+    }
+    .btn_right {
+        margin-right: 5px;
+    }
+    .btn_left {
+        margin-left: 5px;
+    }
 }
 @media(min-width: 1200px) {
     .button__green_card {
@@ -559,6 +610,14 @@
     .button__blue_card {
         padding: 8px;
         font-size: 15px;
+    }
+    .btn_right {
+        margin-right: 0;
+        padding-left: 2px;
+    }
+    .btn_left {
+        margin-left: 0;
+        padding-right: 2px;
     }
 }
 @media(min-width: 1600px) {
@@ -583,5 +642,13 @@
     }
     .button__blue_card {
         padding: 8px 20px;
+    }
+    .btn_right {
+        padding-left: 0;
+        margin-right: 2px;
+    }
+    .btn_left {
+        padding-right: 0;
+        margin-left: 2px;
     }
 }
