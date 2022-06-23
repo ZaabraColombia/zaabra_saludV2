@@ -66,13 +66,13 @@
                 @if($usuarios->isNotEmpty())
                     @foreach($usuarios as $usuario)
                         <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
-                            <div class="card card__">
+                            <div class="card card__user">
                                 <div class="row card__row_column">
                                     <!-- Estado activo o inactivo -->
-                                    <div class="btn_position">
-                                        <a href="#" class="{{ ($usuario->estado)?'btn__activado':'btn__desactivado' }}">
+                                    <div class="btn_position_user">
+                                        <button href="#" class="{{ ($usuario->estado)?'btn__activado':'btn__desactivado' }}">
                                             <span>{{ ($usuario->estado)?'Activo':'Inactivo' }}</span>
-                                        </a>
+                                        </button>
                                     </div>
                                     <!-- Image user -->
                                     <div class="col-12 p-0 mb-2 d-flex justify-content-center">
@@ -83,27 +83,27 @@
                                         <!-- card data top -->
                                         <div class="card__data_top">
                                             <div class="mb_card">
-                                                <h4 class="txt_h4_card text-center">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
+                                                <h4 class="txt_h4_card_user">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
                                             </div>
                                             <div class="">
-                                                <h5 class="txt_h5_card text-center">{{ $usuario->auxiliar->cargo }}</h5>
+                                                <h5 class="txt_h5_card_user">{{ $usuario->auxiliar->cargo }}</h5>
                                             </div>
                                         </div>   
                                     </div>
-                                    <div class="col-12 my-2 dropdown-divider"></div>
+                                    <div class="col-12 my-1 dropdown-divider"></div>
                                     <!-- Information patient -->
-                                    <div class="col-12 px-0 px-lg-4 px-xl-3">
+                                    <div class="col-12 px-0">
                                         <!-- card data down -->
-                                        <div class="card__data_down">
-                                            <div class="pl-md-3 mb_card">
+                                        <div class="card__data_down_user">
+                                            <div class="mb_card">
                                                 <i data-feather="phone" class="icon_span_green_card"></i>
-                                                <span class="txt_span_card">{{ $usuario->auxiliar->celular }}</span>
+                                                <span class="txt_span_card_user">{{ $usuario->auxiliar->celular }}</span>
                                             </div>
 
                                             <div class="toolt bottom">
-                                                <div class="pl-md-3 mb_card width__tool_tip">
+                                                <div class="mb-xl-0 mb_card width__tool_tip">
                                                     <i data-feather="mail" class="icon_span_green_card"></i>
-                                                    <span class="txt_span_card">{{ $usuario->email }}</span>
+                                                    <span class="txt_span_card_user">{{ $usuario->email }}</span>
                                                 </div>
                                                 <span class="tiptext">{{ $usuario->email }}</span>
                                             </div>
@@ -113,7 +113,7 @@
                                 <!-- view more and edit buttons -->
                                 <div class="row m-0 mt-2 justify-content-md-center">
                                     @can('accesos-institucion', 'editar-usuario')
-                                        <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
+                                        <div class="col-12 col-md-3 btn_right button__down_card">
                                             <button type="submit" class="button__bg_green_card modal-usuario"
                                                 data-url="{{ route('institucion.configuracion.usuarios.show', ['usuario'=>$usuario->id]) }}">
                                                 Ver más
@@ -122,7 +122,7 @@
                                     @endcan
 
                                     @can('accesos-institucion', 'editar-usuario')
-                                        <div class="col-12 col-md-3 p-0 button__down_card">
+                                        <div class="col-12 col-md-3 btn_left button__down_card">
                                             <a type="submit" class="button__border_green_card"
                                                 href="{{ route('institucion.configuracion.usuarios.edit', ['usuario'=>$usuario->id]) }}">
                                                 Editar
@@ -170,7 +170,7 @@
                     </div>
                 </div>
                 <!-- Modal body -->
-                <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
+                <div class="modal-body px-4 m-0 mb-lg-3">
                     <!-- Imagen imprersa del profesional -->
                     <div class="row m-0">
                         <div class="col-12 p-0 mb-2 mb-lg-3 d-flex justify-content-center">
@@ -180,14 +180,18 @@
                     <!-- Sección data sin borde -->
                     <div class="modal_info_data_open">
                         <div class="row m-0">
-                            <div class="col-12 p-0 mb-3 d-flex justify-content-center justify-content-lg-end">
-                                <div id="estado-modal">
-                                    <span></span>
-                                </div>
-                            </div>
-                            
                             <div class="col-12 p-0">
-                                <h4 class="txt_subtitle_modal_card mb-3">Información Básica</h4>
+                                <div class="row m-0 flex-lg-row-reverse">
+                                    <div class="col-12 col-lg-3 p-0 mb-3 d-flex justify-content-center justify-content-lg-end">
+                                        <div id="estado-modal">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12 col-lg-9 p-0">
+                                        <h4 class="txt_subtitle_modal_card mb-3">Información Básica</h4>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
@@ -274,7 +278,7 @@
 
                         <h4 class="txt_subtitle_modal_card mb-3">Accesos del Usuario</h4>
 
-                        <div class="row m-0 mb-2 px-lg-4" id="accesos-lista">
+                        <div class="row m-0 pl-lg-5" id="accesos-lista">
                         </div>
                     </div>
                 </div>
