@@ -3,21 +3,21 @@
     border-radius: 7px;
     text-align: center;
     padding: 0;
-    height: 150px;
+    height: 130px;
     color: $black_third;
+    margin-bottom: 20px;
     position: relative;
     background-color: #FFFFFF;
     background-repeat: no-repeat;
-    background-size: 60px;
+    background-size: 48px;
     background-position-x: center;
-    background-position-y: 30px;
+    background-position-y: 20px;
     span{
         position: absolute;
         width: 100%;
         height: 50px;
         bottom: 0;
         left: 0;
-        line-height: 1.1;
         padding: 0 5px;
     }    
     &:hover {
@@ -49,7 +49,26 @@
     border-radius: 7px;
     padding: 15px 15px 10px 15px;
 }
-.card__container_main {
+// Orden de las tarjetas menú principal de opciones
+.card__option:nth-child(odd) {
+    padding-left: 0;
+    padding-right: 8px;
+}
+.card__option:nth-child(even) {
+    padding-left: 8px;
+    padding-right: 0;
+}
+// Orden de las tarjetas logos menú principal de opciones
+.card__option_logo:nth-child(odd) {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.card__option_logo:nth-child(even) {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+// Fin Orden de las tarjetas menú principal de opciones
+.card__container_main { // Contenedor perteneciente modulo administración de citas
     background-color: #FFFFFF;
     border: 1px solid #DBDADA;
     border-radius: 5px;
@@ -90,7 +109,6 @@
 .mt_card_float {
     margin-top: 80px;
 }
-
 @media(min-width: 768px) {
     // Cards logos menú panel
     .card__logo_menu_panel {
@@ -100,6 +118,33 @@
     .card__user {
         padding: 15px;
     }
+    // Orden de las tarjetas menú principal de opciones
+    .card__option:nth-child(3n+1) {
+        padding-left: 0 !important;
+        padding-right: 11px !important;
+    }
+    .card__option:nth-child(3n+3) {
+        padding-left: 11px !important;
+        padding-right: 0 !important;
+    }
+    .card__option:nth-child(3n+2) {
+        padding-left: 5.5px !important;
+        padding-right: 5.5px !important;
+    }
+    // Orden de las tarjetas logos menú principal de opciones
+    .card__option_logo:nth-child(3n+1) {
+        padding-left: 0 !important;
+        padding-right: 11px !important;
+    }
+    .card__option_logo:nth-child(3n+3) {
+        padding-left: 11px !important;
+        padding-right: 0 !important;
+    }
+    .card__option_logo:nth-child(3n+2) {
+        padding-left: 5.5px !important;
+        padding-right: 5.5px !important;
+    }
+    // Fin Orden de las tarjetas menú principal de opciones
     //Título principal header de las tarjetas agenda inst.
     .card_main_title {
         margin-bottom: 27px;
@@ -128,39 +173,73 @@
     .pt_card_float {
         padding-top: 14px;
     }
-}
-@media(min-width: 1300px) {
-    // Cards menú panel
-    .card__menu_panel {
-        background-position-y: 20px;
-        height: 130px;
-        span{
-            height: 40px;
-        }    
+    // Orden de las tarjetas logos menú principal de opciones
+    .card__option_logo:nth-child(odd) {
+        padding-left: 16px !important;
+        padding-right: 0 !important;
     }
+    .card__option_logo:nth-child(even) {
+        padding-left: 16px !important;
+        padding-right: 0 !important;
+    }
+}
+@media(min-width: 1200px) {
     // Cards logos menú panel
     .card__logo_menu_panel {
-        height: 162px;
+        height: 158px;
         padding: 0;
     }
+}
+@media(min-width: 1300px) {
     // Cards modules 
-    .card__container_main { // contenedor
+    .card__container_main { // Contenedor perteneciente modulo administración de citas
         padding: 20px 50px;
         margin-bottom: 100px;
     }
 }
 @media(min-width: 1600px) {
+    .search_main_container input {
+        height: 36px;
+        padding: 5px 25px;
+    }
     // Cards menú panel
     .card__menu_panel {
-        background-size: 81px;
-        background-position-y: 35px;
-        height: 185px;
+        height: 166px;
+        margin-bottom: 25px;
+        background-size: 66px;
+        background-position-y: 25px;
         span{
-            height: 50px;
+            height: 60px;
         }    
     }
     // Cards logos menú panel
     .card__logo_menu_panel {
-        height: 217px;
+        height: 200px;
     }
+    .pad_card_logos {
+        padding-left: 24px !important;
+    }
+    // Orden de las tarjetas menú principal de opciones
+    .card__option:nth-child(3n+1) {
+        padding-left: 0 !important;
+        padding-right: 16px !important;
+    }
+    .card__option:nth-child(3n+3) {
+        padding-left: 16px !important;
+        padding-right: 0 !important;
+    }
+    .card__option:nth-child(3n+2) {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+    // Orden de las tarjetas logos menú principal de opciones
+    .card__option_logo:nth-child(odd) {
+        padding-left: 24px !important;
+        padding-right: 0 !important;
+    }
+    .card__option_logo:nth-child(even) {
+        padding-left: 24px !important;
+        padding-right: 0 !important;
+    }
+    // Fin Orden de las tarjetas menú principal de opciones
 }
