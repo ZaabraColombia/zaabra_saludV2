@@ -22699,13 +22699,15 @@ a:hover {
 .search_main_container {
   background-color: #FFFFFF;
   border-radius: 7px;
-  padding: 13px 17px;
-  width: 98%;
-  margin: auto;
+  padding: 10px 17px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 24px;
 }
 .search_main_container input {
   display: block;
   width: 100%;
+  height: 28px;
   padding: 5px 12px;
   margin: 0;
   font-family: "Roboto";
@@ -22727,12 +22729,21 @@ a:hover {
   box-shadow: 0px 0px 1.2px 2px rgba(30, 200, 252, 0.1);
 }
 .search_main_container input::-moz-placeholder {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 100;
   color: #DBDADA;
 }
 .search_main_container input:-ms-input-placeholder {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 100;
   color: #DBDADA;
 }
 .search_main_container input::placeholder {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 100;
   color: #DBDADA;
 }
 .search_main_container .btnIn_search {
@@ -22740,9 +22751,8 @@ a:hover {
   right: 0px;
   top: 0;
   height: 100%;
-  border: none;
   background-color: #F9F9F9;
-  width: 55px;
+  width: 45px;
   border-radius: 0 14px 14px 0;
   border: 1px solid #DBDADA;
   border-left: none;
@@ -22755,9 +22765,8 @@ a:hover {
   right: 0px;
   top: 0;
   height: 100%;
-  border: none;
   background-color: #F9F9F9;
-  width: 55px;
+  width: 45px;
   border-radius: 0 14px 14px 0;
   border: 1px solid #DBDADA;
   border-left: none;
@@ -27829,6 +27838,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     font-size: 17px;
   }
 }
+.panel_container_main_menu {
+  padding: 12px 10px;
+}
+
 .panel_container {
   padding: 53px 5px 25px 5px;
 }
@@ -27864,6 +27877,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 @media (min-width: 768px) {
+  .panel_container_main_menu {
+    padding: 10px 78px 10px 60px;
+  }
+
   .panel_container {
     padding: 40px 70px 25px 50px;
   }
@@ -27881,6 +27898,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 }
 @media (min-width: 1200px) {
+  .panel_container_main_menu {
+    padding: 60px 78px 10px 60px;
+  }
+
   .panel_container {
     padding: 50px 30px 25px 35px;
   }
@@ -27931,6 +27952,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 }
 @media (min-width: 1600px) {
+  .panel_container_main_menu {
+    padding: 60px 160px 10px 60px;
+  }
+
   .panel_container {
     padding: 65px 160px 25px 50px;
   }
@@ -28640,14 +28665,15 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border-radius: 7px;
   text-align: center;
   padding: 0;
-  height: 150px;
+  height: 130px;
   color: #232323;
+  margin-bottom: 20px;
   position: relative;
   background-color: #FFFFFF;
   background-repeat: no-repeat;
-  background-size: 60px;
+  background-size: 48px;
   background-position-x: center;
-  background-position-y: 30px;
+  background-position-y: 20px;
 }
 .card__menu_panel span {
   position: absolute;
@@ -28655,7 +28681,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   height: 50px;
   bottom: 0;
   left: 0;
-  line-height: 1.1;
   padding: 0 5px;
 }
 .card__menu_panel:hover {
@@ -28686,6 +28711,26 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border: 1px solid #DBDADA;
   border-radius: 7px;
   padding: 15px 15px 10px 15px;
+}
+
+.card__option:nth-child(odd) {
+  padding-left: 0;
+  padding-right: 8px;
+}
+
+.card__option:nth-child(even) {
+  padding-left: 8px;
+  padding-right: 0;
+}
+
+.card__option_logo:nth-child(odd) {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.card__option_logo:nth-child(even) {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .card__container_main {
@@ -28747,6 +28792,36 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding: 15px;
   }
 
+  .card__option:nth-child(3n+1) {
+    padding-left: 0 !important;
+    padding-right: 11px !important;
+  }
+
+  .card__option:nth-child(3n+3) {
+    padding-left: 11px !important;
+    padding-right: 0 !important;
+  }
+
+  .card__option:nth-child(3n+2) {
+    padding-left: 5.5px !important;
+    padding-right: 5.5px !important;
+  }
+
+  .card__option_logo:nth-child(3n+1) {
+    padding-left: 0 !important;
+    padding-right: 11px !important;
+  }
+
+  .card__option_logo:nth-child(3n+3) {
+    padding-left: 11px !important;
+    padding-right: 0 !important;
+  }
+
+  .card__option_logo:nth-child(3n+2) {
+    padding-left: 5.5px !important;
+    padding-right: 5.5px !important;
+  }
+
   .card_main_title {
     margin-bottom: 27px;
   }
@@ -28778,38 +28853,76 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .pt_card_float {
     padding-top: 14px;
   }
-}
-@media (min-width: 1300px) {
-  .card__menu_panel {
-    background-position-y: 20px;
-    height: 130px;
-  }
-  .card__menu_panel span {
-    height: 40px;
+
+  .card__option_logo:nth-child(odd) {
+    padding-left: 16px !important;
+    padding-right: 0 !important;
   }
 
+  .card__option_logo:nth-child(even) {
+    padding-left: 16px !important;
+    padding-right: 0 !important;
+  }
+}
+@media (min-width: 1200px) {
   .card__logo_menu_panel {
-    height: 162px;
+    height: 158px;
     padding: 0;
   }
-
+}
+@media (min-width: 1300px) {
   .card__container_main {
     padding: 20px 50px;
     margin-bottom: 100px;
   }
 }
 @media (min-width: 1600px) {
+  .search_main_container input {
+    height: 36px;
+    padding: 5px 25px;
+  }
+
   .card__menu_panel {
-    background-size: 81px;
-    background-position-y: 35px;
-    height: 185px;
+    height: 166px;
+    margin-bottom: 25px;
+    background-size: 66px;
+    background-position-y: 25px;
   }
   .card__menu_panel span {
-    height: 50px;
+    height: 60px;
   }
 
   .card__logo_menu_panel {
-    height: 217px;
+    height: 200px;
+  }
+
+  .pad_card_logos {
+    padding-left: 24px !important;
+  }
+
+  .card__option:nth-child(3n+1) {
+    padding-left: 0 !important;
+    padding-right: 16px !important;
+  }
+
+  .card__option:nth-child(3n+3) {
+    padding-left: 16px !important;
+    padding-right: 0 !important;
+  }
+
+  .card__option:nth-child(3n+2) {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .card__option_logo:nth-child(odd) {
+    padding-left: 24px !important;
+    padding-right: 0 !important;
+  }
+
+  .card__option_logo:nth-child(even) {
+    padding-left: 24px !important;
+    padding-right: 0 !important;
   }
 }
 .blue__ {

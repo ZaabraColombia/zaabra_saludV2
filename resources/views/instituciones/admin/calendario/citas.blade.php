@@ -43,7 +43,7 @@
                 <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
                 <a  class="button_transparent" type="button" data-toggle="modal" data-target="#modal_appoiment_detail">Launch modal</a>
             </div>
-            <!-- Toolbar -->
+            <!-- Toolbar --> 
             <div class="row m-0">
                 <!-- Add appoiment -->
                 <div class="col-md-12 col-lg-2 p-0 mb-4 button__add_card">
@@ -553,13 +553,20 @@
                 ],
                 searchPanes: {
                     viewTotal: false,
+
+
+
+
+
+
+                    
                 },
                 columnDefs: [
                     {
                         searchPanes: {
                             show: true
                         },
-                        targets: [3, 5, 6]
+                        targets: [3, 5, 7]
                     },
                     {
                         responsivePriority: 1,
