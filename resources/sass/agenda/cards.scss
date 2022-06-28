@@ -68,13 +68,7 @@
     padding-right: 24px;
 }
 // Fin Orden de las tarjetas menú principal de opciones
-.card__container_main { // Contenedor perteneciente modulo administración de citas
-    background-color: #FFFFFF;
-    border: 1px solid #DBDADA;
-    border-radius: 5px;
-    padding: 20px 15px;
-    margin-bottom: 100px;
-}
+
 //Título principal header de las tarjetas agenda inst.
 .card_main_title {
     margin-bottom: 25px;
@@ -103,6 +97,7 @@
     align-items: center;
     height: 50px;
 }
+// Margenes 
 .mb_card {
     margin-bottom: 3px;
 }

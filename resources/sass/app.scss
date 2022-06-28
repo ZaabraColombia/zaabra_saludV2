@@ -49,7 +49,10 @@
 @import 'agenda/dashboard';
 @import 'agenda/sidebar';
 @import 'agenda/footer';
+@import 'agenda/pagination';
+@import 'agenda/tool-tips';
 // Calendars
 @import 'plugins/calendar-cita';
+@import 'plugins/datatable';
 
 $urlZaabra: 'http://localhost:8000/';

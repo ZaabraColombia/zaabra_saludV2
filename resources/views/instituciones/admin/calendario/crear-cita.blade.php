@@ -11,7 +11,7 @@
         <div class="panel_head_op2">
             <!-- Main title -->
             <div class="mb-4 mb-lg-0">
-                <h1 class="txt_title_panel_head">Agendar cita</h1>
+                <h1 class="txt_title_panel_head color_green">Agendar cita</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">

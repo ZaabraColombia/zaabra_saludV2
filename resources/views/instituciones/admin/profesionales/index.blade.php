@@ -15,26 +15,24 @@
         <div class="panel_head">
             <!-- Main title -->
             <div class="card_main_title">
-                <h1 class="txt_title_panel_head">Profesionales</h1>
+                <h1 class="txt_title_panel_head color_green">Profesionales</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add professional -->
-                <div class="col-md-12 col-lg-2 button__add_card">
-                    <a href="{{ route('institucion.profesionales.create') }}" class="button__green_card"
-                    id="btn-agregar-contacto">Agregar profesional
-                    </a>
+                <div class="col-md-12 col-lg-auto mr-lg-3 button__add_card">
+                    <a href="{{ route('institucion.profesionales.create') }}" class="button__green_card" id="btn-agregar-contacto">Agregar profesional</a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 button__search_card">
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto button__search_card">
                     <form method="get">
-                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                        <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
+                <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
                     <div class="toolt bottom">
                         <button class="file_calendar"></button>
                         <span class="tiptext">Calendario</span>
@@ -192,20 +190,7 @@
                     @endforeach
                 @endif
                 <!-- Pagination buttons -->
-                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
-                    @if(!$profesionales->onFirstPage())
-                        <div class="toolt bottom">
-                            <a href="{{ $profesionales->previousPageUrl() }}" class="btn_right_pag_card"></a>
-                            <span class="tiptext">Previus</span>
-                        </div>
-                    @endif
-                    @if(!$profesionales->onLastPage())
-                        <div class="toolt bottom">
-                            <a href="{{ $profesionales->nextPageUrl() }}" class="btn_left_pag_card"></a>
-                            <span class="tiptext">Next</span>
-                        </div>
-                    @endif
-                </div>
+                {{ $profesionales->links("pagination::simple-bootstrap-4") }}
             </div>
         </div>
     </div>

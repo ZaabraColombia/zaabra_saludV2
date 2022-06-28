@@ -15,26 +15,24 @@
         <div class="panel_head">
             <!-- Main title -->
             <div class="card_main_title">
-                <h1 class="txt_title_panel_head">Pacientes</h1>
+                <h1 class="txt_title_panel_head color_green">Pacientes</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add patient -->
-                <div class="col-md-12 col-lg-2 button__add_card">
-                    <a href="{{ route('institucion.pacientes.crear') }}" class="button__green_card"
-                    id="btn-agregar-contacto">Agregar paciente
-                    </a>
+                <div class="col-md-12 col-lg-auto mr-lg-3 button__add_card">
+                    <a href="{{ route('institucion.pacientes.crear') }}" class="button__green_card" id="btn-agregar-contacto">Agregar paciente</a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 button__search_card">
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto button__search_card">
                     <form method="get">
-                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                        <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__doc_download">
+                <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
                     <div class="toolt bottom">
                         <button class="file_calendar"></button>
                         <span class="tiptext">Calendario</span>
