@@ -2,44 +2,6 @@
     background: $blue_official !important;
     border: solid 1px $blue_official !important;
 }
-// Botones paginación card
-.butons__pagination_card {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    .btn_right_pag_card {
-        width: 47px;
-        height: 41px;
-        background-color: #FFFFFF;
-        border: 1px solid #DBDADA;
-        border-radius: 7px 0 0 7px;
-        background-image: url('/img/iconos/flecha-derecha-gris.svg');
-        background-repeat: no-repeat;
-        background-size: 9px;
-        background-position: center;
-        padding: 10px 20px;
-        &:focus {
-            background-color: #707070;
-            background-image: url('/img/iconos/flecha-derecha-blanca.svg');
-        }
-    }
-    .btn_left_pag_card {
-        width: 47px;
-        height: 41px;
-        background-color: #FFFFFF;
-        border: 1px solid #DBDADA;
-        border-radius: 0 7px 7px 0;
-        background-image: url('/img/iconos/flecha-izquierda-gris.svg');
-        background-repeat: no-repeat;
-        background-size: 9px;
-        background-position: center;
-        padding: 10px 20px;
-        &:focus {
-            background-color: #707070;
-            background-image: url('/img/iconos/flecha-izquierda-blanca.svg');
-        }
-    }
-}
 // Botones add
 .button__add_card {
     display: flex;
@@ -49,12 +11,13 @@
     margin-bottom: 15px;
 }
 .button__green_card {
+    font-size: 15px;
     font-family: "Quicksand";
     color: $withe_official;
     background: #049372;
     border: solid 1px #049372;
-    border-radius: 5px;
-    padding: 7px 10px;
+    border-radius: 7px;
+    padding: 8px;
 }
 .button__blue_card {
     font-family: "Quicksand";
@@ -77,10 +40,9 @@
         display: inline-flex;
         align-items: center;
         overflow: hidden;
-        width: auto;
+        // width: auto;
         width: 100%;
         transition: max-width 0.1s;
-        background-image: url('/img/iconos/search_verde.svg');
         background-repeat: no-repeat;
         background-position-x: 93%;
         background-position-y: center;
@@ -458,13 +420,6 @@
         justify-content: initial;
         margin-bottom: 27px;
     }
-    // Botones de búsqueda
-    .button__search_card {
-        padding-right: 8px;
-    }
-    .button__search_blue_card {
-        padding-right: 8px;
-    }
     // Botones documentos de descarga
     .button__doc_download {
         justify-content: flex-end;
@@ -502,6 +457,7 @@
 @media(min-width: 1024px) {
     // Botones add
     .button__add_card {
+        align-items: flex-start;
         margin-bottom: 0;
     }
     // Botones de búsqueda
@@ -516,7 +472,7 @@
             padding-left: 30px;
         }
         .search_togggle {
-            width: 100%;
+            width: 90%;
             padding-left: 0;
             padding-right: 50px;
             background-position-x: 95%;
@@ -565,13 +521,6 @@
         padding-right: 4px;
         z-index: 10;
     }
-    .button__add_card {
-        align-items: flex-start;
-    }
-    .button__green_card {
-        padding: 10px;
-        font-size: 12px;
-    }
     .button__blue_card {
         padding: 10px;
         font-size: 12px;
@@ -593,20 +542,12 @@
     }
 }
 @media(min-width: 1200px) {
-    .button__green_card {
-        padding: 11px;
-        font-size: 12px;
-    }
     .button__blue_card {
         padding: 11px;
         font-size: 12px;
     }
 }
 @media(min-width: 1300px) {
-    .button__green_card {
-        padding: 8px;
-        font-size: 15px;
-    }
     .button__blue_card {
         padding: 8px;
         font-size: 15px;
@@ -623,10 +564,7 @@
 @media(min-width: 1600px) {
     .button__search_card {
         .search_togggle {
-            width: 100%;
-            padding-left: 0;
-            padding-right: 50px;
-            background-position-x: 97%;
+            width: 70%;
         }
     }
     .button__search_blue_card {
@@ -636,9 +574,6 @@
             padding-right: 50px;
             background-position-x: 97%;
         }
-    }
-    .button__green_card {
-        padding: 8px 20px;
     }
     .button__blue_card {
         padding: 8px 20px;

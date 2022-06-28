@@ -14,15 +14,15 @@
         <div class="panel_head_op2">
             <!-- Main title -->
             <div class="mb-4">
-                <h1 class="txt_title_panel_head">Historico de citas</h1>
+                <h1 class="txt_title_panel_head color_green">Historico de citas</h1>
                 <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Search bar -->
-                <div class="col-md-6 p-0 mb-4 button__search_card">
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto button__search_card">
                     <form method="get">
-                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                        <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
                     </form>
@@ -33,11 +33,6 @@
                     <button class="file_excel"></button>
                     <button class="file_pdf"></button>
                     <button class="file_printer"></button>
-                </div>
-                <!-- Pagination buttons -->
-                <div class="col-md-2 p-0 mb-4 d-none d-md-flex butons__pagination_card">
-                    <button class="btn_right_pag_card"></button>
-                    <button class="btn_left_pag_card"></button>
                 </div>
             </div>
         </div>

@@ -1,0 +1,73 @@
+#pagination .page-item:first-child .page-link {
+    color: #707070;
+    border-radius: 7px 0px 0px 7px;
+    padding: 0px 7px;
+    &:focus {
+        box-shadow: none;
+    }
+    &:hover {
+        background-color: #707070;
+        border-color: #707070;
+        color: #FFFFFF;
+    }
+}
+#pagination .page-item:last-child .page-link {
+    color: #707070;
+    border-radius: 0px 7px 7px 0px;
+    padding: 0px 7px;
+    &:focus {
+        box-shadow: none;
+    }
+    &:hover {
+        background-color: #707070;
+        border-color: #707070;
+        color: #FFFFFF;
+    }
+}
+#pagination .page-item.disabled .page-link {
+    color: #FFFFFF;
+    background-color: #DBDADA;
+    border-color: #DBDADA;
+}
+#pagination .icon_direction {
+    width: 29px;
+    height: 37px;
+    stroke-width: 3;
+}
+// Texto informativo correo del usuario modulo usuario agenda institución
+#pagination .toolt {
+    position: relative;
+    cursor: pointer;
+}
+#pagination .toolt .tiptext {
+    visibility: hidden;
+    width: max-content;
+    background-color: #E6E6E6;
+    color: #333333;
+    text-align: center;
+    padding: 0 3px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 3px 6px #00000029;
+    font-size: 12px;
+    font-weight: bold;
+}
+#pagination .toolt .tiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+}
+#pagination .toolt:hover .tiptext {
+    visibility: visible;
+}
+#pagination .toolt.bottom .tiptext{
+    bottom: -23px;
+    left: 0;
+}
+#pagination .toolt.bottom .tiptext::after{
+    // margin-left: -5px;
+    bottom: 100%;
+    left: 10%;
+    border-color: transparent transparent #fff transparent;
+}
+// Fin de los textos informativos correo usuario modulo usuarios agenda institución

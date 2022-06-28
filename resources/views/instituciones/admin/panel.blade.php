@@ -112,8 +112,11 @@
                             </a>
                         </div>
                     @endcan
-
-                    {{-- Gestión --}} <!--Última tarjeta diferente dimensión en celular -->
+                    
+                    <!-- (SOLO PARA DISPOSITIVOS CELULARES) Si se anexan nuevas tarjetas de opciones, esta última tarjeta 
+                        queda con las clases (pl-4 pr-4) del primer div, ya sea cualquier tipo de opción que se le asigne
+                        y el anexo de la nueva tarjeta se hace en la parte superior de este mensaje sin las clases (pl-4 pr-4)  -->
+                    {{-- Gestión --}} 
                     <div class="col-12 col-md-4 col-xl-4 pl-4 pr-4 card__option">
                         <a href="#">
                             <div class="card__menu_panel icon__gest_green">

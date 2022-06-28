@@ -280,47 +280,6 @@
         color: #d0d125;
     }        
 }
-
-// Texto informativo tipo tooltip
-.tool {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-.tool .tiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #bec4c5;
-    color: #232323;
-    text-align: center;
-    border-radius: 3px;
-    padding: 3px 0;
-    position: absolute;
-    z-index: 1;
-    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
-    font-size: 12px;
-}
-.tool .tiptext::after {
-    content: "";
-    position: absolute;
-    border-width: 5px;
-    border-style: solid;
-}
-.tool:hover .tiptext {
-    visibility: visible;
-}
-
-.tool.top .tiptext{
-    margin-left: -60px;
-    bottom: 120%;
-    left: -10%;
-}
-.tool.top .tiptext::after{
-    margin-left: -5px;
-    top: 100%;
-    left: 65%;
-    border-color: #bec4c5 transparent transparent transparent;
-}
 .width_label {
     width: 150px;
 }

@@ -39,43 +39,32 @@
         <div class="panel_head_op2">
             <!-- Main title -->
             <div class="mb-4">
-                <h1 class="txt_title_panel_head">Administración de citas</h1>
+                <h1 class="txt_title_panel_head color_green">Administración de citas</h1>
                 <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
                 <a  class="button_transparent" type="button" data-toggle="modal" data-target="#modal_appoiment_detail">Launch modal</a>
             </div>
             <!-- Toolbar --> 
             <div class="row m-0">
                 <!-- Add appoiment -->
-                <div class="col-md-12 col-lg-2 p-0 mb-4 button__add_card">
-                    <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card"
-                    id="btn-agregar-contacto">Agregar cita
-                    </a>
+                <div class="col-md-12 col-lg-auto mr-lg-3 button__add_card">
+                    <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card" id="btn-agregar-contacto">Agregar cita</a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-8 col-lg-7 p-0 mb-4 button__search_card">
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto button__search_card">
                     <form method="get">
-                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                        <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="col-md-4 col-lg-3 p-0 mb-4 justify-content-md-end button__doc_download">
+                <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
                     <button class="file_calendar"></button>
                     <button class="file_excel"></button>
                     <button class="file_pdf"></button>
                     <button class="file_printer"></button>
                 </div>
             </div>
-            {{--<div class="col-md-4 p-0 content_btn_right">
-                <a href="" class="button_transparent mr-2" id="" data-toggle="modal"
-                data-target="#modal_cancelar_cita">
-                    eliminar
-                </a>
-                <a href="" class="button_green" id="" data-toggle="modal" data-target="#modal_reagendar_cita">
-                    reagendar
-                </a>
-            </div>--}}
         </div>
 
         <div class="panel_body_op2">
@@ -500,7 +489,8 @@
                 },
                 responsive: true,
                 language: {
-                    url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                    url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json",
+                    emptyTable: ' '
                 },
                 columns: [
                     {data: "fecha", name: "fecha_inicio"},
@@ -552,19 +542,21 @@
                     },
                 ],
                 searchPanes: {
-                    viewTotal: false,
-
-
-
-
-
-
+                    viewTotal: false
+            
                     
+           
+ 
+               
                 },
+
+   
+
                 columnDefs: [
                     {
                         searchPanes: {
-                            show: true
+                            show: true,
+                            clear: false
                         },
                         targets: [3, 5, 7]
                     },

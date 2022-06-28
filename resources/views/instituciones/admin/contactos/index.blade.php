@@ -12,18 +12,18 @@
         <div class="panel_head">
             <!-- Main title -->
             <div class="card_main_title">
-                <h1 class="txt_title_panel_head">Contactos</h1>
+                <h1 class="txt_title_panel_head color_green">Contactos</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add contact -->
-                <div class="col-md-12 col-lg-2 button__add_card">
+                <div class="col-md-12 col-lg-auto mr-lg-3 button__add_card">
                     <a href="" class="button__green_card" id="">Agregar contacto</a>
                 </div>
                 <!-- Search bar -->
-                <div class="col-md-6 button__search_card">
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto button__search_card">
                     <form method="get">
-                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
+                        <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}">
                             <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
                     </form>
@@ -137,12 +137,12 @@
                 <!-- Pagination buttons -->
                 <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
                     <div class="toolt bottom">
-                        <a disabled class="btn_right_pag_card disabled"></a>
+                        <a disabled class="btn_right_pag_card"></a>
                         <span class="tiptext">Previus</span>
                     </div>
 
                     <div class="toolt bottom">
-                        <a disabled class="btn_left_pag_card disabled"></a>
+                        <a disabled class="btn_left_pag_card"></a>
                         <span class="tiptext">Next</span>
                     </div>
                 </div>
