@@ -61,9 +61,9 @@
                         </div>
                     </div>
 
-                    <!-- Información Básica -->
+                    <!-- Información Principal -->
                     <div class="my-4">
-                        <h2 class="fs_subtitle green_bold">Información Básica</h2>
+                        <h2 class="fs_subtitle green_bold">Información Principal</h2>
                     </div>
 
                     <div class="row">

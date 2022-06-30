@@ -14,7 +14,7 @@
         <div class="panel_head_op2">
             <!-- Main title -->
             <div class="mb-4">
-                <h1 class="txt_title_panel_head color_green">Historico de citas</h1>
+                <h1 class="txt_title_panel_head color_green">Histórico de citas</h1>
                 <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
             </div>
             <!-- Toolbar -->
@@ -28,11 +28,23 @@
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="col-md-4 p-0 mb-4 justify-content-md-end button__doc_download">
-                    <button class="file_calendar"></button>
-                    <button class="file_excel"></button>
-                    <button class="file_pdf"></button>
-                    <button class="file_printer"></button>
+                <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
+                    <div class="toolt bottom">
+                        <button class="file_calendar"></button>
+                        <span class="tiptext">Calendario</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Exportar excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Exportar PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
             </div>
         </div>

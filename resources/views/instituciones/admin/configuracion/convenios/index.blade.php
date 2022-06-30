@@ -35,11 +35,11 @@
                 <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
                     <div class="toolt bottom">
                         <button class="file_excel"></button>
-                        <span class="tiptext">Doc. Excel</span>
+                        <span class="tiptext">Exportar excel</span>
                     </div>
                     <div class="toolt bottom">
                         <button class="file_pdf"></button>
-                        <span class="tiptext">Doc. PDF</span>
+                        <span class="tiptext">Exportar PDF</span>
                     </div>
                     <div class="toolt bottom">
                         <button class="file_printer"></button>
@@ -164,7 +164,7 @@
                     </div>
                     <!-- Sección data -->
                     <div class="mb-lg-4 pt-md-3 px-md-3 modal_info_data_open">
-                        <h4 class="pt-5 pt-lg-4 mb-3 text-center text-md-left txt_subtitle_modal_card">Información básica</h4>
+                        <h4 class="pt-5 pt-lg-4 mb-3 text-center text-md-left txt_subtitle_modal_card">Información principal</h4>
 
                         <div class="row m-0 pl-md-3">
                             <div class="col-lg-6 modal_info_user">

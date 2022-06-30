@@ -27,10 +27,22 @@
                 </div>
                 <!-- Document action buttons  -->
                 <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
-                    <button class="file_calendar"></button>
-                    <button class="file_excel"></button>
-                    <button class="file_pdf"></button>
-                    <button class="file_printer"></button>
+                    <div class="toolt bottom">
+                        <button class="file_calendar"></button>
+                        <span class="tiptext">Calendario</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Exportar excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Exportar PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
             </div>
         </div>
