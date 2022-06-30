@@ -39,11 +39,11 @@
                     </div>
                     <div class="toolt bottom">
                         <button class="file_excel"></button>
-                        <span class="tiptext">Doc. Excel</span>
+                        <span class="tiptext">Exportar excel</span>
                     </div>
                     <div class="toolt bottom">
                         <button class="file_pdf"></button>
-                        <span class="tiptext">Doc. PDF</span>
+                        <span class="tiptext">Exportar PDF</span>
                     </div>
                     <div class="toolt bottom">
                         <button class="file_printer"></button>

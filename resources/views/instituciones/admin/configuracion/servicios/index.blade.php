@@ -35,11 +35,11 @@
                 <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
                     <div class="toolt bottom">
                         <button class="file_excel"></button>
-                        <span class="tiptext">Doc. Excel</span>
+                        <span class="tiptext">Exportar excel</span>
                     </div>
                     <div class="toolt bottom">
                         <button class="file_pdf"></button>
-                        <span class="tiptext">Doc. PDF</span>
+                        <span class="tiptext">Exportar PDF</span>
                     </div>
                     <div class="toolt bottom">
                         <button class="file_printer"></button>
@@ -67,7 +67,7 @@
                 @if($servicios->isNotEmpty())
                     @foreach($servicios as $servicio)
                         <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
-                            <div class="card card__">
+                            <div class="card card__serv">
                                 <div class="row card__row_column">
                                     <div class="col-12 card__data">
                                         <!-- card data top -->
@@ -76,7 +76,7 @@
                                                 <h4 class="txt_h4_green_card_float">{{ $servicio->nombre }}</h4>
                                             </div>
 
-                                            <div class="col-12 p-0 d-flex justify-content-center mb_card">
+                                            <div class="col-12 p-0 my-2 d-flex justify-content-center">
                                                 <button class="btn__activado">
                                                     <span>activo</span>
                                                 </button>
@@ -101,7 +101,7 @@
                                 <!-- view more and edit buttons -->
                                 <div class="row m-0 mt-2 justify-content-md-center">
                                     @can('accesos-institucion','ver-servicios')
-                                        <div class="col-12 col-lg-3 p-0 mb-2 mb-lg-0 button__down_card">
+                                        <div class="col-12 col-lg-3 p-0 mb-2 mb-lg-0 mr-lg-2 mr-xl-0 button__down_card">
                                             <button class="button2__bg_green_card boton-servicio"
                                                 data-url="{{ route('institucion.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">Ver más
                                             </button>
@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <!-- Modal body -->
-                <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
+                <div class="modal-body px-3 px-lg-4 m-0">
                     <!-- Sección data -->
                     <div class="mb-lg-4 modal_info_data_open">
                         <div class="row m-0 pl-lg-3">
@@ -262,23 +262,29 @@
                     $('#convenios-lista').append(
                         '<div id="cov" class="col-md-6 convenio_vinculado">' +
                             '<div class="row m-0 card__conven">' +
-                                '<div class="col-12 col-lg-3 p-0 mb-2 pl-lg-1 disp_img_modal_card">' +
+                                '<div class="col-lg-3 p-0 mb-2 pl-lg-1 disp_img_modal_card">' +
                                     '<img class="img_section_modal" src="/img/menu/avatar.png">' +  
                                     '<h5 class="txt_span_sm_card heigth_txt_conv">' + item.nombre_completo + '</h5>' +
                                 '</div>' +
 
-                                '<div class="col-12 col-lg-9 p-0 px-lg-3 disp__modal_card">' +
-                                    '<div class="modal_info_user disp_txt_modal_card">' +
-                                        '<h4 class="modal_data_form pr-2">Pago convenio:</h4>' +
-                                        '<div class="modal_data_user">' +
-                                            '<span>$' + '&nbsp;' + item.pivot.valor_convenio + '</span>' +
+                                '<div class="col-lg-9 px-4 px-md-3 pl-lg-0 pr-lg-2 mt-1 mb-3 disp__modal_card">' +
+                                    '<div class="row m-0 mb-2 modal_info_user disp_txt_modal_card">' +
+                                        '<div class="col-7 p-0 card_precio_serv">' +
+                                            '<h4 class="txt_pago_convenio">Pago convenio:' + '</h4>' +
+                                            '<span class="txt__pesos">$' + '</span>' + 
+                                        '</div>' +
+                                        '<div class="col-5 p-0 text-right modal_data_user">' + 
+                                            '<span class="txt__pesos pr-0">' + item.pivot.valor_convenio + '</span>' +
                                         '</div>' +
                                     '</div>' +
 
-                                    '<div class="modal_info_user disp_txt_modal_card">' +
-                                        '<h4 class="modal_data_form pr-2">Pago paciente:</h4>' +
-                                        '<div class="modal_data_user">' +
-                                            '<span>$' + '&nbsp;' + item.pivot.valor_paciente + '</span>' + 
+                                    '<div class="row m-0 modal_info_user disp_txt_modal_card">' +
+                                        '<div class="col-7 p-0 card_precio_serv">' +
+                                            '<h4 class="txt_pago_convenio pr-2">Pago paciente:' + '</h4>' +
+                                            '<span class="txt__pesos">$' + '</span>' + 
+                                        '</div>' +
+                                        '<div class="col-5 p-0 text-right modal_data_user">' + 
+                                            '<span class="txt__pesos pr-0">' + item.pivot.valor_paciente + '</span>' + 
                                         '</div>' +
                                     '</div>' +
                                 '</div>' +

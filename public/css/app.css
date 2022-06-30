@@ -22532,7 +22532,7 @@ a:hover {
 }
 
 .convenio_vinculado {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding: 0;
 }
 
@@ -22606,11 +22606,11 @@ a:hover {
   }
 
   .convenio_vinculado:nth-child(odd) {
-    padding-right: 15px;
+    padding-right: 7px;
   }
 
   .convenio_vinculado:nth-child(even) {
-    padding-left: 15px;
+    padding-left: 7px;
   }
 }
 @media (min-width: 1024px) {
@@ -22650,6 +22650,14 @@ a:hover {
 
   .heigth_txt_conv {
     height: 30px;
+  }
+
+  .convenio_vinculado:nth-child(odd) {
+    padding-right: 12px;
+  }
+
+  .convenio_vinculado:nth-child(even) {
+    padding-left: 12px;
   }
 }
 .search_main_container {
@@ -28554,6 +28562,13 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 15px 15px 10px 15px;
 }
 
+.card__serv {
+  background-color: #FFFFFF;
+  border: 1px solid #DBDADA;
+  border-radius: 7px;
+  padding: 15px;
+}
+
 .card__option:nth-child(odd) {
   padding-left: 0;
   padding-right: 8px;
@@ -28605,6 +28620,12 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   justify-content: center;
   align-items: center;
   height: 50px;
+}
+
+.card_precio_serv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .mb_card {
@@ -28917,6 +28938,22 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   margin: 0;
 }
 
+.txt_pago_convenio {
+  font-size: 14px;
+  font-family: "Roboto";
+  color: #3E3E3E;
+  font-weight: 100;
+  margin: 0;
+}
+
+.txt__pesos {
+  font-size: 14px;
+  font-family: "Quicksand";
+  font-weight: bold;
+  color: #232323;
+  padding-right: 3px;
+}
+
 @media (min-width: 768px) {
   .txt_name_card {
     font-size: 20px;
@@ -28948,6 +28985,14 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   }
 
   .txt_span_sect_modal_card {
+    font-size: 18px;
+  }
+
+  .txt_pago_convenio {
+    font-size: 18px;
+  }
+
+  .txt__pesos {
     font-size: 18px;
   }
 }
@@ -29097,8 +29142,8 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .img_section_modal {
-  width: 50px;
-  height: 50px;
+  width: 53px;
+  height: 53px;
   border-radius: 100px;
   -o-object-fit: cover;
   object-fit: cover;
@@ -29906,4 +29951,61 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .pignose-calendar .pignose-calendar-unit a {
     width: 3.7em !important;
   }
+}
+div.dtsp-panesContainer .dtsp-title {
+  display: none;
+}
+
+div.dtsp-panesContainer .dtsp-titleRow {
+  display: flex;
+  flex-direction: column;
+  padding: 0 25px;
+}
+
+div.dtsp-panesContainer button.dtsp-clearAll {
+  display: none;
+}
+
+div.dtsp-panesContainer button.dtsp-collapseAll {
+  border: 1px solid #707070;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  color: #3E3E3E;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 4px !important;
+}
+div.dtsp-panesContainer button.dtsp-collapseAll:hover {
+  background-color: #FFFFFF;
+}
+
+div.dtsp-panesContainer button.dtsp-showAll {
+  border: 1px solid #049372;
+  border-radius: 4px;
+  background-color: #049372;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 4px !important;
+  margin-left: 0 !important;
+  margin-bottom: 12px;
+}
+div.dtsp-panesContainer button.dtsp-showAll:hover {
+  background-color: #049372;
+}
+
+div.dtsp-topRow div.dtsp-subRow1 input {
+  border: 1px solid #DBDADA;
+  border-radius: 5px;
+  height: 40px;
+}
+
+div.dtsp-topRow div.dtsp-subRow1 button.dtsp-searchIcon {
+  background-image: url("/img/iconos/search_blanco.svg") !important;
+  background-color: #049372;
+  background-size: 16px;
+}
+
+.dtsp-subRowsContainer .dtsp-subRow2 .btn-group {
+  height: 40px;
 }

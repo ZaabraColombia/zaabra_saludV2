@@ -49,6 +49,12 @@
     border-radius: 7px;
     padding: 15px 15px 10px 15px;
 }
+.card__serv {
+    background-color: #FFFFFF;
+    border: 1px solid #DBDADA;
+    border-radius: 7px;
+    padding: 15px;
+}
 // Orden de las tarjetas menú principal de opciones
 .card__option:nth-child(odd) {
     padding-left: 0;
@@ -96,6 +102,11 @@
     justify-content: center;
     align-items: center;
     height: 50px;
+}
+.card_precio_serv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 // Margenes 
 .mb_card {

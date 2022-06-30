@@ -59,9 +59,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Subtítulo información Básica -->
+                    <!-- Subtítulo información principal -->
                     <div class="my-4">
-                        <h2 class="fs_subtitle green_bold">Información Básica</h2>
+                        <h2 class="fs_subtitle green_bold">Información Principal</h2>
                     </div>
                     <!-- Data del formulario -->
                     <div class="row">

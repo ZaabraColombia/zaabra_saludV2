@@ -155,6 +155,20 @@
     color: #3E3E3E;
     margin: 0;
 }
+.txt_pago_convenio {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: #3E3E3E;
+    font-weight: 100;
+    margin: 0;
+}
+.txt__pesos {
+    font-size: 14px;
+    font-family: 'Quicksand';
+    font-weight: bold;
+    color: #232323;
+    padding-right: 3px;
+}
 @media(min-width: 768px) {
     .txt_name_card {
         font-size: 20px;
@@ -183,6 +197,12 @@
         font-size: 18px;
     }
     .txt_span_sect_modal_card {
+        font-size: 18px;
+    }
+    .txt_pago_convenio {
+        font-size: 18px;
+    }
+    .txt__pesos {
         font-size: 18px;
     }
 }
