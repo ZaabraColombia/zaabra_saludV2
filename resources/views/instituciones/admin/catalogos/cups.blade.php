@@ -8,19 +8,28 @@
                 <h1 class="txt_title_panel_head">Procedimientos (CUPS)</h1>
             </div>
             <!-- Toolbar -->
-            <div class="row m-0">
-                <div class="col-md-9 col-lg-10 p-0 mb-4">
-                    <h2 class="txt_subtitle_panel_head px-4 px-md-0">
+            <div class="row m-0 mb-4">
+                <div class="col-md-9 col-lg-10 p-0">
+                    <h2 class="txt_subtitle_panel_head px-4 px-md-0 mb-1">
                         Procedimientos CUPS deacuerdo con la Resolución N°.0002238 de 2020 emitida por el 
                         Ministerio de Salud y Protección Social, la cual define la actualización única de 
                         procedimientos en Salud - CUPS.
                     </h2>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="col-md-3 col-lg-2 p-0 mb-4 mb-md-0 justify-content-md-end button__doc_download">
-                    <button class="file_excel"></button>
-                    <button class="file_pdf"></button>
-                    <button class="file_printer"></button>
+                <div class="col-md-3 col-lg-2 p-0 justify-content-md-end button__doc_download">
+                    <div class="toolt bottom">
+                        <button class="file_excel"></button>
+                        <span class="tiptext">Exportar excel</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_pdf"></button>
+                        <span class="tiptext">Exportar PDF</span>
+                    </div>
+                    <div class="toolt bottom">
+                        <button class="file_printer"></button>
+                        <span class="tiptext">Imprimir</span>
+                    </div>
                 </div>
             </div>
         </div>

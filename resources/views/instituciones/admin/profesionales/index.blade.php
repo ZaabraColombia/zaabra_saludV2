@@ -311,16 +311,16 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Teléfono:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">0000000</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Móvil:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">300 000 0000</span>
                                 </div>
                             </div>
@@ -362,9 +362,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">RETHUS:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">000 000 000</span>
                                 </div>
                             </div>
@@ -376,9 +376,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 modal_info_user">
+                            <div class="col-md-6 d-block d-lg-flex modal_info_user">
                                 <h4 class="modal_data_form">Tarjeta profesional:</h4>
-                                <div class="modal_data_user">
+                                <div class="pl-md-0 pl-lg-2 modal_data_user">
                                     <span id="">000000</span>
                                 </div>
                             </div>

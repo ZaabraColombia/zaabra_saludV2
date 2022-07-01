@@ -2,6 +2,8 @@
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset('plugins/DataTables/Responsive-2.2.9/css/responsive.dataTables.min.css') }}">--}}
+    {{--<link rel="stylesheet" href="{{ asset(' plugins/DataTables/Responsive-2.2.9/css/responsive.bootstrap.min.css') }}">--}}
 
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2-bootstrap4.min.css') }}">
@@ -74,6 +76,15 @@
                         <span class="tiptext">Imprimir</span>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="row m-0">
+            <div class="col-md-6 justify-content-center">
+                <button type="submit" class="button__form_green">Mostrar todo</button>
+            </div>
+            <div class="col-md-6 justify-content-center">
+                <button type="submit" class="button__form_transparent">Desplegar</button>
             </div>
         </div>
 
@@ -454,8 +465,10 @@
 
 @section('scripts')
     <script src="{{ asset('plugins/moment/moment-with-locales.min.js') }}"></script>
-
     <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+    {{--<script src="{{ asset('plugins/DataTables/DateTime-1.1.2/js/dataTables.dateTime.min.js') }}"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>--}}
+    {{--<script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>--}}
 
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
@@ -467,17 +480,23 @@
     <script>
         $(document).ready(function () {
 
-            /*var table = $('#table-citas').DataTable({
-                dom:
-                    "<'row'<'col-12'P>><'#filter-input.row'>"+
-                    "<'row'<'col-12'ltip><'col-12'>>",
+            //$.fn.dataTable.moment( 'DD-MM / YYYY', 'es');
+            //$.fn.dataTable.moment( 'HH:mm A \- HH:mm A', 'es');
 
-            });*/
+
+            $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+                var dateS = $('#date').val();
+                var startDate = moment(data[0], 'DD-MM / YYYY');
+
+                if (dateS == null || dateS === '') return true;
+                return startDate.format('YYYY-MM-DD') === dateS;
+            });
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
                 //dom: 'Plfrtip',
-                dom:"<'row'<'col-12'P>><'#filter-input.row'>" +
+                dom:
+                    "<'#filter-input.row'><'row'<'col-12'P>>"+
                     "<'row'<'col-12'ltip><'col-12'>>",
                 serverSide: true,
                 processing: true,
@@ -525,6 +544,7 @@
                     {data: "estado", name: "estado"},
                     {
                         name: 'edit',
+                        className: '',
                         data: function (data, type, full, meta) {
 
                             return '<div class="d-flex justify-content-center">' +
@@ -543,15 +563,8 @@
                     },
                 ],
                 searchPanes: {
-                    viewTotal: false
-            
-                    
-           
- 
-               
+                    viewTotal: false               
                 },
-
-   
 
                 columnDefs: [
                     {
@@ -596,6 +609,8 @@
                     });
 
                     table.ajax.reload(null, false);
+
+                    table.searchPanes.container().insertAfter('#data');
 
                     //table.search().draw();
                 }
