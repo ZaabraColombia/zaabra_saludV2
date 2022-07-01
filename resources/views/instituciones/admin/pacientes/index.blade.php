@@ -89,7 +89,7 @@
                                         <!-- card data top -->
                                         <div class="card__data_top">
                                             <div class="mb_card">
-                                                <h4 class="txt_h4_card">{{ "{$paciente->user->primernombre} {$paciente->user->primerapellido}" }}</h4>
+                                                <h4 class="txt_h4_card">{{ "{$paciente->user->primernombre} {$paciente->user->apellidos}" }}</h4>
                                             </div>
                                             <div class="mb_card">
                                                 <h5 class="txt_h5_card">{{ $paciente->eps }}</h5>

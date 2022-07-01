@@ -79,6 +79,15 @@
             </div>
         </div>
 
+        <div class="row m-0">
+            <div class="col-md-6 justify-content-center">
+                <button type="submit" class="button__form_green">Mostrar todo</button>
+            </div>
+            <div class="col-md-6 justify-content-center">
+                <button type="submit" class="button__form_transparent">Desplegar</button>
+            </div>
+        </div>
+
         <div class="panel_body_op2">
             <div class="card__container_main">
                 <div class="col-12" id="alertas"></div>
@@ -487,7 +496,7 @@
             var table = $('#table-citas').DataTable({
                 //dom: 'Plfrtip',
                 dom:
-                    "<'row'<'col-12'P>><'#filter-input.row'>"+
+                    "<'#filter-input.row'><'row'<'col-12'P>>"+
                     "<'row'<'col-12'ltip><'col-12'>>",
                 serverSide: true,
                 processing: true,
@@ -554,15 +563,8 @@
                     },
                 ],
                 searchPanes: {
-                    viewTotal: false
-            
-                    
-           
- 
-               
+                    viewTotal: false               
                 },
-
-   
 
                 columnDefs: [
                     {
@@ -607,6 +609,8 @@
                     });
 
                     table.ajax.reload(null, false);
+
+                    table.searchPanes.container().insertAfter('#data');
 
                     //table.search().draw();
                 }
