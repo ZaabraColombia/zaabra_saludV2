@@ -1,3 +1,28 @@
+// Sidebar o menu lateral dispositivos (320px - 1024px)
+.sideBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.35s ease-in;
+    z-index: 500;
+    overflow: hidden;
+  }
+  // Sidebar o menu lateral visible dispositivos (320px - 1024px)
+  .sideBar.is-visible {
+    visibility: visible;
+    opacity: 1;
+    overflow: hidden;
+  }
 // Contenedor menú interno
 .sidebar-wrapper {
     width: 100%;
@@ -180,6 +205,12 @@
   }
 
 @media (min-width: 1200px){
+    // Menú lateral o sidebar visible ( mayor e igual a 1200px)
+    .sideBar {
+        width: 220px;
+        visibility: visible !important;
+        opacity: 10 !important;
+    }
     // Contenedor menú interno
     .sidebar-wrapper {
         top: 60px;
@@ -211,6 +242,10 @@
 }
 
 @media (min-width: 1300px){
+    // Menú lateral o sidebar visible
+    .sideBar {
+        width: 210px;
+    }
     // Sidebar HEADER
     .sidebar__header .user_data .cont_text {
         width: 145px;
@@ -233,6 +268,10 @@
 }
 
 @media (min-width: 1600px){
+    // Menú lateral o sidebar visible
+    .sideBar {
+        width: 395px;
+    }
     // Contenedor menú interno
     .sidebar-wrapper {
         top: 70px;

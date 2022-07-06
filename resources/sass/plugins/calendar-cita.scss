@@ -12,21 +12,43 @@
     padding: 0 !important;
     background-color: #FFFFFF !important;
 }
+.pignose-calendar .icon-arrow-left, .pignose-calendar .icon-arrow-right {
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+}
+.pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav .pignose-calendar-top-icon {
+    color: #707070;
+    &:hover {
+        color: #FFFFFF;
+    }
+}
 // Flecha previus (<)
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev {
     border: 1px solid #DBDADA;
     border-radius: 7px 0 0 7px;
-    height: 35px;
+    width: 47px;
+    height: 41px;
     font-size: 20px;
     margin-left: 0 !important;
+        &:hover {
+        background-color: #707070;
+        border-color: #707070;
+    }
 }
 // Flecha next (>)
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-next {
     border: 1px solid #DBDADA;
     border-radius: 0 7px 7px 0;
-    height: 35px;
+    width: 47px;
+    height: 41px;
     font-size: 20px;
     margin-right: 0 !important;
+        &:hover {
+        background-color: #707070;
+        border-color: #707070;
+        color: #FFFFFF;
+    }
 }
 // Contenedor del año y el mes
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-date {
@@ -37,13 +59,14 @@
 .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
     display: inline !important;
     margin: 0 !important;
-    font-size: 16px !important;
+    font-size: 20px !important;
     color: #3E3E3E !important;
     font-weight: bold !important;
 }
 // Cabecera tarjeta días de la semana (D L M M J V S)
 .pignose-calendar .pignose-calendar-header {
     font-size: 8px;
+    color: #3E3E3E;
     border: 1px solid#DBDADA;
     border-radius: 7px 7px 0 0;
 }
@@ -65,7 +88,7 @@
 }
 // Background y color día disponible 
 .pignose-calendar .pignose-calendar-unit a {
-    background-color: #1B85D7 !important;
+    background-color: #049372 !important;
     color: #FFFFFF !important;
     font-weight: 500 !important;
 }
@@ -78,18 +101,22 @@
 }
 // Background y color día seleccionado
 .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
-    background-color: #049372 !important;
+    background-color: #1B85D7 !important;
     color: #ffffff !important;
     font-weight: 500 !important;
 }
 @media(min-width: 768px) {
+    // Formato días enumerados ancho, background y color (| 1 |)
+    .pignose-calendar .pignose-calendar-unit a {
+        width: 54px !important;
+    }
     // Cabecera tarjeta días de la semana (D L M M J V S)
     .pignose-calendar .pignose-calendar-header {
         font-size: 17px;
     }
     // Cuerpo tarjeta días del mes formato número (1 2 3 4 ..)
     .pignose-calendar .pignose-calendar-body {
-        font-size: 19px;
+        font-size: 20px;
     }
 }
 @media(min-width: 1024px) {
@@ -109,5 +136,32 @@
     // Formato días enumerados ancho, background y color (| 1 |)
     .pignose-calendar .pignose-calendar-unit a {
         width: 3.7em !important;
+    }
+}
+@media(min-width: 1600px) {
+    // Texto del mes y número del año (jul 2022)
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-month, 
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
+        font-size: 16px !important;
+    }
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev {
+        width: 39px;
+        height: 34px;
+        font-size: 18px;
+    }
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-next {
+        width: 39px;
+        height: 34px;
+        font-size: 18px;
+    }
+    .pignose-calendar .pignose-calendar-header {
+        font-size: 15px;
+    }
+    .pignose-calendar .pignose-calendar-body {
+        font-size: 16px;
+        padding: 5px 0px;
+    }
+    .pignose-calendar .pignose-calendar-unit a {
+        width: 45px !important;
     }
 }

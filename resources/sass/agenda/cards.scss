@@ -53,7 +53,7 @@
     background-color: #FFFFFF;
     border: 1px solid #DBDADA;
     border-radius: 7px;
-    padding: 15px;
+    padding: 15px 15px 18px 15px;
 }
 // Orden de las tarjetas menú principal de opciones
 .card__option:nth-child(odd) {
@@ -159,11 +159,14 @@
         margin-top: 45px;
         margin-bottom: 20px;
     }
+    .m_special_convenios {
+        margin-bottom: -3px;
+    }
 }
 @media(min-width: 1024px) {
     // Cards modules 
     .card__ {
-        padding: 5px 5px 15px 5px;
+        padding: 10px 5px 15px 5px;
     }
     .card__row_column {
         flex-direction: row;
@@ -175,6 +178,9 @@
     .mt_card_float {
         margin-top: 70px;
         margin-bottom: 0;
+    }
+    .m_special_convenios {
+        margin-bottom: -15px;
     }
     .pt_card_float {
         padding-top: 14px;

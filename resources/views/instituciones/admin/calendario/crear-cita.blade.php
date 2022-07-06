@@ -8,7 +8,7 @@
 
 @section('contenido')
     <div class="container-fluid panel_container">
-        <div class="panel_head_op2">
+        <div class="panel_head">
             <!-- Main title -->
             <div class="mb-4 mb-lg-0">
                 <h1 class="txt_title_panel_head color_green">Agendar cita</h1>
@@ -16,7 +16,7 @@
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add appoiment -->
-                <div class="col-12 p-0 mb-4 button__add_card justify-content-md-end">
+                <div class="col-12 btn_add_agendar_cita justify-content-md-end">
                     <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card py-1" id="btn-agregar-contacto">
                         <i data-feather="user-plus" style="width: 20px"></i>&nbsp; Agregar paciente
                     </a>
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="panel_body_op2">
+        <div class="panel_body">
             <form action="{{ route('institucion.calendario.guardar-cita') }}" method="post" id="form-crear-cita-institucion">
                 @csrf
                 <div class="row m-0">
@@ -46,18 +46,28 @@
                     <div class="col-12 col-lg-3 card__section_head">
                         <div class="row m-0">
                             <input type="hidden" name="date-calendar" id="date-calendar">
+                            {{-- <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
+                                <!-- Search bar -->
+                                <form method="get">
+                                    <label for="" class="txt_calendar_cita">Paciente</label>
+                                    <div class="search__calend" style="position: relative">
+                                        <input class="form-control" type="search" name="search" id="search" value="{{ request('search') }}">
+                                        <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}"></button>
+                                    </div>
+                                </form>
+                            </div>--}}
                             <!-- Paciente -->
                             <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
                                 <label for="paciente" class="txt_calendar_cita">Paciente</label>
                                 <select id="paciente" class="form-control" name="paciente" required></select>
-                            </div>
+                            </div> 
                                         <!-- Imagen e info del paciente -->
                             <div class="col-md-6 col-lg-12 px-1 px-lg-0 mt-3 mb-2" style="display: none" id="div-paciente">
                                 <div class="row m-0">
-                                    <div class="col-3 col-lg-2 p-0">
-                                        <img id="foto" alt="foto" class="img__user_cita"/>
+                                    <div class="col-3 p-0">
+                                        <img id="foto" alt="foto" class="img__user_agenCita"/>
                                     </div>
-                                    <div class="col-9 col-lg-10 pad_l_dat">
+                                    <div class="col-9 pad_l_dat">
                                         <h4 class="txt_h4_data_cita" id="paciente-nombre-comppleto"></h4>
                                         <h5 class="txt_h5_data_cita" id="paciente-identificacion"></h5>
                                         <div class="d-flex">
@@ -107,20 +117,13 @@
                             <!-- Imagen e info del profesional -->
                             <div class="col-md-6 col-lg-12 px-1 px-lg-0 mt-3 mb-2" id="">
                                 <div class="row m-0">
-                                    <div class="col-3 col-lg-2 p-0">
-                                        <img id="" alt="" src="{{ asset('img/menu/avatar.png') }}" class="img__user_cita"/>
+                                    <div class="col-3 p-0">
+                                        <img id="" alt="" src="{{ asset('img/menu/avatar.png') }}" class="img__user_agenCita"/>
                                     </div>
-                                    <div class="col-9 col-lg-10 pad_l_dat">
+                                    <div class="col-9 pad_l_dat">
                                         <h4 class="txt_h4_data_cita" id="">Alexander Montenegro Caballero</h4>
-                                        <h5 class="txt_h5_data_cita" id="">C.C. 1.000.000.000</h5>
-                                        <div class="d-flex">
-                                            <i data-feather="phone" class="icon_txt_data"></i>
-                                            <h5 class="txt_h5_data_cita pl-2" id="">313 000 00 00</h5>
-                                        </div>
-                                        <div class="d-flex">
-                                            <i data-feather="mail" class="icon_txt_data"></i>
-                                            <h5 class="txt_h5_data_cita pl-2" id="">alexmaonte@hotmail.com</h5>
-                                        </div>
+                                        <h5 class="txt_h5_data_cita" id="">Otorrinolaringología</h5>
+                                        <h5 class="txt_h5_data_cita" id="">alexmaonte@hotmail.com</h5>
                                     </div>
                                 </div>
                             </div>
@@ -130,18 +133,18 @@
                     <div class="col-12 col-lg-6 pad_entre_tarjetas">
                         <div class="card__section_body">
                             <!-- Pildoras informativas mobile -->
-                            <div class="row m-0 mb-4 pl-3 pill_mobile">
+                            <div class="row pill_mobile">
                                 <div class="col-12 p-0 mb-2 d-flex align-items-center">    
                                     <span class="pill_informative_gree"></span>
-                                    <span class="ml-3 txt_calendar_cita">Días disponibles</span>
+                                    <span class="ml_txt_pill txt_calendar_cita">Días disponibles</span>
                                 </div>
                                 <div class="col-12 p-0 mb-2 d-flex align-items-center">
                                     <span class="pill_informative_gray"></span>
-                                    <span class="ml-3 txt_calendar_cita">Días no disponibles</span>
+                                    <span class="ml_txt_pill txt_calendar_cita">Días no disponibles</span>
                                 </div>
                                 <div class="col-12 p-0 mb-2 d-flex align-items-center">
                                     <span class="pill_informative_blue"></span>
-                                    <span class="ml-3 txt_calendar_cita">Días seleccionados</span>
+                                    <span class="ml_txt_pill txt_calendar_cita">Días seleccionados</span>
                                 </div>
                             </div>
                         
@@ -152,7 +155,7 @@
 
                     <div class="col-12 col-lg-3 card__section_foot">
                         <!-- Pildoras informativas desktop -->
-                        <div class="row m-0 pill_desktop">
+                        <div class="row pill_desktop">
                             <div class="col-12 p-0 mb-2 d-flex align-items-center">    
                                 <span class="pill_informative_gree"></span>
                                 <span class="ml-3 txt_calendar_cita">Días disponibles</span>
@@ -167,7 +170,7 @@
                             </div>
                         </div>
 
-                        <div class="row m-0">
+                        <div class="row m-0 px-3">
                             <!-- Hora de cita -->
                             <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
                                 <label for="hora" class="txt_calendar_cita_green">Hora de la cita</label>
@@ -194,7 +197,7 @@
                                 </select>
                             </div>
                             <!-- Botón inferior -->
-                            <div class="col-12 px-2 px-lg-0 mt-3 content__btn_inferior">
+                            <div class="col-12 space__btn content__btn_inferior">
                                 <button type="button" class="button_green py-1" id="btn-finalizar-cita-profesional">Agendar</button>
                             </div>
                         </div>
@@ -224,7 +227,7 @@
                 <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
                     <!-- Imagen imprersa del profesional -->
                     <div class="row m-0">
-                        <div class="col-12 p-0 mb-2 mb-lg-3 d-flex justify-content-center">
+                        <div class="col-12 p-0 mb-5 mb-lg-3 d-flex justify-content-center">
                             <img class="img_printed_modal" src="{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}">
                         </div>
                     </div>
@@ -232,9 +235,9 @@
                     <div class="modal_info_data_open">
                         <div class="row m-0">
                             <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">Paciente:</h4>
+                                <h4 class="modal_data_form">Profesional:</h4>
                                 <div class="modal_data_user">
-                                    <span id="">Santiago Jonathan Buenaventura Santamaria</span>
+                                    <span id="">Dr.(a) Santiago Jonathan Buenaventura Santamaria</span>
                                 </div>
                             </div>
 
@@ -248,20 +251,27 @@
                             <div class="col-12 mb-3 px-md-4 dropdown-divider" style="border: 1px solid #DBDADA"></div>
 
                             <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">Profesional:</h4>
+                                <h4 class="modal_data_form">Paciente:</h4>
                                 <div class="modal_data_user">
                                     <span id="nombre">Carlos Arturo Quiroga Galvis</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Identificación:</h4>
                                 <div class="modal_data_user">
                                     <span id="">C.C. 1.070.000.000</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Teléfono:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">0000000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Tipo de servicio:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Cirugía plástica facial</span>
@@ -272,13 +282,6 @@
                                 <h4 class="modal_data_form">Fecha:</h4>
                                 <div class="modal_data_user">
                                     <span id="">28/11/1985</span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Teléfono:</h4>
-                                <div class="modal_data_user">
-                                    <span id="">0000000</span>
                                 </div>
                             </div>
 

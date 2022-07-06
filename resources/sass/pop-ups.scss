@@ -84,8 +84,8 @@
             label{
                 font-size: 14px;
                 font-family: 'Roboto';
-                color: $gray_second;
-                margin-bottom: 3px;
+                color: #3E3E3E;
+                margin-bottom: 5px;
             }
             select, input[type="text"], [type="number"], [type="time"], [type="email"], [type="date"], [type="datetime-local"], [type="group"] {
                 display: block;
@@ -100,7 +100,7 @@
                 background-color: $withe_official;
                 background-clip: padding-box;
                 border: 1px solid $gray_third;
-                border-radius: 0.25rem;
+                border-radius: 7px;
                 transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
                 &:focus {
                     color: $black_second;
@@ -153,7 +153,7 @@
                 background-color: $withe_official;
                 background-clip: padding-box;
                 border: 1px solid $gray_third;
-                border-radius: 5px;
+                border-radius: 7px;
                 transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
                 resize: none;
                 &:focus {
@@ -188,7 +188,7 @@
         background-color: $withe_official;
         background-clip: padding-box;
         border: 1px solid $gray_third;
-        border-radius: 5px;
+        border-radius: 7px;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         resize: none;
         &:focus {
@@ -414,20 +414,90 @@
     }
 }
 .modal__ .modal_btn_down_center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column-reverse;
-        .modal_btn_green {
-            font-family: "Quicksand";
-            font-size: 24px;
-            font-weight: bold;
-            color: #FFFFFF;
-            background: #049372;
-            border: none;
-            border-radius: 7px;
-            padding: 5px 15px;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    .modal_btn_green {
+        font-family: "Quicksand";
+        font-size: 20px;
+        font-weight: bold;
+        color: #FFFFFF;
+        background: #049372;
+        border: none;
+        border-radius: 7px;
+    }
+}
+.modal_btn_down_prof {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .modal_button_green {
+        font-family: "Quicksand";
+        font-size: 20px;
+        font-weight: bold;
+        color: #FFFFFF;
+        background: #049372;
+        border: none;
+        border-radius: 7px;
+        width: 160px;
+        height: 40px;
+    }
+    .modal_border_black {
+        font-size: 20px;
+        font-weight: 100;
+        color: #3E3E3E !important;
+        background: #FFFFFF;
+        border: solid 1px #707070;
+        border-radius: 7px;
+        width: 160px;
+        height: 40px;
+    }
+}
+.modal_buttons_down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .modal_button_green {
+        font-family: "Quicksand";
+        font-size: 20px;
+        font-weight: bold;
+        color: #FFFFFF;
+        background: #049372;
+        border: none;
+        border-radius: 7px;
+        width: 191px;
+        height: 40px;
+    }
+    .modal_border_green {
+        font-family: "Quicksand";
+        font-size: 20px;
+        font-weight: bold;
+        color: #049372;
+        background: $withe_official;
+        border: solid 1px #049372;
+        border-radius: 7px;
+        width: 191px;
+        height: 40px;
+    }
+}
+.modal_btn_cancel_cita {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .modal_btn_bord_green {
+        font-family: "Quicksand";
+        font-size: 14px;
+        font-weight: bold;
+        color: #049372;
+        background: $withe_official;
+        border: solid 1px #049372;
+        border-radius: 7px;
+        padding: 2px 23px;
+    }
 }
 .display_info_data {
     display: flex;
@@ -592,6 +662,9 @@ $lines: 1;
         padding-left: 7px;
     }
     // Fin sección convenios vinculados
+    .modal_btn_down_prof {
+        flex-direction: row;
+    }
 }
 
 @media(min-width: 1024px) {
@@ -615,7 +688,7 @@ $lines: 1;
         padding: 0 !important;
     }
     .modal__ .modal-body .modal_info_data_open .modal_info_user {
-        margin-bottom: 10px;
+        margin-bottom: 14px;
         .modal_pill_data {
             font-size: 16px;
             .pill_data {
@@ -638,4 +711,7 @@ $lines: 1;
         padding-left: 12px;
     }
     // Fin sección convenios vinculados
+    .modal_buttons_down {
+        flex-direction: row;
+    }
 }

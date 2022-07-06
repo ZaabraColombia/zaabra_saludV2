@@ -32,7 +32,7 @@
         </div>
 
         <div class="panel_body">
-            <div class="row m-0">
+            <div class="row m-0 mt-3 mt-md-4 mt-lg-3">
                 <!-- alert notice -->
                 <div class="col-12" id="alertas">
                     @if(session()->has('success'))
@@ -48,11 +48,11 @@
                 <!-- Professional card -->
                 @if($contactos->isNotEmpty())
                     @foreach($contactos as $contacto)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
+                        <div class="col-md-6 col-lg-4 spaceCard_between card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
-                                    <div class="col-12 mb-md-1 d-none d-lg-flex button__info_card">
+                                    <div class="col-12 mb-md-1 mb-xl-2 d-none d-lg-flex button__info_card">
                                         @can('accesos-institucion','ver-contactos')
                                             <button class="btn_icon_card btn-ver-contacto tool top" data-id="{{ $contacto->id }}">
                                                 <i data-feather="eye" class="icon_btn_card_desk"></i> 
@@ -77,7 +77,7 @@
                                         <img class="img_card_module" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
                                     </div>
                                     <!-- Information professional -->
-                                    <div class="col-lg-9 card__data">
+                                    <div class="col-lg-9 card__data pl-2">
                                         <!-- card data top -->
                                         <div class="card__data_top">
                                             <div class="mb_card">

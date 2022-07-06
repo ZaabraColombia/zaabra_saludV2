@@ -54,7 +54,7 @@
         </div>
 
         <div class="panel_body">
-            <div class="row m-0">
+            <div class="row m-0 mt-3 mt-md-4 mt-lg-3">
                 <!-- alert notice -->
                 <div class="col-12" id="alertas">
                     @if(session()->has('success'))
@@ -70,11 +70,11 @@
                 <!-- Professional card -->
                 @if($profesionales->isNotEmpty())
                     @foreach($profesionales as $profesional)
-                        <div class="col-md-6 col-xl-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
+                        <div class="col-md-6 col-lg-4 spaceCard_between card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
-                                    <div class="col-12 mb-md-1 d-none d-lg-flex button__info_card">
+                                    <div class="col-12 mb-md-1 mb-xl-2 d-none d-lg-flex button__info_card">
                                         <button class="btn_icon_card tool top"
                                                 data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
                                                 data-toggle="modal" data-target="#modal_see_professional">
@@ -200,7 +200,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal__ modal_container">
                 <!-- Modal header -->
-                <div class="modal-header row m-0 px-3 pl-lg-4">
+                <div class="modal-header row m-0 px-3 pl-md-4">
                     <div class="col-12 p-0">
                         <button type="button" class="close modal_btn_close_top" data-dismiss="modal" aria-label="Close">
                             <span class="modal_x_close" aria-hidden="true">&times;</span>
@@ -215,17 +215,17 @@
                 <form method="post" id="form-bloquear-agenda">
                     @csrf
                     <!-- Modal body -->
-                    <div class="modal-body px-3 px-lg-4 m-0 mb-3">
+                    <div class="modal-body m-0 mb-3">
                         <div class="form_modal">
                             <div class="row m-0">
                                 <div class="col-12 p-0" id="alerta-reasignar"></div>
 
-                                <div class="col-12 col-md-6 pl-0 pr-1">
+                                <div class="col-lg-6 px-0 pr-lg-2">
                                     <label for="fecha_inicio">Fecha inicio</label>
                                     <input type="datetime-local" id="fecha_inicio" name="fecha_inicio">
                                 </div>
 
-                                <div class="col-12 col-md-6 pr-0 pl-1">
+                                <div class="col-lg-6 px-0 pl-lg-2">
                                     <label for="fecha_fin">Fecha fin</label>
                                     <input type="datetime-local" id="fecha_fin" name="fecha_fin">
                                 </div>
@@ -239,9 +239,9 @@
                         </div>
                     </div>
                     <!-- Modalfooter -->
-                    <div class="modal_btn_down_center mb-4">
-                        <button type="button" class="button__form_transparent mr-md-3" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="button__form_green mb-2 mb-md-0">Bloquear</button>
+                    <div class="modal_btn_down_prof mb-5">
+                        <button type="submit" class="modal_button_green mb-3 mb-md-0 mr-md-3">Bloquear</button>
+                        <button type="button" class="modal_border_black" data-dismiss="modal">Cancelar</button>
                     </div>
                 </form>
             </div>

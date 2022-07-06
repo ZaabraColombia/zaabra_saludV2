@@ -54,7 +54,7 @@
         </div>
 
         <div class="panel_body">
-            <div class="row m-0">
+            <div class="row m-0 mt-3 mt-md-4 mt-lg-3">
                 <!-- alert notice -->
                 <div class="col-12" id="alertas">
                     @if(session()->has('success'))
@@ -70,9 +70,9 @@
                 <!-- Patient card -->
                 @if($pacientes->isNotEmpty())
                     @foreach($pacientes as $paciente)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
+                        <div class="col-md-6 col-lg-4 spaceCard_between card__col">
                             <div class="card card__">
-                                <div class="row pt-2 card__row_column">
+                                <div class="row card__row_column">
                                     <!-- Informative buttons desktop-->
                                     <div class="col-12 d-none d-lg-flex button__info_card btn_float_right">
                                         <button class="btn_icon_card tool top" data-url="" data-toggle="modal" data-target="#modal_see_patient">

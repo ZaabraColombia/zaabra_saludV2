@@ -277,6 +277,11 @@ overflow: hidden;
     justify-content: center;
     align-items: center;
 }
+.spaceCard_between {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
+}
 
 @media(min-width: 768px) {
     .wid_75 {
@@ -304,20 +309,39 @@ overflow: hidden;
     //***********************************************
     //* Tarjetas profesionales agenda instituciones *
     //***********************************************
-
-
-
     .width__tool_tip {
         width: 255px;
+    }
+    // Orden de las tarjetas profesionales
+    .spaceCard_between {
+        padding-bottom: 28px;
+    }
+    .spaceCard_between:nth-child(2n+1) {
+        padding-left: 10px;
+        padding-right: 0;
+    }
+    .spaceCard_between:nth-child(2n+2) {
+        padding-left: 0;
+        padding-right: 10px;
     }
 }
 
 @media(min-width: 1024px) {
-
-
-
+    // Orden de las tarjetas menú principal de opciones
+    .spaceCard_between:nth-child(3n+2) {
+        padding-left: 0 !important;
+        padding-right: 11px !important;
+    }
+    .spaceCard_between:nth-child(3n+3) {
+        padding-left: 5.5px !important;
+        padding-right: 5.5px !important;
+    }
+    .spaceCard_between:nth-child(3n+1) {
+        padding-left: 11px !important;
+        padding-right: 0 !important;
+    }
     .width__tool_tip {
-        width: 310px;
+        width: 190px;
     }
 }
 
@@ -329,23 +353,13 @@ overflow: hidden;
         width: 98%;
         margin: auto;
     }
-
-
-
-
-    .width__tool_tip {
-        width: 190px;
-    }
 }
 
 @media(min-width: 1300px) {
-
     .card__imagen {
         width: 63px;
         height: 62px;
     }
-
-
     //*******************************************
     //* Tarjetas convenios agenda instituciones *
     //*******************************************
@@ -363,6 +377,23 @@ overflow: hidden;
 }
 
 @media(min-width: 1600px) {
+    // Orden de las tarjetas menú principal de opciones
+    .spaceCard_between:nth-child(4n+2) {
+        padding-left: 0 !important;
+        padding-right: 15px !important;
+    }
+    .spaceCard_between:nth-child(4n+3) {
+        padding-left: 5px !important;
+        padding-right: 10px !important;
+    }
+    .spaceCard_between:nth-child(4n+4) {
+        padding-left: 10px !important;
+        padding-right: 5px !important;
+    }
+    .spaceCard_between:nth-child(4n+1) {
+        padding-left: 15px !important;
+        padding-right: 0 !important;
+    }
     .card_buttons_top {
         width: 98.8%;
     }

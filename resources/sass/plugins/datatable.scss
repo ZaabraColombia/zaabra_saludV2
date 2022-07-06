@@ -1,36 +1,151 @@
-// .card__container_main { // Contenedor perteneciente modulo administración de citas
-//     background-color: #FFFFFF;
-//     border: 1px solid #DBDADA;
-//     border-radius: 7px;
-//     padding: 27px;
-//     margin-top: 28px;
-// }
+// Botones superiores
+.row_btns_panel {
+    margin: 16px 0 37px  0;
+}
+.btn_top_panel {
+    display: flex;
+    justify-content: center;
+}
+.mb_btn_panel {
+    margin-bottom: 10px;
+}
+.btn_white_panel {
+    font-size: 15px;
+    font-weight: bold;
+    color: #3E3E3E;
+    background: $withe_official;
+    border: solid 1px #707070;
+    border-radius: 7px;
+    width: 114px;
+    height: 41px;
+}
+.btn_green_panel {
+    font-size: 15px;
+    font-weight: bold;
+    color: $withe_official;
+    background: #049372;
+    border: solid 1px #049372;
+    border-radius: 7px;
+    width: 114px;
+    height: 41px;
+}
+#filter-input {
+    padding: 0 35px;
+    margin-bottom: 14px;
+}
+#filter-input .form-control[readonly] {
+    background-color: #FFFFFF;
+    background-image: url('/img/iconos/icon_calendar.svg');
+    background-repeat: no-repeat;
+    background-size: 19px;
+    background-position-x: 95%;
+    background-position-y: center;
+    opacity: 1;
+}
+#filter-input label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #232323;
+}
+#filter-input input {
+    height: 49px;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 100;
+    color: #DBDADA;
+    border-radius: 5px;
+}
+#filter-input select {
+    height: 49px;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 100;
+}
 div.dtsp-panesContainer .dtsp-titleRow {
     display: none;
-    // display: flex;
-    // flex-direction: column;
-    // padding: 0 55px;
-    // margin-top: 60px;
-    // margin-bottom: 40px;
 }
 // Estilos sección paneles
 div.dtsp-topRow div.dtsp-subRow1 input {
     border: 1px solid #DBDADA;
     border-radius: 5px;
     height: 40px;
+    &::placeholder {
+        color: #DBDADA;
+    }
 }
 div.dtsp-topRow div.dtsp-subRow1 button.dtsp-searchIcon {
     background-image: url('/img/iconos/search_blanco.svg') !important;
     background-color: #049372;
-    background-size: 16px;
+    background-size: 18px;
 }
 .dtsp-subRowsContainer .dtsp-subRow2 .btn-group {
     height: 40px;
 }
+div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
+    border: 1px solid #049372;
+}
+.dtsp-topRow .dtsp-subRow2 .btn-group .btn {
+    font-family: 'Quicksand';
+    font-weight: bold;
+    font-size: 20px;
+    color: #049372;
+    padding: 0;
+}
+div.dtsp-topRow button.dtsp-nameButton {
+    background-image: url('/img/iconos/icono-Aa.svg') !important;
+}
+div.dtsp-topRow button.dtsp-countButton {
+    background-image: url('/img/iconos/icono-numeral.svg') !important;
+}
+// Estilos tabla inferior
+#table_green .table {
+    background-color: #FFFFFF;    
+    thead tr th {
+        font-size: 18px;
+        font-family: "Quicksand";
+        color: #019F86;
+        font-weight: bold;
+    }
+}
 
 @media(min-width: 768px) {
-
+    .row_btns_panel {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        margin: 28px 0 40px 210px;
+    }
+    .mb_btn_panel {
+        margin-bottom: 0;
+    }
+    .btn_top_panel:first-child {
+        margin-left: 12px;
+    }
+    #filter-input {
+        padding: 0;
+        margin-bottom: 0px;
+    }
+    table.dataTable {
+        margin-top: 65px !important;
+    }
 }
 @media(min-width: 1024px) {
-
+    #admin_cita .panel_body {
+        background: #FFFFFF;
+        border: 1px solid #DBDADA;
+        border-radius: 7px;
+        margin-top: 12px;
+        padding: 0 25px 36px 25px;
+    }
+    .row_btns_panel {
+        justify-content: flex-start;
+        margin: 50px 0 20px 0;
+    }
+    #filter-input {
+        padding: 0;
+    }
+    // Estilos tabla inferior
+    #table_green .table {
+        background-color: #F9F9F9;
+    }
 }

@@ -47,7 +47,7 @@
         </div>
 
         <div class="panel_body">
-            <div class="row m-0">
+            <div class="row m-0 mt-3 mt-md-4 mt-lg-3">
                 <!-- alert notice -->
                 <div class="col-12" id="alertas">
                     @if(session()->has('success'))
@@ -63,7 +63,7 @@
                 <!-- User card -->
                 @if($usuarios->isNotEmpty())
                     @foreach($usuarios as $usuario)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
+                        <div class="col-md-6 col-lg-4 spaceCard_between card__col">
                             <div class="card card__user">
                                 <div class="row card__row_column">
                                     <!-- Estado activo o inactivo -->
@@ -174,7 +174,7 @@
                                     </div>
                                     
                                     <div class="col-12 col-lg-9 p-0">
-                                        <h4 class="txt_subtitle_modal_card mb-3">Información Básica</h4>
+                                        <h4 class="txt_subtitle_modal_card mb-3">Información Principal</h4>
                                     </div>
                                 </div>
                             </div>

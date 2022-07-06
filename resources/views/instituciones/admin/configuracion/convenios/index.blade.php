@@ -12,7 +12,7 @@
 
 @section('contenido')
     <div class="container-fluid panel_container">
-        <div class="panel_head">
+        <div class="panel_head m_special_convenios">
             <!-- Main title -->
             <div class="card_main_title">
                 <h1 class="txt_title_panel_head color_green">Convenios</h1>
@@ -66,7 +66,7 @@
                 <!-- Agreement card -->
                 @if($convenios->isNotEmpty())
                     @foreach($convenios as $convenio)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt_card_float card__col">
+                        <div class="col-md-6 col-lg-4 pb-0 spaceCard_between mt_card_float card__col">
                             <div class="card card__">
                                 <div class="row card__row_column">
                                     <!-- Estado activo o inactivo -->

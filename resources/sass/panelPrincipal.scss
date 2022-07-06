@@ -49,6 +49,8 @@
         background-image: url('/img/iconos/search_verde.svg');
         background-repeat: no-repeat;
         background-position: center;
+        background-size: 22px;
+        background-position-y: top;
     }
     .btnIn_search_blue {
         position: absolute;
@@ -148,6 +150,8 @@
     .search_main_container {
         .btnIn_search {
             width: 65px;
+            background-size: 25px;
+            background-position-y: 2px;
         }
     }
 }

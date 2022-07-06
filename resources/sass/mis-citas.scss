@@ -2,16 +2,41 @@
 .card__section_head {
     background-color: #FFFFFF;
     border: 1px solid #DBDADA;
-    border-radius: 5px;
-    padding: 20px 10px 30px 10px;
+    border-radius: 7px;
+    padding: 20px 3px 30px 10px;
     margin-bottom: 20px;
+    select {
+        height: 30px;
+    }
+}
+.search__calend {
+    position: relative;
+    input {
+        height: 30px;
+    }
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 35px;
+        border: 1px solid #DBDADA;
+        border-left: none;
+        background-color: #FFFFFF;
+        border-radius: 0 4px 4px 0;
+    }
+    .icon__search_green {
+        background-image: url(/img/iconos/search_verde.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
 .card__section_body {
     background-color: #FFFFFF;
     border: 1px solid #DBDADA;
     border-bottom: none;
     border-radius: 5px 5px 0 0;
-    padding: 20px 10px 0 10px;
+    padding: 22px 5px 0 5px;
     margin-bottom: 0;
 }
 .card__section_foot {
@@ -19,8 +44,8 @@
     border: 1px solid #DBDADA;
     border-top: none;
     border-radius: 0 0 5px 5px;
-    padding: 20px 10px 30px 10px;
-    margin-bottom: 20px;
+    padding: 35px 10px 30px 10px;
+    margin-bottom: 0;
 }
 .content__btn_inferior {
     display: flex;
@@ -30,23 +55,30 @@
 .pill_desktop {
     display: none;
 }
+.pill_mobile {
+    padding-left: 22px;
+    margin: 0 0 50px 0;
+}
 .pill_informative_blue {
     padding: 0 12px;
     background-color: #1B85D7;
-    border-radius: 5px;
+    border-radius: 4px;
+    width: 26px;
     height: 20px;
 }
 .pill_informative_gray {
     padding: 0 12px;
     background-color: #DBDADA;
-    border-radius: 5px;
-    opacity: .5;
+    border-radius: 4px;
+    width: 26px;
     height: 20px;
+    opacity: .5;
 }
 .pill_informative_gree {
     padding: 0 12px;
     background-color: #049372;
-    border-radius: 5px;
+    border-radius: 4px;
+    width: 26px;
     height: 20px;
 }
 .pad_entre_tarjetas {
@@ -59,6 +91,9 @@
 .input_height_min_ckec {
     height: 25px;
 }
+.ml_txt_pill {
+    margin-left: 26px;
+}
 .txt_calendar_cita {
     font-size: 20px;
     color: #3E3E3E;
@@ -66,10 +101,11 @@
 }
 .txt_calendar_cita_green {
     font-size: 16px;
-    color: #019F86;
+    color: #049372;
     font-weight: bold;
+    margin-left: 7px;
 }
-.img__user_cita {
+.img__user_agenCita {
     width: 60px;
     height: 58px;
     border-radius: 100px;
@@ -97,6 +133,16 @@
     font-family: 'Roboto';
     font-weight: 100;
     color: #3E3E3E;
+}
+.input_height_min_ckec .input-group-text {
+    background: #DBDADA;
+    border: 1px solid #DBDADA;
+    border-radius: 4px;
+    padding: 5px;
+}
+.space__btn {
+    padding: 0;
+    margin-top: 27px;
 }
 // Fin calendario agendar cita
 
@@ -436,8 +482,23 @@
 }
 @media (min-width: 768px) and (orientation: portrait) {
     // Calendario agendar cita 
+    .card__section_head {
+        margin-bottom: 55px;
+    }
+    .card__section_body {
+        padding: 33px 5px 0 5px;
+    }
+    .pill_mobile {
+        margin: 0 0 60px 0;
+    }
+    .card__section_foot {
+        padding: 80px 37px 60px 37px;
+    }
+    .space__btn {
+        margin-top: 22px;
+    }
     .pad_externo_calendar {
-        padding: 0 50px;
+        padding: 0 40px;
     }
     .input_height_min {
         height: 31px;
@@ -446,9 +507,6 @@
         height: 31px;
     }
     // Fin calendario agendar cita
-    .content__btn_inferior {
-        justify-content: flex-end;
-    }
     .txt_calendar_cita_green {
         font-size: 20px;
     }
@@ -504,13 +562,15 @@
     .card__section_foot {
         border-top: 1px solid #DBDADA;
         border-radius: 5px 5px;
-        height: 393px;
+        height: 445px;
     }
     .pill_mobile {
         display: none;
     }
     .pill_desktop {
         display: flex;
+        margin: 0;
+        padding-left: 16px;
     }
     .pad_externo_calendar {
         padding: 0 5px;
@@ -521,7 +581,7 @@
     .txt_calendar_cita_green {
         font-size: 15px;
     }
-    .img__user_cita {
+    .img__user_agenCita {
         width: 38px;
         height: 38px;
     }
@@ -542,6 +602,9 @@
     // Fin calendario agendar cita
     .content__btn_inferior {
         justify-content: flex-end;
+    }
+    .space__btn {
+        margin-top: 8px;
     }
     .card__section {
         padding: 30px 35px 40px 35px;
@@ -590,10 +653,26 @@
     //-------------------------------
 }
 @media (min-width: 1600px) {
+    .card__section_head {
+        padding: 23px 11px 30px 20px;
+    }
+    .pad_entre_tarjetas {
+        padding: 0 43px;
+    }
+    .pill_desktop {
+        padding-left: 15px;
+        margin: 0 0 10px 0;
+    }
+    .txt_calendar_cita_green {
+        font-size: 16px;
+    }
+    .card__section_foot {
+        padding: 40px 30px 30px 30px;
+    }
     // Calendario agendar cita 
-    .img__user_cita {
-        width: 52px;
-        height: 50px;
+    .img__user_agenCita {
+        width: 60px;
+        height: 58px;
     }
     .icon_txt_data {
         width: 12px;
@@ -601,10 +680,13 @@
         color: #019F86;
     }
     .card__section_body {
-        padding: 20px;
+        padding: 45px 14px;
     }
     .pad_l_dat {
         padding-left: 10px;
+    }
+    .txt_calendar_cita {
+        font-size: 20px;
     }
     .txt_h4_data_cita {
         font-size: 14px;

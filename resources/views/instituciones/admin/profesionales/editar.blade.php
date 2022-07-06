@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-lg-4 mb-3 input__box">
+                        <div class="col-md-6 col-lg-4 input__box">
                             <label for="tipo_documento_id">Tipo de documento</label>
                             <select id="tipo_documento_id" name="tipo_documento_id" class="select2 @error('tipo_documento_id') is-invalid @enderror">
                                 @if($tipo_documentos->isNotEmpty())
@@ -155,7 +155,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-lg-4 mb-3 input__box"><!--menu dinamico ciudades -->
+                        <div class="col-md-6 col-lg-4 input__box"><!--menu dinamico ciudades -->
                             <label for="pais_id">País</label>
                             <select id="pais_id" name="pais_id" class="@error('pais_id') is-invalid @enderror">
                                 @if($paises->isNotEmpty())
@@ -166,7 +166,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 col-lg-4 mb-3 input__box">
+                        <div class="col-md-6 col-lg-4 input__box">
                             @php $departamento = (old('departamento_id', $profesional->departamento_id) === null)?null:\App\Models\departamento::query()->where('id_departamento', old('departamento_id', $profesional->departamento_id))->first()@endphp
                             <label for="departamento_id">Departamento</label>
                             {{--                            @dd(old('departamento_id'))--}}
@@ -177,7 +177,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 col-lg-4 mb-3 input__box">
+                        <div class="col-md-6 col-lg-4 input__box">
                             @php $provincia = (old('provincia_id', $profesional->provincia_id) === null)?null:\App\Models\provincia::query()->where('id_provincia', old('provincia_id', $profesional->provincia_id))->first()@endphp
                             <label for="provincia_id">Provincia</label>
                             <select name="provincia_id" id="provincia_id" class="@error('provincia_id') is-invalid @enderror">
@@ -187,7 +187,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 col-lg-4 mb-3 input__box">
+                        <div class="col-md-6 col-lg-4 input__box">
                             @php $ciudad = (old('ciudad_id', $profesional->ciudad_id) === null)?null:\App\Models\municipio::query()->where('id_municipio', old('ciudad_id', $profesional->ciudad_id))->first()@endphp
                             <label for="ciudad_id">Ciudad</label>
                             <select name="ciudad_id" id="ciudad_id" class="@error('ciudad_id') is-invalid @enderror">
@@ -202,28 +202,28 @@
                             <input type="text" id="direccion" name="direccion" value="{{ old('direccion', $profesional->direccion) }}"
                                     class="@error('direccion') is-invalid @enderror"/>
                         </div>
-                    </div>
 
-                    <div class="row">
                         <div class="col-md-6 col-lg-4 input__box">
                             <label for="numero_profesional">Tarjeta profesional</label>
                             <input type="text" id="numero_profesional" name="numero_profesional" value="{{ old('numero_profesional', $profesional->numero_profesional) }}"
                                     class="@error('numero_profesional') is-invalid @enderror"/>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 col-lg-4 input__box">
+                    <div class="row">
+                        <div class="col-md-6 input__box">
                             <label for="rethus">RETHUS</label>
                             <input type="text" id="rethus" name="rethus" value="{{ old('rethus', $profesional->rethus) }}"
                                     class="@error('rethus') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-6 col-lg-4 input__box">
+                        <div class="col-md-6 input__box">
                             <label for="cargo">Cargo</label>
                             <input type="text" id="cargo" name="cargo" value="{{ old('cargo', $profesional->cargo) }}"
                                     class="@error('cargo') is-invalid @enderror"/>
                         </div>
 
-                        <div class="col-md-6 mb-3 input__box">
+                        <div class="col-md-6 input__box">
                             <label for="id_especialidad">Especialidad principal</label>
                             <select id="id_especialidad" name="id_especialidad" class="select2 @error('id_especialidad') is-invalid @enderror">
                                 @if($especialidades->isNotEmpty())
@@ -234,7 +234,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6 mb-3 input__box">
+                        <div class="col-md-6 input__box">
                             <label for="id_universidad">Universidad</label>
                             <select id="id_universidad" name="id_universidad" class="select2 @error('id_universidad') is-invalid @enderror">
                                 @if($universidades->isNotEmpty())
@@ -270,7 +270,7 @@
                     <div class="row">
                         <div class="col-md-6 input__box">
                             <label for="password">Contraseña</label>
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-success password py-0" type="button" data-class="success" data-password="#password">
@@ -282,7 +282,7 @@
 
                         <div class="col-md-6 input__box">
                             <label for="password_confirmation">Confirmar contraseña</label>
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <input type="password" id="password_confirmation" name="password_confirmation"
                                         class="form-control @error('password_confirmation') is-invalid @enderror">
                                 <div class="input-group-append">

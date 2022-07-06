@@ -4,40 +4,16 @@
 }
 // Botón mostrar y ocultar menú lateral o sidebar dispositivos (320px - 1024px)
 .btn_opening {
-  width: 25px;
-  height: 25px;
+  width: 19px;
+  height: 20px;
   margin: 10px 0 0 10px;
   background-image: url('/img/header/icono-hamburguesa-azul.svg');
   background-repeat: no-repeat;
+  background-size: 24px;
   background-position: bottom;
   background-color: transparent;
   border: none;
   cursor: pointer;
-}
-// Sidebar o menu lateral dispositivos (320px - 1024px)
-.sideBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.35s ease-in;
-  z-index: 500;
-  overflow: hidden;
-}
-// Sidebar o menu lateral visible dispositivos (320px - 1024px)
-.sideBar.is-visible {
-  visibility: visible;
-  opacity: 1;
-  overflow: hidden;
 }
 // Contenido principal de los modulos 
 .main__contenido {
@@ -54,7 +30,11 @@
 @media(min-width: 768px) {
   // Contenido principal de los modulos 
   .main__contenido {
-    min-height: calc(100vh - 109px);
+    min-height: calc(100vh - 105px);
+  }
+  .btn_opening {
+    width: 24px;
+    background-size: 27px;
   }
 }
 @media(min-width: 1024px) {
@@ -68,12 +48,6 @@
   .btn_opening {
     display: none;
   }
-  // Menú lateral o sidebar visible ( mayor e igual a 1200px)
-  .sideBar {
-    width: 220px;
-    visibility: visible !important;
-    opacity: 10 !important;
-  }
   // Contenido principal de los modulos
   .main__contenido {
     min-height: calc(100vh - 60px);
@@ -82,16 +56,14 @@
   }
 }
 @media(min-width: 1300px) {
-  // Menú lateral o sidebar visible
-  .sideBar {
-    width: 210px;
+  // Contenido principal de los modulos
+  .main__contenido {
+    min-height: calc(100vh - 60px);
+    max-width: calc(100vw - 210px);
+    margin-left: 210px;
   }
 }
 @media(min-width: 1600px) {
-  // Menú lateral o sidebar visible
-  .sideBar {
-    width: 395px;
-  }
   // Contenido principal de los modulos
   .main__contenido {
     min-height: calc(100vh - 70px);
