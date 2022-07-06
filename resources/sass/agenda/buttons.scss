@@ -10,6 +10,13 @@
     padding: 0;
     margin-bottom: 15px;
 }
+.btn_add_agendar_cita {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 40px;
+}
 .button__green_card {
     font-size: 15px;
     font-family: "Quicksand";
@@ -30,7 +37,7 @@
 // Botones de búsqueda
 .button__search_card {
     margin-bottom: 20px;
-    padding: 0 8px 0 0;
+    padding: 0 5px;
     button {
         border: 1px solid #DBDADA;
         background-color: #FFF;
@@ -456,6 +463,7 @@
     }
     // Botones de búsqueda
     .button__search_card {
+        padding: 0 10px 0 0px;
         button {
             background-position-x: 97%;
             padding-right: 40px;
@@ -468,6 +476,9 @@
     .button__add_card {
         align-items: flex-start;
         margin-bottom: 0;
+    }
+    .btn_add_agendar_cita {
+        margin-bottom: 20px;
     }
     // Botones de búsqueda
     .button__search_card {

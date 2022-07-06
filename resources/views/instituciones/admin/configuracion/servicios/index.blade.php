@@ -50,7 +50,7 @@
         </div>
 
         <div class="panel_body">
-            <div class="row m-0">
+            <div class="row m-0 mt-3 mt-md-4 mt-lg-3">
                 <!-- alert notice -->
                 <div class="col-12" id="alertas">
                     @if(session()->has('success'))
@@ -66,7 +66,7 @@
                 <!-- Service card -->
                 @if($servicios->isNotEmpty())
                     @foreach($servicios as $servicio)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt-4 card__col">
+                        <div class="col-md-6 col-lg-4 spaceCard_between card__col">
                             <div class="card card__serv">
                                 <div class="row card__row_column">
                                     <div class="col-12 card__data">
@@ -98,19 +98,20 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <!-- view more and edit buttons -->
-                                <div class="row m-0 mt-2 justify-content-md-center">
+                                <div class="row mx-0 mt-3 mt-md-2 justify-content-md-center">
                                     @can('accesos-institucion','ver-servicios')
-                                        <div class="col-12 col-lg-3 p-0 mb-2 mb-lg-0 mr-lg-2 mr-xl-0 button__down_card">
-                                            <button class="button2__bg_green_card boton-servicio"
+                                        <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
+                                            <button class="button__bg_green_card boton-servicio"
                                                 data-url="{{ route('institucion.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">Ver más
                                             </button>
                                         </div>
                                     @endcan
 
                                     @can('accesos-institucion','editar-servicio')
-                                        <div class="col-12 col-lg-3 p-0 button__down_card">
-                                            <a class="button2__border_green_card"
+                                        <div class="col-12 col-md-3 p-0 button__down_card">
+                                            <a class="button__border_green_card"
                                                 href="{{ route('institucion.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">Editar
                                             </a>
                                         </div>
@@ -155,7 +156,7 @@
                             </div>
 
                             <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Tipo del servicio:</h4>
+                                <h4 class="modal_data_form">Tipo de servicio:</h4>
                                 <div class="modal_data_user">
                                     <span id="tipo_servicio"></span>
                                 </div>
@@ -316,23 +317,23 @@
                                 '</div>' +
 
                                 '<div class="col-lg-9 px-4 px-md-3 pl-lg-0 pr-lg-2 mt-1 mb-3 disp__modal_card">' +
-                                    '<div class="row m-0 mb-2 modal_info_user disp_txt_modal_card">' +
+                                    '<div class="row m-0 modal_info_user disp_txt_modal_card">' +
                                         '<div class="col-7 p-0 card_precio_serv">' +
-                                            '<h4 class="txt_pago_convenio">Pago convenio:' + '</h4>' +
+                                            '<h4 class="txt_pago_convenio pl-1">Pago convenio:' + '</h4>' +
                                             '<span class="txt__pesos">$' + '</span>' + 
                                         '</div>' +
                                         '<div class="col-5 p-0 text-right modal_data_user">' + 
-                                            '<span class="txt__pesos pr-0">' + item.pivot.valor_convenio + '</span>' +
+                                            '<span class="txt__pesos pr-1">' + item.pivot.valor_convenio + '</span>' +
                                         '</div>' +
                                     '</div>' +
 
                                     '<div class="row m-0 modal_info_user disp_txt_modal_card">' +
                                         '<div class="col-7 p-0 card_precio_serv">' +
-                                            '<h4 class="txt_pago_convenio pr-2">Pago paciente:' + '</h4>' +
+                                            '<h4 class="txt_pago_convenio pl-1">Pago paciente:' + '</h4>' +
                                             '<span class="txt__pesos">$' + '</span>' + 
                                         '</div>' +
                                         '<div class="col-5 p-0 text-right modal_data_user">' + 
-                                            '<span class="txt__pesos pr-0">' + item.pivot.valor_paciente + '</span>' + 
+                                            '<span class="txt__pesos pr-1">' + item.pivot.valor_paciente + '</span>' + 
                                         '</div>' +
                                     '</div>' +
                                 '</div>' +
@@ -341,7 +342,7 @@
                     );
                 });
 
-                $('#modal-servicio').modal();
+            $('#modal-servicio').modal();
             }, "json").fail(function (error) {
                 console.log(error);
             });

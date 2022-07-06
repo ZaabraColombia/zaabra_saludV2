@@ -35,83 +35,113 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid panel_container">
-        <div class="panel_head_op2">
-            <!-- Main title -->
-            <div class="mb-4">
-                <h1 class="txt_title_panel_head color_green">Administración de citas</h1>
-                <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
-                <a  class="button_transparent" type="button" data-toggle="modal" data-target="#modal_appoiment_detail">Launch modal</a>
+    <div id="admin_cita">
+        <div class="container-fluid panel_container">
+            <div class="panel_head px-lg-0">
+                <!-- Main title -->
+                <div class="mb-4">
+                    <h1 class="txt_title_panel_head color_green">Administración de citas</h1>
+                    <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
+                    <a  class="button_transparent" type="button" data-toggle="modal" data-target="#modal_appoiment_detail">Launch modal</a>
+                </div>
+                <!-- Toolbar --> 
+                <div class="row m-0">
+                    <!-- Add appoiment -->
+                    <div class="col-md-12 col-lg-auto mr-lg-3 button__add_card">
+                        <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card" id="btn-agregar-contacto">Agregar cita</a>
+                    </div>
+                    <!-- Search bar -->
+                    <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto button__search_card">
+                        <form method="get">
+                            <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}">
+                                <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Document action buttons  -->
+                    <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
+                        <div class="toolt bottom">
+                            <button class="file_calendar"></button>
+                            <span class="tiptext">Calendario</span>
+                        </div>
+                        <div class="toolt bottom">
+                            <button class="file_excel"></button>
+                            <span class="tiptext">Exportar excel</span>
+                        </div>
+                        <div class="toolt bottom">
+                            <button class="file_pdf"></button>
+                            <span class="tiptext">Exportar PDF</span>
+                        </div>
+                        <div class="toolt bottom">
+                            <button class="file_printer"></button>
+                            <span class="tiptext">Imprimir</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Toolbar --> 
-            <div class="row m-0">
-                <!-- Add appoiment -->
-                <div class="col-md-12 col-lg-auto mr-lg-3 button__add_card">
-                    <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card" id="btn-agregar-contacto">Agregar cita</a>
-                </div>
-                <!-- Search bar -->
-                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto button__search_card">
-                    <form method="get">
-                        <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}">
-                            <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
-                        </button>
-                    </form>
-                </div>
-                <!-- Document action buttons  -->
-                <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
-                    <div class="toolt bottom">
-                        <button class="file_calendar"></button>
-                        <span class="tiptext">Calendario</span>
-                    </div>
-                    <div class="toolt bottom">
-                        <button class="file_excel"></button>
-                        <span class="tiptext">Exportar excel</span>
-                    </div>
-                    <div class="toolt bottom">
-                        <button class="file_pdf"></button>
-                        <span class="tiptext">Exportar PDF</span>
-                    </div>
-                    <div class="toolt bottom">
-                        <button class="file_printer"></button>
-                        <span class="tiptext">Imprimir</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row m-0">
-            <div class="col-md-6 justify-content-center">
-                <button type="submit" class="button__form_green">Mostrar todo</button>
-            </div>
-            <div class="col-md-6 justify-content-center">
-                <button type="submit" class="button__form_transparent">Desplegar</button>
-            </div>
-        </div>
+            <div class="panel_body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row_btns_panel">
+                            <div class="mb_btn_panel btn_top_panel">
+                                <button type="submit" class="btn_green_panel">Mostrar todo</button>
+                            </div>
+                            <div class="btn_top_panel">
+                                <button type="submit" class="btn_white_panel">Ocultar todo</button>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="panel_body_op2">
-            <div class="card__container_main">
-                <div class="col-12" id="alertas"></div>
-                <table class="table table_agenda" style="width: 100%" id="table-citas">
-                    <thead class="thead_green">
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Hora Inicio</th>
-                        <th>Hora Fin</th>
-                        {{--Es nesesario que esten duplicados--}}
-                        <th>Profesional</th>
-                        <th>Profesional</th>
-                        <th>Especialidad</th>
-                        {{--Es nesesario que esten duplicados--}}
-                        <th>Servicio</th>
-                        <th>Servicio</th>
-                        <th>Paciente</th>
-                        <th>Identificación</th>
-                        <th>Celular</th>
-                        <th>Estado</th>
-                        <th>Acción</th>
-                    </tr>
-                    </thead>
-                </table>
+                    <div class="col-12">
+                        <div id="filter-input" class="row">
+                            <div class="col-md-6 col-lg-3 mb-3">
+                                <label for="fecha">Fecha de inicio</label>
+                                <input id="fecha" name="fecha" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>
+                            </div>
+                            <div class="col-md-6 col-lg-3 mb-3">
+                                <label for="fecha_fin">Fecha final</label>
+                                <input id="fecha_fin" name="fecha_fin" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>
+                            </div>
+                            <div class="col-md-6 col-lg-3 mb-3">
+                                <label for="estado">Estado de cita</label>
+                                <select name="estado" id="estado" class="form-control filter-data">
+                                    <option value="">Todos</option>
+                                    <option selected value="agendado">Agendado</option>
+                                    <option value="completado">Completado</option>
+                                    <option value="cancelado">Cancelado</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tabla -->
+                <div class="row">
+                    <div class="col-12" id="alertas"></div>
+                    <div id="table_green" class="col-12">
+                        <table class="table table-borderless" style="width: 100%" id="table-citas">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Hora Inicio</th>
+                                    <th>Hora Fin</th>
+                                    {{--Es nesesario que esten duplicados--}}
+                                    <th>Profesional</th>
+                                    <th>Profesional</th>
+                                    <th>Especialidad</th>
+                                    {{--Es nesesario que esten duplicados--}}
+                                    <th>Servicio</th>
+                                    <th>Servicio</th>
+                                    <th>Paciente</th>
+                                    <th>Identificación</th>
+                                    <th>Celular</th>
+                                    <th>Estado</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -136,7 +166,7 @@
                 <div class="modal-body px-3 px-lg-4 m-0 mb-lg-3">
                     <!-- Imagen imprersa del profesional -->
                     <div class="row m-0">
-                        <div class="col-12 p-0 mb-2 mb-lg-3 d-flex justify-content-center">
+                        <div class="col-12 p-0 mb-5 mb-lg-3 d-flex justify-content-center">
                             <img class="img_printed_modal" src="{{ asset($profesional->foto_perfil_institucion ?? 'img/menu/avatar.png') }}">
                         </div>
                     </div>
@@ -144,9 +174,9 @@
                     <div class="modal_info_data_open">
                         <div class="row m-0">
                             <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">Paciente:</h4>
+                                <h4 class="modal_data_form">Profesional:</h4>
                                 <div class="modal_data_user">
-                                    <span id="">Santiago Jonathan Buenaventura Santamaria</span>
+                                    <span id="">Dr.(a) Santiago Jonathan Buenaventura Santamaria</span>
                                 </div>
                             </div>
 
@@ -160,20 +190,27 @@
                             <div class="col-12 mb-3 px-md-4 dropdown-divider" style="border: 1px solid #DBDADA"></div>
 
                             <div class="col-12 modal_info_user">
-                                <h4 class="modal_data_form">Profesional:</h4>
+                                <h4 class="modal_data_form">Paciente:</h4>
                                 <div class="modal_data_user">
                                     <span id="nombre">Carlos Arturo Quiroga Galvis</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Identificación:</h4>
                                 <div class="modal_data_user">
                                     <span id="">C.C. 1.070.000.000</span>
                                 </div>
                             </div>
 
-                            <div class="col-12 modal_info_user">
+                            <div class="col-lg-6 modal_info_user">
+                                <h4 class="modal_data_form">Teléfono:</h4>
+                                <div class="modal_data_user">
+                                    <span id="">0000000</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 modal_info_user">
                                 <h4 class="modal_data_form">Tipo de servicio:</h4>
                                 <div class="modal_data_user">
                                     <span id="">Cirugía plástica facial</span>
@@ -184,13 +221,6 @@
                                 <h4 class="modal_data_form">Fecha:</h4>
                                 <div class="modal_data_user">
                                     <span id="">28/11/1985</span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 modal_info_user">
-                                <h4 class="modal_data_form">Teléfono:</h4>
-                                <div class="modal_data_user">
-                                    <span id="">0000000</span>
                                 </div>
                             </div>
 
@@ -235,12 +265,45 @@
                                     <span id="">Sura E.P.S.</span>
                                 </div>
                             </div>
+
+                            <div class="col-lg-6 d-lg-block modal_info_user">
+                                <h4 class="modal_data_form">¿Desea cancelar la cita?</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cita-cancelada" id="cita-cancelada" value="" checked>
+                                    <label class="form-check-label" for="cita-cancelada">Si</label>
+                                </div>
+                                <div id="btn-cancel-cita" class="modal_btn_cancel_cita">
+                                    <button type="button" class="modal_btn_bord_green" data-dismiss="modal">Cancelar cita</button>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 d-lg-block modal_info_user">
+                                <h4 class="modal_data_form">Inasistencia:</h4>
+                                <div class="d-flex">
+                                    <div class="form-check mr-4">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" checked>
+                                        <label class="form-check-label" for="exampleRadios1">Si</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3" checked>
+                                        <label class="form-check-label" for="exampleRadios1">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 d-lg-block modal_info_user input__box">
+                                <h4 class="modal_data_form mb-3">Observaciones:</h4>
+                                <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
+                                        rows="4">{{ old('descripcion') }}</textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Modalfooter -->
-                <div class="modal_btn_down_center mb-4">
-                    <button type="button" class="button__form_green" data-dismiss="modal">Cerrar</button>
+                <div class="modal_buttons_down mb-4 mb-lg-5 mt-lg-2">
+                    <button type="button" class="modal_border_green mb-4 mb-lg-0 mr-lg-4" data-dismiss="modal">Reagendar cita</button>
+                    <button type="button" class="modal_border_green mb-4 mb-lg-0 mr-lg-4" data-dismiss="modal">Confirmar pagos</button>
+                    <button type="button" class="modal_button_green" data-dismiss="modal">Confirmar cita</button>
                 </div>
             </div>
         </div>
@@ -496,8 +559,8 @@
             var table = $('#table-citas').DataTable({
                 //dom: 'Plfrtip',
                 dom:
-                    "<'#filter-input.row'><'row'<'col-12'P>>"+
-                    "<'row'<'col-12'ltip><'col-12'>>",
+                    // "<'#filter-input.row'><'row'<'col-12'P>>"+
+                    "Pt",
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -582,21 +645,6 @@
                 initComplete: function () {
 
                     var api = this.api();
-                    //Agregar los dos inputs
-                    $('#filter-input').html(
-                        '<div class="col-md-6 mb-3">' +
-                        '<label for="fecha">Fecha</label>' +
-                        '<input id="fecha" name="fecha" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>' +
-                        '</div>' +
-                        '<div class="col-md-6 mb-3">' +
-                        '<label for="estado">Estado</label>' +
-                        '<select name="estado" id="estado" class="form-control filter-data">' +
-                        '<option value="">Todos</option>' +
-                        '<option selected value="agendado">Agendado</option>' +
-                        '<option value="completado">Completado</option>' +
-                        '<option value="cancelado">Cancelado</option>' +
-                        '</select>' +
-                        '</div>');
 
                     $('.filter-data').on('change', function () {
                         table.ajax.reload(null, false)
