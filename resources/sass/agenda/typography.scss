@@ -4,7 +4,7 @@
 .color_green {
     color: #019F86;
 }
-.txt_name_card {
+.txt__card_menu {
     font-size: 16px;
     font-weight: 100;
     color: #232323;
@@ -170,7 +170,7 @@
     padding-right: 3px;
 }
 @media(min-width: 768px) {
-    .txt_name_card {
+    .txt__card_menu {
         font-size: 20px;
     } 
     .txt_title_panel_head {
@@ -236,7 +236,7 @@
     // }
 }
 @media(min-width: 1600px) {
-    .txt_name_card {
+    .txt__card_menu {
         font-size: 25px;
     } 
 }

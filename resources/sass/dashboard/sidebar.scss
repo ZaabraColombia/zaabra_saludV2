@@ -16,13 +16,13 @@
     transition: all 0.35s ease-in;
     z-index: 500;
     overflow: hidden;
-  }
-  // Sidebar o menu lateral visible dispositivos (320px - 1024px)
-  .sideBar.is-visible {
-    visibility: visible;
-    opacity: 1;
-    overflow: hidden;
-  }
+}
+// Sidebar o menu lateral visible dispositivos (320px - 1024px)
+.sideBar.is-visible {
+visibility: visible;
+opacity: 1;
+overflow: hidden;
+}
 // Contenedor menú interno
 .sidebar-wrapper {
     width: 100%;

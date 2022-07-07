@@ -2,7 +2,7 @@
 
 @section('contenido')
     <div class="container-fluid panel_container">
-        <div class="panel_head_op2">
+        <div class="panel_head">
             <!-- Main title -->
             <div class="mb-4">
                 <h1 class="txt_title_panel_head">Diagnósticos (CIE - 10)</h1>
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="panel_body_op2">
+        <div class="panel_body">
             <div class="row m-0">
                 <div class="col-lg-6 p-0">
                     <div class=" card mr-lg-3 mb-4 mb-lg-0">

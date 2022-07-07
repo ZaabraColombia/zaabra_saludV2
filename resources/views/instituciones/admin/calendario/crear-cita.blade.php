@@ -47,7 +47,7 @@
                         <div class="row m-0">
                             <input type="hidden" name="date-calendar" id="date-calendar">
                             {{-- <div class="col-md-6 col-lg-12 px-2 px-lg-0 mb-2">
-                                <!-- Search bar -->
+                                <!-- Search bar CON ICONO LUPA -->
                                 <form method="get">
                                     <label for="" class="txt_calendar_cita">Paciente</label>
                                     <div class="search__calend" style="position: relative">

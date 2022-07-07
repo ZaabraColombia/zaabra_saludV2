@@ -39,19 +39,28 @@
 @import 'images';
 @import 'texts';
 // Agenda instituciones
-@import 'agenda/panel';
+// @import 'agenda/panel';
 @import 'agenda/buttons';
 @import 'agenda/cards';
 @import 'agenda/typography';
 @import 'agenda/icons';
 @import 'agenda/images';
 @import 'agenda/modals';
-@import 'agenda/dashboard';
-@import 'agenda/sidebar';
-@import 'agenda/footer';
+// @import 'agenda/dashboard';
+// @import 'agenda/sidebar';
+// @import 'agenda/footer';
 @import 'agenda/pagination';
 @import 'agenda/tool-tips';
-// Calendars
+// Cards
+@import 'cards/card_';
+// Dashboard
+@import 'dashboard/dash-board';
+@import 'dashboard/footer';
+@import 'dashboard/panels';
+@import 'dashboard/sidebar';
+// Inputs
+@import 'inputs/input_';
+// Plugins
 @import 'plugins/calendar-cita';
 @import 'plugins/datatable';
 

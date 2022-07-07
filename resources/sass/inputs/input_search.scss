@@ -1,0 +1,87 @@
+// Buscador tarjetas del menú principal
+.search__main_menu {
+    background-color: #FFFFFF;
+    border-radius: 7px;
+    padding: 10px 17px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 24px;
+}
+.search__main_menu input {
+    display: block;
+    width: 100%;
+    height: 28px;
+    padding: 5px 12px;
+    margin: 0;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: $black_second;
+    background-color: #F9F9F9;
+    background-clip: padding-box;
+    border: 1px solid #DBDADA;
+    border-radius: 14px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:focus {
+        color: $black_second;
+        background-color: $gray_official;
+        border-color: $blue_gray;
+        outline: 0;
+        box-shadow: 0px 0px 1.2px 2px rgb(30 200 252 / 10%);
+    }
+    &::placeholder { 
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: 100;
+        color: #DBDADA; 
+    }
+}
+.search__main_menu button {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    height: 100%;
+    background-color: #F9F9F9;
+    width: 45px;
+    border-radius: 0 14px 14px 0;
+    border: 1px solid #DBDADA;
+    border-left: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+    background-position-y: top;
+}
+.search__main_menu .icon_search_green {
+    background-image: url('/img/iconos/search_verde.svg');
+}
+.search__main_menu .icon_search_blue {
+    background-image: url('/img/iconos/search_azul.svg');
+}
+@media (min-width: 768px){
+    // Buscador tarjetas del menú principal
+    .search__main_menu {
+        padding: 20px 30px;
+    }
+}
+@media(min-width: 1300px) {
+    // Buscador tarjetas del menú principal
+    .search__main_menu {
+        padding: 20px 40px;
+    }
+    .search__main_menu button {
+        width: 50px;
+    }
+}
+@media(min-width: 1600px) {
+    // Buscador tarjetas del menú principal
+    .search__main_menu button {
+        width: 60px;
+        background-size: 25px;
+        background-position-y: 2px;
+    }
+    .search__main_menu input {
+        height: 36px;
+        padding: 5px 25px;
+    }
+}
