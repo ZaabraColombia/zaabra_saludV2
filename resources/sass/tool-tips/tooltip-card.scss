@@ -1,0 +1,66 @@
+// Tool tip perfil de tarjetas
+.toolTip {
+    position: relative;
+    cursor: pointer;
+}
+.toolTip .toolText {
+    visibility: hidden;
+    width: max-content;
+    background-color: #E6E6E6;
+    color: #333333;
+    text-align: center;
+    padding: 0 3px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 3px 6px #00000029;
+    font-size: 12px;
+    font-weight: bold;
+}
+.toolTip .toolText::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+}
+.toolTip:hover .toolText {
+    visibility: visible;
+}
+.toolTip.bottom .toolText{
+    bottom: -13px;
+    left: 0;
+}
+.toolTip.bottom .toolText::after{
+    bottom: 100%;
+    left: 10%;
+    border-color: transparent transparent #fff transparent;
+}
+.tooltip_data {
+    width: 220px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+@media(min-width: 768px) {
+    .tooltip_data {
+        width: 255px;
+    }
+}
+@media(min-width: 1024px) {
+    .tooltip_data {
+        width: 190px;
+    }
+}
+@media(min-width: 1300px) {
+    .tooltip_data {
+        width: 230px;
+    }
+}
+@media(min-width: 1440px) {
+    .tooltip_data {
+        width: 245px;
+    }
+}
+@media(min-width: 1600px) {
+    .tooltip_data {
+        width: 215px;
+    }
+}

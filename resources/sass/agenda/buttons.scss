@@ -81,52 +81,6 @@
         }
     }
 }
-.button__search_blue_card {
-    margin-bottom: 20px;
-    padding: 0;
-    button {
-        border: 1px solid #DBDADA;
-        background-color: #FFF;
-        text-decoration: none;
-        border-radius: 7px;
-        height: 43px;
-        display: inline-flex;
-        align-items: center;
-        overflow: hidden;
-        width: auto;
-        width: 100%;
-        transition: max-width 0.1s;
-        background-image: url('/img/iconos/search_azul.svg');
-        background-repeat: no-repeat;
-        background-position-x: 93%;
-        background-position-y: center;
-        background-size: 22px;
-        white-space: nowrap;
-        padding-top: 2px;
-        padding-left: 0;
-        padding-right: 52px;
-    }
-    input {
-        display: block;
-        width: 100%;
-        height: 100%;
-        padding: 5px 0 5px 15px;
-        margin-bottom: 15px;
-        font-family: 'Roboto';
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 1.6;
-        color: #434343;
-        background-color: #FFFFFF;
-        background-clip: padding-box;
-        border: none;
-        border-radius: 0.25rem;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        &::placeholder { 
-            color: #DBDADA; 
-        }
-    }
-}
 // Botones documentos de descarga
 .button__doc_download {
     display: flex;
@@ -501,23 +455,7 @@
             background-position-x: 97%;
         }
     }
-    .button__search_blue_card {
-        margin-bottom: 0;
-        button {
-            width: auto;
-            width: 45px;
-            background-position-x: 10PX;
-            padding-top: 2px;
-            padding-right: 0px;
-            padding-left: 30px;
-        }
-        .search_togggle {
-            width: 100%;
-            padding-left: 0;
-            padding-right: 50px;
-            background-position-x: 95%;
-        }
-    }
+
     // Botones informativos
     .button__info_card {
         justify-content: flex-end;
@@ -589,14 +527,6 @@
         padding: 0 8px 0 0;
         .search_togggle {
             width: 70%;
-        }
-    }
-    .button__search_blue_card {
-        .search_togggle {
-            width: 100%;
-            padding-left: 0;
-            padding-right: 50px;
-            background-position-x: 97%;
         }
     }
     .button__blue_card {

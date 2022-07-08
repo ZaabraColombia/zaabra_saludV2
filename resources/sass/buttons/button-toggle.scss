@@ -1,0 +1,67 @@
+// Botón toggle redondo, estado (activado e inactivado)
+.btn__estado {
+    display: flex;
+    justify-content: flex-end;
+    .btn__activado {
+        width: auto;
+        max-width: 22px;
+        height: 22px;
+        border: none;
+        overflow:hidden;
+        display: inline-flex;
+        align-items: center;
+        background-color: transparent;
+        -webkit-transition: max-width 0.5s;
+        transition: max-width 0.1s;
+        // Icono activado
+        background-image: url('/img/iconos/check-circle.svg');
+        background-repeat: no-repeat;
+        background-size: 22px;
+        background-position-x: 0;
+        background-position-y: center;
+        // Texto activado
+        font-size: 16px;
+        font-weight: bold;
+        color: #049372 !important;
+        text-decoration: none;
+        white-space: nowrap;
+        padding-top: 2px;
+        padding-right: 0;
+        padding-left: 30px;
+        &:hover {
+            max-width: 300px;
+            padding-right: 7px;
+        }
+    }
+    .btn__desactivado {
+        width: auto;
+        max-width: 22px;
+        height: 22px;
+        border: none;
+        overflow:hidden;
+        display: inline-flex;
+        align-items: center;
+        background-color: transparent;
+        -webkit-transition: max-width 0.5s;
+        transition: max-width 0.1s;
+        // Icono estado desactivado
+        background-image: url('/img/iconos/x-circle.svg');
+        background-repeat: no-repeat;
+        background-size: 22px;
+        background-position-x: 0;
+        background-position-y: center;
+        // Texto desactivado
+        font-size: 16px;
+        font-weight: bold;
+        color: #FF3E3E !important;
+        text-decoration: none;
+        white-space: nowrap;
+        padding-top: 2px;
+        padding-right: 0px;
+        padding-left: 30px;
+        &:hover {
+            max-width: 300px;
+            padding-right: 7px;
+        }
+    } 
+} 

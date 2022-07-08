@@ -1,0 +1,108 @@
+// Propiedades especiales para las tarjetas
+// margenes tarjetas convenios
+.mb_panel_head_conv {
+    margin-bottom: -7px;
+}
+.mt_card_conv {
+    margin-top: 80px;
+}
+// Fin propiedades especiales
+.card__mod {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: $withe_official;
+    border: 1px solid $gray_200;
+    border-radius: 7px;
+    padding: 15px 4px;
+}
+.card__header {
+    padding: 0;
+    margin: 0;
+}
+.card__body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 14px;
+}
+.card__footer {
+    padding: 15px;
+}
+// Espacio entre las tarjetas
+.card__space {
+    padding: 0;
+}
+@media(min-width: 768px) {
+// Propiedades especiales para las tarjetas
+// margenes tarjetas convenios
+.mb_panel_head_conv {
+    margin-bottom: 0;
+}
+.mt_card_conv {
+    margin-top: 40px;
+}
+// Fin propiedades especiales
+    // Espacio entre las tarjetas
+    .card__space {
+        padding-bottom: 28px;
+    }
+    .card__space:nth-child(2n+1) {
+        padding-left: 10px;
+        padding-right: 0;
+    }
+    .card__space:nth-child(2n+2) {
+        padding-left: 0;
+        padding-right: 10px;
+    }
+}
+@media(min-width: 1024px) {
+// Propiedades especiales para las tarjetas
+// margenes tarjetas convenios
+    .mb_panel_head_conv {
+        margin-bottom: 20px;
+    }
+    .mt_card_conv {
+        margin-top: 35px;
+    }
+// Fin propiedades especiales
+    .card__mod {
+        padding: 10px 5px 15px 5px;
+    }
+    // Espacio entre las tarjetas
+    .card__space:nth-child(3n+2) {
+        padding-left: 0 !important;
+        padding-right: 11px !important;
+    }
+    .card__space:nth-child(3n+3) {
+        padding-left: 5.5px !important;
+        padding-right: 5.5px !important;
+    }
+    .card__space:nth-child(3n+1) {
+        padding-left: 11px !important;
+        padding-right: 0 !important;
+    }
+}
+@media(min-width: 1600px) {
+    .card__width_desk {
+        max-width: 25% !important;
+    }
+    // Espacio entre las tarjetas
+    .card__space:nth-child(4n+2) {
+        padding-left: 0 !important;
+        padding-right: 15px !important;
+    }
+    .card__space:nth-child(4n+3) {
+        padding-left: 5px !important;
+        padding-right: 10px !important;
+    }
+    .card__space:nth-child(4n+4) {
+        padding-left: 10px !important;
+        padding-right: 5px !important;
+    }
+    .card__space:nth-child(4n+1) {
+        padding-left: 15px !important;
+        padding-right: 0 !important;
+    }
+}
