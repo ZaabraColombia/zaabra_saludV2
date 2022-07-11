@@ -33,11 +33,11 @@
                 <div class="col-md-4 ml-md-auto col-lg-auto btns__export_doc">
                     <div class="toolTip bottom">
                         <button class="file_excel"></button>
-                        <span class="toolText">Doc. Excel</span>
+                        <span class="toolText">Exportar Excel</span>
                     </div>
                     <div class="toolTip bottom">
                         <button class="file_pdf"></button>
-                        <span class="toolText">Doc. PDF</span>
+                        <span class="toolText">Exportar PDF</span>
                     </div>
                     <div class="toolTip bottom">
                         <button class="file_printer"></button>

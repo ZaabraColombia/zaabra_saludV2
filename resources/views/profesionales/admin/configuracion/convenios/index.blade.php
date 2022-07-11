@@ -33,11 +33,11 @@
                 <div class="col-md-4 ml-md-auto col-lg-auto btns__export_doc">
                     <div class="toolTip bottom">
                         <button class="file_excel"></button>
-                        <span class="toolText">Doc. Excel</span>
+                        <span class="toolText">Exportar Excel</span>
                     </div>
                     <div class="toolTip bottom">
                         <button class="file_pdf"></button>
-                        <span class="toolText">Doc. PDF</span>
+                        <span class="toolText">Exportar PDF</span>
                     </div>
                     <div class="toolTip bottom">
                         <button class="file_printer"></button>
@@ -87,9 +87,9 @@
                                         <div class="col-12 p-0 mb-1">
                                             <h4 class="text-center h4_card_fs18 black_bolder">{{ $convenio->nombre_completo }}</h4>
 
-                                            <h5 class="h5_card_fs15 text-center">{{ $convenio->tipo_establecimiento }}</h5>
+                                            <h5 class="text-center h5_card_fs15">{{ $convenio->tipo_establecimiento }}</h5>
 
-                                            <h5 class="h5_card_fs9 text-center">Código: &nbsp;{{ $convenio->codigo_convenio }}</h5>
+                                            <h5 class="text-center h5_card_fs9">Código: &nbsp;{{ $convenio->codigo_convenio }}</h5>
                                         </div>
 
                                         <div class="col-9 p-0 m-auto lineh_med">

@@ -4,6 +4,10 @@
     margin-top: 60px;
     margin-bottom: 24px;
 }
+// margen inferior tarjeta (servicios, usuarios
+.mt_card {
+    margin-bottom: 24px;
+}
 //Alto fijo para el título tarjeta servicios
 #cardServ .card__header { 
     height: 70px;
@@ -12,14 +16,14 @@
     align-items: center;
     padding: 4px 15px 0 15px ;
 }
-// .card_especialidad_serv { poendiente por socializar con diseño }
+//Borde inferior nombre y cargo tarjeta usuarios
+.card_name_user {
+    border-bottom: 1px solid #E6E6E6;
+}
+// .card_especialidad_serv { pendiente por socializar con diseño }
 //     height: 30px;
 //     line-height: 1;
 // }
-// margen inferior tarjeta servicios             pendiente para utilizar en las demas tarjetas
-#cardServ .mt_card {
-    margin-bottom: 24px;
-}
 // Fin propiedades especiales
 .card__mod {
     position: relative;
