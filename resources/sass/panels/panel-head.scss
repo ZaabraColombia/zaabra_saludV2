@@ -1,23 +1,12 @@
+.panel_head {
+    margin-bottom: 20px;
+}
 .panel_head .title {
     font-size: 25px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 } 
-.panel_head .btn__add {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin-bottom: 15px;
-}
-.panel_head .btn__add .btn_blue {
-    color: $withe_official;
-    background: $blue_two;
-    border: solid 1px $blue_two;
-    border-radius: 7px;
-    padding: 9px;
-}
 .panel_head .search {
     margin-bottom: 24px;
     padding: 0 5px;
@@ -116,16 +105,16 @@
         margin-bottom: -3px;
     }
     // Fin propiedades especiales
+    .panel_head {
+        margin-bottom: 26px;
+    }
     .panel_head .title {
         text-align: initial;
-        margin-bottom: 27px;
-    }
-    .panel_head .btn__add {
-        justify-content: initial;
-        margin-bottom: 27px;
+        margin-bottom: 20px;
     }
     .panel_head .search {
         padding: 0 10px 0 0px;
+        margin-bottom: 0;
     }
     .panel_head .search button {
         background-position-x: 97%;
@@ -144,9 +133,8 @@
         margin-bottom: -15px;
     }
     // Fin propiedades especiales
-    .panel_head .btn__add {
-        align-items: flex-start;
-        margin-bottom: 0;
+    .panel_head {
+        margin-bottom: 24px;
     }
     .panel_head .search {
         margin-bottom: 0;

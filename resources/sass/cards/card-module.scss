@@ -1,10 +1,24 @@
 // Propiedades especiales para las tarjetas
-// margenes tarjetas convenios
-.mb_panel_head_conv {
-    margin-bottom: -7px;
+// margen superior tarjeta convenios
+#cardConv .mt_card {
+    margin-top: 60px;
+    margin-bottom: 24px;
 }
-.mt_card_conv {
-    margin-top: 80px;
+//Alto fijo para el título tarjeta servicios
+#cardServ .card__header { 
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 15px 0 15px ;
+}
+// .card_especialidad_serv { poendiente por socializar con diseño }
+//     height: 30px;
+//     line-height: 1;
+// }
+// margen inferior tarjeta servicios             pendiente para utilizar en las demas tarjetas
+#cardServ .mt_card {
+    margin-bottom: 24px;
 }
 // Fin propiedades especiales
 .card__mod {
@@ -19,7 +33,7 @@
     padding: 15px 4px;
 }
 .card__header {
-    padding: 0;
+    padding: 15px;
     margin: 0;
 }
 .card__body {
@@ -31,23 +45,20 @@
     padding: 15px;
 }
 // Espacio entre las tarjetas
-.card__space {
-    padding: 0;
-}
+// .card__space {
+//     padding: 0;
+// }
 @media(min-width: 768px) {
 // Propiedades especiales para las tarjetas
 // margenes tarjetas convenios
-.mb_panel_head_conv {
-    margin-bottom: 0;
-}
-.mt_card_conv {
+#cardConv .mt_card {
     margin-top: 40px;
 }
 // Fin propiedades especiales
     // Espacio entre las tarjetas
-    .card__space {
-        padding-bottom: 28px;
-    }
+    // .card__space {
+    //     padding-bottom: 28px;
+    // }
     .card__space:nth-child(2n+1) {
         padding-left: 10px;
         padding-right: 0;
@@ -60,10 +71,7 @@
 @media(min-width: 1024px) {
 // Propiedades especiales para las tarjetas
 // margenes tarjetas convenios
-    .mb_panel_head_conv {
-        margin-bottom: 20px;
-    }
-    .mt_card_conv {
+    #cardConv .mt_card {
         margin-top: 35px;
     }
 // Fin propiedades especiales

@@ -1,6 +1,6 @@
 // Colores de los botones
 .bg_blue_two {
-    color: $withe_official;
+    color: $gray_100;
     background: $blue_two;
     border: solid 1px $blue_two;
 }
@@ -9,12 +9,32 @@
     background: $withe_official;
     border: solid 1px $blue_two;
 }
+.bg_green_two {
+    color: $gray_100;
+    background: $green_two;
+    border: solid 1px $green_two;
+}
 // Fin colores de los botones
+.btn__card_add {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    a {
+        font-family: "Quicksand";
+        font-size: 15px;
+        font-weight: bold;
+        height: 43px;
+        padding: 0 10px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+    }
+}
 .btn__card_down {
     display: flex;
     justify-content: center;
     align-items: center;
-    button {
+    button, a {
         font-family: "Quicksand";
         font-size: 14px;
         font-weight: bold;
@@ -27,18 +47,30 @@
     }
 }
 .btn__card_down:first-child {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 @media(min-width: 768px) {
+    .btn__card_add {
+        justify-content: initial;
+        padding: 0;
+        margin-bottom: 35px;
+    }
     .btn__card_down:first-child {
         margin-bottom: 0;
         margin-right: 8px;
     }
     .btn__card_down {
-        button {
+        button, a {
             font-size: 10px;
             width: 67px;
             height: 29px;
         }
+    }
+}
+@media(min-width: 1024px) {
+    .btn__card_add {
+        align-items: flex-start;
+        margin-bottom: 0;
+        margin-right: 16px;
     }
 }

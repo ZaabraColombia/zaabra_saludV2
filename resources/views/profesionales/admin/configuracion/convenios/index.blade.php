@@ -10,17 +10,15 @@
 @section('contenido')
     <div class="container-fluid panel_container">
         <!-- panel head -->
-        <div class="panel_head mb_panel_head_conv">
+        <div class="panel_head">
             <!-- Title -->
             <h1 class="title blue_two">Convenios</h1>
             <!-- Toolbar -->
             <div class="row m-0">
                 <!-- Add button -->
                 @can('accesos-profesional',['agregar-convenio'])
-                    <div class="col-md-12 col-lg-auto mr-lg-3 btn__add">
-                        <a href="{{ route('profesional.configuracion.convenios.create') }}" class="btn_blue" id="btn-agregar-contacto">
-                            Agregar convenio
-                        </a>
+                    <div class="col-md-12 col-lg-auto btn__card_add">
+                        <a href="{{ route('profesional.configuracion.convenios.create') }}" id="btn-agregar-contacto" class="bg_blue_two">Agregar convenio</a>
                     </div>
                 @endcan
                 <!-- Search bar -->
@@ -49,7 +47,7 @@
             </div>
         </div>
         <!-- panel body -->
-        <div class="panel_body">
+        <div id="cardConv" class="panel_body">
             <div class="row m-0">
                 <!-- alert notice -->
                 <div class="col-12">
@@ -65,11 +63,11 @@
                 </div>
                 @if($convenios->isNotEmpty())
                     @foreach($convenios as $convenio)
-                        <div class="col-md-6 col-lg-4 mt_card_conv card__space card__width_desk">
+                        <div class="col-md-6 col-lg-4 mt_card card__space card__width_desk">
                             <!-- card -->
                             <div class="card__mod">
                                 <!-- card header -->
-                                <div class="card__header">
+                                <div class="card__header p-0">
                                     <div class="row m-0">
                                         <!-- Image agreement -->
                                         <div class="img__perfil_float">
@@ -85,19 +83,13 @@
                                 </div>
                                 <!-- card boody -->
                                 <div class="card__body">
-                                    <div class="row mx-0 mt-2">
+                                    <div class="row mx-0 mt-1">
                                         <div class="col-12 p-0 mb-1">
-                                            <div class="">
-                                                <h4 class="text-center h4_card_fs18 ">{{ $convenio->nombre_completo }}</h4>
-                                            </div>
+                                            <h4 class="text-center h4_card_fs18 black_bolder">{{ $convenio->nombre_completo }}</h4>
 
-                                            <div class="">
-                                                <h5 class="h5_card_fs15 text-center">{{ $convenio->tipo_establecimiento }}</h5>
-                                            </div>
+                                            <h5 class="h5_card_fs15 text-center">{{ $convenio->tipo_establecimiento }}</h5>
 
-                                            <div class="">
-                                                <h5 class="h5_card_fs9 text-center">Código: &nbsp;{{ $convenio->codigo_convenio }}</h5>
-                                            </div>
+                                            <h5 class="h5_card_fs9 text-center">Código: &nbsp;{{ $convenio->codigo_convenio }}</h5>
                                         </div>
 
                                         <div class="col-9 p-0 m-auto lineh_med">
@@ -129,9 +121,7 @@
 
                                         @can('accesos-institucion','editar-convenio')
                                             <div class="col-12 col-md-3 p-0 btn__card_down">
-                                                <a href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">
-                                                    <button class="bord_blue_two">Editar</button>
-                                                </a>
+                                                <a href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}" class="bord_blue_two">Editar</a>
                                             </div>
                                         @endcan
                                     </div>
