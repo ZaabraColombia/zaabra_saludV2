@@ -39,20 +39,39 @@
 @import 'images';
 @import 'texts';
 // Agenda instituciones
-@import 'agenda/panel';
+// @import 'agenda/panel';
 @import 'agenda/buttons';
 @import 'agenda/cards';
 @import 'agenda/typography';
 @import 'agenda/icons';
 @import 'agenda/images';
 @import 'agenda/modals';
-@import 'agenda/dashboard';
-@import 'agenda/sidebar';
-@import 'agenda/footer';
+// @import 'agenda/dashboard';
+// @import 'agenda/sidebar';
+// @import 'agenda/footer';
 @import 'agenda/pagination';
 @import 'agenda/tool-tips';
-// Calendars
+
+
+
+// Buttons
+@import 'buttons/button_';
+// Cards
+@import 'cards/card_';
+// Dashboard
+@import 'dashboard/dash-board';
+@import 'dashboard/footer';
+@import 'dashboard/sidebar';
+// Images
+@import 'images/image_';
+// Inputs
+@import 'inputs/input_';
+// Paneles
+@import 'panels/panel_';
+// Plugins
 @import 'plugins/calendar-cita';
 @import 'plugins/datatable';
+// Tool Tip
+@import 'tool-tips/tooltip_';
 
 $urlZaabra: 'http://localhost:8000/';

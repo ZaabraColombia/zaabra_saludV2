@@ -1,41 +1,3 @@
-// Cards menú panel
-.card__menu_panel {
-    border-radius: 7px;
-    text-align: center;
-    padding: 0;
-    height: 130px;
-    color: $black_third;
-    margin-bottom: 20px;
-    position: relative;
-    background-color: #FFFFFF;
-    background-repeat: no-repeat;
-    background-size: 48px;
-    background-position-x: center;
-    background-position-y: 20px;
-    span{
-        position: absolute;
-        width: 100%;
-        height: 50px;
-        bottom: 0;
-        left: 0;
-        padding: 0 5px;
-    }    
-    &:hover {
-        box-shadow: 5px 5px 10px 3px rgb(0 0 0 / 15%);
-    }
-}
-// Cards logos menú panel
-.card__logo_menu_panel {
-    display: flex;
-    justify-content: center;
-    background-color: #FFFFFF;
-    border-radius: 7px;
-    padding: 30px 15px;
-    height: 130px;
-    &:hover {
-        box-shadow: 5px 5px 10px 3px rgb(0 0 0 / 15%);
-    }
-}
 // Cards modules 
 .card__ {
     background-color: #FFFFFF;
@@ -55,26 +17,6 @@
     border-radius: 7px;
     padding: 15px 15px 18px 15px;
 }
-// Orden de las tarjetas menú principal de opciones
-.card__option:nth-child(odd) {
-    padding-left: 0;
-    padding-right: 8px;
-}
-.card__option:nth-child(even) {
-    padding-left: 8px;
-    padding-right: 0;
-}
-// Orden de las tarjetas logos menú principal de opciones
-.card__option_logo:nth-child(odd) {
-    padding-left: 24px;
-    padding-right: 24px;
-}
-.card__option_logo:nth-child(even) {
-    padding-left: 24px;
-    padding-right: 24px;
-}
-// Fin Orden de las tarjetas menú principal de opciones
-
 //Título principal header de las tarjetas agenda inst.
 .card_main_title {
     margin-bottom: 25px;
@@ -116,41 +58,10 @@
     margin-top: 80px;
 }
 @media(min-width: 768px) {
-    // Cards logos menú panel
-    .card__logo_menu_panel {
-        padding: 25px 15px;
-        height: 115px;
-    }
+
     .card__user {
         padding: 15px;
     }
-    // Orden de las tarjetas menú principal de opciones
-    .card__option:nth-child(3n+1) {
-        padding-left: 0 !important;
-        padding-right: 11px !important;
-    }
-    .card__option:nth-child(3n+3) {
-        padding-left: 11px !important;
-        padding-right: 0 !important;
-    }
-    .card__option:nth-child(3n+2) {
-        padding-left: 5.5px !important;
-        padding-right: 5.5px !important;
-    }
-    // Orden de las tarjetas logos menú principal de opciones
-    .card__option_logo:nth-child(3n+1) {
-        padding-left: 0 !important;
-        padding-right: 11px !important;
-    }
-    .card__option_logo:nth-child(3n+3) {
-        padding-left: 11px !important;
-        padding-right: 0 !important;
-    }
-    .card__option_logo:nth-child(3n+2) {
-        padding-left: 5.5px !important;
-        padding-right: 5.5px !important;
-    }
-    // Fin Orden de las tarjetas menú principal de opciones
     //Título principal header de las tarjetas agenda inst.
     .card_main_title {
         margin-bottom: 27px;
@@ -185,22 +96,9 @@
     .pt_card_float {
         padding-top: 14px;
     }
-    // Orden de las tarjetas logos menú principal de opciones
-    .card__option_logo:nth-child(odd) {
-        padding-left: 16px !important;
-        padding-right: 0 !important;
-    }
-    .card__option_logo:nth-child(even) {
-        padding-left: 16px !important;
-        padding-right: 0 !important;
-    }
 }
 @media(min-width: 1200px) {
-    // Cards logos menú panel
-    .card__logo_menu_panel {
-        height: 158px;
-        padding: 0;
-    }
+
 }
 @media(min-width: 1300px) {
     // Cards modules 
@@ -210,48 +108,7 @@
     }
 }
 @media(min-width: 1600px) {
-    .search_main_container input {
-        height: 36px;
-        padding: 5px 25px;
-    }
-    // Cards menú panel
-    .card__menu_panel {
-        height: 166px;
-        margin-bottom: 25px;
-        background-size: 66px;
-        background-position-y: 25px;
-        span{
-            height: 60px;
-        }    
-    }
-    // Cards logos menú panel
-    .card__logo_menu_panel {
-        height: 200px;
-    }
     .pad_card_logos {
         padding-left: 24px !important;
     }
-    // Orden de las tarjetas menú principal de opciones
-    .card__option:nth-child(3n+1) {
-        padding-left: 0 !important;
-        padding-right: 16px !important;
-    }
-    .card__option:nth-child(3n+3) {
-        padding-left: 16px !important;
-        padding-right: 0 !important;
-    }
-    .card__option:nth-child(3n+2) {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-    }
-    // Orden de las tarjetas logos menú principal de opciones
-    .card__option_logo:nth-child(odd) {
-        padding-left: 24px !important;
-        padding-right: 0 !important;
-    }
-    .card__option_logo:nth-child(even) {
-        padding-left: 24px !important;
-        padding-right: 0 !important;
-    }
-    // Fin Orden de las tarjetas menú principal de opciones
 }

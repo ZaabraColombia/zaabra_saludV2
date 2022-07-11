@@ -4,9 +4,20 @@ $body-bg: #f8fafc;
 // Typography
 $font-family-sans-serif: 'Quicksand', arial !default;
 $font-size-base: 0.9rem;
-$line-height-base: 1.6;
-// $h1-font-size: 36px !default;
+$line-height-base: 1.3;
 
+//========= Colores actualizados JULIO 2022 =========//
+$blue_one: #0083D6;
+$green_one:#019F86;
+$blue_two: #1B85D7;
+$green_two:#049372;
+$gray_100:#F3F3F3;
+$gray_200:#DBDADA;
+$gray_500: #707070;
+$black_bolder: #434343;
+
+
+//========= Colores vesrsión antigua =========//
 // Colors
 $blue: #3490dc;
 $indigo: #6574cd;
@@ -19,8 +30,6 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 $blue_gray: #c3d5e5;
-
-// COLORS ZAABRA SALUD
 // Official colors
 $blue_official: #0083D6;
 $green_official:#019F86;

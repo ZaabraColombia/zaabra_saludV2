@@ -8,31 +8,48 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Mis Usuarios</h1>
-            </div>
-
-            <!-- Contenedor barra de búsqueda y botón agregar contacto -->
-            <div class="containt_main_table mb-3">
-                <div class="row m-0">
-                    <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar usuario">
+    <div class="container-fluid panel_container">
+        <!-- panel head -->
+        <div class="panel_head">
+            <!-- Title -->
+            <h1 class="title blue_two">Usuarios</h1>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add button -->
+                @can('accesos-profesional',['agregar-usuario'])
+                    <div class="col-md-12 col-lg-auto btn__card_add">
+                        <a href="{{ route('profesional.configuracion.usuarios.create') }}" id="btn-agregar-contacto" class="bg_blue_two">Agregar usuario</a>
                     </div>
-
-                    @can('accesos-profesional',['agregar-usuario'])
-                        <div class="col-md-3 p-0 content_btn_right">
-                            <a href="{{ route('profesional.configuracion.usuarios.create') }}" class="button_blue" id="btn-agregar-contacto">
-                                Agregar
-                            </a>
-                        </div>
-                    @endcan
+                @endcan
+                <!-- Search bar -->
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto search">
+                    <form method="get">
+                        <button id="search" type="button" class="icon_search_blue {{ (request('search')) ? 'search_togggle':'' }}">
+                            <input type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                        </button>
+                    </form>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="col-md-4 ml-md-auto col-lg-auto btns__export_doc">
+                    <div class="toolTip bottom">
+                        <button class="file_excel"></button>
+                        <span class="toolText">Eportar Excel</span>
+                    </div>
+                    <div class="toolTip bottom">
+                        <button class="file_pdf"></button>
+                        <span class="toolText">Eportar PDF</span>
+                    </div>
+                    <div class="toolTip bottom">
+                        <button class="file_printer"></button>
+                        <span class="toolText">Imprimir</span>
+                    </div>
                 </div>
             </div>
-
-            <!-- Contenedor formato tabla de la lista de contactos -->
-            <div class="containt_main_table mb-3">
+        </div>
+        <!-- panel body -->
+        <div id="" class="panel_body">
+            <div class="row m-0">
+                <!-- alert notice -->
                 <div class="col-12">
                     @if(session()->has('success'))
                         <div class="alert alert-success" role="alert">
@@ -44,46 +61,84 @@
                         </div>
                     @endif
                 </div>
-                <div class="table-responsive">
-                    <table class="table table_agenda" id="table-pacientes">
-                        <thead class="thead_blue">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Identificación</th>
-                            <th>E-mail</th>
-                            <th>cargo</th>
-                            <th>Estado</th>
-                            <th class="text-center">Acción</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @if($usuarios->isNotEmpty())
-                            @foreach($usuarios as $usuario)
-                                <tr>
-                                    <td>{{ $usuario->nombre_completo }}</td>
-                                    <td>{{ "{$usuario->identificacion}" }}</td>
-                                    <td>{{ $usuario->email }}</td>
-                                    <td>{{ $usuario->auxiliar->cargo }}</td>
-                                    <td>{{ ($usuario->estado) ? 'Activado':'Desactivado' }}</td>
-                                    <td>
-                                        <div class="d-flex justify-content-around px-3">
-                                            <button class="btn_action  tool top modal-usuario" style="width: 33px"
-                                                    data-url="{{ route('profesional.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">
-                                                <i data-feather="eye"></i> <span class="tiptext">Ver usuario</span>
-                                            </button>
-                                            @can('accesos-profesional',['editar-usuario'])
-                                                <a class="btn_action  tool top" style="width: 33px"
-                                                   href="{{ route('profesional.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}">
-                                                    <i data-feather="edit"></i> <span class="tiptext">Editar usuario</span>
-                                                </a>
-                                            @endcan
+                @if($usuarios->isNotEmpty())
+                    @foreach($usuarios as $usuario)
+                        <div class="col-md-6 col-lg-4 mt_card card__space card__width_desk">
+                            <!-- card -->
+                            <div class="card__mod">
+                                <!-- card header -->
+                                <div class="card__header pt-0 px-0">
+                                    <div class="row m-0">
+                                        <!-- Image agreement -->
+                                        <div class="img__perfil_float_inside">
+                                            <img src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
                                         </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                        </tbody>
-                    </table>
+                                        <!-- Estado activo o inactivo -->
+                                        <div class="col-12 p-0 btn__estado">
+                                            <button class="btn__activado">
+                                                <span>Activo</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card boody -->
+                                <div class="card__body">
+                                    <div class="row mx-0 mt-1">
+                                        <div class="col-12 p-0 mb-2 card_name_user">
+                                            <h4 class="text-center h4_card_fs14 black_bolder">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
+
+                                            <h5 class="text-center mb-1 h5_card_fs14">{{ $usuario->auxiliar->cargo }} Administrativo</h5>
+                                        </div>
+
+                                        <div class="col-9 p-0 m-auto lineh_med">
+                                            <div class="pl-md-3">
+                                                <i data-feather="phone" class="icon_contac_blue_card"></i>
+                                                <span class="span_card_fs12">{{ $usuario->auxiliar->celular }}</span>
+                                            </div>
+
+                                            <div class="toolTip bottom">
+                                                <div class="pl-md-3 tooltip_data">
+                                                    <i data-feather="mail" class="icon_contac_blue_card"></i>
+                                                    <span class="span_card_fs12">{{ $usuario->email }}</span>
+                                                </div>
+                                                <span class="toolText">{{ $usuario->email }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card footer -->
+                                <div class="card__footer pt-0 pb-1">
+                                    <div class="row m-0 justify-content-center">
+                                        @can('accesos-institucion', 'editar-usuario')
+                                            <div class="col-12 col-md-3 p-0 btn__card_down">
+                                                <button class="bg_blue_two boton-convenio"
+                                                    data-url="{{ route('profesional.configuracion.usuarios.show', ['usuario' => $usuario->id]) }}">Ver más
+                                                </button>
+                                            </div>
+                                        @endcan
+
+                                        @can('accesos-institucion', 'editar-usuario')
+                                            <div class="col-12 col-md-3 p-0 btn__card_down">
+                                                <a href="{{ route('profesional.configuracion.usuarios.edit', ['usuario' => $usuario->id]) }}" class="bord_blue_two">Editar</a>
+                                            </div>
+                                        @endcan
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+                <!-- Pagination buttons -->
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    <div class="toolTip bottom">
+                        <a disabled class="btn_right_pag_card disabled"></a>
+                        <span class="toolText">Previus</span>
+                    </div>
+
+                    <div class="toolTip bottom">
+                        <a disabled class="btn_left_pag_card disabled"></a>
+                        <span class="toolText">Next</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -259,6 +314,12 @@
             }, "json").fail(function (error) {
                 console.log(error);
             });
+        });
+    </script>
+
+    <script>
+        $('#search').on('click', function () {
+            $('#search').addClass('search_togggle');
         });
     </script>
 @endsection

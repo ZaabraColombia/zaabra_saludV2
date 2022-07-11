@@ -1,0 +1,94 @@
+// Iconos cards menú panel
+// iCON VERDES
+.icon__prof_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_profesionales_verde.png');
+}
+.icon__paci_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pacientes_verde.png');
+}
+.icon__cita_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_citas_verde.png');
+}
+.icon__pago_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_pagos_verde.png');
+}
+.icon__usua_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_usuarios_verde.png');
+}
+.icon__cont_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_contactos_verde.png');
+}
+.icon__conv_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_convenios_verde.png');
+}
+.icon__serv_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_servicios_verde.png');
+}
+.icon__gest_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_gestion_verde.png');
+} 
+.icon__favo_green {
+    background-image: url('/img/agenda/panelPrincipal/instituciones/icon_favoritos_verde.png');
+} 
+// ICON AZULES
+.calendario_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_calendario_azul.png');
+}
+.cita_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_citas_azul.png');
+}
+.pago_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_pagos_azul.png');
+}
+.paciente_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_pacientes_azul.png');
+}
+.contacto_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_contactos_azul.png');
+}
+.favorito_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_favoritos_azul.png');
+}
+.profesional_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_profesionales_azul.png');
+}
+.convenio_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_convenios_azul.png');
+}
+.servicio_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_servicios_azul.png');
+}
+.usuario_blue {
+    background-image: url('/img/agenda/panelPrincipal/profesionales/icon_usuarios_azul.png');
+}
+// Icons card
+.icon_contac_card {
+    width: 10px;
+    height: 10PX;
+    margin-right: 5px;
+    color: #707070;
+}
+.icon_contac_blue_card {
+    width: 13px;
+    height: 13PX;
+    margin-right: 10px;
+    color: $blue-two;
+}
+// Icons modals
+.icon_delete_modal {
+    height: 45px;
+    width: 45px;
+    color: #FF3E3E;
+}
+.icon__search_green {
+    background-image: url('/img/iconos/search_verde.svg');
+}
+@media(min-width: 768px) {
+
+}
+@media(min-width: 1300px) {
+
+}
+@media(min-width: 1600px) {
+
+}

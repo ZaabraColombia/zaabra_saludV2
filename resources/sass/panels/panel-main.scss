@@ -1,0 +1,44 @@
+// Contenedor tarjetas menú principal
+.panel_main_menu {
+    padding: 12px 10px;
+}
+// Contenedor principal de los módulos
+.panel_container {
+    padding: 53px 10px 25px 10px;
+}
+@media(min-width: 768px) {
+    // Contenedor tarjetas menú principal
+    .panel_main_menu {
+        padding: 10px 78px 10px 60px;
+    }
+    // Contenedor principal de los módulos
+    .panel_container {
+        padding: 40px 62px 25px 50px;
+    }
+}
+@media(min-width: 1200px) {
+    // Contenedor tarjetas menú principal
+    .panel_main_menu {
+        padding: 60px 78px 10px 60px;
+    }
+    // Contenedor principal de los módulos
+    .panel_container {
+        padding: 50px 30px 25px 35px;
+    }
+}
+@media(min-width: 1300px) {
+    // Contenedor principal de los módulos
+    .panel_container {
+        padding: 65px 45px 25px 65px;
+    }
+}
+@media(min-width: 1600px) {
+    // Contenedor tarjetas menú principal
+    .panel_main_menu {
+        padding: 60px 180px 10px 60px;
+    }
+    // Contenedor principal de los módulos
+    .panel_container {
+        padding: 65px 190px 25px 55px;
+    }
+}

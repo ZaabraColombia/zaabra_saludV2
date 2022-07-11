@@ -7,213 +7,211 @@
 
 @section('contenido')
     <div class="container-fluid panel_container">
-        <div class="panel_container_form">
-            <!-- Main title -->
-            <div class="mb-4">
-                <h1 class="fs_title_module green_bold">Servicio</h1>
-            </div>
-            <!-- Formulario -->
-            <div class="container__main_form">
-                <form action="{{ route('institucion.configuracion.servicios.update', ['servicio' => $servicio->id]) }}" method="post">
-                    @csrf
-                    @method('PUT')
-                    <div class="d-block d-md-flex justify-content-end py-3">
+        <!-- Main title -->
+        <div class="mb-4">
+            <h1 class="fs_title_module green_bold">Servicio</h1>
+        </div>
+        <!-- Formulario -->
+        <div class="container__main_form">
+            <form action="{{ route('institucion.configuracion.servicios.update', ['servicio' => $servicio->id]) }}" method="post">
+                @csrf
+                @method('PUT')
+                <div class="d-block d-md-flex justify-content-end py-3">
+                    <!-- Check box interactivo y personalizado -->
+                    <div class="checkbox">
+                        <input type="checkbox" {{ old('estado', $servicio->estado) == 1 ? 'checked':'' }} name="estado" id="estado" value="1">
+                        <label class="label_check" for="estado">
+                            <b class="txt1">Servicio inactivo</b>
+                            <b class="txt2">Servicio activo</b>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        @if($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="alert-heading">Error!</h4>
+                                <ul>
+                                    <li>{!! collect($errors->all())->implode('</li><li>') !!}</li>
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 input__box">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $servicio->nombre) }}"
+                                class="@error('nombre') is-invalid @enderror"/>
+                    </div>
+
+                    <div class="col-md-6 input__box">
+                        <label for="especialidad_id">Especialidad</label>
+                        <select class="@error('especialidad_id') is-invalid @enderror" id="especialidad_id"
+                                name="especialidad_id">
+                            @if($especialidades->isNotEmpty())
+                                @foreach($especialidades as $especialidad)
+                                    <option value="{{ $especialidad->idEspecialidad }}" {{ old('especialidad_id', $servicio->especialidad_id) == $especialidad->idEspecialidad ? 'selected':null }}>{{ $especialidad->nombreEspecialidad }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 input__box">
+                        <label for="duracion">Duración (minuto)</label>
+                        <input type="number" id="duracion" name="duracion" value="{{ old('duracion', $servicio->duracion) }}"
+                                class="@error('duracion') is-invalid @enderror"/>
+                    </div>
+
+                    <div class="col-md-4 input__box">
+                        <label for="descanso">Descanso (minuto)</label>
+                        <input type="number" id="descanso" name="descanso" value="{{ old('descanso', $servicio->descanso) }}"
+                                class="@error('descanso') is-invalid @enderror"/>
+                    </div>
+
+                    <div class="col-md-4 input__box">
+                        <label for="valor">Valor</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend signo_peso">
+                                <span class="input-group-text py-0">$</span>
+                            </div>
+                            <input type="text" id="valor" name="valor" value="{{ old('valor', $servicio->valor) }}"
+                                    class="form-control mask-money @error('valor') is-invalid @enderror"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-lg-6 mb-3 input__box">
+                        @php $codigo_cups = old('codigo_cups', $servicio->codigo_cups); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
+                        <label for="codigo_cups">CUPS</label>
+                        <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups">
+                            @if(!empty($cup))
+                                <option value="{{ $cup->code }}" selected>{{ $cup->description }}</option>
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 col-lg-6 input__box">
+                        <label for="tipo_servicio_id">Tipo de servicio</label>
+                        <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id">
+                            <option></option>
+                            @if($tipo_servicios->isNotEmpty())
+                                @foreach($tipo_servicios as $tipo_servicio)
+                                    <option value="{{ $tipo_servicio->id }}" {{ old('tipo_servicio_id', $servicio->tipo_servicio_id) == $tipo_servicio->id ? 'selected':'' }}>{{ $tipo_servicio->nombre }}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 input__box">
+                        <label for="tipo_atencion">Tipo de atención</label>
+                        <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion">
+                            <option></option>
+                            <option value="presencial" {{old('tipo_atencion', $servicio->tipo_atencion) == 'presencial' ? 'selected':''}}>Presencial</option>
+                            <option value="virtual" {{old('tipo_atencion', $servicio->tipo_atencion) == 'virtual' ? 'selected':''}}>Virtual</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-7 col-lg-5 input__box">
+                        <label for="citas_activas">Número de citas activas por paciente</label>
+                        <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas', $servicio->citas_activas) }}"
+                                class="citas_activas @error('citas_activas') is-invalid @enderror"/>
+                    </div>
+    
+                    <div class="col-md-5 col-lg-3 mb-3 input__box">
+                        <label >Agendamiento virtual</label>
                         <!-- Check box interactivo y personalizado -->
                         <div class="checkbox">
-                            <input type="checkbox" {{ old('estado', $servicio->estado) == 1 ? 'checked':'' }} name="estado" id="estado" value="1">
-                            <label class="label_check" for="estado">
-                                <b class="txt1">Servicio inactivo</b>
-                                <b class="txt2">Servicio activo</b>
+                            <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual"
+                                    value="1" {{ old('agendamiento_virtual', $servicio->agendamiento_virtual) == 1 ? 'checked':'' }}>
+                            <label class="label_check m-0 pt-2" for="agendamiento_virtual">
+                                <b class="txt1">Desactivado</b>
+                                <b class="txt2">Activado</b>
                             </label>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-12">
-                            @if($errors->any())
-                                <div class="alert alert-danger" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="alert-heading">Error!</h4>
-                                    <ul>
-                                        <li>{!! collect($errors->all())->implode('</li><li>') !!}</li>
-                                    </ul>
-                                </div>
+                    <div class="col-12 input__box">
+                        <label for="descripcion">Descripción</label>
+                        <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
+                                    rows="5">{{ old('descripcion', $servicio->descripcion) }}</textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="d-flex align-items-center mt-4 py-2 pl-2" style="background: #eff3f3;">
+                            <p class="fs_text_small black_light">Vincular convenios</p>
+                            <input class="ml-4 mr-2 check__radio" type="radio" name="convenios" id="convenios-1"
+                                    value="1" {{ (old('convenios', $servicio->convenios) == 1) ? 'checked':'' }}/>
+                            <label class="fs_text_small black_light mb-0" for="convenios-1">Si</label>
+
+                            <input class="ml-4 mr-2 check__radio" type="radio" name="convenios" id="convenios-0"
+                                    value="0" {{ (old('convenios', $servicio->convenios) == 0) ? 'checked':'' }}/>
+                            <label class="fs_text_small black_light mb-0" for="convenios-0">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedor formato tabla de la lista de contactos -->
+                @php $old = old('convenios-lista', $lista) @endphp
+                <div id="table_servicio" class="containt_main_table mt-3 {{ (empty($old)) ? 'd-none':'' }}">
+                <!-- Linea división de elementos -->
+                    <div class="dropdown-divider mt-3 mb-5"></div>
+
+                    <div class="table-responsive">
+                        <table class="table table_agenda" id="">
+                            <thead class="thead_green">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Valor a pagar paciente</th>
+                                <th>Valor restante a pagar convenio</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            @if($convenios->isNotEmpty())
+                                @foreach($convenios as $convenio)
+                                    <tr>
+                                        <td class="check__box_green">
+                                            <input type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
+                                            <label class="label_check_green txt_line_height" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
+                                            <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
+                                        </td>
+                                        <td>
+                                            <div class="input__box">
+                                                <div class="signo_peso"><span>$</span></div>
+                                                <input type="text" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
+                                                        value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="m-0 valor-paciente mask-money @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input__box">
+                                                <div class="signo_peso"><span>$</span></div>
+                                                <input type="text" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
+                                                        value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="m-0 valor-convenio mask-money @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             @endif
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="col-md-6 input__box">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $servicio->nombre) }}"
-                                   class="@error('nombre') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-6 input__box">
-                            <label for="especialidad_id">Especialidad</label>
-                            <select class="@error('especialidad_id') is-invalid @enderror" id="especialidad_id"
-                                    name="especialidad_id">
-                                @if($especialidades->isNotEmpty())
-                                    @foreach($especialidades as $especialidad)
-                                        <option value="{{ $especialidad->idEspecialidad }}" {{ old('especialidad_id', $servicio->especialidad_id) == $especialidad->idEspecialidad ? 'selected':null }}>{{ $especialidad->nombreEspecialidad }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 input__box">
-                            <label for="duracion">Duración (minuto)</label>
-                            <input type="number" id="duracion" name="duracion" value="{{ old('duracion', $servicio->duracion) }}"
-                                   class="@error('duracion') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-4 input__box">
-                            <label for="descanso">Descanso (minuto)</label>
-                            <input type="number" id="descanso" name="descanso" value="{{ old('descanso', $servicio->descanso) }}"
-                                   class="@error('descanso') is-invalid @enderror"/>
-                        </div>
-
-                        <div class="col-md-4 input__box">
-                            <label for="valor">Valor</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend signo_peso">
-                                    <span class="input-group-text py-0">$</span>
-                                </div>
-                                <input type="text" id="valor" name="valor" value="{{ old('valor', $servicio->valor) }}"
-                                       class="form-control mask-money @error('valor') is-invalid @enderror"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 col-lg-6 mb-3 input__box">
-                            @php $codigo_cups = old('codigo_cups', $servicio->codigo_cups); $cup = !empty($codigo_cups) ? \App\Models\Cups::query()->where('code', 'like', "%$codigo_cups")->first():null @endphp
-                            <label for="codigo_cups">CUPS</label>
-                            <select class="@error('codigo_cups') is-invalid @enderror" id="codigo_cups" name="codigo_cups">
-                                @if(!empty($cup))
-                                    <option value="{{ $cup->code }}" selected>{{ $cup->description }}</option>
-                                @endif
-                            </select>
-                        </div>
-
-                        <div class="col-md-4 col-lg-6 input__box">
-                            <label for="tipo_servicio_id">Tipo de servicio</label>
-                            <select class="@error('tipo_servicio_id') is-invalid @enderror" id="tipo_servicio_id" name="tipo_servicio_id">
-                                <option></option>
-                                @if($tipo_servicios->isNotEmpty())
-                                    @foreach($tipo_servicios as $tipo_servicio)
-                                        <option value="{{ $tipo_servicio->id }}" {{ old('tipo_servicio_id', $servicio->tipo_servicio_id) == $tipo_servicio->id ? 'selected':'' }}>{{ $tipo_servicio->nombre }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
-                        </div>
-
-                        <div class="col-md-4 input__box">
-                            <label for="tipo_atencion">Tipo de atención</label>
-                            <select class="@error('tipo_atencion') is-invalid @enderror" id="tipo_atencion" name="tipo_atencion">
-                                <option></option>
-                                <option value="presencial" {{old('tipo_atencion', $servicio->tipo_atencion) == 'presencial' ? 'selected':''}}>Presencial</option>
-                                <option value="virtual" {{old('tipo_atencion', $servicio->tipo_atencion) == 'virtual' ? 'selected':''}}>Virtual</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-7 col-lg-5 input__box">
-                            <label for="citas_activas">Número de citas activas por paciente</label>
-                            <input type="number" id="citas_activas" name="citas_activas" value="{{ old('citas_activas', $servicio->citas_activas) }}"
-                                   class="citas_activas @error('citas_activas') is-invalid @enderror"/>
-                        </div>
-       
-                        <div class="col-md-5 col-lg-3 mb-3 input__box">
-                            <label >Agendamiento virtual</label>
-                            <!-- Check box interactivo y personalizado -->
-                            <div class="checkbox">
-                                <input type="checkbox" name="agendamiento_virtual" id="agendamiento_virtual"
-                                       value="1" {{ old('agendamiento_virtual', $servicio->agendamiento_virtual) == 1 ? 'checked':'' }}>
-                                <label class="label_check m-0 pt-2" for="agendamiento_virtual">
-                                    <b class="txt1">Desactivado</b>
-                                    <b class="txt2">Activado</b>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="col-12 input__box">
-                            <label for="descripcion">Descripción</label>
-                            <textarea name="descripcion" id="descripcion" class="@error('especialidad') is-invalid @enderror"
-                                      rows="5">{{ old('descripcion', $servicio->descripcion) }}</textarea>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="d-flex align-items-center mt-4 py-2 pl-2" style="background: #eff3f3;">
-                                <p class="fs_text_small black_light">Vincular convenios</p>
-                                <input class="ml-4 mr-2 check__radio" type="radio" name="convenios" id="convenios-1"
-                                       value="1" {{ (old('convenios', $servicio->convenios) == 1) ? 'checked':'' }}/>
-                                <label class="fs_text_small black_light mb-0" for="convenios-1">Si</label>
-
-                                <input class="ml-4 mr-2 check__radio" type="radio" name="convenios" id="convenios-0"
-                                       value="0" {{ (old('convenios', $servicio->convenios) == 0) ? 'checked':'' }}/>
-                                <label class="fs_text_small black_light mb-0" for="convenios-0">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contenedor formato tabla de la lista de contactos -->
-                    @php $old = old('convenios-lista', $lista) @endphp
-                    <div id="table_servicio" class="containt_main_table mt-3 {{ (empty($old)) ? 'd-none':'' }}">
-                    <!-- Linea división de elementos -->
-                        <div class="dropdown-divider mt-3 mb-5"></div>
-
-                        <div class="table-responsive">
-                            <table class="table table_agenda" id="">
-                                <thead class="thead_green">
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Valor a pagar paciente</th>
-                                    <th>Valor restante a pagar convenio</th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                @if($convenios->isNotEmpty())
-                                    @foreach($convenios as $convenio)
-                                        <tr>
-                                            <td class="check__box_green">
-                                                <input type="checkbox" class="validar-convenio" {{ isset($old[$convenio->id]) ? 'checked':'' }} id="convenio-{{ $convenio->id }}">
-                                                <label class="label_check_green txt_line_height" for="convenio-{{ $convenio->id }}">{{ $convenio->nombre_completo }}</label>
-                                                <input type="hidden" name="convenios-lista[{{ $convenio->id }}][convenio_id]" value="{{ $convenio->id }}">
-                                            </td>
-                                            <td>
-                                                <div class="input__box">
-                                                    <div class="signo_peso"><span>$</span></div>
-                                                    <input type="text" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_paciente]"
-                                                           value="{{ $old[$convenio->id]['valor_paciente'] ?? '' }}" class="m-0 valor-paciente mask-money @error("convenios-lista.{$convenio->id}.valor_paciente") is-invalid @enderror"/>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="input__box">
-                                                    <div class="signo_peso"><span>$</span></div>
-                                                    <input type="text" id="valor" name="convenios-lista[{{ $convenio->id }}][valor_convenio]"
-                                                           value="{{ $old[$convenio->id]['valor_convenio'] ?? '' }}" class="m-0 valor-convenio mask-money @error("convenios-lista.{$convenio->id}.valor_convenio") is-invalid @enderror"/>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @endif
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Buttons -->
-                    <div class="row m-0 my-4 content_btn_center">
-                        <a href="{{ route('institucion.configuracion.servicios.index') }}" class="button__form_transparent mr-3">Cancelar</a>
-                        <button type="submit" class="button__form_green">Guardar</button>
-                    </div>
-                </form>
-            </div>
+                <!-- Buttons -->
+                <div class="row m-0 my-4 content_btn_center">
+                    <a href="{{ route('institucion.configuracion.servicios.index') }}" class="button__form_transparent mr-3">Cancelar</a>
+                    <button type="submit" class="button__form_green">Guardar</button>
+                </div>
+            </form>
         </div>
     </div>
 @endsection

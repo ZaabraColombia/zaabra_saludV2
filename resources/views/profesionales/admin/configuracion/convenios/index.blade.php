@@ -9,52 +9,45 @@
 
 @section('contenido')
     <div class="container-fluid panel_container">
+        <!-- panel head -->
         <div class="panel_head">
-            <!-- Main title -->
-            <div class="card_main_title">
-                <h1 class="txt_title_panel_head blue__">Convenios</h1>
-            </div>
+            <!-- Title -->
+            <h1 class="title blue_two">Convenios</h1>
             <!-- Toolbar -->
             <div class="row m-0">
-                <!-- Add agreement -->
+                <!-- Add button -->
                 @can('accesos-profesional',['agregar-convenio'])
-                    <div class="col-md-12 col-lg-2 button__add_card">
-                        <a href="{{ route('profesional.configuracion.convenios.create') }}" class="button__blue_card" id="btn-agregar-contacto">
-                            Agregar convenio
-                        </a>
+                    <div class="col-md-12 col-lg-auto btn__card_add">
+                        <a href="{{ route('profesional.configuracion.convenios.create') }}" id="btn-agregar-contacto" class="bg_blue_two">Agregar convenio</a>
                     </div>
                 @endcan
                 <!-- Search bar -->
-                <div class="col-md-6 button__search_blue_card">
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto search">
                     <form method="get">
-                        <button id="search" type="button" class="{{ (request('search')) ? 'search_togggle':'' }}">
-                            <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                        <button id="search" type="button" class="icon_search_blue {{ (request('search')) ? 'search_togggle':'' }}">
+                            <input type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
                         </button>
                     </form>
                 </div>
                 <!-- Document action buttons  -->
-                <div class="offset-md-2 col-md-4 offset-lg-1 col-lg-3 button__blue_doc_download">
-                    <div class="toolt bottom">
-                        <button class="file_calendar"></button>
-                        <span class="tiptext">Calendario</span>
-                    </div>
-                    <div class="toolt bottom">
+                <div class="col-md-4 ml-md-auto col-lg-auto btns__export_doc">
+                    <div class="toolTip bottom">
                         <button class="file_excel"></button>
-                        <span class="tiptext">Doc. Excel</span>
+                        <span class="toolText">Exportar Excel</span>
                     </div>
-                    <div class="toolt bottom">
+                    <div class="toolTip bottom">
                         <button class="file_pdf"></button>
-                        <span class="tiptext">Doc. PDF</span>
+                        <span class="toolText">Exportar PDF</span>
                     </div>
-                    <div class="toolt bottom">
+                    <div class="toolTip bottom">
                         <button class="file_printer"></button>
-                        <span class="tiptext">Imprimir</span>
+                        <span class="toolText">Imprimir</span>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="panel_body">
+        <!-- panel body -->
+        <div id="cardConv" class="panel_body">
             <div class="row m-0">
                 <!-- alert notice -->
                 <div class="col-12">
@@ -68,72 +61,70 @@
                         </div>
                     @endif
                 </div>
-                <!-- Agreement card -->
                 @if($convenios->isNotEmpty())
                     @foreach($convenios as $convenio)
-                        <div class="col-md-6 col-lg-4 p-0 px-md-2 pr-xl-3 mt_card_float card__col">
-                            <div class="card card__">
-                                <div class="row card__row_column">
-                                    <!-- Estado activo o inactivo -->
-                                    <div class="col-12 p-0 mb-3 d-flex justify-content-end">
-                                        <a href="#" class="btn__activado">
-                                            <span>activo</span>
-                                        </a>
-                                    </div>
-                                    <!-- Image agreement -->
-                                    <div class="img_card_float">
-                                        <img src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
-                                    </div>
-
-                                    <div class="col-12 card__data">
-                                        <!-- card data top -->
-                                        <div class="card__data_top mb-1">
-                                            <div class="">
-                                                <h4 class="txt_h4_card_float">{{ $convenio->nombre_completo }}</h4>
-                                            </div>
-
-                                            <div class="">
-                                                <h5 class="txt_h5_card_float">{{ $convenio->tipo_establecimiento }}</h5>
-                                            </div>
-
-                                            <div class="">
-                                                <h6 class="txt_h6_card_float">Código: &nbsp;{{ $convenio->codigo_convenio }}</h6>
-                                            </div>
+                        <div class="col-md-6 col-lg-4 mt_card card__space card__width_desk">
+                            <!-- card -->
+                            <div class="card__mod">
+                                <!-- card header -->
+                                <div class="card__header p-0">
+                                    <div class="row m-0">
+                                        <!-- Image agreement -->
+                                        <div class="img__perfil_float">
+                                            <img src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
                                         </div>
-                                        <!-- card data down -->
-                                        <div class="card__data_down pl-xl-4">
+                                        <!-- Estado activo o inactivo -->
+                                        <div class="col-12 p-0 btn__estado">
+                                            <button class="btn__activado">
+                                                <span>Activo</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card boody -->
+                                <div class="card__body">
+                                    <div class="row mx-0 mt-1">
+                                        <div class="col-12 p-0 mb-1">
+                                            <h4 class="text-center h4_card_fs18 black_bolder">{{ $convenio->nombre_completo }}</h4>
+
+                                            <h5 class="text-center h5_card_fs15">{{ $convenio->tipo_establecimiento }}</h5>
+
+                                            <h5 class="text-center h5_card_fs9">Código: &nbsp;{{ $convenio->codigo_convenio }}</h5>
+                                        </div>
+
+                                        <div class="col-9 p-0 m-auto lineh_med">
                                             <div class="pl-md-3">
-                                                <i data-feather="phone" class="icon_span_card"></i>
-                                                <span class="txt_span_card">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
+                                                <i data-feather="phone" class="icon_contac_card"></i>
+                                                <span class="span_card_fs12">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
                                             </div>
 
-                                            <div class="toolt bottom">
-                                                <div class="pl-md-3 width__tool_tip">
-                                                    <i data-feather="mail" class="icon_span_card"></i>
-                                                    <span class="txt_span_card">{{ $convenio->correo }}</span>
+                                            <div class="toolTip bottom">
+                                                <div class="pl-md-3 tooltip_data">
+                                                    <i data-feather="mail" class="icon_contac_card"></i>
+                                                    <span class="span_card_fs12">{{ $convenio->correo }}</span>
                                                 </div>
-                                                <span class="tiptext">{{ $convenio->correo }}</span>
+                                                <span class="toolText">{{ $convenio->correo }}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- view more and edit buttons -->
-                                <div class="row mx-0 mt-3 mt-md-2 justify-content-md-center">
-                                    @can('accesos-institucion','ver-convenios')
-                                        <div class="col-12 col-md-3 p-0 mb-2 mb-md-0 button__down_card">
-                                            <button class="button__bg_blue_card boton-convenio"
-                                                data-url="{{ route('profesional.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">Ver más
-                                            </button>
-                                        </div>
-                                    @endcan
+                                <!-- card footer -->
+                                <div class="card__footer pt-0 pb-1">
+                                    <div class="row m-0 justify-content-center">
+                                        @can('accesos-institucion','ver-convenios')
+                                            <div class="col-12 col-md-3 p-0 btn__card_down">
+                                                <button class="bg_blue_two boton-convenio"
+                                                    data-url="{{ route('profesional.configuracion.convenios.show', ['convenio' => $convenio->id]) }}">Ver más
+                                                </button>
+                                            </div>
+                                        @endcan
 
-                                    @can('accesos-institucion','editar-convenio')
-                                        <div class="col-12 col-md-3 p-0 button__down_card">
-                                            <a class="button__border_blue_card"
-                                                href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}">Editar
-                                            </a>
-                                        </div>
-                                    @endcan
+                                        @can('accesos-institucion','editar-convenio')
+                                            <div class="col-12 col-md-3 p-0 btn__card_down">
+                                                <a href="{{ route('profesional.configuracion.convenios.edit', ['convenio' => $convenio->id]) }}" class="bord_blue_two">Editar</a>
+                                            </div>
+                                        @endcan
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -141,14 +132,14 @@
                 @endif
                 <!-- Pagination buttons -->
                 <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
-                    <div class="toolt bottom">
+                    <div class="toolTip bottom">
                         <a disabled class="btn_right_pag_card disabled"></a>
-                        <span class="tiptext">Previus</span>
+                        <span class="toolText">Previus</span>
                     </div>
 
-                    <div class="toolt bottom">
+                    <div class="toolTip bottom">
                         <a disabled class="btn_left_pag_card disabled"></a>
-                        <span class="tiptext">Next</span>
+                        <span class="toolText">Next</span>
                     </div>
                 </div>
             </div>

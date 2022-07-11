@@ -8,31 +8,48 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Servicios</h1>
-            </div>
-
-            <!-- Contenedor barra de búsqueda y botón agregar contacto -->
-            <div class="containt_main_table mb-3">
-                <div class="row m-0">
-                    <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar servicio">
+    <div class="container-fluid panel_container">
+        <!-- panel head -->
+        <div class="panel_head">
+            <!-- Title -->
+            <h1 class="title blue_two">Servicios</h1>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add button -->
+                @can('accesos-profesional',['agregar-servicio'])
+                    <div class="col-md-12 col-lg-auto btn__card_add">
+                        <a href="{{ route('profesional.configuracion.servicios.create') }}" id="btn-agregar-contacto" class="bg_blue_two">Agregar servicio</a>
                     </div>
-
-                    @can('accesos-profesional',['agregar-servicio'])
-                        <div class="col-md-3 p-0 content_btn_right">
-                            <a href="{{ route('profesional.configuracion.servicios.create') }}" class="button_blue" id="btn-agregar-contacto">
-                                Agregar
-                            </a>
-                        </div>
-                    @endcan
+                @endcan
+                <!-- Search bar -->
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto search">
+                    <form method="get">
+                        <button id="search" type="button" class="icon_search_blue {{ (request('search')) ? 'search_togggle':'' }}">
+                            <input type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                        </button>
+                    </form>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="col-md-4 ml-md-auto col-lg-auto btns__export_doc">
+                    <div class="toolTip bottom">
+                        <button class="file_excel"></button>
+                        <span class="toolText">Exportar Excel</span>
+                    </div>
+                    <div class="toolTip bottom">
+                        <button class="file_pdf"></button>
+                        <span class="toolText">Exportar PDF</span>
+                    </div>
+                    <div class="toolTip bottom">
+                        <button class="file_printer"></button>
+                        <span class="toolText">Imprimir</span>
+                    </div>
                 </div>
             </div>
-
-            <!-- Contenedor formato tabla de la lista servicios -->
-            <div class="containt_main_table mb-3">
+        </div>
+        <!-- panel body -->
+        <div id="cardServ" class="panel_body">
+            <div class="row m-0">
+                <!-- alert notice -->
                 <div class="col-12">
                     @if(session()->has('success'))
                         <div class="alert alert-success" role="alert">
@@ -44,45 +61,77 @@
                         </div>
                     @endif
                 </div>
-                <div class="table-responsive">
-                    <table class="table table_agenda" id="table-pacientes">
-                        <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Valor</th>
-                            <th>Tipo de servicio</th>
-                            <th>Especialidad</th>
-                            <th class="text-center">Acción</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @if($servicios->isNotEmpty())
-                            @foreach($servicios as $servicio)
-                                <tr>
-                                    <td>{{ $servicio->nombre }}</td>
-                                    <td>${{ number_format($servicio->valor, 0, ',', '.') }}</td>
-                                    <td>{{ $servicio->tipo_servicio->nombre }}</td>
-                                    <td>{{ $servicio->especialidad->nombreEspecialidad }}</td>
-                                    <td>
-                                        <div class="d-flex justify-content-around px-3">
-                                            <button class="btn_action tool top boton-servicio" style="width: 33px"
-                                                    data-url="{{ route('profesional.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">
-                                                <i data-feather="eye"></i> <span class="tiptext">Ver servicio</span>
-                                            </button>
-
-                                            @can('accesos-profesional',['editar-servicio'])
-                                                <a class="btn_action tool top" style="width: 33px"
-                                                   href="{{ route('profesional.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
-                                                    <i data-feather="edit"></i> <span class="tiptext">Editar servicio</span>
-                                                </a>
-                                            @endcan
+                @if($servicios->isNotEmpty())
+                    @foreach($servicios as $servicio)
+                        <div class="col-md-6 col-lg-4 mt_card card__space card__width_desk">
+                            <!-- card -->
+                            <div class="card__mod">
+                                <!-- card header -->
+                                <div class="card__header pt-1 pb-0">
+                                    <div class="row m-0">
+                                        <div class="col-12 p-0">
+                                            <h4 class="text-center h4_card_fs18 blue_two">{{ $servicio->nombre }}</h4>
                                         </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
-                        </tbody>
-                    </table>
+                                    </div>
+                                </div>
+                                <!-- card boody -->
+                                <div class="card__body pt-0 pb-2">
+                                    <div class="row mx-0 mt-2">
+                                        <!-- Estado activo o inactivo -->
+                                        <div class="col-12 p-0 justify-content-center btn__estado">
+                                            <button class="btn__activado">
+                                                <span>Activo</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="col-12 p-0 mt-2 mb-1">
+                                            <h4 class="text-center h4_card_fs18 ">{{ $servicio->tipo_servicio->nombre ?? '' }}</h4>
+                                        </div>
+
+                                        <div class="col-9 p-0 m-auto lineh_med">
+                                            <div class="mb-1">
+                                                <span class="span_card_fs12">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
+                                            </div>
+
+                                            <div class="card_especialidad_serv">
+                                                <span class="span_card_fs12">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card footer -->
+                                <div class="card__footer pt-0 pb-1">
+                                    <div class="row m-0 justify-content-center">
+                                        <div class="col-12 col-md-3 p-0 btn__card_down">
+                                            <button class="bg_blue_two boton-convenio"
+                                                data-url="{{ route('profesional.configuracion.servicios.show', ['servicio' => $servicio->id]) }}">Ver más
+                                            </button>
+                                        </div>
+
+                                        @can('accesos-profesional',['editar-servicio'])
+                                            <div class="col-12 col-md-3 p-0 btn__card_down">
+                                                <a href="{{ route('profesional.configuracion.servicios.edit', ['servicio' => $servicio->id]) }}">
+                                                    <button class="bord_blue_two">Editar</button>
+                                                </a>
+                                            </div>
+                                        @endcan
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+                <!-- Pagination buttons -->
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    <div class="toolTip bottom">
+                        <a disabled class="btn_right_pag_card disabled"></a>
+                        <span class="toolText">Previus</span>
+                    </div>
+
+                    <div class="toolTip bottom">
+                        <a disabled class="btn_left_pag_card disabled"></a>
+                        <span class="toolText">Next</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,6 +373,12 @@
             }, "json").fail(function (error) {
                 console.log(error);
             });
+        });
+    </script>
+
+    <script>
+        $('#search').on('click', function () {
+            $('#search').addClass('search_togggle');
         });
     </script>
 @endsection
