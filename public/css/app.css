@@ -3158,7 +3158,7 @@ input[type=button].btn-block {
   background-color: #3490dc;
 }
 .dropdown-item.disabled, .dropdown-item:disabled {
-  color: #707070;
+  color: #adb5bd;
   pointer-events: none;
   background-color: transparent;
 }
@@ -3525,7 +3525,7 @@ input[type=button].btn-block {
   pointer-events: none;
   content: "";
   background-color: #fff;
-  border: #707070 solid 1px;
+  border: #adb5bd solid 1px;
 }
 .custom-control-label::after {
   position: absolute;
@@ -3582,7 +3582,7 @@ input[type=button].btn-block {
   left: calc(-2.25rem + 2px);
   width: calc(1rem - 4px);
   height: calc(1rem - 4px);
-  background-color: #707070;
+  background-color: #adb5bd;
   border-radius: 0.5rem;
   transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -3846,19 +3846,19 @@ input[type=button].btn-block {
   border-radius: 1rem;
 }
 .custom-range:disabled::-webkit-slider-thumb {
-  background-color: #707070;
+  background-color: #adb5bd;
 }
 .custom-range:disabled::-webkit-slider-runnable-track {
   cursor: default;
 }
 .custom-range:disabled::-moz-range-thumb {
-  background-color: #707070;
+  background-color: #adb5bd;
 }
 .custom-range:disabled::-moz-range-track {
   cursor: default;
 }
 .custom-range:disabled::-ms-thumb {
-  background-color: #707070;
+  background-color: #adb5bd;
 }
 
 .custom-control-label::before,
@@ -9932,7 +9932,7 @@ a.text-dark:hover, a.text-dark:focus {
 
   pre,
 blockquote {
-    border: 1px solid #707070;
+    border: 1px solid #adb5bd;
     page-break-inside: avoid;
   }
 
@@ -30282,6 +30282,21 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .img__perfil_estatic img {
   width: 49px;
   height: 47px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  background-color: #FFFFFF;
+}
+
+.img__perfil_estatic_md {
+  display: flex;
+  justify-content: center;
+}
+.img__perfil_estatic_md img {
+  width: 63px;
+  height: 62px;
   border-radius: 100px;
   -o-object-fit: cover;
      object-fit: cover;

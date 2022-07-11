@@ -18,7 +18,7 @@
                 <!-- Add button -->
                 @can('accesos-profesional',['agregar-paciente'])
                     <div class="col-md-12 col-lg-auto btn__card_add">
-                        <a href="#" id="btn-agregar-contacto" class="bg_blue_two">Agregar paciente</a>
+                        <a href="#" id="" class="bg_blue_two">Agregar paciente</a>
                     </div>
                 @endcan
                 <!-- Search bar -->
@@ -189,6 +189,7 @@
         });
     </script>
 
+    <!-- Función para el despliegue de la barra de busqueda -->
     <script>
         $('#search').on('click', function () {
             $('#search').addClass('search_togggle');

@@ -376,6 +376,7 @@
         });
     </script>
 
+    <!-- Función para el despliegue de la barra de busqueda -->
     <script>
         $('#search').on('click', function () {
             $('#search').addClass('search_togggle');

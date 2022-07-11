@@ -43,3 +43,15 @@
         background-color: #FFFFFF;
     }
 }
+.img__perfil_estatic_md {
+    display: flex;
+    justify-content: center;
+    img {
+        width: 63px;
+        height: 62px;
+        border-radius: 100px;
+        object-fit: cover;
+        object-position: top;
+        background-color: #FFFFFF;
+    }
+}
