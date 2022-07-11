@@ -63,13 +63,13 @@
                 </div>
                 @if($usuarios->isNotEmpty())
                     @foreach($usuarios as $usuario)
-                        <div class="col-md-6 col-lg-4 mt_card card__space card__width_desk">
+                        <div class="col-md-6 col-lg-4 mb_card card__space card__width_desk">
                             <!-- card -->
                             <div class="card__mod">
                                 <!-- card header -->
                                 <div class="card__header pt-0 px-0">
                                     <div class="row m-0">
-                                        <!-- Image agreement -->
+                                        <!-- Image user -->
                                         <div class="img__perfil_float_inside">
                                             <img src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
                                         </div>
@@ -84,22 +84,22 @@
                                 <!-- card boody -->
                                 <div class="card__body">
                                     <div class="row mx-0 mt-1">
-                                        <div class="col-12 p-0 mb-2 card_name_user">
-                                            <h4 class="text-center h4_card_fs14 black_bolder">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
+                                        <div class="col-12 p-0 mb-2 card_bord_bottom">
+                                            <h5 class="text-center h5_card_fs14_med black_">{{ "$usuario->primernombre $usuario->apellidos" }}</h5>
 
-                                            <h5 class="text-center mb-1 h5_card_fs14">{{ $usuario->auxiliar->cargo }} Administrativo</h5>
+                                            <h5 class="text-center mb-1 h5_card_fs14_reg black_">{{ $usuario->auxiliar->cargo }} Administrativo</h5>
                                         </div>
 
-                                        <div class="col-9 p-0 m-auto lineh_med">
+                                        <div class="col-9 p-0 m-auto">
                                             <div class="pl-md-3">
                                                 <i data-feather="phone" class="icon_contac_blue_card"></i>
-                                                <span class="span_card_fs12">{{ $usuario->auxiliar->celular }}</span>
+                                                <span class="span_card_fs12_reg black_">{{ $usuario->auxiliar->celular }}</span>
                                             </div>
 
                                             <div class="toolTip bottom">
                                                 <div class="pl-md-3 tooltip_data">
                                                     <i data-feather="mail" class="icon_contac_blue_card"></i>
-                                                    <span class="span_card_fs12">{{ $usuario->email }}</span>
+                                                    <span class="span_card_fs12_reg black_">{{ $usuario->email }}</span>
                                                 </div>
                                                 <span class="toolText">{{ $usuario->email }}</span>
                                             </div>

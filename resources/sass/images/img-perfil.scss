@@ -31,3 +31,15 @@
         background-color: #FFFFFF;
     }
 }
+.img__perfil_estatic {
+    display: flex;
+    justify-content: center;
+    img {
+        width: 49px;
+        height: 47px;
+        border-radius: 100px;
+        object-fit: cover;
+        object-position: top;
+        background-color: #FFFFFF;
+    }
+}

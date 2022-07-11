@@ -28651,6 +28651,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #1B85D7;
 }
 
+.black_ {
+  color: #3E3E3E;
+}
+
 .black_bolder {
   color: #434343;
 }
@@ -28659,53 +28663,59 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   color: #707070;
 }
 
-.lineh_med {
-  line-height: 1.3;
-}
-
-.h4_card_fs14 {
+.h4_card_fs18_reg {
   font-family: "Roboto";
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 100;
+  font-size: 18px;
   margin: 0;
 }
 
-.h4_card_fs18 {
+.h4_card_fs18_med {
   font-family: "Roboto";
   font-weight: 500;
   font-size: 18px;
   margin: 0;
 }
 
-.h5_card_fs9 {
+.h5_card_fs9_reg {
   font-family: "Roboto";
   font-weight: 100;
   font-size: 9px;
-  color: #707070;
   margin: 0;
 }
 
-.h5_card_fs14 {
-  font-family: "Roboto";
-  font-weight: 100;
-  font-size: 14px;
-  color: #707070;
-  margin: 0;
-}
-
-.h5_card_fs15 {
-  font-family: "Roboto";
-  font-weight: 100;
-  font-size: 15px;
-  color: #707070;
-  margin: 0;
-}
-
-.span_card_fs12 {
+.h5_card_fs12_reg {
   font-family: "Roboto";
   font-weight: 100;
   font-size: 12px;
-  color: #707070;
+  margin: 0;
+}
+
+.h5_card_fs14_reg {
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 14px;
+  margin: 0;
+}
+
+.h5_card_fs14_med {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0;
+}
+
+.h5_card_fs15_reg {
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 15px;
+  margin: 0;
+}
+
+.span_card_fs12_reg {
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 12px;
   margin: 0;
 }
 
@@ -29352,7 +29362,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 }
 
 .bord_blue_two {
-  color: #1B85D7;
+  color: #1B85D7 !important;
   background: #FFFFFF;
   border: solid 1px #1B85D7;
 }
@@ -29484,6 +29494,17 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 .btn__estado .btn__desactivado:hover {
   max-width: 300px;
   padding-right: 7px;
+}
+
+.btn_icon_info_card {
+  border: none;
+  background-color: transparent;
+  color: #1B85D7;
+  padding: 3px;
+  width: 25px;
+  height: 22px;
+  display: flex;
+  align-items: center;
 }
 
 .card__menu .card__ {
@@ -29639,27 +29660,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding-right: 0 !important;
   }
 }
-#cardConv .mt_card {
-  margin-top: 60px;
-  margin-bottom: 24px;
-}
-
-.mt_card {
-  margin-bottom: 24px;
-}
-
-#cardServ .card__header {
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4px 15px 0 15px;
-}
-
-.card_name_user {
-  border-bottom: 1px solid #E6E6E6;
-}
-
 .card__mod {
   position: relative;
   display: flex;
@@ -29687,11 +29687,43 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   padding: 15px;
 }
 
-@media (min-width: 768px) {
-  #cardConv .mt_card {
-    margin-top: 40px;
-  }
+.card__space {
+  padding-left: 0;
+  padding-right: 0;
+}
 
+#cardConv .mt_card {
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+.mb_card {
+  margin-bottom: 24px;
+}
+
+#cardServ .card__header {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 15px 0 15px;
+}
+
+.card_bord_bottom {
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.card_bord_top {
+  border-top: 1px solid #E6E6E6;
+}
+
+.card_icon_info {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+@media (min-width: 768px) {
   .card__space:nth-child(2n+1) {
     padding-left: 10px;
     padding-right: 0;
@@ -29701,12 +29733,12 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding-left: 0;
     padding-right: 10px;
   }
+
+  #cardConv .mt_card {
+    margin-top: 40px;
+  }
 }
 @media (min-width: 1024px) {
-  #cardConv .mt_card {
-    margin-top: 35px;
-  }
-
   .card__mod {
     padding: 10px 5px 15px 5px;
   }
@@ -29725,12 +29757,22 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     padding-left: 11px !important;
     padding-right: 0 !important;
   }
-}
-@media (min-width: 1600px) {
-  .card__width_desk {
-    max-width: 25% !important;
+
+  #cardConv .mt_card {
+    margin-top: 35px;
   }
 
+  .card_flex_column {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .card_icon_info {
+    justify-content: flex-end;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1600px) {
   .card__space:nth-child(4n+2) {
     padding-left: 0 !important;
     padding-right: 15px !important;
@@ -29749,6 +29791,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .card__space:nth-child(4n+1) {
     padding-left: 15px !important;
     padding-right: 0 !important;
+  }
+
+  .card__width_desk {
+    max-width: 25% !important;
   }
 }
 .scroll_body {
@@ -30229,6 +30275,21 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   background-color: #FFFFFF;
 }
 
+.img__perfil_estatic {
+  display: flex;
+  justify-content: center;
+}
+.img__perfil_estatic img {
+  width: 49px;
+  height: 47px;
+  border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  background-color: #FFFFFF;
+}
+
 .icon__prof_green {
   background-image: url("/img/agenda/panelPrincipal/instituciones/icon_profesionales_verde.png");
 }
@@ -30321,6 +30382,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   height: 13PX;
   margin-right: 10px;
   color: #1B85D7;
+}
+
+.icon_info_card {
+  width: 20px !important;
+  height: 18px !important;
 }
 
 .icon_delete_modal {
@@ -31041,15 +31107,46 @@ div.dtsp-topRow button.dtsp-countButton {
   visibility: visible;
 }
 
-.toolTip.bottom .toolText {
-  bottom: -13px;
+.toolTip.top .toolText {
+  margin-left: -50px;
+  bottom: 100%;
   left: 0;
 }
 
-.toolTip.bottom .toolText::after {
-  bottom: 100%;
-  left: 10%;
-  border-color: transparent transparent #fff transparent;
+.toolTip {
+  position: relative;
+  cursor: pointer;
+}
+
+.toolTip .toolText {
+  visibility: hidden;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: #E6E6E6;
+  color: #333333;
+  text-align: center;
+  padding: 0 3px;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 3px 6px #00000029;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.toolTip .toolText::after {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+}
+
+.toolTip:hover .toolText {
+  visibility: visible;
+}
+
+.toolTip.bottom .toolText {
+  bottom: -13px;
+  left: 0;
 }
 
 .tooltip_data {
