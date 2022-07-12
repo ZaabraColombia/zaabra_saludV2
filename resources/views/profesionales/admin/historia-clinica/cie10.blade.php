@@ -10,7 +10,7 @@
             <div class="row m-0">
                 <!-- Subtitle -->
                 <div class="col-md-9 col-lg-10 p-0 mb-4 mb-md-0 d-md-flex align-items-md-center align-items-lg-baseline">
-                    <h2 class="text-center h2_card_fs20_bold black_">Consulte el documento de diagnóstico (CIE - 10).</h2>
+                    <h2 class="text-center text-lg-left h2_card_fs20_bold black_">Consulte el documento de diagnóstico (CIE - 10).</h2>
                 </div>
                 <!-- Document action buttons  -->
                 <div class="col-md-3 ml-md-auto col-lg-2 col-lg-auto p-0 justify-content-md-end btns__export_doc">
