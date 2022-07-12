@@ -14,6 +14,9 @@
 .black_ {
     color: #3E3E3E;
 }
+.black_bold {
+    color: #232323;
+}
 .black_bolder {
     color: #434343;
 }
@@ -21,6 +24,12 @@
     color: #707070;
 }
 // Tipografía (reg 100, med 500 y hard bold)
+.h2_card_fs20_bold {
+    font-family: 'Quicksand';
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+}
 .h4_card_fs18_reg {
     font-family: 'Roboto';
     font-weight: 100;
@@ -68,6 +77,12 @@
     font-weight: 100;
     font-size: 12px;
     margin: 0;
+}
+.label__fs20_bold {
+    font-family: 'Quicksand';
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 

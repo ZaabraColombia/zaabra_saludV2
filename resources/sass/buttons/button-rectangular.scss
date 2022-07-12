@@ -49,6 +49,22 @@
 .btn__card_down:first-child {
     margin-bottom: 10px;
 }
+.btn__down_search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        font-family: "Quicksand";
+        font-size: 18px;
+        font-weight: bold;
+        width: 100px;
+        height: 32px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
 @media(min-width: 768px) {
     .btn__card_add {
         justify-content: initial;

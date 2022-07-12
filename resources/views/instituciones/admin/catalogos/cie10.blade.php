@@ -2,6 +2,7 @@
 
 @section('contenido')
     <div class="container-fluid panel_container">
+        <!-- panel head -->
         <div class="panel_head">
             <!-- Main title -->
             <div class="mb-4">
@@ -31,7 +32,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- panel body -->
         <div class="panel_body">
             <div class="row m-0">
                 <div class="col-lg-6 p-0">
