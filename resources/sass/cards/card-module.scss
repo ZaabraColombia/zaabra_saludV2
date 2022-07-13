@@ -1,30 +1,3 @@
-// Propiedades especiales para las tarjetas
-// margen superior tarjeta convenios
-#cardConv .mt_card {
-    margin-top: 60px;
-    margin-bottom: 24px;
-}
-// margen inferior tarjeta (servicios, usuarios
-.mt_card {
-    margin-bottom: 24px;
-}
-//Alto fijo para el título tarjeta servicios
-#cardServ .card__header { 
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 15px 0 15px ;
-}
-//Borde inferior nombre y cargo tarjeta usuarios
-.card_name_user {
-    border-bottom: 1px solid #E6E6E6;
-}
-// .card_especialidad_serv { pendiente por socializar con diseño }
-//     height: 30px;
-//     line-height: 1;
-// }
-// Fin propiedades especiales
 .card__mod {
     position: relative;
     display: flex;
@@ -48,21 +21,47 @@
 .card__footer {
     padding: 15px;
 }
-// Espacio entre las tarjetas
-// .card__space {
-//     padding: 0;
-// }
-@media(min-width: 768px) {
-// Propiedades especiales para las tarjetas
-// margenes tarjetas convenios
-#cardConv .mt_card {
-    margin-top: 40px;
+.card__space {
+    padding-left: 0;
+    padding-right: 0;
 }
+// Propiedades especiales para las tarjetas
+// margen superior tarjeta convenios
+#cardConv .mt_card {
+    margin-top: 60px;
+    margin-bottom: 24px;
+}
+// margen inferior tarjeta (servicios, usuarios
+.mb_card {
+    margin-bottom: 24px;
+}
+//Alto fijo para el título tarjeta servicios
+#cardServ .card__header { 
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 15px 0 15px ;
+}
+//Borde inferior nombre y cargo tarjeta usuarios
+.card_bord_bottom {
+    border-bottom: 1px solid #E6E6E6;
+}
+.card_bord_top {
+    border-top: 1px solid #E6E6E6;
+}
+// contenedor iconos informativos tarjetas 
+.card_icon_info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+// .card_especialidad_serv { pendiente por socializar con diseño }
+//     height: 30px;
+//     line-height: 1;
+// }
 // Fin propiedades especiales
-    // Espacio entre las tarjetas
-    // .card__space {
-    //     padding-bottom: 28px;
-    // }
+@media(min-width: 768px) {
     .card__space:nth-child(2n+1) {
         padding-left: 10px;
         padding-right: 0;
@@ -71,14 +70,14 @@
         padding-left: 0;
         padding-right: 10px;
     }
+    // Propiedades especiales para las tarjetas
+    // margenes tarjetas convenios
+    #cardConv .mt_card {
+        margin-top: 40px;
+    }
+    // Fin propiedades especiales
 }
 @media(min-width: 1024px) {
-// Propiedades especiales para las tarjetas
-// margenes tarjetas convenios
-    #cardConv .mt_card {
-        margin-top: 35px;
-    }
-// Fin propiedades especiales
     .card__mod {
         padding: 10px 5px 15px 5px;
     }
@@ -95,11 +94,24 @@
         padding-left: 11px !important;
         padding-right: 0 !important;
     }
+    // Propiedades especiales para las tarjetas
+    // margenes tarjetas convenios
+    #cardConv .mt_card {
+        margin-top: 35px;
+    }
+    // Contenedor tarjeta flex column
+    .card_flex_column {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    // contenedor iconos informativos tarjetas 
+    .card_icon_info {
+        justify-content: flex-end;
+        margin-bottom: 0;
+    }
+    // Fin propiedades especiales
 }
 @media(min-width: 1600px) {
-    .card__width_desk {
-        max-width: 25% !important;
-    }
     // Espacio entre las tarjetas
     .card__space:nth-child(4n+2) {
         padding-left: 0 !important;
@@ -117,4 +129,10 @@
         padding-left: 15px !important;
         padding-right: 0 !important;
     }
+    // Propiedades especiales para las tarjetas
+    // Ancho tarjetas dispositivo mayor a 1600px
+    .card__width_desk {
+        max-width: 25% !important;
+    }
+    // Fin propiedades especiales
 }

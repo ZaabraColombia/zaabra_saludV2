@@ -21,10 +21,6 @@
                     <!-- Document action buttons  -->
                     <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
                         <div class="toolt bottom">
-                            <button class="file_calendar"></button>
-                            <span class="tiptext">Calendario</span>
-                        </div>
-                        <div class="toolt bottom">
                             <button class="file_excel"></button>
                             <span class="tiptext">Exportar excel</span>
                         </div>

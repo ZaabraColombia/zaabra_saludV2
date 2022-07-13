@@ -5,7 +5,7 @@
     border: solid 1px $blue_two;
 }
 .bord_blue_two {
-    color: $blue_two;
+    color: $blue_two !important;
     background: $withe_official;
     border: solid 1px $blue_two;
 }
@@ -48,6 +48,22 @@
 }
 .btn__card_down:first-child {
     margin-bottom: 10px;
+}
+.btn__down_search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        font-family: "Quicksand";
+        font-size: 18px;
+        font-weight: bold;
+        width: 100px;
+        height: 32px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 @media(min-width: 768px) {
     .btn__card_add {

@@ -8,87 +8,130 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Contactos</h1>
-            </div>
-
-            <!-- Contenedor barra de búsqueda y botón agregar contacto -->
-            <div class="containt_main_table mb-3">
-                <div class="row m-0">
-                    <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar contacto" />
+    <div class="container-fluid panel_container">
+        <!-- panel head -->
+        <div class="panel_head">
+            <!-- Title -->
+            <h1 class="title blue_two">Contactos</h1>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add button -->
+                @can('accesos-profesional',['agregar-contacto'])
+                    <div class="col-md-12 col-lg-auto btn__card_add">
+                        <a href="#" id="btn-agregar-contacto" class="bg_blue_two">Agregar contacto</a>
                     </div>
-
-                    @can('accesos-profesional',['agregar-contacto'])
-                        <div class="col-md-3 p-0 content_btn_right">
-                            <button type="button" class="button_blue" id="btn-agregar-contacto">
-                                Agregar
-                            </button>
-                        </div>
-                    @endcan
+                @endcan
+                <!-- Search bar -->
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto search">
+                    <form method="get">
+                        <button id="search" type="button" class="icon_search_blue {{ (request('search')) ? 'search_togggle':'' }}">
+                            <input type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                        </button>
+                    </form>
                 </div>
             </div>
+        </div>
+        <!-- panel body -->
+        <div id="" class="panel_body">
+            <div class="row m-0">
+                <!-- alert notice -->
+                <div class="col-12">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
+                @if($contactos->isNotEmpty())
+                    @foreach($contactos as $contacto)
+                        <div class="col-md-6 col-lg-4 mb_card card__space card__width_desk">
+                            <!-- card -->
+                            <div class="card__mod">
+                                <!-- card header -->
+                                <div class="card__header p-0">
+                                </div>
+                                <!-- card boody -->
+                                <div class="card__body py-0 pl-lg-1 pr-lg-0">
+                                    <div class="row mx-0">
+                                        <!-- Image contact -->
+                                        <div class="col-12 col-lg-3 mb-3 mb-lg-0 px-lg-0 pt-lg-4 img__perfil_estatic_md">
+                                            <img src="'img/menu/avatar.png'">
+                                        </div>
 
-            <!-- Contenedor formato tabla de la lista de contactos -->
-            <div class="containt_main_table mb-3">
-                <div class="row" id="alertas"></div>
-                <div class="table-responsive">
-                    <table class="table table_agenda" id="table-contactos">
-                        <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
-                            <th>Correo</th>
-                            <th>Acción</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @if($contactos->isNotEmpty())
-                            @foreach($contactos as $contacto)
-                                <tr>
-                                    <td class="pr-0">
-                                        <div class="user__xl">
-                                            <div class="pr-2">
-                                                <img class="img__contacs" src='{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}'>
+                                        <div class="col-12 col-lg-9 pl-lg-2 pr-lg-0">
+                                            <div class="card_flex_column">
+                                                <h5 class="text-center text-lg-left h5_card_fs14_med black_bolder">{{ $contacto->nombre }}</h5>
+
+                                                <!-- Informative buttons -->
+                                                <div class="mt-1 mb-0 card_icon_info">
+                                                    @can('accesos-profesional',['ver-contactos'])
+                                                    <button class="btn_icon_info_card btn-ver-contacto toolTip top" data-id="{{ $contacto->id }}">
+                                                        <i data-feather="eye" class="icon_info_card"></i> 
+                                                        <span class="toolText">Ver contacto</span>
+                                                    </button>
+                                                    @endcan
+                                                    @can('accesos-institucion','editar-contacto')
+                                                        <button class="btn_icon_info_card btn-editar-contacto tool top" data-id="{{ $contacto->id }}">
+                                                            <i data-feather="edit" class="icon_info_card"></i>
+                                                            <span class="tiptext">Editar contacto</span>
+                                                    </button>
+                                                    @endcan
+                                                    @can('accesos-institucion','eliminar-contacto')
+                                                    <button class="btn_icon_info_card btn-eliminar-contacto tool top" data-id="{{ $contacto->id }}">
+                                                        <i data-feather="trash-2" class="icon_info_card" style="color: #FF3E3E"></i> 
+                                                        <span class="tiptext">Eliminar contacto</span>
+                                                    </button>
+                                                    @endcan
+                                                </div>
                                             </div>
 
                                             <div>
-                                                <span>{{ $contacto->nombre }}</span>
+                                                <div class="toolTip bottom">
+                                                    <div class="pl-md-3 pl-lg-0 tooltip_data">
+                                                        <i data-feather="mail" class="icon_contac_card"></i>
+                                                        <span class="span_card_fs12_reg gray_500">{{ $contacto->correo }}</span>
+                                                    </div>
+                                                    <span class="toolText">{{ $contacto->correo }}</span>
+                                                </div>
+
+                                                <div class="pl-md-3 pl-lg-0">
+                                                    <i data-feather="phone" class="icon_contac_card"></i>
+                                                    <span class="span_card_fs12_reg gray_500">{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</span>
+                                                </div>
+
+                                                <div class="toolTip bottom">
+                                                    <div class="pl-md-3 pl-lg-0 tooltip_data">
+                                                        <i data-feather="map-pin" class="icon_contac_card"></i>
+                                                        <span class="span_card_fs12_reg gray_500">{{ $contacto->direccion }}</span>
+                                                    </div>
+                                                    <span class="toolText">{{ $contacto->direccion }}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>{{ $contacto->direccion }}</td>
-                                    <td>{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</td>
-                                    <td>{{ $contacto->correo }}</td>
-                                    <td>
-                                        <div class="d-flex justify-content-center">
-                                            @can('accesos-profesional',['ver-contactos'])
-                                                <button class="btn_action btn-ver-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                                    <i class="fas fa-eye"></i> <span class="tiptext">Ver contacto</span>
-                                                </button>
-                                            @endcan
-                                            @can('accesos-profesional',['editar-contacto'])
-                                                <button class="btn_action btn-editar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                                    <i class="fas fa-edit"></i> <span class="tiptext">Editar contacto</span>
-                                                </button>
-                                            @endcan
+                                    </div>
+                                </div>
+                                <!-- card footer -->
+                                <div class="card__footer p-0">
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+                <!-- Pagination buttons -->
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    <div class="toolTip bottom">
+                        <a disabled class="btn_right_pag_card disabled"></a>
+                        <span class="toolText">Previus</span>
+                    </div>
 
-                                            @can('accesos-profesional',['eliminar-contacto'])
-                                                <button class="btn_action btn-eliminar-contacto tool top" type="button" data-id="{{ $contacto->id }}">
-                                                    <i class="fas fa-trash"></i> <span class="tiptext">Eliminar contacto</span>
-                                                </button>
-                                            @endcan
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            @endforeach
-                        @endif
-                        </tbody>
-                    </table>
+                    <div class="toolTip bottom">
+                        <a disabled class="btn_left_pag_card disabled"></a>
+                        <span class="toolText">Next</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -653,5 +696,12 @@
         }
 
 
+    </script>
+
+    <!-- Función para el despliegue de la barra de busqueda -->
+    <script>
+        $('#search').on('click', function () {
+            $('#search').addClass('search_togggle');
+        });
     </script>
 @endsection

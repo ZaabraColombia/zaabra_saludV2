@@ -85,23 +85,23 @@
                                 <div class="card__body">
                                     <div class="row mx-0 mt-1">
                                         <div class="col-12 p-0 mb-1">
-                                            <h4 class="text-center h4_card_fs18 black_bolder">{{ $convenio->nombre_completo }}</h4>
+                                            <h4 class="text-center h4_card_fs18_med black_bolder">{{ $convenio->nombre_completo }}</h4>
 
-                                            <h5 class="text-center h5_card_fs15">{{ $convenio->tipo_establecimiento }}</h5>
+                                            <h5 class="text-center h5_card_fs15_reg gray_500">{{ $convenio->tipo_establecimiento }}</h5>
 
-                                            <h5 class="text-center h5_card_fs9">Código: &nbsp;{{ $convenio->codigo_convenio }}</h5>
+                                            <h5 class="text-center h5_card_fs9_reg gray_500">Código: &nbsp;{{ $convenio->codigo_convenio }}</h5>
                                         </div>
 
-                                        <div class="col-9 p-0 m-auto lineh_med">
+                                        <div class="col-9 p-0 m-auto">
                                             <div class="pl-md-3">
                                                 <i data-feather="phone" class="icon_contac_card"></i>
-                                                <span class="span_card_fs12">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
+                                                <span class="span_card_fs12_reg gray_500">{{ "{$convenio->celular} - {$convenio->telefono}" }}</span>
                                             </div>
 
                                             <div class="toolTip bottom">
                                                 <div class="pl-md-3 tooltip_data">
                                                     <i data-feather="mail" class="icon_contac_card"></i>
-                                                    <span class="span_card_fs12">{{ $convenio->correo }}</span>
+                                                    <span class="span_card_fs12_reg gray_500">{{ $convenio->correo }}</span>
                                                 </div>
                                                 <span class="toolText">{{ $convenio->correo }}</span>
                                             </div>
@@ -345,6 +345,7 @@
         });
     </script>
 
+    <!-- Función para el despliegue de la barra de busqueda -->
     <script>
         $('#search').on('click', function () {
             $('#search').addClass('search_togggle');

@@ -1,4 +1,41 @@
-// Tool tip perfil de tarjetas
+// Tool tip TOP perfil de tarjetas
+.toolTip {
+    position: relative;
+    cursor: pointer;
+}
+.toolTip .toolText {
+    visibility: hidden;
+    width: max-content;
+    background-color: #E6E6E6;
+    color: #333333;
+    text-align: center;
+    padding: 0 3px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 3px 6px #00000029;
+    font-size: 12px;
+    font-weight: bold;
+}
+.toolTip .toolText::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+}
+.toolTip:hover .toolText {
+    visibility: visible;
+}
+.toolTip.top .toolText{
+    margin-left: -50px;
+    bottom: 100%;
+    left: 0;
+}
+// .toolTip.bottom .toolText::after{
+//     margin-left: -5px;
+//     top: 121%;
+//     left: 56%;
+//     border-color: #bec4c5 transparent transparent
+// }
+// Tool tip BOTTOM perfil de tarjetas
 .toolTip {
     position: relative;
     cursor: pointer;
@@ -28,11 +65,11 @@
     bottom: -13px;
     left: 0;
 }
-.toolTip.bottom .toolText::after{
-    bottom: 100%;
-    left: 10%;
-    border-color: transparent transparent #fff transparent;
-}
+// .toolTip.bottom .toolText::after{
+//     bottom: 100%;
+//     left: 10%;
+//     border-color: transparent transparent #fff transparent;
+// }
 .tooltip_data {
     width: 220px;
     white-space: nowrap;

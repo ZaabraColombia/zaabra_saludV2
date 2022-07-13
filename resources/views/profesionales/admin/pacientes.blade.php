@@ -8,59 +8,131 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Pacientes</h1>
-            </div>
-
-            <!-- Contenedor barra de búsqueda -->
-            <div class="containt_main_table mb-3">
-                <div class="row m-0">
-                    <div class="col-md-9 p-0 input__box mb-0">
-                        <input class="mb-md-0" type="search" name="search" id="search" placeholder="Buscar paciente">
+    <div class="container-fluid panel_container">
+        <!-- panel head -->
+        <div class="panel_head">
+            <!-- Title -->
+            <h1 class="title blue_two">Pacientes</h1>
+            <!-- Toolbar -->
+            <div class="row m-0">
+                <!-- Add button -->
+                @can('accesos-profesional',['agregar-paciente'])
+                    <div class="col-md-12 col-lg-auto btn__card_add">
+                        <a href="#" id="" class="bg_blue_two">Agregar paciente</a>
+                    </div>
+                @endcan
+                <!-- Search bar -->
+                <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto search">
+                    <form method="get">
+                        <button id="search" type="button" class="icon_search_blue {{ (request('search')) ? 'search_togggle':'' }}">
+                            <input type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
+                        </button>
+                    </form>
+                </div>
+                <!-- Document action buttons  -->
+                <div class="col-md-4 ml-md-auto col-lg-auto btns__export_doc">
+                    <div class="toolTip bottom">
+                        <button class="file_calendar"></button>
+                        <span class="toolText">Calendario</span>
+                    </div>
+                    <div class="toolTip bottom">
+                        <button class="file_excel"></button>
+                        <span class="toolText">Eportar Excel</span>
+                    </div>
+                    <div class="toolTip bottom">
+                        <button class="file_pdf"></button>
+                        <span class="toolText">Eportar PDF</span>
+                    </div>
+                    <div class="toolTip bottom">
+                        <button class="file_printer"></button>
+                        <span class="toolText">Imprimir</span>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- panel body -->
+        <div id="" class="panel_body">
+            <div class="row m-0">
+                <!-- alert notice -->
+                <div class="col-12">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="alert-heading">Hecho!</h4>
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
+                @if($pacientes->isNotEmpty())
+                    @foreach($pacientes as $paciente)
+                        <div class="col-md-6 col-lg-4 mb_card card__space card__width_desk">
+                            <!-- card -->
+                            <div class="card__mod">
+                                <!-- card header -->
+                                <div class="card__header p-0">
+                                </div>
+                                <!-- card boody -->
+                                <div class="card__body py-0 pb-lg-2 pr-lg-1">
+                                    <div class="row mx-0">
+                                        <!-- Image patient -->
+                                        <div class="col-12 col-lg-2 mb-1 px-lg-0 pt-lg-2 img__perfil_estatic">
+                                            <img src="{{ asset($contacto->foto ?? 'img/menu/avatar.png') }}">
+                                        </div>
 
-            <!-- Contenedor formato tabla de la lista pacientes -->
-            <div class="containt_main_table mb-3">
-                <div class="table-responsive">
-                    <table class="table table_agenda" id="table-pacientes">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Numero identificación</th>
-                                <th>Dirección</th>
-                                <th>Teléfono</th>
-                                <th>E-mail</th>
-                            </tr>
-                        </thead>
+                                        <div class="col-12 col-lg-10 pl-lg-4 pr-lg-0 mb-lg-2 card_flex_column">
+                                            <div>
+                                                <h5 class="text-center text-lg-left h5_card_fs14_med black_">{{ $paciente->user->nombre_completo }}</h5>
 
-                        <tbody>
-                            @if($pacientes->isNotEmpty())
-                                @foreach($pacientes as $paciente)
-                                    <tr>
-                                        <td class="pr-0">
-                                            <div class="user__xl">
-                                                <div class="pr-2">
-                                                    <img class="img__contacs" src='{{ asset($paciente->foto ?? 'img/menu/avatar.png') }}'>
-                                                </div>
+                                                <h5 class="text-center text-lg-left mb-1 h5_card_fs14_reg black_">{{ $paciente->eps }}</h5>
 
-                                                <div>
-                                                    {{ $paciente->user->nombre_completo }}
-                                                </div>
+                                                <h5 class="text-center text-lg-left h5_card_fs12_reg black_">{{ $paciente->user->numerodocumento }}</h5>
                                             </div>
-                                        </td>
-                                        <td>{{ $paciente->user->numerodocumento }}</td>
-                                        <td>{{ $paciente->direccion }}</td>
-                                        <td>{{ "{$paciente->celular} - {$paciente->telefono}" }}</td>
-                                        <td>{{ $paciente->user->email }}</td>
-                                    </tr>
-                                @endforeach
-                            @endif
-                        </tbody>
-                    </table>
+
+                                            <!-- Informative buttons mobile-->
+                                            <div class="card_icon_info">
+                                                <button class="btn_icon_info_card toolTip top" data-url="" data-toggle="modal" data-target="#modal_see_patient">
+                                                    <i data-feather="eye" class="icon_info_card"></i> 
+                                                    <span class="toolText">Ver paciente</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 m-auto px-md-4 pl-lg-0 pr-lg-1 card_bord_top">
+                                            <div class="pl-md-3 pl-lg-0 mt-3 mb-2 mt-lg-2">
+                                                <i data-feather="phone" class="icon_contac_blue_card"></i>
+                                                <span class="span_card_fs12_reg black_">{{ $paciente->celular }}</span>
+                                            </div>
+
+                                            <div class="toolTip bottom">
+                                                <div class="pl-md-3 pl-lg-0 tooltip_data">
+                                                    <i data-feather="mail" class="icon_contac_blue_card"></i>
+                                                    <span class="span_card_fs12_reg black_">{{ $paciente->user->email }}</span>
+                                                </div>
+                                                <span class="toolText">{{ $paciente->user->email }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card footer -->
+                                <div class="card__footer p-0">
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+                <!-- Pagination buttons -->
+                <div class="col-12 p-0 pr-md-2 pr-xl-3 mt-4 butons__pagination_card">
+                    <div class="toolTip bottom">
+                        <a disabled class="btn_right_pag_card disabled"></a>
+                        <span class="toolText">Previus</span>
+                    </div>
+
+                    <div class="toolTip bottom">
+                        <a disabled class="btn_left_pag_card disabled"></a>
+                        <span class="toolText">Next</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,6 +186,13 @@
         $("#search").on('keyup change',function(){
             var texto = $(this).val();
             table.search(texto).draw();
+        });
+    </script>
+
+    <!-- Función para el despliegue de la barra de busqueda -->
+    <script>
+        $('#search').on('click', function () {
+            $('#search').addClass('search_togggle');
         });
     </script>
 @endsection
