@@ -57,7 +57,7 @@
 
             <div class="section_button_infoZaabra my-3"> <!-- botón precio -->
                 <button type="submit" class="button_blue_infoZaabra flex-column" data-toggle="modal" data-target="#info_pago">
-                    <h5 class="title_membresia" style="color: #FFFFFF">$132.500</h5>
+                    <h5 class="title_membresia" style="color: #FFFFFF">133.500</h5>
                     <span class="text_btn_precio">Mensual &nbsp;*</span>
                 </button>
             </div>
