@@ -1,6 +1,6 @@
 // Botones superiores
 .row_btns_panel {
-    margin: 16px 0 37px  0;
+    margin: 20px 0 55px  0;
 }
 .btn_top_panel {
     display: flex;
@@ -105,6 +105,12 @@ div.dtsp-topRow button.dtsp-countButton {
         font-family: "Quicksand";
         color: #019F86;
         font-weight: bold;
+    }
+    tbody tr td {
+        font-size: 15px;
+        font-family: "Roboto";
+        color: #434343;
+        font-weight: 100;
     }
 }
 .dtsp-subRow2 .btn-group .btn-light {

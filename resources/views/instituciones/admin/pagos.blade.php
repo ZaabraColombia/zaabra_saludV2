@@ -13,7 +13,7 @@
             <div class="panel_head px-lg-0 mb-lg-3">
                 <!-- Main title -->
                 <div class="mb-0">
-                    <h1 class="txt_title_panel_head color_green mb-4 mb-lg-2">Pagos</h1>
+                    <h1 class="txt_title_panel_head color_green mb-3 mb-lg-2">Pagos</h1>
                 </div>
                 <!-- Toolbar -->
                 <div class="row m-0">
@@ -77,26 +77,55 @@
                 <div class="row">
                     <div class="col-12" id="alertas"></div>
                     <div id="table_green" class="col-12">
-                        <table class="table table-borderless" style="width: 100%" id="table-citas">
+                        <table class="table table-borderless py-4" style="width: 100%" id="table-citas">
                             <thead>
                                 <tr>
                                     <th>Fecha</th>
-                                    <th>Hora Inicio</th>
-                                    <th>Hora Fin</th>
-                                    {{--Es nesesario que esten duplicados--}}
-                                    <th>Profesional</th>
                                     <th>Profesional</th>
                                     <th>Especialidad</th>
-                                    {{--Es nesesario que esten duplicados--}}
-                                    <th>Servicio</th>
+                                    <th>Convenio</th>
                                     <th>Servicio</th>
                                     <th>Paciente</th>
-                                    <th>Identificación</th>
-                                    <th>Celular</th>
+                                    <th>Lugar</th>
                                     <th>Estado</th>
-                                    <th>Acción</th>
+                                    <th>Valor</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <tr>
+                                    <td>16/05/2022</td>
+                                    <td>Diego José Escobar</td>
+                                    <td>Otorrinolaringología</td>
+                                    <td>Salud Total</td>
+                                    <td>Limpieza de oido</td>
+                                    <td>Marco Antonio Garzon Sepulveda</td>
+                                    <td>calle 72 #38-186</td>
+                                    <td>Pagado</td>
+                                    <td>$185.000</td>
+                                </tr>
+                                <tr>
+                                    <td>16/05/2022</td>
+                                    <td>Diego José Escobar</td>
+                                    <td>Cirugía ortopédica y traumatología</td>
+                                    <td>Sanitas</td>
+                                    <td>Cirugía de ligamento cruzado</td>
+                                    <td>Marco Antonio Garzon Sepulveda</td>
+                                    <td>calle 72 #38-186</td>
+                                    <td>Por pagar</td>
+                                    <td>$232.000</td>
+                                </tr>
+                                <tr>
+                                    <td>16/05/2022</td>
+                                    <td>Diego José Escobar</td>
+                                    <td>Cirugía Plástica</td>
+                                    <td>MedPlus</td>
+                                    <td>Rinoplastia</td>
+                                    <td>Marco Antonio Garzon Sepulveda</td>
+                                    <td>calle 72 #38-186</td>
+                                    <td>Pendiente</td>
+                                    <td>$25.000</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -126,13 +155,13 @@
             //$.fn.dataTable.moment( 'HH:mm A \- HH:mm A', 'es');
 
 
-            $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-                var dateS = $('#date').val();
-                var startDate = moment(data[0], 'DD-MM / YYYY');
+            // $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+            //     var dateS = $('#date').val();
+            //     var startDate = moment(data[0], 'DD-MM / YYYY');
 
-                if (dateS == null || dateS === '') return true;
-                return startDate.format('YYYY-MM-DD') === dateS;
-            });
+            //     if (dateS == null || dateS === '') return true;
+            //     return startDate.format('YYYY-MM-DD') === dateS;
+            // });
 
             //Inicializar tabla
             var table = $('#table-citas').DataTable({
@@ -140,70 +169,58 @@
                 dom:
                     // "<'#filter-input.row'><'row'<'col-12'P>>"+
                     "Pt",
-                serverSide: true,
-                processing: true,
-                ajax: {
-                    type: 'post',
-                    url: '{{ route('institucion.calendario.lista-citas') }}',
-                    data: (d) =>{
-                        d.fecha = $('#fecha').val();
-                        d.estado = $('#estado').val();
-                    }
-                },
+                // serverSide: true,
+                // processing: true,
+                // ajax: {
+                //     type: 'post',
+                //     url: '{{ route('institucion.calendario.lista-citas') }}',
+                //     data: (d) =>{
+                //         d.fecha = $('#fecha').val();
+                //         d.estado = $('#estado').val();
+                //     }
+                // },
                 responsive: true,
                 language: {
                     url: "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json",
                     emptyTable: ' '
                 },
-                columns: [
-                    {data: "fecha", name: "fecha_inicio"},
-                    {data: "hora_inicio", name: "fecha_inicio"},
-                    {data: "hora_fin", name: 'fecha_fin'},
-                    {
-                        data: 'prof.nombre_completo',
-                        name: 'prof.nombre_completo',
-                        visible: false
-                    },
-                    {
-                        data: 'profesional_nombre',
-                        name: 'profesional_nombre',
-                        searchable: false
-                    },
-                    {data: "nombreEspecialidad", name: 'nombreEspecialidad'},
-                    {
-                        data: 'serv.nombre',
-                        name: 'serv.nombre',
-                        visible: false
-                    },
-                    {
-                        data: 'servicio',
-                        name: 'servicio',
-                        searchable: false
-                    },
-                    {data: "paciente_nombre", name: 'paciente_nombre'},
-                    {data: "paciente_identificacion", name: 'paciente_identificacion'},
-                    {data: "paciente_celular", name: "paciente_celular"},
-                    {data: "estado", name: "estado"},
-                    {
-                        name: 'edit',
-                        className: '',
-                        data: function (data, type, full, meta) {
+                // columns: [
+                //     {data: "fecha", name: "fecha_inicio"},
+                //     {data: "hora_inicio", name: "fecha_inicio"},
+                //     {data: "hora_fin", name: 'fecha_fin'},
+                //     {
+                //         data: 'profesional_nombre',
+                //         name: 'profesional_nombre',
+                //     },
+                //     {data: "nombreEspecialidad", name: 'nombreEspecialidad'},
+                //     {
+                //         data: 'servicio',
+                //         name: 'servicio',
+                //     },
+                //     {data: "paciente_nombre", name: 'paciente_nombre'},
+                //     {data: "paciente_identificacion", name: 'paciente_identificacion'},
+                //     {data: "paciente_celular", name: "paciente_celular"},
+                //     {data: "estado", name: "estado"},
+                //     {
+                //         name: 'edit',
+                //         className: '',
+                //         data: function (data, type, full, meta) {
 
-                            return '<div class="d-flex justify-content-center">' +
-                                '<button  class="btn_action_green tool top editar-cita" data-url="' + data.ver + '">' +
-                                '<i class="fas fa-calendar-day fa-2x"></i>' +
-                                '<span class="tiptext">Editar cita</span>' +
-                                '</button>' +
-                                '<button  class="btn_action_green tool top cancelar-cita" data-url="' + data.ver + '">' +
-                                '<i class="fas fa-calendar-times fa-2x"></i>' +
-                                '<span class="tiptext">Cancelar cita</span>' +
-                                '</button>' +
-                                '</div>';
-                        },
-                        searchable: false,
-                        orderable: false,
-                    },
-                ],
+                //             return '<div class="d-flex justify-content-center">' +
+                //                 '<button  class="btn_action_green tool top editar-cita" data-url="' + data.ver + '">' +
+                //                 '<i class="fas fa-calendar-day fa-2x"></i>' +
+                //                 '<span class="tiptext">Editar cita</span>' +
+                //                 '</button>' +
+                //                 '<button  class="btn_action_green tool top cancelar-cita" data-url="' + data.ver + '">' +
+                //                 '<i class="fas fa-calendar-times fa-2x"></i>' +
+                //                 '<span class="tiptext">Cancelar cita</span>' +
+                //                 '</button>' +
+                //                 '</div>';
+                //         },
+                //         searchable: false,
+                //         orderable: false,
+                //     },
+                // ],
                 searchPanes: {
                     viewTotal: false               
                 },
@@ -214,7 +231,7 @@
                             show: true,
                             clear: false
                         },
-                        targets: [3, 4, 5, 6, 7]
+                        targets: [1, 2, 3, 4, 5]
                     },
                     {
                         responsivePriority: 1,
@@ -225,17 +242,17 @@
 
                     var api = this.api();
 
-                    $('.filter-data').on('change', function () {
-                        table.ajax.reload(null, false)
-                    });
+                    // $('.filter-data').on('change', function () {
+                    //     table.ajax.reload(null, false)
+                    // });
 
-                    $('#fecha').datepicker({
-                        language: 'es',
-                        format: 'yyyy-mm-dd',
-                        //startDate: moment().format('YYYY-MM-DD'),
-                    });
+                    // $('#fecha').datepicker({
+                    //     language: 'es',
+                    //     format: 'yyyy-mm-dd',
+                    //     //startDate: moment().format('YYYY-MM-DD'),
+                    // });
 
-                    table.ajax.reload(null, false);
+                    //table.ajax.reload(null, false);
 
                     table.searchPanes.container().insertAfter('#data');
 
@@ -246,9 +263,9 @@
                 // }
             });
 
-            setInterval(function () {
-                table.ajax.reload(null, false);
-            }, 30000);
+            // setInterval(function () {
+            //     table.ajax.reload(null, false);
+            // }, 30000);
 
             $("#search").on('keyup change', function () {
                 var texto = $(this).val();
