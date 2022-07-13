@@ -10,6 +10,7 @@
 @section('contenido')
     <div id="admin_cita">
         <div class="container-fluid panel_container">
+            <!-- panel head -->
             <div class="panel_head px-lg-0 mb-lg-3">
                 <!-- Main title -->
                 <div class="mb-0">
@@ -37,10 +38,10 @@
                     </div>
                 </div>
             </div>
-
+            <!-- panel body -->
             <div class="panel_body">
-                <div class="row">
-                    <div class="col-12">
+                <div class="row m-0">
+                    <div class="col-12 p-0">
                         <div class="row_btns_panel">
                             <div class="mb_btn_panel btn_top_panel">
                                 <button type="submit" class="btn_green_panel">Mostrar todo</button>
@@ -51,17 +52,17 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
-                        <div id="filter-input" class="row">
-                            <div class="col-md-6 col-lg-3 mb-3">
+                    <div class="col-12 p-0">
+                        <div id="filter-input" class="row m-0">
+                            <div class="col-md-6 p-0 pr-md-3  col-lg-3 mb-3">
                                 <label for="fecha">Fecha de inicio</label>
                                 <input id="fecha" name="fecha" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>
                             </div>
-                            <div class="col-md-6 col-lg-3 mb-3">
+                            <div class="col-md-6 p-0 pl-md-3 pl-lg-0 pr-lg-3 col-lg-3 mb-3">
                                 <label for="fecha_fin">Fecha final</label>
                                 <input id="fecha_fin" name="fecha_fin" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>
                             </div>
-                            <div class="col-md-6 col-lg-3 mb-3">
+                            <div class="col-md-6 p-0 pr-md-3  col-lg-3 mb-3">
                                 <label for="estado">Estado de cita</label>
                                 <select name="estado" id="estado" class="form-control filter-data">
                                     <option value="">Todos</option>
@@ -74,9 +75,9 @@
                     </div>
                 </div>
                 <!-- Tabla -->
-                <div class="row">
-                    <div class="col-12" id="alertas"></div>
-                    <div id="table_green" class="col-12">
+                <div class="row m-0">
+                    <div class="col-12 p-0" id="alertas"></div>
+                    <div id="table_green" class="col-12 p-0">
                         <table class="table table-borderless py-4" style="width: 100%" id="table-citas">
                             <thead>
                                 <tr>
@@ -128,6 +129,24 @@
                             </tbody>
                         </table>
                     </div>
+                    <!-- Botones de paginación -->
+                    <nav id="pagination" class="w-100 pr-1">
+                        <ul class="pagination mt-3 mb-0 pr-md-2 pr-xl-3 justify-content-end">
+                            <li class="page-item toolt bottom">
+                                <a class="page-link" href="#" rel="prev">
+                                    <i data-feather="chevron-left" class="icon_direction"></i>
+                                </a>
+                                <span class="tiptext">Anterior</span>
+                            </li>
+
+                            <li class="page-item toolt bottom">
+                                <a class="page-link ml-1" href="#" rel="next">
+                                    <i data-feather="chevron-right" class="icon_direction"></i>
+                                </a>
+                                <span class="tiptext">Siguiente</span>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

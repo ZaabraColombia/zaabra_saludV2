@@ -28396,6 +28396,10 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     margin-bottom: 20px;
   }
 
+  .button__green_card {
+    padding: 11px 8px;
+  }
+
   .button__search_card {
     margin-bottom: 0;
     padding: 0;
@@ -28403,9 +28407,9 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   .button__search_card button {
     width: auto;
     width: 46px;
-    height: 41px;
+    height: 44px;
     background-position-x: 10PX;
-    background-position-y: 7px;
+    background-position-y: 9px;
     padding-top: 2px;
     padding-right: 0px;
     padding-left: 35px;
@@ -31387,7 +31391,7 @@ div.dtsp-topRow button.dtsp-countButton {
     display: flex;
     justify-content: flex-end;
     flex-direction: row-reverse;
-    margin: 10px 0 40px 210px;
+    margin: 10px 0 65px 210px;
   }
 
   .mb_btn_panel {

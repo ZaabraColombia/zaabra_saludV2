@@ -37,21 +37,24 @@
 @section('contenido')
     <div id="admin_cita">
         <div class="container-fluid panel_container">
-            <div class="panel_head px-lg-0">
+            <!-- panel head -->
+            <div class="panel_head px-lg-0 mb-lg-3">
                 <!-- Main title -->
-                <div class="mb-4">
-                    <h1 class="txt_title_panel_head color_green">Administración de citas</h1>
-                    <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
-                    <a  class="button_transparent" type="button" data-toggle="modal" data-target="#modal_appoiment_detail">Launch modal</a>
+                <div class="mb-0">
+                    <h1 class="txt_title_panel_head color_green mb-3 mb-lg-2">Administración de citas</h1>
                 </div>
+                <a  class="" type="button" data-toggle="modal" data-target="#modal_appoiment_detail">Launch modal</a>
                 <!-- Toolbar --> 
                 <div class="row m-0">
+                    <div class="col-12 p-0 mb-lg-4 mb-xl-5">
+                        <h2 class="txt_subtitle_panel_head">Encuentre aquí las citas agendadas por sus pacientes.</h2>
+                    </div>
                     <!-- Add appoiment -->
-                    <div class="col-md-12 col-lg-auto mr-lg-3 button__add_card">
+                    <div class="col-md-12 col-lg-auto mt-4 mt-md-3 mt-lg-0 mr-lg-3 button__add_card">
                         <a href="{{ route('institucion.calendario.crear-cita') }}" class="button__green_card" id="btn-agregar-contacto">Agregar cita</a>
                     </div>
                     <!-- Search bar -->
-                    <div class="col-md-6 col-lg-5 col-xl-5 mr-lg-auto button__search_card">
+                    <div class="col-md-6 col-lg-5 col-xl-5 mb-md-0 mr-lg-auto button__search_card">
                         <form method="get">
                             <button id="search" type="button" class="icon__search_green {{ (request('search')) ? 'search_togggle':'' }}">
                                 <input class="mb-0" type="search" name="search" id="search" placeholder="Buscar" value="{{ request('search') }}">
@@ -81,8 +84,8 @@
             </div>
 
             <div class="panel_body">
-                <div class="row">
-                    <div class="col-12">
+                <div class="row m-0">
+                    <div class="col-12 p-0">
                         <div class="row_btns_panel">
                             <div class="mb_btn_panel btn_top_panel">
                                 <button type="submit" class="btn_green_panel">Mostrar todo</button>
@@ -93,17 +96,17 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
-                        <div id="filter-input" class="row">
-                            <div class="col-md-6 col-lg-3 mb-3">
+                    <div class="col-12 p-0">
+                        <div id="filter-input" class="row m-0">
+                            <div class="col-md-6 p-0 pr-md-3 col-lg-3 mb-3">
                                 <label for="fecha">Fecha de inicio</label>
                                 <input id="fecha" name="fecha" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>
                             </div>
-                            <div class="col-md-6 col-lg-3 mb-3">
+                            <div class="col-md-6 p-0 pl-md-3 pl-lg-0 pr-lg-3 col-lg-3 mb-3">
                                 <label for="fecha_fin">Fecha final</label>
                                 <input id="fecha_fin" name="fecha_fin" class="form-control filter-data" readonly value="{{ date('Y-m-d') }}"/>
                             </div>
-                            <div class="col-md-6 col-lg-3 mb-3">
+                            <div class="col-md-6 p-0 pr-md-3 col-lg-3 mb-3">
                                 <label for="estado">Estado de cita</label>
                                 <select name="estado" id="estado" class="form-control filter-data">
                                     <option value="">Todos</option>
@@ -116,9 +119,9 @@
                     </div>
                 </div>
                 <!-- Tabla -->
-                <div class="row">
-                    <div class="col-12" id="alertas"></div>
-                    <div id="table_green" class="col-12">
+                <div class="row m-0">
+                    <div class="col-12 p-0" id="alertas"></div>
+                    <div id="table_green" class="col-12 p-0">
                         <table class="table table-borderless" style="width: 100%" id="table-citas">
                             <thead>
                                 <tr>
@@ -141,6 +144,24 @@
                             </thead>
                         </table>
                     </div>
+                    <!-- Botones de paginación -->
+                    <nav id="pagination" class="w-100 pr-1">
+                        <ul class="pagination mt-3 mb-0 pr-md-2 pr-xl-3 justify-content-end">
+                            <li class="page-item toolt bottom">
+                                <a class="page-link" href="#" rel="prev">
+                                    <i data-feather="chevron-left" class="icon_direction"></i>
+                                </a>
+                                <span class="tiptext">Anterior</span>
+                            </li>
+
+                            <li class="page-item toolt bottom">
+                                <a class="page-link ml-1" href="#" rel="next">
+                                    <i data-feather="chevron-right" class="icon_direction"></i>
+                                </a>
+                                <span class="tiptext">Siguiente</span>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
