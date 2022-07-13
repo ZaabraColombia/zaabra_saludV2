@@ -99,11 +99,55 @@
         }
     }
 }
-@media(min-width: 768px) {
-    // Propiedades especiales
-    .mb_special_convenios {
-        margin-bottom: -3px;
+.btns__export_doc_green {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    button {
+        width: 47px;
+        height: 44px;
+        background-color: #FFFFFF;
+        border: 1px solid #DBDADA;
+        border-radius: 7px;
+        margin: 0 5px;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        background-position: center;
+        &:hover {
+            background-color: $green_two;
+            border: 1px solid $green_two;
+        }
     }
+    .file_excel{
+        background-image: url('/img/iconos/icono-excel-verde.svg');
+        &:hover {
+            background-image: url('/img/iconos/icono-excel-blanco.svg');
+        }
+    }
+    .file_pdf{
+        background-image: url('/img/iconos/icono-pdf-verde.svg');
+        &:hover {
+            background-image: url('/img/iconos/icono-pdf-blanco.svg');
+        }
+    }
+    .file_printer {
+        background-image: url('/img/iconos/icono-imprimir-verde.svg');
+        &:hover {
+            background-image: url('/img/iconos/icono-imprimir-blanco.svg');
+        }
+    }
+    .file_calendar {
+        background-image: url('/img/iconos/icono-calendario-verde.svg');
+        &:hover {
+            background-image: url('/img/iconos/icono-calendario-blanco.svg');
+        }
+    }
+}
+@media(min-width: 768px) {
+    // // Propiedades especiales
+    // .mb_special_convenios {
+    //     margin-bottom: -3px;
+    // }
     // Fin propiedades especiales
     .panel_head {
         margin-bottom: 26px;
@@ -129,9 +173,9 @@
 }
 @media(min-width: 1024px) {
     // Propiedades especiales
-    .mb_special_convenios {
-        margin-bottom: -15px;
-    }
+    // .mb_special_convenios {
+    //     margin-bottom: -15px;
+    // }
     // Fin propiedades especiales
     .panel_head {
         margin-bottom: 24px;

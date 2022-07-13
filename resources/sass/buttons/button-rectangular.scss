@@ -1,6 +1,6 @@
 // Colores de los botones
 .bg_blue_two {
-    color: $gray_100;
+    color: $gray_100 !important;
     background: $blue_two;
     border: solid 1px $blue_two;
 }
@@ -10,7 +10,7 @@
     border: solid 1px $blue_two;
 }
 .bg_green_two {
-    color: $gray_100;
+    color: $gray_100 !important;
     background: $green_two;
     border: solid 1px $green_two;
 }
@@ -49,6 +49,22 @@
 .btn__card_down:first-child {
     margin-bottom: 10px;
 }
+.btn__down_search_sm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        font-family: "Quicksand";
+        font-size: 14px;
+        font-weight: bold;
+        width: 71px;
+        height: 32px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
 .btn__down_search {
     display: flex;
     justify-content: center;
@@ -64,6 +80,72 @@
         align-items: center;
         justify-content: center;
     }
+}
+.btn_inact_slider {
+    font-family: "Quicksand";
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 210px;
+    height: 58px;
+    margin: auto;
+    padding: 0 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3E3E3E !important;
+    background: #FFFFFF;
+    border: solid 1px #DBDADA;
+}
+.btn__activ {
+    color: #FFFFFF !important;
+    background: $green_two;
+    border: solid 1px $green_two;
+}
+.btnNext_pag_slider {
+    position: absolute;
+    top: 38px;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    padding-right: 3px;
+    z-index: 10;
+    cursor: pointer;
+    border: 2px solid #DBDADA;
+    border-radius: 50px;
+    background-color: #DBDADA;
+}
+.swiper-button-next:after {
+    content: '';
+    height: 9px;
+    width: 9px;
+    border-left: 2px solid #3E3E3E;
+    border-top: 2px solid #3E3E3E;
+    transform: rotate(130deg);
+}
+.btnPrev_pag_slider {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    padding-left: 3px;
+    z-index: 10;
+    cursor: pointer;
+    border: 2px solid #DBDADA;
+    border-radius: 50px;
+    background-color: #DBDADA;
+}
+.swiper-button-prev:after {
+    content: '';
+    height: 9px;
+    width: 9px;
+    border-right: 2px solid #3E3E3E;
+    border-bottom: 2px solid #3E3E3E;
+    transform: rotate(130deg);
 }
 @media(min-width: 768px) {
     .btn__card_add {
@@ -82,11 +164,28 @@
             height: 29px;
         }
     }
+    .btn_inact_slider {
+        font-size: 18px;
+        width: 250px;
+    }
+    .container_swiper {
+        width: 100%;
+        padding-left: 15px;
+    }
 }
 @media(min-width: 1024px) {
     .btn__card_add {
         align-items: flex-start;
         margin-bottom: 0;
         margin-right: 16px;
+    }
+}
+
+// Estilos previamente para ejemplo vista gestion DESKTOP
+@media(min-width: 1600px) {
+    .btn__down_search_sm {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
     }
 }

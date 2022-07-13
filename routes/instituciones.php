@@ -125,6 +125,15 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
         ->name('calendario-disponible');
 
     Route::post('/institucion/filtro-vistas', [entidades\Admin\PanelController::class, 'search'])->name('filtro-vistas');
+
+    //******** Rutas para las vistas del modulo gestión agenda instituciones ********//
+    Route::group([
+        'prefix' => '/gestion/',
+        'as' => 'gestion.',
+    ], function () {
+        Route::view('primer-reporte', 'instituciones.admin.gestion.convenio-saldo-por-pagar')->name('primer-reporte');
+        Route::view('segundo-reporte', 'instituciones.admin.gestion.')->name('segundo-reporte');    
+    });
 });
 
 

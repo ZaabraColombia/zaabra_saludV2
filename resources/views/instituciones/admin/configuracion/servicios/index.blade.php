@@ -82,17 +82,17 @@
                                                 </button>
                                             </div>
 
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <h5 class="txt_h5_card_float">{{ $servicio->tipo_servicio->nombre ?? '' }}</h5>
                                             </div>
                                         </div>
                                         <!-- card data down -->
                                         <div class="card__data_down pl-xl-4">
-                                            <div class="pl-3 mb_card">
+                                            <div class="pl-3 mb__cards">
                                                 <span class="txt_span_card">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
                                             </div>
 
-                                            <div class="pl-3 mb_card">
+                                            <div class="pl-3 mb__cards">
                                                 <span class="txt_span_card">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
                                             </div>
                                         </div>

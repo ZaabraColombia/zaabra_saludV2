@@ -10,14 +10,16 @@
 @section('contenido')
     <div id="admin_cita">
         <div class="container-fluid panel_container">
-            <div class="panel_head px-lg-0">
+            <div class="panel_head px-lg-0 mb-lg-3">
                 <!-- Main title -->
                 <div class="mb-0">
-                    <h1 class="txt_title_panel_head color_green">Pagos</h1>
-                    <h2 class="txt_subtitle_panel_head mb-0">Encuentre aquí los pagos realizados por cada una de sus citas.</h2>
+                    <h1 class="txt_title_panel_head color_green mb-4 mb-lg-2">Pagos</h1>
                 </div>
                 <!-- Toolbar -->
                 <div class="row m-0">
+                    <div class="col-md-8 p-0">
+                        <h2 class="txt_subtitle_panel_head mb-3 mb-md-0">Encuentre aquí los pagos realizados por cada una de sus citas.</h2>
+                    </div>
                     <!-- Document action buttons  -->
                     <div class="col-md-4 ml-md-auto col-lg-auto button__doc_download">
                         <div class="toolt bottom">

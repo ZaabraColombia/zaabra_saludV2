@@ -5,7 +5,7 @@
         <div class="panel_head">
             <!-- Main title -->
             <div class="mb-4">
-                <h1 class="txt_title_panel_head">Procedimientos (CUPS)</h1>
+                <h1 class="txt_title_panel_head color_green">Procedimientos (CUPS)</h1>
             </div>
             <!-- Toolbar -->
             <div class="row m-0 mb-4">
