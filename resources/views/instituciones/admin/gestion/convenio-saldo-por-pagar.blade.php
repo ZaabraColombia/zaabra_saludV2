@@ -158,71 +158,79 @@
             <!-- Graphics and Table -->
             <div class="row m-0 cuadro_resultado">
                 <!-- Graphics -->
-                <div class="col-lg-6 mb-5">
-                    <canvas id="myChart"></canvas>
+                <div class="col-lg-6 pr-lg-0 mb-5 mb-lg-0">
+                    <div class="table_resultado">
+                        <canvas id="myChart" height="190"></canvas>
+                    </div>
                 </div>
                 <!-- User and table -->
-                <div class="col-lg-6 table_resultado">
-                    <!-- User -->
-                    <div class="row pb-lg-1">
-                        <div class="col-md-6">
-                            <div class="row align-items-center">
-                                <div class="col-3 pr-lg-0">
-                                    <img class="" src='/img/menu/avatar.png' style="width: 53px">
+                <div class="col-lg-6 pl-lg-0">
+                    <div class="table_resultado">
+                        <!-- User -->
+                        <div class="row pb-lg-1">
+                            <div class="col-md-6">
+                                <div class="row align-items-center">
+                                    <div class="col-3 pr-lg-0">
+                                        <img class="" src='/img/menu/avatar.png' style="width: 53px">
+                                    </div>
+                                    <div class="col-9 pl-lg-2 pr-lg-0">
+                                        <h4 class="h4_card_fs18_bold black_bolder">Nombre de convenio</h4>
+                                        <h4 class="h4_card_fs16_reg black_bolder">Bogotá</h4>
+                                    </div>
                                 </div>
-                                <div class="col-9 pl-lg-2 pr-lg-0">
-                                    <h4 class="h4_card_fs18_bold black_bolder">Nombre de convenio</h4>
-                                    <h4 class="h4_card_fs16_reg black_bolder">Bogotá</h4>
+                            </div>
+                            <div class="col-md-6 pr-lg-0 d-flex flex-column justify-content-center">
+                                <div>
+                                    <span class="h4_card_fs16_reg black_bolder">Dirección:</span>
+                                    <span class="h4_card_fs16_reg black_bolder">Carrera 30 # 0 - 00</span>
+                                </div>
+                                <div>
+                                    <span class="h4_card_fs16_reg black_bolder">Teléfono:</span>
+                                    <span class="h4_card_fs16_reg black_bolder">+57 313 000 00 00</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 pr-lg-0 d-flex flex-column justify-content-center">
-                            <div>
-                                <span class="h4_card_fs16_reg black_bolder">Dirección:</span>
-                                <span class="h4_card_fs16_reg black_bolder">Carrera 30 # 0 - 00</span>
-                            </div>
-                            <div>
-                                <span class="h4_card_fs16_reg black_bolder">Teléfono:</span>
-                                <span class="h4_card_fs16_reg black_bolder">+57 313 000 00 00</span>
-                            </div>
+                        <!-- Table -->
+                        <div class="table-responsive mt-lg-4 tab_gestion_green">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Concepto</th>
+                                        <th scope="col">Saldo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>16/05/2022</td>
+                                        <td>Consulta primera vez</td>
+                                        <td>90.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10/04/2022</td>
+                                        <td>Consulta general</td>
+                                        <td>120.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>06/03/2022</td>
+                                        <td>Control</td>
+                                        <td>60.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td scope="col">Total</td>
+                                        <td></td>
+                                        <td>270.000</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
-                    <!-- Table -->
-                    <div class="table-responsive mt-lg-4 tab_gestion_green">
-                        <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Concepto</th>
-                                    <th scope="col">Saldo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>16/05/2022</td>
-                                    <td>Consulta primera vez</td>
-                                    <td>90.000</td>
-                                </tr>
-                                <tr>
-                                    <td>10/04/2022</td>
-                                    <td>Consulta general</td>
-                                    <td>120.000</td>
-                                </tr>
-                                <tr>
-                                    <td>06/03/2022</td>
-                                    <td>Control</td>
-                                    <td>60.000</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td scope="col">Total</td>
-                                    <td></td>
-                                    <td>270.000</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+                </div>
+                <!-- Button search -->
+                <div class="col-12 mt-4 justify-content-center btn__down_search_sm">
+                    <button type="submit" class="bg_green_two" style="width: 84px">Exportar</button>
                 </div>
             </div>
         </div>
