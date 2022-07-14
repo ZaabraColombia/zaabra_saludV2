@@ -104,37 +104,36 @@
             <div class="pt-4 mb-3">
                 <h2 class="text-center text-lg-left mt-2 h2_fs23_bold green_two">Búsqueda</h2>
             </div>
-            <!-- Check radio -->
-            <div class="row m-0 pb-lg-1">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div id="document" class="col-lg-3 pl-lg-0 check_radio">
-                            <input class="" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="label__check" for="exampleRadios1">Documento</label>
-                        </div>
-
-                        <div id="rango" class="col-lg-3 pl-lg-0 check_radio">
-                            <input class="" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="label__check" for="exampleRadios2">Rango de fecha</label>
-                        </div>
-
-                        <div id="servicio" class="col-lg-3 pl-lg-0 check_radio">
-                            <input class="" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                            <label class="label__check" for="exampleRadios3">Servicios</label>
-                        </div>
-
-                        <div id="especialidad" class="col-lg-3 pl-lg-0 check_radio">
-                            <input class="" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                            <label class="label__check" for="exampleRadios4">Especialidades</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Reporte check DOCUMENTO -->     
-            <div id="filtroDoc" class="mb-4 pt-lg-2">
-                <!-- form -->
+            <!-- form -->
+            <div class="mb-4 pt-lg-2">
                 <form action="" method="" id="">
                     @csrf
+                    <div class="row m-0 pb-lg-3">
+                        <!-- Check radio -->
+                        <div class="col-lg-6 p-0">
+                            <div class="row m-0">
+                                <div class="col-lg-3 pl-lg-0 check_radio">
+                                    <input class="" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="label__check" for="exampleRadios1">Documento</label>
+                                </div>
+
+                                <div class="col-lg-3 pl-lg-0 check_radio">
+                                    <input class="" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="label__check" for="exampleRadios2">Rango de fecha</label>
+                                </div>
+
+                                <div class="col-lg-3 pl-lg-0 check_radio">
+                                    <input class="" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                    <label class="label__check" for="exampleRadios3">Servicios</label>
+                                </div>
+
+                                <div class="col-lg-3 pl-lg-0 check_radio">
+                                    <input class="" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                                    <label class="label__check" for="exampleRadios4">Especialidades</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row m-0 mt-4">
                         <!-- Inputs -->
                         <div class="col-lg-4 mb-3 px-4 pl-lg-0">
@@ -148,70 +147,6 @@
                         <div class="col-lg-4 mb-3 px-4 pl-lg-0">
                             <label class="label__fs20_bold black_bold" for="num_doc">Número de documento</label>
                             <input class="input__text" id="num_doc" type="text">
-                        </div>
-                        <!-- Button search -->
-                        <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- Reporte check RANGO DE FECHA -->     
-            <div id="filtroRang" class="mb-4 pt-lg-2 d-none">
-                <!-- form -->
-                <form action="" method="" id="">
-                    @csrf
-                    <div class="row m-0 mt-4">
-                        <!-- Inputs -->
-                        <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="fecha-iicio">Fecha de inicio</label>
-                            <input class="input__text" id="fecha-iicio" type="date">
-                        </div>
-                        <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="fecha-fin">Fecha de fin</label>
-                            <input class="input__text" id="fecha-fin" type="date">
-                        </div>
-                        <!-- Button search -->
-                        <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- Reporte check SERVICIOS -->     
-            <div id="filtroServ" class="mb-4 pt-lg-2 d-none">
-                <!-- form -->
-                <form action="" method="" id="">
-                    @csrf
-                    <div class="row m-0 mt-4">
-                        <!-- Inputs -->
-                        <div class="col-lg-8 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Servicios</label>
-                            <select class="input__text" id="tip_doc" name="">
-                                <option value="Servicio">Servicio</option>
-                                <option value="Otro servicio">Otro servicio</option>
-                            </select>
-                        </div>
-                        <!-- Button search -->
-                        <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- Reporte check ESPECIALIDAD -->     
-            <div id="filtroEspe" class="mb-4 pt-lg-2 d-none">
-                <!-- form -->
-                <form action="" method="" id="">
-                    @csrf
-                    <div class="row m-0 mt-4">
-                        <!-- Inputs -->
-                        <div class="col-lg-8 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Especialidad</label>
-                            <select class="input__text" id="tip_doc" name="">
-                                <option value="Especialidad">Especialidad</option>
-                                <option value="Otro especialidad">Otro especialidad</option>
-                            </select>
                         </div>
                         <!-- Button search -->
                         <div class="col-lg-4 mb-3 btn__down_search_sm">
@@ -395,38 +330,6 @@
             slidesPerGroup: 1,
         },
         }
-        });
-    </script>
-    <!-- Ocultar y mostrar los filtros por (documento, rango, servicio y especialidad) -->
-    <script>
-        $(document).ready(function(){
-            $("#document").click(function(){
-                $("#filtroDoc").removeClass('d-none').addClass('d-block');
-                $("#filtroRang").removeClass('d-block').addClass('d-none');
-                $("#filtroServ").removeClass('d-block').addClass('d-none');
-                $("#filtroEspe").removeClass('d-block').addClass('d-none');
-            });
-
-            $("#rango").click(function(){
-                $("#filtroRang").removeClass('d-none').addClass('d-block');
-                $("#filtroDoc").removeClass('d-block').addClass('d-none');
-                $("#filtroServ").removeClass('d-block').addClass('d-none');
-                $("#filtroEspe").removeClass('d-block').addClass('d-none');
-            });
-
-            $("#servicio").click(function(){
-                $("#filtroServ").removeClass('d-none').addClass('d-block');
-                $("#filtroDoc").removeClass('d-block').addClass('d-none');
-                $("#filtroRang").removeClass('d-block').addClass('d-none');
-                $("#filtroEspe").removeClass('d-block').addClass('d-none');
-            });
-
-            $("#especialidad").click(function(){
-                $("#filtroEspe").removeClass('d-none').addClass('d-block');
-                $("#filtroServ").removeClass('d-block').addClass('d-none');
-                $("#filtroDoc").removeClass('d-block').addClass('d-none');
-                $("#filtroRang").removeClass('d-block').addClass('d-none');
-            });
         });
     </script>
 @endsection
