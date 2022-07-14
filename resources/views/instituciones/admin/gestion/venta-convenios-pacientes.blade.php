@@ -50,12 +50,12 @@
                     </a>
                 </li>
                 <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider btn__activ" data-index="4">
+                    <a id="serv" class="btn_inact_slider" data-index="4">
                         Cartera convenios por cobrar
                     </a>
                 </li>
                 <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="5">
+                    <a id="serv" class="btn_inact_slider btn__activ" data-index="5">
                         Ventas por convenios y pacientes
                     </a>
                 </li>
@@ -104,117 +104,30 @@
             <div class="pt-4 mb-3">
                 <h2 class="text-center text-lg-left mt-2 h2_fs23_bold green_two">Búsqueda</h2>
             </div>
-            <!-- Check radio -->
-            <div class="row m-0 pb-lg-1">
-                <div class="col-lg-6 p-0">
+            <!-- form -->
+            <div class="mb-4 pt-lg-2">
+                <form action="" method="" id="">
+                    @csrf
                     <div class="row m-0">
-                        <div id="document" class="col-lg-3 pl-lg-0 check_radio">
-                            <input class="" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="label__check" for="exampleRadios1">Documento</label>
-                        </div>
-
-                        <div id="rango" class="col-lg-3 pl-lg-0 check_radio">
-                            <input class="" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="label__check" for="exampleRadios2">Rango de fecha</label>
-                        </div>
-
-                        <div id="servicio" class="col-lg-3 pl-lg-0 check_radio">
-                            <input class="" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                            <label class="label__check" for="exampleRadios3">Servicios</label>
-                        </div>
-
-                        <div id="especialidad" class="col-lg-3 pl-lg-0 check_radio">
-                            <input class="" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                            <label class="label__check" for="exampleRadios4">Especialidades</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Reporte check DOCUMENTO -->     
-            <div id="filtroDoc" class="mb-4 pt-lg-2">
-                <!-- form -->
-                <form action="" method="" id="">
-                    @csrf
-                    <div class="row m-0 mt-4">
                         <!-- Inputs -->
-                        <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Seleccione tipo de documento</label>
-                            <select class="input__text" id="tip_doc" name="">
-                                <option value="Cédula de ciudadanía">Cédula de ciudadanía</option>
-                                <option value="NIT">NIT</option>
-                                <option value="Otro documento">Otro documento</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="num_doc">Número de documento</label>
-                            <input class="input__text" id="num_doc" type="text">
-                        </div>
-                        <!-- Button search -->
-                        <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- Reporte check RANGO DE FECHA -->     
-            <div id="filtroRang" class="mb-4 pt-lg-2 d-none">
-                <!-- form -->
-                <form action="" method="" id="">
-                    @csrf
-                    <div class="row m-0 mt-4">
-                        <!-- Inputs -->
-                        <div class="col-lg-4 mb-3 px-4 pl-lg-0">
+                        <div class="col-lg-3 mb-3 px-4 pl-lg-0">
                             <label class="label__fs20_bold black_bold" for="fecha-iicio">Fecha de inicio</label>
                             <input class="input__text" id="fecha-iicio" type="date">
                         </div>
-                        <div class="col-lg-4 mb-3 px-4 pl-lg-0">
+                        <div class="col-lg-3 mb-3 px-4 pl-lg-0">
                             <label class="label__fs20_bold black_bold" for="fecha-fin">Fecha final</label>
                             <input class="input__text" id="fecha-fin" type="date">
                         </div>
-                        <!-- Button search -->
-                        <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- Reporte check SERVICIOS -->     
-            <div id="filtroServ" class="mb-4 pt-lg-2 d-none">
-                <!-- form -->
-                <form action="" method="" id="">
-                    @csrf
-                    <div class="row m-0 mt-4">
-                        <!-- Inputs -->
-                        <div class="col-lg-8 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Servicios</label>
-                            <select class="input__text" id="tip_doc" name="">
-                                <option value="Servicio">Servicio</option>
-                                <option value="Otro servicio">Otro servicio</option>
+                        <div class="col-lg-3 mb-3 px-4 pl-lg-0">
+                            <label class="label__fs20_bold black_bold" for="identificacion">Identificación</label>
+                            <select class="input__text" id="identificacion" name="">
+                                <option value=""></option>
+                                <option value="identificación 1">identificación 1</option>
+                                <option value="identificación 2">identificación 2</option>
                             </select>
                         </div>
                         <!-- Button search -->
-                        <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- Reporte check ESPECIALIDAD -->     
-            <div id="filtroEspe" class="mb-4 pt-lg-2 d-none">
-                <!-- form -->
-                <form action="" method="" id="">
-                    @csrf
-                    <div class="row m-0 mt-4">
-                        <!-- Inputs -->
-                        <div class="col-lg-8 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Especialidad</label>
-                            <select class="input__text" id="tip_doc" name="">
-                                <option value="Especialidad">Especialidad</option>
-                                <option value="Otro especialidad">Otro especialidad</option>
-                            </select>
-                        </div>
-                        <!-- Button search -->
-                        <div class="col-lg-4 mb-3 btn__down_search_sm">
+                        <div class="col-lg-3 mb-3 btn__down_search_sm">
                             <button type="submit" class="bg_green_two">Buscar</button>
                         </div>
                     </div>
@@ -307,7 +220,7 @@
     <script>
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
-            type: 'line',
+            type: 'doughnut',
             data: {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                 datasets: [{
@@ -331,16 +244,17 @@
                     ],
                     borderWidth: 2
                 }]
+            },
+            options: {
+                // circumference: 100 * Math.PI
+                // scales: {
+                //     yAxes: [{
+                //         ticks: {
+                //             beginAtZero:true
+                //         }
+                //     }]
+                // }
             }
-            // options: {
-            //     scales: {
-            //         yAxes: [{
-            //             ticks: {
-            //                 beginAtZero:true
-            //             }
-            //         }]
-            //     }
-            // }
         });
     </script>
 

@@ -138,6 +138,8 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
             Route::view('tercer-reporte', 'instituciones.admin.gestion.convenios-todos-movimientos')->name('tercer-reporte');  
             Route::view('cuarto-reporte', 'instituciones.admin.gestion.gestion-recaudado')->name('cuarto-reporte'); 
             Route::view('quinto-reporte', 'instituciones.admin.gestion.cartera-convenios-cobrar')->name('quinto-reporte');
+            Route::view('sexto-reporte', 'instituciones.admin.gestion.venta-convenios-pacientes')->name('sexto-reporte');
+            
         }
     );
 });

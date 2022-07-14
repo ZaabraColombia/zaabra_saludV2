@@ -168,7 +168,7 @@
                             <input class="input__text" id="fecha-iicio" type="date">
                         </div>
                         <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="fecha-fin">Fecha de fin</label>
+                            <label class="label__fs20_bold black_bold" for="fecha-fin">Fecha final</label>
                             <input class="input__text" id="fecha-fin" type="date">
                         </div>
                         <!-- Button search -->
