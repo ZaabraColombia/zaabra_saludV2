@@ -29414,8 +29414,26 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   border: solid 1px #1B85D7;
 }
 
+.bg_green_one {
+  color: #F3F3F3 !important;
+  background: #019F86;
+  border: solid 1px #019F86;
+}
+
 .bg_green_two {
   color: #F3F3F3 !important;
+  background: #049372;
+  border: solid 1px #049372;
+}
+
+.bg_greenOne {
+  color: #FFFFFF !important;
+  background: #019F86;
+  border: solid 1px #019F86;
+}
+
+.bg_greenTwo {
+  color: #FFFFFF !important;
   background: #049372;
   border: solid 1px #049372;
 }

@@ -9,8 +9,23 @@
     background: $withe_official;
     border: solid 1px $blue_two;
 }
+.bg_green_one {
+    color: $gray_100 !important;
+    background: $green_one;
+    border: solid 1px $green_one;
+}
 .bg_green_two {
     color: $gray_100 !important;
+    background: $green_two;
+    border: solid 1px $green_two;
+}
+.bg_greenOne {
+    color: $withe !important;
+    background: $green_one;
+    border: solid 1px $green_one;
+}
+.bg_greenTwo {
+    color: $withe !important;
     background: $green_two;
     border: solid 1px $green_two;
 }

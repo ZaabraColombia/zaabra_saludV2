@@ -151,7 +151,7 @@
                         </div>
                         <!-- Button search -->
                         <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
+                            <button type="submit" class="bg_greenOne">Buscar</button>
                         </div>
                     </div>
                 </form>
@@ -173,7 +173,7 @@
                         </div>
                         <!-- Button search -->
                         <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
+                            <button type="submit" class="bg_greenOne">Buscar</button>
                         </div>
                     </div>
                 </form>
@@ -194,7 +194,7 @@
                         </div>
                         <!-- Button search -->
                         <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
+                            <button type="submit" class="bg_greenOne">Buscar</button>
                         </div>
                     </div>
                 </form>
@@ -215,7 +215,7 @@
                         </div>
                         <!-- Button search -->
                         <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
+                            <button type="submit" class="bg_greenOne">Buscar</button>
                         </div>
                     </div>
                 </form>
@@ -295,7 +295,7 @@
                 </div>
                 <!-- Button search -->
                 <div class="col-12 mt-4 justify-content-center btn__down_search_sm">
-                    <button type="submit" class="bg_green_two" style="width: 84px">Exportar</button>
+                    <button type="submit" class="bg_greenOne" style="width: 84px">Exportar</button>
                 </div>
             </div>
         </div>

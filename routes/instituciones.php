@@ -140,6 +140,7 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
             Route::view('quinto-reporte', 'instituciones.admin.gestion.cartera-convenios-cobrar')->name('quinto-reporte');
             Route::view('sexto-reporte', 'instituciones.admin.gestion.venta-convenios-pacientes')->name('sexto-reporte');
             Route::view('septimo-reporte', 'instituciones.admin.gestion.informe-venta-servicio')->name('septimo-reporte');
+            Route::view('octavo-reporte', 'instituciones.admin.gestion.informe-venta-especialidad')->name('octavo-reporte');
         }
     );
 });
