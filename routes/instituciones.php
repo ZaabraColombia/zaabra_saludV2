@@ -127,14 +127,19 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
     Route::post('/institucion/filtro-vistas', [entidades\Admin\PanelController::class, 'search'])->name('filtro-vistas');
 
     //******** Rutas para las vistas del modulo gestión agenda instituciones ********//
-    Route::group([
-        'prefix' => '/gestion/',
-        'as' => 'gestion.',
-    ], function () {
-        Route::view('primer-reporte', 'instituciones.admin.gestion.convenio-saldo-por-pagar')->name('primer-reporte');
-        Route::view('segundo-reporte', 'instituciones.admin.gestion.convenio-todo-movimiento')->name('segundo-reporte'); 
-        Route::view('tercer-reporte', 'instituciones.admin.gestion.convenios-todos-movimientos')->name('tercer-reporte');   
-    });
+    Route::group(
+        [
+            'prefix' => '/gestion/',
+            'as' => 'gestion.',
+        ], 
+        function () {
+            Route::view('primer-reporte', 'instituciones.admin.gestion.convenio-saldo-por-pagar')->name('primer-reporte');
+            Route::view('segundo-reporte', 'instituciones.admin.gestion.convenio-todo-movimiento')->name('segundo-reporte'); 
+            Route::view('tercer-reporte', 'instituciones.admin.gestion.convenios-todos-movimientos')->name('tercer-reporte');  
+            Route::view('cuarto-reporte', 'instituciones.admin.gestion.gestion-recaudado')->name('cuarto-reporte'); 
+            Route::view('quinto-reporte', 'instituciones.admin.gestion.cartera-convenios-cobrar')->name('quinto-reporte');
+        }
+    );
 });
 
 
