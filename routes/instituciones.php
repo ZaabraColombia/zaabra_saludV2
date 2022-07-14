@@ -132,7 +132,8 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
         'as' => 'gestion.',
     ], function () {
         Route::view('primer-reporte', 'instituciones.admin.gestion.convenio-saldo-por-pagar')->name('primer-reporte');
-        Route::view('segundo-reporte', 'instituciones.admin.gestion.convenio-todo-movimiento')->name('segundo-reporte');    
+        Route::view('segundo-reporte', 'instituciones.admin.gestion.convenio-todo-movimiento')->name('segundo-reporte'); 
+        Route::view('tercer-reporte', 'instituciones.admin.gestion.convenios-todos-movimientos')->name('tercer-reporte');   
     });
 });
 
