@@ -41,7 +41,7 @@
                 </li>
                 <li class="swiper-slide">
                     <a id="serv" class="btn_inact_slider" data-index="2">
-                        Ver convenios con todos los movimientos
+                        Ver los convenios con todos los movimientos
                     </a>
                 </li>
                 <li class="swiper-slide">

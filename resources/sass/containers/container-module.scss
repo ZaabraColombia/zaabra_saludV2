@@ -67,6 +67,9 @@
 }
 // Estilos previamente para ejemplo vista gestion DESKTOP
 @media(min-width: 1600px) {
+    #container_gestion .panel_head {
+        margin-bottom: 40px;
+    }
     #container_gestion .panel_body {
         margin-top: 32px;
         padding: 32px 48px;

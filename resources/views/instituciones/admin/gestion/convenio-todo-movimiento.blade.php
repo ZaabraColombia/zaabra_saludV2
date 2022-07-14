@@ -30,18 +30,18 @@
         <div class="swiper-container swiper_gestion">
             <div class="swiper-wrapper">
                 <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider btn__activ" data-index="0">
+                    <a id="serv" class="btn_inact_slider" data-index="0">
                         Ver convenio con saldo por pagar
                     </a>
                 </li>
                 <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="1">
+                    <a id="serv" class="btn_inact_slider btn__activ" data-index="1">
                         Ver convenio con todo el movimiento
                     </a>
                 </li>
                 <li class="swiper-slide">
                     <a id="serv" class="btn_inact_slider" data-index="2">
-                        Ver convenios con todos los movimientos
+                        Ver los convenios con todos los movimientos
                     </a>
                 </li>
                 <li class="swiper-slide">
@@ -106,54 +106,15 @@
             </div>
             <!-- form -->
             <div class="mb-4 pt-lg-2">
-                <form action="" method="" id="">
-                    @csrf
-                    <div class="row m-0 pb-lg-3">
-                        <!-- Check radio -->
-                        <div class="col-lg-6 p-0">
-                            <div class="row m-0">
-                                <div class="col-lg-3 pl-lg-0 check_radio">
-                                    <input class="" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                    <label class="label__check" for="exampleRadios1">Documento</label>
-                                </div>
-
-                                <div class="col-lg-3 pl-lg-0 check_radio">
-                                    <input class="" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                    <label class="label__check" for="exampleRadios2">Rango de fecha</label>
-                                </div>
-
-                                <div class="col-lg-3 pl-lg-0 check_radio">
-                                    <input class="" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                    <label class="label__check" for="exampleRadios3">Servicios</label>
-                                </div>
-
-                                <div class="col-lg-3 pl-lg-0 check_radio">
-                                    <input class="" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                                    <label class="label__check" for="exampleRadios4">Especialidades</label>
-                                </div>
-                            </div>
+                <div class="row m-0">
+                    <!-- Search bar -->
+                    <div class="col-lg-8 mb-3 px-4 px-lg-0">
+                        <div class="search_btn_bg">
+                            <input  class="input_b" data-url="{{ url('search') }}" placeholder="Buscar">
+                            <button class="icon__search_white"></button>
                         </div>
                     </div>
-                    <div class="row m-0 mt-4">
-                        <!-- Inputs -->
-                        <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Seleccione tipo de documento</label>
-                            <select class="input__text" id="tip_doc" name="">
-                                <option value="Cédula de ciudadanía">Cédula de ciudadanía</option>
-                                <option value="NIT">NIT</option>
-                                <option value="Otro documento">Otro documento</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="num_doc">Número de documento</label>
-                            <input class="input__text" id="num_doc" type="text">
-                        </div>
-                        <!-- Button search -->
-                        <div class="col-lg-4 mb-3 btn__down_search_sm">
-                            <button type="submit" class="bg_green_two">Buscar</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
             <!-- Graphics and Table -->
             <div class="row m-0 cuadro_resultado">
@@ -242,7 +203,7 @@
     <script>
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                 datasets: [{
