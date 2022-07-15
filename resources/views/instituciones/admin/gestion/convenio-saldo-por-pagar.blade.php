@@ -26,79 +26,9 @@
                 </div>
             </div>
         </div>
-        <!-- Carrusel de opciones -->
-        <div class="swiper-container swiper_gestion">
-            <div class="swiper-wrapper">
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider btn__activ" data-index="0">
-                        Ver convenio con saldo por pagar
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="1">
-                        Ver convenio con todo el movimiento
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="2">
-                        Ver los convenios con todos los movimientos
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="3">
-                        Gestión de recaudado
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="4">
-                        Cartera convenios por cobrar
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="5">
-                        Ventas por convenios y pacientes
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="6">
-                        Informes de ventas por servicio
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="7">
-                        Informe de ventas por especialidades
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="8">
-                        Informe de ventas comparativos agrupados
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="9">
-                        Informe de ventas por tipo de pago
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="10">
-                        Número de citas por servicio
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="11">
-                        Número de citas por especialidades
-                    </a>
-                </li>
-                <li class="swiper-slide">
-                    <a id="serv" class="btn_inact_slider" data-index="12">
-                        Número de citas por profesional
-                    </a>
-                </li>
-            </div>
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev btnPrev_pag_slider"></div>
-            <div class="swiper-button-next btnNext_pag_slider"></div> 
-        </div>
+
+        @include('instituciones.admin.gestion.botones-opciones')
+        
         <!-- panel body -->
         <div class="panel_body">
             <div class="pt-4 mb-3">
