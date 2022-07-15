@@ -65,19 +65,19 @@
                                         <img class="" src='/img/menu/avatar.png' style="width: 53px">
                                     </div>
                                     <div class="col-9 pl-lg-2 pr-lg-0">
-                                        <h4 class="h4_card_fs18_bold black_bolder">Nombre de convenio</h4>
-                                        <h4 class="h4_card_fs16_reg black_bolder">Bogotá</h4>
+                                        <h4 class="h4_fs18_bold black_bolder">Nombre de convenio</h4>
+                                        <h4 class="h4_fs16_reg black_bolder">Bogotá</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 pr-lg-0 d-flex flex-column justify-content-center">
                                 <div>
-                                    <span class="h4_card_fs16_reg black_bolder">Dirección:</span>
-                                    <span class="h4_card_fs16_reg black_bolder">Carrera 30 # 0 - 00</span>
+                                    <span class="h4_fs16_reg black_bolder">Dirección:</span>
+                                    <span class="h4_fs16_reg black_bolder">Carrera 30 # 0 - 00</span>
                                 </div>
                                 <div>
-                                    <span class="h4_card_fs16_reg black_bolder">Teléfono:</span>
-                                    <span class="h4_card_fs16_reg black_bolder">+57 313 000 00 00</span>
+                                    <span class="h4_fs16_reg black_bolder">Teléfono:</span>
+                                    <span class="h4_fs16_reg black_bolder">+57 313 000 00 00</span>
                                 </div>
                             </div>
                         </div>

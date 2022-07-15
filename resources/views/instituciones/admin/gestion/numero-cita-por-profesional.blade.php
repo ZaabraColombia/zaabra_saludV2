@@ -41,18 +41,18 @@
                     <div class="row m-0">
                         <!-- Inputs -->
                         <div class="col-lg-3 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="fecha-iicio">Fecha de inicio</label>
+                            <label class="label_fs20_bold black_bold" for="fecha-iicio">Fecha de inicio</label>
                             <input class="input__text" id="fecha-iicio" type="date">
                         </div>
                         <div class="col-lg-3 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="fecha-fin">Fecha final</label>
+                            <label class="label_fs20_bold black_bold" for="fecha-fin">Fecha final</label>
                             <input class="input__text" id="fecha-fin" type="date">
                         </div>
                     </div>
                     <div class="row m-0">
                         <!-- Inputs -->
                         <div class="col-lg-3 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="servicio">Servicio</label>
+                            <label class="label_fs20_bold black_bold" for="servicio">Servicio</label>
                             <select class="input__text" id="servicio" name="">
                                 <option value=""></option>
                                 <option value="servicio 1">servicio 1</option>
@@ -60,7 +60,7 @@
                             </select>
                         </div>
                         <div class="col-lg-3 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="especialidad">Especialidad</label>
+                            <label class="label_fs20_bold black_bold" for="especialidad">Especialidad</label>
                             <select class="input__text" id="especialidad" name="">
                                 <option value=""></option>
                                 <option value="especialidad 1">especialidad 1</option>
@@ -68,7 +68,7 @@
                             </select>
                         </div>
                         <div class="col-lg-3 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="convenio">Convenio</label>
+                            <label class="label_fs20_bold black_bold" for="convenio">Convenio</label>
                             <select class="input__text" id="convenio" name="">
                                 <option value=""></option>
                                 <option value="convenio 1">convenio 1</option>
@@ -101,19 +101,19 @@
                                         <img class="" src='/img/menu/avatar.png' style="width: 53px">
                                     </div>
                                     <div class="col-9 pl-lg-2 pr-lg-0">
-                                        <h4 class="h4_card_fs18_bold black_bolder">Nombre de convenio</h4>
-                                        <h4 class="h4_card_fs16_reg black_bolder">Bogotá</h4>
+                                        <h4 class="h4_fs18_bold black_bolder">Nombre de convenio</h4>
+                                        <h4 class="h4_fs16_reg black_bolder">Bogotá</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 pr-lg-0 d-flex flex-column justify-content-center">
                                 <div>
-                                    <span class="h4_card_fs16_reg black_bolder">Dirección:</span>
-                                    <span class="h4_card_fs16_reg black_bolder">Carrera 30 # 0 - 00</span>
+                                    <span class="h4_fs16_reg black_bolder">Dirección:</span>
+                                    <span class="h4_fs16_reg black_bolder">Carrera 30 # 0 - 00</span>
                                 </div>
                                 <div>
-                                    <span class="h4_card_fs16_reg black_bolder">Teléfono:</span>
-                                    <span class="h4_card_fs16_reg black_bolder">+57 313 000 00 00</span>
+                                    <span class="h4_fs16_reg black_bolder">Teléfono:</span>
+                                    <span class="h4_fs16_reg black_bolder">+57 313 000 00 00</span>
                                 </div>
                             </div>
                         </div>
