@@ -120,16 +120,16 @@
                                     <div class="col-lg-9 card__data pl-2">
                                         <!-- card data top -->
                                         <div class="card__data_top">
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <h4 class="txt_h4_card">Dr.(a)&nbsp;{{ "{$profesional->primer_nombre} {$profesional->primer_apellido} {$profesional->segundo_apellido}" }}</h4>
                                             </div>
 
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <h5 class="txt_h5_card">{{ $profesional->nombre_especialidad ?? '' }}</h5>
                                             </div>
                                         </div>
                                         <!-- Informative buttons mobile-->
-                                        <div class="d-lg-none button__info_card mb_card">
+                                        <div class="d-lg-none button__info_card mb__cards">
                                             <button class="btn_icon_card tool top"
                                                     data-url="{{ route('institucion.profesionales.bloquear-calendario', ['profesional' => $profesional->id_profesional_inst]) }}"
                                                     data-toggle="modal" data-target="#modal_see_professional">
@@ -162,7 +162,7 @@
                                         </div>
                                         <!-- card data down -->
                                         <div class="card__data_down">
-                                            <div class="toolt bottom mb_card">
+                                            <div class="toolt bottom mb__cards">
                                                 <div class="width__tool_tip">
                                                     <i data-feather="mail" class="icon_span_card"></i>
                                                     <span class="txt_span_card">{{ $profesional->correo }}</span>
@@ -170,7 +170,7 @@
                                                 <span class="tiptext">{{ $profesional->correo }}</span>
                                             </div>
 
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <i data-feather="phone" class="icon_span_card"></i>
                                                 <span class="txt_span_card">{{ "{$profesional->celular} - {$profesional->telefono}" }}</span>
                                             </div>

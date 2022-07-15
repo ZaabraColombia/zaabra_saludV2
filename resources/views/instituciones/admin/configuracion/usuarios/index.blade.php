@@ -80,7 +80,7 @@
                                     <div class="col-12 card__data">
                                         <!-- card data top -->
                                         <div class="card__data_top">
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <h4 class="txt_h4_card_user">{{ "$usuario->primernombre $usuario->apellidos" }}</h4>
                                             </div>
                                             <div class="">
@@ -93,13 +93,13 @@
                                     <div class="col-12 px-0">
                                         <!-- card data down -->
                                         <div class="card__data_down_user">
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <i data-feather="phone" class="icon_span_green_card"></i>
                                                 <span class="txt_span_card_user">{{ $usuario->auxiliar->celular }}</span>
                                             </div>
 
                                             <div class="toolt bottom">
-                                                <div class="mb-xl-0 mb_card width__tool_tip">
+                                                <div class="mb-xl-0 mb__cards width__tool_tip">
                                                     <i data-feather="mail" class="icon_span_green_card"></i>
                                                     <span class="txt_span_card_user">{{ $usuario->email }}</span>
                                                 </div>

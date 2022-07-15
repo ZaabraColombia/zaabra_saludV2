@@ -84,4 +84,36 @@
         height: 36px;
         padding: 5px 25px;
     }
+
+    .search_btn_bg {
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffff;
+        border-radius: 5px;
+        border: 1px solid #DBDADA;
+        input {
+            font-size: 20px;
+            font-weight: 100;
+            font-family: 'Roboto';
+            color: #434343;
+            width: 100%;
+            padding: 5px 10px;
+            border: none;
+            background-color: transparent;
+        }
+        button {
+            width: 42px;
+            height: 100%;
+            border: 1px solid #019F86;
+            border-radius: 0 4px 4px 0;
+            background-color: #019F86;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 22px;
+            background-position-x: 7px;
+            background-position-y: 4px;
+        }
+    }
 }

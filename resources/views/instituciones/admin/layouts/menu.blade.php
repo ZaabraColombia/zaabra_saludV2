@@ -25,25 +25,6 @@
                     </a>
                 </li>
 
-                {{-- Profesionales --}}
-                @can('accesos-institucion','ver-profesionales')
-                    <li class="sidebar-item item__green">
-                        <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
-                            <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'item_green_activ' : '' }}">Profesionales</button>
-                        </a>
-                    </li>
-                @endcan
-
-
-                {{-- Mis pacientes --}}
-                @can('accesos-institucion','ver-pacientes')
-                    <li class="sidebar-item item__green">
-                        <a id="" class="" href='{{ route('institucion.pacientes.index') }}'>
-                            <button class="{{ request()->routeIs('institucion.pacientes.*') ? 'item_green_activ' : '' }}">Pacientes</button>
-                        </a>
-                    </li>
-                @endcan
-
                 {{-- Configuraciones --}}
                 @can('accesos-institucion','configuraciones')
                     <li class="sidebar-item item__green accordion" id="accordionConfiguracion">
@@ -114,17 +95,16 @@
                     </ul>
                 </li>
 
-
-                {{-- Histórico de citas --}}
-                @can('accesos-institucion','ver-citas')
+                {{-- Pacientes --}}
+                @can('accesos-institucion','ver-pacientes')
                     <li class="sidebar-item item__green">
-                        <a id="" class="" href='{{ route('institucion.citas') }}'>
-                            <button class="{{ request()->routeIs('institucion.citas') ? 'item_green_activ' : '' }}">Histórico de citas</button>
+                        <a id="" class="" href='{{ route('institucion.pacientes.index') }}'>
+                            <button class="{{ request()->routeIs('institucion.pacientes.*') ? 'item_green_activ' : '' }}">Pacientes</button>
                         </a>
                     </li>
                 @endcan
 
-                {{-- pagos --}}
+                {{-- Pagos --}}
                 @can('accesos-institucion','ver-pagos')
                     <li class="sidebar-item item__green">
                         <a id="" class="" href='{{ route('institucion.pagos') }}'>
@@ -133,7 +113,7 @@
                     </li>
                 @endcan
 
-                {{-- mis contactos --}}
+                {{-- Contactos --}}
                 @can('accesos-institucion','ver-contactos')
                     <li class="sidebar-item item__green">
                         <a id="" class="" href='{{ route('institucion.contactos.index') }}'>
@@ -176,10 +156,28 @@
 
                 {{-- Gestión --}}
                 <li class="sidebar-item item__green">
-                    <a class="" href="#">
-                        <button class="">Gestión</button>
+                    <a href="{{ route('institucion.gestion.primer-reporte')}}">
+                        <button class="{{ request()->routeIs('institucion.gestion.*') ? 'item_green_activ' : '' }}">Gestión</button>
                     </a>
                 </li>
+
+                {{-- Profesionales --}}
+                @can('accesos-institucion','ver-profesionales')
+                    <li class="sidebar-item item__green">
+                        <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
+                            <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'item_green_activ' : '' }}">Profesionales</button>
+                        </a>
+                    </li>
+                @endcan
+
+                {{-- Histórico de citas --}}
+                @can('accesos-institucion','ver-citas')
+                    <li class="sidebar-item item__green">
+                        <a id="" class="" href='{{ route('institucion.citas') }}'>
+                            <button class="{{ request()->routeIs('institucion.citas') ? 'item_green_activ' : '' }}">Histórico de citas</button>
+                        </a>
+                    </li>
+                @endcan
 
                 {{-- Favoritos
                 @can('accesos-institucion','favoritos')
@@ -189,7 +187,6 @@
                         </a>
                     </li>
                 @endcan --}}
-
 
                 {{-- Logo Mipress --}}
                 <li class="sidebar-item  has-sub item__logo_green">

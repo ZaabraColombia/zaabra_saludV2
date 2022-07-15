@@ -125,6 +125,29 @@ Route::group(['prefix' => '/institucion', 'as' => 'institucion.', 'middleware' =
         ->name('calendario-disponible');
 
     Route::post('/institucion/filtro-vistas', [entidades\Admin\PanelController::class, 'search'])->name('filtro-vistas');
+
+    //******** Rutas para las vistas del modulo gestión agenda instituciones ********//
+    Route::group(
+        [
+            'prefix' => '/gestion/',
+            'as' => 'gestion.',
+        ], 
+        function () {
+            Route::view('primer-reporte', 'instituciones.admin.gestion.convenio-saldo-por-pagar')->name('primer-reporte');
+            Route::view('segundo-reporte', 'instituciones.admin.gestion.convenio-todo-movimiento')->name('segundo-reporte'); 
+            Route::view('tercer-reporte', 'instituciones.admin.gestion.convenios-todos-movimientos')->name('tercer-reporte');  
+            Route::view('cuarto-reporte', 'instituciones.admin.gestion.gestion-recaudado')->name('cuarto-reporte'); 
+            Route::view('quinto-reporte', 'instituciones.admin.gestion.cartera-convenios-cobrar')->name('quinto-reporte');
+            Route::view('sexto-reporte', 'instituciones.admin.gestion.venta-convenios-pacientes')->name('sexto-reporte');
+            Route::view('septimo-reporte', 'instituciones.admin.gestion.informe-venta-servicio')->name('septimo-reporte');
+            Route::view('octavo-reporte', 'instituciones.admin.gestion.informe-venta-especialidad')->name('octavo-reporte');
+            Route::view('noveno-reporte', 'instituciones.admin.gestion.informe-venta-comparativo-agrupado')->name('noveno-reporte');
+            Route::view('decimo-reporte', 'instituciones.admin.gestion.informe-venta-tipo-pago')->name('decimo-reporte');
+            Route::view('undecimo-reporte', 'instituciones.admin.gestion.numero-cita-por-servcio')->name('undecimo-reporte');
+            Route::view('duodecimo-reporte', 'instituciones.admin.gestion.numero-cita-por-especialidad')->name('duodecimo-reporte');
+            Route::view('decimotercero-reporte', 'instituciones.admin.gestion.numero-cita-por-profesional')->name('decimotercero-reporte');
+        }
+    );
 });
 
 

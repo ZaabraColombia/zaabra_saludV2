@@ -12,6 +12,7 @@
 
 @section('contenido')
     <div class="container-fluid panel_container">
+        <!-- panel head -->
         <div class="panel_head m_special_convenios">
             <!-- Main title -->
             <div class="card_main_title">
@@ -48,7 +49,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- panel body -->
         <div class="panel_body">
             <div class="row m-0">
                 <!-- alert notice -->

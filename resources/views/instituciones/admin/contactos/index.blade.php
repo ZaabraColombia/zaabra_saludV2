@@ -80,12 +80,12 @@
                                     <div class="col-lg-9 card__data pl-2">
                                         <!-- card data top -->
                                         <div class="card__data_top">
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <h4 class="txt_h4_card">{{ $contacto->nombre }}</h4>
                                             </div>
                                         </div>
                                         <!-- Informative buttons mobile-->
-                                        <div class="d-lg-none button__info_card mb_card">
+                                        <div class="d-lg-none button__info_card mb__cards">
                                             @can('accesos-institucion','ver-contactos')
                                                 <button class="btn_icon_card btn-ver-contacto tool top" data-id="{{ $contacto->id }}">
                                                     <i data-feather="eye" class="icon_btn_card_mobile"></i> 
@@ -107,7 +107,7 @@
                                         </div>
                                         <!-- card data down -->
                                         <div class="card__data_down">
-                                            <div class="toolt bottom mb_card">
+                                            <div class="toolt bottom mb__cards">
                                                 <div class="width__tool_tip">
                                                     <i data-feather="mail" class="icon_span_card"></i>
                                                     <span class="txt_span_card">{{ $contacto->correo }}</span>
@@ -115,7 +115,7 @@
                                                 <span class="tiptext">{{ $contacto->correo }}</span>
                                             </div>
 
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <i data-feather="phone" class="icon_span_card"></i>
                                                 <span class="txt_span_card">{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</span>
                                             </div>

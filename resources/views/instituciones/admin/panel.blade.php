@@ -104,7 +104,7 @@
                     
                     {{-- Gestión --}} 
                     <div class="col-12 col-md-4 pl-4 pr-4 card__menu">
-                        <a href="#">
+                        <a href="{{ route('institucion.gestion.primer-reporte') }}">
                             <div class="card__ icon__gest_green">
                                 <span class="txt__card_menu">Gestión</span>
                             </div>

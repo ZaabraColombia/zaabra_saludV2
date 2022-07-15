@@ -88,18 +88,18 @@
                                     <div class="col-lg-9 card__data pt_card_float">
                                         <!-- card data top -->
                                         <div class="card__data_top">
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <h4 class="txt_h4_card">{{ "{$paciente->user->primernombre} {$paciente->user->apellidos}" }}</h4>
                                             </div>
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <h5 class="txt_h5_card">{{ $paciente->eps }}</h5>
                                             </div>
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <h6 class="txt_h6_card">{{ $paciente->user->identificacion }}</h6>
                                             </div>
                                         </div>
                                         <!-- Informative buttons mobile-->
-                                        <div class="d-lg-none button__info_card mb_card">
+                                        <div class="d-lg-none button__info_card mb__cards">
                                             <button class="btn_icon_card tool top" data-url="" data-toggle="modal" data-target="#modal_see_patient">
                                                 <i data-feather="eye" class="icon_btn_card_mobile"></i> 
                                                 <span class="tiptext">Ver paciente</span>
@@ -111,7 +111,7 @@
                                     <div class="col-12 px-0 px-lg-4 px-xl-3">
                                         <!-- card data down -->
                                         <div class="card__data_down">
-                                            <div class="mb_card">
+                                            <div class="mb__cards">
                                                 <i data-feather="phone" class="icon_span_green_card"></i>
                                                 <span class="txt_span_card">{{ $paciente->celular }}</span>
                                             </div>

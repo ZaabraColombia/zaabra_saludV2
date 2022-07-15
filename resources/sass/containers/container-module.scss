@@ -1,0 +1,83 @@
+#container_gestion .panel_body {
+    margin-top: 48px;
+    border-radius: 3px;
+    border: 1px solid #DBDADA;
+    background-color: #FFFFFF;
+}
+#container_gestion .panel_body .cuadro_resultado {
+    flex-direction: row-reverse;
+}
+#container_gestion .panel_body .cuadro_resultado .table_resultado {
+    background-color: #F9F9F9;
+    padding: 24px;
+}
+#container_gestion .table_resultado 
+.tab_gestion_green .table {
+    thead tr {
+        border-bottom: 1px solid #DBDADA;
+        th {
+            font-family: 'Quicksand';
+            font-size: 18px;
+            font-weight: bold;
+            color: #019F86;
+            text-align: left;
+        }
+        th:last-child {
+            text-align: center;
+        }
+    }
+    tbody tr {
+        td {
+            font-family: 'Roboto';
+            font-size: 15px;
+            font-weight: 100;
+            color: #434343;
+            text-align: left;
+        }
+        td:last-child {
+            text-align: center;
+        }
+    }
+    tfoot tr {
+        border-top: 1px solid #DBDADA;
+        td:first-child {
+            font-family: 'Quicksand';
+            font-size: 18px;
+            font-weight: bold;
+            color: #019F86;
+            text-align: left;
+        }
+        td:last-child {
+            font-family: 'Roboto';
+            font-size: 17px;
+            font-weight: 100;
+            color: #434343;
+            text-align: center;
+        }
+    }
+}
+@media(min-width: 768px) {
+
+}
+@media(min-width: 1200px) {
+
+}
+@media(min-width: 1300px) {
+
+}
+// Estilos previamente para ejemplo vista gestion DESKTOP
+@media(min-width: 1600px) {
+    #container_gestion .panel_head {
+        margin-bottom: 40px;
+    }
+    #container_gestion .panel_body {
+        margin-top: 32px;
+        padding: 32px 48px;
+    }
+    #container_gestion .panel_body .cuadro_resultado {
+        flex-direction: row-reverse;
+    }
+    #container_gestion .panel_body .cuadro_resultado .table_resultado {
+        padding: 30px;
+    }
+}
