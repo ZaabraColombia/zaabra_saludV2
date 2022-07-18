@@ -113,6 +113,16 @@ div.dtsp-topRow button.dtsp-countButton {
         font-weight: 100;
     }
 }
+// Propiedades de la primer columna tabla modulo administración de citas
+#table_green .table tbody tr td:first-child {
+    padding-left: 33px;
+    padding-right: 0;
+    width: 100px;
+}
+// Propiedad botón "+" en responsive
+#table_green table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before {
+    background-color: #049372;
+}
 .dtsp-subRow2 .btn-group .btn-light {
     background-color: #FFFFFF;
     border-color: #FFFFFF;

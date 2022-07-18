@@ -125,9 +125,9 @@
                         <table class="table table-borderless" style="width: 100%" id="table-citas">
                             <thead>
                                 <tr>
-                                    <th>Fecha</th>
-                                    <th>Hora Inicio</th>
-                                    <th>Hora Fin</th>
+                                    <th>Fecha&nbsp;</th>
+                                    <th>Hora&nbsp;Inicio</th>
+                                    <th>Hora&nbsp;Fin</th>
                                     {{--Es nesesario que esten duplicados--}}
                                     <th>Profesional</th>
                                     <th>Profesional</th>
@@ -631,16 +631,21 @@
                         className: '',
                         data: function (data, type, full, meta) {
 
-                            return '<div class="d-flex justify-content-center">' +
-                                '<button  class="btn_action_green tool top editar-cita" data-url="' + data.ver + '">' +
-                                '<i class="fas fa-calendar-day fa-2x"></i>' +
-                                '<span class="tiptext">Editar cita</span>' +
-                                '</button>' +
-                                '<button  class="btn_action_green tool top cancelar-cita" data-url="' + data.ver + '">' +
-                                '<i class="fas fa-calendar-times fa-2x"></i>' +
-                                '<span class="tiptext">Cancelar cita</span>' +
-                                '</button>' +
-                                '</div>';
+                            return '<div class="col-12 p-0 my-2 d-flex justify-content-center">' +
+                                        '<button  class="btn__activado">' +
+                                        '</button>' +
+                                    '</div>';
+                            
+                                // '<div class="d-flex justify-content-center">' +
+                                // '<button  class="btn_action_green tool top editar-cita" data-url="' + data.ver + '">' +
+                                // '<i class="fas fa-calendar-day fa-2x"></i>' +
+                                // '<span class="tiptext">Editar cita</span>' +
+                                // '</button>' +
+                                // '<button  class="btn_action_green tool top cancelar-cita" data-url="' + data.ver + '">' +
+                                // '<i class="fas fa-calendar-times fa-2x"></i>' +
+                                // '<span class="tiptext">Cancelar cita</span>' +
+                                // '</button>' +
+                                // '</div>';
                         },
                         searchable: false,
                         orderable: false,
