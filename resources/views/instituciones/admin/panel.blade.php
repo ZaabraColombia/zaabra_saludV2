@@ -14,72 +14,6 @@
                 </div>
                 <!-- Tarjetas de opciones -->
                 <div class="row m-0">
-                    {{-- Profesionales --}}
-                    @can('accesos-institucion','ver-profesionales')
-                        <div class="col-6 col-md-4 card__menu">
-                            <a href='{{ route('institucion.profesionales.index') }}'>
-                                <div class="card__ icon__prof_green">
-                                    <span class="txt__card_menu">Profesionales</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
-
-                    {{-- Pacientes --}}
-                    @can('accesos-institucion','ver-pacientes')
-                        <div class="col-6 col-md-4 card__menu">
-                            <a href='{{ route('institucion.pacientes.index') }}'>
-                                <div class="card__ icon__paci_green">
-                                    <span class="txt__card_menu">Pacientes</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
-
-                    {{-- Histórico de citas --}}
-                    @can('accesos-institucion','ver-citas')
-                        <div class="col-6 col-md-4 card__menu">
-                            <a href='{{ route('institucion.citas') }}'>
-                                <div class="card__ icon__cita_green">
-                                    <span class="txt__card_menu">Histórico de citas</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
-
-                    {{-- Pagos --}}
-                    @can('accesos-institucion','ver-pagos')
-                        <div class="col-6 col-md-4 card__menu">
-                            <a href='{{ route('institucion.pagos') }}'>
-                                <div class="card__ icon__pago_green">
-                                    <span class="txt__card_menu">Pagos</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
-
-                    {{-- Usuarios --}}
-                    @can('accesos-institucion','ver-usuarios')
-                        <div class="col-6 col-md-4 card__menu">
-                            <a href='{{ route('institucion.configuracion.usuarios.index') }}'>
-                                <div class="card__ icon__usua_green">
-                                    <span class="txt__card_menu">Usuarios</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
-
-                    {{-- Contactos --}}
-                    @can('accesos-institucion','ver-contactos')
-                        <div class="col-6 col-md-4 card__menu">
-                            <a href='{{ route('institucion.contactos.index') }}'>
-                                <div class="card__ icon__cont_green">
-                                    <span class="txt__card_menu">Contactos</span>
-                                </div>
-                            </a>
-                        </div>
-                    @endcan
-
                     {{-- Convenios --}}
                     @can('accesos-institucion','ver-convenios')
                         <div class="col-6 col-md-4 card__menu">
@@ -101,15 +35,81 @@
                             </a>
                         </div>
                     @endcan
-                    
+
+                    {{-- Usuarios --}}
+                    @can('accesos-institucion','ver-usuarios')
+                        <div class="col-6 col-md-4 card__menu">
+                            <a href='{{ route('institucion.configuracion.usuarios.index') }}'>
+                                <div class="card__ icon__usua_green">
+                                    <span class="txt__card_menu">Usuarios</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
+
+                    {{-- Pacientes --}}
+                    @can('accesos-institucion','ver-pacientes')
+                        <div class="col-6 col-md-4 card__menu">
+                            <a href='{{ route('institucion.pacientes.index') }}'>
+                                <div class="card__ icon__paci_green">
+                                    <span class="txt__card_menu">Pacientes</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
+
+                    {{-- Profesionales --}}
+                    @can('accesos-institucion','ver-profesionales')
+                        <div class="col-6 col-md-4 card__menu">
+                            <a href='{{ route('institucion.profesionales.index') }}'>
+                                <div class="card__ icon__prof_green">
+                                    <span class="txt__card_menu">Profesionales</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
+
+                    {{-- Pagos --}}
+                    @can('accesos-institucion','ver-pagos')
+                        <div class="col-6 col-md-4 card__menu">
+                            <a href='{{ route('institucion.pagos') }}'>
+                                <div class="card__ icon__pago_green">
+                                    <span class="txt__card_menu">Pagos</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
+
+                    {{-- Contactos --}}
+                    @can('accesos-institucion','ver-contactos')
+                        <div class="col-6 col-md-4 card__menu">
+                            <a href='{{ route('institucion.contactos.index') }}'>
+                                <div class="card__ icon__cont_green">
+                                    <span class="txt__card_menu">Contactos</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
+
                     {{-- Gestión --}} 
-                    <div class="col-12 col-md-4 pl-4 pr-4 card__menu">
+                    <div class="col-6 col-md-4 card__menu">
                         <a href="{{ route('institucion.gestion.primer-reporte') }}">
                             <div class="card__ icon__gest_green">
                                 <span class="txt__card_menu">Gestión</span>
                             </div>
                         </a>
                     </div>
+
+                    {{-- Histórico de citas --}}
+                    @can('accesos-institucion','ver-citas')
+                        <div class="col-12 col-md-4 pl-4 pr-4 card__menu">
+                            <a href='{{ route('institucion.citas') }}'>
+                                <div class="card__ icon__cita_green">
+                                    <span class="txt__card_menu">Histórico de citas</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endcan
                 </div>
             </div>
             <!-- Tarjetas de logos entidades -->
