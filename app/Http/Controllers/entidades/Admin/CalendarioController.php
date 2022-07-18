@@ -131,12 +131,15 @@ class CalendarioController extends Controller
             //->whereDate('fecha_inicio', '>=', date('Y-m-d'))
         ;
 
-        if ($request->has('fecha') and  $request->fecha != '') {
-            //$query->where('fecha_inicio', '>=', "%{$request->get('fecha')}%");
-            $q->whereDate('fecha_inicio', '=', $request->get('fecha'));
-        } else {
-            $q->whereDate('fecha_inicio', '=', date('Y-m-d'));
-        }
+        //dd($q->get());
+
+
+//        if ($request->has('fecha') and  $request->fecha != '') {
+//            //$query->where('fecha_inicio', '>=', "%{$request->get('fecha')}%");
+//            $q->whereDate('fecha_inicio', '=', $request->get('fecha'));
+//        } else {
+//            $q->whereDate('fecha_inicio', '=', date('Y-m-d'));
+//        }
 
         $profesionales = profesionales_instituciones::query()
             ->select('id_profesional_inst as id', 'nombre_completo as label', 'nombre_completo as value')
