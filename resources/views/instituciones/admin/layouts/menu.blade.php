@@ -104,6 +104,15 @@
                     </li>
                 @endcan
 
+                {{-- Profesionales --}}
+                @can('accesos-institucion','ver-profesionales')
+                    <li class="sidebar-item item__green">
+                        <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
+                            <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'item_green_activ' : '' }}">Profesionales</button>
+                        </a>
+                    </li>
+                @endcan
+
                 {{-- Pagos --}}
                 @can('accesos-institucion','ver-pagos')
                     <li class="sidebar-item item__green">
@@ -160,15 +169,6 @@
                         <button class="{{ request()->routeIs('institucion.gestion.*') ? 'item_green_activ' : '' }}">Gestión</button>
                     </a>
                 </li>
-
-                {{-- Profesionales --}}
-                @can('accesos-institucion','ver-profesionales')
-                    <li class="sidebar-item item__green">
-                        <a id="" class="" href='{{ route('institucion.profesionales.index') }}'>
-                            <button class="{{ request()->routeIs('institucion.profesionales.*') ? 'item_green_activ' : '' }}">Profesionales</button>
-                        </a>
-                    </li>
-                @endcan
 
                 {{-- Histórico de citas --}}
                 @can('accesos-institucion','ver-citas')

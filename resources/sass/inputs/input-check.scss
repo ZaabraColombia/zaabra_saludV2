@@ -1,0 +1,103 @@
+// Check RADIO
+.input_text_check { //texto del check
+    font-size: 14px;
+    font-weight: 100;
+    font-family: 'Roboto';
+    color: #434343;
+    padding: 0 0 0 20px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    &:before { // Check sin seleccionar
+        content: "";
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        left: 0;
+        border-radius: 100%;
+        background: #FFFFFF;
+        border: 2px solid #DBDADA;
+    }
+}
+// Check seleccionado RADIO VERDE
+.input_check_radio {
+    input[type="radio"] {
+        display: none;
+        &:checked + label:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            background: #019f86;
+            border: 2px solid #DBDADA;
+            transition: 0.15s ease;
+        }
+    }
+}
+// Check BOX TOGGLE
+.input_checkBox_text_toggle {
+    font-size: 16px;
+    font-family: 'Roboto';
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 0;
+    padding: 10px 10px 0px 40px;
+    transition: all 0.3s ease;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        width: 21px;
+        height: 21px;
+        border: 1px solid $gray_third;
+        border-radius: 3px;
+        background-color: #CED4DA;
+    }
+}
+.input_checkBox_toggle {
+    input[type="checkbox"] {
+        display: none;
+        &:checked + label:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $gray_third;
+            border-radius: 3px;
+            background-image: url('/img/iconos/check.svg');
+            background-repeat: no-repeat;
+            background-position: center calc(0.4em + 0.1875rem) center;
+            background-size: contain;
+        }
+    } 
+}
+// Check BOX BLUE TOGGLE
+.input_checkBlue .input_checkBox_text_toggle:hover {
+    background-color: #eaeced;
+    color: #0083D6;
+}
+.input_checkBlue .input_checkBox_toggle input[type="checkbox"]:checked + label:before {
+    background-color: #0083D6;
+    color: #0083D6;
+}
+.input_checkBlue .input_checkBox_toggle input[type="checkbox"]:checked + label {
+    color: #0083D6;
+}
+@media (min-width: 768px){
+
+}
+@media(min-width: 1300px) {
+
+}
+@media(min-width: 1600px) {
+
+}

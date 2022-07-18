@@ -5,20 +5,37 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
-        <div class="containt_agendaProf">
-            <!-- Form update duration date -->
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Configuración del calendario</h1>
-                <h2 class="text__md black_light">Administre el horario de las citas</h2>
+    <div class="container-fluid panel_container">
+        <!-- panel head -->
+        <div class="panel_head">
+            <!-- Title -->
+            <h1 class="mb-3 title blue_two">Configuración del calendario</h1>
+            <!-- Subtitulo y tarjeta del usuario -->
+            <div class="row m-0">
+                <div class="col-md-6 p-0 mb-3 mb-md-0">
+                    <h2 class="text-center text-md-left h2_fs20_bold black_">Administre el horario de las citas.</h2>
+                </div>
+
+                <div class="col-md-6 p-0">
+                    <a class="d-flex justify-content-end align-items-center" href="">
+                        <div class="img__perfil_estatic">
+                            <img src='/img/menu/avatar.png'>
+                        </div>
+                        <div class="pl-3">
+                            <h5 class="h5_fs15_med black_">Alejandro Sandoval</h5>
+                            <h5 class="h5_fs15_med black_">Cardiologo</h5>
+                        </div>
+                    </a>
+                </div>
             </div>
-
-            <form action="{{ route('profesional.agenda.configurar-calendario.cita') }}"
-                method="post" id="form-dias" class="forms" data-alert="#alert-cita">
-                @csrf
-                <div class="containt_main_table mb-3">
+        </div>
+        <!-- panel body -->
+        <div class="panel_body">
+            <div class="container__form mb-3">
+                <form action="{{ route('profesional.agenda.configurar-calendario.cita') }}" method="post" id="form-dias" data-alert="#alert-cita">
+                    @csrf
+                    <!-- Mensaje de alerta -->
                     <div id="alert-cita">
-
                         @if($errors->first('configurar'))
                             <div class="col-12">
                                 <div class="alert alert-danger" role="alert">
@@ -31,90 +48,88 @@
                             </div>
                         @endif
                     </div>
+                    <!-- Inputs -->
                     <div class="row">
-                        <div class="col-md-6 input__box">
-                            <label for="dias_agenda">Disponibilidad de la agenda (Días)</label>
-                            <input type="number" id="dias_agenda" name="dias_agenda"
-                                   value="{{ old('dias_agenda', $config->dias_agenda) }}">
+                        <div class="col-md-6 mb-3">
+                            <label class="label_fs16_med black_" for="dias_agenda">Disponibilidad de la agenda (Días)</label>
+                            <input class="input__text" type="number" id="dias_agenda" name="dias_agenda" value="{{ old('dias_agenda', $config->dias_agenda) }}">
                         </div>
                     </div>
-
-                    <!-- Buttons -->
-                    <div class="row m-0 content_btn_right">
-                        <button type="submit" class="button_blue">Guardar</button>
+                    <!-- Button -->
+                    <div class="row m-0 btn__down_form">
+                        <button type="submit" class="bg_blue_two">Guardar</button>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
 
-            <!-- Form add schedule-->
-            <form action="{{ route('profesional.agenda.configurar-calendario.horario-agregar') }}"
-                method="post" id="form-horario-agregar" class="forms" data-alert="#alert-horario-agregar">
-                @csrf
-                <div class="containt_main_table mb-3">
+            <div class="container__form mb-3">
+                <form action="{{ route('profesional.agenda.configurar-calendario.horario-agregar') }}" method="post" id="form-horario-agregar" data-alert="#alert-horario-agregar">
+                    @csrf
                     <div id="alert-horario-agregar"></div>
+                    <!-- Subtitulo -->
                     <div class="mb-3">
-                        <h2 class="subtitle__lg blue_bold">Nuevo Horario</h2>
+                        <h2 class="h2_fs20_bold blue_two">Nuevo Horario</h2>
                     </div>
-
-                    <div class="list__form">
-                        <ul class="row m-0 mt-3">
-                            <li class="col-6 col-md-3 check__box_blue">
+                    <!-- Lista checks toggle -->
+                    <div class="list_check_toggle input_checkBlue">
+                        <ul>
+                            <li class="col-6 col-md-3 input_checkBox_toggle">
                                 <input type="checkbox" value="1" id="semana-1" name="semana[]">
-                                <label class="label_check_blue" for="semana-1">lunes</label>
+                                <label class="input_checkBox_text_toggle" for="semana-1">lunes</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box_blue">
+                            <li class="col-6 col-md-3 input_checkBox_toggle">
                                 <input type="checkbox" value="2" id="semana-2" name="semana[]">
-                                <label class="label_check_blue" for="semana-2">Martes</label>
+                                <label class="input_checkBox_text_toggle" for="semana-2">Martes</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box_blue">
+                            <li class="col-6 col-md-3 input_checkBox_toggle">
                                 <input type="checkbox" value="3" id="semana-3" name="semana[]">
-                                <label class="label_check_blue" for="semana-3">Miércoles</label>
+                                <label class="input_checkBox_text_toggle" for="semana-3">Miércoles</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box_blue">
+                            <li class="col-6 col-md-3 input_checkBox_toggle">
                                 <input type="checkbox" value="4" id="semana-4" name="semana[]">
-                                <label class="label_check_blue" for="semana-4">Jueves</label>
+                                <label class="input_checkBox_text_toggle" for="semana-4">Jueves</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box_blue">
+                            <li class="col-6 col-md-3 input_checkBox_toggle">
                                 <input type="checkbox" value="5" id="semana-5" name="semana[]">
-                                <label class="label_check_blue" for="semana-5">Viernes</label>
+                                <label class="input_checkBox_text_toggle" for="semana-5">Viernes</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box_blue">
+                            <li class="col-6 col-md-3 input_checkBox_toggle">
                                 <input type="checkbox" value="6" id="semana-6" name="semana[]">
-                                <label class="label_check_blue" for="semana-6">Sábado</label>
+                                <label class="input_checkBox_text_toggle" for="semana-6">Sábado</label>
                             </li>
-                            <li class="col-6 col-md-3 check__box_blue">
+                            <li class="col-6 col-md-3 input_checkBox_toggle">
                                 <input type="checkbox" value="0" id="semana-0" name="semana[]">
-                                <label class="label_check_blue" for="semana-0">Domingo</label>
+                                <label class="input_checkBox_text_toggle" for="semana-0">Domingo</label>
                             </li>
                         </ul>
                     </div>
-
+                    <!-- inputs -->
                     <div class="row">
-                        <div class="col-md-6 input__box">
-                            <label for="hora_inicio">Inicio</label>
-                            <input type="time" id="hora_inicio" name="hora_inicio">
+                        <div class="col-md-6 mb-3">
+                            <label class="label_fs16_med black_" for="hora_inicio">Inicio</label>
+                            <input class="input__text" type="time" id="hora_inicio" name="hora_inicio">
                         </div>
 
-                        <div class="col-md-6 input__box">
-                            <label for="hora_final">Fin</label>
-                            <input type="time" id="hora_final" name="hora_final">
+                        <div class="col-md-6 mb-3">
+                            <label class="label_fs16_med black_" for="hora_final">Fin</label>
+                            <input class="input__text" type="time" id="hora_final" name="hora_final">
                         </div>
                     </div>
-
-                    <!-- Buttons -->
-                    <div class="row m-0 content_btn_right">
-                        <button type="submit" class="button_blue">Agregar</button>
+                    <!-- Button -->
+                    <div class="row m-0 btn__down_form">
+                        <button type="submit" class="bg_blue_two">Agregar</button>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
 
-            <div class="containt_main_table mb-3">
+            <div class="container__form mb-3">
+                <!-- Subtitulo -->
                 <div class="mb-3">
-                    <h2 class="subtitle__lg blue_bold">Horario</h2>
+                    <h2 class="h2_fs20_bold blue_two">Horario</h2>
                 </div>
-
-                <div class="table-responsive">
-                    <table class="table" id="table-horario">
+                <!-- Tabla -->
+                <div class="table-responsive table__form">
+                    <table class="table tableBlue" id="table-horario">
                         <thead>
                             <tr>
                                 <th>Días</th>
@@ -152,8 +167,8 @@
 
     <!-- Modal  Eliminar horario -->
     <div class="modal fade" id="modal_eliminar_horario" tabindex="-1" >
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal_container">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal_preventivo">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -161,17 +176,18 @@
                 </div>
 
                 <div class="modal-body">
-                    <h1>Eliminar horario</h1>
+                    <h1 class="text-center h1_fs25_bold blue_two">Eliminar horario</h1>
 
-                    <div class="eliminar_horario">
+                    <div class="modal_icon_preventivo">
                         <i data-feather="trash-2" class="trash_2"></i>
-                        <h3>Desea eliminar el horario</h3>
                     </div>
+
+                    <h5 class="text-center h5_fs14_reg black_">¿Está seguro de eliminar el horario?</h5>
                 </div>
 
-                <div class="modal-footer content_btn_center">
-                    <button type="button" class="button_transparent btn-eliminar-horario" data-status="0">Cancelar</button>
-                    <button type="submit" class="button_blue btn-eliminar-horario" data-status="1">Confirmar</button>
+                <div class="modal-footer">
+                    <button type="button" class="bord_gray_70 h2_fs20_bold btn-eliminar-horario" data-status="0">Cancelar</button>
+                    <button type="submit" class="bg_blueTwo h2_fs20_bold btn-eliminar-horario" data-status="1">Confirmar</button>
                 </div>
             </div>
         </div>

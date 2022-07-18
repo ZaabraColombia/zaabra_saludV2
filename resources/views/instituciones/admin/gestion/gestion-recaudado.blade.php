@@ -38,24 +38,24 @@
             <div class="row m-0 pb-lg-1">
                 <div class="col-lg-6 p-0">
                     <div class="row m-0">
-                        <div id="document" class="col-lg-3 pl-lg-0 check_radio">
+                        <div id="document" class="col-lg-3 pl-lg-0 input_check_radio">
                             <input class="" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="label__check" for="exampleRadios1">Documento</label>
+                            <label class="input_text_check" for="exampleRadios1">Documento</label>
                         </div>
 
-                        <div id="rango" class="col-lg-3 pl-lg-0 check_radio">
+                        <div id="rango" class="col-lg-3 pl-lg-0 input_check_radio">
                             <input class="" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="label__check" for="exampleRadios2">Rango de fecha</label>
+                            <label class="input_text_check" for="exampleRadios2">Rango de fecha</label>
                         </div>
 
-                        <div id="servicio" class="col-lg-3 pl-lg-0 check_radio">
+                        <div id="servicio" class="col-lg-3 pl-lg-0 input_check_radio">
                             <input class="" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                            <label class="label__check" for="exampleRadios3">Servicios</label>
+                            <label class="input_text_check" for="exampleRadios3">Servicios</label>
                         </div>
 
-                        <div id="especialidad" class="col-lg-3 pl-lg-0 check_radio">
+                        <div id="especialidad" class="col-lg-3 pl-lg-0 input_check_radio">
                             <input class="" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                            <label class="label__check" for="exampleRadios4">Especialidades</label>
+                            <label class="input_text_check" for="exampleRadios4">Especialidades</label>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="row m-0 mt-4">
                         <!-- Inputs -->
                         <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Seleccione tipo de documento</label>
+                            <label class="label_fs20_bold black_bold" for="tip_doc">Seleccione tipo de documento</label>
                             <select class="input__text" id="tip_doc" name="">
                                 <option value="Cédula de ciudadanía">Cédula de ciudadanía</option>
                                 <option value="NIT">NIT</option>
@@ -76,7 +76,7 @@
                             </select>
                         </div>
                         <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="num_doc">Número de documento</label>
+                            <label class="label_fs20_bold black_bold" for="num_doc">Número de documento</label>
                             <input class="input__text" id="num_doc" type="text">
                         </div>
                         <!-- Button search -->
@@ -94,11 +94,11 @@
                     <div class="row m-0 mt-4">
                         <!-- Inputs -->
                         <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="fecha-iicio">Fecha de inicio</label>
+                            <label class="label_fs20_bold black_bold" for="fecha-iicio">Fecha de inicio</label>
                             <input class="input__text" id="fecha-iicio" type="date">
                         </div>
                         <div class="col-lg-4 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="fecha-fin">Fecha final</label>
+                            <label class="label_fs20_bold black_bold" for="fecha-fin">Fecha final</label>
                             <input class="input__text" id="fecha-fin" type="date">
                         </div>
                         <!-- Button search -->
@@ -116,7 +116,7 @@
                     <div class="row m-0 mt-4">
                         <!-- Inputs -->
                         <div class="col-lg-8 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Servicios</label>
+                            <label class="label_fs20_bold black_bold" for="tip_doc">Servicios</label>
                             <select class="input__text" id="tip_doc" name="">
                                 <option value="Servicio">Servicio</option>
                                 <option value="Otro servicio">Otro servicio</option>
@@ -137,7 +137,7 @@
                     <div class="row m-0 mt-4">
                         <!-- Inputs -->
                         <div class="col-lg-8 mb-3 px-4 pl-lg-0">
-                            <label class="label__fs20_bold black_bold" for="tip_doc">Especialidad</label>
+                            <label class="label_fs20_bold black_bold" for="tip_doc">Especialidad</label>
                             <select class="input__text" id="tip_doc" name="">
                                 <option value="Especialidad">Especialidad</option>
                                 <option value="Otro especialidad">Otro especialidad</option>
@@ -169,19 +169,19 @@
                                         <img class="" src='/img/menu/avatar.png' style="width: 53px">
                                     </div>
                                     <div class="col-9 pl-lg-2 pr-lg-0">
-                                        <h4 class="h4_card_fs18_bold black_bolder">Nombre de convenio</h4>
-                                        <h4 class="h4_card_fs16_reg black_bolder">Bogotá</h4>
+                                        <h4 class="h4_fs18_bold black_bolder">Nombre de convenio</h4>
+                                        <h4 class="h4_fs16_reg black_bolder">Bogotá</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 pr-lg-0 d-flex flex-column justify-content-center">
                                 <div>
-                                    <span class="h4_card_fs16_reg black_bolder">Dirección:</span>
-                                    <span class="h4_card_fs16_reg black_bolder">Carrera 30 # 0 - 00</span>
+                                    <span class="h4_fs16_reg black_bolder">Dirección:</span>
+                                    <span class="h4_fs16_reg black_bolder">Carrera 30 # 0 - 00</span>
                                 </div>
                                 <div>
-                                    <span class="h4_card_fs16_reg black_bolder">Teléfono:</span>
-                                    <span class="h4_card_fs16_reg black_bolder">+57 313 000 00 00</span>
+                                    <span class="h4_fs16_reg black_bolder">Teléfono:</span>
+                                    <span class="h4_fs16_reg black_bolder">+57 313 000 00 00</span>
                                 </div>
                             </div>
                         </div>

@@ -24,7 +24,13 @@
     color: #707070;
 }
 // Tipografía (reg 100, med 500 y hard bold)
-.h2_card_fs20_bold {
+.h1_fs25_bold {
+    font-family: 'Quicksand';
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+}
+.h2_fs20_bold {
     font-family: 'Quicksand';
     font-weight: bold;
     font-size: 20px;
@@ -36,67 +42,79 @@
     font-size: 23px;
     margin: 0;
 }
-.h4_card_fs16_reg {
+.h4_fs16_reg {
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 16px;
     margin: 0;
 }
-.h4_card_fs18_reg {
+.h4_fs18_reg {  // cambio realizado
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 18px;
     margin: 0;
 }
-.h4_card_fs18_med {
+.h4_fs18_med {
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 18px;
     margin: 0;
 }
-.h4_card_fs18_bold {
+.h4_fs18_bold {
     font-family: 'Roboto';
     font-weight: bold;
     font-size: 18px;
     margin: 0;
 }
-.h5_card_fs9_reg {
+.h5_fs9_reg {
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 9px;
     margin: 0;
 }
-.h5_card_fs12_reg {
+.h5_fs12_reg {
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 12px;
     margin: 0;
 }
-.h5_card_fs14_reg {
+.h5_fs14_reg {
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 14px;
     margin: 0;
 }
-.h5_card_fs14_med {
+.h5_fs14_med {
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 14px;
     margin: 0;
 }
-.h5_card_fs15_reg {
+.h5_fs15_reg {
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 15px;
     margin: 0;
 }
-.span_card_fs12_reg {
+.h5_fs15_med {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0;
+}
+.span_fs12_reg {
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 12px;
     margin: 0;
 }
-.label__fs20_bold {
+.label_fs16_med {
+    font-family: 'Quicksand';
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.label_fs20_bold {
     font-family: 'Quicksand';
     font-weight: bold;
     font-size: 20px;

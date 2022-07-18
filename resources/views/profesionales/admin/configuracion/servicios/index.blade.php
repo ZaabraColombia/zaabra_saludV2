@@ -70,7 +70,7 @@
                                 <div class="card__header pt-1 pb-0">
                                     <div class="row m-0">
                                         <div class="col-12 p-0">
-                                            <h4 class="text-center h4_card_fs18_med blue_two">{{ $servicio->nombre }}</h4>
+                                            <h4 class="text-center h4_fs18_med blue_two">{{ $servicio->nombre }}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -85,16 +85,16 @@
                                         </div>
 
                                         <div class="col-12 p-0 mt-2 mb-1">
-                                            <h5 class="text-center h5_card_fs15_reg gray_500">{{ $servicio->tipo_servicio->nombre ?? '' }}</h5>
+                                            <h5 class="text-center h5_fs15_reg gray_500">{{ $servicio->tipo_servicio->nombre ?? '' }}</h5>
                                         </div>
 
                                         <div class="col-9 p-0 m-auto">
                                             <div class="mb-1">
-                                                <span class="span_card_fs12_reg gray_500">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
+                                                <span class="span_fs12_reg gray_500">Valor: &nbsp;${{ number_format($servicio->valor, 0, ',', '.') }}</span>
                                             </div>
 
                                             <div class="card_especialidad_serv">
-                                                <span class="span_card_fs12_reg gray_500">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
+                                                <span class="span_fs12_reg gray_500">Especialidad: &nbsp;{{ $servicio->especialidad->nombreEspecialidad }}</span>
                                             </div>
                                         </div>
                                     </div>

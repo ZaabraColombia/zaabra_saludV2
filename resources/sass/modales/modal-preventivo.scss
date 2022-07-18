@@ -1,0 +1,91 @@
+.modal_preventivo .modal-header {
+    border-bottom: none;
+}
+.modal_icon_preventivo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 72px;
+    border-radius: 50px;
+    border: 3px solid #FF3E3E;
+    margin: 25px auto 15px auto;
+    animation: borderColor .7s;
+}
+
+@keyframes borderColor {
+0% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    box-shadow: 0px 1px 5px 5px rgb(244 100 100 / 15%);
+}
+25% {
+    border-top-color: #FF3E3E;
+    box-shadow: 0px 1px 5px 5px rgb(244 100 100 / 15%);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+50% {
+    border-top-color: #FF3E3E;
+    border-right-color: #FF3E3E;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    box-shadow: 0px 1px 5px 5px rgb(244 100 100 / 15%);
+}
+75% {
+    border-top-color: #FF3E3E;
+    border-right-color: #FF3E3E;
+    border-bottom-color: #FF3E3E;
+    border-left-color: transparent;
+    box-shadow: 0px 1px 5px 5px rgb(244 100 100 / 15%);
+}
+95% {
+    border-top-color: #FF3E3E;
+    border-right-color: #FF3E3E;
+    border-bottom-color: #FF3E3E;
+    border-left-color: #FF3E3E;
+}
+100% {
+    border-top-color: #FF3E3E;
+    border-right-color: #FF3E3E;
+    border-bottom-color: #FF3E3E;
+    border-left-color: #FF3E3E;
+}
+}
+.modal_preventivo .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 50px 0;
+    border: none;
+}
+.modal_preventivo .modal-footer button {
+    width: 160px;
+    height: 40px;
+    border-radius: 4px;
+    margin: 0;
+}
+.modal_preventivo .modal-footer .bg_blueTwo {
+    margin-top: 16px;
+}
+@media(min-width: 768px) {
+    .modal_preventivo .modal-footer .bg_blueTwo {
+        margin-top: 0;
+        margin-left: 24px;
+    }
+}
+@media(min-width: 1024px) {
+
+}
+@media(min-width: 1300px) {
+
+}
+@media(min-width: 1440px) {
+
+}
+@media(min-width: 1600px) {
+
+}

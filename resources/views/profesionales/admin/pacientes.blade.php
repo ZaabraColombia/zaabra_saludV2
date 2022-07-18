@@ -83,11 +83,11 @@
 
                                         <div class="col-12 col-lg-10 pl-lg-4 pr-lg-0 mb-lg-2 card_flex_column">
                                             <div>
-                                                <h5 class="text-center text-lg-left h5_card_fs14_med black_">{{ $paciente->user->nombre_completo }}</h5>
+                                                <h5 class="text-center text-lg-left h5_fs14_med black_">{{ $paciente->user->nombre_completo }}</h5>
 
-                                                <h5 class="text-center text-lg-left mb-1 h5_card_fs14_reg black_">{{ $paciente->eps }}</h5>
+                                                <h5 class="text-center text-lg-left mb-1 h5_fs14_reg black_">{{ $paciente->eps }}</h5>
 
-                                                <h5 class="text-center text-lg-left h5_card_fs12_reg black_">{{ $paciente->user->numerodocumento }}</h5>
+                                                <h5 class="text-center text-lg-left h5_fs12_reg black_">{{ $paciente->user->numerodocumento }}</h5>
                                             </div>
 
                                             <!-- Informative buttons mobile-->
@@ -102,13 +102,13 @@
                                         <div class="col-12 m-auto px-md-4 pl-lg-0 pr-lg-1 card_bord_top">
                                             <div class="pl-md-3 pl-lg-0 mt-3 mb-2 mt-lg-2">
                                                 <i data-feather="phone" class="icon_contac_blue_card"></i>
-                                                <span class="span_card_fs12_reg black_">{{ $paciente->celular }}</span>
+                                                <span class="span_fs12_reg black_">{{ $paciente->celular }}</span>
                                             </div>
 
                                             <div class="toolTip bottom">
                                                 <div class="pl-md-3 pl-lg-0 tooltip_data">
                                                     <i data-feather="mail" class="icon_contac_blue_card"></i>
-                                                    <span class="span_card_fs12_reg black_">{{ $paciente->user->email }}</span>
+                                                    <span class="span_fs12_reg black_">{{ $paciente->user->email }}</span>
                                                 </div>
                                                 <span class="toolText">{{ $paciente->user->email }}</span>
                                             </div>

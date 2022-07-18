@@ -64,7 +64,7 @@
 
                                         <div class="col-12 col-lg-9 pl-lg-2 pr-lg-0">
                                             <div class="card_flex_column">
-                                                <h5 class="text-center text-lg-left h5_card_fs14_med black_bolder">{{ $contacto->nombre }}</h5>
+                                                <h5 class="text-center text-lg-left h5_fs14_med black_bolder">{{ $contacto->nombre }}</h5>
 
                                                 <!-- Informative buttons -->
                                                 <div class="mt-1 mb-0 card_icon_info">
@@ -93,20 +93,20 @@
                                                 <div class="toolTip bottom">
                                                     <div class="pl-md-3 pl-lg-0 tooltip_data">
                                                         <i data-feather="mail" class="icon_contac_card"></i>
-                                                        <span class="span_card_fs12_reg gray_500">{{ $contacto->correo }}</span>
+                                                        <span class="span_fs12_reg gray_500">{{ $contacto->correo }}</span>
                                                     </div>
                                                     <span class="toolText">{{ $contacto->correo }}</span>
                                                 </div>
 
                                                 <div class="pl-md-3 pl-lg-0">
                                                     <i data-feather="phone" class="icon_contac_card"></i>
-                                                    <span class="span_card_fs12_reg gray_500">{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</span>
+                                                    <span class="span_fs12_reg gray_500">{{ "{$contacto->telefono} - {$contacto->telefono_adicional}" }}</span>
                                                 </div>
 
                                                 <div class="toolTip bottom">
                                                     <div class="pl-md-3 pl-lg-0 tooltip_data">
                                                         <i data-feather="map-pin" class="icon_contac_card"></i>
-                                                        <span class="span_card_fs12_reg gray_500">{{ $contacto->direccion }}</span>
+                                                        <span class="span_fs12_reg gray_500">{{ $contacto->direccion }}</span>
                                                     </div>
                                                     <span class="toolText">{{ $contacto->direccion }}</span>
                                                 </div>

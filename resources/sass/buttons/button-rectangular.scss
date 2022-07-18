@@ -1,12 +1,7 @@
-// Colores de los botones
+// Botón color fuente gris
 .bg_blue_two {
     color: $gray_100 !important;
     background: $blue_two;
-    border: solid 1px $blue_two;
-}
-.bord_blue_two {
-    color: $blue_two !important;
-    background: $withe_official;
     border: solid 1px $blue_two;
 }
 .bg_green_one {
@@ -19,6 +14,7 @@
     background: $green_two;
     border: solid 1px $green_two;
 }
+// Botón color fuente blanca
 .bg_greenOne {
     color: $withe !important;
     background: $green_one;
@@ -29,7 +25,23 @@
     background: $green_two;
     border: solid 1px $green_two;
 }
-// Fin colores de los botones
+.bg_blueTwo {
+    color: $withe !important;
+    background: $blue_two;
+    border: solid 1px $blue_two;
+}
+// Botón background blanco
+.bord_blue_two {
+    color: $blue_two !important;
+    background: $withe_official;
+    border: solid 1px $blue_two;
+}
+.bord_gray_70 {
+    color: #3E3E3E !important;
+    background: $withe_official;
+    border: solid 1px #707070;
+}
+// Fin propiedades de los botones
 .btn__card_add {
     display: flex;
     justify-content: center;
@@ -161,6 +173,21 @@
     border-right: 2px solid #3E3E3E;
     border-bottom: 2px solid #3E3E3E;
     transform: rotate(130deg);
+}
+.btn__down_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        font-family: "Quicksand";
+        font-size: 18px;
+        font-weight: bold;
+        padding: 5px 7px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 @media(min-width: 768px) {
     .btn__card_add {
