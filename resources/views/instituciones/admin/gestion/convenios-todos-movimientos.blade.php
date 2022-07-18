@@ -263,7 +263,10 @@
 @endsection
 @section('scripts')
     <script src="{{ asset('plugins/chartJs/chart.min.js') }}"></script>
-
+    <!-- Ruta archivo js de funcionalidades en las opciones modulo GESTIÓN -->
+    <script src="{{ asset('js/slider-gestion.js') }}"></script>
+    
+    <!-- Plugin para los gráficos -->
     <script>
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
@@ -301,60 +304,6 @@
             //         }]
             //     }
             // }
-        });
-    </script>
-
-    <script>
-        // Función para el slider de la línea de opciones de la landing page instituciones
-        const swiper_gestion = new Swiper(".swiper_gestion", {
-        //loop: false,
-    
-        // autoplay: {
-        // delay: 4500,
-        // disableOnInteraction: false,
-        // },
-
-        autoHeight: true,
-    
-        // If we need pagination
-        pagination: {
-        el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
-        nextEl: '.btnNext_pag_slider',
-        prevEl: '.btnPrev_pag_slider',
-        },
-    
-        breakpoints: {
-        // when window width is >= 320px
-        320: {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-            spaceBetween: 30,
-        },
-
-        // when window width is >= 700px
-        700: {
-            slidesPerView: 2,
-            slidesPerGroup: 1,
-        },
-
-        // when window width is >= 1024px
-        1024: {
-            //enabled: false,
-            slidesPerView: 3,
-            slidesPerGroup: 1,
-            spaceBetween: 5,
-        },
-        // when window width is >= 1920px
-        1600: {
-            //enabled: false,
-            slidesPerView: 4,
-            slidesPerGroup: 1,
-        },
-        }
         });
     </script>
 @endsection

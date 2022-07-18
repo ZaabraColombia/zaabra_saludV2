@@ -8,12 +8,13 @@
 @endsection
 
 @section('contenido')
-    <div class="container-fluid p-0 pr-lg-4">
+    <div class="container-fluid panel_container">
+        <!-- panel head -->
+        <div class="panel_head">
+            <!-- Title -->
+            <h1 class="mb-3 title blue_two">Nuevo convenio</h1>
+        </div>
         <div class="containt_agendaProf">
-            <div class="my-4 my-xl-5">
-                <h1 class="title__xl blue_bold">Nuevo Convenio</h1>
-            </div>
-
             <div class="containt_main_table mb-3">
                 <form action="{{ route('profesional.configuracion.convenios.store') }}" method="post"
                       id="form-convenio-crear" enctype="multipart/form-data">
