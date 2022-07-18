@@ -24,6 +24,12 @@
     color: #707070;
 }
 // Tipografía (reg 100, med 500 y hard bold)
+.h1_fs25_bold {
+    font-family: 'Quicksand';
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+}
 .h2_fs20_bold {
     font-family: 'Quicksand';
     font-weight: bold;
@@ -90,11 +96,23 @@
     font-size: 15px;
     margin: 0;
 }
+.h5_fs15_med {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0;
+}
 .span_fs12_reg {
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 12px;
     margin: 0;
+}
+.label_fs16_med {
+    font-family: 'Quicksand';
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 .label_fs20_bold {
     font-family: 'Quicksand';

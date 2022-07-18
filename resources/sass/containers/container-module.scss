@@ -11,51 +11,6 @@
     background-color: #F9F9F9;
     padding: 24px;
 }
-#container_gestion .table_resultado 
-.tab_gestion_green .table {
-    thead tr {
-        border-bottom: 1px solid #DBDADA;
-        th {
-            font-family: 'Quicksand';
-            font-size: 18px;
-            font-weight: bold;
-            color: #019F86;
-            text-align: left;
-        }
-        th:last-child {
-            text-align: center;
-        }
-    }
-    tbody tr {
-        td {
-            font-family: 'Roboto';
-            font-size: 15px;
-            font-weight: 100;
-            color: #434343;
-            text-align: left;
-        }
-        td:last-child {
-            text-align: center;
-        }
-    }
-    tfoot tr {
-        border-top: 1px solid #DBDADA;
-        td:first-child {
-            font-family: 'Quicksand';
-            font-size: 18px;
-            font-weight: bold;
-            color: #019F86;
-            text-align: left;
-        }
-        td:last-child {
-            font-family: 'Roboto';
-            font-size: 17px;
-            font-weight: 100;
-            color: #434343;
-            text-align: center;
-        }
-    }
-}
 @media(min-width: 768px) {
 
 }

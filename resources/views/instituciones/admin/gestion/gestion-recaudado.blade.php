@@ -38,24 +38,24 @@
             <div class="row m-0 pb-lg-1">
                 <div class="col-lg-6 p-0">
                     <div class="row m-0">
-                        <div id="document" class="col-lg-3 pl-lg-0 check_radio">
+                        <div id="document" class="col-lg-3 pl-lg-0 input_check_radio">
                             <input class="" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="label__check" for="exampleRadios1">Documento</label>
+                            <label class="input_text_check" for="exampleRadios1">Documento</label>
                         </div>
 
-                        <div id="rango" class="col-lg-3 pl-lg-0 check_radio">
+                        <div id="rango" class="col-lg-3 pl-lg-0 input_check_radio">
                             <input class="" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="label__check" for="exampleRadios2">Rango de fecha</label>
+                            <label class="input_text_check" for="exampleRadios2">Rango de fecha</label>
                         </div>
 
-                        <div id="servicio" class="col-lg-3 pl-lg-0 check_radio">
+                        <div id="servicio" class="col-lg-3 pl-lg-0 input_check_radio">
                             <input class="" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                            <label class="label__check" for="exampleRadios3">Servicios</label>
+                            <label class="input_text_check" for="exampleRadios3">Servicios</label>
                         </div>
 
-                        <div id="especialidad" class="col-lg-3 pl-lg-0 check_radio">
+                        <div id="especialidad" class="col-lg-3 pl-lg-0 input_check_radio">
                             <input class="" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                            <label class="label__check" for="exampleRadios4">Especialidades</label>
+                            <label class="input_text_check" for="exampleRadios4">Especialidades</label>
                         </div>
                     </div>
                 </div>

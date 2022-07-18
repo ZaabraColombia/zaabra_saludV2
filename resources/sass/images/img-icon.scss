@@ -84,6 +84,30 @@
     width: 45px;
     color: #FF3E3E;
 }
+.trash_2 {
+    height: 45px;
+    width: 45px;
+    color: #FF3E3E;
+    animation: icon .8s;
+}
+@keyframes icon {
+    0% {
+        color: #f5d4d4;
+    }
+    25% {
+        color: #fdc7c7;
+    }
+    50% {
+        color: #fd7878;
+    }
+    75% {
+        color: #f85353;
+    }
+    100% {
+        color: #FF3E3E;
+    }
+}
+// Icon barra de búsqueda
 .icon__search_green {
     background-image: url('/img/iconos/search_verde.svg');
 }

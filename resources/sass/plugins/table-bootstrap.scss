@@ -1,0 +1,71 @@
+// Tabla modulo GESTION agenda instituciones
+#container_gestion .table_resultado 
+.tab_gestion_green .table {
+    thead tr {
+        border-bottom: 1px solid #DBDADA;
+        th {
+            font-family: 'Quicksand';
+            font-size: 18px;
+            font-weight: bold;
+            color: #019F86;
+            text-align: left;
+        }
+        th:last-child {
+            text-align: center;
+        }
+    }
+    tbody tr {
+        td {
+            font-family: 'Roboto';
+            font-size: 15px;
+            font-weight: 100;
+            color: #434343;
+            text-align: left;
+        }
+        td:last-child {
+            text-align: center;
+        }
+    }
+    tfoot tr {
+        border-top: 1px solid #DBDADA;
+        td:first-child {
+            font-family: 'Quicksand';
+            font-size: 18px;
+            font-weight: bold;
+            color: #019F86;
+            text-align: left;
+        }
+        td:last-child {
+            font-family: 'Roboto';
+            font-size: 17px;
+            font-weight: 100;
+            color: #434343;
+            text-align: center;
+        }
+    }
+}
+.table__form table {
+    thead tr {
+        border-bottom: 1px solid #DBDADA;
+        th {
+            font-family: 'Quicksand';
+            font-size: 18px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+    tbody tr {
+        td {
+            font-family: 'Roboto';
+            font-size: 15px;
+            font-weight: 100;
+            color: #434343;
+            text-align: left;
+        }
+    }
+}
+.table__form .tableBlue {
+    thead tr th {
+        color: $blue_two;
+    }
+}
