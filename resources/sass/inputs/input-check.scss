@@ -1,4 +1,4 @@
-// Check RADIO
+// ********* Check RADIO ********* //
 .input_text_check { //texto del check
     font-size: 14px;
     font-weight: 100;
@@ -38,8 +38,12 @@
         }
     }
 }
-// Check BOX TOGGLE
-.input_checkBox_text_toggle {
+// ********* FIN Check RADIO ********* //
+
+
+
+// ********* Check BOX TOGGLE ********* //
+#input_check_list .input_checkBox_text_toggle {
     font-size: 16px;
     font-family: 'Roboto';
     display: inline-block;
@@ -61,7 +65,7 @@
         background-color: #CED4DA;
     }
 }
-.input_checkBox_toggle {
+#input_check_list .input_checkBox_toggle {
     input[type="checkbox"] {
         display: none;
         &:checked + label:before {
@@ -81,17 +85,111 @@
     } 
 }
 // Check BOX BLUE TOGGLE
-.input_checkBlue .input_checkBox_text_toggle:hover {
+#input_check_list .check_blue .input_checkBox_text_toggle:hover {
     background-color: #eaeced;
     color: #0083D6;
 }
-.input_checkBlue .input_checkBox_toggle input[type="checkbox"]:checked + label:before {
+#input_check_list .check_blue .input_checkBox_toggle input[type="checkbox"]:checked + label:before {
     background-color: #0083D6;
     color: #0083D6;
 }
-.input_checkBlue .input_checkBox_toggle input[type="checkbox"]:checked + label {
+#input_check_list .check_blue .input_checkBox_toggle input[type="checkbox"]:checked + label {
     color: #0083D6;
 }
+// ********* FIN Check BOX TOGGLE ********* //
+
+
+
+// ********* Check estado ACTIVO / INACTIVO formularios ********* //
+#input_check_estado .input_checkBox_text_toggle {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding: 10px 15px 5px 40px;
+    font-size: 1em;
+    border-radius: 5px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    &:before { 
+        content: "";
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        position: absolute;
+        left: 15px;
+        border-radius: 50%;
+        background: none;
+    }
+    .inactiv {
+        display: block;
+    }
+    .actived {
+        display: none;
+    }
+}
+
+#input_check_estado .input_checkBox_toogle {
+    label:before { 
+        border-radius: 3px;
+    }
+    input[type="checkbox"] {
+        display: none;
+        &:checked + label:before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 15px;
+            position: absolute;
+            left: 15px;
+            border-radius: 0;
+            background: none;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(40deg);
+            transition: .15s ease;
+        }
+        &:checked + label {
+            padding: 10px 15px 5px 37px;
+            .inactiv {
+                display: none;
+            }
+            .actived {
+                display: block;
+            }
+        }
+    }
+}
+// Check estado ACTIVO / INACTIVO formularios color BLUE
+#input_check_estado .check_blue .input_checkBox_text_toggle {
+    color: #0083D6;
+    &:hover {
+        background: rgba(#0083D6, .1);
+    }
+}
+#input_check_estado .check_blue .input_checkBox_text_toggle:before {
+    border: 2px solid #0083D6;
+}
+#input_check_estado .check_blue input[type="checkbox"]:checked + label {
+    background: #0083D6;
+    color: #fff;
+}
+// Check estado ACTIVO / INACTIVO formularios color GREEN
+#input_check_estado .check_green .input_checkBox_text_toggle {
+    color: #019f86;
+    &:hover {
+        background: rgba(#019f86, .1);
+    }
+}
+#input_check_estado .check_green .input_checkBox_text_toggle:before {
+    border: 2px solid #019f86;
+}
+#input_check_estado .check_green input[type="checkbox"]:checked + label {
+    background: #019f86;
+    color: #fff;
+}
+// ********* FIN Check estado ACTIVO / INACTIVO formularios ********* //
 @media (min-width: 768px){
 
 }

@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <!-- Button -->
-                    <div class="row m-0 btn__down_form">
+                    <div class="btn__down_form">
                         <button type="submit" class="bg_blue_two">Guardar</button>
                     </div>
                 </form>
@@ -71,8 +71,8 @@
                         <h2 class="h2_fs20_bold blue_two">Nuevo Horario</h2>
                     </div>
                     <!-- Lista checks toggle -->
-                    <div class="list_check_toggle input_checkBlue">
-                        <ul>
+                    <div id="input_check_list" class="list_check_toggle">
+                        <ul class="check_blue">
                             <li class="col-6 col-md-3 input_checkBox_toggle">
                                 <input type="checkbox" value="1" id="semana-1" name="semana[]">
                                 <label class="input_checkBox_text_toggle" for="semana-1">lunes</label>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <!-- Button -->
-                    <div class="row m-0 btn__down_form">
+                    <div class="btn__down_form">
                         <button type="submit" class="bg_blue_two">Agregar</button>
                     </div>
                 </form>
