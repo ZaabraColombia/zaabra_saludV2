@@ -55,3 +55,25 @@
         background-color: #FFFFFF;
     }
 }
+.img__perfil_formulario {
+    display: flex;
+    justify-content: center;
+    img {
+        width: 125px;
+        height: 124px;
+        border-radius: 100px;
+        background: $gray_first;
+        border: 1px solid #DBDADA;
+        object-fit: cover;
+        object-position: top;
+        align-self: center;
+    }
+    input {
+        position: absolute;
+        width: 125px;
+        height: 100%;
+        opacity: 0;
+        overflow: auto;
+        cursor: pointer;
+    }
+}

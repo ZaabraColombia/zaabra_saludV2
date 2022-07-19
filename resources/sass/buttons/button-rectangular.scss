@@ -174,21 +174,29 @@
     border-bottom: 2px solid #3E3E3E;
     transform: rotate(130deg);
 }
+// Botones inferiores FORMULARIOS
 .btn__down_form {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    button {
+    margin-top: 10px;
+    button, a {
         font-family: "Quicksand";
         font-size: 18px;
         font-weight: bold;
-        padding: 5px 7px;
-        border-radius: 5px;
+        width: 160px;
+        height: 40px;
+        border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    .bg_blue_two {
+        margin-bottom: 12px;
+    }
 }
+
 @media(min-width: 768px) {
     .btn__card_add {
         justify-content: initial;
@@ -213,6 +221,14 @@
     .container_swiper {
         width: 100%;
         padding-left: 15px;
+    }
+    // Botones inferiores FORMULARIOS
+    .btn__down_form {
+        flex-direction: row;
+        .bg_blue_two {
+            margin-bottom: 0;
+            margin-left: 12px;
+        }
     }
 }
 @media(min-width: 1024px) {
