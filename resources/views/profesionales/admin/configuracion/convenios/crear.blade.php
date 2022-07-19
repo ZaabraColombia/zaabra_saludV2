@@ -88,8 +88,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="label_fs16_med black_" for="tipo_documento_id">Tipo de identificación</label>
-                            <select class="input__select @error('tipo_documento_id') is-invalid @enderror" id="tipo_documento_id" required
-                                    name="tipo_documento_id">
+                            <select class="input__select @error('tipo_documento_id') is-invalid @enderror" id="tipo_documento_id" required name="tipo_documento_id">
                                 <option value=""></option>
                                 @if(!empty($tipo_documentos) and $tipo_documentos->isNotEmpty())
                                     @foreach($tipo_documentos as $tipo)
@@ -114,8 +113,7 @@
                         <div class="col-md-6 col-xl-4 mb-3">
                             @php $sgsss = (!empty( old('sgsss_id') )) ? \App\Models\Sgsss::find(old('sgsss_id')):null; @endphp
                             <label class="label_fs16_med black_" for="sgsss_id">Código del prestador del servicio</label>
-                            <select type="text" id="sgsss_id" name="sgsss_id" value="{{ old('sgsss_id') }}" required
-                                    class="select2 input__select @error('sgsss_id') is-invalid @enderror">
+                            <select class="select2 input__select @error('sgsss_id') is-invalid @enderror" type="text" id="sgsss_id" name="sgsss_id" value="{{ old('sgsss_id') }}" required>
                                 @if(!empty($sgsss))
                                     <option value="{{ $sgsss->id }}" selected>{{ $sgsss->nombre }}</option>
                                 @endif
@@ -130,8 +128,7 @@
 
                         <div class="col-md-6 col-xl-4 mb-3">
                             <label class="label_fs16_med black_" for="tipo_contribuyente_id">Tipo de contribuyente</label>
-                            <select class="input__select @error('tipo_contribuyente_id') is-invalid @enderror" id="tipo_contribuyente_id"
-                                    name="tipo_contribuyente_id" value="{{ old('tipo_contribuyente_id') }}" required>
+                            <select class="input__select @error('tipo_contribuyente_id') is-invalid @enderror" id="tipo_contribuyente_id" name="tipo_contribuyente_id" value="{{ old('tipo_contribuyente_id') }}" required>
                                 <option value=""></option>
                                 @if(!empty($tipo_contribuyentes) and $tipo_contribuyentes->isNotEmpty())
                                     @foreach($tipo_contribuyentes as $contribuyente)
@@ -145,8 +142,7 @@
                         <div class="col-md-6 col-xl-4 mb-3">
                             @php $actividad_economica = (!empty( old('actividad_economica_id') )) ? \App\Models\ActividadEconomica::find(old('actividad_economica_id')):null; @endphp                            
                             <label class="label_fs16_med black_" for="actividad_economica_id">Actividad económica</label>
-                            <select id="actividad_economica_id" name="actividad_economica_id" required
-                                    class="input__select @error('actividad_economica_id') is-invalid @enderror">
+                            <select class="input__select @error('actividad_economica_id') is-invalid @enderror" id="actividad_economica_id" name="actividad_economica_id" required>
                                 @if(!empty($actividad_economica))
                                     <option value="{{ $actividad_economica->id }}" selected>{{ $actividad_economica->nombre }}</option>
                                 @endif
@@ -155,8 +151,7 @@
 
                         <div class="col-md-6 col-xl-4 mb-3">
                             <label class="label_fs16_med black_" for="forma_pago">Forma de pago</label>
-                            <select type="text" id="forma_pago" name="forma_pago" required
-                                    class="input__select @error('forma_pago') is-invalid @enderror">
+                            <select class="input__select @error('forma_pago') is-invalid @enderror" type="text" id="forma_pago" name="forma_pago" required>
                                 <option></option>
                                 <option value="efectivo" {{ old('forma_pago') == 'efectivo' ? 'selected':'' }}>Efectivo</option>
                                 <option value="transferencia" {{ old('forma_pago') == 'transferencia' ? 'selected':'' }}>Transferencia</option>
@@ -200,8 +195,8 @@
 
                         <div class="col-md-6 col-xl-4 mb-3">
                             <label class="label_fs16_med black_" for="direccion">Dirección</label>
-                            <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}"
-                                   class="input__text @error('direccion') is-invalid @enderror" required/>
+                            <input  class="input__text @error('direccion') is-invalid @enderror" type="text" id="direccion" name="direccion" 
+                                    value="{{ old('direccion') }}" required/>
                         </div>
 
                         <div class="col-md-6 col-xl-4 mb-3">

@@ -52,6 +52,10 @@
     color: #495057;
     height: 45px;
 }
+.select2-container--bootstrap4.select2-container--focus .select2-selection {
+    border-color: rgb(219, 218, 218);
+    box-shadow: 0 0 0 2px rgb(173 166 166 / 20%);
+}
 .select2-container--bootstrap4 .select2-selection--single .select2-selection__arrow b {
     position: absolute;
     top: 0;

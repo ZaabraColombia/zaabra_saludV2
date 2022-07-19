@@ -30968,6 +30968,11 @@ table.dataTable > tbody > tr.child ul.dtr-details {
   height: 45px;
 }
 
+.select2-container--bootstrap4.select2-container--focus .select2-selection {
+  border-color: #dbdada;
+  box-shadow: 0 0 0 2px rgba(173, 166, 166, 0.2);
+}
+
 .select2-container--bootstrap4 .select2-selection--single .select2-selection__arrow b {
   position: absolute;
   top: 0;
